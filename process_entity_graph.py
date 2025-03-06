@@ -233,16 +233,19 @@ class EntityGraphProcessor:
         
         Args:
             node_names: List of node names to analyze
-            client: AsyncOpenAI client instance
-        
+             
         Returns:
             List of identified abbreviations
         """
 
         input_set = set([name.strip() for name in node_names])
-        json_llm = self.llm.bind(response_format={'type': 'json_object'})
+        node_names_str = ""
+        for name in input_set:
+            node_names_str += f'{name}\n'
+        gpt_4o_mini = ChatOpenAI(model="gpt-4o-mini", temperature=0.0, seed = 42)
+        json_llm = gpt_4o_mini.bind(response_format={'type': 'json_object'})
         ai_msg = json_llm.invoke(f"""Return a JSON object containing only the abbreviations that exactly appear in the provided node names. An abbreviation is defined as a short, all-uppercase string that represents a longer full name. In our domain, abbreviations are typically less than 7 characters and may include hyphens. Do not include longer descriptive names or identifiers with mixed case.
-                                The node names are: {', '.join(node_names)}""")
+                                The node names are: {node_names_str}""")
         print(ai_msg)
         try:
             # Parse the JSON response from the content field
@@ -311,8 +314,8 @@ class EntityGraphProcessor:
         Extract patterns that directly define abbreviations in the descriptions 
         and identify the full names for each abbreviation.
         """
-        llm_o3_mini = ChatOpenAI(model="o3-mini", reasoning_effort = 'low', seed = 42)
-        json_llm = llm_o3_mini.bind(response_format={'type': 'json_object'})
+        o3_mini = ChatOpenAI(model="o3-mini", reasoning_effort = 'low', seed = 42)
+        json_llm = o3_mini.bind(response_format={'type': 'json_object'})
         abbrev_to_descriptions_str = '<abbreviation_entries>\n'
         for abbr, desc in abbrev_to_descriptions.items():
             abbrev_to_descriptions_str += '<entry>\n'
@@ -482,8 +485,8 @@ class EntityGraphProcessor:
         return pattern_clusters
 
     async def generate_regex_patterns(self, patterns: list[str]) -> list[str]:
-        llm_o3_mini = ChatOpenAI(model="o3-mini", reasoning_effort = 'low', seed = 42)
-        json_llm = llm_o3_mini.bind(response_format={'type': 'json_object'})
+        o3_mini = ChatOpenAI(model="o3-mini", reasoning_effort = 'low', seed = 42)
+        json_llm = o3_mini.bind(response_format={'type': 'json_object'})
         
         # Create a prompt to generate regex patterns for abbreviation extraction
         prompt = f"""
@@ -530,8 +533,8 @@ class EntityGraphProcessor:
         try:
             # Parse the JSON response from the content field
             response_dict = json.loads(ai_msg.content)
-            patterns = response_dict.get('patterns', [])
-            prod_patterns = [pattern.replace('\\b', '') for pattern in patterns]
+            regex_patterns = response_dict.get('patterns', [])
+            prod_patterns = [pattern.replace('\\b', '') for pattern in regex_patterns]
             return prod_patterns
         except json.JSONDecodeError:
             print("Error parsing JSON response")
@@ -583,8 +586,14 @@ class EntityGraphProcessor:
 
         # Replace the original dictionary with the merged one
         abbr_dicts = merged_dicts
+        deleted_keys = []
         for abbr, names in abbr_dicts.items():
             abbr_dicts[abbr] = [name for name in names if self.normalize_text(name) != self.normalize_text(abbr)]
+            abbr_dicts[abbr] = list(set(abbr_dicts[abbr]))
+            if not abbr_dicts[abbr]:
+                deleted_keys.append(abbr)
+        for key in deleted_keys:
+            del abbr_dicts[key]
         self.write_to_log(abbr_dicts, 'abbr_dict')
         return abbr_dicts
 
@@ -598,21 +607,25 @@ class EntityGraphProcessor:
 
         # Extract abbreviations from descriptions
         entity_names = list(processed_graph.keys())
-        batch_size = 50
-        tasks = []
-        for i in range(0, len(entity_names), batch_size):
-            batch = entity_names[i:i+batch_size]
-            tasks.append(self.extract_abbreviations(batch))
+        log = self.load_log()
+        if "identified_abbreviations" in log:
+            identified_abbreviations = log["identified_abbreviations"]["data"]
+        else:
+            batch_size = 40
+            tasks = []
+            for i in range(0, len(entity_names), batch_size):
+                batch = entity_names[i:i+batch_size]
+                tasks.append(self.extract_abbreviations(batch))
 
-        identified_abbreviations = []
-        for result in await asyncio.gather(*tasks):
-            identified_abbreviations.extend(result)
-        
-        identified_abbreviations = list(set(identified_abbreviations))
-        print("Identified abbreviations:")
-        pprint.pprint(identified_abbreviations)
-        self.write_to_log(identified_abbreviations, 'identified_abbreviations')
-        print("Identified abbreviations written to log.json")
+            identified_abbreviations = []
+            for result in await asyncio.gather(*tasks):
+                identified_abbreviations.extend(result)
+            
+            identified_abbreviations = list(set(identified_abbreviations))
+            print("Identified abbreviations:")
+            pprint.pprint(identified_abbreviations)
+            self.write_to_log(identified_abbreviations, 'identified_abbreviations')
+            print("Identified abbreviations written to log.json")
 
         # Build llm abbreviation dictionary and pattern list
         batch_size = 50
@@ -627,6 +640,7 @@ class EntityGraphProcessor:
             print("This is the result:", result) 
             pattern_list.extend(result['regex_patterns'])
             llm_abbr_dict.update(result['abbreviation_expansions'])
+        pattern_list = [pattern.replace('\\b', '') for pattern in pattern_list]
         self.write_to_log(llm_abbr_dict, 'llm_abbr_dict')
         self.write_to_log(pattern_list, 'pattern_list')
         print("LLM abbreviation dictionary and pattern list written to log.json")

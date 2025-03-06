@@ -134,7 +134,7 @@
                 "description": "ISO adheres to the WTO principles in the context of Technical Barriers to Trade"
             },
             {
-                "target": "IEC",
+                "target": "INTERNATIONAL ELECTROTECHNICAL COMMISSION",
                 "weight": 10.0,
                 "description": "ISO collaborates closely with IEC on electrotechnical standardization\nBoth ISO and IEC are involved in the standardization work related to the charging infrastructure and vehicle interface\nBoth ISO and IEC are international organizations that collaborate on standardization efforts"
             },
@@ -1354,17 +1354,12 @@
     },
     "HIGH-LEVEL COMMUNICATION": {
         "type": "COMMUNICATION TECHNOLOGY",
-        "description": "A communication technology that manages and controls the charging process of electric vehicles through advanced communication protocols\nHigh-Level Communication (HLC) is a communication technology used to facilitate advanced features and bidirectional communication in electric vehicle systems\nHigh-Level Communication (HLC) is a technology used in electric vehicles for advanced communication between the vehicle and charging infrastructure\nHigh-Level Communication (HLC) is a technology used in electric vehicles for advanced communication between the vehicle and the charging infrastructure\nHigh-Level Communication, a protocol or system used for advanced communication between an electric vehicle and a charging station\nHigh-level communication involves the exchange of complex data and commands between systems, often requiring sophisticated protocols and interfaces",
+        "description": "<|COMPLETE|>\nA communication technology that manages and controls the charging process of electric vehicles through advanced communication protocols\nA protocol mode used for high-level communication during the charging process of electric vehicles\nA protocol or communication layer involved in the high-level control of a process, possibly related to vehicle-to-grid communication\nA term possibly referring to a high-level communication component or process in the V2G setup\nHLC-C is a high-level communication protocol used in electric vehicle charging systems\nHLC-C is a high-level communication protocol used in electric vehicle charging systems to facilitate communication between the EVSE and the vehicle\nHLC-C is a high-level communication protocol used in electric vehicle charging to manage interactions between the vehicle and the charging station\nHLC-C is a protocol for high-level communication used in electric vehicle charging to control the charging process\nHLC-C is a protocol or communication standard that some electric vehicles support for advanced communication capabilities\nHLC-C is a protocol used in the context of vehicle-to-grid (V2G) communication, possibly for high-level communication control\nHLC-C refers to a protocol for charging electric vehicles, which is controlled by high-level communication\nHLC-C refers to a protocol used in communication messages to determine the maximum charge current for electric vehicle charging)\nHigh-Level Communication (HLC) is a communication technology used to facilitate advanced features and bidirectional communication in electric vehicle systems\nHigh-Level Communication (HLC) is a technology used in electric vehicles for advanced communication between the vehicle and charging infrastructure\nHigh-Level Communication (HLC) is a technology used in electric vehicles for advanced communication between the vehicle and the charging infrastructure\nHigh-Level Communication (HLC-C) is a protocol used for advanced communication between electric vehicles and charging infrastructure\nHigh-Level Communication Charging, a method of controlling charging through advanced communication protocols\nHigh-Level Communication Charging, a protocol for controlling charging processes through advanced communication methods\nHigh-Level Communication Control (HLC-C) is a protocol used for managing and controlling the charging process of electric vehicles\nHigh-Level Communication for Charging (HLC-C) is a technology used for advanced communication between electric vehicles and charging stations\nHigh-Level Communication, a protocol or system used for advanced communication between an electric vehicle and a charging station\nHigh-level communication involves the exchange of complex data and commands between systems, often requiring sophisticated protocols and interfaces",
         "connections": [
             {
                 "target": "BASIC SIGNALLING",
                 "weight": 8.0,
                 "description": "High-level communication and basic signalling are both components of a communication system, with basic signalling providing the foundational signals needed for high-level communication"
-            },
-            {
-                "target": "HLC-C",
-                "weight": 1.0,
-                "description": "HLC-C charging is controlled by high-level communication, indicating a direct relationship where the protocol relies on this communication technology"
             },
             {
                 "target": "V2G3-M06-02",
@@ -1385,6 +1380,66 @@
                 "target": "COUNTERPART STATION",
                 "weight": 1.0,
                 "description": "The counterpart station uses HLC to reestablish communication with the EV"
+            },
+            {
+                "target": "BASIC CHARGING",
+                "weight": 7.0,
+                "description": "Basic charging is used as a backup when HLC-C fails, indicating a fallback relationship between the two"
+            },
+            {
+                "target": "V2G3-M06-14",
+                "weight": 9.0,
+                "description": "The requirement V2G3-M06-14 mandates the use of the HLC-C protocol mode for charging"
+            },
+            {
+                "target": "ELECTRIC VEHICLE",
+                "weight": 10.0,
+                "description": "The EV must use the HLC-C protocol mode for charging as per the requirement\nThe relationship between electric vehicles and HLC-C is based on the support or lack thereof for this communication protocol\nThe relationship indicates that some electric vehicles do not support the HLC-C protocol, which is relevant to their classification"
+            },
+            {
+                "target": "AC EVSE",
+                "weight": 48.0,
+                "description": "The AC EVSE supports HLC-C, which is used to control the charging process\nThe AC EVSE supports the HLC-C protocol for communication during the charging process\nThe AC EVSE supports the HLC-C protocol for high-level communication during charging\nThe AC EVSE supports the HLC-C protocol for high-level communication during the charging process\nThe AC EVSE supports the HLC-C protocol to enable communication with electric vehicles"
+            },
+            {
+                "target": "EIM",
+                "weight": 16.0,
+                "description": "EIM utilizes the HLC-C protocol for high-level communication control in V2G setups\nHLC-C protocol controls the charging process which involves EIM for identification and data exchange"
+            },
+            {
+                "target": "V2G SETUP",
+                "weight": 31.0,
+                "description": "The V2G Setup process is controlled by the HLC-C protocol to manage the connection and communication\nHLC-C is part of the V2G setup process\nHLC-C is a component or process involved in the V2G setup\nHLC-C is a protocol used during the V2G setup process for communication purposes"
+            },
+            {
+                "target": "BC CHARGING",
+                "weight": 7.0,
+                "description": "HLC-C and BC Charging are both methods of controlling charging processes, with HLC-C using high-level communication and BC Charging following the IEC 61851-1 standard"
+            },
+            {
+                "target": "BASIC CHARGING",
+                "weight": 20.0,
+                "description": "Both HLC-C and BC are protocols for controlling charging, with HLC-C involving high-level communication and BC being defined by IEC 61851-1\nBC is involved in the HLC-C protocol for communication\nHLC-C and BC are both protocols used to control different aspects of the charging process"
+            },
+            {
+                "target": "MANDATORY PROCEDURE",
+                "weight": 7.0,
+                "description": "HLC-C charging may be part of a mandatory procedure if required by specific standards or regulations"
+            },
+            {
+                "target": "PLUG AND CHARGE",
+                "weight": 6.0,
+                "description": "The HLC-C protocol is used in conjunction with the Plug and Charge process to enable seamless communication and charging"
+            },
+            {
+                "target": "VEHICLE-TO-GRID",
+                "weight": 1.0,
+                "description": "HLC-C is involved in the V2G setup, facilitating communication between the vehicle and the grid"
+            },
+            {
+                "target": "DC EVSE",
+                "weight": 8.0,
+                "description": "The DC EVSE supports the HLC-C protocol for managing communication between the vehicle and the charging station"
             }
         ]
     },
@@ -2489,12 +2544,37 @@
     },
     "INTERNATIONAL ELECTROTECHNICAL COMMISSION": {
         "type": "ORGANIZATION",
-        "description": "An organization that collaborates closely with ISO on electrotechnical standardization",
+        "description": "An organization that collaborates closely with ISO on electrotechnical standardization\nThe International Electrotechnical Commission (IEC) is an international standards organization that prepares and publishes standards for electrical, electronic, and related technologies\nThe International Electrotechnical Commission, an organization that collaborates with ISO on electrotechnical standardization\nThe International Electrotechnical Commission, an organization that prepares and publishes international standards for electrical, electronic, and related technologies\nThe International Electrotechnical Commission, responsible for international standards for all electrical, electronic, and related technologies\nThe International Electrotechnical Commission, which prepares and publishes international standards for electrical, electronic, and related technologies",
         "connections": [
             {
                 "target": "ISO",
                 "weight": 1.0,
                 "description": "ISO collaborates closely with the International Electrotechnical Commission on electrotechnical standardization"
+            },
+            {
+                "target": "ISO",
+                "weight": 10.0,
+                "description": "ISO collaborates closely with IEC on electrotechnical standardization\nBoth ISO and IEC are involved in the standardization work related to the charging infrastructure and vehicle interface\nBoth ISO and IEC are international organizations that collaborate on standardization efforts"
+            },
+            {
+                "target": "ISO/IEC DIRECTIVES, PART 1",
+                "weight": 9.0,
+                "description": "ISO/IEC Directives, Part 1 provides the procedures for the development and maintenance of IEC documents"
+            },
+            {
+                "target": "ISO/IEC DIRECTIVES, PART 2",
+                "weight": 1.0,
+                "description": "ISO/IEC Directives, Part 2 provides the editorial rules for drafting IEC documents"
+            },
+            {
+                "target": "FOREWORD",
+                "weight": 7.0,
+                "description": "The foreword of the document indicates joint development with the IEC"
+            },
+            {
+                "target": "TERMINOLOGICAL DATABASES",
+                "weight": 1.0,
+                "description": "IEC maintains terminological databases for use in standardization"
             }
         ]
     },
@@ -2513,7 +2593,7 @@
                 "description": "ISO/IEC Directives, Part 1 provides the procedures for the development and maintenance of ISO documents"
             },
             {
-                "target": "IEC",
+                "target": "INTERNATIONAL ELECTROTECHNICAL COMMISSION",
                 "weight": 9.0,
                 "description": "ISO/IEC Directives, Part 1 provides the procedures for the development and maintenance of IEC documents"
             }
@@ -2534,7 +2614,7 @@
                 "description": "ISO/IEC Directives, Part 2 provides the editorial rules for drafting ISO documents"
             },
             {
-                "target": "IEC",
+                "target": "INTERNATIONAL ELECTROTECHNICAL COMMISSION",
                 "weight": 1.0,
                 "description": "ISO/IEC Directives, Part 2 provides the editorial rules for drafting IEC documents"
             }
@@ -2708,7 +2788,7 @@
                 "description": "ISO 15118 provides the standards and specifications for the Vehicle-to-Grid Communication Interface"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 1.0,
                 "description": "V2G is a set of standards that falls under the ISO 15118 specifications"
             },
@@ -3498,37 +3578,6 @@
                 "target": "INFORMATION TRANSFER",
                 "weight": 1.0,
                 "description": "The vehicle interface is a key component in facilitating information transfer between the vehicle and the grid"
-            }
-        ]
-    },
-    "IEC": {
-        "type": "ORGANIZATION",
-        "description": "The International Electrotechnical Commission, which prepares and publishes international standards for electrical, electronic, and related technologies\nThe International Electrotechnical Commission, an organization that prepares and publishes international standards for electrical, electronic, and related technologies\nThe International Electrotechnical Commission, an organization that collaborates with ISO on electrotechnical standardization\nThe International Electrotechnical Commission, responsible for international standards for all electrical, electronic, and related technologies\nThe International Electrotechnical Commission (IEC) is an international standards organization that prepares and publishes standards for electrical, electronic, and related technologies",
-        "connections": [
-            {
-                "target": "ISO",
-                "weight": 10.0,
-                "description": "ISO collaborates closely with IEC on electrotechnical standardization\nBoth ISO and IEC are involved in the standardization work related to the charging infrastructure and vehicle interface\nBoth ISO and IEC are international organizations that collaborate on standardization efforts"
-            },
-            {
-                "target": "ISO/IEC DIRECTIVES, PART 1",
-                "weight": 9.0,
-                "description": "ISO/IEC Directives, Part 1 provides the procedures for the development and maintenance of IEC documents"
-            },
-            {
-                "target": "ISO/IEC DIRECTIVES, PART 2",
-                "weight": 1.0,
-                "description": "ISO/IEC Directives, Part 2 provides the editorial rules for drafting IEC documents"
-            },
-            {
-                "target": "FOREWORD",
-                "weight": 7.0,
-                "description": "The foreword of the document indicates joint development with the IEC"
-            },
-            {
-                "target": "TERMINOLOGICAL DATABASES",
-                "weight": 1.0,
-                "description": "IEC maintains terminological databases for use in standardization"
             }
         ]
     },
@@ -4823,152 +4872,6 @@
         "description": "The procedure involved in establishing a data link connection, which is essential for enabling communication between devices or systems)\n<|COMPLETE|>",
         "connections": []
     },
-    "V2G": {
-        "type": "TECHNOLOGY",
-        "description": "Vehicle-to-Grid (V2G) is a system that allows electric vehicles to communicate with the power grid to return electricity to the grid or to use it for vehicle charging\nVehicle-to-Grid (V2G) is a system that allows electric vehicles to communicate with the power grid to exchange energy and information\nV2G represents a set of standards related to vehicle-to-grid communication and technology\nVehicle-to-Grid (V2G) is a technology that enables energy exchange between electric vehicles and the power grid\nVehicle-to-Grid (V2G) is a system that allows electric vehicles to communicate with the power grid to return electricity or modulate charging rates\nVehicle-to-Grid (V2G) technology involves the interaction between electric vehicles and the power grid, allowing for bidirectional energy flow\n<|COMPLETE|>\nVehicle-to-Grid (V2G) is a technology that allows electric vehicles to communicate with the power grid to return electricity or balance demand\nVehicle-to-Grid (V2G) is a system that enables electric vehicles to communicate with the power grid to exchange energy and information\nVehicle-to-Grid (V2G) technology enables electric vehicles to communicate with the power grid to return electricity or manage charging\nVehicle-to-Grid (V2G) technology enables electric vehicles to communicate with the power grid to return electricity or modulate charging rates\nVehicle-to-Grid, a system that allows electric vehicles to communicate with the power grid to return electricity or draw it\nVehicle-to-Grid (V2G) is a system that enables electric vehicles to communicate with the power grid to exchange electricity and data\nVehicle-to-Grid, a process where electric vehicles communicate with the power grid to exchange energy and information\nVehicle-to-Grid (V2G) is a technology that enables the flow of energy between electric vehicles and the power grid, allowing vehicles to return electricity to the grid or use it for their own needs)",
-        "connections": [
-            {
-                "target": "V2G3-M06-14",
-                "weight": 7.0,
-                "description": "The requirement V2G3-M06-14 is related to the V2G process as it specifies conditions for initiating the V2G charging loop"
-            },
-            {
-                "target": "ELECTRIC VEHICLE",
-                "weight": 1.0,
-                "description": "The EV is involved in the V2G process, which includes charging and communication with the grid"
-            },
-            {
-                "target": "HLC-C",
-                "weight": 1.0,
-                "description": "HLC-C is involved in the V2G setup, facilitating communication between the vehicle and the grid"
-            },
-            {
-                "target": "VEHICLE-TO-GRID",
-                "weight": 1.0,
-                "description": "V2G is an abbreviation for Vehicle-to-Grid, which is a technology that facilitates the interaction between electric vehicles and the power grid"
-            },
-            {
-                "target": "ISO 15118",
-                "weight": 1.0,
-                "description": "V2G is a set of standards that falls under the ISO 15118 specifications"
-            },
-            {
-                "target": "EVCC",
-                "weight": 8.0,
-                "description": "EVCC is a component involved in V2G technology, facilitating communication between the electric vehicle and the grid"
-            },
-            {
-                "target": "SECC",
-                "weight": 8.0,
-                "description": "SECC is a component involved in V2G technology, facilitating communication between the charging station and the electric vehicle"
-            },
-            {
-                "target": "PICS_CMN_CMN_COMBINEDTESTING",
-                "weight": 1.0,
-                "description": "PICS_CMN_CMN_CombinedTesting involves V2G messaging as part of the testing"
-            },
-            {
-                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_003",
-                "weight": 8.0,
-                "description": "The test case TC_SECC_AC_VTB_PLCLinkStatus_003 is designed to test scenarios within the V2G communication framework"
-            },
-            {
-                "target": "SESSIONSTOPREQ",
-                "weight": 53.0,
-                "description": "SessionStopReq is a protocol message used within the V2G communication technology\nThe SessionStopReq message is a protocol used within V2G communication to manage session states\nThe SessionStopReq message is part of the V2G communication protocol used to manage sessions\nThe SessionStopReq message is part of the V2G communication protocol to manage session states\nSessionStopReq is a protocol message used within the V2G technology to manage communication sessions\nThe SessionStopReq message is used to manage V2G communication sessions"
-            },
-            {
-                "target": "ISO:15118‐3:2015:IS",
-                "weight": 58.0,
-                "description": "The ISO:15118‐3:2015:IS standard provides the specifications for V2G communication\nISO:15118‐3:2015:IS is a standard that specifies the communication interface for V2G technology\nThe ISO:15118‐3:2015:IS standard specifies the communication interface for V2G technology\nThe standard ISO:15118‐3:2015:IS provides guidelines for V2G communication\nThe ISO:15118‐3:2015:IS standard provides specifications for V2G communication"
-            },
-            {
-                "target": "B1/B2 TRANSITION",
-                "weight": 7.0,
-                "description": "The B1/B2 transition is a process within V2G communication to manage session states"
-            },
-            {
-                "target": "SDP PROCEDURE",
-                "weight": 6.0,
-                "description": "The SDP procedure is part of the V2G communication process to ensure readiness for service binding"
-            },
-            {
-                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_004",
-                "weight": 8.0,
-                "description": "The test case involves initiating and pausing a V2G communication session"
-            },
-            {
-                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_010",
-                "weight": 9.0,
-                "description": "The test case involves initiating and managing a V2G communication session"
-            },
-            {
-                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_012",
-                "weight": 8.0,
-                "description": "The test case involves pausing and resuming a V2G communication session"
-            },
-            {
-                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_001",
-                "weight": 8.0,
-                "description": "The test case TC_SECC_DC_VTB_PLCLinkStatus_001 is designed to test aspects of V2G communication"
-            },
-            {
-                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_002",
-                "weight": 9.0,
-                "description": "The test case process involves initiating and managing a V2G communication session"
-            },
-            {
-                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_003",
-                "weight": 9.0,
-                "description": "The test case involves initiating and resuming a V2G communication session"
-            },
-            {
-                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_005",
-                "weight": 9.0,
-                "description": "The test case is designed to verify the termination of a V2G communication session"
-            },
-            {
-                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_006",
-                "weight": 8.0,
-                "description": "The test case TC_SECC_DC_VTB_PLCLinkStatus_006 is designed to evaluate aspects of V2G communication"
-            },
-            {
-                "target": "ISO:15118‐3:2015",
-                "weight": 10.0,
-                "description": "ISO:15118‐3:2015 provides the standards for V2G communication"
-            },
-            {
-                "target": "BCB",
-                "weight": 7.0,
-                "description": "BCB toggling is a part of managing V2G communication sessions"
-            },
-            {
-                "target": "TC_EVCC_AC_VTB_PLCLINKSTATUS_001",
-                "weight": 8.0,
-                "description": "The test case involves a paused V2G communication session"
-            },
-            {
-                "target": "TC_EVCC_AC_VTB_PLCLINKSTATUS_002",
-                "weight": 9.0,
-                "description": "The test case involves a V2G communication session"
-            },
-            {
-                "target": "TC_EVCC_AC_VTB_PLCLINKSTATUS_006",
-                "weight": 8.0,
-                "description": "The test case is related to the V2G technology as it involves testing communication sessions between electric vehicles and the grid"
-            },
-            {
-                "target": "TC_EVCC_DC_VTB_PLCLINKSTATUS_003",
-                "weight": 8.0,
-                "description": "The test case is designed to evaluate the V2G communication session"
-            },
-            {
-                "target": "TC_EVCC_DC_VTB_PLCLINKSTATUS_005",
-                "weight": 8.0,
-                "description": "The test case involves procedures related to V2G communication"
-            }
-        ]
-    },
     "V2G CHARGING LOOP": {
         "type": "PROCESS",
         "description": "<|COMPLETE|>\nThe V2G charging loop is a process involving the transfer of energy between an electric vehicle and the grid, allowing for bidirectional energy flow\nThe V2G charging loop is a process involving the interaction between an electric vehicle and the grid for charging and discharging energy\nThe V2G charging loop refers to the process involved in vehicle-to-grid (V2G) technology, where electric vehicles communicate with the power grid to exchange energy and information)\nThe process of charging an electric vehicle using vehicle-to-grid technology, which involves communication and energy exchange between the vehicle and the grid",
@@ -5059,7 +4962,7 @@
         "description": "A charging method that uses standard communication protocols for electric vehicle charging\nA term possibly referring to a component or process involved in the EIM or V2G setup\nA term possibly referring to a specific component or protocol involved in the process, such as a communication or control element\nBC likely refers to a specific component or feature related to EIM, possibly indicating a type of communication or control\nBC likely refers to a specific component or process within the context of EIM and V2G setup, possibly related to communication or control\nBC refers to a specific mode or condition in the electric vehicle charging process, possibly related to basic charging\nBasic Charging (BC) refers to a standard charging process controlled by specific conditions, such as those defined by IEC 61851-1\nBasic Charging, a protocol for controlling charging processes as defined by IEC 61851-1\nBasic charging refers to a fundamental method of charging electric vehicles, often used as a backup when more advanced systems fail",
         "connections": [
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 7.0,
                 "description": "Basic charging is used as a backup when HLC-C fails, indicating a fallback relationship between the two"
             },
@@ -5074,7 +4977,7 @@
                 "description": "EIM involves BC as a component or process within its system for managing data exchange and communication\nBC is involved in the EIM process, possibly as a component or step\nBC is a component or feature related to EIM, indicating a specific aspect of its implementation"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 20.0,
                 "description": "Both HLC-C and BC are protocols for controlling charging, with HLC-C involving high-level communication and BC being defined by IEC 61851-1\nBC is involved in the HLC-C protocol for communication\nHLC-C and BC are both protocols used to control different aspects of the charging process"
             },
@@ -5087,77 +4990,6 @@
                 "target": "ELECTRIC VEHICLE",
                 "weight": 1.0,
                 "description": "BC is a condition or mode that affects the EV's charging process"
-            }
-        ]
-    },
-    "HLC-C": {
-        "type": "TECHNOLOGY",
-        "description": "A protocol mode used for high-level communication during the charging process of electric vehicles\nHigh-Level Communication for Charging (HLC-C) is a technology used for advanced communication between electric vehicles and charging stations\nHLC-C refers to a protocol used in communication messages to determine the maximum charge current for electric vehicle charging)\nHigh-Level Communication Charging, a method of controlling charging through advanced communication protocols\nHLC-C is a protocol used in the context of vehicle-to-grid (V2G) communication, possibly for high-level communication control\nHLC-C is a protocol for high-level communication used in electric vehicle charging to control the charging process\nHLC-C is a protocol or communication standard that some electric vehicles support for advanced communication capabilities\n<|COMPLETE|>\nHLC-C is a high-level communication protocol used in electric vehicle charging to manage interactions between the vehicle and the charging station\nHLC-C is a high-level communication protocol used in electric vehicle charging systems to facilitate communication between the EVSE and the vehicle\nHigh-Level Communication Charging, a protocol for controlling charging processes through advanced communication methods\nHigh-Level Communication (HLC-C) is a protocol used for advanced communication between electric vehicles and charging infrastructure\nHigh-Level Communication Control (HLC-C) is a protocol used for managing and controlling the charging process of electric vehicles\nHLC-C is a high-level communication protocol used in electric vehicle charging systems\nHLC-C refers to a protocol for charging electric vehicles, which is controlled by high-level communication\nA protocol or communication layer involved in the high-level control of a process, possibly related to vehicle-to-grid communication\nA term possibly referring to a high-level communication component or process in the V2G setup",
-        "connections": [
-            {
-                "target": "BASIC CHARGING",
-                "weight": 7.0,
-                "description": "Basic charging is used as a backup when HLC-C fails, indicating a fallback relationship between the two"
-            },
-            {
-                "target": "V2G3-M06-14",
-                "weight": 9.0,
-                "description": "The requirement V2G3-M06-14 mandates the use of the HLC-C protocol mode for charging"
-            },
-            {
-                "target": "ELECTRIC VEHICLE",
-                "weight": 10.0,
-                "description": "The EV must use the HLC-C protocol mode for charging as per the requirement\nThe relationship between electric vehicles and HLC-C is based on the support or lack thereof for this communication protocol\nThe relationship indicates that some electric vehicles do not support the HLC-C protocol, which is relevant to their classification"
-            },
-            {
-                "target": "AC EVSE",
-                "weight": 48.0,
-                "description": "The AC EVSE supports HLC-C, which is used to control the charging process\nThe AC EVSE supports the HLC-C protocol for communication during the charging process\nThe AC EVSE supports the HLC-C protocol for high-level communication during charging\nThe AC EVSE supports the HLC-C protocol for high-level communication during the charging process\nThe AC EVSE supports the HLC-C protocol to enable communication with electric vehicles"
-            },
-            {
-                "target": "EIM",
-                "weight": 16.0,
-                "description": "EIM utilizes the HLC-C protocol for high-level communication control in V2G setups\nHLC-C protocol controls the charging process which involves EIM for identification and data exchange"
-            },
-            {
-                "target": "V2G SETUP",
-                "weight": 31.0,
-                "description": "The V2G Setup process is controlled by the HLC-C protocol to manage the connection and communication\nHLC-C is part of the V2G setup process\nHLC-C is a component or process involved in the V2G setup\nHLC-C is a protocol used during the V2G setup process for communication purposes"
-            },
-            {
-                "target": "BC CHARGING",
-                "weight": 7.0,
-                "description": "HLC-C and BC Charging are both methods of controlling charging processes, with HLC-C using high-level communication and BC Charging following the IEC 61851-1 standard"
-            },
-            {
-                "target": "BASIC CHARGING",
-                "weight": 20.0,
-                "description": "Both HLC-C and BC are protocols for controlling charging, with HLC-C involving high-level communication and BC being defined by IEC 61851-1\nBC is involved in the HLC-C protocol for communication\nHLC-C and BC are both protocols used to control different aspects of the charging process"
-            },
-            {
-                "target": "MANDATORY PROCEDURE",
-                "weight": 7.0,
-                "description": "HLC-C charging may be part of a mandatory procedure if required by specific standards or regulations"
-            },
-            {
-                "target": "HIGH-LEVEL COMMUNICATION",
-                "weight": 1.0,
-                "description": "HLC-C charging is controlled by high-level communication, indicating a direct relationship where the protocol relies on this communication technology"
-            },
-            {
-                "target": "PLUG AND CHARGE",
-                "weight": 6.0,
-                "description": "The HLC-C protocol is used in conjunction with the Plug and Charge process to enable seamless communication and charging"
-            },
-            {
-                "target": "V2G",
-                "weight": 1.0,
-                "description": "HLC-C is involved in the V2G setup, facilitating communication between the vehicle and the grid"
-            },
-            {
-                "target": "DC EVSE",
-                "weight": 8.0,
-                "description": "The DC EVSE supports the HLC-C protocol for managing communication between the vehicle and the charging station"
             }
         ]
     },
@@ -5298,7 +5130,7 @@
                 "description": "EIM involves BC as a component or process within its system for managing data exchange and communication\nBC is involved in the EIM process, possibly as a component or step\nBC is a component or feature related to EIM, indicating a specific aspect of its implementation"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 16.0,
                 "description": "EIM utilizes the HLC-C protocol for high-level communication control in V2G setups\nHLC-C protocol controls the charging process which involves EIM for identification and data exchange"
             },
@@ -5635,7 +5467,7 @@
                 "description": "EVCC is another possible system under test (SUT) in the configuration\nThe System Under Test (SUT) can be an Electric Vehicle Communication Controller (EVCC)\nThe SUT can be an EVCC, indicating that EVCC is one of the systems being tested\nThe SUT includes an EVCC as part of its configuration\nThe type of EVCC used depends on the SUT type, indicating a relationship between the system being tested and the communication controller\nThe SUT in this context is specified to be an Electric Vehicle Communication Controller (EVCC)\nEVCC can be a system under test in the context of electric vehicle communication\nIn the context of the test system configuration CF_05_002, the SUT is identified as the EVCC\nIn this context, the System Under Test (SUT) is the Electric Vehicle Communication Controller (EVCC)"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "EVCC is a component involved in V2G technology, facilitating communication between the electric vehicle and the grid"
             },
@@ -6019,7 +5851,7 @@
                 "description": "The SECC_Tester is used to evaluate the performance and compliance of the SECC\nThe SECC_Tester is a tool used to test the SECC, ensuring its communication and functionality\nThe SECC Tester is used to evaluate the SECC's communication and protocol compliance\nSECC_Tester is used to test the functionality and communication of the SECC\nSECC_Tester is used to test the functionality and compliance of the SECC in electric vehicle charging systems"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "SECC is a component involved in V2G technology, facilitating communication between the charging station and the electric vehicle"
             },
@@ -7275,7 +7107,7 @@
                 "description": "AC EVSE uses the SLAC protocol to establish communication with electric vehicles"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 48.0,
                 "description": "The AC EVSE supports HLC-C, which is used to control the charging process\nThe AC EVSE supports the HLC-C protocol for communication during the charging process\nThe AC EVSE supports the HLC-C protocol for high-level communication during charging\nThe AC EVSE supports the HLC-C protocol for high-level communication during the charging process\nThe AC EVSE supports the HLC-C protocol to enable communication with electric vehicles"
             },
@@ -8325,12 +8157,12 @@
                 "description": "The requirement V2G3-M06-14 specifies a condition for the EV regarding its charging mode"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 9.0,
                 "description": "The requirement V2G3-M06-14 mandates the use of the HLC-C protocol mode for charging"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 7.0,
                 "description": "The requirement V2G3-M06-14 is related to the V2G process as it specifies conditions for initiating the V2G charging loop"
             }
@@ -8792,7 +8624,7 @@
         "description": "The process of configuring and preparing the vehicle-to-grid system for operation\nVehicle-to-Grid (V2G) Setup is the process of preparing an electric vehicle to interact with the grid for energy exchange\nThe process of setting up vehicle-to-grid (V2G) communication and integration, involving various protocols and technologies\nVehicle-to-Grid (V2G) Setup is the process of establishing a connection between an electric vehicle and the grid for energy exchange\nThe procedure of configuring or preparing a system for vehicle-to-grid communication and interaction",
         "connections": [
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 31.0,
                 "description": "The V2G Setup process is controlled by the HLC-C protocol to manage the connection and communication\nHLC-C is part of the V2G setup process\nHLC-C is a component or process involved in the V2G setup\nHLC-C is a protocol used during the V2G setup process for communication purposes"
             },
@@ -8860,7 +8692,7 @@
                 "description": "Possible procedures are optional, whereas mandatory procedures are required, indicating different levels of necessity\nBoth are types of procedures, but they differ in terms of requirement and obligation"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 7.0,
                 "description": "HLC-C charging may be part of a mandatory procedure if required by specific standards or regulations"
             }
@@ -8871,7 +8703,7 @@
         "description": "Basic Charging controlled by the standard IEC 61851-1, which outlines the basic requirements for electric vehicle charging\nBC charging refers to the process of charging electric vehicles, which is controlled by specific standards and protocols",
         "connections": [
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 7.0,
                 "description": "HLC-C and BC Charging are both methods of controlling charging processes, with HLC-C using high-level communication and BC Charging following the IEC 61851-1 standard"
             },
@@ -9126,7 +8958,7 @@
         "description": "Direct Current Electric Vehicle Supply Equipment (DC EVSE) is a charging station that provides direct current electricity to charge electric vehicles\nAn Electric Vehicle Supply Equipment (EVSE) that provides direct current (DC) for charging electric vehicles\nA Direct Current Electric Vehicle Supply Equipment (DC EVSE) is a type of charging station that provides direct current electricity to electric vehicles for faster charging\nDirect Current Electric Vehicle Supply Equipment (DC EVSE) is a type of charging infrastructure that provides direct current electricity to electric vehicles for faster charging\nDC EVSE refers to Electric Vehicle Supply Equipment that provides direct current for charging electric vehicles",
         "connections": [
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 8.0,
                 "description": "The DC EVSE supports the HLC-C protocol for managing communication between the vehicle and the charging station"
             },
@@ -11782,7 +11614,7 @@
                 "description": "The requirement V2G3-A10-01 specifies an action that low-layer communication modules must perform"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 8.0,
                 "description": "Low-layer communication modules must comply with the defined PSD values on the EV side"
             },
@@ -15184,7 +15016,7 @@
                 "description": "The CM_AMP_MAP.REQ message is directed to the EV Host's MAC address, indicating a communication link\nThe EV Host is responsible for confirming the CM_AMP_MAP.REQ message"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 8.0,
                 "description": "The EV Host compares received values with the default PSD values to ensure proper operation"
             },
@@ -17924,7 +17756,7 @@
         "description": "A request or requirement to limit the transmission power, likely to ensure safety or efficiency in the operation of electric vehicles or their charging equipment",
         "connections": [
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 7.0,
                 "description": "The transmission power limitation request is related to the PSD, indicating a connection between power management and the requirement"
             },
@@ -17937,67 +17769,6 @@
                 "target": "EVSE",
                 "weight": 8.0,
                 "description": "The transmission power limitation request is relevant to EVSEs, likely affecting their operation or safety standards"
-            }
-        ]
-    },
-    "PSD": {
-        "type": "TERM",
-        "description": "Power Spectral Density, a measure of signal power per unit frequency, typically expressed in dBm/Hz\nPower Spectral Density, a measure of signal's power intensity in the frequency domain, used as a reference for communication compliance\nPower Spectral Density (PSD) refers to the measure of a signal's power intensity in the frequency domain, often used in telecommunications to describe the power distribution over frequency\nPower Spectral Density (PSD) is a measure of a signal's power intensity in the frequency domain\nPower Spectral Density (PSD) refers to the power distribution of a signal over frequency, used to describe the PLC signal characteristics\nPower Spectral Density (PSD) is a measure of the power present in a signal as a function of frequency, expressed in dBm/Hz\nPSD likely refers to a specific term or concept related to power distribution or management in the context of electric vehicles or charging stations\nPower Spectral Density (PSD) is a measure of the power distribution of a signal over frequency, used here to describe default values at the socket\nPower Signal Data (PSD) refers to the data related to power measurement in vehicle-to-grid systems",
-        "connections": [
-            {
-                "target": "TRANSMISSION POWER LIMITATION REQUEST",
-                "weight": 7.0,
-                "description": "The transmission power limitation request is related to the PSD, indicating a connection between power management and the requirement"
-            },
-            {
-                "target": "EV HOST",
-                "weight": 8.0,
-                "description": "The EV Host compares received values with the default PSD values to ensure proper operation"
-            },
-            {
-                "target": "CARRIERS 2 AND 3",
-                "weight": 1.0,
-                "description": "The PSD values for carriers 2 and 3 are compared to default values to assess their adequacy"
-            },
-            {
-                "target": "MAXIMUM PEAK TO PEAK AMPLITUDE",
-                "weight": 8.0,
-                "description": "The maximum peak to peak amplitude is directly linked to the PSD, suggesting that changes in amplitude affect the power spectral density"
-            },
-            {
-                "target": "PLC SIGNAL",
-                "weight": 7.0,
-                "description": "PSD describes the power distribution of the PLC signal over frequency"
-            },
-            {
-                "target": "TRANSMISSION PATH",
-                "weight": 1.0,
-                "description": "PSD values are measured along the transmission path to assess signal characteristics"
-            },
-            {
-                "target": "ATTENUATION",
-                "weight": 8.0,
-                "description": "Attenuation is measured by comparing the Power Spectral Density (PSD) at different points in the transmission path\nBoth PSD and attenuation values are used to describe characteristics of signals over carrier groups, indicating their relevance in signal analysis"
-            },
-            {
-                "target": "DEVICE",
-                "weight": 8.0,
-                "description": "The design target is to achieve a specific PSD at the inlet of the device"
-            },
-            {
-                "target": "A.9.4.2",
-                "weight": 1.0,
-                "description": "A.9.4.2 provides the method for measuring the PSD for the transmission path"
-            },
-            {
-                "target": "LOW-LAYER COMMUNICATION MODULES",
-                "weight": 8.0,
-                "description": "Low-layer communication modules must comply with the defined PSD values on the EV side"
-            },
-            {
-                "target": "V2G3-A11-14",
-                "weight": 8.0,
-                "description": "The V2G3-A11-14 standard specifies requirements for the measurement of PSD"
             }
         ]
     },
@@ -18085,7 +17856,7 @@
                 "description": "EVSE requests a power limitation for carriers 2 and 3 to manage the power levels during operation"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 1.0,
                 "description": "The PSD values for carriers 2 and 3 are compared to default values to assess their adequacy"
             }
@@ -19579,7 +19350,7 @@
                 "description": "The maximum peak to peak amplitude is directly linked to the impedance, indicating a relationship between the two in terms of signal characteristics"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 8.0,
                 "description": "The maximum peak to peak amplitude is directly linked to the PSD, suggesting that changes in amplitude affect the power spectral density"
             }
@@ -19621,7 +19392,7 @@
                 "description": "Attenuation occurs along the transmission path, affecting the signal strength"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 1.0,
                 "description": "PSD values are measured along the transmission path to assess signal characteristics"
             }
@@ -19653,7 +19424,7 @@
                 "description": "Attenuation describes the reduction in strength of the PLC signal as it travels"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 7.0,
                 "description": "PSD describes the power distribution of the PLC signal over frequency"
             },
@@ -19694,7 +19465,7 @@
                 "description": "Attenuation occurs along the transmission path, affecting the signal strength"
             },
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 8.0,
                 "description": "Attenuation is measured by comparing the Power Spectral Density (PSD) at different points in the transmission path\nBoth PSD and attenuation values are used to describe characteristics of signals over carrier groups, indicating their relevance in signal analysis"
             },
@@ -19964,7 +19735,7 @@
         "description": "A device in the context of this example refers to the equipment receiving the signal with a target PSD at its inlet",
         "connections": [
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 8.0,
                 "description": "The design target is to achieve a specific PSD at the inlet of the device"
             }
@@ -19975,7 +19746,7 @@
         "description": "A.9.4.2 is a section in a document that provides the method for measuring the PSD for the transmission path\nA section that details the procedure for measuring transmission power",
         "connections": [
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 1.0,
                 "description": "A.9.4.2 provides the method for measuring the PSD for the transmission path"
             },
@@ -20634,7 +20405,7 @@
         "description": "V2G3-A11-14 is a specific standard related to the measurement of the Power Signal Data (PSD) in vehicle-to-grid communication",
         "connections": [
             {
-                "target": "PSD",
+                "target": "POWER SPECTRUM DENSITY",
                 "weight": 8.0,
                 "description": "The V2G3-A11-14 standard specifies requirements for the measurement of PSD"
             }
@@ -20755,7 +20526,7 @@
     },
     "POWER SPECTRUM DENSITY": {
         "type": "TERM",
-        "description": "Power Spectrum Density is a measure of the power distribution of a signal as a function of frequency",
+        "description": "PSD likely refers to a specific term or concept related to power distribution or management in the context of electric vehicles or charging stations\nPower Signal Data (PSD) refers to the data related to power measurement in vehicle-to-grid systems\nPower Spectral Density (PSD) is a measure of a signal's power intensity in the frequency domain\nPower Spectral Density (PSD) is a measure of the power distribution of a signal over frequency, used here to describe default values at the socket\nPower Spectral Density (PSD) is a measure of the power present in a signal as a function of frequency, expressed in dBm/Hz\nPower Spectral Density (PSD) refers to the measure of a signal's power intensity in the frequency domain, often used in telecommunications to describe the power distribution over frequency\nPower Spectral Density (PSD) refers to the power distribution of a signal over frequency, used to describe the PLC signal characteristics\nPower Spectral Density, a measure of signal power per unit frequency, typically expressed in dBm/Hz\nPower Spectral Density, a measure of signal's power intensity in the frequency domain, used as a reference for communication compliance\nPower Spectrum Density is a measure of the power distribution of a signal as a function of frequency",
         "connections": [
             {
                 "target": "DUT",
@@ -20766,6 +20537,61 @@
                 "target": "EQUIVALENT NOISE POWER BANDWIDTH",
                 "weight": 1.0,
                 "description": "The calculation of power spectrum density involves subtracting a term related to the equivalent noise power bandwidth"
+            },
+            {
+                "target": "TRANSMISSION POWER LIMITATION REQUEST",
+                "weight": 7.0,
+                "description": "The transmission power limitation request is related to the PSD, indicating a connection between power management and the requirement"
+            },
+            {
+                "target": "EV HOST",
+                "weight": 8.0,
+                "description": "The EV Host compares received values with the default PSD values to ensure proper operation"
+            },
+            {
+                "target": "CARRIERS 2 AND 3",
+                "weight": 1.0,
+                "description": "The PSD values for carriers 2 and 3 are compared to default values to assess their adequacy"
+            },
+            {
+                "target": "MAXIMUM PEAK TO PEAK AMPLITUDE",
+                "weight": 8.0,
+                "description": "The maximum peak to peak amplitude is directly linked to the PSD, suggesting that changes in amplitude affect the power spectral density"
+            },
+            {
+                "target": "PLC SIGNAL",
+                "weight": 7.0,
+                "description": "PSD describes the power distribution of the PLC signal over frequency"
+            },
+            {
+                "target": "TRANSMISSION PATH",
+                "weight": 1.0,
+                "description": "PSD values are measured along the transmission path to assess signal characteristics"
+            },
+            {
+                "target": "ATTENUATION",
+                "weight": 8.0,
+                "description": "Attenuation is measured by comparing the Power Spectral Density (PSD) at different points in the transmission path\nBoth PSD and attenuation values are used to describe characteristics of signals over carrier groups, indicating their relevance in signal analysis"
+            },
+            {
+                "target": "DEVICE",
+                "weight": 8.0,
+                "description": "The design target is to achieve a specific PSD at the inlet of the device"
+            },
+            {
+                "target": "A.9.4.2",
+                "weight": 1.0,
+                "description": "A.9.4.2 provides the method for measuring the PSD for the transmission path"
+            },
+            {
+                "target": "LOW-LAYER COMMUNICATION MODULES",
+                "weight": 8.0,
+                "description": "Low-layer communication modules must comply with the defined PSD values on the EV side"
+            },
+            {
+                "target": "V2G3-A11-14",
+                "weight": 8.0,
+                "description": "The V2G3-A11-14 standard specifies requirements for the measurement of PSD"
             }
         ]
     },
@@ -24384,7 +24210,7 @@
         "description": "The introductory section of a document that provides context and background information, indicating joint development efforts",
         "connections": [
             {
-                "target": "IEC",
+                "target": "INTERNATIONAL ELECTROTECHNICAL COMMISSION",
                 "weight": 7.0,
                 "description": "The foreword of the document indicates joint development with the IEC"
             },
@@ -25564,7 +25390,7 @@
                 "description": "ISO maintains terminological databases for use in standardization"
             },
             {
-                "target": "IEC",
+                "target": "INTERNATIONAL ELECTROTECHNICAL COMMISSION",
                 "weight": 1.0,
                 "description": "IEC maintains terminological databases for use in standardization"
             }
@@ -26274,7 +26100,7 @@
     },
     "TEST CASE": {
         "type": "TERM",
-        "description": "A Test Case is a specific scenario composed of a set of conditions or variables to test the functionality and performance of a system or software application\nA procedure or set of conditions under which a tester will determine whether a system or one of its components is working as intended\nA procedure or set of conditions under which a tester will determine whether a system or one of its components is working as it was originally established for it to do\nA specific scenario or set of conditions under which a system is tested to verify its functionality\nA specific scenario or set of conditions under which a test is conducted to determine if a system or component behaves as expected\nA specific scenario or set of conditions under which a tester evaluates the SUT to ensure it behaves as expected\nA specific scenario under which a test is conducted to verify the functionality or performance of a system or component\nA term used to refer to a Test Case, which is a set of conditions or variables under which a tester will determine whether a system or software application is working correctly\nA test case involves stimulating the SUT with specific inputs, observing reactions, and evaluating outcomes based on pre-conditions and post-conditions\nA test case is a specific procedure that executes a particular test behavior and verifies the System Under Test (SUT) behavior based on its response",
+        "description": "A specific scenario under which a test is conducted to verify the functionality or performance of a system or component\nA specific scenario or set of conditions under which a test is conducted to determine if a system or component behaves as expected\nA procedure or set of conditions under which a tester will determine whether a system or one of its components is working as intended\nA specific scenario or set of conditions under which a system is tested to verify its functionality\nA procedure or set of conditions under which a tester will determine whether a system or one of its components is working as it was originally established for it to do\nA specific scenario or set of conditions under which a tester evaluates the SUT to ensure it behaves as expected\nA test case is a specific procedure that executes a particular test behavior and verifies the System Under Test (SUT) behavior based on its response\nA Test Case is a specific scenario composed of a set of conditions or variables to test the functionality and performance of a system or software application\nA test case involves stimulating the SUT with specific inputs, observing reactions, and evaluating outcomes based on pre-conditions and post-conditions",
         "connections": [
             {
                 "target": "TEST STEPS",
@@ -26285,6 +26111,11 @@
                 "target": "PRE-CONDITION TEST STEPS",
                 "weight": 1.0,
                 "description": "Pre-condition test steps are necessary to prepare the test case for execution by ensuring it starts from a stable state"
+            },
+            {
+                "target": "TC",
+                "weight": 1.0,
+                "description": "TC is an abbreviation or shorthand for Test Case, indicating they refer to the same concept"
             },
             {
                 "target": "SYSTEM UNDER TEST",
@@ -26612,33 +26443,12 @@
             }
         ]
     },
-    "TE": {
-        "type": "TERM",
-        "description": "TE stands for Test Environment, which can be conceptually decomposed into three interacting entities\nTest Execution (TE) is a process involving the execution of test cases to validate the functionality and performance of a system or component)\n<|COMPLETE|>",
-        "connections": [
-            {
-                "target": "EXECUTABLE TEST SUITE",
-                "weight": 8.0,
-                "description": "The TE includes an Executable Test Suite as one of its interacting entities"
-            },
-            {
-                "target": "TEST FRAMEWORK",
-                "weight": 8.0,
-                "description": "The TE includes a Test Framework as one of its interacting entities"
-            },
-            {
-                "target": "ENCODING/DECODING SYSTEM",
-                "weight": 7.0,
-                "description": "The TE may include an optional Encoding/Decoding System as one of its interacting entities"
-            }
-        ]
-    },
     "EXECUTABLE TEST SUITE": {
         "type": "TECHNOLOGY",
         "description": "The Executable Test Suite is a component managed by the Test Framework, responsible for executing test cases or functions with parameters and returning associated verdicts.\nAn Executable Test Suite (ETS) is a collection of test cases that are executed to verify the functionality of a system",
         "connections": [
             {
-                "target": "TE",
+                "target": "TEST EXECUTION",
                 "weight": 8.0,
                 "description": "The TE includes an Executable Test Suite as one of its interacting entities"
             },
@@ -26659,7 +26469,7 @@
         "description": "<|COMPLETE|>\nA Test Framework (TFW) provides the necessary environment and tools to execute and manage test cases\nA system or environment used to execute tests, ensuring that software or systems meet specified requirements\nA system or platform used to organize and execute tests, providing a structured environment for testing processes\nTFW refers to a Test Framework used for evaluating and validating systems or components, ensuring they meet specified requirements and standards)\nThe Test Framework is a system that interacts with various components such as Test Management, SUT Adaptor, and Platform Adaptor via interfaces like Test Control Interface and Test Runtime Interface. It manages the Executable Test Suite and Encoding/Decoding System, initializing adaptors and performing actions necessary for executing test cases or functions with parameters.",
         "connections": [
             {
-                "target": "TE",
+                "target": "TEST EXECUTION",
                 "weight": 8.0,
                 "description": "The TE includes a Test Framework as one of its interacting entities"
             },
@@ -26730,7 +26540,7 @@
         "description": "An Encoding/Decoding System (EDS) is an optional component that handles the conversion of data formats during testing\nThe Encoding/Decoding System is a component managed by the Test Framework, likely responsible for handling data encoding and decoding during testing processes.",
         "connections": [
             {
-                "target": "TE",
+                "target": "TEST EXECUTION",
                 "weight": 7.0,
                 "description": "The TE may include an optional Encoding/Decoding System as one of its interacting entities"
             },
@@ -26912,8 +26722,8 @@
         "connections": []
     },
     "TEST EXECUTION": {
-        "type": "PROCESS",
-        "description": "The process of running tests on a system or component to verify its functionality and performance\nTest execution is the process of carrying out the test steps defined in the actual test behavior to evaluate the system or component under test\nTest Execution is the process of running test cases and procedures to evaluate the SUT, involving message requests and procedure-based calls",
+        "type": "PROCESS/TERM",
+        "description": "<|COMPLETE|>\nTE stands for Test Environment, which can be conceptually decomposed into three interacting entities\nTest Execution (TE) is a process involving the execution of test cases to validate the functionality and performance of a system or component)\nTest Execution is the process of running test cases and procedures to evaluate the SUT, involving message requests and procedure-based calls\nTest execution is the process of carrying out the test steps defined in the actual test behavior to evaluate the system or component under test\nThe process of running tests on a system or component to verify its functionality and performance",
         "connections": [
             {
                 "target": "TEST FRAMEWORK",
@@ -26934,6 +26744,21 @@
                 "target": "ACTUAL TEST BEHAVIOR",
                 "weight": 9.0,
                 "description": "The actual test behavior defines the steps that are carried out during test execution"
+            },
+            {
+                "target": "EXECUTABLE TEST SUITE",
+                "weight": 8.0,
+                "description": "The TE includes an Executable Test Suite as one of its interacting entities"
+            },
+            {
+                "target": "TEST FRAMEWORK",
+                "weight": 8.0,
+                "description": "The TE includes a Test Framework as one of its interacting entities"
+            },
+            {
+                "target": "ENCODING/DECODING SYSTEM",
+                "weight": 7.0,
+                "description": "The TE may include an optional Encoding/Decoding System as one of its interacting entities"
             }
         ]
     },
@@ -27272,12 +27097,12 @@
                 "description": "The requirement V2G3-M06-14 specifies a condition for the EV regarding its charging mode"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 10.0,
                 "description": "The EV must use the HLC-C protocol mode for charging as per the requirement\nThe relationship between electric vehicles and HLC-C is based on the support or lack thereof for this communication protocol\nThe relationship indicates that some electric vehicles do not support the HLC-C protocol, which is relevant to their classification"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 1.0,
                 "description": "The EV is involved in the V2G process, which includes charging and communication with the grid"
             },
@@ -27895,7 +27720,7 @@
                 "description": "The AC EVSE supports Plug and Charge (PnC) technology, allowing automatic authentication and charging\nThe AC EVSE uses the Plug and Charge protocol to facilitate automatic authentication and charging\nThe AC EVSE supports the Plug and Charge process to facilitate automatic authentication and charging\nAC EVSE supports the Plug and Charge protocol for seamless charging sessions\nThe AC EVSE utilizes the PnC protocol to facilitate automatic authentication and authorization of charging sessions\nThe AC EVSE supports Plug and Charge (PnC) technology for automatic authentication and charging\nThe AC EVSE uses the PnC protocol to facilitate automatic authentication and authorization of charging sessions\nThe AC EVSE uses the PnC protocol to facilitate automatic authentication and charging initiation\nThe AC EVSE supports the PnC protocol, allowing for automatic authentication and authorization\nThe AC EVSE supports the Plug and Charge protocol, allowing for automatic authentication and charging\nThe AC EVSE supports Plug and Charge (PnC) functionality, allowing automatic authentication and charging"
             },
             {
-                "target": "HLC-C",
+                "target": "HIGH-LEVEL COMMUNICATION",
                 "weight": 6.0,
                 "description": "The HLC-C protocol is used in conjunction with the Plug and Charge process to enable seamless communication and charging"
             },
@@ -28563,6 +28388,17 @@
             }
         ]
     },
+    "TC": {
+        "type": "TERM",
+        "description": "A term used to refer to a Test Case, which is a set of conditions or variables under which a tester will determine whether a system or software application is working correctly",
+        "connections": [
+            {
+                "target": "TEST CASE",
+                "weight": 1.0,
+                "description": "TC is an abbreviation or shorthand for Test Case, indicating they refer to the same concept"
+            }
+        ]
+    },
     "TCI‐CD": {
         "type": "TECHNOLOGY",
         "description": "TCI‐CD refers to a technology or system involved in the coding and decoding processes, likely related to data transmission or communication",
@@ -28660,12 +28496,142 @@
     },
     "VEHICLE-TO-GRID": {
         "type": "TECHNOLOGY",
-        "description": "Vehicle-to-Grid (V2G) technology enables the bidirectional flow of electricity between electric vehicles and the power grid, allowing vehicles to provide power back to the grid",
+        "description": "<|COMPLETE|>\nV2G represents a set of standards related to vehicle-to-grid communication and technology\nVehicle-to-Grid (V2G) is a system that allows electric vehicles to communicate with the power grid to exchange energy and information\nVehicle-to-Grid (V2G) is a system that allows electric vehicles to communicate with the power grid to return electricity or modulate charging rates\nVehicle-to-Grid (V2G) is a system that allows electric vehicles to communicate with the power grid to return electricity to the grid or to use it for vehicle charging\nVehicle-to-Grid (V2G) is a system that enables electric vehicles to communicate with the power grid to exchange electricity and data\nVehicle-to-Grid (V2G) is a system that enables electric vehicles to communicate with the power grid to exchange energy and information\nVehicle-to-Grid (V2G) is a technology that allows electric vehicles to communicate with the power grid to return electricity or balance demand\nVehicle-to-Grid (V2G) is a technology that enables energy exchange between electric vehicles and the power grid\nVehicle-to-Grid (V2G) is a technology that enables the flow of energy between electric vehicles and the power grid, allowing vehicles to return electricity to the grid or use it for their own needs)\nVehicle-to-Grid (V2G) technology enables electric vehicles to communicate with the power grid to return electricity or manage charging\nVehicle-to-Grid (V2G) technology enables electric vehicles to communicate with the power grid to return electricity or modulate charging rates\nVehicle-to-Grid (V2G) technology enables the bidirectional flow of electricity between electric vehicles and the power grid, allowing vehicles to provide power back to the grid\nVehicle-to-Grid (V2G) technology involves the interaction between electric vehicles and the power grid, allowing for bidirectional energy flow\nVehicle-to-Grid, a process where electric vehicles communicate with the power grid to exchange energy and information\nVehicle-to-Grid, a system that allows electric vehicles to communicate with the power grid to return electricity or draw it",
         "connections": [
             {
-                "target": "V2G",
+                "target": "V2G3-M06-14",
+                "weight": 7.0,
+                "description": "The requirement V2G3-M06-14 is related to the V2G process as it specifies conditions for initiating the V2G charging loop"
+            },
+            {
+                "target": "ELECTRIC VEHICLE",
                 "weight": 1.0,
-                "description": "V2G is an abbreviation for Vehicle-to-Grid, which is a technology that facilitates the interaction between electric vehicles and the power grid"
+                "description": "The EV is involved in the V2G process, which includes charging and communication with the grid"
+            },
+            {
+                "target": "HIGH-LEVEL COMMUNICATION",
+                "weight": 1.0,
+                "description": "HLC-C is involved in the V2G setup, facilitating communication between the vehicle and the grid"
+            },
+            {
+                "target": "ISO 15118",
+                "weight": 1.0,
+                "description": "V2G is a set of standards that falls under the ISO 15118 specifications"
+            },
+            {
+                "target": "EVCC",
+                "weight": 8.0,
+                "description": "EVCC is a component involved in V2G technology, facilitating communication between the electric vehicle and the grid"
+            },
+            {
+                "target": "SECC",
+                "weight": 8.0,
+                "description": "SECC is a component involved in V2G technology, facilitating communication between the charging station and the electric vehicle"
+            },
+            {
+                "target": "PICS_CMN_CMN_COMBINEDTESTING",
+                "weight": 1.0,
+                "description": "PICS_CMN_CMN_CombinedTesting involves V2G messaging as part of the testing"
+            },
+            {
+                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_003",
+                "weight": 8.0,
+                "description": "The test case TC_SECC_AC_VTB_PLCLinkStatus_003 is designed to test scenarios within the V2G communication framework"
+            },
+            {
+                "target": "SESSIONSTOPREQ",
+                "weight": 53.0,
+                "description": "SessionStopReq is a protocol message used within the V2G communication technology\nThe SessionStopReq message is a protocol used within V2G communication to manage session states\nThe SessionStopReq message is part of the V2G communication protocol used to manage sessions\nThe SessionStopReq message is part of the V2G communication protocol to manage session states\nSessionStopReq is a protocol message used within the V2G technology to manage communication sessions\nThe SessionStopReq message is used to manage V2G communication sessions"
+            },
+            {
+                "target": "ISO:15118‐3:2015:IS",
+                "weight": 58.0,
+                "description": "The ISO:15118‐3:2015:IS standard provides the specifications for V2G communication\nISO:15118‐3:2015:IS is a standard that specifies the communication interface for V2G technology\nThe ISO:15118‐3:2015:IS standard specifies the communication interface for V2G technology\nThe standard ISO:15118‐3:2015:IS provides guidelines for V2G communication\nThe ISO:15118‐3:2015:IS standard provides specifications for V2G communication"
+            },
+            {
+                "target": "B1/B2 TRANSITION",
+                "weight": 7.0,
+                "description": "The B1/B2 transition is a process within V2G communication to manage session states"
+            },
+            {
+                "target": "SDP PROCEDURE",
+                "weight": 6.0,
+                "description": "The SDP procedure is part of the V2G communication process to ensure readiness for service binding"
+            },
+            {
+                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_004",
+                "weight": 8.0,
+                "description": "The test case involves initiating and pausing a V2G communication session"
+            },
+            {
+                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_010",
+                "weight": 9.0,
+                "description": "The test case involves initiating and managing a V2G communication session"
+            },
+            {
+                "target": "TC_SECC_AC_VTB_PLCLINKSTATUS_012",
+                "weight": 8.0,
+                "description": "The test case involves pausing and resuming a V2G communication session"
+            },
+            {
+                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_001",
+                "weight": 8.0,
+                "description": "The test case TC_SECC_DC_VTB_PLCLinkStatus_001 is designed to test aspects of V2G communication"
+            },
+            {
+                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_002",
+                "weight": 9.0,
+                "description": "The test case process involves initiating and managing a V2G communication session"
+            },
+            {
+                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_003",
+                "weight": 9.0,
+                "description": "The test case involves initiating and resuming a V2G communication session"
+            },
+            {
+                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_005",
+                "weight": 9.0,
+                "description": "The test case is designed to verify the termination of a V2G communication session"
+            },
+            {
+                "target": "TC_SECC_DC_VTB_PLCLINKSTATUS_006",
+                "weight": 8.0,
+                "description": "The test case TC_SECC_DC_VTB_PLCLinkStatus_006 is designed to evaluate aspects of V2G communication"
+            },
+            {
+                "target": "ISO:15118‐3:2015",
+                "weight": 10.0,
+                "description": "ISO:15118‐3:2015 provides the standards for V2G communication"
+            },
+            {
+                "target": "BCB",
+                "weight": 7.0,
+                "description": "BCB toggling is a part of managing V2G communication sessions"
+            },
+            {
+                "target": "TC_EVCC_AC_VTB_PLCLINKSTATUS_001",
+                "weight": 8.0,
+                "description": "The test case involves a paused V2G communication session"
+            },
+            {
+                "target": "TC_EVCC_AC_VTB_PLCLINKSTATUS_002",
+                "weight": 9.0,
+                "description": "The test case involves a V2G communication session"
+            },
+            {
+                "target": "TC_EVCC_AC_VTB_PLCLINKSTATUS_006",
+                "weight": 8.0,
+                "description": "The test case is related to the V2G technology as it involves testing communication sessions between electric vehicles and the grid"
+            },
+            {
+                "target": "TC_EVCC_DC_VTB_PLCLINKSTATUS_003",
+                "weight": 8.0,
+                "description": "The test case is designed to evaluate the V2G communication session"
+            },
+            {
+                "target": "TC_EVCC_DC_VTB_PLCLINKSTATUS_005",
+                "weight": 8.0,
+                "description": "The test case involves procedures related to V2G communication"
             }
         ]
     },
@@ -31594,7 +31560,7 @@
                 "description": "PICS_CMN_CMN_CombinedTesting involves enabling SLAC association as part of the testing"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 1.0,
                 "description": "PICS_CMN_CMN_CombinedTesting involves V2G messaging as part of the testing"
             },
@@ -37333,7 +37299,7 @@
                 "description": "The test case references sections from the ISO:15118‐3:2015:IS standard"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 58.0,
                 "description": "The ISO:15118‐3:2015:IS standard provides the specifications for V2G communication\nISO:15118‐3:2015:IS is a standard that specifies the communication interface for V2G technology\nThe ISO:15118‐3:2015:IS standard specifies the communication interface for V2G technology\nThe standard ISO:15118‐3:2015:IS provides guidelines for V2G communication\nThe ISO:15118‐3:2015:IS standard provides specifications for V2G communication"
             },
@@ -47213,7 +47179,7 @@
                 "description": "The test case involves sending a SessionStopReq message as part of the procedure"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 53.0,
                 "description": "SessionStopReq is a protocol message used within the V2G communication technology\nThe SessionStopReq message is a protocol used within V2G communication to manage session states\nThe SessionStopReq message is part of the V2G communication protocol used to manage sessions\nThe SessionStopReq message is part of the V2G communication protocol to manage session states\nSessionStopReq is a protocol message used within the V2G technology to manage communication sessions\nThe SessionStopReq message is used to manage V2G communication sessions"
             },
@@ -47351,7 +47317,7 @@
         "description": "A specific test case identifier used in a testing framework, likely related to the status of a PLC (Power Line Communication) link in an AC (Alternating Current) vehicle-to-building scenario\nA further test case process for checking the PLC link status in the SECC system under conditions involving pause and combined testing\nA test case identifier used to describe a specific scenario in V2G communication testing, focusing on the PLC link status and session management\n<|COMPLETE|>\nA specific test case description related to the status of the PLC link in the context of AC vehicle-to-building communication)",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case TC_SECC_AC_VTB_PLCLinkStatus_003 is designed to test scenarios within the V2G communication framework"
             },
@@ -47402,7 +47368,7 @@
         "description": "A process in V2G communication where the system transitions between different states or phases, such as waking up from a paused session",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 7.0,
                 "description": "The B1/B2 transition is a process within V2G communication to manage session states"
             },
@@ -47418,7 +47384,7 @@
         "description": "The Service Discovery Protocol (SDP) procedure used in V2G communication to ensure the system is ready for the binding process\nService Discovery Protocol (SDP) procedure used in the V2G communication session to ensure the system is ready for the Binding process",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 6.0,
                 "description": "The SDP procedure is part of the V2G communication process to ensure readiness for service binding"
             },
@@ -47614,7 +47580,7 @@
                 "description": "Table 111 contains the description for the test case identified as 'TC_SECC_AC_VTB_PLCLinkStatus_004'"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case involves initiating and pausing a V2G communication session"
             },
@@ -48190,7 +48156,7 @@
         "description": "A specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in an AC (Alternating Current) vehicle-to-building (VTB) scenario)\n<|COMPLETE|>\nA specific test case identifier used in a table listing test case descriptions, likely related to testing the PLC link status in an AC vehicle-to-building context)\nA test case procedure designed to execute a GoodCase scenario, initiate a paused V2G communication session, and verify various system behaviors such as wake-up process and BCB toggle detection\nA test case process executed under specific conditions related to PLC link status in SECC AC",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 9.0,
                 "description": "The test case involves initiating and managing a V2G communication session"
             },
@@ -48291,7 +48257,7 @@
                 "description": "The test case involves a BCB toggle to resume a paused session"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 7.0,
                 "description": "BCB toggling is a part of managing V2G communication sessions"
             },
@@ -48452,7 +48418,7 @@
         "description": "A test case procedure that involves executing a GoodCase procedure, pausing a V2G communication session, and resuming it with specific parameters and conditions\nA specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in an AC (Alternating Current) vehicle-to-building (VTB) scenario)\nA specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in an AC (Alternating Current) vehicle-to-building (VTB) scenario\nA specific test case identifier used in a testing framework, likely related to the status of a PLC (Power Line Communication) link in an AC (Alternating Current) vehicle-to-building (VTB) context)\n<|COMPLETE|>\nA test case process executed under specific conditions related to PLC link status in SECC AC",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case involves pausing and resuming a V2G communication session"
             },
@@ -48489,7 +48455,7 @@
         "description": "A specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in a DC (Direct Current) vehicle-to-building (VTB) scenario)\nA specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in a DC (Direct Current) vehicle-to-building or vehicle-to-grid scenario\n<|COMPLETE|>\nA test case identifier used to describe a specific scenario in the testing of V2G communication, focusing on the PLC link status and session management",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case TC_SECC_DC_VTB_PLCLinkStatus_001 is designed to test aspects of V2G communication"
             },
@@ -48619,7 +48585,7 @@
         "description": "A specific test case identifier used in the context of testing, likely related to the communication or link status in a system involving power line communication (PLC) and electric vehicle charging)\n<|COMPLETE|>\nA specific test case identifier used in a table listing test case descriptions, likely related to testing the PLC link status in a DC vehicle-to-building context)\nA test case process where the Test System executes a GoodCase procedure to initiate a paused V2G communication session and checks various parameters and processes\nA specific test case description related to the PLC (Power Line Communication) link status in a DC (Direct Current) vehicle-to-building (VTB) context)",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 9.0,
                 "description": "The test case process involves initiating and managing a V2G communication session"
             },
@@ -48670,7 +48636,7 @@
                 "description": "The test behavior f_SECC_CMN_TB_VTB_PLCLinkStatus_005 is related to the test case TC_SECC_DC_VTB_PLCLinkStatus_003, both focusing on PLC link status"
             },
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 9.0,
                 "description": "The test case involves initiating and resuming a V2G communication session"
             },
@@ -48877,7 +48843,7 @@
         "description": "A test case identifier used to describe a specific test scenario for verifying the termination of a V2G communication session\nA specific test case identifier used in the context of testing, likely related to the communication or link status in a system involving power line communication (PLC) and electric vehicle charging)\nA specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in a DC (Direct Current) vehicle-to-building or vehicle-to-grid scenario\n<|COMPLETE|>\nA specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in a DC (Direct Current) vehicle-to-building or vehicle-to-grid scenario)",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 9.0,
                 "description": "The test case is designed to verify the termination of a V2G communication session"
             },
@@ -48903,7 +48869,7 @@
         "description": "<|COMPLETE|>\nA specific test case identifier used in the context of testing, likely related to the PLC (Power Line Communication) link status in a DC (Direct Current) vehicle-to-building or vehicle-to-grid scenario)\nA test case identifier used to describe a specific scenario in the testing of V2G communication, focusing on the PLC link status and session management\nA specific test case identifier used in a testing framework, likely related to the communication status of a Power Line Communication (PLC) link in a Direct Current (DC) Vehicle-to-Grid (V2G) scenario",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case TC_SECC_DC_VTB_PLCLinkStatus_006 is designed to evaluate aspects of V2G communication"
             }
@@ -48914,7 +48880,7 @@
         "description": "A part of the ISO 15118 series, this standard specifies the communication interface between electric vehicles and the grid, focusing on physical and data link layers",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 10.0,
                 "description": "ISO:15118‐3:2015 provides the standards for V2G communication"
             }
@@ -56808,7 +56774,7 @@
         "description": "A specific test case identifier used in the context of testing, likely related to the communication or link status in electric vehicle charging systems\n<|COMPLETE|>\nA test case identifier for a specific procedure involving the execution of a GoodCase procedure and management of a paused V2G communication session\nA specific test case identifier used in the context of electric vehicle communication, likely related to testing the status of a PLC (Power Line Communication) link in an AC (Alternating Current) vehicle-to-building scenario)\nA test case process executed to verify the PLCLinkStatus under specific conditions involving AC vehicle-to-grid communication",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case involves a paused V2G communication session"
             },
@@ -57026,7 +56992,7 @@
         "description": "A test case process executed to verify the PLCLinkStatus under different conditions involving AC vehicle-to-grid communication\n<|COMPLETE|>\nA specific test case identifier used in the context of testing, likely related to Electric Vehicle Communication Controller (EVCC) and Power Line Communication (PLC) link status)\nA specific test case description related to the Electric Vehicle Communication Controller (EVCC) and Power Line Communication (PLC) link status in an AC vehicle-to-building (VTB) context)\nA specific test case identifier used in the context of testing, likely related to Electric Vehicle Communication Controller (EVCC) and Power Line Communication (PLC) link status\nA test case procedure executed by the Test System to verify the handling of a paused V2G communication session initiated by the System Under Test (SUT)",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 9.0,
                 "description": "The test case involves a V2G communication session"
             },
@@ -57443,7 +57409,7 @@
         "description": "A test case identifier for a specific procedure related to V2G communication and PLC link status\nA specific test case identifier used in the context of testing, likely related to the communication or link status in electric vehicle charging systems\n<|COMPLETE|>\nA test case process executed to verify the PLCLinkStatus under specific conditions without pause\nA specific test case description related to the communication status of the Power Line Communication (PLC) link in an Electric Vehicle Communication Controller (EVCC) during AC charging)",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case is related to the V2G technology as it involves testing communication sessions between electric vehicles and the grid"
             },
@@ -57883,7 +57849,7 @@
         "description": "A test case identifier used to describe a specific test scenario related to the V2G communication session and PLC link status\nA specific test case identifier used in the context of testing electric vehicle communication controller (EVCC) direct current (DC) vehicle-to-building (VTB) power line communication (PLC) link status)\n<|COMPLETE|>\nA specific test case identifier used in testing procedures, likely related to electric vehicle communication and power line communication link status\nA test case process executed to verify the PLC link status when no pause condition is present",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case is designed to evaluate the V2G communication session"
             },
@@ -57985,7 +57951,7 @@
         "description": "A specific test case identifier used in the context of electric vehicle communication, particularly related to the PLC (Power Line Communication) link status in direct current vehicle-to-building scenarios)\nA test case process executed to verify the PLC link status under sleep after charge conditions\n<|COMPLETE|>\nA specific test case identifier used in testing procedures, likely related to electric vehicle communication and power line communication link status\nA test case identifier for a specific procedure involving V2G communication and session management",
         "connections": [
             {
-                "target": "V2G",
+                "target": "VEHICLE-TO-GRID",
                 "weight": 8.0,
                 "description": "The test case involves procedures related to V2G communication"
             },
