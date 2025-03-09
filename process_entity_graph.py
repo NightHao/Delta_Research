@@ -77,6 +77,13 @@ class EntityGraphProcessor:
         with open(file_path, 'w', encoding='utf-8') as outfile:
             json.dump(outputs, outfile, indent=4, ensure_ascii=False)
 
+    def clear_log(self, file_path: str = 'log.json') -> None:
+        """
+        Clears the log by writing an empty dictionary to the file.
+        """
+        with open(file_path, 'w', encoding='utf-8') as outfile:
+            json.dump({}, outfile, indent=4, ensure_ascii=False)
+
     def load_entity_graph(self, file_path: str) -> dict:
         """
         Loads the entity graph from a JSON file.
@@ -672,6 +679,7 @@ if __name__ == "__main__":
     processor = EntityGraphProcessor()
     # sensitive_keys = ['OPENAI_API_KEY', 'SECRET_KEY', 'DATABASE_PASSWORD']
     # processor.display_env_variables(exclude_keys=sensitive_keys)
+    # processor.clear_log()
     start_time = time.time()
     nest_asyncio.apply()
     asyncio.run(processor.process_entity_graph())
