@@ -17,12 +17,12 @@ class AliasBuilder:
         Build a bidirectional alias dictionary from the abbreviation dictionary.
         
         The resulting dictionary will have two keys:
-        - 'abbr': Maps abbreviations to lists of full names
-        - 'full_name': Maps full names to lists of abbreviations
+        - 'abbreviations': Maps abbreviations to lists of full names
+        - 'full_names': Maps full names to lists of abbreviations
         """
         alias_dict = {
-            'abbr': abbr_dict,
-            'full_name': {}
+            'abbreviations': abbr_dict,
+            'full_names': {}
         }
         
         # Build the full_name to abbreviation mapping
