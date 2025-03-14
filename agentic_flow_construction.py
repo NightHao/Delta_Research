@@ -28,6 +28,7 @@ class FlowOperations:
         load_dotenv()
         self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.0)
         self.replaced_term = {}
+        self.graph_path = "./optimized_entity_graph.json"
 
         try:
             self.llm.invoke("Hello, World!")
@@ -37,6 +38,9 @@ class FlowOperations:
     # === Agents Functions ===
     def set_replaced_term(self, entity_name: str, validated_entity_name: str):
         self.replaced_term[entity_name] = validated_entity_name
+
+    def set_graph_path(self, path: str):
+        self.graph_path = path
 
     def normalize_entity_name(self, name: str) -> str:
         """
@@ -145,33 +149,6 @@ class FlowOperations:
 
         return subgraph
     
-    def extract_json(self, text):
-        """
-        Extract JSON content from a string that may contain Markdown code block delimiters.
-
-        Args:
-            text (str): The response text from the LLM.
-
-        Returns:
-            dict or None: Parsed JSON object if extraction and parsing are successful; otherwise, None.
-        """
-        # Define a regex pattern to extract JSON within ```json ... ```
-        json_pattern = r'```json\s*(\{.*\})\s*```'
-        match = re.search(json_pattern, text, re.DOTALL)
-        if match:
-            json_str = match.group(1)
-            logging.debug(f"Extracted JSON string: {json_str}")
-            try:
-                data = json.loads(json_str)
-                logging.debug("JSON successfully parsed into dictionary.")
-                return data
-            except json.JSONDecodeError as e:
-                logging.error(f"JSON decoding error: {e}")
-                return None
-        else:
-            logging.error("No JSON found in the response.")
-            return None
-    
     def build_entity_list(self, subgraph: Dict) -> Dict[str, Dict]:
         """
         Builds an entity list by traversing the subgraph in ascending order of distance.
@@ -276,10 +253,11 @@ class FlowOperations:
             messages (list): List of messages to process
             
         Returns:
-            Dict: Dictionary containing either entity lists or error message
+            Dict: Dictionary containing entity lists
         """
         entity_lists = {}
         acc = 0
+        not_found_entities = []
         
         for msg in reversed(messages):
             if not isinstance(msg, ToolMessage):
@@ -287,18 +265,37 @@ class FlowOperations:
                 
             try:
                 response = json.loads(msg.content)
-                if "messages" in response:
-                    no_entity_msg = response["messages"][0]
-                    if "No matching entity found" in no_entity_msg:
-                        return {"messages": AIMessage(content=no_entity_msg)}
-                        
-                entity_lists[f"entity_list_{acc}"] = response
-                acc += 1
                 
+                # Check if this is a not found entity response
+                not_found_keys = [k for k in response.keys() if k.startswith("_NOT_FOUND_")]
+                if not_found_keys:
+                    for key in not_found_keys:
+                        entity_name = key.replace("_NOT_FOUND_", "")
+                        not_found_entities.append(entity_name)
+                    # Remove the not found entries
+                    for key in not_found_keys:
+                        del response[key]
+                    
+                # Only add non-empty responses to entity lists
+                if response and not (len(response) == 1 and "messages" in response):
+                    entity_lists[f"entity_list_{acc}"] = response
+                    acc += 1
+                    
             except Exception as e:
                 print(f"Error formatting tool response: {e}")
-                
-        return {"messages": AIMessage(content=json.dumps(entity_lists, indent=2))}
+        
+        # If we have entity lists, return them
+        if entity_lists:
+            if not_found_entities:
+                print(f"Note: Could not find entities: {', '.join(not_found_entities)}")
+            return {"messages": AIMessage(content=json.dumps(entity_lists, indent=2))}
+        
+        # If we have no valid entity lists, return a message
+        if not_found_entities:
+            return {"messages": AIMessage(content=f"No matching entities found for: {', '.join(not_found_entities)}")}
+        
+        # Fallback
+        return {"messages": AIMessage(content="No entities were identified in the question.")}
     
     def load_json(self, file_path: str) -> Dict:
         """
@@ -343,7 +340,7 @@ class FlowOperations:
         return None
 
     def check_entity_in_graph(self, entity_name):
-        entity_graph = self.load_json('./optimized_entity_graph.json')
+        entity_graph = self.load_json(self.graph_path)
         return entity_name in entity_graph.keys()
 
     def fuzzy_match_entity(self, entity_name, threshold=95) -> str:
@@ -357,7 +354,7 @@ class FlowOperations:
         Returns:
             str: The matched entity name or None if no match above threshold
         """
-        graph_entities = list(self.load_json('./optimized_entity_graph.json').keys())
+        graph_entities = list(self.load_json(self.graph_path).keys())
             
         matches = process.extract(entity_name, graph_entities, scorer=fuzz.ratio, limit=1)
         
@@ -440,10 +437,10 @@ class FlowOperations:
             confirmed_name = self.ask_user(match_name=match_name, original_name=entity_name)
             if confirmed_name:
                 self.set_replaced_term(entity_name, confirmed_name)
-                return entity_name, self.normalize_entity_name(confirmed_name)
+                return confirmed_name
         
         # No match found
-        return "None"
+        return None
     
     def split_chunks_by_candidate(self, background_chunks: str, group_size: int = 5) -> List[str]:
         """
@@ -469,7 +466,7 @@ class FlowOperations:
         
         return grouped_segments
 
-    async def process_entity_list(self, entities, background_chunks, llm):
+    async def process_entity_list(self, entities, background_chunks):
         """
         Process a single entity list asynchronously with candidate answer splitting.
         """
@@ -493,8 +490,9 @@ class FlowOperations:
             Candidate Answer:
             {background_chunks}
             
-            Example Output:
-            {{
+            Return a JSON object with key 'entities' and value a dictionary of entity names and their related information.
+            Example:
+            "entities": {{
                 "ENTITY_1": "Related info from this candidate answer",
                 "ENTITY_2": "Related info from this candidate answer"
             }}
@@ -502,6 +500,7 @@ class FlowOperations:
             
             # Create tasks for processing each candidate segment
             tasks = []
+            llm = ChatOpenAI(model="gpt-4o-mini", temperature=0).with_structured_output(method="json_mode")
             for segment in candidate_segments:
                 prompt = PromptTemplate.from_template(prompt_template)
                 chain = prompt | llm
@@ -517,7 +516,7 @@ class FlowOperations:
             # Merge information from all segments
             merged_info = {}
             for response in responses:
-                related_info = self.extract_json(response.content)
+                related_info = response.get("entities", {})
                 if isinstance(related_info, dict):
                     for entity, info in related_info.items():
                         if entity not in merged_info:
@@ -528,7 +527,7 @@ class FlowOperations:
             for entity, info_list in merged_info.items():
                 if entity in entities_dict:
                     entities_dict[entity]['chunk_context'] = '\n'.join(info_list)
-            print("This is the entities_dict:\n", entities_dict)
+            # print("This is the entities_dict:\n", entities_dict)
             return entities_dict
             
         except Exception as e:
@@ -544,7 +543,6 @@ class FlowConstructor:
             description="Find related entities in the graph for a given entity name.",
             return_direct=False
         )
-        self.graph_path = './optimized_entity_graph.json'
         self.subgraph_distance = 2
     
     def set_subgraph_distance(self, distance: int):
@@ -562,13 +560,21 @@ class FlowConstructor:
         """
         # Normalize the input entity name
         normalized_input = self.flow_operations.normalize_entity_name(entity_name)
-        entity_graph = self.flow_operations.load_entity_graph(self.graph_path)
+        entity_graph = self.flow_operations.load_entity_graph(self.flow_operations.graph_path)
         validated_entity_name = self.flow_operations.match_entity_name_with_alias(normalized_input)
         if validated_entity_name:
             subgraph = self.flow_operations.get_subgraph(entity_graph, validated_entity_name, self.subgraph_distance)
             return self.flow_operations.build_entity_list(subgraph)
         else:
-            return {"messages": [f"No matching entity found for '{entity_name}'"]}
+            # return {"messages": [f"No matching entity found for '{entity_name}'"]}
+            return {
+                "_NOT_FOUND_" + entity_name: {
+                    "relationship": "",
+                    "description": f"No matching entity found for '{entity_name}'",
+                    "type": "NOT_FOUND",
+                    "distance": -1
+                }
+            }
 
     def entity_extractor(self, state: AgentState) -> Dict:
         llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
@@ -616,29 +622,50 @@ class FlowConstructor:
             if "Background Chunks:" in full_content
             else full_content
         )
+        
+        # Check if we have a valid entity list
         content_str = last_message.content.strip()
-        entity_lists = json.loads(content_str)
-        # Create tasks for parallel processing
-        tasks = []
-        for entity_list, entities in entity_lists.items():
-            task = self.flow_operations.process_entity_list(entities, background_chunks, llm)
-            tasks.append(task)
+        if content_str.startswith("No matching entities found") or content_str.startswith("No entities were identified"):
+            # Return a message indicating no entities were found
+            return {"messages": AIMessage(content=content_str)}
         
-        # Run tasks concurrently
-        entities_chunks = {}
-        results = await asyncio.gather(*tasks)
-        
-        # Process results
-        for i, result in enumerate(results, 1):
-            if result:
-                entities_chunks[f"entity_chunk_{i}"] = result
-        
-        # Save results
-        res = json.dumps(entities_chunks, indent=4)
-        with open('entity_chunks.json', 'w') as f:
-            f.write(res)
-        
-        return {"messages": AIMessage(content=res)}
+        try:
+            entity_lists = json.loads(content_str)
+            
+            # Check if entity_lists is empty
+            if not entity_lists:
+                return {"messages": AIMessage(content="No valid entities were found to process.")}
+            
+            # Create tasks for parallel processing
+            tasks = []
+            for entity_list, entities in entity_lists.items():
+                if entities:  # Only process non-empty entity lists
+                    task = self.flow_operations.process_entity_list(entities, background_chunks)
+                    tasks.append(task)
+            
+            # If no tasks, return early
+            if not tasks:
+                return {"messages": AIMessage(content="No valid entities were found to process.")}
+            
+            # Run tasks concurrently
+            entities_chunks = {}
+            results = await asyncio.gather(*tasks)
+            
+            # Process results
+            for i, result in enumerate(results, 1):
+                if result:
+                    entities_chunks[f"entity_chunk_{i}"] = result
+            
+            # If no valid results, return a message
+            if not entities_chunks:
+                return {"messages": AIMessage(content="No entity information could be extracted from the background chunks.")}
+            
+            res = json.dumps(entities_chunks, indent=4)
+            return {"messages": AIMessage(content=res)}
+            
+        except json.JSONDecodeError as e:
+            print(f"Error parsing entity lists: {e}")
+            return {"messages": AIMessage(content=f"Error processing entities: {str(e)}")}
     
     def router(self, state):
         # This is the router
