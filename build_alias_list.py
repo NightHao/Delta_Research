@@ -12,6 +12,22 @@ class AliasBuilder:
             log_data = json.load(f)
         return log_data.get('abbr_dict', {}).get('data', {})
 
+    def normalize_full_name(self, full_name):
+        """Normalize a full name with proper capitalization of words and hyphenated parts."""
+        words = []
+        
+        # Split by spaces and process each word
+        for word in full_name.strip().split():
+            if '-' in word:
+                # Handle hyphenated words by capitalizing each part
+                hyphenated_parts = [part.capitalize() for part in word.split('-')]
+                words.append('-'.join(hyphenated_parts))
+            else:
+                # Regular word capitalization
+                words.append(word.capitalize())
+        
+        return ' '.join(words)
+    
     def build_alias_dict(self, abbr_dict):
         """
         Build a bidirectional alias dictionary from the abbreviation dictionary.
@@ -28,11 +44,8 @@ class AliasBuilder:
         # Build the full_name to abbreviation mapping
         for abbr, full_names in abbr_dict.items():
             for full_name in full_names:
-                if full_name:  # Skip empty strings
-                    # Normalize the full name (strip whitespace, etc.)
-                    normalized_full_name = full_name.strip()
-                    
-                    # Add the abbreviation to the list for this full name
+                if full_name:
+                    normalized_full_name = self.normalize_full_name(full_name)
                     if normalized_full_name not in alias_dict['full_names']:
                         alias_dict['full_names'][normalized_full_name] = []
                     
