@@ -30,14 +30,14 @@ class AliasBuilder:
             for full_name in full_names:
                 if full_name:  # Skip empty strings
                     # Normalize the full name (strip whitespace, etc.)
-                    normalized_full_name = full_name.strip().upper()
+                    normalized_full_name = full_name.strip()
                     
                     # Add the abbreviation to the list for this full name
-                    if normalized_full_name not in alias_dict['full_name']:
-                        alias_dict['full_name'][normalized_full_name] = []
+                    if normalized_full_name not in alias_dict['full_names']:
+                        alias_dict['full_names'][normalized_full_name] = []
                     
-                    if abbr not in alias_dict['full_name'][normalized_full_name]:
-                        alias_dict['full_name'][normalized_full_name].append(abbr)
+                    if abbr not in alias_dict['full_names'][normalized_full_name]:
+                        alias_dict['full_names'][normalized_full_name].append(abbr)
         
         return alias_dict
 
@@ -53,5 +53,5 @@ if __name__ == "__main__":
     alias_builder.save_alias_dict(alias_dict)
     
     print(f"Alias dictionary created and saved to ./alias_dict.json")
-    print(f"Number of abbreviations: {len(alias_dict['abbr'])}")
-    print(f"Number of full names: {len(alias_dict['full_name'])}")
+    print(f"Number of abbreviations: {len(alias_dict['abbreviations'])}")
+    print(f"Number of full names: {len(alias_dict['full_names'])}")
