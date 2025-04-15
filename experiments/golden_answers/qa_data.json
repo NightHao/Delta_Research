@@ -1,0 +1,812 @@
+{
+    "1": {
+        "Question number": 1,
+        "Question": "What is the system architecture of Vehicle-to-Grid communication?",
+        "Entity": [
+            "Vehicle-to-Grid communication"
+        ],
+        "Table": [],
+        "Figure": [
+            "Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model",
+            "Figure 2 — [ISO-3] relationship to the ISO/IEC OSI reference model"
+        ],
+        "Answers": [
+            "[ISO-3] defines requirements applicable to layer 1 and layer 2, including V2G standardized service primitive interface, according to the OSI layered architecture. Layer 3 to layer 7 is specified in [ISO-2]"
+        ]
+    },
+    "2": {
+        "Question number": 2,
+        "Question": "What is HPGP?",
+        "Entity": [
+            "HPGP",
+            "HomePlug Green PHY"
+        ],
+        "Table": [
+            "Table A.11 — Definition of electrical characteristics"
+        ],
+        "Figure": [],
+        "Answers": [
+            "HPGP HomePlug Green PHY",
+            "This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV",
+            "The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage.",
+            "For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause.",
+            "All technical requirements described in this Clause are assumed to have a dedi- cated pair of HomePlug Green PHY chips implemented for the couple (EVSE, EV), linked by a control pilot wire. Figure A.10 depicts an implementation of parallel injection and gives definitions used further.",
+            "Table A.11 gives requirements that physical signals shall comply with, in order to enable HomePlug Green PHY injection into the control pilot line, according to previous requirements."
+        ]
+    },
+    "3": {
+        "Question number": 3,
+        "Question": "What is SLAC?",
+        "Entity": [
+            "SLAC",
+            "Signal Level Attenuation Characterization"
+        ],
+        "Table": [
+            "Table A.1 — Timing and constant values"
+        ],
+        "Figure": [
+            "Figure A.4 — Sequence chart of signal strength measurement",
+            "Figure A.11 — HomePlug Green PHY-Transmission path example with SLAC relevant ",
+            "attenuations and calculations"
+        ],
+        "Answers": [
+            "SLAC Signal Level Attenuation Characterization",
+            "protocol to measure the signal strength of a signal between HomePlug Green PHY stations",
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP].",
+            "[V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1.",
+            "[V2G3-A09-23] For the SLAC process, the low-layer communciation module shall use the set of MMEs defined in Figure A.1. The parameters to be used within the MMEs are defined in Table A.4.",
+            "[V2G3-A09-24] The Ethernet Destination MAC address field shall be filled either as Broadcast or Unicast, as defined in Table A.4."
+        ]
+    },
+    "4": {
+        "Question number": 4,
+        "Question": "What is Logical Network?",
+        "Entity": [
+            "Logical Network"
+        ],
+        "Table": [
+            "Table 3 — Timing and constant values"
+        ],
+        "Figure": [
+            "Figure A.7 — Sequence chart of joining the logical network"
+        ],
+        "Answers": [
+            "set of low-layer communication stations which use the same network key",
+            "Note 1 to entry: Only members of the same logical network are able to exchange encrypted payload data and are visible for each other on higher layers. Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation.",
+            "Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation.",
+            "Note 2 to entry: A logical network is defined for layer 2.",
+            "[V2G3-M09-19] In the following cases, the communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status “Unmatched”.",
+            "[V2G3-M08-01] All low-layer communication devices shall comply with Table 3.",
+            "[V2G3-A09-92] At any time an EVSE switches to a private logical network, the local NMK shall be set per random value to ensure a unique logical network. The configuration of the NMK on EVSE side shall be done with sending a CM_SLAC_MATCH.CNF MME or at anytime before.",
+            "[V2G3-A09-93] The NID of the logical network shall be derived from the NMK according to [HPGP], 4.4.3.1 using a security level value of 0b00."
+        ]
+    },
+    "5": {
+        "Question number": 5,
+        "Question": "What is CCo?",
+        "Entity": [
+            "Cco",
+            "Central Coordinator"
+        ],
+        "Table": [],
+        "Figure": [],
+        "Answers": [
+            "CCo Central Coordinator",
+            "manager of a HomePlug Green PHY network",
+            "[V2G3-A06-02] The low-layer communication module on the EV side shall be configured in order to never become the CCo.",
+            "[V2G3-A06-03] The low-layer communication module on the EVSE side shall be configured in order to always be the CCo.",
+            "For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause “Control SAP Service” of the [HPGP] may be used.",
+            "This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV."
+        ]
+    },
+    "6": {
+        "Question number": 6,
+        "Question": "What is the difference between Data SAP and Data link control SAP?",
+        "Entity": [
+            "Data SAP",
+            "Data link control SAP"
+        ],
+        "Table": [
+            "Table 4 — D-LINK_READY.indication primitive",
+            "Table 5 — D-LINK_TERMINATE.request primitive",
+            "Table 6 — D-LINK_ERROR.request primitive",
+            "Table 7 — D-LINK_PAUSE.request primitive"
+        ],
+        "Figure": [
+            "Figure 2 — [ISO-3] relationship to the ISO/IEC OSI reference model"
+        ],
+        "Answers": [
+            "service access point that defines the interface between layer 2 and layer 3 for exchange of v2g-related payload",
+            "service access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status",
+            "The data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP].",
+            "As shown in Figure 2, the definition of the data link layer provides the following two interfaces to higher layers.",
+            "— Data SAP is the interface between the communication technology and the layer 3 (e.g. IPv6).",
+            "— The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers.",
+            "This SAP supports applications using Ethernet II-class packets, including IEEE 802.3 with or without IEEE 802.2 (LLC), IEEE 802.1H (SNAP) extensions, and/or VLAN tagging.",
+            "Due to the convergence layer, the data link layer of HomePlug Green PHY provides an Ethernet II-class SAP to higher layers.",
+            "The convergence layer adapts the generic HomePlug Green PHY MAC to an IEEE 802.3 Ethernet II-class interface through the ETH SAP."
+        ]
+    },
+    "7": {
+        "Question number": 7,
+        "Question": "What is the difference between basic signalling and high-level communication?",
+        "Entity": [
+            "basic signalling",
+            "high-level communication"
+        ],
+        "Table": [],
+        "Figure": [],
+        "Answers": [
+            "[V2G3-M06-01] The basic signalling follows [IEC-1]. All timings shall be compliant with the [IEC-1], Annex A.",
+            "Any charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal.",
+            "[V2G3-M06-02] The HLC shall be used in addition to the basic signalling in order to enable a bidi- rectional communication and offer additional features.",
+            "The sequence of the data exchange within the HLC-based charging session is done in accordance with the [ISO-2] communication protocol.",
+            "It can be split into three periods as follows:",
+            "— data link setup;",
+            "— V2G setup;",
+            "— V2G charging loop."
+        ]
+    },
+    "8": {
+        "Question number": 8,
+        "Question": "What is the difference between MTC and PTC?",
+        "Entity": [
+            "MTC",
+            "PTC"
+        ],
+        "Table": [
+            "",
+            "Table 4 — Component definitions",
+            "Table 5 — Port type definitions"
+        ],
+        "Figure": [
+            "Figure 3 — ISO 15118-5 test configuration"
+        ],
+        "Answers": [
+            "MTC Main Test Component",
+            "parallel test component",
+            "MTC single test component in a test component configuration responsible for creating and controlling parallel test components and computing and assigning the test verdict",
+            "test component created by the main test component",
+            "The MTC always contains a TTCN‐3 test configuration and delimits the lifeline during test execution. Next to using ports for communication purposes, local timers, variables or constants may be assigned to components to store dynamic information during test case execution.",
+            "The parallel test component (PTC) for IEC 61851‐1 signaling continuously observes the protocol specific parameters positive voltage (state), frequency, duty cycle and the proximity resistor value in accordance with the defined valid range of values (as defined in IEC 61851‐1:2017, Annex A), during the entire test case execution.",
+            "These components and ports compose relevant test configurations for this document. Whether the type EVCC_Tester or SECC_Tester is to be used as MTC depends on the type of the SUT.",
+            "[V2G5-010] If the SUT is an SECC, the MTC shall use the type SECC_Tester.",
+            "The HAL_61851_Listener combines all necessary listener functionality into one component, independent on whether the MTC represents an SECC_Tester or an EVCC_Tester.",
+            "As shown in Figure 3 the port mappings are defined statically as follows:",
+            "— The port pt_SLAC_Port of the TSI is always mapped to port pt_SLAC_Port of the MTC.",
+            "— The port pt_HAL_61851_Port of the TSI is always mapped to port pt_HAL_61851_Port of the MTC.",
+            "— The port pt_HAL_61851_Listener_Port of the TSI is always mapped to port pt_HAL_61851_Listener_Port of the v_HAL_61851_Listener. The pt_HAL_61851_Listener_Port is from the same type HAL_61851_Port as the pt_HAL_61851_Port.",
+            "— The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC.",
+            "TSI TTCN‐3 System Interface",
+            "test component that provides a mapping of the ports available in the (abstract) TTCN‐3 test system to those offered by a real test system",
+            "In addition to the MTC and PTC and their corresponding port type definitions, a test configuration also consists of respective Test System Interfaces (TSI). An abstract Test System Interface (TSI) is specified as a collection of ports. A TSI has no local timers, constants or variables. Only ports are assigned to it. During the test case execution test components ports can be mapped dynamically to the TSI ports to establish communication channel to the real test system interface. In the test configuration the TSI uses the type System_EVCC or System_SECC depending on the type of the SUT. If the SUT is an EVCC, the TSI uses the type System_EVCC. If the SUT is an SECC, the TSI uses the type System_SECC."
+        ]
+    },
+    "9": {
+        "Question number": 9,
+        "Question": "What is ATS?",
+        "Entity": [
+            "ATS"
+        ],
+        "Table": [
+            "Table 6 — PICS for test system configurations CF_05_001 and CF_05_002 (SUT either SECC or EVCC)",
+            "Table 7 — PICS for test system configuration CF_05_001 (SUT equals SECC)",
+            "Table 8 — PICS for test system configuration CF_05_002 (SUT equals EVCC)",
+            "Table 9 — Selected PIXIT for test system configurations CF_05_001 and CF_05_002 (SUT either SECC or EVCC)",
+            "Table 10 — Selected PIXIT for test system configuration CF_05_001 (SUT equals SECC)",
+            "Table 11 — Selected PIXIT for test system configuration CF_05_002 (SUT equals EVCC)",
+            "Table 27 — Requirements of ISO 15118-3 not considered in the ATS",
+            "Table 28 — Requirements of ISO 15118-3 implicitly covered by the SUT adapters / codecs",
+            "Table 29 — ATS coverage of requirements in ISO 15118-3"
+        ],
+        "Figure": [],
+        "Answers": [
+            "Abstract Test Suite",
+            "test suite composed of abstract test cases",
+            "The capability tests within the ATS check that the observable capabilities of the SUT are in accordance with the static conformance requirements defined in ISO 15118‐3. The behavior tests of the ATS examine an implementation as thoroughly as is practical over the full range of dynamic conformance requirements defined in ISO 15118‐3 and within the capabilities of the SUT (see NOTE 1).",
+            "The following conditions apply in terms of test case coverage for this document regarding requirements defined in ISO 15118‐3:",
+            "— Requirements that are out of scope according to the conventions defined in this document or cannot be tested in black‐box tests are summarized in Table 27.",
+            "— Requirements that are not explicitly tested through a dedicated test case in the ATS but implicitly tested by the SUT Adapter/Codec are summarized in Table 28.",
+            "The resulting test suite coverage in this document with reference to requirements in ISO 15118‐3 is summarized in Table 29. It only includes requirements which are not listed for exclusion in Table 27 or Table 28. Table 29 defines the relevance of requirements of ISO 15118‐3 for the ATS, based upon the type of SUT (EVCC or SECC), the authentication profile (EIM or PnC) and AC or DC charging. The following symbols are used in Table 29:",
+            "X Indicates requirements that are covered in the ATS with one or more test cases.",
+            "I Indicates requirements that are indirectly covered in the ATS but other than those listed in Table 29 can be directly associated to one or more test cases in the ATS.",
+            "P Indicates requirements that are only partially covered by one or more test cases in the ATS.",
+            "N Requirements that are not testable for the profile defined in the respective column.",
+            "‐ Requirements that are not applicable for the profile defined in the respective column.",
+            "O Requirements that are out of scope for the profile defined in the respective column.",
+            "Protocol Implementation Conformance Statement",
+            "To evaluate the conformance of a particular implementation, it is necessary to have a statement of the capabilities and options which have been implemented, and any features which have been omitted, so that the implementation can be tested for conformance against relevant requirements, and against those requirements only. Such a statement is called a Protocol Implementation Conformance Statement (PICS) cf. [ITU‐T X.290].",
+            "All PICS defined in the ATS are summarized in Table 6, Table 7 and Table 8.",
+            "Protocol implementation extra information for testing",
+            "In order to ensure testability of ISO 15118‐3 requirements depending on a specific behavior of the SUT, the following set of PIXIT is defined in addition to PICS in this document. PIXIT are used to indicate to the SUT that a specific capability of the SUT is tested."
+        ]
+    },
+    "10": {
+        "Question number": 10,
+        "Question": "What is TSS?",
+        "Entity": [
+            "TSS"
+        ],
+        "Table": [],
+        "Figure": [
+            "Figure 2 — General overview of the Test Suite Structure (TSS)"
+        ],
+        "Answers": [
+            "test suite structure",
+            "A test suite is a complete set of test cases, possibly combined into groups or modules (e.g. for use cases or domains like AC, DC charging), that are necessary to perform conformance testing for a given SUT.",
+            "In each test case, the SUT is stimulated with specific inputs and the reactions are observed and evaluated. Depending on the test purpose different pre‐conditions and post‐conditions shall be considered for the formulation of the test behavior. The pre‐conditions, post‐conditions as well as test behaviors are encapsulated into individual functions and stored within separate modules. Thus, a complete test case is composed by the actual test behavior enveloped by pre‐ and post‐conditions (see 7.7.5 for details). The corresponding grouping of functions can therefore be assigned to the lowest abstract hierarchical level (see Figure 2). The test cases are defined on the second level.",
+            "This subclause defines test profiles for conformance with ISO 15118‐3. A test profile consists of a test configuration as well as a selection and assignment of PICS/PIXIT. Depending on the test configuration a set of test components and ports are defined. The test profile furthermore includes a test group defining the set of relevant test cases and the sequence in which they are executed in order to perform a conformance test for a given use case."
+        ]
+    },
+    "11": {
+        "Question number": 11,
+        "Question": "What is EIM?",
+        "Entity": [
+            "EIM",
+            "External Identification Mean"
+        ],
+        "Table": [
+            "Table 1 — EIM and/or PnC in EVSEs"
+        ],
+        "Figure": [
+            "Figure 3 — Connection coordination Seq 1: AC EVSE with PnC and EIM and matching process not ",
+            "started before EIM, 5 % control pilot duty cycle after plug-in",
+            "Figure 4 — Connection coordination Seq 2: AC EVSE with PnC and EIM and matching process not ",
+            "started before EIM, control pilot state X1 after plug-in",
+            "Figure 5 — Connection coordination Seq 3: AC EVSE with PnC and EIM and matching process ",
+            "started before EIM, 5 % control pilot duty cycle after plug-in",
+            "Figure 6 — Connection coordination Seq 4: AC EVSE with PnC and EIM and matching process ",
+            "started before EIM, control pilot state X1 after plug-in",
+            "Figure 7 — Connection coordination Seq 5: AC EVSE with EIM, EIM before plug-in, control pilot ",
+            "state X2 after plug-in",
+            "Figure 9 — Connection coordination Seq 7: AC EVSE timeout handling for 5 % control pilot duty ",
+            "cycle"
+        ],
+        "Answers": [
+            "External Identification Mean",
+            "Table 1 gives a summary of PnC and/or EIM implementation on EVSEs. Details are given in the following figures. For example, Seq 1 b), c), and d) means that the branches b), c), and d) apply.",
+            "Figure 3 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is not started when EIM is done. The EVSE applies 5 % control pilot duty cycle after plug-in. Control pilot state X1 could be applied for a short time until the control pilot oscillator is switched on. If an EVSE only supports EIM or PnC, only some branches exist.",
+            "Figure 4 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is not started when EIM is done. The EVSE applies control pilot state X1 after plug-in. If an EVSE only supports EIM or PnC, only some branches exist.",
+            "Figure 5 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is already started when EIM is done. The EVSE applies 5 % control pilot duty cycle after plug-in. Control pilot state X1 could be applied for a short time until the control pilot oscillator is switched on. If an EVSE only supports EIM or PnC, only some branches exist.",
+            "Figure 6 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is already started when EIM is done. The EVSE applies control pilot state X1 after plug-in. If an EVSE only supports EIM or PnC, only some branches exist.",
+            "Figure 7 shows an AC EVSE supporting HLC-C with PnC and EIM. EIM is done before plug-in.",
+            "Figure 8 shows a DC EVSE supporting HLC-C with PnC and EIM. First branch shows a PnC case. Second branch shows a case where EIM is done after plug-in. Third branch shows a case where EIM is done before plug-in.",
+            "[V2G3-M06-08] After positive EIM, if no matching process is running, the EVSE shall signal control pilot state E/F for T_step_EF, then signal control pilot state X1/X2 (nominal)."
+        ]
+    },
+    "12": {
+        "Question number": 12,
+        "Question": "What is CM_SLAC_PARM.REQ?",
+        "Entity": [
+            "CM_SLAC_PARM.REQ"
+        ],
+        "Table": [
+            "Table A.2 — Involved MMEs for parameters exchange",
+            "Table A.1 (continued)",
+            "Table 3 — Timing and constant values",
+            "Table A.4 (continued)"
+        ],
+        "Figure": [
+            "Figure A.9 — Example of sequence chart of matching process error handling"
+        ],
+        "Answers": [
+            "Before the signal strength measurement starts, the EV broadcasts the parameters to be used for the following signal strength measurement sequence by means of the message CM_SLAC_PARM.REQ. Any",
+            "unmatched EVSE which receives the parameter exchange broadcast sends a response to the EV by means of the message CM_SLAC_PARM.CNF.",
+            "[V2G3-A09-04] The MMEs for the parameter exchange shall be used with the following content and be sent as Ethernet unicast/broadcast messages as defined",
+            "Figure 9 Shows AC EVSE control pilot timeout handling for 5 % control pilot duty cycle. See [V2G3 M06-07].",
+            "Figure A.9 gives an example of matching process error handling. The low-layer communication module of the EV is awake and the low-layer communication module of the EVSE is asleep. The EVCC sends first CM_SLAC_PARM.REQ message immediately after cable plug-in. The EVSE has to boot its low-layer communication module and is not able to answer the CM_SLAC_PARM.REQ message. After the low-layer communication module on the EVSE side is ready for communication, it sends a CM_SLAC_PARM.CNF."
+        ]
+    },
+    "13": {
+        "Question number": 13,
+        "Question": "What is CM_SLAC_PARM.CNF?",
+        "Entity": [
+            "CM_SLAC_PARM.CNF"
+        ],
+        "Table": [
+            "Table A.2 — Involved MMEs for parameters exchange",
+            "Table A.1 — Timing and constant values",
+            "Table A.1 (continued)",
+            "Table A.4 (continued)"
+        ],
+        "Figure": [
+            "Figure A.4 — Sequence chart of signal strength measurement",
+            "Figure A.9 — Example of sequence chart of matching process error handling"
+        ],
+        "Answers": [
+            "Before the signal strength measurement starts, the EV broadcasts the parameters to be used for the following signal strength measurement sequence by means of the message CM_SLAC_PARM.REQ. Any",
+            "unmatched EVSE which receives the parameter exchange broadcast sends a response to the EV by means of the message CM_SLAC_PARM.CNF.",
+            "[V2G3-A09-04] The MMEs for the parameter exchange shall be used with the following content and be sent as Ethernet unicast/broadcast messages as defined.",
+            "[V2G3-A09-10] If no valid CM_SLAC_PARM.CNF arrives at the EV when TT_match_response expires, the EV shall retransmit the request and wait again for TT_match_ response. The total number of retries is given by C_EV_match_retry. If C_EV_ match_retry is reached, the matching process shall be considered as FAILED.",
+            "[V2G3-A09-09] If the EV receives a CM_SLAC_PARM.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.2 is invalid.",
+            "Figure A.9 gives an example of matching process error handling. The low-layer communication module of the EV is awake and the low-layer communication module of the EVSE is asleep. The EVCC sends first CM_SLAC_PARM.REQ message immediately after cable plug-in. The EVSE has to boot its low-layer communication module and is not able to answer the CM_SLAC_PARM.REQ message. After the low-layer communication module on the EVSE side is ready for communication, it sends a CM_SLAC_PARM.CNF."
+        ]
+    },
+    "14": {
+        "Question number": 14,
+        "Question": "What is CM_START_ATTEN_CHAR.IND?",
+        "Entity": [
+            "CM_START_ATTEN_CHAR.IND"
+        ],
+        "Table": [
+            "Table A.4 — MMEs parameters definition for SLAC",
+            "Table A.2 — Involved MMEs for parameters exchange",
+            "Table A.4 (continued)"
+        ],
+        "Figure": [
+            "Figure A.9 — Example of sequence chart of matching process error handling"
+        ],
+        "Answers": [
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            "After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP]."
+        ]
+    },
+    "15": {
+        "Question number": 15,
+        "Question": "What is CM_MNBC_SOUND.IND?",
+        "Entity": [
+            "CM_MNBC_SOUND.IND"
+        ],
+        "Table": [
+            "Table A.4 (continued)",
+            "Table A.1 — Timing and constant values"
+        ],
+        "Figure": [
+            "Figure A.4 — Sequence chart of signal strength measurement"
+        ],
+        "Answers": [
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            "After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP]."
+        ]
+    },
+    "16": {
+        "Question number": 16,
+        "Question": "What is CM_ATTEN_CHAR.IND?",
+        "Entity": [
+            "CM_ATTEN_CHAR.IND"
+        ],
+        "Table": [
+            "Table A.4 (continued)",
+            "Table A.3 — EV_Discovering_Status definition"
+        ],
+        "Figure": [
+            "Figure A.4 — Sequence chart of signal strength measurement",
+            "Table A.1 (continued)"
+        ],
+        "Answers": [
+            " Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message.",
+            "The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1.",
+            "The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one.",
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            " After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.",
+            "Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP].",
+            "If the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_ PROFILE has no significance and the whole messages shall be ignored. It is up to the EV to decide what number of M-SOUNDS used for the attenuation profile is sufficient for its decision (i.e. whether to discard CM_ATTEN_CHAR.IND if NUM_ SOUNDs is less than C_EV_match_MNBC).",
+            "If the EV receives a CM_ATTEN_CHAR.IND with invalid content, it shall be ignored.",
+            "If a CM_ATTEN_CHAR.IND is received and its origin is an EVSE that has not sent a CM_SLAC_PARM.CNF before, the message shall be processed and not ignored.",
+            "If the EVSE has not received a CM_ATTEN_CHAR.RSP within TT_match_response, it shall retransmit a CM_ATTEN_CHAR.IND when the TT_match_response expires and reset this timer. After C_EV_match_retry attempts, if no CM_ATTEN_CHAR. RSP is received by the EVSE, the matching process shall be considered as FAILED.",
+            "According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:",
+            "— if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;",
+            "— if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;",
+            "— if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED."
+        ]
+    },
+    "17": {
+        "Question number": 17,
+        "Question": "What is CM_ ATTEN_CHAR.RSP?",
+        "Entity": [
+            "CM_ ATTEN_CHAR.RSP"
+        ],
+        "Table": [
+            "Table A.4 (continued)",
+            "Table A.1 — Timing and constant values",
+            "Table A.1 (continued)",
+            "Table A.4 (continued)",
+            "Table A.5 — MMEs parameters definition for validation process – First request-response",
+            "Table A.6 — MMEs parameters definition for validation process – Second request-response",
+            "Table A.7 — MMEs parameters definition for logical network parameter exchange"
+        ],
+        "Figure": [
+            "Figure A.4 — Sequence chart of signal strength measurement"
+        ],
+        "Answers": [
+            "all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP].",
+            " After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.",
+            "According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:",
+            "— if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;",
+            "— if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;",
+            "— if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.",
+            "If the EVSE receives a CM_ATTEN_CHAR.RSP with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.4 is invalid."
+        ]
+    },
+    "18": {
+        "Question number": 18,
+        "Question": "What is CM_ATTEN_PROFILE.IND?",
+        "Entity": [
+            "CM_ATTEN_PROFILE.IND"
+        ],
+        "Table": [
+            "Table A.4 (continued)",
+            "Table A.1 — Timing and constant values",
+            "Table A.1 (continued)",
+            ""
+        ],
+        "Figure": [
+            "Figure A.4 — Sequence chart of signal strength measurement",
+            "Figure A.11 — HomePlug Green PHY-Transmission path example with SLAC relevant attenuations and calculations"
+        ],
+        "Answers": [
+            "The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1.",
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            " After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.",
+            "Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP].",
+            "The low-layer communication module on EV side does not know the value of AttnRxEVSE. Since this value has an impact on the SLAC measurement, the EVSE has to correct the measurement values by AttnRxEVSE before reporting the values back to the EV.",
+            "AttnRxEVSE is the insertion loss of the receiving path between the HomePlug Green PHY Modem and the charge coupler on EVSE side. In the example, a value of 3 dB is assumed (e.g. through to transformers, lines, coupling components)."
+        ]
+    },
+    "19": {
+        "Question number": 19,
+        "Question": "What is CM_VALIDATE.REQ?",
+        "Entity": [
+            "CM_VALIDATE.REQ"
+        ],
+        "Table": [
+            "Table 3 — Timing and constant values",
+            "Table A.1 (continued)",
+            "Table A.3 — EV_Discovering_Status definition",
+            "Table A.4 (continued)",
+            "Table A.5 — MMEs parameters definition for validation process – First request-response",
+            "Table A.6 — MMEs parameters definition for validation process – Second request-response",
+            "Table A.7 (continued)"
+        ],
+        "Figure": [
+            "Figure A.5 — Sequence chart of validation process of matching decision",
+            "Figure 12 — Example of BCB-Toggle sequence with C_EV_vald_nb_toggles = 2 and active oscillator"
+        ],
+        "Answers": [
+            "The validation process is divided in two parts consisting of a CM_VALIDATE.REQ and CM_VALIDATE.CNF each. It is important to consider that the first and second request-response differ in the contents of the messages. In the following messages related to the first/second request-response are designated with “step 1” or “step 2”, respectively.",
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            " After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.",
+            "Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP].",
+            "According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:",
+            "— if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;",
+            "— if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;",
+            "— if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.",
+            "If any received CM_VALIDATE.REQ contains invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.5 and Table A.6 is inva- lid.",
+            "If any CM_VALIDATE.REQ contains a result field other than “ready”, the matching process shall be considered as FAILED.",
+            " After the signal strength measurement, the EV can decide on the basis of the results to request the EVSE for an additional validation process. As soon as the EVSE is ready to detect the control pilot line, the EV sends a random timer value TP_EV_vald_toggle to the EVSE. After sending the message, the EV switches the control pilot state in the sequence B-C-B. This switching sequence is called BCB-Toggle in the following.",
+            "The number of BCB-Toggles (C_EV_vald_nb_toggles) is chosen randomly in the available time."
+        ]
+    },
+    "20": {
+        "Question number": 20,
+        "Question": "What is CM_VALIDATE.CNF?",
+        "Entity": [
+            "CM_VALIDATE.CNF"
+        ],
+        "Table": [
+            "Table A.5 — MMEs parameters definition for validation process – First request-response",
+            "Table 3 — Timing and constant values",
+            "Table A.1 — Timing and constant values",
+            "Table A.1 (continued)",
+            "Table A.6 — MMEs parameters definition for validation process – Second request-response",
+            "Table A.7 (continued)"
+        ],
+        "Figure": [
+            "Figure A.5 — Sequence chart of validation process of matching decision"
+        ],
+        "Answers": [
+            "The validation of matching decision is a method to validate the SLAC based matching by means of the control pilot line. In case the EV is not able to come to a distinct matching decision on base of the signal strength measurement, it may decide to do an additional validation process. The validation process is divided in two parts consisting of a CM_VALIDATE.REQ and CM_VALIDATE.CNF each. It is important to consider that the first and second request-response differ in the contents of the messages. In the following messages related to the first/second request-response are designated with “step 1” or “step 2”, respectively.",
+            "The second part of the validation process covers the control pilot toggle sequence on EV side and the counting of control pilot toggles on the EVSE side. The EV starts this process by sending the step 2 indicating “ready”. With receiving the step 2 CM_VALIDATE.REQ, the EVSE starts counting the BCB- toggles for a time window given by the timer field of the request. As soon as the timer expires, the EVSE sends a step 2 CM_VALIDATE.CNF to the EV containing the number of BCB-Toggles seen and the result field filled with “Success”. The field is filled with “failure” whenever the validation could not be performed or the number of seen BCB-Toggles does not contain valid data.",
+            "By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.",
+            " After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.",
+            "Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.",
+            "The signal strength measurement method to be used is the SLAC defined in the [HPGP].",
+            "According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:",
+            "— if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;",
+            "— if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;",
+            "— if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.",
+            "If the EVSE receives another CM_VALIDATE.REQ with a timer field equal to zero after sending out the step 1 CM_VALIDATE.CNF, the step 1 CM_VALIDATE.CNF shall be resent.",
+            "According to the EVSE Implementation, the EVSE can decide to answer to a CM_VALIDATE.REQ with the result field of CM_VALIDATE.CNF filled to “Failure”, if it does not have implemented the validation process feature. In this case, the EV shall decide",
+            "either to skip the validation process and continue the matching process with SLAC_MATCH.REQ message,",
+            "either to continue the validation process with the next available EVSE, which was “EVSE_POTENTIALLY_FOUND”",
+            "either to terminate the session if there is no other available EVSE with “EVSE_ POTENTIALLY_FOUND”",
+            "If the EV does not receive any valid CM_VALIDATE.CNF for all retries, the EV shall stop the validation process with the current EVSE and continue the validation pro- cess with the next potential EVSE.",
+            "If any received CM_VALIDATE.CNF contains invalid content, it shall be ignored. Content which deviates from the MME definition in Table A.5 and Table A.6 is inva- lid.",
+            "If the result field of the step 1 CM_VALIDATE.CNF contains “Success”, the EV shall stop the validation process with the current EVSE and continue the validation pro- cess with the next potential EVSE.",
+            "If the result field of the step 2 CM_VALIDATE.CNF contains “failure”, “not ready”, or “not required”, the EV shall stop the validation process with the current EVSE and continue the validation process with the next potential EVSE."
+        ]
+    },
+    "21": {
+        "Question number": 21,
+        "Question": "What is CM_SLAC_MATCH.REQ?",
+        "Entity": [
+            "CM_SLAC_MATCH.REQ"
+        ],
+        "Table": [
+            "Table A.1 — Timing and constant values",
+            "Table A.1 (continued)",
+            "Table A.7 — MMEs parameters definition for logical network parameter exchange",
+            "Table A.4 (continued)",
+            "Table A.5 — MMEs parameters definition for validation process – First request-response",
+            "Table A.6 — MMEs parameters definition for validation process – Second request-response",
+            "Table A.7 (continued)"
+        ],
+        "Figure": [
+            "Figure A.5 — Sequence chart of validation process of matching decision",
+            "Figure A.2 — Sequence chart of HomePlug Green PHY matching process (part 2",
+            ""
+        ],
+        "Answers": [
+            "According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:",
+            "— if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;",
+            "— if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;",
+            "— if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.",
+            "If the EVSE receives another CM_SLAC_MATCH.REQ from the same EV, this means that the EV retransmitted its request for some reason (i.e. the CM_SLAC_MATCH. CNF was not received). The EVSE shall respond to the request again.",
+            "If the EVSE receives a CM_SLAC_MATCH.REQ with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.7 is invalid."
+        ]
+    },
+    "22": {
+        "Question number": 22,
+        "Question": "What is CM_SLAC_MATCH.CNF?",
+        "Entity": [
+            "CM_SLAC_MATCH.CNF"
+        ],
+        "Table": [
+            "Table A.7 — MMEs parameters definition for logical network parameter exchange",
+            "Table A.8 — MMEs parameters definition for joining the logical network",
+            "Table A.7 (continued)",
+            "Table A.1 (continued)"
+        ],
+        "Figure": [
+            "Figure A.5 — Sequence chart of validation process of matching decision",
+            "Figure A.2 — Sequence chart of HomePlug Green PHY matching process (part 2",
+            ""
+        ],
+        "Answers": [
+            "If the EV receives a CM_SLAC_MATCH.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.7 is invalid.",
+            "If no link is established within the max(TT_match_join) after receiving CM_SLAC_ MATCH.CNF, the EV shall consider that the matching process is FAILED."
+        ]
+    },
+    "23": {
+        "Question number": 23,
+        "Question": "What is CM_SET_KEY.REQ?",
+        "Entity": [
+            "CM_SET_KEY.REQ"
+        ],
+        "Table": [
+            "Table A.8 — MMEs parameters definition for joining the logical network",
+            "Table A.7 (continued)",
+            ""
+        ],
+        "Figure": [
+            "Figure A.7 — Sequence chart of joining the logical network",
+            "Figure A.1 — Sequence chart of HomePlug Green PHY matching process (part 1)"
+        ],
+        "Answers": [
+            "The EVSE shall configure its low-layer communciation module to the NID and NMK values sent in CM_SLAC_MATCH.CNF at the latest after sending the CM_SLAC_MATCH.CNF. The configuration can also be done at any time before (e.g. after unplugging of a previous EV). The configuration shall be done by sending a CM_SET_KEY.REQ."
+        ]
+    },
+    "24": {
+        "Question number": 24,
+        "Question": "What is CM_SET_KEY.CNF?",
+        "Entity": [
+            "CM_SET_KEY.CNF"
+        ],
+        "Table": [
+            "Table A.3 — EV_Discovering_Status definition",
+            "Table A.8 — MMEs parameters definition for joining the logical network"
+        ],
+        "Figure": [
+            "Figure A.7 — Sequence chart of joining the logical network",
+            "Figure A.1 — Sequence chart of HomePlug Green PHY matching process (part 1)"
+        ],
+        "Answers": [
+            "The low-layer communciation module shall join the logical network only if the EV_ Discovering_status is EVSE_FOUND.",
+            "According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:",
+            "— if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;",
+            "— if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;",
+            "— if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.",
+            "It is up to the implementation how to handle a negative response in a CM_SET_KEY.CNF or a missing CM_SET_KEY.CNF at all."
+        ]
+    },
+    "25": {
+        "Question number": 25,
+        "Question": "What is CM_AMP_MAP.REQ?",
+        "Entity": [
+            "CM_AMP_MAP.REQ"
+        ],
+        "Table": [
+            "Table A.9 — MMEs parameters definition for amplitude map exchange",
+            "Table A.1 — Timing and constant values\u000bTable A.1 (continued)"
+        ],
+        "Figure": [
+            "Figure A.8 — Sequence chart of amplitude map exchange",
+            "Table A.9 — MMEs parameters definition for amplitude map exchange",
+            "Table A.7 — MMEs parameters definition for logical network parameter exchange",
+            "Table A.7 (continued)"
+        ],
+        "Answers": [
+            "CM_AMP_MAP.REQ sent from one host to the local low-layer communciation module causes the low- layer communciation module to modify its transmission power.",
+            "CM_AMP_MAP.REQ sent from one host to another host through the low-layer communciation is designated to transmit the requested transmission power per carrier to the destination host to be included in its amplitude map calculation. This message does not have any direct influence on the low-layer communciation module transmission power, it is only used for information exchange.",
+            "An amplitude map exchange can be initiated by an EV or an EVSE by sending a “CM_AMP_MAP.REQ” message.",
+            "specifies a transmit power-reduction factor for each subcarrier related to the tone mask",
+            "defines the set of tones (or carriers) that can be used in a given regulatory jurisdiction or given application",
+            "The amplitude map exchange is an optional function to request the counterpart low-layer communciation module to reduce the transmission power for certain carriers.",
+            "counterpart low-layer communciation module to reduce the transmission power for certain carriers. The requesting device sends a CM_AMP_MAP.REQ command which has to be confirmed by the counterpart node by a CM_AMP_ MAP.CNF message.",
+            "The transmission power limitation request is related to the PSD at EVs/EVSEs socket.",
+            "All transmission power values within the CM_AMP_MAP MMEs are related to a reference value of −50 dBm/Hz. The resolution of AMDATA are −2 dB, so that a AMDATA value of 0b0011 means a value −6 dB.",
+            "If an amplitude map exchange is initiated by one of the low-layer communication modules in the logical network, the higher layer shall not be informed about the valid data link before the link is re-established after the amplitude map exchange and the local configuration of the modified amplitude map is done.",
+            "(For simplification, within this example the total number of carriers is fictitious set to 6)",
+            "EVSE requests a limitation of the power of carriers 2 and 3 to −78 dBm/Hz, while the other carriers keep unaffected. The EV has no limitation request to the EVSE.",
+            "The EVSE sends a CM_AMP_MAP.REQ to the EV Host MAC address with the following values: {0,14,14,0,0,0}",
+            "AMDATA[0] = 0x0 AMDATA[1] = 0xE AMDATA[2] = 0xE ",
+            "Related to the reference of −50 dBm/Hz, the requested value of −78 dBm/Hz leads to the difference of −28 dB which in turn leads to a raw value of 14 (0xE) for 2 dB resolution. Each element of AMDATA has a size of 4 Bit.",
+            "The EV Host compares the received values with its default PSD at the socket, which are assumed to be {-75, −75, −77, −77, −75, −75} dBm/Hz. For carriers 2 and 3, the requested values are less than the default ones:",
+            "Carrier 1: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 2: −75 dBm/Hz < −78 dBm/Hz: n.ok. devation: 3 dBm/Hz Carrier 3: −77 dBm/Hz < −78 dBm/Hz: n.ok. devation: 1 dBm/Hz Carrier 4: −77 dBm/Hz < −50 dBm/Hz: ok Carrier 5: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 6: −75 dBm/Hz < −50 dBm/Hz: ok",
+            "The carriers 2 and 3 have to be reduced in power by 3 dBm/Hz and 1 dBm/Hz respectively.",
+            "The EV Host confirms the CM_AMP_MAP.REQ with a corresponding CM_AMP_MAP.CNF.",
+            "Based on the calculated attenuation values for the carriers 2 and 3, the EV Host subtract these from the default low-layer communciation module setting and writes them to the low-layer communciation module using the CM_AMP_MAP.REQ and its local destination address.",
+            "If a low-layer communication module receives a CM_AMP_MAP.REQ with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.9 is invalid."
+        ]
+    },
+    "26": {
+        "Question number": 26,
+        "Question": "What is CM_AMP_MAP.CNF?",
+        "Entity": [
+            "CM_AMP_MAP.CNF"
+        ],
+        "Table": [
+            "Table A.1 — Timing and constant values",
+            "Table A.1 (continued)",
+            "Table A.9 — MMEs parameters definition for amplitude map exchange",
+            ""
+        ],
+        "Figure": [
+            "",
+            "Figure A.8 — Sequence chart of amplitude map exchange"
+        ],
+        "Answers": [
+            "specifies a transmit power-reduction factor for each subcarrier related to the tone mask",
+            "defines the set of tones (or carriers) that can be used in a given regulatory jurisdiction or given application",
+            "The amplitude map exchange is an optional function to request the counterpart low-layer communciation module to reduce the transmission power for certain carriers.",
+            "counterpart low-layer communciation module to reduce the transmission power for certain carriers. The requesting device sends a CM_AMP_MAP.REQ command which has to be confirmed by the counterpart node by a CM_AMP_ MAP.CNF message.",
+            "The transmission power limitation request is related to the PSD at EVs/EVSEs socket.",
+            "All transmission power values within the CM_AMP_MAP MMEs are related to a reference value of −50 dBm/Hz. The resolution of AMDATA are −2 dB, so that a AMDATA value of 0b0011 means a value −6 dB.",
+            "(For simplification, within this example the total number of carriers is fictitious set to 6)",
+            "EVSE requests a limitation of the power of carriers 2 and 3 to −78 dBm/Hz, while the other carriers keep unaffected. The EV has no limitation request to the EVSE.",
+            "The EVSE sends a CM_AMP_MAP.REQ to the EV Host MAC address with the following values: {0,14,14,0,0,0}",
+            "AMDATA[0] = 0x0 AMDATA[1] = 0xE AMDATA[2] = 0xE ",
+            "Related to the reference of −50 dBm/Hz, the requested value of −78 dBm/Hz leads to the difference of −28 dB which in turn leads to a raw value of 14 (0xE) for 2 dB resolution. Each element of AMDATA has a size of 4 Bit.",
+            "The EV Host compares the received values with its default PSD at the socket, which are assumed to be {-75, −75, −77, −77, −75, −75} dBm/Hz. For carriers 2 and 3, the requested values are less than the default ones:",
+            "Carrier 1: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 2: −75 dBm/Hz < −78 dBm/Hz: n.ok. devation: 3 dBm/Hz Carrier 3: −77 dBm/Hz < −78 dBm/Hz: n.ok. devation: 1 dBm/Hz Carrier 4: −77 dBm/Hz < −50 dBm/Hz: ok Carrier 5: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 6: −75 dBm/Hz < −50 dBm/Hz: ok",
+            "The carriers 2 and 3 have to be reduced in power by 3 dBm/Hz and 1 dBm/Hz respectively.",
+            "The EV Host confirms the CM_AMP_MAP.REQ with a corresponding CM_AMP_MAP.CNF.",
+            "Based on the calculated attenuation values for the carriers 2 and 3, the EV Host subtract these from the default low-layer communciation module setting and writes them to the low-layer communciation module using the CM_AMP_MAP.REQ and its local destination address.",
+            "If a low-layer communication module receives a CM_AMP_MAP.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.9 is invalid.",
+            "If the requested node receives another CM_AMP_MAP.REQ, this means that the counterpart station retransmitted its request for some reason (i.e. the CM_AMP_ MAP.CNF was not received); the requested node shall respond to the request again."
+        ]
+    },
+    "27": {
+        "Question number": 27,
+        "Question": "What is D-LINK_READY.indication?",
+        "Entity": [
+            "D-LINK_READY.indication"
+        ],
+        "Table": [
+            "Table 4 — D-LINK_READY.indication primitive",
+            "Table A.1 (continued)",
+            "Table A.9 — MMEs parameters definition for amplitude map exchange"
+        ],
+        "Figure": [
+            "Figure 11 — Matching state machine",
+            "Figure A.8 — Sequence chart of amplitude map exchange"
+        ],
+        "Answers": [
+            "[V2G3-M07-21] As soon as the lower layers detect a data link after a wake-up, it shall send a D-LINK_READY.indication(link established) to HLE.",
+            "[V2G3-M09-16] As soon as the EV has successfully joined the logical network of the EVSE, both entities are in the status “Matched”. The communication node shall inform HLE through the D-LINK_READY.indication (link established) that HLE’s binding pro- cess can begin.",
+            "[V2G3-M09-18] When the low-layer communication module leaves the logical network, it shall inform HLE through the D-LINK_READY.indication (no link).",
+            "Figure 11 shows a high-level overview of the matching process. The default state of a PLC node at plug- in is “Unmatched”. A control pilot state change from state A, E or F to B, C or D triggers the matching process (state “Matching” in Figure 11) which determines the correct EV-EVSE matching by signal strength measurement. A successful matching process leads to the state “Matched” in Figure 11.",
+            "Any transition from the state “Matching” triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.",
+            "Any loss of the control pilot or a request from HLE leads to a reset to state “Unmatched”.",
+            "[V2G3-A09-120] The time between the detection of other stations in the current logical network after the SLAC_MATCH exchange and the indication D-LINK_READY.indication (link established) to higher layers shall not exceed the performance timer TP_ link_ready_notification.",
+            "This Clause covers the situation where the communication link is lost. A loss of communication after the establishment of a data link [D-LINK_READY.indication(link established) was already indicated] is handled by higher layers, by requesting with D-LINK_ERROR.request.",
+            "[V2G3-M07-03] If a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers."
+        ]
+    },
+    "28": {
+        "Question number": 28,
+        "Question": "What is D-LINK_TERMINATE.request?",
+        "Entity": [
+            "D-LINK_TERMINATE.request"
+        ],
+        "Table": [
+            "Table 5 — D-LINK_TERMINATE.request primitive",
+            "Table 3 — Timing and constant values"
+        ],
+        "Figure": [
+            "Figure 11 — Matching state machine"
+        ],
+        "Answers": [
+            "The D-LINK_TERMINATE.request requests lower layers to terminate the data link.",
+            "[V2G3-A09-121] With receiving a D-LINK_TERMINATE.request from HLE, the low-layer commu- nication module shall leave the logical network, reset the NMK, and switch to matching state “Unmatched”. The low-layer communciation module shall follow the Clause “Leaving an AVLN” defined in the [HPGP].",
+            "[V2G3-M09-17] With receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status “Unmatched”.",
+            "Figure 11 shows a high-level overview of the matching process. The default state of a PLC node at plug- in is “Unmatched”. A control pilot state change from state A, E or F to B, C or D triggers the matching process (state “Matching” in Figure 11) which determines the correct EV-EVSE matching by signal strength measurement. A successful matching process leads to the state “Matched” in Figure 11.",
+            "Any transition from the state “Matching” triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.",
+            "Any loss of the control pilot or a request from HLE leads to a reset to state “Unmatched”."
+        ]
+    },
+    "29": {
+        "Question number": 29,
+        "Question": "What is D-LINK_ERROR.request?",
+        "Entity": [
+            "D-LINK_ERROR.request"
+        ],
+        "Table": [
+            "Table 6 — D-LINK_ERROR.request primitive",
+            "Table 3 — Timing and constant values"
+        ],
+        "Figure": [
+            "Figure 11 — Matching state machine"
+        ],
+        "Answers": [
+            "This Clause covers the situation where the communication link is lost. A loss of communication after the establishment of a data link [D-LINK_READY.indication(link established) was already indicated] is handled by higher layers, by requesting with D-LINK_ERROR.request.",
+            "Figure 11 shows a high-level overview of the matching process. The default state of a PLC node at plug- in is “Unmatched”. A control pilot state change from state A, E or F to B, C or D triggers the matching process (state “Matching” in Figure 11) which determines the correct EV-EVSE matching by signal strength measurement. A successful matching process leads to the state “Matched” in Figure 11.",
+            "Any transition from the state “Matching” triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.",
+            "Any loss of the control pilot or a request from HLE leads to a reset to state “Unmatched”.",
+            "[V2G3-M07-04] With receiving a D-LINK_ERROR.request from HLE in X1 state, the EVSE’s commu- nication node shall perform a state X1 to state E/F to state X1 or X2 transition.",
+            "[V2G3-M07-05] With receiving a D-LINK_ERROR.request in X2 state from HLE, the EVSE’s commu- nication node shall perform a state X2 to X1 to state E/F to state X1 or X2 transi- tion.",
+            "[V2G3-M07-13] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall change to Bx state, leave the logical network and change the matching state to “Unmatched” within TP_match_leave and wait for a new incoming matching trigger (control pilot X1 or X2 state).",
+            "[V2G3-M07-10] With receiving a D-LINK_ERROR.request from HLE, the EVSE’s communication node shall implement one of the two following options:",
+            "Option A: to have behaviour independent of the duty cycle:",
+            "[V2G3-M07-11] The requirements of 7.5.1.1 shall be applied to have behaviour independent of the duty cycle.",
+            "Option B: not to interrupt charging due to a control pilot state change to state E:",
+            "[V2G3-M07-12] With receiving a D-LINK_ERROR.request from HLE, the EVSE’s communication node shall stay in X2 control pilot state, leave the logical network within TP_ match_leave, and change the matching state to “Unmatched” to be ready for a new matching process.",
+            "[V2G3-M07-14] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall implement one of the two following options:",
+            "Option A: to have behaviour independent of the duty cycle:",
+            "[V2G3-M07-15] The requirements of 7.5.2.1 shall be applied to have behaviour independent of the duty cycle.",
+            "Option B: not to interrupt charging due to a control pilot state change to state E:",
+            "[V2G3-M07-16] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall keep the current state and leave the logical network and change the matching state to “unmatched”."
+        ]
+    },
+    "30": {
+        "Question number": 30,
+        "Question": "What is D-LINK_PAUSE.request?",
+        "Entity": [
+            "D-LINK_PAUSE.request"
+        ],
+        "Table": [
+            "Table 7 — D-LINK_PAUSE.request primitive"
+        ],
+        "Figure": [
+            "Figure 11 — Matching state machine"
+        ],
+        "Answers": [
+            "The D-LINK_PAUSE.request requests lower layers to enter a power saving mode. While being in this mode, the state will be kept to “Matched”",
+            "With receiving a D-LINK_PAUSE.request, the EV shall change to control pilot state Bx. Unpowering the low-layer communication module is optional. The logical net- work parameter set shall be stored for continuing the data link after the sleeping phase.",
+            "With receiving a D-LINK_PAUSE.request, the EVSE shall switch to control pilot state X1 and may switch the low-layer communication module into low-power mode. The logical network parameter set shall be stored for continuing the data link after the sleeping phase.",
+            " Any transition from the state “Matching” triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.",
+            "Any loss of the control pilot or a request from HLE leads to a reset to state “Unmatched”.",
+            "A sleep mode is used for energy saving. EV and EVSE can enter a sleep mode after negotiating a pause through HLC protocol.",
+            "On the EVSE side, a sleep mode means that the oscillator will be off (X1 Control Pilot state), the +12V supply of the pilot line will stay on, and the low-layer communication module may be powered off.",
+            "On the EV side, a sleep mode means state B and the low-layer communication module may be powered off.",
+            "If the EVSE or EV is in “Matched state” and has been woken up from the counter- part station, the low-layer communication module shall be configured to the last known logical network parameter set.",
+            "In case of a wake up trigger from the counterpart station, the low-layer communi- cation module shall be ready in maximum T_conn_resume after the trigger (B1/ B2, BCB-Toggle).",
+            "To wake-up the EV, the pilot function controller on EVSE side shall be configured to the last known parameter set and the oszillator shall perform a B1/B2 transi- tion.",
+            "After waking up, the PLC node on EV side shall be configured to the last known parameter set.",
+            "If the EV is in a charge pause, it shall wake up by detecting a control pilot state B1/ B2 transition and shall configure the communication module to the last known logical network parameter.",
+            "In the case the EVSE applies a control pilot state X1 when the EV resumes from sleep state, a single BCB-Toggle shall be performed, as defined in 9.4 to wake up the EVSE.",
+            "If the EVSE is in a charge pause, it shall wake up by detecting a BCB-Toggle and shall configure the low-layer communication module to the last known logical network parameter.",
+            "As soon as the EVSE is ready to charge and ready to communicate after a wake-up from EV, it shall switch to X2 state.",
+            " If the EVSE does not detect a PLC link after a wake-up for T_conn_max_comm, it shall reinitiate the connection by applying a state E for at least T_step_EF to retrig- ger the setup of the connection by a matching process as described in 7.5.",
+            "As soon as the lower layers detect a data link after a wake-up, it shall send a D-LINK_READY.indication(link established) to HLE."
+        ]
+    }
+}

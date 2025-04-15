@@ -1,0 +1,401 @@
+{
+    "What is HPGP?": {
+        "entity_chunk_1": {
+            "HOMEPLUG GREEN PHY": {
+                "relationship": "Annex A describes the requirements for HomePlug Green PHY Technology The MAC/PHY stack represents the HomePlug Green PHY MAC and PHY layer",
+                "description": "A technology used for communication over power lines, specifically mentioned in the context of control pilot lines",
+                "type": "TECHNOLOGY",
+                "distance": 0,
+                "chunk_context": "Annex A (normative) HomePlug Green PHY on control pilot line. The physical layer of the HomePlug Green PHY technology is fully described in [HPGP].\nAnnex A (normative) HomePlug Green PHY on control pilot line\nAnnex A (normative) HomePlug Green PHY on control pilot line. The highlighted entities of Figure 2 represent the whole HomePlug Green PHY MAC and PHY layer and are covered by [HPGP]."
+            },
+            "ANNEX A": {
+                "relationship": "",
+                "description": "A section in the ISO 15118-3:2015(E) standard that describes requirements for HomePlug Green PHY Technology on control pilot line",
+                "type": "DOCUMENT_SECTION",
+                "distance": 1,
+                "chunk_context": "Annex A (normative) HomePlug Green PHY on control pilot line.\nAnnex A (normative) HomePlug Green PHY on control pilot line\nAnnex A (normative) HomePlug Green PHY on control pilot line."
+            },
+            "MAC/PHY STACK": {
+                "relationship": "",
+                "description": "The HomePlug Green PHY MAC and PHY layer as represented in the system architecture",
+                "type": "TECHNICAL_TERM",
+                "distance": 1,
+                "chunk_context": "The data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP].\nThe Ethernet II-class SAP includes following service primitives, defined in the [HPGP]\nThe highlighted entities of Figure 2 represent the whole HomePlug Green PHY MAC and PHY layer and are covered by [HPGP]."
+            }
+        }
+    },
+    "What is SLAC?": {
+        "entity_chunk_1": {
+            "SIGNAL LEVEL ATTENUATION CHARACTERIZATION": {
+                "relationship": "",
+                "description": "Protocol to measure the signal strength of a signal between HomePlug Green PHY stations",
+                "type": "TECHNICAL_TERM",
+                "distance": 0,
+                "chunk_context": "SLAC Signal Level Attenuation Characterization\nSLAC protocol to measure the signal strength of a signal between HomePlug Green PHY stations.\nSLAC Signal Level Attenuation Characterization"
+            }
+        }
+    },
+    "What is CCo?": {
+        "entity_chunk_1": {
+            "CENTRAL COORDINATOR": {
+                "relationship": "",
+                "description": "Manager of a HomePlug Green PHY network",
+                "type": "ROLE",
+                "distance": 0,
+                "chunk_context": "For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause 'Control SAP Service' of the [HPGP] may be used.\nThe low-layer communication module on the EV side shall be configured in order to never become the CCo."
+            }
+        }
+    },
+    "What is the difference between Data SAP and Data link control SAP?": {
+        "entity_chunk_1": {
+            "DATA LINK CONTROL SAP": {
+                "relationship": "The data link control SAP is provided by the connection coordination entity",
+                "description": "A Service Access Point that indicates link status and error information to higher layers",
+                "type": "TECHNICAL_TERM",
+                "distance": 0,
+                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers. The data link control SAP indicates link status and error information to higher layers.\nservice access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status\n12.3 Data link control SAP to layer 3 [V2G3-M12-01] Table 5 \u2014 D-LINK_TERMINATE.request primitive. Table 4 \u2014 D-LINK_READY.indication primitive."
+            },
+            "CONNECTION COORDINATION ENTITY": {
+                "relationship": "",
+                "description": "Entity responsible for providing the data link control SAP",
+                "type": "ROLE",
+                "distance": 1,
+                "chunk_context": "The data link control SAP indicates link status and error information to higher layers and is provided by the connection coordination entity.\nNot explicitly mentioned in the provided candidate answers.\n7 Connection coordination 7.5 Loss of communication [V2G3-M07-03] If a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers."
+            }
+        }
+    },
+    "What is CM_SLAC_PARAM.REQ?": {
+        "entity_chunk_1": {
+            "CM_SLAC_PARM.REQ": {
+                "relationship": "The test case TC_EVCC_CMN_VTB_CmSlacParm_008 involves the CM_SLAC_PARM.REQ message The test case TC_EVCC_CMN_VTB_CmSlacParm_009 involves the CM_SLAC_PARM.REQ message",
+                "description": "A request message used in the communication process",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "SECC test cases for CmSlacParm\nIn the SLAC parameter exchange phase, the EV shall send a CM_SLAC_PARM.REQ and wait for the maximum value of TT_match_response for CM_SLAC_PARM.CNFs from potential EVSEs."
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_008": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "Table 74 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_009'.\nTable 71 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_006'."
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_009": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "Table 66 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_001'.\nTable 67 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_002'."
+            }
+        }
+    },
+    "What is CM_START_ATTEN_CHAR.IND?": {
+        "entity_chunk_1": {
+            "CM_START_ATTEN_CHAR.IND": {
+                "relationship": "The test case TC_EVCC_CMN_VTB_CmSlacParm_009 involves the CM_START_ATTEN_CHAR.IND message The Test System waits for the CM_START_ATTEN_CHAR.IND message",
+                "description": "\"CM_START_ATTEN_CHAR.IND\" is an indication message related to the start of attenuation characterization. It is used in the communication process.",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "The received attenuation values within CM_ATTEN_CHAR.IND message are based on the physical channel.\nIf the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_PROFILE has no significance and the whole messages shall be ignored. It is up to the EV to decide what number of M-SOUNDS used for the attenuation profile is sufficient for its decision (i.e. whether to discard CM_ATTEN_CHAR.IND if NUM_SOUNDs is less than C_EV_match_MNBC).\nThe low-layer communication module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message."
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_009": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "SECC test cases for CmSlacParm module TestCases_SECC_CmSlacParm.\nTable 102 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_024'.\nTable 67 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_002'. Table 127 lists the test case description for 'TC_SECC_CMN_VTB_CmAmpMap_001'."
+            },
+            "TEST_SYSTEM": {
+                "relationship": "",
+                "description": "The TEST_SYSTEM is the system that executes the test procedures, checks the responses from the System Under Test (SUT), and sends/receives messages.",
+                "type": "SYSTEM",
+                "distance": 1,
+                "chunk_context": "Testcase TC_SECC_CMN_VTB_CmSlacParm_003() runs on SECC_Tester system SystemSECC.\nTable 129 lists the test case description for 'TC_SECC_CMN_VTB_CmAmpMap_003'.\n8 Test case descriptions for ISO 15118-3 HPGP PLC signal measurement."
+            }
+        }
+    },
+    "What is CM_MNBC_SOUND.IND?": {
+        "entity_chunk_1": {
+            "CM_MNBC_SOUND.IND": {
+                "relationship": "The test case TC_EVCC_CMN_VTB_CmSlacParm_009 involves the CM_MNBC_SOUND.IND message The Test System waits for the CM_MNBC_SOUND.IND message",
+                "description": "\"CM_MNBC_SOUND.IND\" is an indication message related to MNBC sound, which is used in the communication process.",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "Within CM_MNBC_SOUND.IND message sequence, the EV shall transmit the CM_MNBC_SOUND.IND message C_EV_match_MNBC times. With each message, the counter field 'cnt' shall be decremented.\nThe time duration between consecutive CM_MNBC_SOUND.IND messages shall be TP_EV_batch_msg_interval.\nAfter sending the last message of the CM_START_ATTEN_CHAR.IND message sequence, the EV shall wait for TP_EV_batch_msg_interval before starting the CM_MNBC_SOUND.IND message sequence.\nTable 129 lists the test case description for 'TC_SECC_CMN_VTB_CmAmpMap_003'."
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_009": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "testcase TC_SECC_CMN_VTB_CmSlacParm_003() runs on SECC_Tester system SystemSECC.\nTable 102 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_024'."
+            },
+            "TEST_SYSTEM": {
+                "relationship": "",
+                "description": "The TEST_SYSTEM is the system that executes the test procedures, checks the responses from the System Under Test (SUT), and sends/receives messages.",
+                "type": "SYSTEM",
+                "distance": 1,
+                "chunk_context": "testcase TC_SECC_CMN_VTB_CmSlacParm_003() runs on SECC_Tester system SystemSECC.\nTable 67 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_002'."
+            }
+        }
+    },
+    "What is CM_ATTEN_CHAR.IND?": {
+        "entity_chunk_1": {
+            "CM_ATTEN_CHAR.IND": {
+                "relationship": "The Test System sends the CM_ATTEN_CHAR.IND message The CM_ATTEN_CHAR.IND message is sent after the TT_EV_atten_results timer expires",
+                "description": "An indication message containing attenuation entries and other parameters",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "The received attenuation values within CM_ATTEN_CHAR.IND message are based on the physical channel, and the ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calculated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx-EVSE.\nIf the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_PROFILE has no significance and the whole messages shall be ignored. It is up to the EV to decide what number of M-SOUNDS used for the attenuation profile is sufficient for its decision (i.e. whether to discard CM_ATTEN_CHAR.IND if NUM_SOUNDs is less than C_EV_match_MNBC).\nIf a CM_ATTEN_CHAR.IND is received and its origin is an EVSE that has not sent a CM_SLAC_PARM.CNF before, the message shall be processed and not ignored.\nF.3.2 EVCC templates for CmAttenCharInd module Templates_EVCC_CmAttenCharInd { import from DataStructure_SLAC all; template MME_Payload md_EVCC_CMN_CmAttenCharInd_001"
+            },
+            "TEST_SYSTEM": {
+                "relationship": "",
+                "description": "The TEST_SYSTEM is the system that executes the test procedures, checks the responses from the System Under Test (SUT), and sends/receives messages.",
+                "type": "SYSTEM",
+                "distance": 1,
+                "chunk_context": "The testcase TC_SECC_CMN_VTB_CmSlacParm_003 runs on SECC_Tester system SystemSECC.\n8 Test case descriptions for ISO 15118-3 HPGP PLC signal measurement"
+            },
+            "TT_EV_ATTEN_RESULTS_TIMER": {
+                "relationship": "",
+                "description": "A timer that expires before sending the CM_ATTEN_CHAR.IND message",
+                "type": "TIMER",
+                "distance": 1,
+                "chunk_context": "No relevant information found"
+            }
+        }
+    },
+    "What is CM_ATTEN_CHAR.RSP?": {
+        "entity_chunk_1": {
+            "CM_ATTEN_CHAR.RSP": {
+                "relationship": "The test case TC_EVCC_CMN_VTB_CmSlacParm_009 involves the CM_ATTEN_CHAR.RSP message The Test System checks that no CM_ATTEN_CHAR.RSP message is sent The CM_ATTEN_CHAR.RSP message is not sent until the TT_match_response timer expires",
+                "description": "\"CM_ATTEN_CHAR.RSP\" is a response message related to attenuation characterization, utilized in the communication process.",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "In order to check that the received attenuation values within CM_ATTEN_CHAR.IND message are based on the physical channel, the MTC shall be able to reduce the level of signal on the control pilot.\nAccording to the result of the SLAC process, the low-layer communication module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message.\nIf the EVSE has not received a CM_ATTEN_CHAR.RSP within TT_match_response, it shall retransmit a CM_ATTEN_CHAR.IND when the TT_match_response expires and reset this timer. After C_EV_match_retry attempts, if no CM_ATTEN_CHAR. RSP is received by the EVSE, the matching process shall be considered as FAILED."
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_009": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "Table 102 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_024'.\nNo relevant information found."
+            },
+            "TEST_SYSTEM": {
+                "relationship": "",
+                "description": "The TEST_SYSTEM is the system that executes the test procedures, checks the responses from the System Under Test (SUT), and sends/receives messages.",
+                "type": "SYSTEM",
+                "distance": 1,
+                "chunk_context": "No relevant information found."
+            },
+            "TT_MATCH_RESPONSE_TIMER": {
+                "relationship": "",
+                "description": "The \"TT_MATCH_RESPONSE_TIMER\" is a timer associated with the expiration of the match response. It is specifically designed to expire before the CM_ATTEN_CHAR.RSP message is sent.",
+                "type": "TIMER",
+                "distance": 1,
+                "chunk_context": "The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calculated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1.\nNo relevant information found.\nIf the EVSE has not received a CM_ATTEN_CHAR.RSP within TT_match_response, it shall retransmit a CM_ATTEN_CHAR.IND when the TT_match_response expires and reset this timer."
+            }
+        }
+    },
+    "What is CM_VALIDATE.REQ?": {
+        "entity_chunk_1": {
+            "CM_VALIDATE.REQ": {
+                "relationship": "The test case TC_EVCC_CMN_VTB_CmSlacParm_009 involves the CM_VALIDATE.REQ message The CM_VALIDATE.REQ message is part of the communication protocol specified by ISO 15118-3:2015:IS The SUT sends the CM_VALIDATE.REQ message as part of the validation process",
+                "description": "\"CM_VALIDATE.REQ\" is a request message used in the communication process.",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "If the EVSE receives another CM_VALIDATE.REQ with a timer field equal to zero after sending out the step 1 CM_VALIDATE.CNF, the step 1 CM_VALIDATE.CNF shall be resent.\n[V2G3-A09-56] For the first CM_VALIDATE request-response exchange, the result field shall be filled as follows.\n8.3.3 SECC test cases for CmValidate"
+            },
+            "ISO 15118-3:2015:IS": {
+                "relationship": "",
+                "description": "The ISO standard that specifies the communication protocol for electric vehicle charging",
+                "type": "STANDARD",
+                "distance": 1,
+                "chunk_context": "Road vehicles \u2014 Vehicle to grid communication interface \u2014 Part 3: Physical and data link layer requirements\nINTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15. Road vehicles \u2014 Vehicle to grid communication interface \u2014 Part 3: Physical and data link layer requirements.\n8 Test case descriptions for ISO 15118-3 HPGP PLC signal measurement"
+            },
+            "SUT": {
+                "relationship": "",
+                "description": "The System Under Test (SUT) is the device being tested in the validation process. It is specifically the system being tested in the V2G (Vehicle-to-Grid) communication process and is involved in the described procedures. Additionally, the SUT is responsible for sending the CM_AMP_MAP.CNF message.",
+                "type": "DEVICE",
+                "distance": 1
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_009": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "Table 66 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_001'.\nTable 74 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_009'.\nNo relevant information found."
+            }
+        }
+    },
+    "What is CM_VALIDATE.CNF?": {
+        "entity_chunk_1": {
+            "CM_VALIDATE.CNF": {
+                "relationship": "The Test System sends the CM_VALIDATE.CNF message as part of the validation process The CM_VALIDATE.CNF message is part of the communication protocol specified by ISO 15118-3:2015:IS The SUT receives the CM_VALIDATE.CNF message as part of the validation process",
+                "description": "A confirmation message used in the communication process between the EV and EVSE",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "8.3.3 SECC test cases for CmValidate\nTable 67 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_002'.\nTable 66 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_001'.\nIf the EVSE receives another CM_VALIDATE.REQ with a timer field equal to zero after sending out the step 1 CM_VALIDATE.CNF, the step 1 CM_VALIDATE.CNF shall be resent.\n8.3.3 SECC test cases for CmValidate\nTable 69 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_004'.\nTable 71 lists the test case description for 'TC_SECC_CMN_VTB_CmValidate_006'.\n8.4.3 EVCC test cases for CmValidate\nTable 186 lists the test case description for 'TC_EVCC_CMN_VTB_CmValidate_021'."
+            },
+            "ISO 15118-3:2015:IS": {
+                "relationship": "",
+                "description": "The ISO standard that specifies the communication protocol for electric vehicle charging",
+                "type": "STANDARD",
+                "distance": 1,
+                "chunk_context": "8 Test case descriptions for ISO 15118-3 HPGP PLC signal measurement\nINTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Road vehicles \u2014 Vehicle to grid communication interface \u2014 Part 3: Physical and data link layer requirements\n8 Test case descriptions for ISO 15118-3 HPGP PLC signal measurement"
+            },
+            "SUT": {
+                "relationship": "",
+                "description": "The System Under Test (SUT) is the device being tested in the validation process. It is specifically the system being tested in the V2G (Vehicle-to-Grid) communication process and is involved in the described procedures. Additionally, the SUT is responsible for sending the CM_AMP_MAP.CNF message.",
+                "type": "DEVICE",
+                "distance": 1,
+                "chunk_context": "The document does not provide specific information about SUT."
+            },
+            "TEST_SYSTEM": {
+                "relationship": "",
+                "description": "The TEST_SYSTEM is the system that executes the test procedures, checks the responses from the System Under Test (SUT), and sends/receives messages.",
+                "type": "SYSTEM",
+                "distance": 1,
+                "chunk_context": "SystemSECC\nThe document does not provide specific information about TEST_SYSTEM."
+            }
+        }
+    },
+    "What is CM_SLAC_MATCH.REQ?": {
+        "entity_chunk_1": {
+            "CM_SLAC_MATCH.REQ": {
+                "relationship": "The test case TC_EVCC_CMN_VTB_CmSlacParm_009 involves the CM_SLAC_MATCH.REQ message",
+                "description": "A request message used in the communication process",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "Test System executes GoodCase procedure with SLAC validation process, indicates CP State A and sends a CM_SLAC_MATCH.REQ message with the current runID, EV MAC, EVSE MAC and all additional valid parameters. Test system then checks that no CM_SLAC_MATCH.CNF message is sent by the SUT until the TT_match_response timer has expired.\nSECC test cases for CmSlacMatch\n8.3.4 SECC test cases for CmSlacMatch"
+            },
+            "TC_EVCC_CMN_VTB_CMSLACPARM_009": {
+                "relationship": "",
+                "description": "A specific test case related to the EVCC CMN VTB CmSlacParm functionality",
+                "type": "TEST_CASE",
+                "distance": 1,
+                "chunk_context": "Test case TC_SECC_CMN_VTB_CmSlacParm_003() runs on SECC_Tester system SystemSECC.\nNo relevant information found\nNo relevant information found"
+            }
+        }
+    },
+    "What is CM_SLAC_MATCH.CNF?": {
+        "entity_chunk_1": {
+            "CM_SLAC_MATCH.CNF": {
+                "relationship": "The GoodCase procedure involves sending a CM_SLAC_MATCH.CNF message",
+                "description": "A confirmation message containing the current runID, valid NID and NMK, EV MAC, EVSE MAC, and additional valid parameters",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "Test System executes GoodCase procedure with SLAC validation process, indicates CP State A and sends a CM_SLAC_MATCH.REQ message with the current runID, EV MAC, EVSE MAC and all additional valid parameters. Test system then checks that no CM_SLAC_MATCH.CNF message is sent by the SUT until the TT_match_response timer has expired.\nTest cases for CmSlacMatch are described in the context of ISO 15118-5, specifically in section 8.3.4 SECC test cases.\n{'test_case': 'TC_SECC_CMN_VTB_CmSlacMatch_017', 'table': 95}\n{'test_case': 'TC_SECC_CMN_VTB_CmSlacMatch_024', 'table': 102}\n{'test_case': 'TC_SECC_CMN_VTB_CmSlacMatch_016', 'table': 94}\n{'test_case': 'TC_SECC_CMN_VTB_CmSlacMatch_022', 'table': 100}\n{'test_case': 'TC_SECC_CMN_VTB_CmSlacMatch_012', 'table': 90}"
+            },
+            "GOODCASE_PROCEDURE": {
+                "relationship": "",
+                "description": "The \"GOODCASE_PROCEDURE\" is a specific procedure executed by the Test System to establish a new AVLN (Access Virtual Local Network) and send CM_AMP_MAP.REQ messages. Additionally, it signals CP State E and sends a CM_SLAC_MATCH.CNF message. This procedure is integral to validating communication processes within the system.",
+                "type": "PROCESS",
+                "distance": 1,
+                "chunk_context": "Test System executes GoodCase procedure with SLAC validation process.\nNo relevant information found."
+            }
+        }
+    },
+    "What is CM_AMP_MAP.CNF?": {
+        "entity_chunk_1": {
+            "CM_AMP_MAP.CNF": {
+                "relationship": "The CM_AMP_MAP.CNF message is part of the communication protocol specified by ISO:15118-3:2015:IS The SUT sends the CM_AMP_MAP.CNF message The CM_AMP_MAP.CNF message is sent in response to the CM_AMP_MAP.REQ message",
+                "description": "\"CM_AMP_MAP.CNF\" is a confirmation message sent by the System Under Test (SUT) with 'result' equals to '00'H. This message is sent in response to the CM_AMP_MAP.REQ message, indicating the result of the request.",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "The CM_AMP_MAP.CNF message is a confirmation message that indicates the result of the request sent by the CM_AMP_MAP.REQ command. It includes a result code where 0x00 indicates success, 0x01 indicates failure, and 0x02 to 0xFF are reserved.\nIf a low-layer communication module has sent a CM_AMP_MAP.REQ but does not receive a valid CM_AMP_MAP.CNF within the max(TT_match_response), it shall retransmit the CM_AMP_MAP.REQ.\nIf the requested node receives another CM_AMP_MAP.REQ, this means that the counterpart station retransmitted its request for some reason (i.e. the CM_AMP_MAP.CNF was not received); the requested node shall respond to the request again."
+            },
+            "CM_AMP_MAP.REQ": {
+                "relationship": "",
+                "description": "\"CM_AMP_MAP.REQ\" is a request message used in the communication process to send a new amplitude map along with additional valid parameters. This message plays a crucial role in ensuring that the amplitude map and its associated parameters are accurately communicated within the system, facilitating effective and efficient data transmission.",
+                "type": "MESSAGE",
+                "distance": 1,
+                "chunk_context": "The CM_AMP_MAP.REQ command is used to request the counterpart low-layer communication module to reduce the transmission power for certain carriers. It has different functions depending on the source/destination of the message.\nIf a low-layer communication module has sent a CM_AMP_MAP.REQ but does not receive a valid CM_AMP_MAP.CNF within the max(TT_match_response), it shall retransmit the CM_AMP_MAP.REQ.\nIf the requested node receives another CM_AMP_MAP.REQ, this means that the counterpart station retransmitted its request for some reason (i.e. the CM_AMP_MAP.CNF was not received); the requested node shall respond to the request again."
+            },
+            "ISO:15118-3:2015:IS": {
+                "relationship": "",
+                "description": "The ISO:15118-3:2015:IS is an International Standard document that serves as a reference for the ISO 15118-3:2015 standard. This ISO standard specifies the communication protocol for electric vehicle charging, ensuring interoperability and compliance within the electric vehicle charging infrastructure.",
+                "type": "DOCUMENT",
+                "distance": 1,
+                "chunk_context": "This standard outlines the vehicle to grid communication interface, specifically focusing on the physical and data link layer requirements. It includes sections on amplitude map exchange and the functional description of related messages.\nINTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15. Road vehicles \u2014 Vehicle to grid communication interface \u2014 Part 3: Physical and data link layer requirements.\nRoad vehicles \u2014 Vehicle to grid communication interface \u2014 Part 3: Physical and data link layer requirements"
+            },
+            "SUT": {
+                "relationship": "",
+                "description": "The System Under Test (SUT) is the device being tested in the validation process. It is specifically the system being tested in the V2G (Vehicle-to-Grid) communication process and is involved in the described procedures. Additionally, the SUT is responsible for sending the CM_AMP_MAP.CNF message.",
+                "type": "DEVICE",
+                "distance": 1
+            }
+        }
+    },
+    "What is D-LINK_READY.indication?": {
+        "entity_chunk_1": {
+            "D-LINK_READY.INDICATION": {
+                "relationship": "The D-LINK_READY.indication informs HLE about the status of the communication link",
+                "description": "A message indicating the status of the communication link, either 'link established' or 'no link'",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "{'description': 'The D-LINK_READY.indication shall inform higher layers about a change of communication link status. This indication shall be sent with any change in link status. The values of the D-LINK_READY status are independent of the states of the control pilot signal.', 'matching_process': \"Any transition from the state 'Matching' triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.\", 'table_info': {'entity_to_support': 'EV, EVSE', 'parameter_name': 'D-LINKSTATUS', 'description': 'Status of communication link: no link, link established.'}}\nIf a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers.\nThe time between the detection of other stations in the current logical network after the SLAC_MATCH exchange and the indication D-LINK_READY.indication (link established) to higher layers shall not exceed the performance timer TP_link_ready_notification.\nAs soon as the lower layers detect a data link after a wake-up, it shall send a D-LINK_READY.indication(link established) to HLE.\nWhen the low-layer communication module leaves the logical network, it shall inform HLE through the D-LINK_READY.indication (no link)."
+            },
+            "HLE": {
+                "relationship": "",
+                "description": "A higher layer entity involved in the binding process",
+                "type": "COMPONENT",
+                "distance": 1,
+                "chunk_context": "As soon as the lower layers detect a data link after a wake-up, it shall send a D-LINK_READY.indication(link established) to HLE.\nWith receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave."
+            }
+        }
+    },
+    "What is D-LINK_TERMINATE.request?": {
+        "entity_chunk_1": {
+            "D-LINK_TERMINATE.REQUEST": {
+                "relationship": "The D-LINK_TERMINATE.request is sent by HLE to terminate the data link",
+                "description": "A message requesting lower layers to terminate the data link",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "The D-LINK_TERMINATE.request requests lower layers to terminate the data link.\nWith receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status \u201cUnmatched\u201d.\nWith receiving a D-LINK_ERROR.request from HLE, the EVSE\u2019s communication node shall stay in X2 control pilot state, leave the logical network within TP_ match_leave, and change the matching state to 'Unmatched' to be ready for a new matching process."
+            },
+            "HLE": {
+                "relationship": "",
+                "description": "A higher layer entity involved in the binding process",
+                "type": "COMPONENT",
+                "distance": 1,
+                "chunk_context": "Entity to support: EV, EVSE.\nWith receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave.\nWith receiving a D-LINK_ERROR.request from HLE, the EVSE\u2019s communication node shall stay in X2 control pilot state, leave the logical network within TP_ match_leave, and change the matching state to 'Unmatched' to be ready for a new matching process."
+            }
+        }
+    },
+    "What is D-LINK_ERROR.request?": {
+        "entity_chunk_1": {
+            "D-LINK_ERROR.REQUEST": {
+                "relationship": "The D-LINK_ERROR.request is sent by HLE to terminate the data link and restart the matching process",
+                "description": "A message requesting lower layers to terminate the data link and restart the matching process",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "The D-LINK_ERROR.request requests lower layers to terminate the data link and restart the matching process by a control pilot transition through state E.\nWith receiving a D-LINK_ERROR.request from HLE, the EV\u2019s communication node shall keep the current state and leave the logical network and change the matching state to 'unmatched'.\nA loss of communication after the establishment of a data link is handled by higher layers, by requesting with D-LINK_ERROR.request."
+            },
+            "HLE": {
+                "relationship": "",
+                "description": "A higher layer entity involved in the binding process",
+                "type": "COMPONENT",
+                "distance": 1,
+                "chunk_context": "With receiving a D-LINK_ERROR.request from HLE, the EV\u2019s communication node shall implement one of the two following options.\nNo relevant information found."
+            }
+        }
+    },
+    "What is D-LINK_PAUSE.request?": {
+        "entity_chunk_1": {
+            "D-LINK_PAUSE.REQUEST": {
+                "relationship": "The D-LINK_PAUSE.request is sent by HLE to enter a power-saving mode",
+                "description": "A message requesting lower layers to enter a power-saving mode while keeping the state to 'Matched'",
+                "type": "MESSAGE",
+                "distance": 0,
+                "chunk_context": "The D-LINK_PAUSE.request requests lower layers to enter a power saving mode. While being in this mode, the state will be kept to 'Matched'.\nWith receiving a D-LINK_PAUSE.request, the EVSE shall switch to control pilot state X1 and may switch the low-layer communication module into low-power mode. The logical network parameter set shall be stored for continuing the data link after the sleeping phase.\nWith receiving a D-LINK_PAUSE.request, the EV shall change to control pilot state Bx. Unpowering the low-layer communication module is optional. The logical network parameter set shall be stored for continuing the data link after the sleeping phase.\nThis entity is not mentioned in the provided candidate answers."
+            },
+            "HLE": {
+                "relationship": "",
+                "description": "A higher layer entity involved in the binding process",
+                "type": "COMPONENT",
+                "distance": 1,
+                "chunk_context": "With receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status 'Unmatched'.\nThis entity is not mentioned in the provided candidate answers."
+            }
+        }
+    }
+}

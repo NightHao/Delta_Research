@@ -1,0 +1,44 @@
+Question What is the difference between basic signalling and high-level communication?: What is the difference between basic signalling and high-level communication?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: 6.2.1 Basic signalling (Context: 6.2.1 Basic signalling > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - [V2G3-M06-01] The basic signalling follows [IEC-1]. All timings shall be compliant with the [IEC-1], Annex A.
+Text 2: 6.2.1 Basic signalling (Context: 6.2.1 Basic signalling > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - Any charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal.
+Text 3: 6.2.2 High-level communication (Context: 6.2.2 High-level communication > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - [V2G3-M06-02] The HLC shall be used in addition to the basic signalling in order to enable a bidi- rectional communication and offer additional features.
+Text 4: 6.2.2 High-level communication (Context: 6.2.2 High-level communication > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - The sequence of the data exchange within the HLC-based charging session is done in accordance with the [ISO-2] communication protocol.
+Text 5: 6.2.2 High-level communication (Context: 6.2.2 High-level communication > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - It can be split into three periods as follows:
+Text 6: 6.2.2 High-level communication (Context: 6.2.2 High-level communication > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - — data link setup;
+Text 7: 6.2.2 High-level communication (Context: 6.2.2 High-level communication > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - — V2G setup;
+Text 8: 6.2.2 High-level communication (Context: 6.2.2 High-level communication > 6.2 Definition of high-level communication and basic signalling > 6 System architecture) - — V2G charging loop.
+
+ADDITIONAL CONTEXT:
+Related Information 1: Any charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal. (sibling of Text 1)
+Contextual Information 1: 6.2.1 Basic signalling (ancestor of Text 1)
+Contextual Information 2: 6.2 Definition of high-level communication and basic signalling (ancestor of Text 1)
+Contextual Information 3: 6 System architecture (ancestor of Text 1)
+Related Information 2: [V2G3-M06-01] The basic signalling follows [IEC-1]. All timings shall be compliant with the [IEC-1], Annex A. (sibling of Text 2)
+Related Information 3: The sequence of the data exchange within the HLC-based charging session is done in accordance with the [ISO-2] communication protocol. (sibling of Text 3)
+Related Information 4: It can be split into three periods as follows: (sibling of Text 3)
+Related Information 5: — data link setup; (sibling of Text 3)
+Related Information 6: — V2G setup; (sibling of Text 3)
+Related Information 7: — V2G charging loop. (sibling of Text 3)
+Related Information 8: NOTE The detailed descriptions are given in [ISO-2]. (sibling of Text 3)
+Related Information 9: [V2G3-M06-03] During the V2G charging loop, the PWM duty cycle shall not change due to dynam- ically changed grid information. Those dynamically changed grid limitations shall be provided through the high-level communication messages. (sibling of Text 3)
+Related Information 10: In case basic charging is used as back-up of HLC-C (e.g. when HLC-C has failed), the duty cycle is allowed to change due to dynamically changed grid information, according [IEC-1] requirements. (sibling of Text 3)
+Contextual Information 4: 6.2.2 High-level communication (ancestor of Text 3)
+Related Information 11: [V2G3-M06-02] The HLC shall be used in addition to the basic signalling in order to enable a bidi- rectional communication and offer additional features. (sibling of Text 4)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

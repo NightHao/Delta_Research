@@ -1,0 +1,27 @@
+1. Dynamic subgraph distane adjustment based on user intention.
+2. Change the LLM in entity extractor from 4o-mini to 4o
+
+
+What is the difference between Data SAP and Data link control SAP?
+1. all-distance(1) vs. 2u1c -> C
+2. all-distance(1) vs. 1u   -> C 
+
+What is the difference between MTC and PTC?
+1. all-distance(1) vs. 1u -> C
+2. all-distance(1) vs. 2u1c -> C
+3. all-distance(1) vs. 1u1c -> B
+
+Test the entities apart from more than one unit
+MTC / test cases | MTC / SLAC 
+What is the difference between MTC and ATS?
+1. 2u1c vs. 1u -> A
+2. 2u1c vs. 1u1c -> C -> A
+3. 1u1c vs. 1u -> C
+
+Test all-distance w/o relationship edges
+What is SLAC?
+1. all-distance(1) vs. 1u -> A
+
+What is Logical NETWORK?
+1. all-distance(1) vs. 1u -> A
+2. all-distance(1) 5237 vs. all-distance(2) 54404

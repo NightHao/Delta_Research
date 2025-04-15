@@ -1,0 +1,25 @@
+================================= Entity Chunks for D-LINK_PAUSE.REQUEST =================================
+Entity: D-LINK_PAUSE.REQUEST
+Description: The D-LINK_PAUSE.request is sent by HLE to enter a power-saving mode A message requesting lower layers to enter a power-saving mode while keeping the state to 'Matched' The D-LINK_PAUSE.request requests lower layers to enter a power saving mode. While being in this mode, the state will be kept to 'Matched'.
+With receiving a D-LINK_PAUSE.request, the EVSE shall switch to control pilot state X1 and may switch the low-layer communication module into low-power mode. The logical network parameter set shall be stored for continuing the data link after the sleeping phase.
+With receiving a D-LINK_PAUSE.request, the EV shall change to control pilot state Bx. Unpowering the low-layer communication module is optional. The logical network parameter set shall be stored for continuing the data link after the sleeping phase.
+--------------------------------------------------------------------------------
+Entity: HLE
+Description: The D-LINK_READY.indication informs HLE about the status of the communication link The D-LINK_TERMINATE.request is sent by HLE to terminate the data link The D-LINK_ERROR.request is sent by HLE to terminate the data link and restart the matching process A higher layer entity involved in the binding process
+--------------------------------------------------------------------------------
+Entity: D-LINK_ERROR.REQUEST
+Description: A message requesting lower layers to terminate the data link and restart the matching process The D-LINK_ERROR.request requests lower layers to terminate the data link and restart the matching process by a control pilot transition through state E.
+A loss of communication after the establishment of a data link [D-LINK_READY.indication(link established) was already indicated] is handled by higher layers, by requesting with D-LINK_ERROR.request.
+--------------------------------------------------------------------------------
+Entity: D-LINK_READY.INDICATION
+Description: A message indicating the status of the communication link, either 'link established' or 'no link' The D-LINK_READY.indication shall inform higher layers about a change of communication link status. This indication shall be sent with any change in link status. The values of the D-LINK_READY status are independent of the states of the control pilot signal.
+Any transition from the state 'Matching' triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.
+If a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers.
+--------------------------------------------------------------------------------
+Entity: D-LINK_TERMINATE.REQUEST
+Description: A message requesting lower layers to terminate the data link The D-LINK_TERMINATE.request requests lower layers to terminate the data link.
+With receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status 'Unmatched'.
+Table 5 — D-LINK_TERMINATE.request primitive.
+--------------------------------------------------------------------------------
+You need to answer the following question as more details as possible based on the provided information above
+ Question: What is D-LINK_PAUSE.request?

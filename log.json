@@ -1,0 +1,985 @@
+{
+    "identified_abbreviations": {
+        "data": [
+            "MAC",
+            "V2G",
+            "PEV",
+            "SE",
+            "OUT",
+            "HLE",
+            "LX1",
+            "ERDF",
+            "TCP",
+            "EV",
+            "C1",
+            "IEEE",
+            "ATTNTXEVSE",
+            "SECURITYTYPE",
+            "1 K",
+            "B2",
+            "ARIB",
+            "G3PLC",
+            "TC_AUTHMIN",
+            "PNC",
+            "IEC-1",
+            "ISP",
+            "LX2",
+            "RX1",
+            "E/F",
+            "CNF",
+            "NONE",
+            "TTYP",
+            "TTCN",
+            "CX4",
+            "MME",
+            "EVCC",
+            "IXIT",
+            "CC",
+            "TC",
+            "V2G3",
+            "C2",
+            "TTCN-3",
+            "PWM",
+            "MMTYPE",
+            "CPLC",
+            "CMN",
+            "ATTNCORD",
+            "EVSE",
+            "NN",
+            "KR",
+            "TSS",
+            "ISO",
+            "OPTIONA",
+            "CV",
+            "G3-PLC",
+            "BCB",
+            "PTC",
+            "DOM",
+            "IEC-22",
+            "Y",
+            "CX3",
+            "PICS",
+            "CAP",
+            "X2",
+            "IPV6",
+            "C2B",
+            "B1",
+            "CENELEC",
+            "Z",
+            "CX1",
+            "IUT",
+            "PHEV",
+            "HEXSTRING",
+            "AAG",
+            "FAIL",
+            "P",
+            "TCI‐CD",
+            "ATS",
+            "OPTIONB",
+            "RSVD",
+            "SDP",
+            "ETSI",
+            "AMLEN",
+            "NMK",
+            "PE",
+            "EORF",
+            "RX4",
+            "TSI",
+            "AVLN",
+            "PHY",
+            "ICS",
+            "TRI",
+            "NEGVOLT12",
+            "T2",
+            "RX2",
+            "SECC",
+            "TB",
+            "HPGP",
+            "ESD",
+            "S1",
+            "ISO-3",
+            "RND",
+            "PSD",
+            "SLAC_MATCH",
+            "EMC",
+            "OSI",
+            "CTX",
+            "T7",
+            "PLC",
+            "SUT",
+            "BC",
+            "UNMAP",
+            "R2",
+            "DUT",
+            "6LOWPAN",
+            "G3",
+            "IN",
+            "TLS",
+            "X",
+            "T_WAIT",
+            "QPSK",
+            "AC",
+            "CCO",
+            "R1",
+            "SLEEP",
+            "X1",
+            "SUCCESS",
+            "CS",
+            "CX2",
+            "TE",
+            "XXX",
+            "HAL",
+            "CPL",
+            "R3",
+            "PIXIT",
+            "BEV",
+            "SET",
+            "DC",
+            "FCC",
+            "UDP",
+            "D-LINK_READY.IND",
+            "EIM",
+            "SAP",
+            "TP",
+            "HLC",
+            "PASS",
+            "ID",
+            "ATTNRXEV",
+            "VTB",
+            "ZEROPOW",
+            "TCI",
+            "RESTYPE",
+            "PWMMODE",
+            "LRWBS",
+            "V2G3-M06-01",
+            "WTO",
+            "D-LINK",
+            "ZZZ",
+            "RX3",
+            "READY",
+            "D-LINK_READY",
+            "CPLT",
+            "ITB",
+            "MTC",
+            "RX6",
+            "IEC-21",
+            "TFW",
+            "SLAC",
+            "ISO-0",
+            "MMES",
+            "ITU"
+        ],
+        "timestamp": "2025-03-06T21:32:38.420166",
+        "step": "identified_abbreviations"
+    },
+    "llm_abbr_dict": {
+        "data": {
+            "MAC": [
+                "Media Access Control"
+            ],
+            "V2G": [
+                "Vehicle-to-Grid"
+            ],
+            "PEV": [
+                "Plug-in Electric Vehicle"
+            ],
+            "SE": [
+                "Supply Equipment"
+            ],
+            "HLE": [
+                "High-Level Entity",
+                "Higher Layer Entity"
+            ],
+            "ERDF": [
+                "Electricité et Réseau de France"
+            ],
+            "TCP": [
+                "Transmission Control Protocol"
+            ],
+            "EV": [
+                "Electric Vehicle"
+            ],
+            "IEEE": [
+                "Institute of Electrical and Electronics Engineers"
+            ],
+            "PNC": [
+                "Plug and Charge"
+            ],
+            "TTCN": [
+                "The Tree and Tabular Combined Notation"
+            ],
+            "MME": [
+                "Management Message Entry",
+                "Mobility Management Entity",
+                "Message Management Entity"
+            ],
+            "EVCC": [
+                "Electric Vehicle Communication Controller"
+            ],
+            "IXIT": [
+                "Implementation eXtra Information for Testing"
+            ],
+            "TTCN-3": [
+                "Testing and Test Control Notation version 3"
+            ],
+            "PWM": [
+                "Pulse Width Modulation"
+            ],
+            "CMN": [
+                "Common Message Notation"
+            ],
+            "EVSE": [
+                "Electric Vehicle Supply Equipment"
+            ],
+            "TSS": [
+                "Test Suite Specification"
+            ],
+            "ISO": [
+                "International Organization for Standardization"
+            ],
+            "OPTIONA": [
+                "Option A"
+            ],
+            "G3-PLC": [],
+            "BCB": [
+                "Breaker Control Block",
+                "Booster Circuit Breaker",
+                "Basic Control Block"
+            ],
+            "PTC": [
+                "Parallel Test Component",
+                "Positive Train Control",
+                "Protocol Test Controller"
+            ],
+            "DOM": [],
+            "IEC-22": [],
+            "Y": [],
+            "CX3": [],
+            "PICS": [
+                "Protocol Implementation Conformance Statement"
+            ],
+            "CAP": [
+                "Channel Access Priority"
+            ],
+            "X2": [],
+            "IPV6": [],
+            "C2B": [],
+            "B1": [],
+            "CENELEC": [
+                "European Committee for Electrotechnical Standardization"
+            ],
+            "Z": [],
+            "CX1": [],
+            "IUT": [
+                "Implementation Under Test"
+            ],
+            "PHEV": [
+                "Plug-in Hybrid Electric Vehicle"
+            ],
+            "HEXSTRING": [],
+            "AAG": [
+                "Average Attenuation of Group"
+            ],
+            "FAIL": [],
+            "P": [],
+            "TCI‐CD": [],
+            "ATS": [
+                "Abstract Test Suite"
+            ],
+            "OPTIONB": [],
+            "RSVD": [],
+            "SDP": [
+                "Service Discovery Protocol"
+            ],
+            "ETSI": [
+                "European Telecommunications Standards Institute"
+            ],
+            "AMLEN": [],
+            "NMK": [
+                "Network Membership Key"
+            ],
+            "PE": [
+                "Protective Earth"
+            ],
+            "EORF": [],
+            "RX4": [],
+            "TSI": [
+                "Test System Interface"
+            ],
+            "AVLN": [
+                "Ad-hoc Vehicle Local Network",
+                "Application Virtual Local Network",
+                "Ad-hoc Virtual Local Network",
+                "AV Logical Network",
+                "Alternative Vehicle Local Network"
+            ],
+            "PHY": [
+                "Physical"
+            ],
+            "ICS": [
+                "Implementation Conformance Statement"
+            ],
+            "TRI": [
+                "TTCN-3 Runtime Interface"
+            ],
+            "NEGVOLT12": [],
+            "T2": [],
+            "RX2": [],
+            "SECC": [
+                "Supply Equipment Communication Controller"
+            ],
+            "TB": [
+                "Test Bench"
+            ],
+            "HPGP": [
+                "HomePlug Green PHY"
+            ],
+            "ESD": [
+                "Electrostatic Discharge"
+            ],
+            "S1": [],
+            "ISO-3": [],
+            "RND": [],
+            "PSD": [
+                "Power Spectral Density"
+            ],
+            "SLAC_MATCH": [],
+            "EMC": [
+                "Electromagnetic Compatibility"
+            ],
+            "OSI": [
+                "Open Systems Interconnection"
+            ],
+            "CTX": [
+                "Context"
+            ],
+            "T7": [],
+            "PLC": [
+                "Power Line Communication"
+            ],
+            "SUT": [
+                "System Under Test"
+            ],
+            "BC": [
+                "Basic Charging"
+            ],
+            "UNMAP": [],
+            "R2": [],
+            "DUT": [
+                "Device Under Test"
+            ],
+            "6LOWPAN": [
+                "IPv6 over Low-Power Wireless Personal Area Networks"
+            ],
+            "G3": [],
+            "IN": [],
+            "TLS": [
+                "Transport Layer Security"
+            ],
+            "X": [],
+            "T_WAIT": [],
+            "QPSK": [
+                "Quadrature Phase Shift Keying"
+            ],
+            "AC": [
+                "Alternating Current"
+            ],
+            "CCO": [
+                "Central Coordinator",
+                "Central Communication Controller"
+            ],
+            "R1": [],
+            "SLEEP": [],
+            "X1": [],
+            "SUCCESS": [],
+            "CS": [],
+            "CX2": [],
+            "TE": [
+                "Test Environment",
+                "Test Execution"
+            ],
+            "XXX": [],
+            "HAL": [
+                "Hardware Abstraction Layer"
+            ],
+            "CPL": [
+                "Control Pilot Line"
+            ],
+            "R3": [],
+            "PIXIT": [
+                "Protocol Implementation eXtra Information for Testing"
+            ],
+            "BEV": [
+                "Battery Electric Vehicle"
+            ],
+            "SET": [],
+            "DC": [
+                "Direct Current"
+            ],
+            "FCC": [
+                "Federal Communications Commission"
+            ],
+            "UDP": [
+                "User Datagram Protocol"
+            ],
+            "D-LINK_READY.IND": [],
+            "EIM": [
+                "Electricity Information Management",
+                "External Identification Means"
+            ],
+            "SAP": [
+                "Service Access Point"
+            ],
+            "TP": [
+                "Test Purpose"
+            ],
+            "HLC": [
+                "High-Level Communication"
+            ],
+            "PASS": [],
+            "ID": [
+                "Identification"
+            ],
+            "ATTNRXEV": [],
+            "VTB": [
+                "Valid Test Behavior"
+            ],
+            "ZEROPOW": [],
+            "TCI": [
+                "TTCN-3 Control Interface"
+            ],
+            "RESTYPE": [],
+            "PWMMODE": [
+                "Pulse Width Modulation Mode"
+            ],
+            "LRWBS": [],
+            "V2G3-M06-01": [],
+            "WTO": [
+                "World Trade Organization"
+            ],
+            "D-LINK": [
+                "Data Link"
+            ],
+            "ZZZ": [],
+            "RX3": [],
+            "READY": [],
+            "D-LINK_READY": [],
+            "CPLT": [],
+            "ITB": [
+                "Invalid Test Behavior"
+            ],
+            "MTC": [
+                "Main Test Component",
+                "Means of Test Control",
+                "Main Test Controller"
+            ],
+            "RX6": [],
+            "IEC-21": [],
+            "TFW": [
+                "Test Framework"
+            ],
+            "SLAC": [
+                "Signal Level Attenuation Characterization"
+            ],
+            "ISO-0": [],
+            "MMES": [
+                "Management Message Entities",
+                "Mobility Management Entities"
+            ],
+            "ITU": [
+                "International Telecommunication Union"
+            ]
+        },
+        "timestamp": "2025-04-05T12:52:51.804894",
+        "step": "llm_abbr_dict"
+    },
+    "pattern_list": {
+        "data": [
+            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+is\\s+an\\s+abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "Abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+        ],
+        "timestamp": "2025-04-05T12:52:51.807363",
+        "step": "pattern_list"
+    },
+    "pattern_clusters": {
+        "data": {
+            "0": [
+                "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+            ],
+            "1": [
+                "Abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+            ],
+            "2": [
+                "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+            ],
+            "3": [
+                "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)"
+            ],
+            "4": [
+                "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+is\\s+an\\s+abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+            ]
+        },
+        "timestamp": "2025-04-05T12:52:52.933569",
+        "step": "pattern_clusters"
+    },
+    "regex_for_pattern_clusters": {
+        "data": [
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "Abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+is\\s+an\\s+abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+        ],
+        "timestamp": "2025-04-05T12:52:52.934397",
+        "step": "regex_for_pattern_clusters"
+    },
+    "abbr_dict": {
+        "data": {
+            "OSI": [
+                "The Open Systems Interconnection",
+                "Open Systems Interconnection"
+            ],
+            "EVSE": [
+                "Electric Vehicle Supply Equipment",
+                "an Electric Vehicle Supply Equipment",
+                "AC Electric Vehicle Supply Equipment",
+                "An AC Electric Vehicle Supply Equipment",
+                "the Electric Vehicle Supply Equipment",
+                "An Electric Vehicle Supply Equipment"
+            ],
+            "EV": [
+                "Electric Vehicles",
+                "An Electric Vehicle",
+                "the Electric Vehicle",
+                "an Electric Vehicle",
+                "Electric Vehicle"
+            ],
+            "EVS": [
+                "Electric Vehicles"
+            ],
+            "EMC": [
+                "Electromagnetic Compatibility"
+            ],
+            "DATA SAP": [
+                "a Service Access Point"
+            ],
+            "SAP": [
+                "The Data Link Control Service Access Point",
+                "Control Service Access Point",
+                "Service Access Point",
+                "Data Link Control Service Access Point"
+            ],
+            "WTO": [
+                "World Trade Organization",
+                "The World Trade Organization"
+            ],
+            "TBT": [
+                "TECHNICAL BARRIERS TO TRADE"
+            ],
+            "IEC": [
+                "The International Electrotechnical Commission"
+            ],
+            "HLC": [
+                "High-Level Communication",
+                "BASED HIGH LEVEL COMMUNICATION"
+            ],
+            "PWM": [
+                "Pulse Width Modulation",
+                "the Pulse Width Modulation"
+            ],
+            "HLC-C": [
+                "High-Level Communication",
+                "High-Level Communication Control"
+            ],
+            "EIM": [
+                "the Electricity Information Management",
+                "Electricity Information Management",
+                "External Identification Means"
+            ],
+            "EVCC": [
+                "The Electric Vehicle Communication Controller",
+                "Electric Vehicle Communication Controllers",
+                "AC Electric Vehicle Communication Controller",
+                "DC Electric Vehicle Communication Controller",
+                "an Electric Vehicle Communication Controller",
+                "Electric Vehicle Communication Controller",
+                "the Electric Vehicle Communication Controller",
+                "ELECTRIC VEHICLE COMMUNICATION CONTROLLER"
+            ],
+            "SECC": [
+                "a Secure Electric Charging Communication",
+                "the Supply Equipment Communication Controller",
+                "Supply Equipment Communication Controller",
+                "a Supply Equipment Communication Controller",
+                "Smart Electric Charging Communication",
+                "SUPPLY EQUIPMENT COMMUNICATION CONTROLLER",
+                "the Smart Electric Car Consortium"
+            ],
+            "MAC": [
+                "MEDIA ACCESS CONTROL",
+                "The Media Access Control",
+                "the Medium Access Control",
+                "Media Access Control",
+                "The Medium Access Control"
+            ],
+            "AC EVSE": [
+                "Electric Vehicle Supply Equipment"
+            ],
+            "SLAC": [
+                "Signal Level Attenuation Characterization",
+                "the Secure Link Association Control",
+                "the Secure Link Access Control",
+                "The Signal Level Attenuation Characterization",
+                "the Signal Level Attenuation Characterization"
+            ],
+            "PLC": [
+                "a Power Line Communication",
+                "the Power Line Communication",
+                "Power Line Communication"
+            ],
+            "BC": [
+                "Basic Charging"
+            ],
+            "DC EVSE": [
+                "Direct Current Electric Vehicle Supply Equipment",
+                "Electric Vehicle Supply Equipment"
+            ],
+            "HLE": [
+                "High-Level Entity",
+                "Higher Layer Entity",
+                "the High-Level Entity",
+                "High Layer Entity"
+            ],
+            "CP": [
+                "the Control Pilot"
+            ],
+            "IEEE": [
+                "Electronics Engineers",
+                "The Institute of Electrical and Electronics Engineers"
+            ],
+            "SUT": [
+                "The System Under Test",
+                "the System Under Test",
+                "System Under Test",
+                "a System Under Test",
+                "SYSTEM UNDER TEST"
+            ],
+            "HPGP": [
+                "HomePlug GreenPHY",
+                "the HomePlug Green PHY",
+                "High Performance Green PHY",
+                "High Performance Green Power",
+                "HomePlug Green PHY"
+            ],
+            "MMES": [
+                "Management Message Entities",
+                "Mobility Management Entities"
+            ],
+            "MME": [
+                "Mobility Management Entity",
+                "Management Message Entry",
+                "Message Management Entity",
+                "Management Message Entity"
+            ],
+            "PEV": [
+                "Plug-in Electric Vehicles",
+                "Plug-in Electric Vehicle"
+            ],
+            "AAG": [
+                "the Average Attenuation",
+                "Average Attenuation of Group"
+            ],
+            "NMK": [
+                "a Network Membership Key",
+                "Network Membership Key"
+            ],
+            "NID": [
+                "Network Identifier",
+                "a Network Identifier"
+            ],
+            "CCO": [
+                "the Central Communication Controller",
+                "Central Communication Controller",
+                "Central Coordinator"
+            ],
+            "PSD": [
+                "the Power Signal Data",
+                "Power Spectral Density",
+                "POWER SPECTRUM DENSITY",
+                "Power Signal Data"
+            ],
+            "PE": [
+                "Protective Earth"
+            ],
+            "ESD": [
+                "Electrostatic Discharge"
+            ],
+            "DUT": [
+                "the Device Under Test",
+                "Device Under Test"
+            ],
+            "FCC": [
+                "Federal Communications Commission",
+                "The Federal Communications Commission",
+                "the Federal Communications Commission"
+            ],
+            "ITU": [
+                "International Telecommunication Union",
+                "The International Telecommunication Union"
+            ],
+            "LQI": [
+                "LINK QUALITY INDICATOR"
+            ],
+            "EAP PSK": [
+                "Extensible Authentication Protocol Pre-Shared Key"
+            ],
+            "LOWPANS": [
+                "Low Power Wireless Personal Area Networks"
+            ],
+            "PHY": [
+                "The Physical"
+            ],
+            "OFDM": [
+                "Orthogonal Frequency-Division Multiplexing",
+                "Orthogonal Frequency Division Multiplexing"
+            ],
+            "UDP": [
+                "User Datagram Protocol"
+            ],
+            "TCP": [
+                "Transmission Control Protocol"
+            ],
+            "TSS": [
+                "The Test Suite Structure",
+                "TEST SUITE STRUCTURE",
+                "Test Suite Specification",
+                "a Test Suite Specification",
+                "Test Suite Structure"
+            ],
+            "PICS": [
+                "Protocol Implementation Conformance Statement",
+                "the Protocol Implementation Conformance Statement",
+                "PROTOCOL IMPLEMENTATION CONFORMANCE STATEMENT",
+                "Protocol Implementation Conformance Statements"
+            ],
+            "PIXIT": [
+                "Protocol Implementation eXtra Information for Testing",
+                "Protocol Implementation",
+                "Protocol Implementation Conformance Statement",
+                "PROTOCOL IMPLEMENTATION EXTRA INFORMATION FOR TESTING"
+            ],
+            "CMN": [
+                "Common Message Notation"
+            ],
+            "ATS": [
+                "the Abstract Test Suite",
+                "ABSTRACT TEST SUITE",
+                "The Abstract Test Suite",
+                "Abstract Test Suite"
+            ],
+            "ETSI": [
+                "European Telecommunications Standards Institute",
+                "The European Telecommunications Standards Institute",
+                "the European Telecommunications Standards Institute"
+            ],
+            "IUT": [
+                "an Implementation Under Test",
+                "the Implementation Under Test",
+                "Implementation Under Test"
+            ],
+            "ICS": [
+                "Implementation Conformance Statement"
+            ],
+            "MTC": [
+                "Master Test Controller",
+                "Means of Test Control",
+                "Main Test Component",
+                "the Main Test Controller",
+                "The Master Test Controller",
+                "Test Control",
+                "The Main Test Component"
+            ],
+            "TE": [
+                "TEST EXECUTION",
+                "Test Execution",
+                "Test Environment"
+            ],
+            "ETS": [
+                "An Executable Test Suite"
+            ],
+            "TFW": [
+                "a Test Framework",
+                "Test Framework"
+            ],
+            "EDS": [
+                "Decoding System"
+            ],
+            "T3RTS": [
+                "TTCN-3 RUNTIME SYSTEM",
+                "TTCN-3 Runtime System"
+            ],
+            "PA": [
+                "Platform Adapter",
+                "PLATFORM ADAPTER"
+            ],
+            "SA": [
+                "SYSTEM ADAPTER",
+                "System Adapter"
+            ],
+            "AC": [
+                "Alternating Current"
+            ],
+            "CPL": [
+                "Control Pilot Line"
+            ],
+            "DC": [
+                "Duty Cycle",
+                "Direct Current"
+            ],
+            "HAL": [
+                "Hardware Abstraction Layer",
+                "the Hardware Abstraction Layer"
+            ],
+            "ITB": [
+                "Invalid Test Behavior"
+            ],
+            "PTC": [
+                "Protocol Test Controller",
+                "Parallel Test Component",
+                "Positive Train Control",
+                "The Parallel Test Component",
+                "PARALLEL TEST COMPONENT"
+            ],
+            "TCI": [
+                "TTCN-3 Control Interface"
+            ],
+            "TP": [
+                "Test Purpose"
+            ],
+            "TRI": [
+                "TTCN-3 Runtime Interface"
+            ],
+            "VTB": [
+                "Valid Test Behavior",
+                "Vehicle Test Bench"
+            ],
+            "TSI": [
+                "Test System Interfaces",
+                "Test System Interface",
+                "TEST SYSTEM INTERFACE"
+            ],
+            "SDP": [
+                "The Service Discovery Protocol",
+                "the Service Discovery Protocol",
+                "Service Discovery Protocol"
+            ],
+            "BCB": [
+                "Breaker Control Block",
+                "Basic Control Block",
+                "Booster Circuit Breaker"
+            ],
+            "TB": [
+                "Test Bench"
+            ],
+            "SYSTEMSECC": [
+                "the Supply Equipment Communication Controller"
+            ],
+            "SYSTEMEVCC": [
+                "the Electric Vehicle Communication Controller"
+            ],
+            "TLS": [
+                "Transport Layer Security"
+            ],
+            "TTCN": [
+                "Tabular Combined Notation",
+                "The Tree and Tabular Combined Notation"
+            ],
+            "LLC": [
+                "the Logical Link Control"
+            ],
+            "SNAP": [
+                "Subnetwork Access Protocol"
+            ],
+            "QPSK": [
+                "Quadrature Phase Shift Keying"
+            ],
+            "SE": [
+                "Supply Equipment"
+            ],
+            "BPL": [
+                "Broadband Power Line"
+            ],
+            "ETH SAP": [
+                "the Ethernet Service Access Point"
+            ],
+            "V2G": [
+                "Vehicle-to-Grid"
+            ],
+            "ERDF": [
+                "Electricité et Réseau de France"
+            ],
+            "ARIB": [
+                "The Association of Radio Industries and Businesses"
+            ],
+            "PNC": [
+                "Plug and Charge"
+            ],
+            "ISP": [
+                "Intersystem Protocol"
+            ],
+            "IXIT": [
+                "Implementation eXtra Information for Testing"
+            ],
+            "TTCN-3": [
+                "Testing and Test Control Notation version 3"
+            ],
+            "ISO": [
+                "The International Organization for Standardization",
+                "International Organization for Standardization"
+            ],
+            "CAP": [
+                "Channel Access Priority"
+            ],
+            "IPV6": [
+                "Internet Protocol version 6"
+            ],
+            "CENELEC": [
+                "European Committee for Electrotechnical Standardization"
+            ],
+            "PHEV": [
+                "Plug-in Hybrid Electric Vehicle"
+            ],
+            "AVLN": [
+                "Application Virtual Local Network",
+                "Ad-hoc Vehicle Local Network",
+                "AV Logical Network",
+                "Alternative Vehicle Local Network",
+                "Ad-hoc Virtual Local Network"
+            ],
+            "BEV": [
+                "Battery Electric Vehicle"
+            ],
+            "D-LINK": [
+                "Data Link"
+            ],
+            "CPLT": [
+                "a specific context or component related to the G3-PLC technology, though the exact meaning is not detailed in the text",
+                "the infrastructure involved in power line communication, specifically related to the G3-PLC technology",
+                "a specific infrastructure setup that supports point-to-point communication links"
+            ]
+        },
+        "timestamp": "2025-03-06T21:33:29.326422",
+        "step": "abbr_dict"
+    }
+}

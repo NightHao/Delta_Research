@@ -1,0 +1,1028 @@
+{
+    "abbreviations": {
+        "OSI": [
+            "The_Open_Systems_Interconnection",
+            "Open_Systems_Interconnection"
+        ],
+        "EVSE": [
+            "Electric_Vehicle_Supply_Equipment",
+            "an_Electric_Vehicle_Supply_Equipment",
+            "AC_Electric_Vehicle_Supply_Equipment",
+            "An_AC_Electric_Vehicle_Supply_Equipment",
+            "the_Electric_Vehicle_Supply_Equipment",
+            "An_Electric_Vehicle_Supply_Equipment"
+        ],
+        "EV": [
+            "Electric_Vehicles",
+            "An_Electric_Vehicle",
+            "the_Electric_Vehicle",
+            "an_Electric_Vehicle",
+            "Electric_Vehicle"
+        ],
+        "EVS": [
+            "Electric_Vehicles"
+        ],
+        "EMC": [
+            "Electromagnetic_Compatibility"
+        ],
+        "DATA SAP": [
+            "Service_Access_Point_for_Data"
+        ],
+        "SAP": [
+            "The_Data_Link_Control_Service_Access_Point",
+            "Control_Service_Access_Point",
+            "Service_Access_Point",
+            "Data_Link_Control_Service_Access_Point"
+        ],
+        "WTO": [
+            "World_Trade_Organization",
+            "The_World_Trade_Organization"
+        ],
+        "TBT": [
+            "TECHNICAL_BARRIERS_TO_TRADE"
+        ],
+        "IEC": [
+            "The_International_Electrotechnical_Commission"
+        ],
+        "HLC": [
+            "High-Level_Communication",
+            "BASED_HIGH_LEVEL_COMMUNICATION"
+        ],
+        "PWM": [
+            "Pulse_Width_Modulation",
+            "the_Pulse_Width_Modulation"
+        ],
+        "HLC-C": [
+            "High-Level_Communication",
+            "High-Level_Communication_Control"
+        ],
+        "EIM": [
+            "the_Electricity_Information_Management",
+            "Electricity_Information_Management",
+            "External_Identification_Means"
+        ],
+        "EVCC": [
+            "The_Electric_Vehicle_Communication_Controller",
+            "Electric_Vehicle_Communication_Controllers",
+            "AC_Electric_Vehicle_Communication_Controller",
+            "DC_Electric_Vehicle_Communication_Controller",
+            "an_Electric_Vehicle_Communication_Controller",
+            "Electric_Vehicle_Communication_Controller",
+            "the_Electric_Vehicle_Communication_Controller",
+            "ELECTRIC_VEHICLE_COMMUNICATION_CONTROLLER"
+        ],
+        "SECC": [
+            "a_Secure_Electric_Charging_Communication",
+            "the_Supply_Equipment_Communication_Controller",
+            "Supply_Equipment_Communication_Controller",
+            "a_Supply_Equipment_Communication_Controller",
+            "Smart_Electric_Charging_Communication",
+            "SUPPLY_EQUIPMENT_COMMUNICATION_CONTROLLER",
+            "the_Smart_Electric_Car_Consortium"
+        ],
+        "MAC": [
+            "MEDIA_ACCESS_CONTROL",
+            "The_Media_Access_Control",
+            "the_Medium_Access_Control",
+            "Media_Access_Control",
+            "The_Medium_Access_Control"
+        ],
+        "AC EVSE": [
+            "Electric_Vehicle_Supply_Equipment"
+        ],
+        "SLAC": [
+            "Signal_Level_Attenuation_Characterization",
+            "the_Secure_Link_Association_Control",
+            "the_Secure_Link_Access_Control",
+            "The_Signal_Level_Attenuation_Characterization",
+            "the_Signal_Level_Attenuation_Characterization"
+        ],
+        "PLC": [
+            "a_Power_Line_Communication",
+            "the_Power_Line_Communication",
+            "Power_Line_Communication"
+        ],
+        "BC": [
+            "Basic_Charging"
+        ],
+        "DC EVSE": [
+            "Direct_Current_Electric_Vehicle_Supply_Equipment",
+            "Electric_Vehicle_Supply_Equipment"
+        ],
+        "HLE": [
+            "High-Level_Entity",
+            "Higher_Layer_Entity",
+            "the_High-Level_Entity",
+            "High_Layer_Entity"
+        ],
+        "CP": [
+            "the_Control_Pilot"
+        ],
+        "IEEE": [
+            "Electronics_Engineers",
+            "The_Institute_of_Electrical_and_Electronics_Engineers"
+        ],
+        "SUT": [
+            "The_System_Under_Test",
+            "the_System_Under_Test",
+            "System_Under_Test",
+            "a_System_Under_Test",
+            "SYSTEM_UNDER_TEST"
+        ],
+        "HPGP": [
+            "HomePlug_GreenPHY",
+            "the_HomePlug_Green_PHY",
+            "High_Performance_Green_PHY",
+            "High_Performance_Green_Power",
+            "HomePlug_Green_PHY"
+        ],
+        "MMES": [
+            "Management_Message_Entities",
+            "Mobility_Management_Entities"
+        ],
+        "MME": [
+            "Mobility_Management_Entity",
+            "Management_Message_Entry",
+            "Message_Management_Entity",
+            "Management_Message_Entity"
+        ],
+        "PEV": [
+            "Plug-in_Electric_Vehicles",
+            "Plug-in_Electric_Vehicle"
+        ],
+        "AAG": [
+            "the_Average_Attenuation",
+            "Average_Attenuation_of_Group"
+        ],
+        "NMK": [
+            "a_Network_Membership_Key",
+            "Network_Membership_Key"
+        ],
+        "NID": [
+            "Network_Identifier",
+            "a_Network_Identifier"
+        ],
+        "CCO": [
+            "the_Central_Communication_Controller",
+            "Central_Communication_Controller",
+            "Central_Coordinator"
+        ],
+        "PSD": [
+            "the_Power_Signal_Data",
+            "Power_Spectral_Density",
+            "POWER_SPECTRUM_DENSITY",
+            "Power_Signal_Data"
+        ],
+        "PE": [
+            "Protective_Earth"
+        ],
+        "ESD": [
+            "Electrostatic_Discharge"
+        ],
+        "DUT": [
+            "the_Device_Under_Test",
+            "Device_Under_Test"
+        ],
+        "FCC": [
+            "Federal_Communications_Commission",
+            "The_Federal_Communications_Commission",
+            "the_Federal_Communications_Commission"
+        ],
+        "ITU": [
+            "International_Telecommunication_Union",
+            "The_International_Telecommunication_Union"
+        ],
+        "LQI": [
+            "LINK_QUALITY_INDICATOR"
+        ],
+        "EAP PSK": [
+            "Extensible_Authentication_Protocol_Pre-Shared_Key"
+        ],
+        "LOWPANS": [
+            "Low_Power_Wireless_Personal_Area_Networks"
+        ],
+        "PHY": [
+            "The_Physical"
+        ],
+        "OFDM": [
+            "Orthogonal_Frequency-Division_Multiplexing",
+            "Orthogonal_Frequency_Division_Multiplexing"
+        ],
+        "UDP": [
+            "User_Datagram_Protocol"
+        ],
+        "TCP": [
+            "Transmission_Control_Protocol"
+        ],
+        "TSS": [
+            "The_Test_Suite_Structure",
+            "TEST_SUITE_STRUCTURE",
+            "Test_Suite_Specification",
+            "a_Test_Suite_Specification",
+            "Test_Suite_Structure"
+        ],
+        "PICS": [
+            "Protocol_Implementation_Conformance_Statement",
+            "the_Protocol_Implementation_Conformance_Statement",
+            "PROTOCOL_IMPLEMENTATION_CONFORMANCE_STATEMENT",
+            "Protocol_Implementation_Conformance_Statements"
+        ],
+        "PIXIT": [
+            "Protocol_Implementation_eXtra_Information_for_Testing",
+            "Protocol_Implementation",
+            "Protocol_Implementation_Conformance_Statement",
+            "PROTOCOL_IMPLEMENTATION_EXTRA_INFORMATION_FOR_TESTING"
+        ],
+        "CMN": [
+            "Common_Message_Notation"
+        ],
+        "ATS": [
+            "ABSTRACT_TEST_SUITE",
+            "The_Abstract_Test_Suite"
+        ],
+        "ETSI": [
+            "European_Telecommunications_Standards_Institute",
+            "The_European_Telecommunications_Standards_Institute",
+            "the_European_Telecommunications_Standards_Institute"
+        ],
+        "IUT": [
+            "an_Implementation_Under_Test",
+            "the_Implementation_Under_Test",
+            "Implementation_Under_Test"
+        ],
+        "ICS": [
+            "Implementation_Conformance_Statement"
+        ],
+        "MTC": [
+            "Master_Test_Controller",
+            "Means_of_Test_Control",
+            "Main_Test_Component",
+            "the_Main_Test_Controller",
+            "The_Master_Test_Controller",
+            "Test_Control",
+            "The_Main_Test_Component"
+        ],
+        "TE": [
+            "TEST_EXECUTION",
+            "Test_Execution",
+            "Test_Environment"
+        ],
+        "ETS": [
+            "An_Executable_Test_Suite"
+        ],
+        "TFW": [
+            "a_Test_Framework",
+            "Test_Framework"
+        ],
+        "EDS": [
+            "Decoding_System"
+        ],
+        "T3RTS": [
+            "TTCN-3_RUNTIME_SYSTEM",
+            "TTCN-3_Runtime_System"
+        ],
+        "PA": [
+            "Platform_Adapter",
+            "PLATFORM_ADAPTER"
+        ],
+        "SA": [
+            "SYSTEM_ADAPTER",
+            "System_Adapter"
+        ],
+        "AC": [
+            "Alternating_Current"
+        ],
+        "CPL": [
+            "Control_Pilot_Line"
+        ],
+        "DC": [
+            "Duty_Cycle",
+            "Direct_Current"
+        ],
+        "HAL": [
+            "Hardware_Abstraction_Layer",
+            "the_Hardware_Abstraction_Layer"
+        ],
+        "ITB": [
+            "Invalid_Test_Behavior"
+        ],
+        "PTC": [
+            "Protocol_Test_Controller",
+            "Parallel_Test_Component",
+            "Positive_Train_Control",
+            "The_Parallel_Test_Component",
+            "PARALLEL_TEST_COMPONENT"
+        ],
+        "TCI": [
+            "TTCN-3_Control_Interface"
+        ],
+        "TP": [
+            "Test_Purpose"
+        ],
+        "TRI": [
+            "TTCN-3_Runtime_Interface"
+        ],
+        "VTB": [
+            "Valid_Test_Behavior",
+            "Vehicle_Test_Bench"
+        ],
+        "TSI": [
+            "Test_System_Interfaces",
+            "Test_System_Interface",
+            "TEST_SYSTEM_INTERFACE"
+        ],
+        "SDP": [
+            "The_Service_Discovery_Protocol",
+            "the_Service_Discovery_Protocol",
+            "Service_Discovery_Protocol"
+        ],
+        "BCB": [
+            "Breaker_Control_Block",
+            "Basic_Control_Block",
+            "Booster_Circuit_Breaker"
+        ],
+        "TB": [
+            "Test_Bench"
+        ],
+        "SYSTEMSECC": [
+            "the_Supply_Equipment_Communication_Controller"
+        ],
+        "SYSTEMEVCC": [
+            "the_Electric_Vehicle_Communication_Controller"
+        ],
+        "TLS": [
+            "Transport_Layer_Security"
+        ],
+        "TTCN": [
+            "Tabular_Combined_Notation",
+            "The_Tree_and_Tabular_Combined_Notation"
+        ],
+        "LLC": [
+            "the_Logical_Link_Control"
+        ],
+        "SNAP": [
+            "Subnetwork_Access_Protocol"
+        ],
+        "QPSK": [
+            "Quadrature_Phase_Shift_Keying"
+        ],
+        "SE": [
+            "Supply_Equipment"
+        ],
+        "BPL": [
+            "Broadband_Power_Line"
+        ],
+        "ETH SAP": [
+            "the_Ethernet_Service_Access_Point"
+        ],
+        "V2G": [
+            "Vehicle-to-Grid"
+        ],
+        "ERDF": [
+            "Electricité_et_Réseau_de_France"
+        ],
+        "ARIB": [
+            "The_Association_of_Radio_Industries_and_Businesses"
+        ],
+        "PNC": [
+            "Plug_and_Charge"
+        ],
+        "ISP": [
+            "Intersystem_Protocol"
+        ],
+        "IXIT": [
+            "Implementation_eXtra_Information_for_Testing"
+        ],
+        "TTCN-3": [
+            "Testing_and_Test_Control_Notation_version_3"
+        ],
+        "ISO": [
+            "The_International_Organization_for_Standardization",
+            "International_Organization_for_Standardization"
+        ],
+        "CAP": [
+            "Channel_Access_Priority"
+        ],
+        "IPV6": [
+            "Internet_Protocol_version_6"
+        ],
+        "CENELEC": [
+            "European_Committee_for_Electrotechnical_Standardization"
+        ],
+        "PHEV": [
+            "Plug-in_Hybrid_Electric_Vehicle"
+        ],
+        "AVLN": [
+            "Application_Virtual_Local_Network",
+            "Ad-hoc_Vehicle_Local_Network",
+            "AV_Logical_Network",
+            "Alternative_Vehicle_Local_Network",
+            "Ad-hoc_Virtual_Local_Network"
+        ],
+        "BEV": [
+            "Battery_Electric_Vehicle"
+        ],
+        "D-LINK": [
+            "Data_Link"
+        ],
+        "CPLT": [
+            "a_specific_context_or_component_related_to_the_G3-PLC_technology,_though_the_exact_meaning_is_not_detailed_in_the_text",
+            "the_infrastructure_involved_in_power_line_communication,_specifically_related_to_the_G3-PLC_technology",
+            "a_specific_infrastructure_setup_that_supports_point-to-point_communication_links"
+        ]
+    },
+    "full_names": {
+        "The_Open_Systems_Interconnection": [
+            "OSI"
+        ],
+        "Open_Systems_Interconnection": [
+            "OSI"
+        ],
+        "Electric_Vehicle_Supply_Equipment": [
+            "EVSE",
+            "AC EVSE",
+            "DC EVSE"
+        ],
+        "An_Electric_Vehicle_Supply_Equipment": [
+            "EVSE"
+        ],
+        "Ac_Electric_Vehicle_Supply_Equipment": [
+            "EVSE"
+        ],
+        "An_Ac_Electric_Vehicle_Supply_Equipment": [
+            "EVSE"
+        ],
+        "The_Electric_Vehicle_Supply_Equipment": [
+            "EVSE"
+        ],
+        "Electric_Vehicles": [
+            "EV",
+            "EVS"
+        ],
+        "An_Electric_Vehicle": [
+            "EV"
+        ],
+        "The_Electric_Vehicle": [
+            "EV"
+        ],
+        "Electric_Vehicle": [
+            "EV"
+        ],
+        "Electromagnetic_Compatibility": [
+            "EMC"
+        ],
+        "A_Service_Access_Point": [
+            "DATA SAP"
+        ],
+        "The_Data_Link_Control_Service_Access_Point": [
+            "SAP"
+        ],
+        "Control_Service_Access_Point": [
+            "SAP"
+        ],
+        "Service_Access_Point": [
+            "SAP"
+        ],
+        "Data_Link_Control_Service_Access_Point": [
+            "SAP"
+        ],
+        "World_Trade_Organization": [
+            "WTO"
+        ],
+        "The_World_Trade_Organization": [
+            "WTO"
+        ],
+        "Technical_Barriers_To_Trade": [
+            "TBT"
+        ],
+        "The_International_Electrotechnical_Commission": [
+            "IEC"
+        ],
+        "High-Level_Communication": [
+            "HLC",
+            "HLC-C"
+        ],
+        "Based_High_Level_Communication": [
+            "HLC"
+        ],
+        "Pulse_Width_Modulation": [
+            "PWM"
+        ],
+        "The_Pulse_Width_Modulation": [
+            "PWM"
+        ],
+        "High-Level_Communication_Control": [
+            "HLC-C"
+        ],
+        "The_Electricity_Information_Management": [
+            "EIM"
+        ],
+        "Electricity_Information_Management": [
+            "EIM"
+        ],
+        "External_Identification_Means": [
+            "EIM"
+        ],
+        "The_Electric_Vehicle_Communication_Controller": [
+            "EVCC",
+            "SYSTEMEVCC"
+        ],
+        "Electric_Vehicle_Communication_Controllers": [
+            "EVCC"
+        ],
+        "Ac_Electric_Vehicle_Communication_Controller": [
+            "EVCC"
+        ],
+        "Dc_Electric_Vehicle_Communication_Controller": [
+            "EVCC"
+        ],
+        "An_Electric_Vehicle_Communication_Controller": [
+            "EVCC"
+        ],
+        "Electric_Vehicle_Communication_Controller": [
+            "EVCC"
+        ],
+        "A_Secure_Electric_Charging_Communication": [
+            "SECC"
+        ],
+        "The_Supply_Equipment_Communication_Controller": [
+            "SECC",
+            "SYSTEMSECC"
+        ],
+        "Supply_Equipment_Communication_Controller": [
+            "SECC"
+        ],
+        "A_Supply_Equipment_Communication_Controller": [
+            "SECC"
+        ],
+        "Smart_Electric_Charging_Communication": [
+            "SECC"
+        ],
+        "The_Smart_Electric_Car_Consortium": [
+            "SECC"
+        ],
+        "Media_Access_Control": [
+            "MAC"
+        ],
+        "The_Media_Access_Control": [
+            "MAC"
+        ],
+        "The_Medium_Access_Control": [
+            "MAC"
+        ],
+        "Signal_Level_Attenuation_Characterization": [
+            "SLAC"
+        ],
+        "The_Secure_Link_Association_Control": [
+            "SLAC"
+        ],
+        "The_Secure_Link_Access_Control": [
+            "SLAC"
+        ],
+        "The_Signal_Level_Attenuation_Characterization": [
+            "SLAC"
+        ],
+        "A_Power_Line_Communication": [
+            "PLC"
+        ],
+        "The_Power_Line_Communication": [
+            "PLC"
+        ],
+        "Power_Line_Communication": [
+            "PLC"
+        ],
+        "Basic_Charging": [
+            "BC"
+        ],
+        "Direct_Current_Electric_Vehicle_Supply_Equipment": [
+            "DC EVSE"
+        ],
+        "High-Level_Entity": [
+            "HLE"
+        ],
+        "Higher_Layer_Entity": [
+            "HLE"
+        ],
+        "The_High-Level_Entity": [
+            "HLE"
+        ],
+        "High_Layer_Entity": [
+            "HLE"
+        ],
+        "The_Control_Pilot": [
+            "CP"
+        ],
+        "Electronics_Engineers": [
+            "IEEE"
+        ],
+        "The_Institute_Of_Electrical_And_Electronics_Engineers": [
+            "IEEE"
+        ],
+        "The_System_Under_Test": [
+            "SUT"
+        ],
+        "System_Under_Test": [
+            "SUT"
+        ],
+        "A_System_Under_Test": [
+            "SUT"
+        ],
+        "Homeplug_Greenphy": [
+            "HPGP"
+        ],
+        "The_Homeplug_Green_Phy": [
+            "HPGP"
+        ],
+        "High_Performance_Green_Phy": [
+            "HPGP"
+        ],
+        "High_Performance_Green_Power": [
+            "HPGP"
+        ],
+        "Homeplug_Green_Phy": [
+            "HPGP"
+        ],
+        "Management_Message_Entities": [
+            "MMES"
+        ],
+        "Mobility_Management_Entities": [
+            "MMES"
+        ],
+        "Mobility_Management_Entity": [
+            "MME"
+        ],
+        "Management_Message_Entry": [
+            "MME"
+        ],
+        "Message_Management_Entity": [
+            "MME"
+        ],
+        "Management_Message_Entity": [
+            "MME"
+        ],
+        "Plug-In_Electric_Vehicles": [
+            "PEV"
+        ],
+        "Plug-In_Electric_Vehicle": [
+            "PEV"
+        ],
+        "The_Average_Attenuation": [
+            "AAG"
+        ],
+        "Average_Attenuation_Of_Group": [
+            "AAG"
+        ],
+        "A_Network_Membership_Key": [
+            "NMK"
+        ],
+        "Network_Membership_Key": [
+            "NMK"
+        ],
+        "Network_Identifier": [
+            "NID"
+        ],
+        "A_Network_Identifier": [
+            "NID"
+        ],
+        "The_Central_Communication_Controller": [
+            "CCO"
+        ],
+        "Central_Communication_Controller": [
+            "CCO"
+        ],
+        "Central_Coordinator": [
+            "CCO"
+        ],
+        "The_Power_Signal_Data": [
+            "PSD"
+        ],
+        "Power_Spectral_Density": [
+            "PSD"
+        ],
+        "Power_Spectrum_Density": [
+            "PSD"
+        ],
+        "Power_Signal_Data": [
+            "PSD"
+        ],
+        "Protective_Earth": [
+            "PE"
+        ],
+        "Electrostatic_Discharge": [
+            "ESD"
+        ],
+        "The_Device_Under_Test": [
+            "DUT"
+        ],
+        "Device_Under_Test": [
+            "DUT"
+        ],
+        "Federal_Communications_Commission": [
+            "FCC"
+        ],
+        "The_Federal_Communications_Commission": [
+            "FCC"
+        ],
+        "International_Telecommunication_Union": [
+            "ITU"
+        ],
+        "The_International_Telecommunication_Union": [
+            "ITU"
+        ],
+        "Link_Quality_Indicator": [
+            "LQI"
+        ],
+        "Extensible_Authentication_Protocol_Pre-Shared_Key": [
+            "EAP PSK"
+        ],
+        "Low_Power_Wireless_Personal_Area_Networks": [
+            "LOWPANS"
+        ],
+        "The_Physical": [
+            "PHY"
+        ],
+        "Orthogonal_Frequency-Division_Multiplexing": [
+            "OFDM"
+        ],
+        "Orthogonal_Frequency_Division_Multiplexing": [
+            "OFDM"
+        ],
+        "User_Datagram_Protocol": [
+            "UDP"
+        ],
+        "Transmission_Control_Protocol": [
+            "TCP"
+        ],
+        "The_Test_Suite_Structure": [
+            "TSS"
+        ],
+        "Test_Suite_Structure": [
+            "TSS"
+        ],
+        "Test_Suite_Specification": [
+            "TSS"
+        ],
+        "A_Test_Suite_Specification": [
+            "TSS"
+        ],
+        "Protocol_Implementation_Conformance_Statement": [
+            "PICS",
+            "PIXIT"
+        ],
+        "The_Protocol_Implementation_Conformance_Statement": [
+            "PICS"
+        ],
+        "Protocol_Implementation_Conformance_Statements": [
+            "PICS"
+        ],
+        "Protocol_Implementation_Extra_Information_For_Testing": [
+            "PIXIT"
+        ],
+        "Protocol_Implementation": [
+            "PIXIT"
+        ],
+        "Common_Message_Notation": [
+            "CMN"
+        ],
+        "The_Abstract_Test_Suite": [
+            "ATS"
+        ],
+        "Abstract_Test_Suite": [
+            "ATS"
+        ],
+        "European_Telecommunications_Standards_Institute": [
+            "ETSI"
+        ],
+        "The_European_Telecommunications_Standards_Institute": [
+            "ETSI"
+        ],
+        "An_Implementation_Under_Test": [
+            "IUT"
+        ],
+        "The_Implementation_Under_Test": [
+            "IUT"
+        ],
+        "Implementation_Under_Test": [
+            "IUT"
+        ],
+        "Implementation_Conformance_Statement": [
+            "ICS"
+        ],
+        "Master_Test_Controller": [
+            "MTC"
+        ],
+        "Means_Of_Test_Control": [
+            "MTC"
+        ],
+        "Main_Test_Component": [
+            "MTC"
+        ],
+        "The_Main_Test_Controller": [
+            "MTC"
+        ],
+        "The_Master_Test_Controller": [
+            "MTC"
+        ],
+        "Test_Control": [
+            "MTC"
+        ],
+        "The_Main_Test_Component": [
+            "MTC"
+        ],
+        "Test_Execution": [
+            "TE"
+        ],
+        "Test_Environment": [
+            "TE"
+        ],
+        "An_Executable_Test_Suite": [
+            "ETS"
+        ],
+        "A_Test_Framework": [
+            "TFW"
+        ],
+        "Test_Framework": [
+            "TFW"
+        ],
+        "Decoding_System": [
+            "EDS"
+        ],
+        "Ttcn-3_Runtime_System": [
+            "T3RTS"
+        ],
+        "Platform_Adapter": [
+            "PA"
+        ],
+        "System_Adapter": [
+            "SA"
+        ],
+        "Alternating_Current": [
+            "AC"
+        ],
+        "Control_Pilot_Line": [
+            "CPL"
+        ],
+        "Duty_Cycle": [
+            "DC"
+        ],
+        "Direct_Current": [
+            "DC"
+        ],
+        "Hardware_Abstraction_Layer": [
+            "HAL"
+        ],
+        "The_Hardware_Abstraction_Layer": [
+            "HAL"
+        ],
+        "Invalid_Test_Behavior": [
+            "ITB"
+        ],
+        "Protocol_Test_Controller": [
+            "PTC"
+        ],
+        "Parallel_Test_Component": [
+            "PTC"
+        ],
+        "Positive_Train_Control": [
+            "PTC"
+        ],
+        "The_Parallel_Test_Component": [
+            "PTC"
+        ],
+        "Ttcn-3_Control_Interface": [
+            "TCI"
+        ],
+        "Test_Purpose": [
+            "TP"
+        ],
+        "Ttcn-3_Runtime_Interface": [
+            "TRI"
+        ],
+        "Valid_Test_Behavior": [
+            "VTB"
+        ],
+        "Vehicle_Test_Bench": [
+            "VTB"
+        ],
+        "Test_System_Interfaces": [
+            "TSI"
+        ],
+        "Test_System_Interface": [
+            "TSI"
+        ],
+        "The_Service_Discovery_Protocol": [
+            "SDP"
+        ],
+        "Service_Discovery_Protocol": [
+            "SDP"
+        ],
+        "Breaker_Control_Block": [
+            "BCB"
+        ],
+        "Basic_Control_Block": [
+            "BCB"
+        ],
+        "Booster_Circuit_Breaker": [
+            "BCB"
+        ],
+        "Test_Bench": [
+            "TB"
+        ],
+        "Transport_Layer_Security": [
+            "TLS"
+        ],
+        "Tabular_Combined_Notation": [
+            "TTCN"
+        ],
+        "The_Tree_And_Tabular_Combined_Notation": [
+            "TTCN"
+        ],
+        "The_Logical_Link_Control": [
+            "LLC"
+        ],
+        "Subnetwork_Access_Protocol": [
+            "SNAP"
+        ],
+        "Quadrature_Phase_Shift_Keying": [
+            "QPSK"
+        ],
+        "Supply_Equipment": [
+            "SE"
+        ],
+        "Broadband_Power_Line": [
+            "BPL"
+        ],
+        "The_Ethernet_Service_Access_Point": [
+            "ETH SAP"
+        ],
+        "Vehicle-To-Grid": [
+            "V2G"
+        ],
+        "Electricité_Et_Réseau_De_France": [
+            "ERDF"
+        ],
+        "The_Association_Of_Radio_Industries_And_Businesses": [
+            "ARIB"
+        ],
+        "Plug_And_Charge": [
+            "PNC"
+        ],
+        "Intersystem_Protocol": [
+            "ISP"
+        ],
+        "Implementation_Extra_Information_For_Testing": [
+            "IXIT"
+        ],
+        "Testing_And_Test_Control_Notation_Version_3": [
+            "TTCN-3"
+        ],
+        "The_International_Organization_For_Standardization": [
+            "ISO"
+        ],
+        "International_Organization_For_Standardization": [
+            "ISO"
+        ],
+        "Channel_Access_Priority": [
+            "CAP"
+        ],
+        "Internet_Protocol_Version_6": [
+            "IPV6"
+        ],
+        "European_Committee_For_Electrotechnical_Standardization": [
+            "CENELEC"
+        ],
+        "Plug-In_Hybrid_Electric_Vehicle": [
+            "PHEV"
+        ],
+        "Application_Virtual_Local_Network": [
+            "AVLN"
+        ],
+        "Ad-Hoc_Vehicle_Local_Network": [
+            "AVLN"
+        ],
+        "Av_Logical_Network": [
+            "AVLN"
+        ],
+        "Alternative_Vehicle_Local_Network": [
+            "AVLN"
+        ],
+        "Ad-Hoc_Virtual_Local_Network": [
+            "AVLN"
+        ],
+        "Battery_Electric_Vehicle": [
+            "BEV"
+        ],
+        "Data_Link": [
+            "D-LINK"
+        ],
+        "A_Specific_Context_Or_Component_Related_To_The_G3-Plc_Technology,_Though_The_Exact_Meaning_Is_Not_Detailed_In_The_Text": [
+            "CPLT"
+        ],
+        "The_Infrastructure_Involved_In_Power_Line_Communication,_Specifically_Related_To_The_G3-Plc_Technology": [
+            "CPLT"
+        ],
+        "A_Specific_Infrastructure_Setup_That_Supports_Point-To-Point_Communication_Links": [
+            "CPLT"
+        ]
+    }
+}
