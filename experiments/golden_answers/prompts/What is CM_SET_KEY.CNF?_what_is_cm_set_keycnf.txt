@@ -4,14 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: A.9.2.1 Functional description - Table A.3 — EV_Discovering_Status definition
-Table 2: A.9.5.2 Description of involved MMEs - Table A.8 — MMEs parameters definition for joining the logical network
-
-FIGURE INFORMATION:
-Figure 1: A.9.5.3 Timing constraints and error handling - Figure A.7 — Sequence chart of joining the logical network
-Figure 2: A.9 Matching EV – EVSE process - Figure A.1 — Sequence chart of HomePlug Green PHY matching process (part 1)
-
 TEXTUAL INFORMATION:
 Text 1: A.9.5.1 Functional description (Context: A.9.5.1 Functional description > A.9.5 Joining the logical network > A.9 Matching EV – EVSE process) - The low-layer communciation module shall join the logical network only if the EV_ Discovering_status is EVSE_FOUND.
 Text 2: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:
@@ -46,25 +38,6 @@ Related Information 17: [V2G3-A09-101] After receiving a CM_SLAC_MATCH.CNF from 
 Related Information 18: NOTE 1 In a specific implementation, methods other than the CM_SET_KEY MMEs may also be used as long as the configuration result is equivalent. (sibling of Text 6)
 Related Information 19: [V2G3-A09-102] If no link is established within the max(TT_match_join) after receiving CM_SLAC_ MATCH.CNF, the EV shall consider that the matching process is FAILED. (sibling of Text 6)
 Contextual Information 6: A.9.5.3.2 EV side (ancestor of Text 6)
-Related Information 20: Table A.8 — MMEs parameters definition for joining the logical network <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="10">CM_SET_KEY.REQ&lt;br&gt;Unicast to local low-&lt;br&gt;layer communcia-&lt;br&gt;tion node</td> <td colspan="1" rowspan="1">Key Type</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value to indicate “NMK”</td> </tr> <tr> <td colspan="1" rowspan="1">My Nonce</td> <td colspan="1" rowspan="1">1 to 4</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1">0x00000000</td> <td colspan="1" rowspan="1">Fixed value, encrypted payload not&lt;br&gt;used</td> </tr> <tr> <td colspan="1" rowspan="1">Your Nonce</td> <td colspan="1" rowspan="1">5 to 8</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1">0x00000000</td> <td colspan="1" rowspan="1">Fixed value, encrypted payload not&lt;br&gt;used</td> </tr> <tr> <td colspan="1" rowspan="1">PID</td> <td colspan="1" rowspan="1">9</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x04</td> <td colspan="1" rowspan="1">Fixed value to indicate “HLE proto-&lt;br&gt;col”</td> </tr> <tr> <td colspan="1" rowspan="1">PRN</td> <td colspan="1" rowspan="1">10 to 11</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">0x0000</td> <td colspan="1" rowspan="1">Fixed value, encrypted payload not&lt;br&gt;used</td> </tr> <tr> <td colspan="1" rowspan="1">PMN</td> <td colspan="1" rowspan="1">12</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value, encrypted payload not&lt;br&gt;used</td> </tr> <tr> <td colspan="1" rowspan="1">CCo&lt;br&gt;Capablility</td> <td colspan="1" rowspan="1">13</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">CCo Capability according to the&lt;br&gt;station role</td> </tr> <tr> <td colspan="1" rowspan="1">NID</td> <td colspan="1" rowspan="1">14 to 20</td> <td colspan="1" rowspan="1">7</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">54 LSBs contain the NID&lt;br&gt;2 MSBs = 0b00</td> </tr> <tr> <td colspan="1" rowspan="1">NewEKS</td> <td colspan="1" rowspan="1">21</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value to indicate “NMK”</td> </tr> <tr> <td colspan="1" rowspan="1">NewKey</td> <td colspan="1" rowspan="1">22 to 37</td> <td colspan="1" rowspan="1">16</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">NMK</td> </tr> </table> (sibling of Table 2)
-Contextual Information 7: A.9.5.2 Description of involved MMEs (ancestor of Table 2)
-Related Information 21: A.9.5.3.1 Sequence chart (sibling of Figure 1)
-Related Information 22: Figure A.7 — Sequence chart of joining the logical network (sibling of Figure 1)
-Contextual Information 8: A.9.5.3 Timing constraints and error handling (ancestor of Figure 1)
-Related Information 23: [V2G3-A09-01] The matching process shall base on the messages defined in [HPGP]. [V2G3-A09-02] The configuration of the low-layer communciation module as described in A.4.5 shall be done prior to entering the matching process. (sibling of Figure 2)
-Related Information 24: Figures A.1and A.2 outlines the complete sequence of the matching process. It shows the sequence to follow, from the discovery of the other low-layer communciation modules to the start of the nominal communication. (sibling of Figure 2)
-Related Information 25: Figure A.1 — Sequence chart of HomePlug Green PHY matching process (part 1) (sibling of Figure 2)
-Related Information 26: ISO Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (sibling of Figure 2)
-Related Information 27: A.9.1 Signal strength measurement – parameter exchange (sibling of Figure 2)
-Related Information 28: A.9.2 Signal strength measurement (sibling of Figure 2)
-Related Information 29: A.9.3 Validation of matching decision (sibling of Figure 2)
-Related Information 30: A.9.4 Logical network parameter exchange (sibling of Figure 2)
-Related Information 31: A.9.5 Joining the logical network (sibling of Figure 2)
-Related Information 32: A.9.6 Amplitude map exchange (sibling of Figure 2)
-Related Information 33: A.9.7 Leave the logical network (sibling of Figure 2)
-Related Information 34: A.9.8 General error handling and timing constraints (sibling of Figure 2)
-Contextual Information 9: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Figure 2)
-Contextual Information 10: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Figure 2)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:

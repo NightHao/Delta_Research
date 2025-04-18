@@ -1,0 +1,7 @@
+[
+    {
+        "question": "What is CM_ATTEN_PROFILE.IND?",
+        "score": 0.8304592698264834,
+        "reason": "The actual output matches the expected output in all major factual points: It correctly describes the role of CM_ATTEN_PROFILE.IND in the SLAC process, the derivation of the attenuation profile from M-SOUNDS, the correction with AttnRx-EVSE, and the importance of processing within the TT_EVSE_MATCH_MNBC timer. Detail about associated message types (CM_START_ATTEN_CHAR.IND, etc.), metadata in the message, and some processing sequence nuances are slightly less specific or not mentioned, such as the protocol stack (HomePlug Green PHY) and the session initiation order, but no contradictions are present. Minor omissions prevent a perfect score."
+    }
+]

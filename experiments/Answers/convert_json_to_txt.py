@@ -35,17 +35,7 @@ def convert_json_to_formatted_txt(json_file_path):
 
 if __name__ == "__main__":
     json_files = [
-        "./lightrag_ans_w_ag.json",
-        "./lightrag_local.json",
-        "./lightrag_global.json",
-        "./lightrag_hybrid.json",
-        "./lightrag_mix.json",
-        "./lightrag_naive.json",
-        "./lightrag_local_mini.json",
-        "./lightrag_global_mini.json",
-        "./lightrag_hybrid_mini.json",
-        "./lightrag_mix_mini.json",
-        "./lightrag_naive_mini.json"
+        "./o4mini_golden_ans.json"
     ]
     
     for json_file in json_files:

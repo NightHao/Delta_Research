@@ -4,12 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: [V2G3-M12-01] - Table 7 — D-LINK_PAUSE.request primitive
-
-FIGURE INFORMATION:
-Figure 1: 9.1 Overview - Figure 11 — Matching state machine
-
 TEXTUAL INFORMATION:
 Text 1: [V2G3-M12-01] (Context: [V2G3-M12-01] > 12.3 Data link control SAP to layer 3 > 12 Layer 2 interfaces) - The D-LINK_PAUSE.request requests lower layers to enter a power saving mode. While being in this mode, the state will be kept to “Matched”
 Text 2: 7.6.1 Entering the sleep mode (Context: 7.6.1 Entering the sleep mode > 7.6 Sleep mode and wake-up > 7 Connection coordination) - With receiving a D-LINK_PAUSE.request, the EV shall change to control pilot state Bx. Unpowering the low-layer communication module is optional. The logical net- work parameter set shall be stored for continuing the data link after the sleeping phase.
@@ -82,7 +76,6 @@ Related Information 37: [V2G3-M07-30] If the EV is in a charge pause, it shall w
 Contextual Information 12: 7.6.2.2 EV side (ancestor of Text 12)
 Related Information 38: [V2G3-M07-29] After waking up, the PLC node on EV side shall be configured to the last known parameter set. (sibling of Text 13)
 Related Information 39: [V2G3-M07-24] To wake-up the EV, the pilot function controller on EVSE side shall be configured to the last known parameter set and the oszillator shall perform a B1/B2 transi- tion. (sibling of Text 15)
-Related Information 40: The D-LINK_PAUSE.request requests lower layers to enter a power saving mode. While being in this mode, the state will be kept to “Matched”. (sibling of Table 1)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:

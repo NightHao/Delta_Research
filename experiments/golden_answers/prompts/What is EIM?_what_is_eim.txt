@@ -4,22 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: 7.2 Overview - Table 1 — EIM and/or PnC in EVSEs
-
-FIGURE INFORMATION:
-Figure 1: Key - Figure 3 — Connection coordination Seq 1: AC EVSE with PnC and EIM and matching process not
-Figure 2: Key - started before EIM, 5 % control pilot duty cycle after plug-in
-Figure 3: Key - Figure 4 — Connection coordination Seq 2: AC EVSE with PnC and EIM and matching process not
-Figure 4: Key - started before EIM, control pilot state X1 after plug-in
-Figure 5: ISO 15118-3:2015(E) ﻿ Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. - Figure 5 — Connection coordination Seq 3: AC EVSE with PnC and EIM and matching process
-Figure 6: Key - started before EIM, 5 % control pilot duty cycle after plug-in
-Figure 7: ISO 15118-3:2015(E) ﻿ Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. - Figure 6 — Connection coordination Seq 4: AC EVSE with PnC and EIM and matching process
-Figure 8: Key - started before EIM, control pilot state X1 after plug-in
-Figure 9: ISO 15118-3:2015(E) ﻿ Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. - Figure 7 — Connection coordination Seq 5: AC EVSE with EIM, EIM before plug-in, control pilot
-Figure 10: ISO 15118-3:2015(E) ﻿ Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. - state X2 after plug-in
-Figure 11: ISO 15118-3:2015(E) ﻿ Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. - Figure 9 — Connection coordination Seq 7: AC EVSE timeout handling for 5 % control pilot duty
-
 TEXTUAL INFORMATION:
 Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - External Identification Mean
 Text 2: 7.2 Overview (Context: 7.2 Overview > 7 Connection coordination > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Table 1 gives a summary of PnC and/or EIM implementation on EVSEs. Details are given in the following figures. For example, Seq 1 b), c), and d) means that the branches b), c), and d) apply.
@@ -138,7 +122,6 @@ Related Information 94: NOTE 3 In the X1 control pilot state, a customer can mak
 Related Information 95: [V2G3 -M06-09] If a control pilot state E/F -> Bx, Cx, Dx transition is used for triggering retries or legacy issues, the state E/F shall be at least T_step_EF. (sibling of Text 9)
 Contextual Information 10: 6.4.2.1 Control pilot requirements (ancestor of Text 9)
 Contextual Information 11: 6.4 System requirements (ancestor of Text 9)
-Related Information 96: Figure 4 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is not started when EIM is done. The EVSE applies control pilot state X1 after plug-in. If an EVSE only supports EIM or PnC, only some branches exist. (sibling of Figure 1)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:

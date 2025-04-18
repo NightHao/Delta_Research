@@ -1,0 +1,57 @@
+Question What is CCo?: What is CCo?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - CCo Central Coordinator
+Text 2: 3.2 central coordinator (Context: 3.2 central coordinator > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - manager of a HomePlug Green PHY network
+Text 3: A.6.5.2 Functional description (Context: A.6.5.2 Functional description > A.6.5 Configuration of a PLC module > A.6 System architecture) - [V2G3-A06-02] The low-layer communication module on the EV side shall be configured in order to never become the CCo.
+Text 4: A.6.5.2 Functional description (Context: A.6.5.2 Functional description > A.6.5 Configuration of a PLC module > A.6 System architecture) - [V2G3-A06-03] The low-layer communication module on the EVSE side shall be configured in order to always be the CCo.
+Text 5: A.6.5.2 Functional description (Context: A.6.5.2 Functional description > A.6.5 Configuration of a PLC module > A.6 System architecture) - For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause “Control SAP Service” of the [HPGP] may be used.
+Text 6: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV.
+
+ADDITIONAL CONTEXT:
+Related Information 1: MME Management Message Entry (sibling of Text 1)
+Related Information 2: PE Protective Earth (sibling of Text 1)
+Related Information 3: PLC Power Line Communication (sibling of Text 1)
+Related Information 4: PnC Plug and Charge (as defined in ISO 15118-1) (sibling of Text 1)
+Related Information 5: QPSK Quadrature Phase Shift Keying (sibling of Text 1)
+Related Information 6: SAP Service Access Point (sibling of Text 1)
+Related Information 7: SE Supply Equipment (sibling of Text 1)
+Related Information 8: SLAC Signal Level Attenuation Characterization (sibling of Text 1)
+Contextual Information 1: 4 Symbols and abbreviated terms (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 3: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 1)
+Contextual Information 4: 3.2 central coordinator (ancestor of Text 2)
+Contextual Information 5: 3 Terms and definitions (ancestor of Text 2)
+Related Information 9: After this process, the low-layer communication module is configured to a defined state. This configuration is a precondition for the matching process and is done latest with entering the matching process. (sibling of Text 3)
+Related Information 10: [V2G3-A06-03] The low-layer communication module on the EVSE side shall be configured in order to always be the CCo. (sibling of Text 3)
+Related Information 11: For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause “Control SAP Service” of the [HPGP] may be used. (sibling of Text 3)
+Related Information 12: [V2G3-A06-04] To speed up the matching process, the low-layer communication module shall be configured to use CAP3 priority for all frames related to the matching process. [V2G3-A06-05] The low-layer communication module on the EV side shall never respond to the following MMEs: — CM_SLAC_PARM.REQ; — CM_START_ATTEN_CHAR.IND; — CM_MNBC_SOUND.IND; — CM_ATTEN_CHAR.RSP; (sibling of Text 3)
+Related Information 13: — CM_VALIDATE.REQ; (sibling of Text 3)
+Related Information 14: — CM_SLAC_MATCH.REQ. (sibling of Text 3)
+Contextual Information 6: A.6.5.2 Functional description (ancestor of Text 3)
+Contextual Information 7: A.6.5 Configuration of a PLC module (ancestor of Text 3)
+Contextual Information 8: A.6 System architecture (ancestor of Text 3)
+Related Information 15: [V2G3-A06-02] The low-layer communication module on the EV side shall be configured in order to never become the CCo. (sibling of Text 5)
+Related Information 16: The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage. (sibling of Text 6)
+Related Information 17: As HomePlug Green PHY signal’s coupling is directly linked to the control pilot, the schematic in [IEC-1], Annex A specification is basis for definitions regarding the control pilot signal. (sibling of Text 6)
+Related Information 18: To enable HomePlug Green PHY injection, the path from EVSE’s output to EV’s input should not be considered as capacitive only as it is sufficient for the low frequency control pilot signal. For high frequency HomePlug Green PHY, the path should be considered as a transmission line. To take the high frequency into account, the control pilot circuit and the component values have to be specified in more detail. (sibling of Text 6)
+Related Information 19: For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause. (sibling of Text 6)
+Contextual Information 9: A.11.1 Overview (ancestor of Text 6)
+Contextual Information 10: A.11 Signal coupling (ancestor of Text 6)
+Contextual Information 11: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Text 6)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

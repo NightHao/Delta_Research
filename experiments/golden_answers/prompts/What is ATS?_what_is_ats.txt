@@ -4,17 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: 7.3.3 Protocol implementation conformance statement (PICS) definition - Table 6 — PICS for test system configurations CF_05_001 and CF_05_002 (SUT either SECC or EVCC)
-Table 2: 7.3.3 Protocol implementation conformance statement (PICS) definition - Table 7 — PICS for test system configuration CF_05_001 (SUT equals SECC)
-Table 3: 7.3.3 Protocol implementation conformance statement (PICS) definition - Table 8 — PICS for test system configuration CF_05_002 (SUT equals EVCC)
-Table 4: 7.3.3 Protocol implementation conformance statement (PICS) definition - Table 9 — Selected PIXIT for test system configurations CF_05_001 and CF_05_002 (SUT either SECC or EVCC)
-Table 5: 7.3.3 Protocol implementation conformance statement (PICS) definition - Table 10 — Selected PIXIT for test system configuration CF_05_001 (SUT equals SECC)
-Table 6: 7.3.3 Protocol implementation conformance statement (PICS) definition - Table 11 — Selected PIXIT for test system configuration CF_05_002 (SUT equals EVCC)
-Table 7: 7.5 Test suite coverage - Table 27 — Requirements of ISO 15118-3 not considered in the ATS
-Table 8: 7.5 Test suite coverage - Table 28 — Requirements of ISO 15118-3 implicitly covered by the SUT adapters / codecs
-Table 9: Contents - Table 29 — ATS coverage of requirements in ISO 15118-3
-
 TEXTUAL INFORMATION:
 Text 1: 1 Scope (Context: 1 Scope > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests > Road vehicles — Vehicle to grid communication interface — Part 5: Physical layer and data link layer conformance test) - Abstract Test Suite
 Text 2: 3.2 abstract test suite (Context: 3.2 abstract test suite > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - test suite composed of abstract test cases

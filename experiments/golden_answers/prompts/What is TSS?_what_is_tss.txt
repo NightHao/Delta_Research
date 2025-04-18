@@ -4,9 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-FIGURE INFORMATION:
-Figure 1: 7.2 Test suite structure (TSS) - Figure 2 — General overview of the Test Suite Structure (TSS)
-
 TEXTUAL INFORMATION:
 Text 1: CSV file (Context: CSV Data) - test suite structure
 Text 2: 7.2 Test suite structure (TSS) (Context: 7.2 Test suite structure (TSS) > 7 Test suite conventions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - A test suite is a complete set of test cases, possibly combined into groups or modules (e.g. for use cases or domains like AC, DC charging), that are necessary to perform conformance testing for a given SUT.

@@ -4,12 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: 8 Timings and constants - Table 3 — Timing and constant values
-
-FIGURE INFORMATION:
-Figure 1: A.9.5.3 Timing constraints and error handling - Figure A.7 — Sequence chart of joining the logical network
-
 TEXTUAL INFORMATION:
 Text 1: 3.16 logical network (Context: 3.16 logical network > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - set of low-layer communication stations which use the same network key
 Text 2: 3.16 logical network (Context: 3.16 logical network > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Note 1 to entry: Only members of the same logical network are able to exchange encrypted payload data and are visible for each other on higher layers. Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation.
@@ -44,11 +38,6 @@ Contextual Information 8: A.9.4.1 Functional description (ancestor of Text 7)
 Contextual Information 9: A.9.4 Logical network parameter exchange (ancestor of Text 7)
 Contextual Information 10: A.9 Matching EV – EVSE process (ancestor of Text 7)
 Related Information 13: [V2G3-A09-92] At any time an EVSE switches to a private logical network, the local NMK shall be set per random value to ensure a unique logical network. The configuration of the NMK on EVSE side shall be done with sending a CM_SLAC_MATCH.CNF MME or at anytime before. (sibling of Text 8)
-Related Information 14: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 1)
-Related Information 15: A.9.5.3.1 Sequence chart (sibling of Figure 1)
-Related Information 16: Figure A.7 — Sequence chart of joining the logical network (sibling of Figure 1)
-Contextual Information 11: A.9.5.3 Timing constraints and error handling (ancestor of Figure 1)
-Contextual Information 12: A.9.5 Joining the logical network (ancestor of Figure 1)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:

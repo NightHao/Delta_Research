@@ -4,13 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: 7.3.2 Components and ports - Table 4 — Component definitions
-Table 2: 7.3.2 Components and ports - Table 5 — Port type definitions
-
-FIGURE INFORMATION:
-Figure 1: 7.3.1 Test configurations - Figure 3 — ISO 15118-5 test configuration
-
 TEXTUAL INFORMATION:
 Text 1: 4 Symbols (and abbreviated terms) (Context: 4 Symbols (and abbreviated terms) > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests > Road vehicles — Vehicle to grid communication interface — Part 5: Physical layer and data link layer conformance test) - MTC Main Test Component
 Text 2: 3.12 main test component (Context: 3.12 main test component > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - parallel test component
@@ -98,12 +91,6 @@ Related Information 53: The HAL_61851_Listener combines all necessary listener f
 Related Information 54: MTC Main Test Component (sibling of Text 15)
 Related Information 55: Note 1 to entry: Compare with ETSI ES 201 873‐6 V4.6.1. (sibling of Text 16)
 Contextual Information 12: 3.30 test system interface TSI (ancestor of Text 16)
-Related Information 56: The test configuration reflects various ISO 15118 scenarios. The main entities for the System Under Test (SUT) are: (sibling of Figure 1)
-Related Information 57: — Electric Vehicle Communication Controller (EVCC); and (sibling of Figure 1)
-Related Information 58: — Supply Equipment Communication Controller (SECC) (sibling of Figure 1)
-Related Information 59: The combination of entities and additionally used test components are grouped by Test Configuration IDs (CF_Part_ID). Table 3 shows the test configurations for this document. (sibling of Figure 1)
-Related Information 60: Table 3 — ISO 15118-5 test configurations <table border="1"> <td colspan="1" rowspan="1">CF_Part_ID </td> <td colspan="1" rowspan="1">SUT </td> <td colspan="1" rowspan="1">Tester </td> <td colspan="1" rowspan="1">PTCs </td> <tr> <td colspan="1" rowspan="1">CF_05_001 </td> <td colspan="1" rowspan="1">SECC + PLC Bridge </td> <td colspan="1" rowspan="1">EVCC + PLC Bridge </td> <td colspan="1" rowspan="1">PTC1 = 61851 </td> </tr> <tr> <td colspan="1" rowspan="1">CF_05_002 </td> <td colspan="1" rowspan="1">EVCC + PLC Bridge </td> <td colspan="1" rowspan="1">SECC + PLC Bridge </td> <td colspan="1" rowspan="1">PTC1 = 61851 </td> </tr> </table> (sibling of Figure 1)
-Contextual Information 13: 7.3.1 Test configurations (ancestor of Figure 1)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:

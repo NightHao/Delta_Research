@@ -1,0 +1,142 @@
+[
+    {
+        "question": "What is the system architecture of Vehicle-to-Grid?",
+        "score": 1.0,
+        "reason": "The actual output aligns with the expected output\u2019s component breakdown (EV, EVCC, SECC), references ISO 15118, test cases (e.g., TC_SECC_AC_VTB_PLCLINKSTATUS_001 vs. TC_SECC_DC_VTB_PLCLinkStatus_001), and includes details like B1/B2 transitions, SessionStopReq, and HLC-C without omitting key points from the input."
+    },
+    {
+        "question": "What is HPGP?",
+        "score": 0.8,
+        "reason": "Input asks about HPGP. The Actual Output aligns well with the Expected Output\u2019s main points (e.g., EV charging, pilot line, ISO 15118), but it omits key details on coupling circuits, SLAC, and ESD protection, so a deduction is warranted."
+    },
+    {
+        "question": "What is SLAC?",
+        "score": 0.8,
+        "reason": "The actual output references SLAC messages (CM_SLAC_PARM..., CM_ATTEN_CHAR...) and ISO 15118-3:2015, aligning with the expected output, but it omits details like HomePlug Green PHY, CM_SLAC_MATCH, and test case specifics that the expected output includes."
+    },
+    {
+        "question": "What is Logical Network?",
+        "score": 0.9,
+        "reason": "Based on the Input's focus on defining a Logical Network at Layer 2, the Actual Output aligns well with the Expected Output by detailing membership, a Central Coordinator, and error handling. However, the Actual Output omits some specifics (like NMK or MME exchanges) mentioned in the Expected Output, so it is slightly less comprehensive."
+    },
+    {
+        "question": "What is CCo?",
+        "score": 0.9,
+        "reason": "No contradictions found, and it includes details about managing the logical network, MME usage, and requirement V2G3-A06-02. However, it omits specifics like APCM_SET_CCo.REQ and explicitly stating the EVSE side typically acts as the CCo."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.8,
+        "reason": "From the Input, the Actual Output covers control pilot states, ISO 15118-3 references, and fallback usage. Comparing it to the Expected Output, it omits IEC 61851-1 and some advanced authentication details, leaving out certain specifics."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.8,
+        "reason": "Both the Actual Output and Expected Output agree on the roles of MTC and PTC (MTC managing the overall test process, PTC monitoring PWM and EIM changes), but the Actual Output does not mention details from the Expected Output such as pt_SLAC_Port or adjusting pilot signals."
+    },
+    {
+        "question": "What is ATS?",
+        "score": 0.8,
+        "reason": "Actual Output aligns with the Input question and matches much of the Expected Output\u2019s ISO 15118-3 focus but omits specifics about the 'interpretation' step, V2G5-038, and Table 27 references mentioned in the Expected Output."
+    },
+    {
+        "question": "What is TSS?",
+        "score": 0.7,
+        "reason": "In the Input, TSS is explained for conformance testing under ISO 15118. The Actual Output aligns with the framework and does not contradict the Expected Output. However, it omits details like section 7.2 references, AC/DC grouping, and specifics on SUT stimulation mentioned in the Expected Output."
+    },
+    {
+        "question": "What is EIM?",
+        "score": 0.8,
+        "reason": "The actual output matches key facts from the Input and Expected Output (like ISO 15118-1 references and pre-plug authorization) but omits AC/DC usage details and examples of external credentials (e.g., cards or codes) mentioned in the Expected Output."
+    },
+    {
+        "question": "What is D-LINK_READY.indication?",
+        "score": 0.9,
+        "reason": "It aligns with the Input\u2019s request for details on D-LINK_READY.indication and matches the Expected Output\u2019s points on link statuses and V2G requirements without contradicting any facts. However, the Actual Output does not explicitly mention TT_AMP_MAP_EXCHANGE or D-LINKSTATUS by name, which the Expected Output does."
+    },
+    {
+        "question": "What is D-LINK_TERMINATE.request?",
+        "score": 1.0,
+        "reason": "They both mention the HLE sending D-LINK_TERMINATE.request for terminating the data link, reference TP_match_leave for leaving the logical network, and revert link parameters to default (\u201cUnmatched\u201d) in V2G (EV\u2013EVSE) context. No significant detail is omitted, and no facts contradict each other."
+    },
+    {
+        "question": "What is D-LINK_ERROR.request?",
+        "score": 1.0,
+        "reason": "It matches the expected details (e.g., HLE as sender, control pilot transition, V2G3-M07 references, X2 state process, leaving the logical network, and re-matching) without any contradictions or omissions."
+    },
+    {
+        "question": "What is D-LINK_PAUSE.request?",
+        "score": 0.8,
+        "reason": "In 'Input', the question is about D-LINK_PAUSE.request. 'Actual Output' covers V2G aspects and references V2G3-M07-20 from 'Expected Output' without contradictions, but omits the EV\u2019s required response details."
+    },
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 1.0,
+        "reason": "Both the Actual Output and Expected Output align on Data SAP being identified as ETH SAP, emphasize error handling and link status for Data Link Control SAP, and reference the Connection Coordination Entity without leaving out critical details presented in the Expected Output."
+    },
+    {
+        "question": "What is CM_START_ATTEN_CHAR.IND?",
+        "score": 0.8,
+        "reason": "Actual output closely matches the expected content (mentions SLAC, TT_match_sequence, V2G3-A09-26, and EV\u2192EVSE flow) but omits the TP_EV_batch_msg_interval detail mentioned in the expected output. No contradictory facts detected."
+    },
+    {
+        "question": "What is CM_MNBC_SOUND.IND?",
+        "score": 0.8,
+        "reason": "Input asked about CM_MNBC_SOUND.IND. Actual Output aligns with Expected Output on SLAC use, fields (APPLICATION_TYPE, SECURITY_TYPE, RUNID), and intervals (TP_EV_batch_msg_interval, C_EV_match_MNBC), but omits details from Expected Output about the post-CM_START_ATTEN_CHAR.IND sequence and the no-response requirement (V2G3-A06-05)."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.IND?",
+        "score": 0.8,
+        "reason": "Actual Output references V2G3-A09-22 but omits details about AVERAGE_ATTENUATION and V2G3-A09-35/37 noted in Expected Output. It generally aligns with the Input and does not contradict key facts."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.RSP?",
+        "score": 0.8,
+        "reason": "Both outputs align on purpose, timing (TT_match_response), and test cases for CM_ATTEN_CHAR.RSP. However, the actual output omits the V2G3-A06-05 requirement about the EV\u2019s low-layer possibly not responding to certain MMEs, which the expected output explicitly mentions."
+    },
+    {
+        "question": "What is CM_ATTEN_PROFILE.IND?",
+        "score": 1.0,
+        "reason": "Input asks about CM_ATTEN_PROFILE.IND; Actual Output describes it as a SLAC message referencing TT_EVSE_match_MNBC, deriving from M-SOUNDS, and can be ignored if NUM_SOUNDS=0. Expected Output aligns with all these details. No contradictions or omissions occur."
+    },
+    {
+        "question": "What is CM_VALIDATE.REQ?",
+        "score": 0.8,
+        "reason": "It matches the request/response flow (CM_VALIDATE.REQ/CM_VALIDATE.CNF) and includes core fields, but omits some timing/test details (e.g., TP match sequencing, handling multiple requests after a CNF is sent) mentioned in the expected output."
+    },
+    {
+        "question": "What is CM_VALIDATE.CNF?",
+        "score": 0.7,
+        "reason": "The actual output covers main points (e.g., result field, timing) without contradicting facts, but it omits certain details from the expected output (e.g., ToggleNum field, resending conditions), which leads to a reduction in rating."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.REQ?",
+        "score": 0.9,
+        "reason": "Both the Actual Output and Expected Output mention CM_SLAC_MATCH.CNF, runID, EV/EVSE MACs, timers (TT_EVSE_MATCH_SESSION), and retries (C_EV_MATCH_RETRY). There are no factual contradictions, and only minor omissions (e.g., explicit mention of V2G), so overall alignment is strong."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.CNF?",
+        "score": 0.9,
+        "reason": "Actual Output and Expected Output both describe this confirmation message for SLAC matching in detail (timing via TT_match_response, NMK/NID fields, V2G3-A09-95 handling), with no contradictions. Minor specifics on sending time (waiting until TT_match_response expiration) are less explicit in Actual Output, but overall it closely matches the Input and Expected Output."
+    },
+    {
+        "question": "What is CM_SET_KEY.REQ?",
+        "score": 0.8,
+        "reason": "It covers MME usage, NID/NMK details, unicast communication, and integration with CM_SET_KEY.CNF as stated in the Input and Expected Output. However, it omits the mention of CM_SLAC_MATCH.CNF from the Expected Output, though there is no direct contradiction."
+    },
+    {
+        "question": "What is CM_SET_KEY.CNF?",
+        "score": 1.0,
+        "reason": "Input asked about CM_SET_KEY.CNF. Actual Output describes it as confirming network parameters with CM_SET_KEY.REQ after CM_SLAC_MATCH.CNF, indicating success or failure. Expected Output also states it confirms keys or parameters post-REQ and can return positive or negative. No contradictions or missing details."
+    },
+    {
+        "question": "What is CM_AMP_MAP.REQ?",
+        "score": 0.8,
+        "reason": "Actual output aligns well with expected details on functionality, references -50 dBm/Hz, and matches the confirmation/retransmission mechanism. However, it omits the specific AMDATA resolution example (e.g., 0b0011 \u2192 \u22126 dB) mentioned in the expected output."
+    },
+    {
+        "question": "What is CM_AMP_MAP.CNF?",
+        "score": 0.9,
+        "reason": "Input asks about CM_AMP_MAP.CNF. Actual Output aligns with Expected Output on amplitude map exchange, ResType codes, and TT_match_response. It omits mention of V2G3 requirements present in the Expected Output."
+    }
+]

@@ -1,5 +1,7 @@
 {
-    "question": "How is ATS related to MTC?",
-    "score": 0.7,
-    "reason": "In the Input, the question seeks their TTCN-3 relationship, and while the Actual Output aligns with the Expected Output\u2019s facts on ATS and MTC roles (no contradictions), it omits details like the specific TTCN-3 component references (EVCC_Tester, SECC_Tester, ports), thus failing to match the Expected Output\u2019s explicit technical depth."
+    "full": "",
+    "2u2c": "",
+    "1u1c": "",
+    "2u1c": "",
+    "1u": ""
 }

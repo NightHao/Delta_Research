@@ -1,0 +1,979 @@
+Question: What is the system architecture of Vehicle-to-Grid?
+
+Answer: A Vehicle‑to‑Grid (V2G) system is best understood as a layered, bidirectional energy‐and‐information exchange architecture.  At its simplest it consists of four principal building blocks—Electric Vehicle, Electric Vehicle Communication Controller, Supply Equipment (the charging station), and the Power Grid (with its back‑end systems)—and the communication layers defined by the ISO 15118 family of standards that tie them all together.
+
+1. Physical & Power Layer  
+   •  EV side: traction battery + power electronics + on‑board charger  
+   •  EVSE side: AC/DC conversion, meter, contactor/pilot signal interface  
+   •  Interface: standardized conductive connector (e.g. IEC 62196) carrying power  
+
+2. Data Link Layer (ISO 15118‑3)  
+   •  Power Line Communication (PLC) modem in EV and in EVSE  
+   •  SLAC procedure to establish and maintain the PLC link (selecting B1/B2 states for wake/sleep)  
+   •  PLCLinkStatus monitoring (tested by TC_…_PLCLinkStatus test cases)  
+
+3. Network & Transport Layer (ISO 15118‑4)  
+   •  IPv6 or IPv4 addressing over PLC  
+   •  TCP/TLS session management for message integrity and confidentiality  
+   •  Service Discovery Protocol (SDP) for preparing the “service binding” (e.g. selecting OCPP, HTTP, etc.)  
+
+4. Application Layer (ISO 15118‑2, ‑5, ‑8)  
+   •  EVCC (Electric Vehicle Communication Controller) in the vehicle acts as the client  
+   •  SECC (Supply Equipment Communication Controller) in the EVSE acts as the server  
+   •  High‑Level Communication (HLC‑C) messages for:  
+     – Charging session negotiation (energy profile, time windows)  
+     – Grid‑to‑vehicle information exchange (dynamic grid constraints, pricing, frequency)  
+     – Vehicle‑to‑grid services (discharging/ancillary services)  
+   •  Session management messages such as SessionStopReq to pause or terminate a session  
+   •  B1/B2 transitions and BCB (Breaker Control Block) toggling used to test and control wake‑up/sleep behavior  
+
+5. Back‑End & Grid Integration  
+   •  The SECC or EVSE communicates upstream (e.g. via OCPP) to a charge‑point operator or energy management system  
+   •  Aggregator or Utility systems dispatch V2G commands (e.g. demand response signals) that are passed down via HLC messages  
+
+Putting it all together:  
+
+   EV (Battery + EVCC)  ←→  PLC link (ISO 15118‑3)  ←→  SECC (in EVSE)  ←→  EVSE Power Electronics  ←→  Grid  
+                ↑                                        ↓  
+        Application layer                       Back‑end/grid operator  
+
+At plug‑in the EVCC and SECC perform:  
+ 1) SLAC to establish the PLC modem link,  
+ 2) TLS handshake for secure network transport,  
+ 3) SDP to select and bind a charging/discharging service,  
+ 4) HLC‑C message exchange to negotiate power profiles and grid constraints,  
+ 5) Charging loop under HLC‑C (obeying dynamic grid information),  
+ 6) Optional pause/resume via B1/B2 and BCB toggles,  
+ 7) SessionStopReq to cleanly end the V2G session.  
+
+All of these protocols, state transitions and message formats are defined in the ISO 15118 series (physical/data‑link in Part 3, network/transport in Part 4, application/se‑ curity in Parts 2, 5, 8), and are validated by conformance test cases such as the various TC_…_PLCLinkStatus and TC_SECC_… test suites.
+
+================================================================================
+
+Question: What is HPGP?
+
+Answer: HomePlug Green PHY (often abbreviated HPGP or “Green PHY”) is a power‐line communication (PLC) technology and protocol suite optimized for low‐power, low‐cost, energy‑efficient data exchange over existing wiring—most notably for smart‑grid and electric‑vehicle charging applications.  Below is a more detailed breakdown of its key aspects:
+
+1. Purpose and Applications  
+ • Enables high‑frequency digital communication between Electric Vehicle Supply Equipment (EVSE) and Electric Vehicles (EV) over the EV charging infrastructure (especially over the Control Pilot line and Protective Earth).  
+ • Mandated by ISO 15118 for vehicle‑to‑grid (V2G) communication and referenced by V2G3‑A11‑01 through A11‑06 requirements.  
+ • Also used in broader smart‑grid, home‑automation and energy‑management scenarios.
+
+2. Physical Implementation  
+ • Signal Injection:  PLC signals are capacitively (and/or inductively) coupled onto the Control Pilot wire (and sometimes PE wires) via a dedicated coupling circuit or transformer.  
+ • Control Pilot Line:  Normally carries a low‑frequency duty‑cycle signal (per IEC 61851‑1).  Green PHY injects its high‑frequency OFDM carriers in parallel, using low‑pass filters to protect the pilot’s low‑frequency function.  
+ • Coupling Components:  
+   – Coupling transformer (or capacitive network) to inject/extract HF signals.  
+   – Inductor (L) to isolate EVSE/charge‑cord capacitive loads from HF.  
+   – Low‑pass filters to keep the pilot’s basic signaling intact.  
+ • Transmission Path Considerations:  The Control Pilot wiring, the EVSE circuitry, the charge cord’s capacitance and the EV’s input all form part of the PLC “transmission line.”  Designers must minimize unwanted capacitance or insertion‑loss to maintain adequate signal strength and meet PSD limits.
+
+3. Protocol Stack  
+ • Physical Layer (PHY):  
+   – Defines OFDM carriers, notched sub‑bands (to avoid interference with amateur radio, etc.), spectral masks and power limits.  
+   – Release Version 1.1.1 of the HomePlug Green PHY Specification fully specifies these details.  
+ • Data Link Layer (MAC):  
+   – Manages node‑to‑node framing, error detection/correction and service primitives.  
+   – Provides Control SAP (Service Access Point) for PLC‑specific configuration and ETH SAP (Ethernet II‑class SAP) for bridging to higher‑layer/Ethernet functions.  
+ • Network Formation:  
+   – Central Coordinator Manager (CCo) oversees network membership, security (NMK → NID derivation), and timing.  
+   – AVLN (Ad‑hoc Virtual Local Network) formed during the SLAC matching process.  
+
+4. Commissioning and Matching (SLAC)  
+ • SLAC (Signal Level Attenuation Characterization) protocol determines the best matching between EV and EVSE by measuring signal strength and attenuation characteristics over the PLC channel.  
+ • CM_SLAC_MATCH MMEs and related messages (CM_SLAC_PARMS.CNF, etc.) perform discovery and join procedures.  
+ • ATTEN_PROFILE fields and prescaler settings adjust per‑carrier attenuation to fit within regulatory and hardware limits.  
+
+5. Power and Coexistence Management  
+ • Transmission Power:  Adjustable via an internal prescaler; carriers can be selectively attenuated (ATTEN_PROFILE) for EMC compliance.  
+ • Coexistence:  Implements the IEEE Intersystem Protocol (ISP) to share the wiring medium fairly with other HomePlug AV/Green PHY networks.  
+ • EMC/ESD:  Protective measures (filters, shielding, surge protection) ensure that neither the high‑frequency PLC nor the low‑frequency pilot are unduly affected by electromagnetic disturbances or electrostatic discharge.
+
+6. Standardization and Testing  
+ • HomePlug Green PHY Specification (Release 1.1.1) defines all PHY/MAC behaviors, coupling methods, and compliance criteria.  
+ • ISO 15118‑3 (“Road vehicles—Vehicle‑to‑grid communication interface—Part 3: Physical and data link layer requirements”) incorporates HPGP conformance tests (signal calibration and measurement, SLAC codec in TTCN‑3).  
+ • IEC 61851‑1 (referred to as “IEC‑1” in some contexts) Annex A details the Control Pilot line characteristics and timing for parallel injection.  
+ • V2G3‑A11‑0x requirements specify wiring, connector and duty‑cycle compatibility for HomePlug Green PHY in EV charging.
+
+In summary, HomePlug Green PHY is a dedicated PLC solution that re‑uses the EV charging pilot wiring (and ground) to carry OFDM‑based data between EVSE and EV with minimal additional hardware, ensuring interoperability, safety, energy efficiency and compliance with smart‑grid and electric‑vehicle standards.
+
+================================================================================
+
+Question: What is SLAC?
+
+Answer: Signal Level Attenuation Characterization (SLAC) is the low‐layer, power‐line‐communication (PLC) based discovery and “matching” protocol used in Mode‑3 AC charging to pair a plug‑in electric vehicle (PEV) with a particular socket‑outlet of an AC Electric Vehicle Supply Equipment (EVSE).  It is specified in ISO 15118‑3:2015 (A.9) and in the HomePlug GreenPHY (HPGP) Release 1.1.1 standard, and is implemented in the so‑called “low‑layer communication module” on both EV and EVSE.  Its primary objectives are:
+
+ 1.  Measure the physical attenuation characteristics of the PLC channel between EV and EVSE.  
+ 2.  Select the best EV/E­VSE pair based on signal‑strength (“attenuation”) measurements.  
+ 3.  Bring both sides into a secure HomePlug GreenPHY logical network (via NMK exchange) so that higher‑layer (ISO 15118) messaging can proceed.
+
+Key steps and message flows in SLAC are:
+
+  •  Initialization (e.g. timers TT_EVSE_SLAC_init on the EVSE side and TT_EV_SLAC_init on the EV side are started, HAL_61851_Listener is ready).  
+  •  Parameter negotiation via CM_SLAC_PARM_REQ and CM_SLAC_PARM_CNF, where EV and EVSE agree on sounding parameters (number of M‑SOUNDS, frequencies, random seeds).  
+  •  Multi‑node broadcast soundings (CM_MNBC_SOUND_IND): EVSE transmits a sequence of “sound” packets, EV measures attenuation per tone and group.  
+  •  Attenuation characterization Report (CM_ATTEN_CHAR_IND/CM_ATTEN_CHAR_RSP): EVSE sends grouped attenuation measurements to EV; EV acknowledges.  Optionally, a CM_ATTEN_PROFILE_IND conveys summary profiles.  
+  •  Matching handshake (CM_SLAC_MATCH_REQ/CM_SLAC_MATCH_CNF): both sides agree on which EV–EVSE link has acceptable signal quality and confirm the match.  
+  •  (Optional) Validation (CM_VALIDATE_REQ/CM_VALIDATE_CNF): an out‑of‑band or control‑pilot based check to guard against false positives.  
+  •  Once the “Matched” state is reached, no further SLAC messages are exchanged; the EVSE and EV join on a common HPGP network and proceed with the high‑layer ISO 15118 V2G session.
+
+All SLAC messages are carried in raw Ethernet—encapsulated as Management Message Entries (MMEs)—and conformance is verified using TTCN‑3 test suites (Annex G) and timers defined in the Timer_15118_3 module.  SLAC thus provides a robust, standardized way to ensure each plugged‑in EV attaches to the correct EVSE socket with adequate link quality before any secure charging session begins.
+
+================================================================================
+
+Question: What is Logical Network?
+
+Answer: A “logical network” in the context of EV–EVSE communication is essentially a virtual, software‑defined Layer‑2 network that sits atop whatever physical medium (power line, cable, wireless, etc.) is used.  It is created and managed by the EVSE’s low‑layer communication module (acting as the Central Coordinator, or CCo) to segment and secure communication between one EVSE port and its attached EV.  
+
+Key characteristics and functions of a logical network are:  
+1. Layer‑2 scope  
+   • It is defined at the Data‑Link layer (OSI Layer 2).  
+   • Above this layer, all members of the logical network “see” each other and can exchange encrypted payload data.  
+
+2. Virtual segmentation  
+   • Multiple logical networks may coexist on the same physical medium.  
+   • Each network is distinguished by its Network Membership Key (NMK) and other identifiers.  
+   • Segmentation prevents cross‑talk and unauthorized access between different EV–EVSE pairs.  
+
+3. Membership and visibility  
+   • Only devices that have successfully “joined” (i.e. exchanged and set the required parameters, including NMK) can communicate.  
+   • The EV’s and EVSE’s low‑layer communication modules detect joins and leaves.  
+   • Higher layers (above Layer 2) rely on the logical network to know which link is up and to receive link‑status indications.  
+
+4. Security and encryption  
+   • Payload encryption is negotiated via SLAC/MME parameter exchange (e.g. CM_SLAC_MATCH messages).  
+   • Upon joining, both sides set the negotiated NMK and network parameters.  
+   • Leaving the network resets the NMK and returns the module to an “Unmatched” matching state.  
+
+5. Control and coordination (the CCo role)  
+   • The EVSE’s low‑layer module assumes the Central Coordinator (CCo) role, managing network creation, discovery, and member tracking.  
+   • It detects when an EV joins or—via timers such as TP_match_leave—when an EV must leave (e.g. on error or cable disconnect).  
+
+6. Join/leave process  
+   • Join: After plug‑in and initial discovery, EV and EVSE exchange SLAC/MME parameters (using a sequence chart like Figure A.1) in CM_SLAC_MATCH.req/cnf to form the logical network.  
+   • Leave: On error or termination (e.g. D‑LINK_ERROR.request), the low‑layer module must leave within TP_match_leave (typically 1 s), clear keys, and revert to unmatched.  
+
+7. Role in higher‑level communication  
+   • Once formed, the logical network allows higher‑layer protocols and applications (e.g. charging control, vehicle‑to‑grid messaging) to operate transparently as though on a direct point‑to‑point link.  
+
+In summary, a logical network is the software‑managed Layer‑2 environment created by the EVSE’s low‑layer communication technology to securely bind a specific EV to a specific EVSE port.  It provides segmentation, encryption, and coordination services that underlie all subsequent higher­-layer communication and charging control.
+
+================================================================================
+
+Question: What is CCo?
+
+Answer: The Central Coordinator (CCo), sometimes also called the Central Communication Controller, is the single, authoritative entity in a HomePlug‑based EV/EVSE logical network that is responsible for:  
+1. Network Formation and Management  
+   • Bringing devices (EVSE outlets and EV modems) into a common logical network.  
+   • Assigning and managing the network identifier (NetID) and encryption keys.  
+   • Using SLAC Management Message Entries (MMEs) to carry out link setup, key exchange, parameter configuration and other network‑management tasks.  
+
+2. Link Monitoring and Control  
+   • Detecting when a new PLC link arrives in its logical network (e.g. an EV plugging in and transmitting its first LLDP/SLAC message), which in turn stops the TT_MATCH_JOIN timer.  
+   • Detecting when an EV gracefully or abruptly leaves the network, so that resources (keys, time slots, carriers) can be reclaimed.  
+   • Accepting requests from the higher‐layer protocol stack to tear down or reconfigure links—thus establishing the “control relationship” with upper layers.  
+
+3. Role Enforcement  
+   • Per requirement V2G3‑A06‑02, under no circumstances may the low‑layer communication module on the EV side assume the CCo role; it must always be configured as a non‑CCo “station.”  
+   • Conversely, the EVSE side low‑layer module is configured to become and remain the CCo for its outlet.  
+
+4. Configuration Interface  
+   • The CCo mode is entered (or re‑entered) by issuing the APCM_SET_CCo.REQ primitive defined in the Control SAP Service of the HomePlug Green PHY (HPGP) specification.  
+
+In summary, the Central Coordinator is the master controller of the layer‑2 (PLC) logical network: it brings nodes into the network, distributes and rotates keys, watches link health, responds to upper‑layer commands to tear down or reconfigure links, and ensures that exactly one device (always the EVSE) holds the CCo role at any given time.
+
+================================================================================
+
+Question: What is the difference between Data SAP and Data link control SAP?
+
+Answer: Here is a summary of the key differences between the “Data SAP” (sometimes called the ETH SAP) and the “Data Link Control SAP,” drawn from the fragments you provided:
+
+1. Primary Function  
+   • Data SAP  
+     – Carries the user‑data payload (i.e. the actual frames or packets) between the data‑link layer and the network (Layer 3) or higher layers.  
+     – Sometimes referred to as the ETH SAP when the underlying technology is Ethernet.  
+   • Data Link Control SAP  
+     – Carries link‑management and control information, not user payload.  
+     – Conveys link status events (up/down), error reports, initialization and matching messages, and other control primitives to higher layers.
+
+2. Role in the Stack  
+   • Data SAP  
+     – The “data path” interface.  
+     – Sits between the data‑link layer’s framing/service functions and the network layer’s packet‑forwarding functions.  
+   • Data Link Control SAP  
+     – The “control path” interface.  
+     – Sits between the Connection Coordination Entity (the module that establishes/tears down links) and the network layer or higher layer control processes.
+
+3. Provided Services  
+   • Data SAP  
+     – Frame encapsulation/decapsulation, flow of user data, segmentation/reassembly (as required), and delivery assurances provided by the data‑link layer.  
+   • Data Link Control SAP  
+     – Link‑up and link‑down indications (e.g. D‑LINK_READY.indication), error indications, link‑status queries.  
+     – Control commands to initiate or terminate links (e.g. D‑LINK_TERMINATE.request).  
+     – Matching & initialization procedures during link establishment.
+
+4. Protocol Identity  
+   • Data SAP  
+     – Often protocol‑specific (e.g. Ethernet frames via the ETH SAP).  
+   • Data Link Control SAP  
+     – A standardized control‑plane protocol defined at the data‑link layer for exchanging management primitives.
+
+5. Who Provides It  
+   • Data SAP  
+     – Implemented by the data‑link layer itself to expose a transmission interface to Layer 3.  
+   • Data Link Control SAP  
+     – Exposed by the Connection Coordination Entity within the data‑link layer, specifically to support link management and control functions.
+
+In short:  
+– If you want to send or receive “user data,” you go through the Data SAP (ETH SAP).  
+– If you want to monitor link health, report errors, or manage the lifecycle of a link, you go through the Data Link Control SAP.
+
+================================================================================
+
+Question: What is the difference between basic signaling and high-level communication?
+
+Answer: Basic Signaling and High‑Level Communication are two complementary layers in EV charging communications.  The key differences between them are:
+
+1. Purpose and Function  
+   • Basic Signaling  
+     – Provides the minimal information needed to start, stop and regulate the charging process.  
+     – Conveys only status and maximum current information via the control‑pilot PWM (pulse‑width‑modulation) signal.  
+     – Defined by IEC 61851‑1 (and tested per ISO 15118‑3), it is the mandatory “always‑on” fallback method.  
+   • High‑Level Communication (HLC)  
+     – Sits on top of basic signaling to exchange rich, bidirectional data: identification, billing, dynamic grid constraints, state‑of‑charge, firmware updates, V2G commands, etc.  
+     – Uses a digital protocol (commonly called HLC‑C in ISO 15118‑2) over power‑line communication (PLC).  
+     – Optional for simple charging but required when advanced features (e.g. Plug & Charge, V2G energy exchange, dynamic load management) are needed.
+
+2. Medium and Protocol  
+   • Basic Signaling  
+     – Uses a single analog PWM signal on the control pilot line.  
+     – Duty cycle changes (10 %–96 %) directly reflect “max‐current allowed” and EVSE/EV readiness.  
+   • High‑Level Communication  
+     – Uses a defined PLC protocol (HLC‑C mode) riding on the same lines used for basic signaling.  
+     – Exchanges digital message frames (ISO 15118 series) carrying structured data and commands.
+
+3. Data Capacity and Capabilities  
+   • Basic Signaling  
+     – Very low bandwidth, only a few fixed signal states.  
+     – Cannot convey complex data or perform authentication beyond simple pilot‑state checks.  
+   • High‑Level Communication  
+     – High bandwidth relative to basic signaling, enabling full TCP/IP‑like exchanges.  
+     – Supports cryptographic authentication, contract ID exchange, dynamic power‑management, bidirectional energy flows, tariff signaling, firmware or parameter updates.
+
+4. Roles in Fallback and Redundancy  
+   • If HLC‑C fails or is unavailable, charging continues under basic signaling (IEC 61851‑1), and in that case the EVSE is permitted to adjust the control‑pilot duty cycle to reflect changed grid conditions.  
+   • When HLC‑C is active, the control‑pilot duty cycle stays fixed at the nominal value and all dynamic updates (e.g. grid limits) are delivered digitally via HLC messages.
+
+In short, basic signaling is the “bare‑bones” analog layer that makes charging possible at all, while high‑level communication is the digital overlay that enables advanced, secure, bidirectional services (e.g. Plug & Charge, V2G) between EV and EVSE.
+
+================================================================================
+
+Question: What is the difference between MTC and PTC?
+
+Answer: The Main Test Component (MTC) and the Parallel Test Component (PTC) are both elements of an IEC‑61851‑1 test configuration, but they have quite distinct roles, scopes and responsibilities:
+
+1. Role & Scope  
+   • MTC (“Means of Test Control” or “Main Test Component”):  
+     – The central orchestrator of a test session.  
+     – Loads and executes the TTCN‑3 test suite, chooses its identity (SECC_Tester or EVCC_Tester) based on the System‑Under‑Test (SUT).  
+     – Creates, configures and controls any PTC instances.  
+     – Maps all high‑level test ports (pt_SLAC_Port, pt_HAL_61851_Port, pt_HAL_61851_Internal_Port, etc.).  
+
+   • PTC (“Parallel Test Component”):  
+     – A subordinate, specialized test process that runs alongside the MTC.  
+     – Focuses exclusively on pilot‑signal‑level observations and EIM‑authorization status.  
+     – Does not drive the overall test logic or verdict but feeds live signal/status updates back into the MTC.  
+
+2. Responsibilities & Functions  
+   • MTC:  
+     – Controls the entire test flow and verdict computation.  
+     – Manages data‑link processing (detecting/controlling link‑status information).  
+     – Handles PLC‑signal‑level analysis and can actively reduce the Control Pilot voltage as required.  
+     – Receives EIM authorization success/failure indications from the PTC.  
+     – Uses special functions (depending on whether it is SECC_Tester or EVCC_Tester) to detect and control EIM, SLAC and HAL events.  
+
+   • PTC:  
+     – Continuously monitors the Control Pilot PWM signal (positive voltage state, frequency, duty cycle, proximity resistor) for compliance with IEC 61851‑1 Annex A.  
+     – Implements requirement V2G5‑027 (change PWM state condition) and V2G5‑028 (change valid duty‑cycle range).  
+     – Implements V2G5‑034 to process incoming EIM status and reports “authorization successful” back to the MTC.  
+     – Synchronizes its view of the PWM state via the HAL_61851_Internal_Port.  
+
+3. Port Mappings & Interfaces  
+   • MTC ports are the “primary” side of the test bench—mapped in the TTCN‑3 configuration to real or abstract interfaces (SLAC, HAL_61851, internal).  
+   • PTC is attached to the same HAL_61851_Internal_Port (but on the “secondary” side) and is purely a listener/monitor of that line plus EIM events.  
+
+4. Hierarchy & Lifetime  
+   • The MTC is instantiated first; it loads the test scripts and then spawns/configures one or more PTCs as needed by the test configuration.  
+   • Each PTC lives “in parallel” for the duration of the test case, reporting only its narrow scope of observations back to the MTC.  
+
+In summary, think of the MTC as the “test conductor”—it scripts the scenario, drives the verdict, and orchestrates ports—whereas the PTC is a “dedicated watcher” that sits on the pilot signal and the EIM‑authorization path and reports only those specialised observations back into the conductor.
+
+================================================================================
+
+Question: What is ATS?
+
+Answer: The Abstract Test Suite (ATS) is a standardized, high‑level collection of test cases and associated artifacts whose purpose is to verify that a System Under Test (SUT) complies with the conformance requirements of a given protocol or standard (in our context, ISO 15118‑3).  It is “abstract” in that it defines what must be tested—test objectives, pre‑conditions, stimuli, expected responses and post‑conditions—without prescribing any one concrete implementation or execution environment.  
+
+Key characteristics and components of the ATS:
+
+1. Scope and Purpose  
+   • Verifies both static (capability) and dynamic (behavioral) conformance requirements of the SUT against ISO 15118‑3.  
+   • Ensures that an implementation under test meets the mandatory and conditional requirements defined by the standard.  
+   • Is used in a conformance‑testing framework (e.g. as specified by V2G5‑038) to systematically check and report compliance.
+
+2. Structure  
+   • A set of abstract test cases, each mapped to one or more specific requirements of ISO 15118‑3 (see “Table 29 – ATS coverage of requirements in ISO 15118‑3”).  
+   • A corresponding list of requirements not covered by the ATS (see “Table 27 – Requirements of ISO 15118‑3 not considered in the ATS”), indicating known gaps.  
+   • Grouping by use case or domain (e.g. AC charging vs. DC charging, EVCC vs. SECC, authentication profiles such as EIM or PnC).  
+   • Identification of “X”‑marked requirements that have one or more covering test cases.
+
+3. Supporting Documentation  
+   • PICS (Protocol Implementation Conformance Statement): a document in which the implementer declares which options and capabilities of the protocol are supported.  All PICS entries referenced in the ATS are collected (e.g. in Tables 6–8).  
+   • PIXIT (Protocol Implementation eXtra Information for Testing): contains additional configuration details or boundary values needed to run particular test cases (summarized in Tables 9–11).  
+   • Test architecture description: explains how the abstract test cases are organized, how they relate to the overall framework, and how adaptors (SUT adaptor, platform adaptor) and interfaces (Test Control Interface, Test Runtime Interface) interact.
+
+4. Execution Process  
+   • INTERPRETATION phase: analysts or an automated test generator interpret the ATS definitions to produce concrete, executable test scripts or stimuli sequences.  
+   • EXECUTION phase: the test framework runs those scripts against the SUT in a controlled Test Environment, drives message exchanges, measures signal characteristics, and evaluates SUT responses.  
+   • Test results are analyzed to confirm whether each abstract test case—and hence each mapped requirement—passed or failed.
+
+5. Relationship to ISO 15118‑3  
+   • ISO 15118‑3 defines the lower‑layer (physical and data link) requirements and PLC signal measurement/calibration procedures for vehicle‑to‑grid communication.  
+   • The ATS draws its test objectives directly from ISO 15118‑3’s static and dynamic conformance clauses.  
+   • Through coverage tables, the ATS documents which parts of the ISO 15118‑3 requirements are tested, and which are intentionally out of scope.
+
+In summary, the Abstract Test Suite is the cornerstone of a conformance‑testing effort: it captures, at the level of “what” needs to be tested, the full breadth of relevant protocol requirements, while relying on subsequent interpretation and execution steps (within a test framework and environment) to handle “how” the tests are actually run against a given SUT.
+
+================================================================================
+
+Question: What is TSS?
+
+Answer: Test Suite Structure (TSS) is the formal framework defined in ISO 15118 (notably in clause 7.2 of Part 3) that organizes, names and governs all elements of the conformance test suite.  Its goal is to ensure that every requirement of ISO 15118‑3 (and related parts) is exercised in a consistent, repeatable way.  
+
+Key aspects of TSS:
+
+1. Hierarchy and Segmentation  
+   • The overall test suite is broken into subgroups (“test modules”) aligned with ISO 15118 use‑cases (e.g. AC/DC charging, power‐line communication).  
+   • Within each module, individual test cases reside on a second level: each case applies specific stimuli to the System Under Test (SUT) and checks for the correct system reaction.  
+
+2. Naming and Identifiers  
+   • TSS defines strict conventions for module identifiers, test case IDs, template names and function names.  
+   • These conventions ensure unambiguous cross‑referencing between requirements, test descriptions, verdicts and reports.  
+
+3. Templates for EVCC and SECC  
+   • Separate template rules are given for tests involving the Electric Vehicle Communication Controller (EVCC) and the Supply Equipment Communication Controller (SECC).  
+   • Each template specifies the message sequence, parameters, timing constraints and expected verdicts.  
+
+4. Protocol Implementation Conformance Statement (PICS)  
+   • A PICS is a standardized checklist embedded in the TSS that records which protocol options and features a given implementation supports or omits.  
+   • Test cases reference the PICS to select only applicable tests for the implementation under test.  
+
+5. Protocol Implementation eXtra Information for Testing (PIXIT)  
+   • PIXIT augments PICS by providing implementation‑specific data needed during testing (e.g. IP addresses, certificate profiles, timeouts).  
+   • The TSS defines where and how PIXIT parameters are applied across test cases.  
+
+6. Annexes  
+   • Several informative and normative annexes accompany the core TSS text.  
+   • They include template definitions, example identifiers, supplementary explanations and any edge‑case clarifications.  
+
+7. General Utility Functions (Annex D.4)  
+   • Annex D.4 of the TSS collects reusable utility functions (e.g. common XML-schema validations, cryptographic helpers, timer management) to avoid duplication across test cases.  
+   • Test case templates reference these utilities by name.  
+
+8. Relationship to Conformance Testing  
+   • By enforcing a uniform structure, TSS guarantees that all mandatory, conditional and optional requirements in ISO 15118‑3 are covered.  
+   • It serves both as a guide for test developers and as a blueprint for automated test harness implementations.  
+
+In sum, the Test Suite Structure is the backbone of ISO 15118’s conformance tests: it standardizes the way test cases are grouped, named, parameterized (via PICS/PIXIT), augmented (via annexes) and executed (via EVCC/SECC templates and shared utilities).
+
+================================================================================
+
+Question: What is EIM?
+
+Answer: External Identification Means (EIM) is the ISO 15118‑1 term for any external method or “profile” by which a user or vehicle is identified and authorized at an EV charging station before the vehicle is plugged in.  In practice EIM typically takes the form of an RFID card or fob, a smartphone app, a back‑office backend call, or other out‑of‑band token that the Electric Vehicle Supply Equipment (EVSE) can read.  It is offered as an alternative (or complement) to the Plug & Charge (PnC) “ID from EV” mechanism.  
+
+Key aspects of EIM:  
+1.   Definition & Scope  
+     •  Defined in ISO 15118‑1 under the term External Identification Means.  
+     •  Sometimes referred to more generally as Electricity Information Management—i.e. the system in the EVSE that manages EIM-based identification, authorization and related data exchange.  
+2.   Where it Fits in the Sequence  
+     •  During the EVSE’s initialization phase the station decides whether to use “ID from EV” (Plug & Charge) or an EIM method (requirement V2G3‑M06‑04).  
+     •  If EIM is chosen, the EVSE waits for the user to perform an EIM action (e.g. tap card).  
+     •  The EVSE then invokes its EIM authorization function (V2G5‑033), exchanges status information with the EIM backend or reader (V2G5‑034) and reports AUTHORIZATION OK when successful.  
+     •  Only after successful EIM authorization does the EVSE start the SLAC “matching process” to establish the low‑level communication link and begin charging.  
+3.   Protocol & Component Interactions  
+     •  Works alongside high‑level communication (HLC‑C) and Plug & Charge protocols.  
+     •  Is implemented in both AC and DC EVSEs; the EVCC (vehicle side) may also support EIM for data exchange.  
+     •  The SECC (Supply Equipment Communication Controller) hosts the EIM service on the EVSE side, and its behavior is exercised in SECC Tester configurations (SECC DC PICS/PIXIT).  
+4.   Testing & Conformance  
+     •  Main Test Component (MTC) modules detect and control EIM status information via special functions (as per V2G5‑033/‑034).  
+     •  A Parallel Test Component (PTC) continuously observes the evolving EIM authorization status until it reaches AUTHORIZATION OK or fails.  
+     •  Conformance to EIM behavior is verified under ISO 15118‑3 (for PLC signalling) and IEC 61851‑1 SECC/EVCC test cases (e.g. TC_SECC_AC_VTB_CMSLACPARM_004).  
+5.   Post‑Authorization Actions  
+     •  Upon a positive EIM result, requirement V2G3‑M06‑08 specifies that the EVSE proceed with authentication, SLAC matching and the start of power delivery.  
+
+In summary, EIM is the standardized way for an EVSE to authenticate and identify a user’s contract or vehicle via an external token or system—seamlessly integrating into the ISO 15118 vehicle‑to‑grid communication sequence and allowing a charging session to proceed only after successful authorization.
+
+================================================================================
+
+Question: What is CM_SLAC_PARAM.REQ?
+
+Answer: CM_SLAC_PARM.REQ is the “SLAC‐parameter request” message that an Electric Vehicle (EV) sends to Electric Vehicle Supply Equipment (EVSE) to kick off the Signal Level Attenuation Characterization (SLAC) matching process and to supply the parameters the EVSE needs in order to perform its signal‐strength measurements.  It is defined as one of the Management Message Entity (MME) types in the SLAC protocol (hex code 0x6064 when encoded).
+
+Key characteristics of CM_SLAC_PARM.REQ  
+• Purpose  
+  – Initiates a new SLAC matching session.  
+  – Conveys to the EVSE the parameters under which the EVSE should perform its signal‐strength (attenuation) measurements.  
+  – Triggers the timer‐based TT_match_response process on both sides.  
+
+• Mandatory fields  
+  – RunID  
+    • A randomly chosen identifier, constant for the entire run, used by both EV and EVSE to correlate messages.  
+  – APPLICATION_TYPE  
+    • Indicates the application context; for PEV–EVSE matching this is fixed to 0x00.  
+  – SECURITY_TYPE  
+    • Indicates the security level; for an unsecured SLAC exchange this is fixed to 0x00 (“No Security”).  
+  – Additional SLAC parameters  
+    • (e.g. slot timing, M‐Sound symbol parameters) as defined in the MME payload structure in ISO 15118‑3/HomePlug Green PHY.  
+
+• Timing and repetition  
+  – TP_EV_SLAC_init  
+    • The EV must send its first CM_SLAC_PARM.REQ within this time window after detection of Pilot‐signal State B (plug insertion or wake‑up).  
+  – TT_MATCHING_REPETITION  
+    • If no CM_SLAC_PARM.CNF is received, the EV repeats CM_SLAC_PARM.REQ at intervals governed by this timer until either a CNF arrives or the timer expires.  
+  – Upon sending CM_SLAC_PARM.REQ, the EV starts TT_match_response, during which it waits for the EVSE’s CM_SLAC_PARM.CNF.  
+
+• Expected response  
+  – CM_SLAC_PARM.CNF  
+    • A unicast confirmation message from the EVSE echoing the RunID, EV MAC address and the chosen measurement parameters.  
+    • Must not be sent by the EVSE before its own TT_match_response timer permits.  
+
+• Role in tests and requirements  
+  – Many ISO 15118‐3 test cases (e.g. TC_EVCC_CMN_VTB_CMSLACPARM_xxx) verify that the EVCC issues CM_SLAC_PARM.REQ with valid RunID, APPLICATION_TYPE = 0x00 and SECURITY_TYPE = 0x00, respects timing windows, and correctly handles repetitions.  
+  – Requirement V2G3‑A09‑13 partially covers conditions under which the EVSE may defer or suppress its CM_SLAC_PARM.CNF in response to REQ.  
+  – Requirement V2G3‑A06‑05 specifies that the EV’s low‐layer communication module must not itself respond to CM_SLAC_PARM.REQ messages (that is strictly an EVSE function).  
+
+In summary, CM_SLAC_PARM.REQ is the standardized request from the EV to the EVSE that starts the SLAC parameter‐exchange phase: it tells the EVSE how to measure and report signal attenuation so that the PEV–EVSE power‐line link can be matched and optimized.
+
+================================================================================
+
+Question: What is CM_SLAC_PARAM.CNF?
+
+Answer: CM_SLAC_PARM.CNF is simply the “confirmation” counterpart to a CM_SLAC_PARM request in the SLAC (Signal‐Level Attenuation Characterization) portion of the ISO 15118/HomePlug GreenPHY power‐line–based EVSE↔EV protocol.  In other words, once the EVCC (the electric‐vehicle control controller) has sent a CM_SLAC_PARM.REQ to propose or negotiate SLAC parameters (e.g. timing, number of probing tones, attenuation thresholds, etc.), the EVSE responds with CM_SLAC_PARM.CNF to tell the EVCC:
+
+  •  Whether it accepted or rejected the proposed parameters (via a Result field)  
+  •  The actual values that will be used (i.e. the parameters the EVSE has configured)  
+  •  A ToggleNum (often zero on first pass) showing how many pilot‐line toggles have been counted or confirming that the EVSE’s state has not changed in the meantime  
+
+CM_SLAC_PARM.CNF thus completes the parameter‐exchange phase of the SLAC matching procedure, enabling both sides to proceed with attenuation characterization or move on to the CM_SLAC_MATCH phase once the TT_match_response timer rules are met.
+
+================================================================================
+
+Question: What is CM_START_ATTEN_CHAR.IND?
+
+Answer: CM_START_ATTEN_CHAR.IND is a management‐level “indication” message in the SLAC (Signal Level Attenuation Characterization) protocol, exchanged between an Electric Vehicle (EV) and Electric Vehicle Supply Equipment (EVSE) as part of the V2G (vehicle‑to‑grid) matching and parameter‐exchange sequence.  Its main characteristics are:
+
+1. Role and Direction  
+   • Sent by the EV to the EVSE.  
+   • Purpose is to trigger the start of the attenuation‑characterization (signal‑strength measurement) process on the power line.  
+
+2. Protocol Context  
+   • Defined as an MME (Message Management Entity) template—its message fields must conform to the MME definition in the SLAC specification.  
+   • Forms part of the “TT_match_sequence” exchange: the EVSE must receive CM_START_ATTEN_CHAR.IND before the TT_match_sequence timer expires. Upon successful reception, that timer is stopped.  
+
+3. Timing Constraints  
+   • The number of times the EV sends CM_START_ATTEN_CHAR.IND in one matching attempt is parameterized by C_EV_start_atten_char_inds.  
+   • Between batches of CM_START_ATTEN_CHAR.IND, the EV must wait at least TP_EV_batch_msg_interval.  
+   • Requirement V2G3‑A09‑26 places upper bounds on these intervals to ensure timely message exchange.  
+
+4. Test‑Case Usage  
+   • In conformance test cases (e.g. TC_EVCC_* and TC_SECC_*_ATTENUATIONCHARACTERIZATION), CM_START_ATTEN_CHAR.IND is the stimulus the test harness or EV sends to kick off the attenuation‑characterization procedure.  
+   • Test cases typically verify that:  
+     – No CM_START_ATTEN_CHAR.IND is sent before preconditions are met.  
+     – The EV sends exactly C_EV_start_atten_char_inds indications.  
+     – The EVSE reacts by subsequently sending CM_ATTEN_CHAR.IND messages with measured attenuation profiles.  
+
+5. Downstream Processing  
+   • Upon receipt of CM_START_ATTEN_CHAR.IND, the EVSE will transmit a series of M‑SOUND bursts (CM_MNBC_SOUND.IND) and ultimately return CM_ATTEN_CHAR.IND messages containing the computed attenuation profile.  
+   • The low‑layer communication module on the EV may have additional requirements (e.g. per V2G3‑A06‑05 it should not respond to certain MMEs, but it must recognize CM_START_ATTEN_CHAR.IND to proceed).  
+
+In short, CM_START_ATTEN_CHAR.IND is the EV’s “go‑ahead” indication to the EVSE that it should begin measuring and reporting channel attenuation as part of the SLAC‐based EV/EVSE matching process.
+
+================================================================================
+
+Question: What is CM_MNBC_SOUND.IND?
+
+Answer: CM_MNBC_SOUND.IND is a SLAC‑layer protocol message used by an Electric Vehicle (EV) in vehicle‑to‑grid (V2G) communication (HomePlug Green PHY) to perform multi‑node broadcast “sounding” of the power‐line network for signal‐level attenuation characterization.  Its main characteristics are:
+
+1. Purpose  
+   • Indicates the transmission of a network “sound” (test signal) by the EV as part of the SLAC (Signal Level Attenuation Characterization) process.  
+   • Enables the receiving EVSE (Electric Vehicle Supply Equipment) or test system to measure attenuation on the line.  
+
+2. When and how often it is sent  
+   • After completing the CM_START_ATTEN_CHAR.IND sequence, the EV waits TP_EV_batch_msg_interval and then begins sending CM_MNBC_SOUND.IND.  
+   • The EV sends it C_EV_match_MNBC times in one sequence.  With each transmission, the ‘cnt’ (counter) field is decremented.  
+
+3. Major fields  
+   • APPLICATION_TYPE (fixed 0x00 for “PEV‑EVSE Matching”)  
+   • SECURITY_TYPE (fixed 0x00 for “No Security”)  
+   • RUNID (must match the RunID chosen by the EV in CM_SLAC_PARM.REQ)  
+   • cnt (counter of remaining sound messages to send)  
+
+4. Timing requirements  
+   • Interval between consecutive CM_MNBC_SOUND.IND messages = TP_EV_batch_msg_interval  
+   • Overall sequencing and timing governed by the V2G3‑A09‑28 (use of the sequence) and V2G3‑A09‑29 (timing) requirements.  
+
+5. Test‑case usage  
+   • In attenuation‐characterization test cases (e.g. TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_001 and variants), the test system sends and/or receives CM_MNBC_SOUND.IND to collect attenuation measurements.  
+   • The EV’s low‑layer communication module shall not respond to CM_MNBC_SOUND.IND (V2G3‑A06‑05).  
+
+In summary, CM_MNBC_SOUND.IND is the dedicated broadcast “sound” indication message in the SLAC matching and signal‐characterization procedure, carrying application, security, run‐ID and counter information, transmitted by the EV at defined intervals to enable the EVSE (or test system) to measure line attenuation.
+
+================================================================================
+
+Question: What is CM_ATTEN_CHAR.IND?
+
+Answer: CM_ATTEN_CHAR.IND is a SLAC‐level “indication” message used in HomePlug Green PHY–based vehicle‐to‐grid (V2G) communications.  Its primary purpose is to convey measured signal attenuation data from the Electric Vehicle Supply Equipment (EVSE) to the Electric Vehicle (EV) during the parameter‐exchange and matching process.  
+
+Key characteristics of CM_ATTEN_CHAR.IND  
+• Message role and timing  
+  – Sent by the EVSE after it receives CM_START_ATTEN_CHAR.IND (which initiates attenuation characterization).  
+  – The EV starts a timer (TT_EV_atten_results) when it issues CM_START_ATTEN_CHAR.IND, and must collect incoming CM_ATTEN_CHAR.IND messages before that timer expires.  
+  – Part of the SLAC matching process defined in clauses such as V2G3‑A09‑22, A09‑35 and A09‑37.  
+
+• Protocol type and format  
+  – Realized as an MME (Management Message Entity) payload, defined in Table A.4 of the SLAC annex.  
+  – Identified by its MMTYPE in the SLAC header (the “indication” for attenuation characteristics).  
+
+• Principal fields  
+  – APPLICATION_TYPE (1 byte)  
+     • Value 0x00 ⇒ “PEV‑EVSE matching”  
+  – SECURITY_TYPE (1 byte)  
+     • Value 0x00 ⇒ “No Security”  
+  – SOURCE_ADDRESS (6 bytes)  
+     • MAC address of the EV host initiating the SLAC session  
+  – NUM_SOUNDS (1 byte)  
+     • Number of M‑Sounds measured and reported  
+     • If NUM_SOUNDS = 0 ⇒ ATTEN_PROFILE is meaningless and the entire message is to be ignored by the EV  
+  – ATTEN_PROFILE (variable length)  
+     • One or more attenuation entries (per M‑Sound)  
+     • Used by the EV to compute an arithmetic mean (“Average_Attenuation”) corrected for receive‑path attenuation (AttnRx‑EVSE)  
+
+• Processing and response  
+  – The EV accumulates the ATTEN_PROFILE entries, calculates Average_Attenuation, and uses it to update its EV_Discovery_Status (e.g. determining link quality and whether matching was successful).  
+  – Upon receipt, the EV shall send CM_ATTEN_CHAR.RSP to acknowledge or address the indication.  
+
+• Test‐case and conformance context  
+  – Numerous conformance tests (e.g. TC_EVCC_AC_VTB_ATTENUATIONCHARACTERIZATION_001‑010, TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_001‑011, etc.) verify correct content, timing, repetition counts, handling of zero NUM_SOUNDS, absence until timers expire, and proper invocation of CM_ATTEN_CHAR.RSP.  
+  – Timing requirements include TP_EVSE_avg_atten_calc on the EVSE side for average‐profile computation, and TT_EV_atten_results on the EV side for waiting on CM_ATTEN_CHAR.IND.  
+
+In summary, CM_ATTEN_CHAR.IND is the SLAC‐protocol indication message by which an EVSE communicates measured signal attenuation characteristics to an EV during PEV–EVSE matching.  It carries per‑sound attenuation profiles and supporting fields, triggers the EV’s attenuation‐averaging logic, and must be acknowledged with CM_ATTEN_CHAR.RSP.
+
+================================================================================
+
+Question: What is CM_ATTEN_CHAR.RSP?
+
+Answer: CM_ATTEN_CHAR.RSP is a standardized SLAC‑layer protocol message sent by the Electric Vehicle (EV) in response to an attenuation‑characterization indication (CM_ATTEN_CHAR.IND) from the Electric Vehicle Supply Equipment (EVSE). Its primary purpose is to acknowledge receipt of the attenuation‐profile measurement and to convey any required response parameters back to the EVSE as part of the EVCC matching procedure.  
+
+Key characteristics of CM_ATTEN_CHAR.RSP  
+• Triggering and Role  
+  – Sent by the EV upon receiving a CM_ATTEN_CHAR.IND.  
+  – Confirms to the EVSE that the attenuation profile has been received and processed.  
+  – Forms part of the Signal Level Attenuation Characterization (SLAC) process used to assess channel quality over the control pilot.  
+
+• Timing Constraints  
+  – Must be transmitted within the TP_match_sequence after receipt of CM_ATTEN_CHAR.IND.  
+  – The EVSE starts a TT_match_response timer on sending CM_ATTEN_CHAR.IND; if no RSP arrives before that timer expires, EVSE shall retransmit CM_ATTEN_CHAR.IND and reset TT_match_response.  
+
+• Content and Validation  
+  – Encoded according to the Message Management Entity (MME) definition (see Table A.4 in V2G3‑A09‑37).  
+  – Carries fields such as applicationType, securityType, sourceAddress, runID, sourceID, respID and result.  
+  – The SUT’s CM_ATTEN_CHAR.RSP content is validated against MME rules; test cases may inject invalid values to verify error handling.  
+
+• Standard and Test‑Case Context  
+  – Defined in the ISO 15118‑3‑based V2G3‑A09‑37 standard.  
+  – Used in conformance and interoperability tests (e.g. TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_xxx).  
+  – V2G3‑A06‑05 specifies that the EV’s low‑layer communication module shall not itself respond to this message—as it is generated by the EVCC.  
+
+In summary, CM_ATTEN_CHAR.RSP is the EV’s formal acknowledgement and response to an EVSE’s attenuation‑characterization request, enabling both parties to agree on channel characteristics before proceeding with secure power‐line communication and charging.
+
+================================================================================
+
+Question: What is CM_ATTEN_PROFILE.IND?
+
+Answer: CM_ATTEN_PROFILE.IND is a protocol‐level message used in the SLAC (Signal Level Attenuation Characterization) process that takes place between an Electric Vehicle (EV) and Electric Vehicle Supply Equipment (EVSE) over a power‑line communication link. Its main purpose is to convey an “attenuation profile” derived from one or more prior test signals (the so‑called M‑SOUNDS) so that the EVSE can assess link quality and complete the matching/validation sequence.
+
+Key points about CM_ATTEN_PROFILE.IND:
+
+1. Role in SLAC  
+   • Part of the SLAC protocol suite (often implemented atop HomePlug Green PHY) for measuring and characterizing signal attenuation on the EV‑to‑EVSE power‑line link.  
+   • One of several message types (alongside CM_START_ATTEN_CHAR.IND, CM_ATTEN_CHAR.IND, etc.) exchanged during the “matching” phase to ensure a robust communication channel before high‑power charging begins.
+
+2. Contents  
+   • Carries an ATTEN_PROFILE field, which represents the measured attenuation values (in dB or a platform‑specific format) averaged over a sequence of M‑SOUNDS.  
+   • May include metadata such as the number of M‑SOUNDS used to derive the profile, timestamps, sequence counters, etc., depending on the SLAC implementation.
+
+3. How ATTEN_PROFILE Is Computed  
+   • The EV computes an arithmetic mean of the attenuation readings from previous M‑SOUNDS.  
+   • For downstream messages (CM_ATTEN_CHAR.IND), this mean is further corrected by the EVSE’s receive‑path attenuation (AttnRx‑EVSE) as specified in the normative annex (e.g. A.9.4.1 of the HPGP/SLAC spec).  
+   • If a subsequent CM_ATTEN_CHAR.IND carries NUM_SOUNDS=0, its ATTEN_PROFILE is deemed irrelevant and that message (and any derived state) is ignored.
+
+4. EVSE Processing  
+   • The EVSE Listening Process must receive and validate CM_ATTEN_PROFILE.IND frames within a timing window governed by the TT_EVSE_match_MNBC timer.  
+   • On receipt, the EVSE uses the profile to decide whether the line conditions are acceptable or if the SLAC matching must be retried or aborted.  
+   • Failure to process these messages in time (e.g. timer expiry) can trigger a new matching sequence or a fault condition.
+
+5. Lifecycle in the “New Matching Process”  
+   • A matching session usually starts with the EV sending CM_START_ATTEN_CHAR.IND, followed by one or more M‑SOUNDS and associated CM_ATTEN_PROFILE.IND messages.  
+   • Once sufficient attenuation data are exchanged and both sides agree on link quality, the SLAC process transitions to higher‐layer configuration (e.g. key exchange, network association).
+
+In summary, CM_ATTEN_PROFILE.IND is the SLAC message by which an EV reports its measured attenuation profile (based on prior M‑SOUNDS) to the EVSE. The EVSE uses it—within a defined timeout—to characterize the power‑line link and ensure reliable, standards‑compliant communication before enabling high‑power charging.
+
+================================================================================
+
+Question: What is CM_VALIDATE.REQ?
+
+Answer: CM_VALIDATE.REQ is the “validation request” message in the ISO‑15118/SLAC vehicle‑to‑grid (V2G) protocol.  It is the first message in the “CM Validate” request‑response exchange by which an Electric Vehicle (EV or EVCC) asks the Electric Vehicle Supply Equipment (EVSE or SECC) to perform its validation step before charging or SLAC matching.  
+
+Key points about CM_VALIDATE.REQ:
+
+1. Role in the protocol  
+ – Sent by the EV (or by a Test System acting as the EV) to the EVSE to initiate validation.  
+ – Triggers the EVSE to carry out checks (e.g. control‑pilot toggles, signal‑strength measurements or SLAC attenuation characterization).  
+ – Always expects a corresponding CM_VALIDATE.CNF confirmation in reply.  
+
+2. Typical contents  
+ – A “result” field indicating whether the EV insists on validation (“Ready”) or can skip it (“Not Ready”).  
+ – A pilot‑timer or TP_EV_vald_toggle field (600–3500 ms) that instructs how long the EV will toggle the pilot line (PEV S2) to allow the EVSE to measure.  
+ – Optional fields such as signalType and other MME‑defined parameters, all conforming to the Management Message Entity (MME) definitions in the SLAC annex (e.g. Tables A.5/A.6).  
+
+3. Timers and retry behavior  
+ – The EVSE must respond with CM_VALIDATE.CNF within the TT_MATCH_SEQUENCE timeout.  
+ – If the EVSE does not respond, the EV may resend CM_VALIDATE.REQ (up to a retry limit, often two).  
+ – Special rules (V2G3‑A09‑77) apply if the timer field is zero—EVSE must resend its last CM_VALIDATE.CNF.  
+
+4. Where it appears  
+ – In the SLAC matching sequence between EV and EVSE (A.9.3 in the V2G3 standard).  
+ – In a suite of conformance test cases (e.g. TC_EVCC_CMN_VTB_CMVALIDATE_001…_020 and corresponding TC_SECC_CMN_VTB_CMVALIDATE_00x).  
+ – Underpins the “GoodCase” test procedure in which the Test System waits for CM_VALIDATE.REQ and then verifies that the System Under Test (EVSE or EVCC) behaves correctly.  
+
+In short, CM_VALIDATE.REQ is the standardized request‑message that kicks off the validation step of an EVSE–EV charging session, defining how long and under what conditions the EVSE must perform its readiness and signal‑level checks before charging can continue.
+
+================================================================================
+
+Question: What is CM_VALIDATE.CNF?
+
+Answer: CM_VALIDATE.CNF is the standard “confirmation” message in the SLAC‑based validation protocol used during electric‑vehicle‑to‑EVSE (Electric Vehicle Supply Equipment) communication.  In practice:
+
+1. Role in the protocol  
+   • It is sent by the EVSE (or the SECC’s MME module) in direct response to a previously received CM_VALIDATE.REQ from the EV (or test system).  
+   • It marks the end of the “validation” step and tells the EV whether it may proceed (e.g. start SLAC matching or begin power transfer) or if no validation was required.
+
+2. Key fields  
+   • Result – a status code indicating the outcome of the validation.  Typical values include:  
+     – Success (e.g. 00h)  
+     – Failure (some non‑zero code)  
+     – Not_Required (indicating the EVSE has determined no validation step was needed)  
+   • ToggleNum – the count of control‑pilot toggles (BCB‑Toggles) observed during the EV’s “PEV S2” toggling sequence; used by the EV to verify the EVSE counted the correct number of pilot‑line transitions.  
+   • (Optionally) other SLAC‐MME parameters, such as signalType or any fields mandated by the MME template.
+
+3. Timing and sequencing  
+   • Must be sent within TP_match_response (and certainly before the TT_match_response timer expires) after CM_VALIDATE.REQ arrives.  
+   • On the EV side the receipt of CM_VALIDATE.CNF stops the TT_match_response timer.  
+   • On the EVSE side the act of sending CM_VALIDATE.CNF may start the TT_match_sequence timer, awaiting the next step (often CM_SLAC_MATCH.REQ).
+
+4. Interaction with CM_VALIDATE.REQ  
+   • Every CM_VALIDATE.REQ (which carries a request for validation, including a timeout value in its pilotTimer field) must be followed by exactly one CM_VALIDATE.CNF—unless the EVSE later receives a fresh CM_VALIDATE.REQ with timer=0, in which case it must re‑send its previous CM_VALIDATE.CNF.  
+   • CM_VALIDATE.CNF and CM_VALIDATE.REQ together form the request–response exchange that confirms whether the physical control‑pilot toggling and logical SLAC parameters meet the protocol’s requirements.
+
+5. Conformance and test cases  
+   • The Result field setting is governed by requirements such as V2G3‑A09‑61 through A09‑77 (e.g. how “Not_Required” is handled, when retries or resends are mandated).  
+   • A multitude of test cases (TC_EVCC_CMN_VTB_CMVALIDATE_xxx and TC_SECC_CMN_VTB_CMVALIDATE_xxx) verify correct CM_VALIDATE.CNF behavior: timely transmission, correct field values, proper handling of repeats, and correct triggering of subsequent messages like CM_SLAC_MATCH.REQ.
+
+In short, CM_VALIDATE.CNF is the “I have validated (or waived) your request” message that allows the EV to know it may continue with the SLAC matching sequence or move directly to charging.
+
+================================================================================
+
+Question: What is CM_SLAC_MATCH.REQ?
+
+Answer: CM_SLAC_MATCH.REQ is the SLAC‐level “match request” message sent by a Plug‑in Electric Vehicle (PEV/EV) to an Electric Vehicle Supply Equipment (EVSE) to initiate or re‑transmit the Signal Level Attenuation Characterization (SLAC) matching process.  Its key characteristics are:
+
+1. Role and Purpose  
+   • It is a request (REQ) in the SLAC protocol used to match a PEV with an EVSE over the power‑line communication link.  
+   • By sending CM_SLAC_MATCH.REQ the EV tells the EVSE “I’m ready for the attenuation‑based matching phase,” so that the two can agree on network parameters (e.g. NID/NMK) and establish a secure PLC link.  
+
+2. When and How It Is Sent  
+   • The EV sends CM_SLAC_MATCH.REQ immediately after either –  
+     – Receiving a CM_VALIDATE.CNF (if validation was needed), or  
+     – Expiration of the TT_EVSE_MATCH_SESSION timer (if no validation was required).  
+   • If no CM_SLAC_MATCH.CNF arrives within the prescribed TT_MATCH_SEQUENCE interval, the EV may retransmit CM_SLAC_MATCH.REQ up to C_EV_match_retry times.  
+
+3. Core Parameters  
+   • runID   – a unique identifier chosen by the EV for this matching session (constant for all messages in the same run).  
+   • evMac   – the EV’s MAC address.  
+   • evseMac  – the EVSE’s MAC address.  
+   • applicationType – identifies the application; in most test cases a valid code is used, but ‘FF’H may be injected to test error handling.  
+   • (optionally) other SLAC‑specific fields as defined in Table A.7 (e.g. mvfLength, securityType, etc.).  
+
+4. Timer Interaction  
+   • TT_EVSE_MATCH_SESSION – governs when the EV must send (or retransmit) CM_SLAC_MATCH.REQ after session start.  
+   • TT_MATCH_SEQUENCE   – stops as soon as the EVSE receives a valid CM_SLAC_MATCH.REQ, indicating the sequence has succeeded.  
+
+5. Expected Response  
+   • Upon correct receipt and validation of CM_SLAC_MATCH.REQ, the EVSE replies with CM_SLAC_MATCH.CNF, supplying the negotiated network parameters.  
+   • If CM_SLAC_MATCH.REQ is malformed (e.g. invalid runID, mvfLength, MACs), the EVSE may ignore it or drop the session—test cases verify that the EV limits retries to C_EV_match_retry.  
+
+6. Test‑Case Usage  
+   • Many V2G/SLAC test cases (e.g. TC_EVCC_CMN_VTB_CMSLACMATCH_xxx) verify that:  
+     – CM_SLAC_MATCH.REQ is sent with correct parameters after the appropriate timer.  
+     – Retries are limited to C_EV_match_retry.  
+     – CM_SLAC_MATCH.CNF is not sent before TT_MATCH_RESPONSE expires.  
+
+In summary, CM_SLAC_MATCH.REQ is the standardized “please match with me” message by which an EV triggers the attenuation‐based matching phase of the SLAC protocol toward an EVSE.
+
+================================================================================
+
+Question: What is CM_SLAC_MATCH.CNF?
+
+Answer: CM_SLAC_MATCH.CNF is the standardized “match‐confirmation” protocol message in the HomePlug Green PHY SLAC (Signal Level Attenuation Characterization) sequence.  In practice it has the following characteristics:
+
+1. Role in the SLAC exchange  
+   •  Sent by the EVSE (Supply Equipment Communication Controller) in direct response to a CM_SLAC_MATCH.REQ issued by the EV (Electric Vehicle Communication Controller).  
+   •  Confirms that the EVSE has received the EV’s request to join or establish the ad‑hoc virtual local network (AVLN) and that it agrees on the same low‑layer communication parameters.  
+
+2. Timing requirements  
+   •  Must not be transmitted until the TT_match_response timer has expired.  TT_match_response (sometimes called TP_match_response) is the maximum time the EV is allowed to wait for this confirmation.  
+   •  Once CM_SLAC_MATCH.CNF is sent, the EV has until TT_MATCH_JOIN to finish link‑establishment before needing to retry.  
+
+3. Message contents  
+   At minimum, a valid CM_SLAC_MATCH.CNF carries:  
+   – runID: the session identifier agreed with the earlier CM_SLAC_PARM.REQ/REQ sequence, unchanged from the EV’s request.  
+   – EV MAC and EVSE MAC addresses: the source and destination link‑layer addresses.  
+   – NID (Network Identifier): a unique identifier for the newly formed AVLN.  
+   – NMK (Network Membership Key): the shared security key for use on the AVLN.  
+   Additional fields (applicationType, securityType, mvfLength, etc.) must conform to the Message Management Entity (MME) templates defined in the standard.  
+
+4. Standards and conformance  
+   •  Defined by ISO/IEC 15118‑3 and the Plug‑in Charging (V2G3) test specifications.  
+   •  Requirement V2G3‑A09‑95 mandates that an EV ignore any CM_SLAC_MATCH.CNF with invalid content; V2G3‑A09‑101 specifies post‑reception actions.  
+   •  In conformance tests (e.g. the TC_EVCC_CMN_VTB_CMSLACMATCH_xxx series), the test harness verifies that CM_SLAC_MATCH.CNF arrives only after the proper timer, carries exactly the right runID, NID, NMK and MAC fields, and that the SUT (System Under Test) behaves correctly upon receiving invalid or malformed confirmations.  
+
+5. Effect on link establishment  
+   Receipt of a valid CM_SLAC_MATCH.CNF allows the EV to proceed to logical‑link establishment on the AVLN.  If the EVSE never sends it (or sends a malformed one), the EV will retry matching after TT_MATCH_JOIN expires.  
+
+In short, CM_SLAC_MATCH.CNF is the EVSE’s “yes, I accept your SLAC match request” message, carrying the network‐level identifiers and keys that the EV and EVSE will use to build their private PLC link (the AVLN).
+
+================================================================================
+
+Question: What is CM_SET_KEY.REQ?
+
+Answer: CM_SET_KEY.REQ is a SLAC‑management message (an MME) used by an Electric Vehicle (EV) or Electric Vehicle Supply Equipment (EVSE) to program the low‑layer communication module with the cryptographic and network identifiers that define a logical power‑line network.  In essence, it is the “set or update key” request in the PLC‑based SLAC protocol.  
+
+Key characteristics and usage of CM_SET_KEY.REQ:  
+• Message role  
+  – It is sent unicast from the high‑level controller (the MME) down to the local low‑layer communication module.  
+  – It carries the network parameters that the module must adopt before or after the SLAC matching phase.  
+
+• Parameters carried  
+  – NID (Network Identifier): the logical network ID under which the node will communicate.  
+  – NMK (Network Membership Key): a secret key (usually a fixed‐length value) used to secure and authenticate all subsequent PLC frames on that network.  
+  – Possible auxiliary configuration fields (e.g. key type, version, validity period).  
+
+• Protocol flow  
+  1. After successful SLAC match (CM_SLAC_MATCH.CNF), the controller knows which NID/NMK pair to use.  
+  2. It issues a CM_SET_KEY.REQ, unicast to the low‑layer communication module.  
+  3. The module programs its hardware/firmware with the new NID and NMK.  
+  4. It replies with CM_SET_KEY.CNF to acknowledge success or report errors.  
+
+• Purpose  
+  – Ensures that every outlet (on the EVSE side) or every EV instance joins exactly the same logical network with the correct shared key.  
+  – Secures downstream PLC traffic by enforcing the proper NMK.  
+  – Enables modular design: high‑level logic need only send one MME to reconfigure the PHY/MAC layer.  
+
+In short, CM_SET_KEY.REQ is the “set-key” management message used to provision or rotate the network membership key and identifier in a low‑layer communication module during the SLAC‑driven configuration of EV‑to‑EVSE power‑line links.
+
+================================================================================
+
+Question: What is CM_SET_KEY.CNF?
+
+Answer: CM_SET_KEY.CNF is a “confirmation” message (an MME) in the SLAC‑based PLC configuration sequence.  In essence:  
+• Role: It is sent by the low‑layer communication module (e.g. in the EV or EVSE) back to its peer to confirm whether a previous CM_SET_KEY.REQ succeeded or failed.  
+• Context: After a successful CM_SLAC_MATCH.CNF (i.e. both ends have agreed on a PLC link), the controller issues CM_SET_KEY.REQ to install the logical‑network keys/parameters into the modem.  The modem then replies with CM_SET_KEY.CNF.  
+• Contents: At minimum it carries a status code (success/failure).  It may include implementation‑specific error or diagnostic information.  
+• Error handling: The standard leaves it up to each implementation how to react if CM_SET_KEY.CNF reports failure—or if no CM_SET_KEY.CNF arrives at all (e.g. time‑out, retry, abort).  
+• Purpose: To ensure that both ends of the power‑line link have loaded the same encryption/authentication keys (and any other logical‑network parameters) before entering normal data‑exchange mode.
+
+================================================================================
+
+Question: What is CM_AMP_MAP.REQ?
+
+Answer: CM_AMP_MAP.REQ is the protocol‐level “amplitude map request” message/command used in the CM_AMP_MAP amplitude‐mapping procedure.  Its key characteristics are:
+
+1. Purpose  
+   • Intra‑module (low‑layer) use:  
+     – The low‑layer communication module issues CM_AMP_MAP.REQ to its peer in order to ask that peer to reduce transmission power on one or more carriers.  
+     – The peer must acknow­ledge with a CM_AMP_MAP.CNF.  If no valid CM_AMP_MAP.CNF arrives within the timer max(TT_match_response), the requester restarts the timer and retransmits, up to C_EV_match_retry times.  After that it declares the match process FAILED.  
+     – If the peer receives a duplicate CM_AMP_MAP.REQ (because its original CM_AMP_MAP.CNF was lost), it simply re‑sends the CM_AMP_MAP.CNF.  
+
+   • Inter‑host (information exchange) use:  
+     – One host sends CM_AMP_MAP.REQ to another host over the low‑layer interface, carrying per‑carrier power requests for the recipient’s own amplitude‐map calculations.  
+     – In this context CM_AMP_MAP.REQ does *not* directly force the transmitter’s power; it is purely informational.  
+
+2. Contents  
+   • AMDATA field:  
+     – A sequence of 4‑bit entries (e.g. 0x0, 0xE, …), each encoding one carrier’s desired amplitude.  
+     – Resolution is –2 dB per LSB relative to a –50 dBm/Hz reference.  (For example, AMDATA=0b0011 ⇒ –6 dB below the –50 dBm/Hz baseline.)  
+
+3. Message flow  
+   • Requester → CM_AMP_MAP.REQ → peer  
+   • Peer   → CM_AMP_MAP.CNF → requester  
+   • Retransmit CM_AMP_MAP.REQ if CNF not received in max(TT_match_response), up to C_EV_match_retry times.  
+
+In short, CM_AMP_MAP.REQ is the standardized “ask” message that carries per‑carrier amplitude (power) information—either to negotiate a transmission‑power reduction with a low‑layer peer or to inform a remote host about desired amplitudes for its own map calculations.
+
+================================================================================
+
+Question: What is CM_AMP_MAP.CNF?
+
+Answer: CM_AMP_MAP.CNF is the HomePlug Green PHY (HPGP) “amplitude‐map confirmation” message:  
+
+1. Purpose  
+   • It is the protocol‐level confirmation sent by the recipient of a CM_AMP_MAP.REQ to acknowledge that an amplitude‐map request has been received and processed.  
+   • It completes the CM_AMP_MAP.REQ → CM_AMP_MAP.CNF exchange defined in the HPGP MME (Message Management Entity) specification and the V2G3‑A09‑115 series of standards.  
+
+2. Protocol Context  
+   • Layer/Standard: HomePlug Green PHY (HPGP) / SLAC (Signal Level Attenuation Characterization) management messages.  
+   • Role: Unicast confirmation from one PLC node (e.g. EVSE) to its peer (e.g. EVCC) that carries a result code indicating success or failure of the amplitude map operation.  
+   • Timing: Must be sent within the TT_match_response timer. If no valid CM_AMP_MAP.CNF arrives before max(TT_match_response), the requester retransmits CM_AMP_MAP.REQ.  
+
+3. Message Structure (per MME Definition – Table A.9)  
+   • ResType (1 byte)  
+     – 0x00 = success  
+     – 0x01 = failure  
+     – 0x02…0xFF = reserved  
+   • (Other fields follow the generic MME_Header + MME_Payload structure but carry no additional parameters for basic confirmation.)  
+
+4. Behavioral Rules  
+   • On receipt of a valid CM_AMP_MAP.REQ, the node must reply with CM_AMP_MAP.CNF containing ResType=0x00 if the request was accepted.  
+   • If the CM_AMP_MAP.REQ cannot be honored, the node replies with ResType=0x01.  
+   • Reserved result codes (0x02–0xFF) must not be used except where explicitly allowed by future extensions.  
+   • If the requester does not receive a CM_AMP_MAP.CNF within TT_match_response, it must retransmit CM_AMP_MAP.REQ; on each retransmission the responder must send CM_AMP_MAP.CNF again.  
+
+5. Test‐Case Usage  
+   • Good‐case tests (e.g. TC_SECC_CMN_VTB_CMAMPMAP_001 / TC_EVCC_CMN_VTB_CMAMPMAP_001) verify that, after sending a CM_AMP_MAP.REQ with a new amplitude map and valid parameters, the SUT returns CM_AMP_MAP.CNF with ResType=0x00.  
+   • Negative/time‐out tests (e.g. TC_SECC_CMN_VTB_CMAMPMAP_003) verify that no CM_AMP_MAP.CNF is sent until TT_match_response expires, forcing the requester to retry.  
+   • Retry‐limit tests (e.g. TC_SECC_CMN_VTB_CMAMPMAP_004) inject an invalid ResType (0xFF) to ensure the requester limits its retries to the PIXIT‑specified count.  
+
+6. Associated Requirement  
+   • V2G3‑A09‑110 specifies that every CM_AMP_MAP.REQ must be met with a CM_AMP_MAP.CNF conforming to the MME definition (Table A.9) and containing a valid ResType.  
+
+In summary, CM_AMP_MAP.CNF is the standardized acknowledgment message in the HPGP/SLAC protocol stack that tells the requestor whether its requested amplitude‐map update was accepted (ResType=0x00) or rejected (ResType=0x01), and it must be exchanged within defined timing (TT_match_response) and retry rules.
+
+================================================================================
+
+Question: What is D-LINK_READY.indication?
+
+Answer: D‑LINK_READY.indication is a primitive in the ISO‑15118/PLC‑based electric‑vehicle charging protocol by which the lower‑layer communication module notifies the higher‑layer entity (HLE) of any change in the data‑link status.  Its key characteristics are:
+
+1. Purpose  
+   • To signal to the HLE that a point‑to‑point data link over the power‑line (or other physical medium) has either been successfully established or has been lost.  
+   • Enables the HLE to begin or resume higher‑level protocol exchanges (e.g. SLAC matching, parameter exchange, security handshakes) once the data link is ready.
+
+2. D‑LINKSTATUS  
+   • The indication carries a D‑LINKSTATUS value with one of two states:  
+     – “link established”  
+     – “no link”  
+
+3. When It Is Sent  
+   • As soon as the lower layers detect a data link after wake‑up, they send D‑LINK_READY.indication(link established).  
+   • Upon exiting the “Matching” state (e.g. after SLAC_MATCH), whether matching succeeded or failed.  
+   • If no AMP MAP Exchange occurs within the TT_AMP_MAP_EXCHANGE timeout on either the EV or EVSE side (requirement V2G3‑A09‑117), a “link established” indication is sent anyway.  
+   • Any subsequent loss of the data link (after an earlier “link established”) immediately triggers D‑LINK_READY.indication(no link).  
+   • Must be issued without undue delay: the interval between SLAC_MATCH completion and the “link established” indication must not exceed the performance timer TP_link_ready_notification (requirement V2G3‑A09‑120).
+
+4. Who Sends and Who Receives  
+   • Sent by the “lower layers” (physical + data‑link control sublayers).  
+   • Received by the HLE (Higher‑Layer Entity), which sits above the data‑link layer and orchestrates the remainder of the charging communication.
+
+5. Role in EV ⇄ EVSE Communication  
+   • Ensures both Electric Vehicle (EV) and Electric Vehicle Supply Equipment (EVSE) know exactly when the low‑level link is up or down.  
+   • Forms the prerequisite handshake for all subsequent message exchanges in the vehicle‑to‑grid charging session.
+
+In short, D‑LINK_READY.indication is the standardized “ready/not ready” notification primitive used to bridge the gap between raw link‑establishment at the physical/data‑link layers and the higher‑level charging protocol state machine.
+
+================================================================================
+
+Question: What is D-LINK_TERMINATE.request?
+
+Answer: D‑LINK_TERMINATE.request is a low‑level protocol primitive used in EV–EVSE (Electric Vehicle–Electric Vehicle Supply Equipment) communication (e.g. the V2G3‑M09‑17 protocol) to tear down an existing data‑link session.  In practice it works as follows:
+
+• Issued by the High‑Level Entity (HLE)  
+  – When the charging application or upper‑layer controller decides that the link must be closed, it sends D‑LINK_TERMINATE.request down to the low‑layer communication module.  
+
+• Instructs the low‑layer communication module to leave the logical network  
+  – Upon receipt, the module must stop all data‑link traffic and disassociate from the current network.  
+
+• Timing requirement (TP_match_leave)  
+  – The node (EV or EVSE) has at most the TP_match_leave interval (typically ≤ 1 s) to drop out of the network.  
+
+• State and parameter reset  
+  – All parameters associated with the now‑terminated link are reset to their defaults.  
+  – The matching state is changed to “Unmatched,” making the node ready for a fresh session.  
+
+In short, D‑LINK_TERMINATE.request is the “tear‑down” command by which an EV or EVSE’s low‑layer comms module is told—within a strictly bounded time—to exit the network, clear link parameters, and await any future matching or reconnection.
+
+================================================================================
+
+Question: What is D-LINK_ERROR.request?
+
+Answer: D‑LINK_ERROR.request is a standardized data‑link‑layer primitive in the ISO‑15118/V2G3 vehicle‑to‑grid communication stack that carries an error‑management directive from the High‑Level Entity (HLE) down into the EVSE’s (or EV’s) low‑layer communication node.  It is defined in the V2G3‑M07‑13/‑14/‑16 requirements and is used whenever the HLE detects a fault or loss of the established data link and needs to force a tear‑down and re‑establishment of that link.
+
+Key characteristics and behavior of D‑LINK_ERROR.request:
+
+1. Origin and Purpose  
+   • Issued by the HLE layer to signal an irrecoverable error in the data‑link layer.  
+   • Its intent is to cleanly terminate the current data link and re‑start the “matching” (link‑setup) process.
+
+2. Scope of Action  
+   • Instructs the lower layers (PLC modem, MAC layer) to immediately release or reset all data‑link resources.  
+   • Triggers a control‑pilot transition (usually to state E) in order to signal to the EVSE/EV that the physical line has gone idle or errored.  
+   • Causes the communication node to abandon the current logical network and revert its “matching” state to “unmatched.”
+
+3. State‑Machine Impact  
+   • Typically received in the X2 state of the EVSE’s (or EV’s) data‑link FSM.  
+   • Upon receipt, the communication node must perform a defined sequence of state transitions (exit X2, go to E, then await restart).  
+   • The primitive ultimately leads to a D‑LINK_READY.indication once the tear‑down is complete, indicating to higher layers whether a new data link can now be established or not.
+
+4. Options for Handling (EVSE vs. EV)  
+   – EVSE’s Communication Node:  
+     • Implements one of two alternative recovery procedures as specified in V2G3‑M07‑13/‑14.  
+     • Both options involve termination of the current link, toggling the control pilot back to “idle,” resetting matching timers and counters, then re‑initiating SLAC/HomePlug‑based discovery.  
+   – EV’s Communication Node:  
+     • Must keep its overall protocol‐state unchanged, leave the existing logical network, set its matching state to “unmatched,” and await a fresh invitation from the EVSE to re‑match.
+
+5. Where It Fits in the Protocol  
+   • Part of the error‑management framework defined in Clause 6 and Clause 9 of the V2G3 test specification.  
+   • Complements primitives like D‑LINK_READY.indication (success/failure of data‑link) and CM_VALIDATE.req/ind (higher‑layer parameter validation).  
+   • Ensures robust recovery from noise, PLC‑modem faults or higher‑layer protocol violations, by forcing a clean restart of the physical and data‑link layers.
+
+In summary, D‑LINK_ERROR.request is the “hard reset” command for the data‑link in an EV↔EVSE charging session.  By propagating an HLE‑detected link‑failure down into the control‑pilot and PLC/MAC stack, it guarantees that both sides abandon any corrupted link state and re‑negotiate from scratch under well‑defined timing and signaling rules.
+
+================================================================================
+
+Question: What is D-LINK_PAUSE.request?
+
+Answer: The D‑LINK_PAUSE.request is a data‑link‑layer service primitive defined in the vehicle‑to‑grid (V2G3) communication protocol between an Electric Vehicle (EV) and Electric Vehicle Supply Equipment (EVSE).  Its sole purpose is to tell the lower layers of the communication stack to “pause” or go into a low‑power (sleep) mode while preserving the established link state (“Matched”).  
+
+Key points about D‑LINK_PAUSE.request  
+1. Invocation:  It is sent by whichever entity (EV or EVSE) needs to suspend data‑link activity without fully tearing down the logical connection.  
+2. Effect on Lower Layers:  Upon receipt, the lower‑layer communication module may (optionally) power down or significantly reduce its activity to save energy, but it must retain all network parameters so that the link can be resumed quickly.  
+3. Control‑Pilot Signaling:  
+   – On the EV side, reception of D‑LINK_PAUSE.request causes the EV to move its control‑pilot circuit into state “Bx.”  
+   – On the EVSE side, it must switch the control‑pilot to the prescribed idle/sleep state (per requirement V2G3‑M07‑20).  
+4. State Retention:  Although data transmission is suspended, both ends keep the data‑link in the “Matched” state.  When communication is to be resumed, a D‑LINK_READY.indication (or equivalent) will bring the link back up without repeating the full matching procedure.  
+5. Standard Reference:  The behavior of D‑LINK_PAUSE.request (including mandatory state changes and the optional powering down of the physical module) is governed by the V2G3‑M07‑20 requirement in the ISO/IEC 15118 family of standards.  
+
+In short, D‑LINK_PAUSE.request is the formal “sleep” command for the EV⇄EVSE data link, allowing both sides to conserve power without losing the context of their already‑matched communication session.
+
+================================================================================
+

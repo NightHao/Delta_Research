@@ -12,6 +12,7 @@ class QueryProcessor:
         self.entities_chunks_path = "./entities_chunks.json"
         self.flow_constructor = FlowConstructor()
         self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+        # self.llm = ChatOpenAI(model="o4-mini", reasoning_effort="medium")
         if "subgraph_distance" in kwargs:
             self.flow_constructor.set_subgraph_distance(kwargs["subgraph_distance"])
         if "graph_path" in kwargs:
@@ -355,14 +356,14 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
         final_prompt += f"You need to answer the following question as more details as possible based on the provided information above\n Question: {question}"
         #print(final_prompt)
         # Save the prompt in a dictionary format with the question as the key
-        try:
-            with open("final_prompt.json", "r") as f:
-                prompt_dict = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            prompt_dict = {}
-        prompt_dict[question] = final_prompt
-        with open("final_prompt.json", "w") as f:
-            json.dump(prompt_dict, f, indent=4)
+        # try:
+        #     with open("final_prompt.json", "r") as f:
+        #         prompt_dict = json.load(f)
+        # except (FileNotFoundError, json.JSONDecodeError):
+        #     prompt_dict = {}
+        # prompt_dict[question] = final_prompt
+        # with open("final_prompt.json", "w") as f:
+        #     json.dump(prompt_dict, f, indent=4)
         return final_prompt
 
     def generate_answer(self, data, question: str):

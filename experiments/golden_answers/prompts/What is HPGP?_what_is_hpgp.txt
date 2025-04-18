@@ -4,9 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-TABLE INFORMATION:
-Table 1: A.11.3 Signal requirements for HomePlug Green PHY injection - Table A.11 — Definition of electrical characteristics
-
 TEXTUAL INFORMATION:
 Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - HPGP HomePlug Green PHY
 Text 2: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV
@@ -45,7 +42,6 @@ Related Information 19: NOTE 1 Any capacity on the control pilot line which is d
 Related Information 20: NOTE 2 At given impedance, the maximum peak to peak amplitude is directly linked to the PSD, also defined in Table A.11. For the purpose of limiting the impact of the high frequency signal on the control pilot line, a simplification from definition in frequency domain to a peak-to-peak voltage is sufficient. (sibling of Text 6)
 Related Information 21: NOTE 3 The maximum values are defined by [IEC-1], Annex A. NOTE 4 These parameters are to be considered with parallel injection only, as defined in Figure A.10. (sibling of Text 6)
 Contextual Information 8: A.11.3 Signal requirements for HomePlug Green PHY injection (ancestor of Text 6)
-Related Information 22: Table A.11 gives requirements that physical signals shall comply with, in order to enable HomePlug Green PHY injection into the control pilot line, according to previous requirements. (sibling of Table 1)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:

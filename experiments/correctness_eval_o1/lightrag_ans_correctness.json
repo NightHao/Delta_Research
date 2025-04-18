@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is HPGP?",
+        "score": 0.7,
+        "reason": "The Actual Output and Expected Output both align on HPGP usage in EV charging (see Input), referencing ISO standards and SLAC, but the Actual Output omits details about coupling the signal onto the control pilot line, EMC measures, and notched carriers found in the Expected Output."
+    },
+    {
+        "question": "What is SLAC?",
+        "score": 0.6,
+        "reason": "Input asks about SLAC. Actual Output covers EV charging usage and mentions messages like CM_SLAC_PARM_REQ but omits detailed matching steps, sounding phases, timers, and test references from the Expected Output (e.g., CM_SLAC_MATCH, CM_ATTEN_PROFILE.IND). There are no factual contradictions, yet significant detail about SLAC\u2019s phase-by-phase communication and multiple charge point matching from the Expected Output is missing, so it is penalized for omission."
+    },
+    {
+        "question": "What is Logical Network?",
+        "score": 0.4,
+        "reason": "Input asks about Logical Network; the actual output discusses encryption/EV context but omits layer 2, software-defined aspects, and CCo-managed membership clearly detailed in the expected output."
+    }
+]

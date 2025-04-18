@@ -1,0 +1,42 @@
+[
+    {
+        "question": "What is D-LINK_READY.indication?",
+        "score": 0.7,
+        "reason": "The input asks about D-LINK_READY.indication; the actual output does not conflict with the expected output but omits key details (e.g., V2G3-A09-117, V2G3-A09-120, and D-LINKSTATUS) found in the expected output."
+    },
+    {
+        "question": "What is D-LINK_TERMINATE.request?",
+        "score": 0.8,
+        "reason": "Actual Output references EVSE, HLE, and TP_match_leave (matching Expected Output) but omits mention of the V2G3 standard, usage in charging scenarios, and the detailed bullet points in the Expected Output. No contradictions found, yet omission of these specifics reduces the overall score."
+    },
+    {
+        "question": "What is D-LINK_ERROR.request?",
+        "score": 0.7,
+        "reason": "No direct contradictions with facts from the 'Input' or 'Actual Output,' but 'Expected Output' references 'control pilot transitions,' 'V2G3-M07-13,' and mandatory EVSE steps that were omitted."
+    },
+    {
+        "question": "What is D-LINK_PAUSE.request?",
+        "score": 0.8,
+        "reason": "The actual output aligns with storing parameters, entering low-power states (EV: Bx, EVSE: X1) and maintaining the link, but it omits references to V2G and specific requirement citations noted in the expected output."
+    },
+    {
+        "question": "What is TSS?",
+        "score": 0.6,
+        "reason": "The Actual Output references TSS in ISO 15118 for V2G conformance testing and matches the Input and parts of the Expected Output, but it omits references to section 7.2, D.4, and EVCC/SECC mentioned in the Expected Output, resulting in missing details though no direct contradictions."
+    },
+    {
+        "question": "What is CM_SET_KEY.REQ?",
+        "score": 0.7,
+        "reason": "From the Input, CM_SET_KEY.REQ details are requested. The Actual Output correctly explains its purpose but omits NID and NMK mentioned in the Expected Output. No factual contradictions, yet key parameter details are missing."
+    },
+    {
+        "question": "What is CM_SET_KEY.CNF?",
+        "score": 0.8,
+        "reason": "It includes confirmation of key setting and references CM_SET_KEY.REQ with success/failure, matching much of the expected output, but it omits specific mention of CM_SLAC_MATCH.CNF from the expected output."
+    },
+    {
+        "question": "What is CM_AMP_MAP.REQ?",
+        "score": 0.5,
+        "reason": "The actual output contradicts the expected about adjusting power levels and omits key details on the \u221250 dBm/Hz reference and AMDATA resolution."
+    }
+]

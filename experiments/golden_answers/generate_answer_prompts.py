@@ -52,28 +52,28 @@ def create_prompt_for_question(question_data):
     prompt += "Do not add any new information that is not present below.\n\n"
     
     # Add table information
-    if table_info:
-        prompt += "TABLE INFORMATION:\n"
-        for i, info in enumerate(table_info, 1):
-            text = clean_text(info.get('text', ''))
-            parent = clean_text(info.get('parent_text', ''))
-            if parent and parent != "No parent found":
-                prompt += f"Table {i}: {parent} - {text}\n"
-            else:
-                prompt += f"Table {i}: {text}\n"
-        prompt += "\n"
+    # if table_info:
+    #     prompt += "TABLE INFORMATION:\n"
+    #     for i, info in enumerate(table_info, 1):
+    #         text = clean_text(info.get('text', ''))
+    #         parent = clean_text(info.get('parent_text', ''))
+    #         if parent and parent != "No parent found":
+    #             prompt += f"Table {i}: {parent} - {text}\n"
+    #         else:
+    #             prompt += f"Table {i}: {text}\n"
+    #     prompt += "\n"
     
     # Add figure information
-    if figure_info:
-        prompt += "FIGURE INFORMATION:\n"
-        for i, info in enumerate(figure_info, 1):
-            text = clean_text(info.get('text', ''))
-            parent = clean_text(info.get('parent_text', ''))
-            if parent and parent != "No parent found":
-                prompt += f"Figure {i}: {parent} - {text}\n"
-            else:
-                prompt += f"Figure {i}: {text}\n"
-        prompt += "\n"
+    # if figure_info:
+    #     prompt += "FIGURE INFORMATION:\n"
+    #     for i, info in enumerate(figure_info, 1):
+    #         text = clean_text(info.get('text', ''))
+    #         parent = clean_text(info.get('parent_text', ''))
+    #         if parent and parent != "No parent found":
+    #             prompt += f"Figure {i}: {parent} - {text}\n"
+    #         else:
+    #             prompt += f"Figure {i}: {text}\n"
+    #     prompt += "\n"
     
     # Add textual information
     if answer_info:
@@ -102,10 +102,13 @@ def create_prompt_for_question(question_data):
         ancestors_added = set()  # To avoid duplicates
         
         # Process siblings and ancestors for all information types
+        # for info_type, type_name in [
+        #     (answer_info, "Text"), 
+        #     (table_info, "Table"), 
+        #     (figure_info, "Figure")
+        # ]:
         for info_type, type_name in [
-            (answer_info, "Text"), 
-            (table_info, "Table"), 
-            (figure_info, "Figure")
+            (answer_info, "Text")
         ]:
             for i, info in enumerate(info_type, 1):
                 # Add siblings information

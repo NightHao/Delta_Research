@@ -4,10 +4,6 @@ Below is all the available information related to this question.
 Use ONLY this information to construct a comprehensive answer.
 Do not add any new information that is not present below.
 
-FIGURE INFORMATION:
-Figure 1: 6.1 Communication layers overview - Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model
-Figure 2: Key - Figure 2 — [ISO-3] relationship to the ISO/IEC OSI reference model
-
 TEXTUAL INFORMATION:
 Text 1: 6.1 Communication layers overview (Context: 6.1 Communication layers overview > 6 System architecture > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - [ISO-3] defines requirements applicable to layer 1 and layer 2, including V2G standardized service primitive interface, according to the OSI layered architecture. Layer 3 to layer 7 is specified in [ISO-2]
 
@@ -21,55 +17,6 @@ Related Information 6: Key (sibling of Text 1)
 Contextual Information 1: 6.1 Communication layers overview (ancestor of Text 1)
 Contextual Information 2: 6 System architecture (ancestor of Text 1)
 Contextual Information 3: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
-Related Information 7: [ISO-3] defines requirements applicable to layer 1 and layer 2, including V2G standardized service primitive interface, according to the OSI layered architecture. Layer 3 to layer 7 is specified in [ISO-2]. Beside the communication related stack on the left and middle of Figure 2, a hardware control path on the right provides triggering and signalling means for [IEC-1] related signalling. (sibling of Figure 1)
-Related Information 8: covered by communication technology specification (sibling of Figure 2)
-Related Information 9: Figure 2 — [ISO-3] relationship to the ISO/IEC OSI reference model (sibling of Figure 2)
-Related Information 10: possible procedure mandatory procedure HLC-C charging controlled by high-level communication BC charging controlled by IEC 61851-1 trigger condition (sibling of Figure 2)
-Related Information 11: NOTE 1 CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage). (sibling of Figure 2)
-Related Information 12: NOTE 2 Branch d) is for EVs not supporting HLC-C. (sibling of Figure 2)
-Related Information 13: Figure 3 — Connection coordination Seq 1: AC EVSE with PnC and EIM and matching process not started before EIM, 5 % control pilot duty cycle after plug-in (sibling of Figure 2)
-Related Information 14: Figure 4 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is not started when EIM is done. The EVSE applies control pilot state X1 after plug-in. If an EVSE only supports EIM or PnC, only some branches exist. (sibling of Figure 2)
-Related Information 15: Key possible procedure mandatory procedure HLC-C charging controlled by high-level communication BC charging controlled by IEC 61851-1 trigger condition (sibling of Figure 2)
-Related Information 16: Figure 4 — Connection coordination Seq 2: AC EVSE with PnC and EIM and matching process not started before EIM, control pilot state X1 after plug-in (sibling of Figure 2)
-Related Information 17: message does not reach its destination (sibling of Figure 2)
-Related Information 18: 1 voltage measurement (sibling of Figure 2)
-Related Information 19: 2 oscillator ±12 V, 1 kHz (sibling of Figure 2)
-Related Information 20: 3 pilot contact (sibling of Figure 2)
-Related Information 21: 4 earth (ground) (sibling of Figure 2)
-Related Information 22: 5 Green PHY modem (sibling of Figure 2)
-Related Information 23: 6 duty cycle and frequency measurement (sibling of Figure 2)
-Related Information 24: additional components for PLC coupling (sibling of Figure 2)
-Related Information 25: Figure A.10 — Implementation of parallel injection (sibling of Figure 2)
-Related Information 26: NOTE 1 Different topologies like point-to-multipoint are not covered and might require adaptations. (sibling of Figure 2)
-Related Information 27: NOTE 2 The coupling drawing is valid for cases A, B, and C, as defined in the [IEC-1]. (sibling of Figure 2)
-Related Information 28: NOTE 3 The coupling capacitors are equivalent components, which can be implemented with more than one component. For example, two capacitors, as soon as the requirements about values given in the table below is fulfilled. (sibling of Figure 2)
-Related Information 29: NOTE 4 L and RDamp associated with capacitors form low pass filters, which ensure the basic signalling and HomePlug Green PHY communication at the same time. Through the filters, low frequency signals can pass to the control pilot line and high frequency signals are available at the Green PHY modem. The RDamp resistors limit resonance effects of the RLC filters. (sibling of Figure 2)
-Related Information 30: [V2G3-A11-02] In case of parallel injection, the HomePlug Green PHY signal shall be coupled between the control pilot wire and the PE (Protective Earth) wire. (sibling of Figure 2)
-Related Information 31: [V2G3-A11-03] In case of parallel injection, the HomePlug Green PHY injection circuit on EVSE side shall be wired to the control pilot and the PE. Additional components, such as EMC or ESD protection, should not affect the HomePlug Green PHY signals. (sibling of Figure 2)
-Related Information 32: [V2G3-A11-04] In case of parallel injection, the HomePlug Green PHY injection circuit on EV side shall be wired to the control pilot line and the ground. Additional components, such as EMC or ESD protection, should not affect the HomePlug Green PHY sig- nals. (sibling of Figure 2)
-Related Information 33: [V2G3-A11-05] HomePlug Green PHY shall work with any valid control pilot duty cycle or state as defined in [IEC-1]. (sibling of Figure 2)
-Related Information 34: [V2G3-A11-06] A proper voltage level and duty cycle of the control pilot raw signal shall be imple- mented on EVSE side, to ensure [IEC-1] compliancy in presence of an additional HomePlug Green PHY signal. (sibling of Figure 2)
-Related Information 35: The [ISO-3] highly recommends to apply at least a first order low pass filter with a cut-off frequency of 100 kHz to 200 kHz for measurements on the control pilot signal (e.g. duty cycle or amplitude), not to disturb the measurement by high frequency HomePlug Green PHY signals. (sibling of Figure 2)
-Related Information 36: 1 amplitude/state measurement (sibling of Figure 2)
-Related Information 37: 2 oscillator ±12 V 1 kHz (sibling of Figure 2)
-Related Information 38: 3 PLC chipset (sibling of Figure 2)
-Related Information 39: 4 charge cord Cc < 1 500pF (sibling of Figure 2)
-Related Information 40: 5 dutycycle measurement (sibling of Figure 2)
-Related Information 41: Figure A.13 — Implementation example with a HomePlug Green PHY coupling transformer (sibling of Figure 2)
-Related Information 42: For the implementation example in Figure A.13, the component values defined in Table A.12 should be applied. (sibling of Figure 2)
-Related Information 43: Table A.12 — Component values of implementation example (sibling of Figure 2)
-Related Information 44: Table A.12 — Component values of implementation example <table border="1"> <td colspan="1" rowspan="1">Component</td> <td colspan="1" rowspan="1">Value</td> <tr> <td colspan="1" rowspan="1">R1</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">R2</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">R3</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">RM</td> <td colspan="1" rowspan="1">10 kΩ</td> </tr> <tr> <td colspan="1" rowspan="1">CM</td> <td colspan="1" rowspan="1">100 pF</td> </tr> <tr> <td colspan="1" rowspan="1">CV</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">CS</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">S&lt;br&gt;CPLC</td> <td colspan="1" rowspan="1">1,35 nF</td> </tr> <tr> <td colspan="1" rowspan="1">T1/T2</td> <td colspan="1" rowspan="1">Example: 1:1:1 Coupling transformer&lt;br&gt;(Depends on the chips and the TX / RX band-pass&lt;br&gt;filter)</td> </tr> <tr> <td colspan="1" rowspan="1">D</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">L</td> <td colspan="1" rowspan="1">220 µH</td> </tr> <tr> <td colspan="1" rowspan="1">R Damp</td> <td colspan="1" rowspan="1">220 Ω</td> </tr> </table> (sibling of Figure 2)
-Related Information 45: 1 modem on EVSE (sibling of Figure 2)
-Related Information 46: 2 modem on EV (sibling of Figure 2)
-Related Information 47: Figure B.2 — Coupling circuit for G3 technology on pilot wire (sibling of Figure 2)
-Related Information 48: [V2G3-B11-03] The values of the coupling components as shown in Table B.1 are mandatory both on the EV and on the EVSE sides. (sibling of Figure 2)
-Related Information 49: Table B.1 — Coupling components values (sibling of Figure 2)
-Related Information 50: Table B.1 — Coupling components values <table border="1"> <td colspan="1" rowspan="1">Group</td> <td colspan="1" rowspan="1">Function</td> <td colspan="1" rowspan="1">Mandatory values</td> <tr> <td colspan="1" rowspan="1">A1, A2</td> <td colspan="1" rowspan="1">Series impedance designed to avoid short circuiting of&lt;br&gt;the High frequency high-level data carrier by EVSE or&lt;br&gt;EV capacitors to ground</td> <td colspan="1" rowspan="1">Lx1, Lx2 = 1 000 mH&lt;br&gt;Rx1, Rx2 typically 680 Ω</td> </tr> <tr> <td colspan="1" rowspan="1">B1, B2</td> <td colspan="1" rowspan="1">Transmission matching impedance for high frequency&lt;br&gt;signals</td> <td colspan="1" rowspan="1">Circuit not implemented</td> </tr> <tr> <td colspan="1" rowspan="1">C1, C2</td> <td colspan="1" rowspan="1">Common mode rejection</td> <td colspan="1" rowspan="1">Circuit not implemented</td> </tr> <tr> <td colspan="1" rowspan="1">D1, D2</td> <td colspan="1" rowspan="1">Capacitive coupling circuit&lt;br&gt;Rx3, Rx4 = source resistance of HF output&lt;br&gt;Rx5, Rx6 = optional input impedance of modem</td> <td colspan="1" rowspan="1">— Cx1, Cx2 = 500 pF&lt;br&gt;— Rx5, Rx6 &gt; 10 kΩ&lt;br&gt;— Cx5, Cx6 = 500 pF</td> </tr> </table> (sibling of Figure 2)
-Related Information 51: [V2G3-B11-04] The PLC transmission devices shall limit the signal voltage on the pilot wire to 0.5 V RMS. (sibling of Figure 2)
-Related Information 52: Further, decoupling circuits may be added to the pilot wire circuit. (sibling of Figure 2)
-Related Information 53: Additional filtering components may be added to the EVSE power lines to improve reliability for specific environments and to ensure no more than an 0.5Vrms PLC signal on the PWM signal at the receiver. (sibling of Figure 2)
-Related Information 54: [V2G3-B11-05] The signal voltage of the PLC transmission devices shall be at least on the pilot wire to 0,2 V RMS. (sibling of Figure 2)
-Contextual Information 4: Key (ancestor of Figure 2)
 
 OUTPUT FORMAT INSTRUCTIONS:
 Your answer should follow these guidelines:
