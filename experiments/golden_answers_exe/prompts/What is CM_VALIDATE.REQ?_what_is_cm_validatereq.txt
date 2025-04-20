@@ -1,0 +1,312 @@
+What is CM_VALIDATE.REQ?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: A.9.3.1 Functional description (Context: A.9.3.1 Functional description > A.9.3 Validation of matching decision > A.9 Matching EV – EVSE process) - The validation process is divided in two parts consisting of a CM_VALIDATE.REQ and CM_VALIDATE.CNF each. It is important to consider that the first and second request-response differ in the contents of the messages. In the following messages related to the first/second request-response are designated with “step 1” or “step 2”, respectively.
+Text 2: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.
+Text 3: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.
+Text 4: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.
+Text 5: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The signal strength measurement method to be used is the SLAC defined in the [HPGP].
+Text 6: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:
+Text 7: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;
+Text 8: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;
+Text 9: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.
+Text 10: A.9.3.3.2 EV side (Context: A.9.3.3.2 EV side > A.9.3 Validation of matching decision > A.9 Matching EV – EVSE process) - If any received CM_VALIDATE.REQ contains invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.5 and Table A.6 is inva- lid.
+Text 11: A.9.3.3.3 EVSE side (Context: A.9.3.3.3 EVSE side > A.9.3 Validation of matching decision > A.9 Matching EV – EVSE process) - If any CM_VALIDATE.REQ contains a result field other than “ready”, the matching process shall be considered as FAILED.
+Text 12: 9.4 Validation of matching decision (Context: 9.4 Validation of matching decision > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - After the signal strength measurement, the EV can decide on the basis of the results to request the EVSE for an additional validation process. As soon as the EVSE is ready to detect the control pilot line, the EV sends a random timer value TP_EV_vald_toggle to the EVSE. After sending the message, the EV switches the control pilot state in the sequence B-C-B. This switching sequence is called BCB-Toggle in the following.
+Text 13: 9.4 Validation of matching decision (Context: 9.4 Validation of matching decision > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - The number of BCB-Toggles (C_EV_vald_nb_toggles) is chosen randomly in the available time.
+
+ADDITIONAL CONTEXT:
+Related Information 1: The validation process is an asynchronous process, which means that an unmatched EVSE answers to a CM_VALIDATE.REQ in any case even with no signal strength measurement immediately before. This behaviour is necessary because the time between the signal strength measurement and the validation for a specific EVSE is not predictable due to an unknown number of validation processes with other EVSEs before. (sibling of Text 1)
+Related Information 2: To request a validation process, the EV sends a first CM_VALIDATE.REQ to the EVSE, which contains a timer value of zero and a result field indicating “ready”. The EVSE responds with a first CM_VALIDATE. (sibling of Text 1)
+Related Information 3: CNF, which contains a ToggleNum of zero. The result field of the message is filled in consistence with the current state of the EVSE: (sibling of Text 1)
+Related Information 4: — When the EVSE is ready to perform the validation process, it fills the result field with “ready”. In this case, the EV will continue with sending the step 2 CM_VALIDATE.REQ. (sibling of Text 1)
+Related Information 5: — When the EVSE is busy and not able to perform a validation, it fills the result field with “not ready”. In this case, the EVSE is not ready for the step 2 CM_VALIDATE.REQ. The EV may start a retry by resending the first CM_VALIDATE.REQ again. (sibling of Text 1)
+Related Information 6: — When the EVSE wants to indicate that a validation is not required, it fills the result field with “not required”. In this case, the EV may follow this advice and stop the validation process or continue the process with sending the step 2 CM_VALIDATE.REQ to force the EVSE to follow the validation process. (sibling of Text 1)
+Related Information 7: — In any special case where the EVSE is not able to perform any validation process or it does not have implemented the validation process feature, it fills the result field with “failure”. (sibling of Text 1)
+Related Information 8: The second part of the validation process covers the control pilot toggle sequence on EV side and the counting of control pilot toggles on the EVSE side. The EV starts this process by sending the step 2 indicating “ready”. With receiving the step 2 CM_VALIDATE.REQ, the EVSE starts counting the BCB- toggles for a time window given by the timer field of the request. As soon as the timer expires, the EVSE sends a step 2 CM_VALIDATE.CNF to the EV containing the number of BCB-Toggles seen and the result field filled with “Success”. The field is filled with “failure” whenever the validation could not be performed or the number of seen BCB-Toggles does not contain valid data. (sibling of Text 1)
+Related Information 9: In the case the validation does not confirm the matching decision of the signal strength measurement, the EV may continue with the next potential EVSE. (sibling of Text 1)
+Related Information 10: The main process is described in 9.4. (sibling of Text 1)
+Related Information 11: [V2G3-A09-48] If the EV_Discovering_Status is “EVSE_FOUND”, validation shall only be performed if the EV insists to. Otherwise, the validation process shall be skipped. (sibling of Text 1)
+Related Information 12: [V2G3-A09-49] If the EV decides that “EVSE_POTENTIALLY_FOUND” is equal to “EVSE_FOUND”, then a BCB-Toggle is not mandatory. (sibling of Text 1)
+Related Information 13: [V2G3-A09-50] According to the EVSE Architecture, the EVSE can decide to answer to a CM_VAL- IDATE.REQ with the result field of CM_VALIDATE.CNF filled to “Not_Required”. In this case, the EV shall decide (sibling of Text 1)
+Related Information 14: — either to continue the validation process, by continuing with the step 2 CM_ VALIDATE.REQ, or (sibling of Text 1)
+Related Information 15: — either to skip the validation process by informing the EVSE of the decision, using the CM_SLAC_MATCH.REQ. (sibling of Text 1)
+Related Information 16: [V2G3-A09-51] According to the EVSE Implementation, the EVSE can decide to answer to a CM_VALIDATE.REQ with the result field of CM_VALIDATE.CNF filled to “Failure”, if it does not have implemented the validation process feature. In this case, the EV shall decide — either to skip the validation process and continue the matching process with SLAC_MATCH.REQ message, — either to continue the validation process with the next available EVSE, which was “EVSE_POTENTIALLY_FOUND” according to Figure 10, or — either to terminate the session if there is no other available EVSE with “EVSE_ POTENTIALLY_FOUND” status according to Figure 10. (sibling of Text 1)
+
+Image Description for Figure 10:
+# Detailed Description of Figure 10 — EV Point of View (Matching Process)
+
+Below is a step-by-step walkthrough of the flowchart. The diagram illustrates how an Electric Vehicle (EV) determines the correct Electric Vehicle Supply Equipment (EVSE) connection (i.e., “matching”) based on discovery, signal strength measurements, possible validation, and ultimately setting up or failing to set up a data link.
+
+---
+
+## 1. List of Key Entities in the Figure
+
+1. **Entering matching process**  
+   - Represents the beginning of the procedure once the EV is ready to identify which EVSE it is physically connected to.
+
+2. **Discovery of the connected communication nodes**  
+   - The EV discovers all communication nodes (EVSEs) detected on the physical link.
+
+3. **Signal strength measurement**  
+   - The EV measures signal strength metrics from all discovered communication nodes.  
+   - “Signal Strength Measurement is a value range indication within the matching process.”
+
+4. **Signal strength analysis**  
+   - The EV analyzes the measured signal strength to determine how strongly the EVSE’s signals are received.
+
+5. **Low signal attenuation**  
+   - Indicates a strong signal measurement.  
+   - If the analysis confirms a single strong connection, the result can be “EVSE_FOUND.”
+
+6. **Ambiguous result (multiple EVSE’s, uncertain signal strength)**  
+   - The EV sees more than one possible candidate or uncertain measurement.  
+   - Proceeds with the interim status “EVSE_POTENTIALLY_FOUND.”
+
+7. **High signal attenuation**  
+   - Indicates a weak signal.  
+   - If the analysis indicates no suitable EVSE, the result is “EVSE_NOT_FOUND.”
+
+8. **Result is “EVSE_FOUND”**  
+   - The outcome that the EV confirms exactly one matching EVSE based on the signal measurement.
+
+9. **Result is “EVSE_POTENTIALLY_FOUND”**  
+   - The outcome that the EV sees a possible match but cannot fully confirm. A validation step might be needed.
+
+10. **Result is “EVSE_NOT_FOUND”**  
+    - The outcome that the EV determines no valid EVSE is connected.
+
+11. **Declared result is “EVSE_FOUND” / “EVSE_POTENTIALLY_FOUND” / “EVSE_NOT_FOUND”**  
+    - Refers to the EV deciding or declaring the final outcome after possibly applying use-case-based rules.  
+    - For “EVSE_POTENTIALLY_FOUND,” the EV may treat that result as either “EVSE_FOUND” or “EVSE_NOT_FOUND,” depending on scenario.
+
+12. **optional**  
+    - Indicates that certain paths (e.g., additional validation) might be skipped according to the configuration or use-case definition.
+
+13. **Validation of matching decision**  
+    - An optional or necessary process (depending on the result and the system requirements) to confirm physically that the EV is indeed connected to the intended EVSE.  
+    - Can involve “BCB-Toggle” sequences on the control pilot line if the discovery result was ambiguous.
+
+14. **Validation result? (found / not found)**  
+    - After attempting validation, the EV either confirms or rejects the EVSE.  
+    - If confirmed → proceed to network setup.  
+    - If rejected → proceed to “next EVSE” or declare no link.
+
+15. **Remaining unvalidated EVSE?**  
+    - If more than one EVSE was discovered and not yet validated, the EV can continue validating in sequence.
+
+16. **next EVSE**  
+    - The EV moves to another candidate EVSE and repeats the validation step.
+
+17. **Setup logical network**  
+    - If the EV is satisfied with the discovered/validated EVSE, it sets up the logical (data link) communication network with that EVSE.
+
+18. **Data link established?**  
+    - Checks whether the EV has successfully established the data link (i.e., the communication session and all necessary transport layers).
+
+19. **Call D-LINK_READY.IND (Link established)**  
+    - Indicates to higher-layer entities (HLE) that a data link is set up (matching is successful).  
+    - From here, upper layers continue the binding process outlined in ISO 15118-3.
+
+20. **Call D-LINK_READY.IND (No link)**  
+    - Indicates that no valid data link is available (matching has failed).  
+    - The process can exit, and higher layers are notified that no link was established.
+
+21. **Exit matching process with success / failure**  
+    - Final outcome: the EV is either matched or not matched to an EVSE.
+
+22. **NOTE**  
+    - “Error handling for Matching Process is not shown in this figure. See A.9.8.”  
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+1. **Entering matching process**  
+   The EV transitions into the matching phase (often triggered by a control pilot transition to an active charging state).
+
+2. **Discovery of the connected communication nodes**  
+   - The EV enumerates all communication nodes visible on the physical link.  
+   - Multiple EVSEs may be detected (e.g., in scenarios with cross-talk).
+
+3. **Signal strength measurement**  
+   - The EV measures how strongly each communication node’s signal is received.
+
+4. **Signal strength analysis**  
+   - The EV compares measured signals. Three possible outcomes:  
+     a) **Low signal attenuation** → strong signal from one node.  
+     b) **Ambiguous result** → multiple nodes with uncertain or similarly strong signals.  
+     c) **High signal attenuation** → no suitable (or extremely weak) signals.
+
+5. **Branching into three results**  
+   - If **low signal attenuation** is observed:  
+     → The EV sets **Result = “EVSE_FOUND.”**  
+   - If **ambiguous** measurement is observed:  
+     → The EV sets **Result = “EVSE_POTENTIALLY_FOUND.”**  
+   - If **high signal attenuation** is observed:  
+     → The EV sets **Result = “EVSE_NOT_FOUND.”**
+
+6. **Result is “EVSE_FOUND”**  
+   - Optionally, the EV may do a sanity/validation check (depending on the scenario).  
+   - Otherwise, it can declare final result as “EVSE_FOUND” and proceed.
+
+   **Declared result is “EVSE_FOUND”**  
+   → Next step: **Setup logical network**.
+
+7. **Result is “EVSE_POTENTIALLY_FOUND”**  
+   - The EV might treat it as “EVSE_FOUND” or “EVSE_NOT_FOUND,” or it can continue with an actual **Validation of matching decision**.  
+   - If it decides not to validate further (per system rules), it may directly set “Declared result is ‘EVSE_POTENTIALLY_FOUND’” and treat it accordingly.  
+   - Otherwise, proceed to the next diamond: **Validation of matching decision**.
+
+8. **Result is “EVSE_NOT_FOUND”**  
+   - If the EV cannot identify a valid EVSE, or the signal is too weak to be recognized, the EV declares “EVSE_NOT_FOUND.”  
+   - **Declared result is “EVSE_NOT_FOUND.”**  
+   - This immediately leads to the EV calling **D-LINK_READY.IND (No link)** and exiting the process (with failure).
+
+9. **Validation of matching decision** (found on the “EVSE_POTENTIALLY_FOUND” path or optionally on the “EVSE_FOUND” path)  
+   - The EV requests (and performs) additional confirmation with the EVSE (for instance, using the control pilot “BCB-Toggle” procedure mentioned in Clause 9.4).  
+   - **Validation result?**  
+     1. **found**: The EV confirms the EVSE is correct. Proceed to “Setup logical network.”  
+     2. **not found**: The EV rejects this EVSE, checks if there is a **Remaining unvalidated EVSE?**  
+        - If **yes**, go to **next EVSE** and repeat.  
+        - If **no**, proceed to “Call D-LINK_READY.IND (No link)” (failure).
+
+10. **Setup logical network**  
+    - Once certain of the correct EVSE, the EV sets up the low-level communication (logical network).  
+    - **Data link established?**  
+      - If **yes** → **Call D-LINK_READY.IND (Link established)** → exit with success.  
+      - If **no** → **Call D-LINK_READY.IND (No link)** → exit with failure.
+
+11. **Exit matching process**  
+    - Either as a success (the EV is matched and ready for higher-layer communication) or as a failure (no valid link or incorrect EVSE discovered).
+
+12. **NOTE**  
+    - “Error handling for Matching Process is not shown in this figure. See A.9.8.” The figure omits certain fallback or error paths (e.g., hardware faults) that are described in Annex A.9.8 in the standard.
+
+---
+
+## 3. Relation and Connection Among Entities
+
+1. **EV** – The primary actor performing discovery, measurement, and analysis.  
+2. **Communication Nodes** (EVSEs) – Possible candidates that the EV might be physically attached to.  
+3. **Signal Strength Measurement** – Core step for determining whether the EV has a strong enough link to confirm “EVSE_FOUND,” or if there is ambiguity (“EVSE_POTENTIALLY_FOUND”), or if no match can be made (“EVSE_NOT_FOUND”).  
+4. **Validation Process** – A separate (optional or required) mechanism that uses control pilot line toggles to double-check the physical wiring.  
+5. **Logical Network Setup** – The bridging or data-layer step established once the EV confidently decides on an EVSE.  
+6. **D-LINK_READY.ind** – The primitive called to indicate either a successful link or a failed link to the higher layers.
+
+---
+
+## 4. Additional Notes from ISO 15118-3
+
+- **Under ambiguous conditions** (“EVSE_POTENTIALLY_FOUND”), an EV may ask the EVSE to confirm the connection via a separate pilot-line validation.  
+- **Error handling** is largely omitted in Figure 10; full details appear in Annex A.9.8.  
+- **Any transition**—whether success or failure—results in calling D-LINK_READY.IND to notify higher layers.  
+- **According to Annex 9.5**, once the logical network is successfully set up, the status changes to “Matched” and upper-layer protocols (e.g., TLS, V2G messages) can begin binding.
+
+---
+
+### Conclusion
+
+Figure 10 (EV point of view) outlines how the EV:  
+1) **Discovers** possible EVSE nodes,  
+2) **Measures** and **analyzes** each node’s signal strength,  
+3) **Determines** whether a single, multiple, or zero EVSEs are valid matches,  
+4) **Optionally validates** ambiguous results,  
+5) **Sets up** a logical network with the matched EVSE, and  
+6) **Exits** by either calling “D-LINK_READY.IND (Link established)” for success or “D-LINK_READY.IND (No link)” for failure.
+
+This step-by-step process ensures the EV consistently identifies the correct EVSE in multi-charger environments and starts a reliable higher-level communication session for the charging process.
+
+Related Information 17: [V2G3-A09-52] Both EV and EVSE shall comply with the sequence diagrams defined in Figure A.2. (sibling of Text 1)
+Related Information 18: [V2G3-A09-53] If the EVSE is not able to perform any BCB-Toggle due to not having implemented this feature, it shall set the result field to “failure”. (sibling of Text 1)
+Contextual Information 1: A.9.3.1 Functional description (ancestor of Text 1)
+Contextual Information 2: A.9.3 Validation of matching decision (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 19: After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP. (sibling of Text 2)
+Related Information 20: The signal strength measurement method to be used is the SLAC defined in the [HPGP]. (sibling of Text 2)
+Related Information 21: [V2G3-A09-17] The SLAC implementation of the low-layer communciation module on EV and EVSE side shall be compliant with the messages defined in [HPGP]. (sibling of Text 2)
+Related Information 22: [V2G3-A09-18] The low-layer communciation module on EV and EVSE sides shall be compliant with the sequence diagram of Figure A.1. (sibling of Text 2)
+Related Information 23: [V2G3-A09-19] The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1. (sibling of Text 2)
+Related Information 24: [V2G3-A09-20] The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one. (sibling of Text 2)
+Related Information 25: [V2G3-A09-21] According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message: (sibling of Text 2)
+Related Information 26: — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4; (sibling of Text 2)
+Related Information 27: — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3; (sibling of Text 2)
+Related Information 28: — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED. (sibling of Text 2)
+Related Information 29: [V2G3-A09-22] Based on the signal attenuation read by the “CM_ATTEN_CHAR.IND” message, the EV_Discovery_Status shall be set according to Table A.3. (sibling of Text 2)
+Related Information 30: Table A.3 — EV_Discovering_Status definition (sibling of Text 2)
+Related Information 31: Table A.3 — EV_Discovering_Status definition <table border="1"> <td colspan="1" rowspan="2">Status</td> <td colspan="2" rowspan="1">Average_Attenuation</td> <td colspan="1" rowspan="2">Description</td> <tr> <td colspan="1" rowspan="1">From</td> <td colspan="1" rowspan="1">To</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_FOUND</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">C_EV_match_signal-&lt;br&gt;attn_direct</td> <td colspan="1" rowspan="1">The EVSE is identified without&lt;br&gt;any doubt</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_POTENTIALLY_&lt;br&gt;FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;direct</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">One or several EVSEs are identi-&lt;br&gt;fied. The next step of the match-&lt;br&gt;ing process will allow deciding&lt;br&gt;if the most probable candidate is&lt;br&gt;the connected EVSE.</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_NOT_FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">No direct connected EVSE is&lt;br&gt;found</td> </tr> </table> (sibling of Text 2)
+Contextual Information 4: A.9.2.1 Functional description (ancestor of Text 2)
+Contextual Information 5: A.9.2 Signal strength measurement (ancestor of Text 2)
+Related Information 32: By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way. (sibling of Text 3)
+Related Information 33: [V2G3-A09-62] With sending the step 1 CM_VALIDATE.REQ, the EV shall start the timer TT_ match_response. When the TT_match_response timer expires, the EV shall resend the step 1 CM_VALIDATE.REQ with C_EV_match_retry number of retries. The timer shall be restarted with any retry. The TT_match_response timer shall stop with the reception of a valid CM_VALIDATE.CNF. (sibling of Text 10)
+Related Information 34: [V2G3-A09-63] If the EV does not receive any valid CM_VALIDATE.CNF for all retries, the EV shall stop the validation process with the current EVSE and continue the validation pro- cess with the next potential EVSE. (sibling of Text 10)
+Related Information 35: [V2G3-A09-65] If the result field of the step 1 CM_VALIDATE.CNF contains “Success”, the EV shall stop the validation process with the current EVSE and continue the validation pro- cess with the next potential EVSE. (sibling of Text 10)
+Related Information 36: [V2G3-A09-66] If the result field of the step 1 CM_VALIDATE.CNF contains “not ready” the EV shall either retry after undefined amount of time or continue the validation with the next potential EVSE with the option to retry the validation with the “not ready” EVSE again afterwards. (sibling of Text 10)
+Related Information 37: If the Result field of the step 1 CM_VALIDATE.CNF contains “not required”, the EV may skip the validation process. (sibling of Text 10)
+Related Information 38: [V2G3-A09-67] If the result field of the step 1 CM_VALIDATE.CNF contains “ready”, the EV shall send the step 2 CM_VALIDATE.REQ within TP_match_sequence with a timer value which covers the whole BCB-Toggle sequence. (sibling of Text 10)
+Related Information 39: [V2G3-A09-68] With sending the step 2 CM_VALIDATE.REQ, the EV shall start the timer TP_EV_ vald_toggle and shall start the BCB-Toggle sequence. The timer TP_EV_vald_toggle shall be equal to the timer value sent within the step 2 CM_VALIDATE.REQ. (sibling of Text 10)
+Related Information 40: [V2G3-A09-69] The BCB-Toggle sequence shall be finished before the TP_EV_vald_toggle timer expires. (sibling of Text 10)
+Related Information 41: [V2G3-A09-70] When TP_EV_vald_toggle timer expires, the EV shall start the TT_match_response timer. While the TT_match_response timer is running, the EV shall listen for the incoming step 2 CM_VALIDATE.CNF MME. The TT_match_response timer shall stop as soon as a valid CM_VALIDATE.CNF was received. (sibling of Text 10)
+Related Information 42: [V2G3-A09-71] If the TT_match_response timer expires, the EV shall stop the validation process with the current EVSE and continue the validation process with the next potential EVSE. (sibling of Text 10)
+Related Information 43: [V2G3-A09-72] If the result field of the step 2 CM_VALIDATE.CNF contains “failure”, “not ready”, or “not required”, the EV shall stop the validation process with the current EVSE and continue the validation process with the next potential EVSE. (sibling of Text 10)
+Related Information 44: [V2G3-A09-73] If the result field of the step 2 CM_VALIDATE.CNF contains “Success” the EV shall compare the ToggleNum field of the CM_VALIDATE.CNF message with the number of BCB-Toggles executed. If the numbers are equal, the EV_Discovering_Status is confirmed as “EVSE_FOUND” otherwise, the EV shall continue the validation pro- cess with the next potential EVSE. (sibling of Text 10)
+Related Information 45: [V2G3-A09-74] If the matching status is confirmed by the validation, the EV shall continue with the CM_SLAC_MATCH.REQ within TP_match_sequence after receiving the step 2 CM_VALIDATE.CNF. (sibling of Text 10)
+Contextual Information 6: A.9.3.3.2 EV side (ancestor of Text 10)
+Related Information 46: [V2G3-A09-75] With receiving a step 1 CM_VALIDATE.REQ from the EV which started the match- ing process and with a timer field equal to “0x00”, the EVSE shall respond with a CM_VALIDATE.CNF within TP_match_response. (sibling of Text 11)
+Related Information 47: [V2G3-A09-76] If any received CM_VALIDATE.REQ contains invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.5 and Table A.6 is inva- lid. (sibling of Text 11)
+Related Information 48: [V2G3-A09-77] If the EVSE receives another CM_VALIDATE.REQ with a timer field equal to zero after sending out the step 1 CM_VALIDATE.CNF, the step 1 CM_VALIDATE.CNF shall be resent. (sibling of Text 11)
+Related Information 49: [V2G3-A09-78] If the EVSE is occupied by another running validation process, it shall set the result field to “not ready”. (sibling of Text 11)
+Related Information 50: [V2G3-A09-79] If the EVSE is able to perform the validation process and is not occupied, it shall continue the validation process, setting the result field to “ready” or “not required”. (sibling of Text 11)
+Related Information 51: [V2G3-A09-80] If the EVSE is not able to perform the validation process, it shall set the result field to “failure”. (sibling of Text 11)
+Related Information 52: [V2G3-A09-81] If the EVSE has sent the step 1 CM_VALIDATE.CNF with result field set to “not required”, it shall be prepared that the EV will continue the process with the step 2 CM_VALIDATE.REQ or a CM_SLAC_MATCH.REQ message. (sibling of Text 11)
+Related Information 53: [V2G3-A09-82] With sending the step 1 CM_VALIDATE.CNF, the EVSE shall start the timer TT_ match_sequence. When the TT_match_sequence timer expires, the EVSE shall res- end the step 1 CM_VALIDATE.CNF with C_EV_match_retry number of retries. The timer shall be restarted with any retry. The TT_match_sequence timer shall stop with the reception of a valid step 2 CM_VALIDATE.REQ or with a valid CM_SLAC_ MATCH.REQ. (sibling of Text 11)
+Related Information 54: [V2G3-A09-83] If the EVSE does not receive any valid step 2 CM_VALIDATE.REQ or valid CM_ SLAC_MATCH.REQ for all retries, the matching process shall be considered as FAILED. (sibling of Text 11)
+Related Information 55: [V2G3-A09-85] With receiving a step 2 CM_VALIDATE.REQ from the EV which started the match- ing process, the EVSE shall start the timer TT_EVSE_vald_toggle. (sibling of Text 11)
+Related Information 56: [V2G3-A09-86] While the timer TT_EVSE_vald_toggle is running, the EVSE shall count the BCB-Toggles on the control pilot. (sibling of Text 11)
+Related Information 57: [V2G3-A09-87] After the timer TT_EVSE_vald_toggle is expired, the EVSE shall send a step 2 CM_ VALIDATE.CNF with the number of counted BCB-Toggles and the result field set to “Success” within TP_match_response. (sibling of Text 11)
+Related Information 58: [V2G3-A09-88] In case an error occurs on EVSE side while counting the BCB-Toggles so that the ToggleNum field does not contain valid data, the result field shall be set to “failure”. (sibling of Text 11)
+Related Information 59: [V2G3-A09-89] With sending the step 2 CM_VALIDATE.CNF, the EVSE shall start the timer TT_ match_sequence. The timer shall stop as soon as a CM_SLAC_MATCH.REQ message is received. (sibling of Text 11)
+Related Information 60: [V2G3-A09-90] When the timer TT_match_sequence expires, the matching process shall be consid- ered as FAILED. (sibling of Text 11)
+Contextual Information 7: A.9.3.3.3 EVSE side (ancestor of Text 11)
+Related Information 61: The validation of matching decision is a method to validate the signal strength measurement through an additional independent path, based on the hardwired control pilot line. (sibling of Text 12)
+Related Information 62: If a validation of matching decision is required to confirm that the EV is connected to the right low- layer communication module, the following requirements are considered as mandatory if validation of matching is supported. (sibling of Text 12)
+Related Information 63: NOTE To support a BCB-Toggle for Wake-up is mandatory on EVSE side. (sibling of Text 12)
+Related Information 64: According to the EVSE architecture, the EVSE can answer to the request by the following certain states. (sibling of Text 12)
+Related Information 65: — “Not Required” state: This is just a recommendation from the EVSE, the EV decides either to follow the EVSE recommendation and to skip the validation process or to continue the process and to perform the validation process. (sibling of Text 12)
+Related Information 66: — “Failure” state: This is an indication from the EVSE that it does not support the validation process. The EV decides to either terminate the matching process with the current EVSE and go on with the next EVSE or to skip the validation process with the current EVSE. (sibling of Text 12)
+Related Information 67: — “Ready” state: This is an indication from the EVSE that it does support the validation process and is ready to continue the validation process. (sibling of Text 12)
+Related Information 68: In case of a performed validation process, the EV performs multiple BCB-Toggles during the time TP_EV_ vald_toggle. The number of BCB-Toggles (C_EV_vald_nb_toggles) is chosen randomly in the available time. (sibling of Text 12)
+Related Information 69: At the end of the timer, the EVSE sends a frame with the number of BCB-Toggles seen on the Control Pilot line and waits for the decision value. (sibling of Text 12)
+Related Information 70: If supported, and in order to perform the validation process, EVs and EVSEs have to implement a method to validate the EV-EVSE connection based on the signal sequence “EV signal to the EVSE” defined in [IEC-1], Annex A. (sibling of Text 12)
+Related Information 71: CP state C CP state B TP_EV_vald_toggle TP_EV_vald_ state_duration TP_EV_vald_ state_duration TP_EV_vald_ state_duration TP_EV_vald_ state_duration TP_EV_vald_ state_duration 1st toggle 2nd toggle inital B-state (sibling of Text 12)
+Related Information 72: [V2G3-M09-06] In accordance with [IEC-1], the EV shall support the sequence of “BCB-Toggle” defined in Figure 12. (sibling of Text 12)
+Related Information 73: Figure 12 — Example of BCB-Toggle sequence with C_EV_vald_nb_toggles = 2 and active oscillator (sibling of Text 12)
+Related Information 74: [V2G3-M09-07] If the EV status is “EVSE_POTENTIALLY_FOUND”, the EV shall start the validation process. According to the grid architecture, the EVSE can inform the EV that it is allowed to abort the validation process. In such a case, the EV has the option to skip the validation process. (sibling of Text 12)
+Related Information 75: [V2G3-M09-08] According to its implementation, the EVSE can inform the EV that it does not sup- port the validation process. The EV decides to either terminate the matching pro- cess with the current EVSE and go on with the next EVSE or to skip the validation process with the current EVSE. (sibling of Text 12)
+Related Information 76: [V2G3-M09-09] Since the communication node on EV side concludes the signal strength measure- ment, the communication node on EV side shall also conclude this mechanism. This method shall be concluded by — EVSE_FOUND — EVSE_NOT_FOUND. (sibling of Text 12)
+Related Information 77: NOTE At this stage, the validation is physically performed with the control pilot line. The “EVSE_ POTENTIALLY_FOUND” state is not possible. (sibling of Text 12)
+Related Information 78: The following requirements only apply in case both the EV and the EVSE support the validation process: (sibling of Text 12)
+Related Information 79: [V2G3-M09-10] The EVSE shall be able to detect a state variation on the control pilot line within T_vald_detect_time. (sibling of Text 12)
+Related Information 80: [V2G3-M09-11] The duration of each state during the BCB-Toggle sequence is defined as TP_EV_ vald_state_duration. (sibling of Text 12)
+Related Information 81: [V2G3-M09-12] Both EV and EVSE shall support a set of messages to exchange the number of BCB-Toggles, using the messages defined in dedicated annexes. (sibling of Text 12)
+Related Information 82: [V2G3-M09-13] In the case an EVSE receives a validation request while it is still in a validation process with another EV, it shall give a negative response to incoming requests. [V2G3-M09-14] The EV shall perform C_EV_vald_nb_toggles BCB-Toggle(s) during the validation process and shall adjust the TP_EV_vald_toggle in coherence with the number of BCB-Toggles. [V2G3-M09-15] The control pilot duty cycle shall not have an impact on the validation process. (sibling of Text 12)
+Contextual Information 8: 9.4 Validation of matching decision (ancestor of Text 12)
+Contextual Information 9: 9 Matching EV — EVSE process (ancestor of Text 12)
+Contextual Information 10: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 12)
+Related Information 83: After the signal strength measurement, the EV can decide on the basis of the results to request the EVSE for an additional validation process. As soon as the EVSE is ready to detect the control pilot line, the EV sends a random timer value TP_EV_vald_toggle to the EVSE. After sending the message, the EV switches the control pilot state in the sequence B-C-B. This switching sequence is called BCB-Toggle in the following. (sibling of Text 13)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

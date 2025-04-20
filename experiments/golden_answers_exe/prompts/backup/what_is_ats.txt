@@ -1,0 +1,37 @@
+Question What is ATS?: What is ATS?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: Abstract Test Suite
+Text 2: test suite composed of abstract test cases
+Text 3: The capability tests within the ATS check that the implementation has the capability of supporting the functionality described in ISO 15118-3.
+Text 4: The following conditions apply in terms of test case coverage:
+Text 5: — Requirements that are out of scope according to ISO 15118-5 are excluded from testing.
+Text 6: — Requirements that are not explicitly tested through dedicated test cases have been covered implicitly.
+Text 7: The resulting test suite coverage in this document is indicated as follows:
+Text 8: X Indicates requirements that are covered in the ATS through dedicated test cases.
+Text 9: I Indicates requirements that are indirectly covered through other test cases.
+Text 10: P Indicates requirements that are only partially covered, i.e. some aspects are tested but not all.
+Text 11: N Requirements that are not testable for the profile.
+Text 12: ‐ Requirements that are not applicable for the profile.
+Text 13: O Requirements that are out of scope for the profile.
+Text 14: Protocol Implementation Conformance Statement
+Text 15: To evaluate the conformance of a particular implementation to ISO 15118-3, an implementation has to specify its capabilities and options with respect to ISO 15118-3.
+Text 16: All PICS defined in the ATS are summarized in Tables 6 to 8.
+Text 17: Protocol implementation extra information for testing
+Text 18: In order to ensure testability of ISO 15118‐3 requirements, additional information about the implementation is needed that is not necessarily required for conformance but for test execution.
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

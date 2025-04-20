@@ -1,0 +1,36 @@
+What is CM_SLAC_MATCH.CNF?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: A.9.1.3.2 EV side (Context: A.9.1.3.2 EV side > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - If the EV receives a CM_SLAC_MATCH.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.7 is invalid.
+Text 2: A.9.5.3.2 EV side (Context: A.9.5.3.2 EV side > A.9.5 Joining the logical network > A.9 Matching EV – EVSE process) - If no link is established within the max(TT_match_join) after receiving CM_SLAC_ MATCH.CNF, the EV shall consider that the matching process is FAILED.
+
+ADDITIONAL CONTEXT:
+Related Information 1: [V2G3-A09-05] The EV shall send a CM_SLAC_PARM.REQ within TP_EV_SLAC_init time window. (sibling of Text 1)
+Related Information 2: [V2G3-A09-06] The start condition of the TP_EV_SLAC_init timer shall be the trigger of the match- ing process defined in 6.4.3.2. (sibling of Text 1)
+Related Information 3: [V2G3-A09-07] In the SLAC parameter exchange phase, the EV shall send a CM_SLAC_PARM.REQ and wait for the maximum value of TT_match_response for CM_SLAC_PARM.CNFs from potential EVSEs. (sibling of Text 1)
+Related Information 4: [V2G3-A09-08] The start condition of TT_match_response shall be the transmission of CM_SLAC_ PARM.REQ. (sibling of Text 1)
+Related Information 5: [V2G3-A09-10] If no valid CM_SLAC_PARM.CNF arrives at the EV when TT_match_response expires, the EV shall retransmit the request and wait again for TT_match_ response. The total number of retries is given by C_EV_match_retry. If C_EV_ match_retry is reached, the matching process shall be considered as FAILED. (sibling of Text 1)
+Contextual Information 1: A.9.1.3.2 EV side (ancestor of Text 1)
+Contextual Information 2: A.9.1 Signal strength measurement – parameter exchange (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 6: [V2G3-A09-101] After receiving a CM_SLAC_MATCH.CNF from the EVSE, the EV shall configure its low-layer communciation module to the values from this message by using the CM_SET_KEY.REQ MME. (sibling of Text 2)
+Related Information 7: NOTE 1 In a specific implementation, methods other than the CM_SET_KEY MMEs may also be used as long as the configuration result is equivalent. (sibling of Text 2)
+Related Information 8: NOTE 2 It is up to the implementation how to handle a negative response in a CM_SET_KEY.CNF or a missing CM_SET_KEY.CNF at all. (sibling of Text 2)
+Contextual Information 4: A.9.5.3.2 EV side (ancestor of Text 2)
+Contextual Information 5: A.9.5 Joining the logical network (ancestor of Text 2)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

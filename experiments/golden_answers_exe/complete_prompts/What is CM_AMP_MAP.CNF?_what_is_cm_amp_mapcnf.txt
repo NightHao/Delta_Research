@@ -1,0 +1,462 @@
+Question What is CM_AMP_MAP.CNF?: What is CM_AMP_MAP.CNF?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: 8 Timings and constants - Table A.1 — Timing and constant values
+Table 2: A.8 Timings and constants - Table A.1 (continued)
+Table 3: A.9.6.2 Description of involved MMEs - Table A.9 — MMEs parameters definition for amplitude map exchange
+
+FIGURE INFORMATION:
+Figure 1: A.9.6.3.1 Sequence chart - Figure A.8 — Sequence chart of amplitude map exchange
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+
+TEXTUAL INFORMATION:
+Text 1: 3 Terms and definitions (Context: 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - specifies a transmit power-reduction factor for each subcarrier related to the tone mask
+Text 2: 3.30 tone mask (Context: 3.30 tone mask > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - defines the set of tones (or carriers) that can be used in a given regulatory jurisdiction or given application
+Text 3: A.9.6.1 Functional description (Context: A.9.6.1 Functional description > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - The amplitude map exchange is an optional function to request the counterpart low-layer communciation module to reduce the transmission power for certain carriers.
+Text 4: A.9.6.1 Functional description (Context: A.9.6.1 Functional description > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - counterpart low-layer communciation module to reduce the transmission power for certain carriers. The requesting device sends a CM_AMP_MAP.REQ command which has to be confirmed by the counterpart node by a CM_AMP_ MAP.CNF message.
+Text 5: A.9.6.1 Functional description (Context: A.9.6.1 Functional description > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - The transmission power limitation request is related to the PSD at EVs/EVSEs socket.
+Text 6: A.9.6.1 Functional description (Context: A.9.6.1 Functional description > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - All transmission power values within the CM_AMP_MAP MMEs are related to a reference value of −50 dBm/Hz. The resolution of AMDATA are −2 dB, so that a AMDATA value of 0b0011 means a value −6 dB.
+Text 7: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - (For simplification, within this example the total number of carriers is fictitious set to 6)
+Text 8: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - EVSE requests a limitation of the power of carriers 2 and 3 to −78 dBm/Hz, while the other carriers keep unaffected. The EV has no limitation request to the EVSE.
+Text 9: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - The EVSE sends a CM_AMP_MAP.REQ to the EV Host MAC address with the following values: {0,14,14,0,0,0}
+Text 10: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - AMDATA[0] = 0x0 AMDATA[1] = 0xE AMDATA[2] = 0xE
+Text 11: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - Related to the reference of −50 dBm/Hz, the requested value of −78 dBm/Hz leads to the difference of −28 dB which in turn leads to a raw value of 14 (0xE) for 2 dB resolution. Each element of AMDATA has a size of 4 Bit.
+Text 12: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - The EV Host compares the received values with its default PSD at the socket, which are assumed to be {-75, −75, −77, −77, −75, −75} dBm/Hz. For carriers 2 and 3, the requested values are less than the default ones:
+Text 13: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - Carrier 1: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 2: −75 dBm/Hz < −78 dBm/Hz: n.ok. devation: 3 dBm/Hz Carrier 3: −77 dBm/Hz < −78 dBm/Hz: n.ok. devation: 1 dBm/Hz Carrier 4: −77 dBm/Hz < −50 dBm/Hz: ok Carrier 5: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 6: −75 dBm/Hz < −50 dBm/Hz: ok
+Text 14: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - The carriers 2 and 3 have to be reduced in power by 3 dBm/Hz and 1 dBm/Hz respectively.
+Text 15: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - The EV Host confirms the CM_AMP_MAP.REQ with a corresponding CM_AMP_MAP.CNF.
+Text 16: Example for request of a transmission power limitation (Context: Example for request of a transmission power limitation > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - Based on the calculated attenuation values for the carriers 2 and 3, the EV Host subtract these from the default low-layer communciation module setting and writes them to the low-layer communciation module using the CM_AMP_MAP.REQ and its local destination address.
+Text 17: A.9.6.3.2 EV and EVSE sides (Context: A.9.6.3.2 EV and EVSE sides > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - If a low-layer communication module receives a CM_AMP_MAP.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.9 is invalid.
+Text 18: A.9.6.3.2 EV and EVSE sides (Context: A.9.6.3.2 EV and EVSE sides > A.9.6 Amplitude map exchange > A.9 Matching EV – EVSE process) - If the requested node receives another CM_AMP_MAP.REQ, this means that the counterpart station retransmitted its request for some reason (i.e. the CM_AMP_ MAP.CNF was not received); the requested node shall respond to the request again.
+
+ADDITIONAL CONTEXT:
+Related Information 1: For the purposes of this document, the terms and definition in [ISO-1] and the following apply. (sibling of Text 1)
+Related Information 2: 3.2 central coordinator (sibling of Text 1)
+Related Information 3: 3.3 channel access priority CAP (sibling of Text 1)
+Related Information 4: 3.4 coexistence (sibling of Text 1)
+Related Information 5: 3.5 communication media (sibling of Text 1)
+Related Information 6: 3.6 communication node (sibling of Text 1)
+Related Information 7: 3.7 connection coordination (sibling of Text 1)
+Related Information 8: crosstalk (sibling of Text 1)
+Related Information 9: 3.9 data link control SAP (sibling of Text 1)
+Related Information 10: 3.10 DATA SAP (sibling of Text 1)
+Related Information 11: 3.11 ETH SAP (sibling of Text 1)
+Related Information 12: 3.12 external identification means (sibling of Text 1)
+Related Information 13: 3.13 initialization (sibling of Text 1)
+Related Information 14: 3.14 IO SAP (sibling of Text 1)
+Related Information 15: 3.15 inter system protocol (sibling of Text 1)
+Related Information 16: 3.16 logical network (sibling of Text 1)
+Related Information 17: 3.17 low-layer communication (sibling of Text 1)
+Related Information 18: 3.18 low-layer communication module (sibling of Text 1)
+Related Information 19: 3.19 MAC address (sibling of Text 1)
+Related Information 20: 3.20 management message entry MME messages exchanged between PLC nodes or a PLC node and higher layers for control purposes (sibling of Text 1)
+Related Information 21: 3.21 matching (sibling of Text 1)
+Related Information 22: 3.22 nominal duty cycle (sibling of Text 1)
+Related Information 23: 3.23 pilot function controller (sibling of Text 1)
+Related Information 24: 3.24 plug and charge (sibling of Text 1)
+Related Information 25: 3.25 QPSK modulation (sibling of Text 1)
+Related Information 26: 3.26 ROBO mode (sibling of Text 1)
+Related Information 27: 3.27 shared bandwidth (sibling of Text 1)
+Related Information 28: 3.28 signal coupling (sibling of Text 1)
+Related Information 29: 3.29 signal level attenuation characterization SLAC protocol to measure the signal strength of a signal between HomePlug Green PHY stations (sibling of Text 1)
+Related Information 30: 3.30 tone mask (sibling of Text 1)
+Related Information 31: valid duty cycle (sibling of Text 1)
+Contextual Information 1: 3 Terms and definitions (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 3: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 1)
+Contextual Information 4: 3.30 tone mask (ancestor of Text 2)
+Related Information 32: The transmission power limitation request is related to the PSD at EVs/EVSEs socket. (sibling of Text 3)
+Related Information 33: The CM_AMP_MAP.REQ MME has the following two different functions, depending on the source/destination of the message: (sibling of Text 3)
+Related Information 34: — CM_AMP_MAP.REQ sent from one host to another host through the low-layer communciation is designated to transmit the requested transmission power per carrier to the destination host to be included in its amplitude map calculation. This message does not have any direct influence on the low-layer communciation module transmission power, it is only used for information exchange. (sibling of Text 3)
+Related Information 35: — CM_AMP_MAP.REQ sent from one host to the local low-layer communciation module causes the low- layer communciation module to modify its transmission power. (sibling of Text 3)
+Related Information 36: All transmission power values within the CM_AMP_MAP MMEs are related to a reference value of −50 dBm/Hz. The resolution of AMDATA are −2 dB, so that a AMDATA value of 0b0011 means a value −6 dB. (sibling of Text 3)
+Contextual Information 5: A.9.6.1 Functional description (ancestor of Text 3)
+Contextual Information 6: A.9.6 Amplitude map exchange (ancestor of Text 3)
+Contextual Information 7: A.9 Matching EV – EVSE process (ancestor of Text 3)
+Related Information 37: The amplitude map exchange is an optional function to request the counterpart low-layer communciation module to reduce the transmission power for certain carriers. The requesting device sends a CM_AMP_MAP.REQ command which has to be confirmed by the counterpart node by a CM_AMP_ MAP.CNF message. (sibling of Text 5)
+Related Information 38: EVSE requests a limitation of the power of carriers 2 and 3 to −78 dBm/Hz, while the other carriers keep unaffected. The EV has no limitation request to the EVSE. (sibling of Text 7)
+Related Information 39: — The EVSE sends a CM_AMP_MAP.REQ to the EV Host MAC address with the following values: {0,14,14,0,0,0} (sibling of Text 7)
+Related Information 40: AMDATA[0] = 0x0 AMDATA[1] = 0xE AMDATA[2] = 0xE Related to the reference of −50 dBm/Hz, the requested value of −78 dBm/Hz leads to the difference (sibling of Text 7)
+Related Information 41: Related to the reference of −50 dBm/Hz, the requested value of −78 dBm/Hz leads to the difference of −28 dB which in turn leads to a raw value of 14 (0xE) for 2 dB resolution. Each element of AMDATA has a size of 4 Bit. (sibling of Text 7)
+Related Information 42: — The EV Host compares the received values with its default PSD at the socket, which are assumed to be {-75, −75, −77, −77, −75, −75} dBm/Hz. For carriers 2 and 3, the requested values are less than the default ones: (sibling of Text 7)
+Related Information 43: Carrier 1: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 2: −75 dBm/Hz < −78 dBm/Hz: n.ok. devation: 3 dBm/Hz Carrier 3: −77 dBm/Hz < −78 dBm/Hz: n.ok. devation: 1 dBm/Hz Carrier 4: −77 dBm/Hz < −50 dBm/Hz: ok Carrier 5: −75 dBm/Hz < −50 dBm/Hz: ok Carrier 6: −75 dBm/Hz < −50 dBm/Hz: ok (sibling of Text 7)
+Related Information 44: The carriers 2 and 3 have to be reduced in power by 3 dBm/Hz and 1 dBm/Hz respectively. (sibling of Text 7)
+Related Information 45: — The EV Host confirms the CM_AMP_MAP.REQ with a corresponding CM_AMP_MAP.CNF. (sibling of Text 7)
+Related Information 46: — Based on the calculated attenuation values for the carriers 2 and 3, the EV Host subtract these from the default low-layer communciation module setting and writes them to the low-layer communciation module using the CM_AMP_MAP.REQ and its local destination address. (sibling of Text 7)
+Related Information 47: [V2G3-A09-106] In the case that a low-layer communication module requires additional carriers to be notched, it shall send the amplitude map to the remote low-layer commu- nication module as soon as the logical network is set up. Therefore, the sequence described in Figure A.2 and A.7.6.2 for detailed primitives shall be used. The amplitude map for further communication shall be the intersection of the low- layer communciation module’s local amplitude and the received amplitude map from the remote low-layer communciation module. (sibling of Text 7)
+
+Image Description for Figure A.2:
+**Detailed Description of Figure A.2 — Sequence Chart of HomePlug Green PHY Matching Process (Part 2)**
+
+Below is a step‐by‐step walkthrough of the second part of the SLAC (Signal-Level Attenuation Characterization) matching process, as shown in Figure A.2. The figure involves four principal entities:
+1. **EV Host**  
+2. **EV PLC Node** (the low‐layer communication module on the EV side)  
+3. **EVSE PLC Node** (the low‐layer communication module on the EVSE side)  
+4. **EVSE Host**  
+
+Several timers are used throughout (e.g., TT_match_response, TT_EVSE_match_MNBC, TT_EV_atten_results, etc.), and numerous message exchanges take place to coordinate the matching, measurement, validation, and eventual linking of the EV and the EVSE. The main goal is to ensure that the EV joins the EVSE’s HomePlug Green PHY network only if the correct EVSE is physically connected.
+
+---
+
+## 1. Entities Shown in the Figure
+
+1. **EV Host**  
+   • Triggers and manages part of the matching and SLAC processes on the vehicle side.  
+   • May also participate in the amplitude map exchange and final notifications to higher layers.
+
+2. **EV PLC Node**  
+   • The low‐layer communication module in the EV.  
+   • Sends/receives SLAC‐related messages (e.g., CM_SLAC_PARM.REQ), handles attenuation measurement steps (CM_START_ATTEN_CHAR.IND, CM_MNBC_SOUND.IND, CM_ATTEN_CHAR.RSP), and initiates validation or matching requests.
+
+3. **EVSE PLC Node**  
+   • The low‐layer communication module in the charging station.  
+   • Responds to the EV’s messages (e.g., CM_SLAC_PARM.CNF), performs attenuation measurements, and returns results (e.g., CM_ATTEN_CHAR.IND).  
+   • May also carry out a validation procedure upon EV requests and send final match confirmations.
+
+4. **EVSE Host**  
+   • Controls higher-level aspects on the EVSE side, including key sets (CM_SET_KEY.REQ) or other logic.  
+   • May provide triggers to begin or end the matching process.
+
+---
+
+## 2. High‐Level Flow Overview
+
+Figure A.2 shows the continuation of the overall HomePlug Green PHY matching process, focusing on:  
+- Attenuation measurements using M‐Sound messages and collecting CM_ATTEN_PROFILE.IND data.  
+- Final attenuation confirmations (CM_ATTEN_CHAR.IND and CM_ATTEN_CHAR.RSP).  
+- (Optionally) Validation steps (CM_VALIDATE) with possible BCB toggles.  
+- Network matching confirmation (CM_SLAC_MATCH).  
+- Key setting (CM_SET_KEY) on both sides.  
+- Detection of the link and optional amplitude map exchange (CM_AMP_MAPREQ and CM_AMP_MAPCNF).  
+- Final “D_LINK_READY” notification to the higher layers once the link is established.
+
+---
+
+## 3. Detailed Step‐by‐Step Flow
+
+Below, each arrow or step in the figure is described in sequence (from top to bottom):
+
+1. **Wait for Matching Process Start Trigger**  
+   - Both the EV side and the EVSE side wait internally until a trigger condition indicates that SLAC matching should begin.  
+   - Timers such as TP_EV_SLAC_init (for the EV) and TT_EVSE_SLAC_init (for the EVSE) are started.
+
+2. **EV PLC Node → CM_SLAC_PARM.REQ**  
+   - Once triggered, the EV PLC node sends a “CM_SLAC_PARM.REQ” broadcast request.  
+   - This request announces the EV’s parameters to potential EVSE nodes and includes a unique runID.
+
+3. **EVSE PLC Node → CM_SLAC_PARM.CNF**  
+   - An unmatched EVSE node that is ready replies with “CM_SLAC_PARM.CNF” to the EV’s broadcast.  
+   - This confirmation message includes details like M-Sound counts, a matching runID, and a time-out field (Time_Out) dictating how long the EVSE will receive M-Sounds.
+
+4. **Timers and Response Windows**  
+   - The EV uses TT_match_response to await CM_SLAC_PARM.CNF messages. If valid CNFs are received, it proceeds. Otherwise, it retries or declares failure after repeated timeouts.
+
+5. **EV PLC Node → CM_START_ATTEN_CHAR.IND** (multiple times)
+   - After the EV obtains a valid parameter confirmation, it waits for TP_match_sequence to expire, then begins attenuation characterization by sending “CM_START_ATTEN_CHAR.IND” messages in a short batch.  
+   - Each indicates the number of M‐Sounds to transmit (NUM_SOUNDS) and includes the runID.
+
+6. **EV PLC Node → CM_MNBC_SOUND.IND** (multiple times)
+   - Following its last “CM_START_ATTEN_CHAR.IND,” the EV sends a sequence of “CM_MNBC_SOUND.IND” messages C_EV_match_MNBC times (for example, 8 times).  
+   - A decrementing counter (Cnt) goes down with each M‐Sound message. The EV typically spaces these out with TP_EV_batch_msg_interval to avoid congestion.
+
+7. **EVSE PLC Node → CM_ATTEN_PROFILE.IND** (multiple times)
+   - While the EV is sending M‐Sounds, the EVSE may measure and aggregate the received signals. It can send multiple “CM_ATTEN_PROFILE.IND” messages back to the EV if necessary.  
+   - The EV receives these within TT_EV_atten_results.
+
+8. **EVSE PLC Node → CM_ATTEN_CHAR.IND**
+   - After collecting or averaging enough M‐Sounds, the EVSE compiles final attenuation data and sends “CM_ATTEN_CHAR.IND” to the EV.  
+   - This is typically triggered once TT_EVSE_match_MNBC expires and the EVSE finishes averaging.
+
+9. **EV PLC Node → CM_ATTEN_CHAR.RSP**
+   - Upon receiving the final attenuation characterization message, the EV responds with “CM_ATTEN_CHAR.RSP,” acknowledging the data.  
+   - At this point, the EV has the final measured attenuation and can decide whether the EVSE is indeed the physically connected one (i.e., “EVSE_FOUND,” “EVSE_POTENTIALLY_FOUND,” or “EVSE_NOT_FOUND”).
+
+10. **Optional Validation Phase**  
+   - If the EV determines it needs further certainty, it performs a validation step:  
+     1. **CM_VALIDATE.REQ (Step 1)** from EV to EVSE – the EV requests the EVSE’s readiness to do a BCB toggle validation on the control pilot.  
+     2. **CM_VALIDATE.CNF (Step 1)** from EVSE to EV – the EVSE states “Ready,” “Not Required,” “Not Ready,” or “Failure.”  
+     3. **BCB Toggle** – If the EVSE is “Ready,” the EV toggles the battery control block for a specific time.  
+     4. **CM_VALIDATE.REQ (Step 2)** from EV to EVSE – includes how long the EVSE should count toggles.  
+     5. **CM_VALIDATE.CNF (Step 2)** from EVSE to EV – indicates success/failure and includes the count of toggles.  
+   - The EV can confirm the physically linked EVSE if the toggles match the EV’s expectation.
+
+11. **EV PLC Node → CM_SLAC_MATCH.REQ**
+   - Once the EV is confident it has identified the correct EVSE, it sends “CM_SLAC_MATCH.REQ” to finalize the network join parameters.  
+   - This message includes MAC addresses, the runID, and other final matching fields.
+
+12. **EVSE PLC Node → CM_SLAC_MATCH.CNF**
+   - The EVSE acknowledges with “CM_SLAC_MATCH.CNF,” which supplies the EV with the NMK (network membership key) or other parameters needed for a private logical network.  
+   - Both sides now have the exact security and channel information.
+
+13. **EV PLC Node ↔ EV Host** and **EVSE Host**: Key‐Setting (CM_SET_KEY)
+   - The figure may show “CM_SET_KEY.REQ” from the EVSE Host to EVSE PLC node (or from the EV Host to the EV PLC node).  
+   - “CM_SET_KEY.CNF” confirms that the local low‐layer module is configured with the correct NMK.
+
+14. **Link Detected & TT_match_join**  
+   - Once the EV sets its own key, it attempts to join the EVSE’s logical network. If a link is detected within TT_match_join, the process proceeds. Otherwise, the EV or EVSE decides the matching has failed and may retry.
+
+15. **(Optional) Amplitude Map Exchange (CM_AMP_MAPREQ, CM_AMP_MAPCNF)**  
+   - If either the EV or the EVSE requests a reduced transmit power or localized notched carriers, it may initiate the amplitude map exchange.  
+   - “CM_AMP_MAP.REQ” is sent, followed by “CM_AMP_MAP.CNF.” If no amplitude map exchange is needed, this part is skipped.
+
+16. **Inform Higher‐Layer Entities**  
+   - Once the link is securely established, the final step is a “D-LINK_READY” indication to the higher‐layer entity (HLE) in both the EV and the EVSE. This notifies both that the HomePlug Green PHY link is active and ready for ISO 15118 application‐layer communication.
+
+---
+
+## 4. Relationships and Key Connection Points
+
+- **EV PLC Node ↔ EVSE PLC Node**:  
+  Almost all SLAC measurement messages flow between these two low‐layer communication modules. They exchange parameter sets, attenuation data, and matching confirmations.
+
+- **EV Host ↔ EV PLC Node**:  
+  The EV Host instructs or triggers the EV PLC node to start SLAC or to proceed with validation. It may also configure local amplitude maps or set keys.
+
+- **EVSE Host ↔ EVSE PLC Node**:  
+  The EVSE Host can command its low‐layer module to set a new key (e.g., CM_SET_KEY.REQ) or to confirm certain states. It also triggers the EVSE PLC node to respond after a successful matching.
+
+- **Timers**:  
+  Many timers appear in the sequence and govern when a node can give up, retry, or proceed to the next step. For example:  
+  - **TT_EVSE_SLAC_init**: Time for EVSE to listen for CM_SLAC_PARM.REQ after detecting state B.  
+  - **TP_match_sequence**: A performance time ensuring that the next request (e.g., CM_START_ATTEN_CHAR.IND) happens only after the prior response.  
+  - **TT_match_response**: Both EV and EVSE wait up to this duration for a particular response; if it times out, they may retry or declare a failure.  
+  - **TT_EV_atten_results**: EV’s time window to receive all CM_ATTEN_CHAR.IND.  
+  - **TT_EVSE_match_MNBC**: EVSE’s time window to collect M-Sound data and produce CM_ATTEN_CHAR.IND.  
+  - **TP_EV_batch_msg_interval**: Interval between consecutive messages in a batch (e.g., multiple CM_MNBC_SOUND.IND).  
+  - **TT_match_join**: Maximum time allowed for the newly provided NMK/NID to form a valid link.  
+  - **TT_amp_map_exchange**: Time for optional amplitude map request/response.  
+  - **TP_link_ready_notification**: Performance limit to notify HLE that the data link is established.
+
+---
+
+## 5. Concluding Notes
+
+- **Failure Handling**:  
+  If any node fails to receive the expected messages within the specified timers or if content is invalid (e.g., invalid runID or mismatch in message definitions), the matching may be retried until certain repetition counts are reached. Ultimately, if repeated attempts fail, the matching process ends in “Unmatched” state.
+
+- **Optional Validation**:  
+  The EV is free to skip the CM_VALIDATE steps if the signal strength measurement unambiguously identifies the EVSE. If the EVSE is “Busy” or “Not Ready,” the EV can either wait and retry or attempt matching with a different EVSE (if multiple stations were discovered).
+
+- **Amplitude Map Exchange**:  
+  This may or may not be used in every session. It is only performed if either side wants to restrict transmit power further. If performed, both sides finalize an amplitude map to ensure compliance with local regulations and minimal interference.
+
+---
+
+### Final Outcome
+
+By the end of the sequence shown in Figure A.2, the EV has:  
+1. Exchanged parameters and measured attenuation with all potential EVSEs.  
+2. (Optionally) Validated the correct EVSE with BCB toggles.  
+3. Requested and received final matching data (NMK, NID).  
+4. Joined the logical network by setting keys.  
+5. Confirmed or skipped the amplitude map exchange.  
+6. Indicated to higher layers that the link is ready for powerline communication.
+
+All these steps ensure that only the physically connected EVSE is selected, avoiding interference or incorrect pairing with other EVSE nodes on the same powerline network.
+
+Related Information 48: [V2G3-A09-107] As long no exchange of an amplitude map is trigger by one of the low-layer com- munication modules, a default amplitude map shall be used. (sibling of Text 7)
+Related Information 49: NOTE The EVSE should guarantee the conformity to local legislation on authorized/forbidden frequencies in the frequency band 2 MHz to 30 MHz. By this mechanism, the EV will always comply with the local legislation. The EVSE should be able to be reconfigured to future evolution of restrictions. (sibling of Text 7)
+Contextual Information 8: Example for request of a transmission power limitation (ancestor of Text 7)
+Related Information 50: (For simplification, within this example the total number of carriers is fictitious set to 6) Assumption: (sibling of Text 8)
+Related Information 51: [V2G3-A09-111] If a low-layer communication module needs to request an amplitude map exchange from the counterpart device, the CM_AMP_MAP.REQ shall be sent within TP_amp_map_exchange. The timer TP_amp_map_exchange shall be started with the detection of other stations in the current logical network after the SLAC_ MATCH exchange. (sibling of Text 17)
+Related Information 52: [V2G3-A09-112] If a low-layer communication module has sent a CM_AMP_MAP.REQ but does not receive a valid CM_AMP_MAP.CNF within the max(TT_match_response), it shall retransmit the CM_AMP_MAP.REQ. The timer shall be restarted with any retry. A maximum of C_EV_match_retry retransmissions shall be performed. If after these retransmissions the low-layer communication module has not received valid response within max(TT_match_response), the matching process shall be considered as FAILED. (sibling of Text 17)
+Related Information 53: [V2G3-A09-114] If a low-layer communication module receives a CM_AMP_MAP.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.9 is invalid. (sibling of Text 17)
+Related Information 54: ﻿ (sibling of Text 17)
+Related Information 55: [V2G3-A09-115] After receiving a CM_AMP_MAP.REQ within TT_amp_map_exchange, a low-layer communication module shall answer with a CM_AMP_MAP.CNF within TP_match_ response. The timer TT_amp_map_exchange shall be started with the detection of other stations in the current logical network. (sibling of Text 17)
+Related Information 56: [V2G3-A09-116] If the requested node receives another CM_AMP_MAP.REQ, this means that the counterpart station retransmitted its request for some reason (i.e. the CM_AMP_ MAP.CNF was not received); the requested node shall respond to the request again. (sibling of Text 17)
+Related Information 57: [V2G3-A09-117] If the timer TT_amp_map_exchange expires without receiving a CM_AMP_MAP. REQ from the counterpart low-layer communication module and without sending a CM_AMP_MAP.REQ, the D-LINK_READY.indication (link established) shall be sent to higher layers. (sibling of Text 17)
+Related Information 58: [V2G3-A09-118] As soon as the state “Matched” is reached, no further SLAC messages shall be sent or processed. (sibling of Text 17)
+Related Information 59: [V2G3-A09-119] If an amplitude map exchange is initiated by one of the low-layer communication modules in the logical network, the higher layer shall not be informed about the valid data link before the link is re-established after the amplitude map exchange and the local configuration of the modified amplitude map is done. (sibling of Text 17)
+Related Information 60: [V2G3-A09-120] The time between the detection of other stations in the current logical network after the SLAC_MATCH exchange and the indication D-LINK_READY.indication (link established) to higher layers shall not exceed the performance timer TP_ link_ready_notification. (sibling of Text 17)
+Contextual Information 9: A.9.6.3.2 EV and EVSE sides (ancestor of Text 17)
+Related Information 61: [V2G3-A09-113] If a low-layer communication module receives a CM_AMP_MAP.REQ with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.9 is invalid. (sibling of Text 18)
+Related Information 62: This Clause summarizes all timings used in the main body of this part of ISO 15118. (sibling of Table 1)
+Related Information 63: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 1)
+Related Information 64: Table 3 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_conn_max_match</td> <td colspan="1" rowspan="1">Number of retries of matching&lt;br&gt;process</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_vald_nb_toggles</td> <td colspan="1" rowspan="1">Number of BCB-Toggles</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EVSE_match_parallel</td> <td colspan="1" rowspan="1">Number of parallel matching&lt;br&gt;processes to be handled by&lt;br&gt;EVSE</td> <td colspan="1" rowspan="1">5</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_sequ_retry</td> <td colspan="1" rowspan="1">Number of matching retries by&lt;br&gt;Control Pilot state E transitions</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_init_HLC</td> <td colspan="1" rowspan="1">Minimum B state duration after&lt;br&gt;a state F, D, or C</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resume</td> <td colspan="1" rowspan="1">Time after the wake up trigger&lt;br&gt;(e.g. BCB-Toggle) until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_max_comm</td> <td colspan="1" rowspan="1">Time after plug-in until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resetup</td> <td colspan="1" rowspan="1">Time to resetup the matching&lt;br&gt;process after a loss of commu-&lt;br&gt;nication</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_vald_detect_time</td> <td colspan="1" rowspan="1">Time to detect a variation of the&lt;br&gt;state on EVSE side</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_state_duration</td> <td colspan="1" rowspan="1">Duration of each state B or C&lt;br&gt;within the BCB-Toggle</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_toggle</td> <td colspan="1" rowspan="1">Duration of BCB-Toggle&lt;br&gt;sequence</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_vald_toggle</td> <td colspan="1" rowspan="1">Timeout timer for the EVSE to&lt;br&gt;stop monitoring control pilot for&lt;br&gt;BCB-Toggle. Value comes from&lt;br&gt;CM_VALIDATE.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_leave</td> <td colspan="1" rowspan="1">Maximum time to leave the logi-&lt;br&gt;cal network</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_step_EF</td> <td colspan="1" rowspan="1">Time to stay at E/F state</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> </table> (sibling of Table 1)
+Related Information 65: [V2G3-M08-02] Any successful matching process shall reset all the timeout timers and reset the retry_counters. (sibling of Table 1)
+Contextual Information 10: 8 Timings and constants (ancestor of Table 1)
+Related Information 66: This Clause summarizes all timings used in this Annex. (sibling of Table 2)
+Related Information 67: [V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1. (sibling of Table 2)
+Related Information 68: Table A.1 — Timing and constant values (sibling of Table 2)
+Related Information 69: Table A.1 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_EV_match_MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds sent for the&lt;br&gt;SLAC</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_retry</td> <td colspan="1" rowspan="1">Number of retries of the correspond-&lt;br&gt;ing message within the matching&lt;br&gt;process</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_direct</td> <td colspan="1" rowspan="1">Lower threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_indirect</td> <td colspan="1" rowspan="1">Higher threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_start_atten_char_inds</td> <td colspan="1" rowspan="1">Number of CM_START_ATTEN_CHAR.&lt;br&gt;INDs sent by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">TP_amp_map_exchange</td> <td colspan="1" rowspan="1">Performance timer for the start of an&lt;br&gt;AMP MAP Exchange&lt;br&gt;Either the EV or the EVSE shall send&lt;br&gt;a CM_AMP_MAP.REQ within the&lt;br&gt;max value of this timer after link is&lt;br&gt;detected in order to trigger an AMP&lt;br&gt;MAP Exchange.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_batch_msg_interval</td> <td colspan="1" rowspan="1">Interval between two CM_START_&lt;br&gt;ATTEN_CHAR.IND or CM_MNBC_&lt;br&gt;SOUND.IND messages</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_match_session</td> <td colspan="1" rowspan="1">Performance time for the EV to start&lt;br&gt;validation or SLAC_MATCH after&lt;br&gt;sending CM_ATTEN_CHAR.RSP</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_SLAC_init</td> <td colspan="1" rowspan="1">Time between plug-in (state B&lt;br&gt;detected) or wake-up and start of&lt;br&gt;matching by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EVSE_avg_atten_calc</td> <td colspan="1" rowspan="1">Performance time for the EVSE to&lt;br&gt;calculate the average attenuation pro-&lt;br&gt;file after reception of all M-SOUNDs&lt;br&gt;or after TT_EVSE_match_MNBC has&lt;br&gt;expired</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_link_ready_notification</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">0,2</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_response</td> <td colspan="1" rowspan="1">General performance time for a&lt;br&gt;response to a request</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 2)
+Related Information 70: Table A.1 (continued) <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">TP_match_sequence</td> <td colspan="1" rowspan="1">General performance time for sub-&lt;br&gt;sequent requests after a response to&lt;br&gt;previous request has been received</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_amp_map_exchange</td> <td colspan="1" rowspan="1">Timeout timer that runs on both EV&lt;br&gt;and EVSE side after link is detected&lt;br&gt;If an EV or EVSE does not want to&lt;br&gt;start an AMP MAP Exchange and no&lt;br&gt;request is received by the other side&lt;br&gt;within the timeout value of this timer,&lt;br&gt;then it is to be assumed that no AMP&lt;br&gt;MAP Exchange will take place and&lt;br&gt;a D-LINK_READY.indication is to be&lt;br&gt;sent to the HLE.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EV_atten_results</td> <td colspan="1" rowspan="1">Time the EV shall wait for CM_&lt;br&gt;ATTEN_CHAR.IND messages from&lt;br&gt;EVSEs. Timer starts with the sending&lt;br&gt;of the first CM_START_ATTEN_CHAR.&lt;br&gt;IND</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1 200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_MNBC</td> <td colspan="1" rowspan="1">Timeout on the EVSE side that trig-&lt;br&gt;gers the calculation of the average&lt;br&gt;attenuation profile</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_session</td> <td colspan="1" rowspan="1">Maximum time from the expiration of&lt;br&gt;TT_EVSE_match_MNBC and the recep-&lt;br&gt;tion of either CM_VALIDATE.REQ or&lt;br&gt;CM_SLAC_MATCH.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_SLAC_init</td> <td colspan="1" rowspan="1">Time between detecting state B and&lt;br&gt;receiving CM_SLAC_PARM.REQ on the&lt;br&gt;EVSE side</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_join</td> <td colspan="1" rowspan="1">Maximum time between CM_SLAC_&lt;br&gt;MATCH.CNF and link establishment&lt;br&gt;If there is no link after this timeout&lt;br&gt;expires, EV retries matching process&lt;br&gt;and EVSE resets its state machine</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">12</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_response</td> <td colspan="1" rowspan="1">Time that the EV/EVSE shall wait for a&lt;br&gt;response from the EVSE/EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_sequence</td> <td colspan="1" rowspan="1">Time that the EVSE/EV shall wait for&lt;br&gt;a request from the EV/EVSE</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_repetition</td> <td colspan="1" rowspan="1">Time duration for repetitions of the&lt;br&gt;matching process when an error&lt;br&gt;occurs</td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_rate</td> <td colspan="1" rowspan="1">Time to wait for a repetition of the&lt;br&gt;whole matching process after a failed&lt;br&gt;matching process</td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 2)
+Contextual Information 11: A.8 Timings and constants (ancestor of Table 2)
+Contextual Information 12: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Table 2)
+Related Information 71: [V2G3-A09-108] The Ethernet destination MAC address field shall be filled as Unicast, as defined in the Table A.9. (sibling of Table 3)
+Related Information 72: [V2G3-A09-109] To exchange an amplitude map, the CM_AMP_MAP.REQ message defined in [HPGP] shall be used. The content is shown in Table A.9. (sibling of Table 3)
+Related Information 73: [V2G3-A09-110] To confirm an amplitude map exchange, the CM_AMP_MAP.CNF message defined in [HPGP] shall be used. The content is shown in Table A.9. (sibling of Table 3)
+Related Information 74: An amplitude map exchange can be initiated by an EV or an EVSE by sending a “CM_AMP_MAP.REQ” message. (sibling of Table 3)
+Related Information 75: Table A.9 — MMEs parameters definition for amplitude map exchange <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="4">CM_AMP_MAP.REQ&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">AMLEN</td> <td colspan="1" rowspan="1">0 to 1</td> <td colspan="1" rowspan="1">2 Octet</td> <td colspan="1" rowspan="1">0x3A</td> <td colspan="1" rowspan="1">Fixed value to indicate the number&lt;br&gt;of carriers used</td> </tr> <tr> <td colspan="1" rowspan="1">AMDATA[0]</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">4 Bit</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Amplitude Map Data:&lt;br&gt;4 LSBs First unmasked carrier</td> </tr> <tr> <td colspan="1" rowspan="1">AMDATA[1]</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">4 Bit</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Amplitude Map Data:&lt;br&gt;4 MSBs Second unmask carrier</td> </tr> <tr> <td colspan="1" rowspan="1">AMDATA[n]</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">4 Bit</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">CM_AMP_MAP.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">ResType</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1 Octet</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Result code:&lt;br&gt;0x00 = success&lt;br&gt;0x01 = failure&lt;br&gt;0x02 – 0xFF = reserved</td> </tr> </table> (sibling of Table 3)
+Contextual Information 13: A.9.6.2 Description of involved MMEs (ancestor of Table 3)
+Related Information 76: Figure A.8 — Sequence chart of amplitude map exchange (sibling of Figure 1)
+Contextual Information 14: A.9.6.3.1 Sequence chart (ancestor of Figure 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

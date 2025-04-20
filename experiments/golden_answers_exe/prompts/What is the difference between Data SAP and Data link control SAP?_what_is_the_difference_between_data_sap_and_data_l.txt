@@ -1,0 +1,213 @@
+What is the difference between Data SAP and Data link control SAP?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: 3.10 DATA SAP (Context: 3.10 DATA SAP > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - service access point that defines the interface between layer 2 and layer 3 for exchange of v2g-related payload
+Text 2: 3.9 data link control SAP (Context: 3.9 data link control SAP > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - service access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status
+Text 3: A.6.1.2 Data SAP (Context: A.6.1.2 Data SAP > A.6.1 Layers overview > A.6 System architecture) - The data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP].
+Text 4: 12.1 Overview (Context: 12.1 Overview > 12 Layer 2 interfaces > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - As shown in Figure 2, the definition of the data link layer provides the following two interfaces to higher layers.
+
+Image Description for Figure 2:
+```markdown
+# Detailed Description of Figure 2 — [ISO-3] Relationship to the ISO/IEC OSI Reference Model
+
+This figure shows how the Physical and Data Link layers used in ISO 15118‑3 (specifically for Power Line Communication on electric vehicles) align with the classic ISO/IEC 7498-1 (OSI) reference model. It illustrates the layered network architecture, culminating in interfaces that connect to higher-level protocols (Application, Presentation, Session, Transport, Network) and basic signaling (Control Pilot) as specified in IEC 61851‑1.
+
+Below is a step-by-step, layer-by-layer description of each entity in the figure and how they relate to each other.
+
+---
+
+## 1. Entities Overview
+
+From **bottom** to **top**, the following entities appear in the diagram:
+
+1. **Communication media**  
+   The physical medium (the cable assembly) through which signals and energy are exchanged between the Electric Vehicle (EV) and the Electric Vehicle Supply Equipment (EVSE).
+
+2. **Signal coupling**  
+   This represents the method of coupling the PLC (Power Line Communication) signal onto the AC or DC charging cable. It ensures the high-frequency PLC signal is injected or extracted without interfering with the power transfer itself.
+
+3. **PLC Physical layer**  
+   The physical layer of the Power Line Communication (e.g., HomePlug GreenPHY). It defines the electrical and modulation specifications required to transmit bits over the communication media.
+
+4. **MAC/PHY SAP**  
+   The Service Access Point between the PHY (Physical) and MAC (Medium Access Control) layers. It represents the interface through which the upper layer (MAC) exchanges data and control information with the physical layer.
+
+5. **PLC MAC layer**  
+   The Medium Access Control layer that handles packet framing, addressing, and channel-access mechanisms specific to PLC (e.g., carrier-sense multiple access, collision avoidance, etc.).
+
+6. **Convergence MAC SAP**  
+   The interface between the PLC MAC layer and the convergence layer. It ensures that data from higher-layer protocols is properly formatted for MAC-layer transmission and vice versa.
+
+7. **Convergence layer**  
+   A bridging layer that adapts the classic OSI Data Link–level services (like Ethernet bridging or VLAN tagging) into the specific requirements/format of the PLC protocols. It converges or translates data to align with HomePlug GreenPHY or other PLC standards.
+
+8. **Control SAP**  
+   A specialized Service Access Point providing a control interface for the PLC or other network-management functions (e.g., encryption key management, SLAC services, link status queries). This is used by upper software modules that need direct PLC-related control/configuration.
+
+9. **Data link control SAP**  
+   An interface that provides link-status information, error management, and other data link control functionalities. This SAP ties the connection coordination module to the lower-level Data Link functionalities.
+
+10. **Connection coordination**  
+   A functional block that coordinates establishing or tearing down logical connections. It helps with matching EVs to EVSEs, exchanging handshake signals, and managing the relationship between basic IEC 61851-1 signaling and the higher, logical data connections of ISO 15118.
+
+11. **Data SAP**  
+   The interface between the Data Link layer and the Network (layer 3) or higher layers for actual V2G (vehicle-to-grid) data exchange. All high-level charging messages (e.g., those required by ISO 15118-2) flow through the Data SAP.
+
+12. **Higher layers**  
+   In OSI terms, these encapsulate the Application, Presentation, Session, Transport, and Network layers. ISO 15118-2 typically operates at these layers (exchanging XML messages, session management, security, etc.).
+
+13. **Control pilot (IEC 61851-1) Hardware I/Os**  
+   Shown to the right, this denotes the separate hardware line(s) used for “basic signaling” (PWM duty cycle, pilot states, etc.). It is not strictly part of the PLC communication stack but interplays with it (for example, telling the EV and EVSE when to begin or end coupling for high-level communication).
+
+14. **OSI reference model layers**  
+   A vertical bracket on the left reminding us that Physical and Data Link layers in the OSI model are here implemented by the PLC layers and the “convergence layer.”
+
+15. **Key**: “covered by communication technology specification”  
+   The figure highlights (in gray) the parts (Convergence layer, PLC MAC, PLC PHY, etc.) that are defined by specific communication technology standards (e.g., HomePlug GreenPHY, IEEE 1901 Profile GreenPHY).
+
+---
+
+## 2. Detailed Layer-by-Layer Explanation and “Flow”
+
+Although this is not a conventional “flowchart,” the diagram can be read from the **Physical** layer at the bottom to the **Application** layer at the top to understand how data flows and which components interact:
+
+1. **Communication Media (Bottom Layer)**  
+   • Power cabling used for vehicle charging is also used to carry data signals.  
+   • Power is transferred from the EVSE to the EV; meanwhile, high-frequency signals are superimposed for data exchange.
+
+2. **Signal Coupling Layer**  
+   • Couples the PLC signal on top of the AC or DC power line.  
+   • Ensures minimal interference and correct impedance matching to pass data effectively between EV and EVSE.
+
+3. **PLC Physical Layer**  
+   • Responsible for modulating and demodulating waveforms on the power line.  
+   • Follows standards such as HomePlug GreenPHY for robust physical signaling (e.g., OFDM, error correction).
+
+4. **MAC/PHY SAP**  
+   • Logical interface that the MAC layer uses to send and receive frames (bits, symbols) via the Physical layer.  
+   • Transmits or receives packets after being encoded/decoded at the PHY.
+
+5. **PLC MAC Layer**  
+   • Implements media access rules (channel sensing, collision avoidance, etc.).  
+   • Adds header/trailer fields managing addressing and error detection.  
+   • Manages bridging to upper or lower layers via convergence sub-layers.
+
+6. **Convergence MAC SAP**  
+   • Provides a standardized interface for the next layer (Convergence layer) to get data from MAC frames.  
+   • Ensures correct framing and token passing between the Convergence and MAC layers.
+
+7. **Convergence Layer**  
+   • Adapts the PLC MAC frames into a more generic data link structure or vice versa.  
+   • Potentially includes bridging or VLAN tagging for IP-based or ISO 15118-2 application data.  
+   • At this layer, the system transitions from technology-specific data link frames to a more general data link service usable by higher protocols.
+
+8. **Control SAP**  
+   • A specialized side-interface that configuration/control processes (like encryption-key management or the SLAC process used for EV–EVSE association) can call.  
+   • Enables reading/writing certain parameters in the PLC MAC or PHY, including link status, encryption keys, and networking specifics.
+
+9. **Data Link Control SAP**  
+   • Presents data link status (connected, disconnected, error) and handles command signals for enabling or disabling link functionalities.  
+   • Ties in to the Connection Coordination function, letting higher-layer logic know about link conditions.
+
+10. **Connection Coordination**  
+    • Supervises or orchestrates which link or channel is used, how the handshake or matching occurs, and whether the EV and EVSE are “paired.”  
+    • Tightly integrated with basic signaling from IEC 61851-1 (Control Pilot) and high-level communication from ISO 15118-2.
+
+11. **Data SAP**  
+    • The normal “data” interface for exchanging V2G protocol payloads (e.g., charging session requests, contract identification) between the Data Link layer and the higher OSI layers (Network and above).  
+    • Actual ISO 15118-2 messages pass through this Data SAP after being encapsulated into MAC frames.
+
+12. **Higher Layers**  
+    • Spanning OSI Layers 3 to 7 (Network, Transport, Session, Presentation, Application).  
+    • In the context of ISO 15118, these higher layers format, encrypt, and interpret the actual “plug-and-charge” or “vehicle-to-grid” messages.
+
+13. **Control Pilot (IEC 61851-1) Hardware I/Os**  
+    • Shown on the right side as a separate domain.  
+    • Provides basic PWM signaling to indicate EV states, EVSE states, maximum current capability, presence of the EV, or charging fault conditions.  
+    • Ties into overall Connection Coordination to start or stop the PLC communication as required by the standard.
+
+---
+
+## 3. Relationship and Connection of Entities
+
+- **Physical to MAC**  
+  Data moves from the **Communication media** (power lines) through **Signal coupling** into the **PLC Physical layer**, which transmits/receives bits. The **MAC/PHY SAP** is then used to pass frames to/from the **PLC MAC layer**.
+
+- **MAC to Convergence**  
+  The **PLC MAC layer** sends or receives data frames to the **Convergence layer** through the **Convergence MAC SAP**. At this stage, commands and bridging logic are aligned with the needs of higher-level protocols.
+
+- **Convergence to Higher Protocols**  
+  After the Convergence layer, there are multiple SAPs:
+  1. **Control SAP** for direct PLC control and configuration queries (e.g., security keys, link info).  
+  2. **Data Link Control SAP** for controlling the link status, error notifications, and link enable/disable.  
+  3. **Data SAP** for normal data traffic that flows up to the OSI Network or Transport layers.
+
+- **Coordination with Basic Signaling**  
+  The **Connection coordination** block leverages the **Control SAP** and **Data link control SAP** to manage the handshake between the EV and EVSE at both the PLC level and the basic PWM signaling level. Meanwhile, the **Control pilot** line (IEC 61851-1) physically coordinates the presence detection and permissible current via the duty cycle.
+
+- **Higher Layers**  
+  Above the **Data SAP**, normal IP networking (or the ISO 15118-2 application messages) can proceed. These higher-layer protocols rely on the data path established at lower layers by the PLC system and are orchestrated by the **Connection coordination** function.
+
+---
+
+## 4. Key Takeaways
+
+1. **Layered Architecture**  
+   The figure highlights how the Physical and Data Link layers of ISO 15118‑3 map directly onto the OSI reference model. The “convergence layer” ensures that higher layers can remain mostly independent of the underlying PLC technology.
+
+2. **Control vs. Data**  
+   Two main SAP families exist:  
+   - **Control SAP / Data Link Control SAP**: For link management, error reporting, and secure network configuration.  
+   - **Data SAP**: For passing normal application data (ISO 15118-2 messages) to the upper layers.
+
+3. **Basic Signaling Integration**  
+   IEC 61851-1’s control pilot is shown outside the PLC stack, yet it is integral to “Connection coordination,” ensuring correct startup, safety interlocks, and fallback charging states.
+
+4. **Covered by Communication Technology Specification**  
+   The gray regions (Convergence layer, MAC, PHY) are implementations guided by specific PLC standards (e.g., HomePlug GreenPHY). They are thus “covered by communication technology specification.”
+
+By understanding each block and interface, engineers can quickly trace how signals and data flow from the power line (physical) up to the ISO 15118 application protocol, and how the system coordinates the link state with basic pilot signaling.
+```
+
+Text 5: 12.1 Overview (Context: 12.1 Overview > 12 Layer 2 interfaces > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - — Data SAP is the interface between the communication technology and the layer 3 (e.g. IPv6).
+Text 6: 12.1 Overview (Context: 12.1 Overview > 12 Layer 2 interfaces > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - — The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers.
+Text 7: 3.11 ETH SAP (Context: 3.11 ETH SAP > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - This SAP supports applications using Ethernet II-class packets, including IEEE 802.3 with or without IEEE 802.2 (LLC), IEEE 802.1H (SNAP) extensions, and/or VLAN tagging.
+Text 8: A.6.1.2 Data SAP (Context: A.6.1.2 Data SAP > A.6.1 Layers overview > A.6 System architecture) - Due to the convergence layer, the data link layer of HomePlug Green PHY provides an Ethernet II-class SAP to higher layers.
+Text 9: A.6.1.4 MAC/PHY stack (Context: A.6.1.4 MAC/PHY stack > A.6.1 Layers overview > A.6 System architecture) - The convergence layer adapts the generic HomePlug Green PHY MAC to an IEEE 802.3 Ethernet II-class interface through the ETH SAP.
+
+ADDITIONAL CONTEXT:
+Contextual Information 1: 3.10 DATA SAP (ancestor of Text 1)
+Contextual Information 2: 3 Terms and definitions (ancestor of Text 1)
+Contextual Information 3: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 4: 3.9 data link control SAP (ancestor of Text 2)
+Related Information 1: Due to the convergence layer, the data link layer of HomePlug Green PHY provides an Ethernet II-class SAP to higher layers. (sibling of Text 3)
+Related Information 2: This SAP supports applications using Ethernet II-class packets, including IEEE 802.3 with or without IEEE 802.2 (LLC), IEEE 802.1H (SNAP) extensions, and/or VLAN tagging. (sibling of Text 3)
+Related Information 3: The data link control SAP indicates link status and error information to higher layers and is provided by the connection coordination entity. (sibling of Text 3)
+Contextual Information 5: A.6.1.2 Data SAP (ancestor of Text 3)
+Contextual Information 6: A.6.1 Layers overview (ancestor of Text 3)
+Contextual Information 7: A.6 System architecture (ancestor of Text 3)
+Related Information 4: This Clause describes the terminology primitives used within this part of ISO 15118. It is for explanation and for definition of a unique terminology only. This terminology is implementation independent. (sibling of Text 4)
+Related Information 5: — Data SAP is the interface between the communication technology and the layer 3 (e.g. IPv6). (sibling of Text 4)
+Related Information 6: — The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers. (sibling of Text 4)
+Contextual Information 8: 12.1 Overview (ancestor of Text 4)
+Contextual Information 9: 12 Layer 2 interfaces (ancestor of Text 4)
+Related Information 7: As shown in Figure 2, the definition of the data link layer provides the following two interfaces to higher layers. (sibling of Text 5)
+Contextual Information 10: 3.11 ETH SAP (ancestor of Text 7)
+Related Information 8: The data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP]. (sibling of Text 8)
+Contextual Information 11: A.6.1.4 MAC/PHY stack (ancestor of Text 9)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

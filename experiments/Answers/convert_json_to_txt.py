@@ -35,7 +35,7 @@ def convert_json_to_formatted_txt(json_file_path):
 
 if __name__ == "__main__":
     json_files = [
-        "./o4mini_golden_ans.json"
+        "./complete_golden_answers.json"
     ]
     
     for json_file in json_files:

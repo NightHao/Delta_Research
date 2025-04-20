@@ -120,6 +120,7 @@ class AgenticFlowEval:
         idx = 0
         try:
             for question, answer in generated_answers.items():
+                print(question)
                 expected_output = ground_truth_QA.get(question)
                 idx += 1
                 if not question:
@@ -257,11 +258,12 @@ if assistant B is better, and "[[C]]" for a tie.
         # query_processor = QueryProcessor(subgraph_distance=1, graph_path="./processed_entity_graph.json")
         # query_processor = QueryProcessor(subgraph_distance=1, graph_path="./experiments/graphs/lightrag_graph.json")
         # query_processor = QueryProcessor(subgraph_distance=1, graph_path="./experiments/graphs/graphrag_graph.json")
+        # query_processor = QueryProcessor(subgraph_distance=2, graph_path="./entity_graph.json")
         # ===Generate answers by not using the agentic flow===
         # QA_dict = self.load_json("./experiments/ground_truth_QA.json")
         # questions = ["VEHICLE-TO-GRID", "HOMEPLUG GREEN PHY", "SLAC", "LOGICAL NETWORK", 'CCO', ['DATA SAP', 'DATA LINK CONTROL SAP'], ["BASIC SIGNALING", "HIGH-LEVEL COMMUNICATION"], ["MAIN TEST COMPONENT", "PARALLEL TEST COMPONENT"], "ABSTRACT TEST SUITE", "TEST SUITE STRUCTURE", "EIM", "CM_SLAC_PARM.REQ", "CM_SLAC_PARAM.CNF", "CM_START_ATTEN_CHAR.IND", "CM_MNBC_SOUND.IND", "CM_ATTEN_CHAR.IND", "CM_ATTEN_CHAR.RSP", "CM_ATTEN_PROFILE.IND", "CM_VALIDATE.REQ", "CM_VALIDATE.CNF", "CM_SLAC_MATCH.REQ", "CM_SLAC_MATCH.CNF", "CM_SET_KEY.REQ", "CM_SET_KEY.CNF", "CM_AMP_MAP.REQ", "CM_AMP_MAP.CNF", "D-LINK_READY.indication", "D-LINK_TERMINATE.request", "D-LINK_ERROR.request", "D-LINK_PAUSE.request"]
         # idx = 0
-        # # entity_graph = self.load_json("./entity_graph.json")
+        # entity_graph = self.load_json("./entity_graph.json")
         # # prod_graph = self.load_json("./processed_entity_graph.json")
         # # optimized_graph = self.load_json("./optimized_entity_graph.json")
         # entity_graph = self.load_json("./experiments/graphs/lightrag_graph.json")
@@ -275,14 +277,20 @@ if assistant B is better, and "[[C]]" for a tie.
         #     if(len(questions[idx]) > 1):
         #         for q in questions[idx]:
         #             if q in entity_graph:
-        #                 entity_description += entity_graph[q]["description"]
+        #                 # entity_description += entity_graph[q]["description"]
+        #                 subgraph = query_processor.flow_constructor.flow_operations.get_subgraph(entity_graph, q, 2)
+        #                 # print(subgraph)
+        #                 for node in subgraph:
+        #                     entity_description += subgraph[node]["description"]
         #             # if q in prod_graph:
         #             #     prod_description += prod_graph[q]["description"]
         #             # if q in optimized_graph:
         #             #     optimized_description += optimized_graph[q]["description"]
         #     else:
         #         if questions[idx] in entity_graph:
-        #             entity_description = entity_graph[questions[idx]]["description"]
+        #             subgraph = query_processor.get_subgraph(entity_graph, q, 2)
+        #             for node in subgraph:
+        #                 entity_description += subgraph[node]["description"]
         #         # if questions[idx] in prod_graph:
         #         #     prod_description = prod_graph[questions[idx]]["description"]
         #         # if questions[idx] in optimized_graph:
@@ -346,24 +354,32 @@ if assistant B is better, and "[[C]]" for a tie.
         # answer = await query_processor.ask_question("What is the difference between EIM and MTC?")
         # print(answer)
         # ===Evaluate answers===
-        # self.evaluate_correctness_with_checkpoint("./experiments/ground_truth_QA.json", "./experiments/prod_answers_ag.json", "./prod_eval_res_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/ground_truth_QA.json", "./optimized_answers.json", "./optimized_eval_res_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./o1_answers.json", "./4o_ag_answers.json", "./4o_ag_eval_res_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./o1_answers.json", "./graphrag_ans.json", "./graphrag_eval_res_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/graphrag_ans_wo_ag.json", "./experiments/correctness_eval_ag/graphrag_ans_wo_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/graphrag_ans_w_ag.json", "./experiments/correctness_eval_ag/graphrag_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_naive.json", "./experiments/correctness_eval_ag/lightrag_naive_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_local.json", "./experiments/correctness_eval_ag/lightrag_local_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_global.json", "./experiments/correctness_eval_ag/lightrag_global_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_hybrid.json", "./experiments/correctness_eval_ag/lightrag_hybrid_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_mix.json", "./experiments/correctness_eval_ag/lightrag_mix_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_ans_w_ag.json", "./experiments/correctness_eval_ag/lightrag_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4omini_ourgraph_wo_ag.json", "./experiments/correctness_eval_ag/4omini_ans_wo_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4o_ourgraph_ag_answers.json", "./experiments/correctness_eval_ag/4o_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./o1_answers.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness_o1.json")
 
-        self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/graphrag_ans_wo_ag.json", "./experiments/correctness_eval_o4mini/graphrag_ans_wo_ag_correctness.json")
-        self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/graphrag_ans_w_ag.json", "./experiments/correctness_eval_o4mini/graphrag_ans_w_ag_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_naive.json", "./experiments/correctness_eval_o4mini/lightrag_naive_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_local.json", "./experiments/correctness_eval_o4mini/lightrag_local_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_global.json", "./experiments/correctness_eval_o4mini/lightrag_global_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_hybrid.json", "./experiments/correctness_eval_o4mini/lightrag_hybrid_correctness.json")
-        self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_mix.json", "./experiments/correctness_eval_o4mini/lightrag_mix_correctness.json")
-        self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_ans_w_ag.json", "./experiments/correctness_eval_o4mini/lightrag_ans_w_ag_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4omini_ourgraph_wo_ag.json", "./experiments/correctness_eval_o4mini/4omini_ans_wo_ag_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_o4mini/4omini_ans_w_ag_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4o_ourgraph_ag_answers.json", "./experiments/correctness_eval_o4mini/4o_ans_w_ag_correctness.json")
-        # self.evaluate_correctness_with_checkpoint("./o1_answers.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_o4mini/4omini_ans_w_ag_correctness_o1.json")
-
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/graphrag_ans_wo_ag.json", "./experiments/correctness_eval_complete_ans/graphrag_ans_wo_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/graphrag_ans_w_ag.json", "./experiments/correctness_eval_complete_ans/graphrag_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_naive.json", "./experiments/correctness_eval_complete_ans/lightrag_naive_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_local.json", "./experiments/correctness_eval_complete_ans/lightrag_local_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_global.json", "./experiments/correctness_eval_complete_ans/lightrag_global_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_hybrid.json", "./experiments/correctness_eval_complete_ans/lightrag_hybrid_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_mix.json", "./experiments/correctness_eval_complete_ans/lightrag_mix_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_ans_w_ag.json", "./experiments/correctness_eval_complete_ans/lightrag_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4omini_ourgraph_wo_ag.json", "./experiments/correctness_eval_complete_ans/4omini_ans_wo_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_complete_ans/4omini_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4o_ourgraph_ag_answers.json", "./experiments/correctness_eval_complete_ans/4o_ans_w_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_complete_ans/4omini_ans_w_ag_correctness_o1.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/o4mini_golden_ans.json", "./experiments/correctness_eval_complete_ans/golden_ans_ag_correctness.json")
         # await self.judge_by_llm("./prod_answers.json", "./optimized_answers.json")
         # await self.judge_by_llm("./prod_answers.json", "./optimized_answers.json")
         # judgements = self.load_json("./llm_judgements.json")
@@ -388,30 +404,33 @@ if assistant B is better, and "[[C]]" for a tie.
         #         print(f"Question {question} not in optimized_dict")
         # print(better_count)
 
-        graphrag_ans_wo_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/graphrag_ans_wo_ag_correctness.json")
-        graphrag_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/graphrag_ans_w_ag_correctness.json")
-        # lightrag_naive_correctness = self.load_json("./experiments/correctness_eval_o4mini/lightrag_naive_correctness.json")
-        # lightrag_local_correctness = self.load_json("./experiments/correctness_eval_o4mini/lightrag_local_correctness.json")
-        # lightrag_global_correctness = self.load_json("./experiments/correctness_eval_o4mini/lightrag_global_correctness.json")
-        # lightrag_hybrid_correctness = self.load_json("./experiments/correctness_eval_o4mini/lightrag_hybrid_correctness.json")
-        lightrag_mix_correctness = self.load_json("./experiments/correctness_eval_o4mini/lightrag_mix_correctness.json")
-        lightrag_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/lightrag_ans_w_ag_correctness.json")
-        # gpt4omini_ans_wo_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/4omini_ans_wo_ag_correctness.json")
-        gpt4omini_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/4omini_ans_w_ag_correctness.json")
-        # gpt4o_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/4o_ans_w_ag_correctness.json")
-        # gpt4omini_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_o4mini/4omini_ans_w_ag_correctness_o1.json")
+        # graphrag_ans_wo_ag_correctness = self.load_json("./experiments/correctness_eval_ag/graphrag_ans_wo_ag_correctness.json")
+        # graphrag_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/graphrag_ans_w_ag_correctness.json")
+        # lightrag_naive_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_naive_correctness.json")
+        # lightrag_local_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_local_correctness.json")
+        # lightrag_global_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_global_correctness.json")
+        # lightrag_hybrid_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_hybrid_correctness.json")
+        # lightrag_mix_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_mix_correctness.json")
+        # lightrag_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_ans_w_ag_correctness.json")
+        gpt4omini_ans_wo_ag_correctness = self.load_json("./experiments/correctness_eval_complete_ans/4omini_ans_wo_ag_correctness.json")
+        # gpt4omini_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness.json")
+        # gpt4o_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/4o_ans_w_ag_correctness.json")
+        # golden_ans_ag_correctness = self.load_json("./experiments/correctness_eval_complete_ans/golden_ans_ag_correctness.json")
+        # gpt4omini_ans_w_ag_correctness_o1 = self.load_json("./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness_o1.json")
         # # print the average score of the correctness
-        print(f"graphrag_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in graphrag_ans_wo_ag_correctness]) / len(graphrag_ans_wo_ag_correctness)}")
-        print(f"graphrag_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in graphrag_ans_w_ag_correctness]) / len(graphrag_ans_w_ag_correctness)}")
+        # print(f"graphrag_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in graphrag_ans_wo_ag_correctness]) / len(graphrag_ans_wo_ag_correctness)}")
+        # print(f"graphrag_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in graphrag_ans_w_ag_correctness]) / len(graphrag_ans_w_ag_correctness)}")
         # print(f"lightrag_naive_correctness: {sum([eval_res['score'] for eval_res in lightrag_naive_correctness]) / len(lightrag_naive_correctness)}")
         # print(f"lightrag_local_correctness: {sum([eval_res['score'] for eval_res in lightrag_local_correctness]) / len(lightrag_local_correctness)}")
         # print(f"lightrag_global_correctness: {sum([eval_res['score'] for eval_res in lightrag_global_correctness]) / len(lightrag_global_correctness)}")
         # print(f"lightrag_hybrid_correctness: {sum([eval_res['score'] for eval_res in lightrag_hybrid_correctness]) / len(lightrag_hybrid_correctness)}")
-        print(f"lightrag_mix_correctness: {sum([eval_res['score'] for eval_res in lightrag_mix_correctness]) / len(lightrag_mix_correctness)}")
-        print(f"lightrag_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in lightrag_ans_w_ag_correctness]) / len(lightrag_ans_w_ag_correctness)}")
-        # print(f"gpt4omini_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_wo_ag_correctness]) / len(gpt4omini_ans_wo_ag_correctness)}")
-        print(f"gpt4omini_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_w_ag_correctness]) / len(gpt4omini_ans_w_ag_correctness)}")
+        # print(f"lightrag_mix_correctness: {sum([eval_res['score'] for eval_res in lightrag_mix_correctness]) / len(lightrag_mix_correctness)}")
+        # print(f"lightrag_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in lightrag_ans_w_ag_correctness]) / len(lightrag_ans_w_ag_correctness)}")
+        print(f"gpt4omini_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_wo_ag_correctness]) / len(gpt4omini_ans_wo_ag_correctness)}")
+        # print(f"gpt4omini_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_w_ag_correctness]) / len(gpt4omini_ans_w_ag_correctness)}")
         # print(f"gpt4o_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4o_ans_w_ag_correctness]) / len(gpt4o_ans_w_ag_correctness)}")
+        # print(f"golden_ans_ag_correctness: {sum([eval_res['score'] for eval_res in golden_ans_ag_correctness]) / len(golden_ans_ag_correctness)}")
+        # print(f"gpt4omini_ans_w_ag_correctness_o1: {sum([eval_res['score'] for eval_res in gpt4omini_ans_w_ag_correctness_o1]) / len(gpt4omini_ans_w_ag_correctness_o1)}")
         # # Compare graphrag_4o and graphrag for questions with scores >= 0.3 in graphrag_4o
         # print("\nComparison between graphrag_4o and graphrag (scores >= 0.3 in graphrag_4o):")
         
