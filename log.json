@@ -186,12 +186,10 @@
             "SE": [
                 "Supply Equipment"
             ],
-            "OUT": [],
             "HLE": [
                 "High-Level Entity",
                 "Higher Layer Entity"
             ],
-            "LX1": [],
             "ERDF": [
                 "Electricité et Réseau de France"
             ],
@@ -201,36 +199,15 @@
             "EV": [
                 "Electric Vehicle"
             ],
-            "C1": [],
             "IEEE": [
-                "The Institute of Electrical and Electronics Engineers"
+                "Institute of Electrical and Electronics Engineers"
             ],
-            "ATTNTXEVSE": [],
-            "SECURITYTYPE": [],
-            "1 K": [],
-            "B2": [],
-            "ARIB": [
-                "The Association of Radio Industries and Businesses"
-            ],
-            "G3PLC": [],
-            "TC_AUTHMIN": [],
             "PNC": [
                 "Plug and Charge"
             ],
-            "IEC-1": [],
-            "ISP": [
-                "Intersystem Protocol"
-            ],
-            "LX2": [],
-            "RX1": [],
-            "E/F": [],
-            "CNF": [],
-            "NONE": [],
-            "TTYP": [],
             "TTCN": [
                 "The Tree and Tabular Combined Notation"
             ],
-            "CX4": [],
             "MME": [
                 "Management Message Entry",
                 "Mobility Management Entity",
@@ -242,37 +219,27 @@
             "IXIT": [
                 "Implementation eXtra Information for Testing"
             ],
-            "CC": [],
-            "TC": [],
-            "V2G3": [],
-            "C2": [],
             "TTCN-3": [
                 "Testing and Test Control Notation version 3"
             ],
             "PWM": [
                 "Pulse Width Modulation"
             ],
-            "MMTYPE": [],
-            "CPLC": [],
             "CMN": [
                 "Common Message Notation"
             ],
-            "ATTNCORD": [],
             "EVSE": [
                 "Electric Vehicle Supply Equipment"
             ],
-            "NN": [],
-            "KR": [],
             "TSS": [
-                "Test Suite Specification",
-                "Test Suite Structure"
+                "Test Suite Specification"
             ],
             "ISO": [
-                "The International Organization for Standardization",
                 "International Organization for Standardization"
             ],
-            "OPTIONA": [],
-            "CV": [],
+            "OPTIONA": [
+                "Option A"
+            ],
             "G3-PLC": [],
             "BCB": [
                 "Breaker Control Block",
@@ -295,9 +262,7 @@
                 "Channel Access Priority"
             ],
             "X2": [],
-            "IPV6": [
-                "Internet Protocol version 6"
-            ],
+            "IPV6": [],
             "C2B": [],
             "B1": [],
             "CENELEC": [
@@ -348,7 +313,9 @@
                 "AV Logical Network",
                 "Alternative Vehicle Local Network"
             ],
-            "PHY": [],
+            "PHY": [
+                "Physical"
+            ],
             "ICS": [
                 "Implementation Conformance Statement"
             ],
@@ -367,11 +334,15 @@
             "HPGP": [
                 "HomePlug Green PHY"
             ],
-            "ESD": [],
+            "ESD": [
+                "Electrostatic Discharge"
+            ],
             "S1": [],
             "ISO-3": [],
             "RND": [],
-            "PSD": [],
+            "PSD": [
+                "Power Spectral Density"
+            ],
             "SLAC_MATCH": [],
             "EMC": [
                 "Electromagnetic Compatibility"
@@ -379,7 +350,9 @@
             "OSI": [
                 "Open Systems Interconnection"
             ],
-            "CTX": [],
+            "CTX": [
+                "Context"
+            ],
             "T7": [],
             "PLC": [
                 "Power Line Communication"
@@ -395,7 +368,9 @@
             "DUT": [
                 "Device Under Test"
             ],
-            "6LOWPAN": [],
+            "6LOWPAN": [
+                "IPv6 over Low-Power Wireless Personal Area Networks"
+            ],
             "G3": [],
             "IN": [],
             "TLS": [
@@ -420,7 +395,8 @@
             "CS": [],
             "CX2": [],
             "TE": [
-                "Test Environment"
+                "Test Environment",
+                "Test Execution"
             ],
             "XXX": [],
             "HAL": [
@@ -461,7 +437,9 @@
                 "High-Level Communication"
             ],
             "PASS": [],
-            "ID": [],
+            "ID": [
+                "Identification"
+            ],
             "ATTNRXEV": [],
             "VTB": [
                 "Valid Test Behavior"
@@ -471,7 +449,9 @@
                 "TTCN-3 Control Interface"
             ],
             "RESTYPE": [],
-            "PWMMODE": [],
+            "PWMMODE": [
+                "Pulse Width Modulation Mode"
+            ],
             "LRWBS": [],
             "V2G3-M06-01": [],
             "WTO": [
@@ -484,18 +464,14 @@
             "RX3": [],
             "READY": [],
             "D-LINK_READY": [],
-            "CPLT": [
-                "the infrastructure involved in power line communication, specifically related to the G3-PLC technology",
-                "a specific infrastructure setup that supports point-to-point communication links",
-                "a specific context or component related to the G3-PLC technology, though the exact meaning is not detailed in the text"
-            ],
+            "CPLT": [],
             "ITB": [
                 "Invalid Test Behavior"
             ],
             "MTC": [
                 "Main Test Component",
                 "Means of Test Control",
-                "Master Test Controller"
+                "Main Test Controller"
             ],
             "RX6": [],
             "IEC-21": [],
@@ -514,47 +490,58 @@
                 "International Telecommunication Union"
             ]
         },
-        "timestamp": "2025-03-06T21:33:28.225083",
+        "timestamp": "2025-04-05T12:52:51.804894",
         "step": "llm_abbr_dict"
     },
     "pattern_list": {
         "data": [
             "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
             "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+is\\s+an\\s+abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "Abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
             "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
             "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
         ],
-        "timestamp": "2025-03-06T21:33:28.227084",
+        "timestamp": "2025-04-05T12:52:51.807363",
         "step": "pattern_list"
     },
     "pattern_clusters": {
         "data": {
             "0": [
-                "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)"
+                "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
             ],
             "1": [
-                "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+                "Abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
             ],
             "2": [
                 "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+            ],
+            "3": [
+                "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)"
+            ],
+            "4": [
+                "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+is\\s+an\\s+abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
             ]
         },
-        "timestamp": "2025-03-06T21:33:29.168845",
+        "timestamp": "2025-04-05T12:52:52.933569",
         "step": "pattern_clusters"
     },
     "regex_for_pattern_clusters": {
         "data": [
-            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
             "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+refers\\s+to\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
-            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
+            "Abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+stands\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)",
+            "(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)\\s+\\((?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\)",
+            "(?P<ABBR>[A-Z][A-Za-z0-9-]*(?:\\s+[A-Z][A-Za-z0-9-]*)*\\.?)\\s+is\\s+an\\s+abbreviation\\s+for\\s+(?P<FULL_NAME>(?:(?:the|a|an)\\s+)?[A-Z][a-zA-Z0-9-]+(?:\\s+[A-Z][a-zA-Z0-9-]+)+)"
         ],
-        "timestamp": "2025-03-06T21:33:29.169845",
+        "timestamp": "2025-04-05T12:52:52.934397",
         "step": "regex_for_pattern_clusters"
     },
     "abbr_dict": {

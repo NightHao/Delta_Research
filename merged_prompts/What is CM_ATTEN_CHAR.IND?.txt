@@ -1,0 +1,1045 @@
+================================= Entity Chunks for CM_ATTEN_CHAR.IND =================================
+Entity: CM_ATTEN_CHAR.IND
+Description: The process of TT_EV_atten_results involves checking for the presence of CM_ATTEN_CHAR.IND
+TT_EV_ATTEN_RESULTS is the time the EV waits for CM_ATTEN_CHAR.IND messages The CM_ATTEN_CHAR.IND message is received from an EVSE, indicating a communication process between the two
+CM_ATTEN_CHAR.IND messages are received from EVSEs to indicate their attenuation characteristics
+The EVSE sends a CM_ATTEN_CHAR.IND as part of its communication protocol
+EVSEs use the CM_ATTEN_CHAR.IND message to send back measurement results
+CM_ATTEN_CHAR.IND messages are sent by EVSEs to the EV during the parameter exchange CM_ATTEN_CHAR.RSP is sent as a response to the CM_ATTEN_CHAR.IND message in the communication protocol
+CM_ATTEN_CHAR.IND is an indication message that requires a CM_ATTEN_CHAR.RSP response message
+CM_ATTEN_CHAR.RSP is a response message related to the indication message CM_ATTEN_CHAR.IND
+CM_ATTEN_CHAR.IND is the indication message for signal attenuation characteristics, and CM_ATTEN_CHAR.RSP is the response message acknowledging or addressing the indication
+The CM_ATTEN_CHAR.IND message is confirmed by the CM_ATTEN_CHAR.RSP The CM_ATTEN_CHAR.IND message includes an ATTEN_PROFILE field indicating the signal level attenuation
+The CM_ATTEN_CHAR.IND message conveys information about the ATTEN_PROFILE
+ATTEN_PROFILE is a component within the CM_ATTEN_CHAR.IND message Average_Attenuation is calculated using the groups contained within the CM_ATTEN_CHAR.IND message The CM_ATTEN_CHAR.IND message provides signal attenuation data that determines the EV_Discovery_Status The V2G3-A09-22 standard involves the use of the CM_ATTEN_CHAR.IND message for signal attenuation The CM_ATTEN_CHAR.IND message includes an APPLICATION_TYPE field indicating the type of application The CM_ATTEN_CHAR.IND message includes a SECURITY_TYPE field indicating the level of security The CM_ATTEN_CHAR.IND message includes a SOURCE_ADDRESS field indicating the MAC address of the EV host The CM_ATTEN_CHAR.IND message includes a NUMSOUNDS field indicating the number of M-Sounds used The EV processes incoming CM_ATTEN_CHAR.IND messages as part of its communication protocol The receipt of CM_ATTEN_CHAR.IND is crucial for the matching process to be considered successful The requirement V2G3-A09-35 is directly related to the handling of CM_ATTEN_CHAR.IND messages CM_ATTEN_CHAR.IND content must adhere to the MME definition as specified in Table A.4 The NUM_SOUNDS field is part of the CM_ATTEN_CHAR.IND protocol message, indicating the number of sounds used CM_ATTEN_CHAR.IND is part of the V2G3-A09-37 standard, indicating its role in the communication process The CM_ATTEN_CHAR.IND message requires the MTC to manage signal levels to ensure accurate attenuation values The test case expects the SUT to send a CM_ATTEN_CHAR.IND message with attenuation data The test case is triggered by receiving a CM_ATTEN_CHAR.IND message The test case expects a CM_ATTEN_CHAR.IND message from the SUT containing attenuation characterization data The test case involves counting CM_ATTEN_CHAR.IND message repetitions The test case involves counting CM_ATTEN_CHAR.IND message repetitions The test case measures the repetition of CM_ATTEN_CHAR.IND messages The test case measures the repetition and response of CM_ATTEN_CHAR.IND messages The test case measures the repetition of CM_ATTEN_CHAR.IND messages The test case involves counting and checking repetitions of CM_ATTEN_CHAR.IND messages The test case involves sending CM_ATTEN_CHAR.IND messages to measure attenuation The test case measures attenuation values using CM_ATTEN_CHAR.IND messages The test case checks that no CM_ATTEN_CHAR.IND message is sent until a timer expires The test case checks for the absence of CM_ATTEN_CHAR.IND messages until a timer expires The test case expects the SUT to send CM_ATTEN_CHAR.IND messages with measured attenuation values The test case requires the SUT to respond with a CM_ATTEN_CHAR.IND message The test case sends attenuation profiles using the CM_ATTEN_CHAR.IND protocol The test case sends the CM_ATTEN_CHAR.IND message with attenuation profile entries The test case sends the CM_ATTEN_CHAR.IND message with attenuation entries The test case sends the CM_ATTEN_CHAR.IND message to communicate attenuation profiles The test case sends the CM_ATTEN_CHAR.IND message with attenuation entries The test case sends the CM_ATTEN_CHAR.IND message to the SUT The test case sends the CM_ATTEN_CHAR.IND message with attenuation entries The test case sends the CM_ATTEN_CHAR.IND message to communicate attenuation profile The test case sends the CM_ATTEN_CHAR.IND message to the SUT with attenuation data The test case sends the CM_ATTEN_CHAR.IND message with attenuation entries The test case sends the CM_ATTEN_CHAR.IND message with attenuation entries The test case sends a profile of attenuation entries using CM_ATTEN_CHAR.IND The test case sends a profile with attenuation entries using CM_ATTEN_CHAR.IND The test case involves a scenario where the CM_ATTEN_CHAR.IND message is not sent in the second instance of the procedure CM_START_ATTEN_CHAR.IND is a message that initiates a process, while CM_ATTEN_CHAR.IND is a related message expected as part of the process The SLAC process includes the use of CM_ATTEN_CHAR.IND messages to indicate signal attenuation characteristics
+CM_ATTEN_CHAR.IND is a message used to characterize attenuation, which is part of the SLAC process
+CM_ATTEN_CHAR.IND is a message type used within the SLAC technology for attenuation characterization
+SLAC technology is related to the CM_ATTEN_CHAR.IND protocol message as it deals with signal attenuation characteristics The new matching process involves the receipt and handling of CM_ATTEN_CHAR.IND messages CM_ATTEN_CHAR_RSP is a response message to the CM_ATTEN_CHAR.IND message The CM_ATTEN_CHAR. IND is sent within the time period defined by TP_EVSE_avg_atten_calc A message protocol involved in the test case, which is intentionally not sent in the second instance of the procedure
+A message protocol used to convey attenuation values based on the physical channel in a communication system
+A message protocol used to repeat attenuation characterization messages and measure individual attenuation values
+A message protocol used to send attenuation profile entries to the System Under Test (SUT) after a timer expires
+A message protocol used to send attenuation profile entries with the current runID, EV MAC, and additional valid parameters
+A message type used in communication protocols, specifically related to attenuation characterization in SLAC processes
+A message used by EVSEs to send back the signal strength measurement result to the EV
+A protocol message expected to be sent by the system under test (SUT) after certain conditions are met
+A protocol message indicating an indication in the communication process between EVSE and another system
+A protocol message indicating attenuation characteristics from EVSEs to EVs
+A protocol message indicating the characteristics of signal attenuation
+A protocol message indicating the current runID and attenuation entries, used in the context of attenuation characterization
+A protocol message related to attenuation characterization, expected to be received under certain conditions
+A protocol message that an EV may receive, which must be handled according to specific requirements
+A protocol message type indicating an attenuation characteristic in the communication process
+A protocol message type used in communication between electric vehicle supply equipment (EVSE) and other components in a vehicle-to-grid system
+A protocol message used in SLAC communication to indicate attenuation characterization
+A protocol message used in the test case to indicate attenuation characterization, including parameters like EV MAC and attenuation entries
+A protocol message used to communicate attenuation characterization data, including runID and other parameters
+A protocol message used to measure individual attenuation values in the test case
+A type of message that should not be sent by the system under test until a specific timer has expired
+A type of message that the EV processes during the parameter exchange with EVSEs
+A unicast protocol message used in the context of PEV-EVSE matching, indicating specific application and security types
+CM_ATTEN_CHAR.IND is a protocol message that contains groups used to calculate the Average_Attenuation for matching decisions
+CM_ATTEN_CHAR.IND is a protocol message that includes the ATTEN_PROFILE for communication purposes
+CM_ATTEN_CHAR.IND is a protocol message used to characterize attenuation in the SLAC process
+An indication message protocol used to send attenuation profile entries to the system under test (SUT)
+A protocol message expected from the System Under Test (SUT) containing both attenuation characterization data and measured attenuation values.
+A protocol used to indicate attenuation characteristics in a communication link.
+A message protocol, specifically an indication message protocol, used to send attenuation profile entries to the system under test.
+A protocol message used in the test case to indicate, measure, and report attenuation characterization results, including repeated values and indications.
+CM_ATTEN_CHAR.IND is a protocol message or indicator used in the communication process between EVSE, electric vehicles, and the grid.
+A message protocol used to send a profile containing attenuation entries to the System Under Test (SUT), including conditions such as after a timer has expired and with the current runID and additional parameters.
+CM_ATTEN_CHAR.IND is a protocol message used in vehicle-to-grid communication that indicates and reads attenuation characteristics. The received attenuation values within CM_ATTEN_CHAR.IND message are based on the physical channel.
+If the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_PROFILE has no significance and the whole messages shall be ignored. It is up to the EV to decide what number of M-SOUNDS used for the attenuation profile is sufficient for its decision (i.e. whether to discard CM_ATTEN_CHAR.IND if NUM_SOUNDS is less than C_EV_match_MNBC).
+F.3.2 EVCC templates for CmAttenCharInd module Templates_EVCC_CmAttenCharInd { import from DataStructure_SLAC all; template MME_Payload md_EVCC_CMN_CmAttenCharInd_001(
+--------------------------------------------------------------------------------
+Entity: APPLICATION_TYPE
+Description: A field within the MME that indicates the type of application, such as "PEV-EVSE matching"
+APPLICATION_TYPE is a field indicating the type of application, with a fixed value of 0x00 representing "PEV-EVSE Matching"
+A field in the protocol message indicating the type of application, such as 'PEV-EVSE Matching', with a fixed value.
+--------------------------------------------------------------------------------
+Entity: ATTEN_PROFILE
+Description: A field within a protocol message indicating the signal level attenuation, formatted as specified in the HPGP standard
+ATTEN_PROFILE refers to a profile used within a message to represent attenuation characteristics in communication systems
+ATTEN_PROFILE refers to the attenuation profile, which is a set of parameters or characteristics used to adjust signal strength or quality The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calculated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx-EVSE.
+If the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_PROFILE has no significance and the whole messages shall be ignored.
+--------------------------------------------------------------------------------
+Entity: AVERAGE_ATTENUATION
+Description: Average_Attenuation refers to the calculated value used in decision-making processes, determined by the arithmetic mean of all groups in a specific message
+--------------------------------------------------------------------------------
+Entity: CM_ATTEN_CHAR.RSP
+Description: A protocol message sent in response to the CM_ATTEN_CHAR.IND message, providing necessary information or acknowledgment
+A protocol message used to respond to attenuation characterization indications, which includes handling invalid 'runID' scenarios
+A specific MME related to attenuation characterization response in communication protocols
+A message protocol expected as a response from the system under test after receiving attenuation characterization messages
+A response message sent by the EV to confirm receipt of the CM_ATTEN_CHAR.IND message
+A protocol message used in SLAC communication to respond with attenuation characterization results
+A protocol message response indicating the characteristics of the attenuation, confirming the receipt and processing of the attenuation profile
+A protocol message sent by the electric vehicle (EV) to acknowledge or respond to a specific communication or request
+CM_ATTEN_CHAR.RSP is a protocol message used in communication between electric vehicles and charging stations, specifically for attenuation characteristics response
+A protocol message indicating a response in the communication process between EVSE and another system
+A protocol message used in the test case to respond to attenuation characterization indications, including handling invalid application types
+A protocol message used to respond to attenuation characterization indications, which includes an invalid 'result' in this test case
+A protocol message type that is expected but not received from the System Under Test (SUT)
+A protocol message related to communication between electric vehicles and charging stations, specifically for attention characteristics
+A protocol response message used in the test case, which includes an invalid 'respID' for testing purposes
+A protocol response message used in the test case, which includes an invalid 'sourceAddress' for testing purposes
+A message protocol expected to be sent as a response after the TT_match_response timer has expired, indicating the response to attenuation characterization
+A response message protocol used in the test case to handle invalid sourceID scenarios during attenuation characterization
+CM_ATTEN_CHAR.RSP is a protocol response message used in vehicle-to-grid communication, sent in reply to CM_ATTEN_CHAR.IND
+A message protocol that the Test System checks for, ensuring it is not sent by the SUT until a specific timer has expired
+A protocol message responding to attenuation characteristics in a communication process
+A message protocol expected to be sent by the SUT in response to the CM_ATTEN_CHAR.IND message, but only after a specific timer expires
+A protocol message that is not sent until a specific timer expires during the test case
+A message protocol used by the SUT to confirm the attenuation values with the current runID and additional parameters
+A protocol message used to respond to attenuation characterization requests, which includes an invalid 'securityType' in the test case
+A message protocol that should not be sent by the SUT until a specific timer has expired, as part of the test case
+A message protocol used by the SUT to respond to the CM_ATTEN_CHAR.IND message, which is also the expected response protocol after its receipt.
+A response message protocol that should not be sent by the SUT until a specific timer has expired.
+CM_ATTEN_CHAR.RSP is a message type in the SLAC protocol that serves as a response to attenuation characterization requests in communication.
+A response message protocol used by the SUT to confirm the attenuation values in the test case.
+A protocol message type indicating a response to an attenuation characteristic request in a communication process.
+--------------------------------------------------------------------------------
+Entity: CM_ATTEN_CHAR_RSP
+Description: A protocol record type used in communication systems, containing fields such as SLAC_Header and acvarfield
+A protocol message type used in the SLAC communication process, identified by the hexadecimal code '606F'H, which is a response to the CM_ATTEN_CHAR_IND message
+A response message type in communication protocols, indicated by the hexadecimal value '606F'H
+A protocol message type with a specific hexadecimal value '606F'H, part of the MMTYPE union
+A protocol message type related to attenuation characteristics, identified by the hexadecimal code '606F'H
+A protocol message response used in attenuation characterization processes
+A protocol message type used to respond with attenuation characteristics in the communication process
+A term used to denote a specific type of message in a communication protocol, represented by the hexadecimal value '606F'H
+A response message in the SLAC protocol sent in reply to an attenuation characterization indication
+A term used to represent a response message in the SLAC communication protocol, identified by the hexadecimal value '606F'H
+A protocol message responding to the attenuation characteristics indicated in a communication system
+A protocol message type used in the SLAC process, indicating a response to an attenuation characterization
+A term indicating a response message related to attenuation characteristics in the SLAC protocol.
+A protocol message related to attenuation characteristics and characterization, used to respond but ignored in this context.
+CM_ATTEN_CHAR_RSP is a protocol message represented by the hexadecimal value '606F'H, used to respond with attenuation characteristics, although it is ignored in this context.
+CM_ATTEN_CHAR_RSP is a protocol message in the SLAC process that responds to the CM_ATTEN_CHAR_IND message and provides signal attenuation characteristics in a communication system.
+--------------------------------------------------------------------------------
+Entity: CM_START_ATTEN_CHAR.IND
+Description: A protocol message involved in the TT_EVSE_MATCH_MNBC process, indicating the start of attenuation characterization
+A term used to describe a specific message or indicator related to attenuation characteristics in a communication protocol
+A message sent by the EV to start the signal strength measurement process
+A specific MME related to starting attenuation characterization in communication protocols
+A protocol message whose reception is used to stop the TT_match_sequence timer during the parameter exchange sequence
+A protocol message that initiates the sending of attenuation characteristics from EVSEs to EVs
+CM_START_ATTEN_CHAR.IND is a message type used in the SLAC protocol to indicate the start of attenuation characterization
+A protocol message type used in vehicle-to-grid communication, indicating the start of a certain process or characteristic
+A message protocol used in the communication between electric vehicle supply equipment (EVSE) and other components, indicating the start of a specific process
+An indication message protocol for measuring both attenuation values and individual attenuation values in the test case.
+A protocol message type used to initiate attenuation characterization in a communication system.
+A protocol message or indicator used in communication between electric vehicles, EVSEs, and other systems.
+A protocol message type used in SLAC communication to indicate the start of attenuation characterization.
+CM_START_ATTEN_CHAR.IND is a protocol message sequence used in vehicle-to-grid communication, serving as an indicator in the communication process between electric vehicles and the grid.
+A protocol message sent by the Test System to initiate attenuation characterization with specific parameters. If a CM_ATTEN_CHAR.IND is received and its origin is an EVSE that has not sent a CM_SLAC_PARM.CNF before, the message shall be processed and not ignored.
+--------------------------------------------------------------------------------
+Entity: ELECTRIC VEHICLE
+Description: <|COMPLETE|>
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged through the grid
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can detect communication loss during charging
+An Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion and must comply with local frequency legislation through the EVSE
+An Electric Vehicle (EV) that initiates the signal strength measurement process
+An Electric Vehicle (EV) that participates in the validation process by sending and receiving protocol messages
+An Electric Vehicle, which is a type of vehicle powered by electric motors using energy stored in rechargeable batteries
+An electric vehicle that processes incoming messages and interacts with EVSEs during the parameter exchange and matching process
+An electric vehicle that requires connection to a communication module for charging and data exchange
+EV refers to Electric Vehicle, which is a type of vehicle that operates on electric power and participates in vehicle-to-grid communication
+EV refers to an Electric Vehicle, which is a type of vehicle that operates on electric power
+Electric Vehicle (EV) is a type of vehicle that operates using electric power instead of traditional fuel
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged via a power outlet
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can communicate with EVSE by sending public keys
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and is involved in the triggering process immediately after the plug-in of the cable assembly
+Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion, mentioned in the context of power flow with EVSE
+Electric Vehicle (EV) that connects to and disconnects from the logical network
+Electric Vehicle, a general term for vehicles that operate on electric power, including BEVs and PHEVs
+Electric Vehicle, a type of vehicle that is powered by electricity instead of traditional fuel sources
+Electric Vehicle, a type of vehicle that uses electric motors for propulsion and is capable of being charged through an external power source
+Electric Vehicle, which can decide whether to follow the EVSE's recommendation or proceed with the validation process
+Electric Vehicle, which initiates the validation process by sending a readiness signal
+Electric Vehicle, which interacts with EVSE for charging and communication processes
+Electric Vehicle, which is a type of vehicle powered by electricity and capable of interacting with EVSE for charging
+Electric Vehicle, which is capable of making decisions on how to proceed in certain situations
+Electric Vehicle, which is expected to be prepared for a forced restart by an EVSE during the T_conn_resetup waiting state
+Electric Vehicle, which is involved in the communication process and message exchanges in the test case
+Electric Vehicle, which is involved in the validation process and must perform certain actions based on the protocol message
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must adhere to specific requirements
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must continue the matching process if certain conditions are met
+Electric Vehicle, which is the recipient of charging and communication from the EVSE
+Electric Vehicle, which is the recipient of communication from the EVSE and must comply with certain PSD values
+Electric Vehicle, which is the recipient of the CM_SLAC_PARM.CNF message in the context of vehicle-to-grid communication
+Electric Vehicle, which is the recipient of the communication from the low-layer communication module
+Electric Vehicle, which is the subject of the protocol command to change its state
+Electric Vehicle, which is the subject of the requirement to continue with the communication process
+Electric Vehicle, which is the subject of the timers and validation process described
+Electric Vehicle, which is the type of vehicle involved in the matching process mentioned
+Electric Vehicle, which is the type of vehicle involved in the parallel injection process
+Electric Vehicle, which participates in the SLAC process and communicates with EVSE
+Electric Vehicle, which uses electricity as its primary source of propulsion
+Electric Vehicle, which uses the low-layer communication module for various communication processes
+Electric Vehicle, which uses the method to discover and select communication nodes based on signal strength
+An Electric Vehicle (EV) is powered by electric motors and batteries for propulsion, offering an alternative to internal combustion engine vehicles.
+An Electric Vehicle (EV) uses electric power for propulsion and is involved in vehicle-to-grid communication processes.
+EV stands for Electric Vehicle, which is powered by electricity and uses electric motors for propulsion instead of traditional fuel sources.
+Electric Vehicles (EVs), which are powered by electric motors, use energy stored in rechargeable batteries.
+An Electric Vehicle is a type of vehicle that operates using electric power stored in batteries and is powered by electric motors.
+Electric Vehicle, a type of vehicle powered by electricity.
+Electric Vehicle is involved in the validation process with Electric Vehicle Supply Equipment (EVSE).
+Electric Vehicles (EVs) are powered by electric motors and batteries instead of internal combustion engines.
+Electric Vehicles are a type of vehicle that use electric motors for propulsion and require charging infrastructure.
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion, requires charging infrastructure like EVSE, and can communicate with it for charging and validation processes.
+Electric Vehicle (EV) is a type of vehicle that operates on electric power using electric motors for propulsion, powered by electricity stored in rechargeable batteries or fuel cells.
+--------------------------------------------------------------------------------
+Entity: EVSE
+Description: Electric Vehicle Supply Equipment, which is the infrastructure that supplies electric energy for recharging electric vehicles and interacts with various signals and toggles
+Electric Vehicle Supply Equipment, which handles parallel matching processes and monitors control pilot states
+Electric Vehicle Supply Equipment involved in the communication process, particularly in sending and receiving specific messages
+Electric Vehicle Supply Equipment, which provides recommendations to the electric vehicle regarding the validation process
+Electric Vehicle Supply Equipment, which is responsible for receiving and processing messages in the vehicle-to-grid communication system
+Electric Vehicle Supply Equipment, which defines the maximum charge current for the vehicle in the HLC-C mode
+Electric Vehicle Supply Equipment that calculates signal strength based on M-SOUNDS
+Electric Vehicle Supply Equipment, which provides the interface between the electric vehicle and the power source, and can affect signal transmission
+Electric Vehicle Supply Equipment (EVSE) is the technology used to supply electric energy for recharging electric vehicles, specifically covered under modes 3 and 4 in this context
+<|COMPLETE|>
+Electric Vehicle Supply Equipment (EVSE) is the technology responsible for generating the valid duty cycle as per the IEC-1 standard
+Electric Vehicle Supply Equipment that communicates with EVs through messages like CM_ATTEN_CHAR.IND during the parameter exchange
+Electric Vehicle Supply Equipment, which supplies electric energy for recharging electric vehicles and participates in communication protocols
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can make decisions based on ID recognition
+Electric Vehicle Supply Equipment, which interacts with the EV during the validation process
+Electric Vehicle Supply Equipment (EVSE) is the technology that provides electric energy for recharging electric vehicles and can set a nominal duty cycle
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can establish a point-to-point link with an EV using G3PLC technology
+Electric Vehicle Supply Equipment, which counts control pilot toggles and communicates results back to the EV
+Electric Vehicle Supply Equipment, which can force an EV to restart if it has implemented option A
+Electric Vehicle Supply Equipment, the infrastructure that supplies electric energy for recharging electric vehicles and participates in communication protocols like SLAC
+Electric Vehicle Supply Equipment provides the infrastructure for charging electric vehicles, offering both electrical energy and communication capabilities, including socket-outlets.
+Electric Vehicle Supply Equipment is involved in both matching and validation processes.
+Electric Vehicle Supply Equipment provides electric energy for recharging electric vehicles and includes communication capabilities.
+Electric Vehicle Supply Equipment provides the necessary infrastructure for charging electric vehicles.
+Electric Vehicle Supply Equipment (EVSE) supplies electric energy for recharging electric vehicles, manages communication with the vehicle, handles validation processes including power limitation requests, detects state variations on the control pilot line, ensures compliance with local legislation, and can switch states while connecting to a private network.
+Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles, supports wake-up mechanisms, and facilitates communication with EVs.
+--------------------------------------------------------------------------------
+Entity: EV_DISCOVERY_STATUS
+Description: EV_Discovery_Status is a term used to describe the status of electric vehicle discovery based on signal attenuation readings
+--------------------------------------------------------------------------------
+Entity: MAIN TEST COMPONENT
+Description: <|COMPLETE|>
+A technology or system component responsible for managing and controlling the signal level on the control pilot
+A term used to describe the primary or central component within a testing framework or system
+A testing component or system that is responsible for analyzing the power level of signals, such as those in a PLC network
+MTC refers to a monitoring or testing component that receives information about the success of EIM authorization
+MTC refers to a specific type of port or interface used in testing configurations
+MTC refers to a system or component responsible for managing and controlling data link processing, including detecting and controlling link status information
+MTC stands for a component or module that is connected to the pt_HAL_61851_Internal_Port
+Main Test Component (MTC) is a term used to refer to the primary element or unit involved in a testing process or procedure)
+Main Test Controller, which could be an SECC_Tester or EVCC_Tester, responsible for testing communication protocols
+Means of Test Control (MTC) refers to the method or process used to control or manage testing activities
+Means of Test Control, referring to the method or system used to control and manage testing processes
+The Main Test Component (MTC) is a part of the testing framework that contains a TTCN-3 test configuration and manages the test execution process
+The Master Test Controller (MTC) is a device or system capable of detecting and controlling EIM status information through special functions
+MTC, or Main Test Component, is the primary testing component in a test configuration, responsible for creating and controlling parallel test components and computing and assigning the test verdict.
+Main Test Component is a technology or system component used in testing environments for interfacing processes and validating or verifying other systems.
+--------------------------------------------------------------------------------
+Entity: MATCHING PROCESS
+Description: The procedure initiated after EIM authorization to ensure all parameters are aligned for operation
+The procedure described in Clause 9 that involves aligning or comparing elements to ensure compatibility or agreement)
+The process involved in matching communication messages and ensuring correct message exchange in a system
+The procedure to uniquely match an electric vehicle (EV) with a specific charge coupler of the EVSE
+The process that follows the parameter exchange, where the EV continues its operations based on the received messages
+The Matching process is a procedure to ensure successful communication and protocol matching between devices, often involving retries and confirmations
+A procedure that requires the low-layer communication module to be in a defined state before it can proceed
+The procedure involved in determining whether certain conditions or criteria are met, which can result in a pass or fail outcome
+The procedure by which an EV attempts to connect and communicate with an EVSE to establish compatibility
+The procedure involved in aligning or pairing systems or components, which can be interrupted if a plug out is detected
+The matching process involves the exchange of SLAC protocol messages to establish communication between devices
+The procedure followed by an EV to identify and connect with suitable Electric Vehicle Supply Equipment (EVSE) for charging
+A procedure involved in vehicle-to-grid communication that attempts to establish a connection or match between entities
+The procedure by which an EV and EVSE establish and validate a connection
+The procedure involved in matching an electric vehicle with an Electric Vehicle Supply Equipment (EVSE)
+The procedure involved in aligning or synchronizing certain parameters or operations between systems, in this context, related to electric vehicles
+The procedure involved in aligning or synchronizing certain parameters or states in vehicle-to-grid communication
+The Matching process is a procedure in the communication protocol testing that involves verifying the correct exchange of messages
+A procedure that determines the correct matching between an electric vehicle (EV) and an Electric Vehicle Supply Equipment (EVSE) by measuring signal strength
+The Matching Process is a procedure involved in a system or protocol, which requires error handling as indicated in the document
+A procedure involved in validating and establishing a connection between systems, which can be considered as failed under certain conditions
+A generic procedure described in Figure 10, with a full description available in the corresponding annex)
+A procedure that the electric vehicle (EV) must restart after the condition in V2G3-M07-16 is met
+The procedure involving the exchange of messages and parameters between an EV and the charging infrastructure to establish a successful connection
+<|COMPLETE|>
+A procedure to align the electric vehicle's charging needs with the available charging infrastructure capabilities
+A procedure in the vehicle-to-grid communication system where the electric vehicle aligns its communication with the grid or other systems
+The matching process is a procedure to ensure successful communication or connection between entities, such as an electric vehicle and the grid
+The procedure used to re-establish or verify connections after a loss of communication, similar to the process during the initial plug-in phase
+A procedure used to match certain parameters or conditions in a communication protocol, which can be considered failed if specific criteria are not met
+A procedure to align or synchronize communication between different modules or systems
+A procedure defined in section 6.4.3.2 that triggers the start condition of the TP_EV_SLAC_init timer
+The procedure involved in aligning or synchronizing systems or protocols, such as between an EVSE and a vehicle
+The procedure involved in ensuring successful communication and connection between an EVSE and other systems or vehicles
+A procedure involving the alignment or comparison of data or entities to find correspondences or similarities
+A process defined in Clause 6 that triggers the start condition of the timer TT_EVSE_SLAC_init
+The matching process is a procedure that evaluates the result field in CM_VALIDATE.REQ to determine if it is "ready" or not
+The procedure that an EVSE uses to identify and connect with multiple EVs simultaneously, ensuring proper communication and charging
+The procedure involved in ensuring that the local NMK on the EVSE side is set correctly before transitioning between states
+The procedure involved in establishing a communication link between an electric vehicle and the grid
+A procedure defined in the requirements for vehicle-to-grid communication, which involves matching certain parameters or conditions
+The procedure designed to facilitate communication between the low-layer communication module and the EVCC
+A procedure used to verify and validate certain conditions or parameters, potentially involving multiple attempts and retries
+The procedure of matching signal data to determine the presence of an EVSE
+The procedure during which the EVSE and the electric vehicle exchange messages to establish a communication link
+The procedure of aligning or verifying certain parameters or conditions to ensure compatibility or readiness for further actions
+The matching process is a procedure that aligns the capabilities and requirements of the EVSE and the electric vehicle before charging
+The procedure involved in restarting the data link connection to ensure proper communication
+The procedure at the MAC level to match and verify the contract ID for charging services
+The procedure involved in ensuring that the EVSE receives valid protocol messages for successful operation
+The procedure described in section 7.5 for setting up a connection between the EVSE and the vehicle
+A procedure that relies on messages defined in HPGP for its execution
+A procedure to align or verify certain parameters or conditions, which can fail if not completed successfully
+A procedure in the SLAC communication protocol to ensure successful connection and communication between devices
+The process of establishing communication between the electric vehicle and the charging station, which may be ongoing
+The matching process is a sequence of steps outlined in Figures A.1 and A.2, detailing the procedure from discovering low-layer communication modules to initiating nominal communication
+The procedure by which the EVSE and a vehicle establish a communication link and prepare for charging
+The procedure of re-establishing communication between the EV and the EVSE to ensure proper charging
+The procedure involved in establishing a connection between an electric vehicle and the supply equipment
+A procedure involved in establishing a connection or agreement between two entities in a communication protocol
+A procedure to ensure that the correct matching of communication parameters is achieved, considered failed if retries are exhausted
+The procedure involved in aligning or synchronizing systems or protocols, such as PnC and EIM, to ensure proper operation
+A procedure involved in the V2G3 standard that involves matching certain criteria or conditions
+The procedure of ensuring successful communication between modules, which involves sending requests and receiving confirmations
+The procedure used to align or correlate data or signals, which may produce ambiguous results under certain technical conditions
+The procedure involved in successfully pairing or aligning two or more systems or components, which in this context involves resetting timers and retry counters
+A procedure that is initiated by transitioning from one state to another, specifically from state A, E, or F to state Bx, Cx, or Dx
+The procedure involving the exchange of protocol messages between EVSE and another system to establish a successful communication link
+The procedure by which an electric vehicle (EV) determines compatibility with an EVSE for charging
+The procedure that ensures compatibility and synchronization between the EVSE and the electric vehicle begins when EIM is completed.
+The matching process involves communication and confirmation exchange between an EV and an EVSE to ensure compatibility and readiness for charging.
+The procedure for aligning or synchronizing HomePlug Green PHY devices ensures proper communication and functionality.
+--------------------------------------------------------------------------------
+Entity: MME
+Description: MME is a protocol template used for defining the structure of SLAC management message entries in communication systems
+A protocol message used in the SLAC communication process
+A term referring to a message or entity involved in the communication process, possibly related to the SLAC protocol
+A term referring to a specific definition or standard outlined in Table A.4, which is used to validate the content of CM_ATTEN_CHAR.RSP messages
+A term that could refer to a message or module involved in the testing or communication process
+Mobility Management Entity, which is involved in the communication process with the electric vehicle
+Management Message Entity, a type of message used in communication protocols
+Management Message Entry used in the context of SLAC communication
+Message Management Entity used in communication protocols
+MME refers to a specific definition or set of criteria outlined in Table A.5 and Table A.6 that content must adhere to
+A component or system involved in managing messages or communication in the SECC system
+<|COMPLETE|>
+A term likely referring to a message or module in the context of communication protocols
+A term referring to a specific definition or standard outlined in Table A.2, which the content of CM_SLAC_PARM.CNF must adhere to
+MME refers to a protocol message used in the context of communication processes, possibly related to mobility management
+MME stands for Message Management Entity, which is used in the context of SLAC to define parameters for communication
+MME refers to a message exchange mechanism or entity involved in the communication process
+A term referring to a specific definition or standard that CM_ATTEN_CHAR.IND content must adhere to, as outlined in Table A.4
+A term referring to the Message Management Entity, which defines the structure and content of messages like CM_SLAC_PARM.REQ
+A term referring to the Message Management Entity, which defines the content standards for protocol messages like CM_SLAC_MATCH.CNF
+A protocol message used in SLAC communication, which stands for Message Management Entity
+MME stands for Mobility Management Entity, which is involved in managing network connections and exchanges, such as amplitude map exchanges
+MME refers to a specific definition or standard that outlines valid content for communication protocols
+A term referring to a specific definition or set of criteria outlined in Table A.5 and Table A.6
+MME refers to a component or variable used in the context of message handling within the SLAC protocol testing environment
+MME stands for Mobility Management Entity, which is a key control-node for the LTE access-network. It is responsible for idle mode UE tracking and paging procedure including retransmissions
+A protocol record within the DataStructure_SLAC module, consisting of MME_Header and MME_Payload
+Management Message Entry, a term used to describe a type of message used for management purposes in a network
+MME refers to Management Message Entity, which is used for exchanging control messages between PLC nodes or between a PLC node and higher layers
+A term referring to a variable type used in the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001
+MME stands for Management Message Entry, which is used in communication systems to define parameters for joining a logical network and manage message exchanges.
+A term referring to a message management entity involved in communication protocols and processes.
+MME stands for Message Management Entity, which is involved in managing and processing messages and defines their structure and content in communication protocols.
+MME, or Mobility Management Entity, is a key component in mobile networks that manages mobile devices, handles signaling and session management, and oversees parameters for validation processes in communication protocols.
+MME stands for Mobility Management Entity, a key component in mobile networks responsible for handling signaling and session management
+--------------------------------------------------------------------------------
+Entity: NEW MATCHING PROCESS
+Description: A procedure initiated to start a new matching sequence, possibly related to communication or data exchange
+--------------------------------------------------------------------------------
+Entity: NUMSOUNDS
+Description: A field within a protocol message indicating the number of M-Sounds used for generating the ATTEN_PROFILE
+--------------------------------------------------------------------------------
+Entity: NUM_SOUNDS
+Description: NUM_SOUNDS is a field within a communication message that indicates the number of sounds or signals used in an attenuation profile
+A field indicating the number of expected M-Sounds transmitted by the GP station during the SLAC process If the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_PROFILE has no significance and the whole messages shall be ignored.
+--------------------------------------------------------------------------------
+Entity: SECURITY_TYPE
+Description: SECURITY_TYPE is a field indicating the security level, with a fixed value of 0x00 representing "No Security"
+A field within the MME that indicates the level of security, such as "No Security"
+A variable representing the type of security protocol used, such as TLS or TCP
+A term used to define the type of security protocol being used, such as cc_hexTls or cc_hexTcp
+A field in a protocol message indicating the security level, specifically a fixed value for 'No Security'.
+--------------------------------------------------------------------------------
+Entity: SLAC
+Description: Signal Level Attenuation Characterization, a protocol used in the context of EVCC testing
+Signal Level Attenuation Characterization, a protocol used for measuring and characterizing signal attenuation in power line communication
+A protocol used for encoding in the given communication system
+Signal Level Attenuation Characterization, a protocol used in the context of SECC for communication and matching processes
+Signal Level Attenuation Characterization, a protocol used in the context of the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001
+SLAC is a protocol used for communication in electric vehicle charging, particularly for matching and session management
+<|COMPLETE|>
+Signal Level Attenuation Characterization (SLAC) is a process used for matching Plug-in Electric Vehicles (PEV) with Electric Vehicle Supply Equipment (EVSE)
+Signal Level Attenuation Characterization, a process or technology for which data structures are needed in Annex G
+Signal Level Attenuation Characterization (SLAC) is a process used in HomePlug Green PHY for network management, including link status and encryption key management
+Signal Level Attenuation Characterization is a protocol for measuring signal attenuation in electric vehicle charging systems and communication, including matching and validation processes, specifically in power line communication.
+Signal Level Attenuation Characterization is a process, technology, and protocol used to measure, assess, and manage signal attenuation in communication systems.
+SLAC is a protocol used in power line and electric vehicle communication to measure, characterize, and manage signal attenuation, ensuring compatibility and proper data transmission between devices.
+SLAC (Signal Level Attenuation Characterization) is a protocol used in electric vehicle communication and power line networks to manage signal quality, characterize signal attenuation, ensure reliable data transmission, establish connections, and facilitate matching between vehicles and charging stations.
+--------------------------------------------------------------------------------
+Entity: SOURCE_ADDRESS
+Description: A term used to denote the address from which data originates in a communication protocol
+SOURCE_ADDRESS is a field containing the MAC address of the EV Host, which initiates the SLAC process
+A field within a protocol message indicating the MAC address of the EV host initiating the SLAC process
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_AC_VTB_ATTENUATIONCHARACTERIZATION_001
+Description: A specific test case designed to characterize the attenuation properties of the Electric Vehicle Communication Controller (EVCC) in an AC Vehicle-to-Grid (VTB) setup)
+<|COMPLETE|>
+A test case designed to characterize attenuation in electric vehicle communication, involving procedures like GoodCase, and messages such as CM_SLAC_PARM.CNF, CM_START_ATTEN_CHAR.IND, and CM_MNBC_SOUND.IND
+A specific test case description related to the characterization of attenuation in the context of Electric Vehicle Communication Controller (EVCC) and Vehicle-to-Grid (V2G) communication
+A specific test case requirement executed as part of the AttenuationCharacterization process
+A test case designed to characterize the attenuation of signals in the EVCC system
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_AC_VTB_ATTENUATIONCHARACTERIZATION_002
+Description: <|COMPLETE|>
+A specific test case requirement executed as part of the AttenuationCharacterization process
+Another test case similar to TC_EVCC_AC_VTB_AttenuationCharacterization_001, focusing on signal attenuation characterization
+A test case designed to evaluate the attenuation characterization in electric vehicle communication, involving procedures like changing the duty cycle and sending specific messages to measure attenuation values
+A specific test case designed to characterize the attenuation properties of the Electric Vehicle Communication Controller (EVCC) in AC Vehicle-to-Grid (VTB) systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_001
+Description: <|COMPLETE|>
+A specific test case requirement executed as part of the AttenuationCharacterization process
+A specific test case designed to characterize the attenuation properties in a vehicle-to-grid communication system, involving multiple message exchanges and parameter checks.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_002
+Description: A specific test case designed to characterize the attenuation properties in a vehicle-to-grid communication scenario)
+A specific test case used to describe the attenuation characterization in electric vehicle communication systems
+A test case process for characterizing attenuation in the EVCC communication system
+<|COMPLETE|>
+A test case designed to characterize attenuation in electric vehicle communication, involving the execution of procedures and message exchanges to measure attenuation values
+A specific test case requirement executed as part of the AttenuationCharacterization process
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_003
+Description: A test case description related to the characterization of attenuation in vehicle-to-building communication, likely involving the Electric Vehicle Communication Controller (EVCC))
+A specific test case description related to the characterization of attenuation in vehicle-to-grid communication systems
+Another test case process for characterizing attenuation in the EVCC communication system
+A test case designed to characterize attenuation in a vehicle-to-grid communication system, involving the execution of the GoodCase procedure and the measurement of individual attenuation values
+<|COMPLETE|>
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_004
+Description: <|COMPLETE|>
+A further test case process for characterizing attenuation in the EVCC communication system
+A test case designed to characterize attenuation in a vehicle-to-grid communication system, involving the execution of the GoodCase procedure and the exchange of specific messages to measure attenuation values
+A test case for describing, designing, and executing attenuation characterization in electric vehicle communication systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_005
+Description: <|COMPLETE|>
+A test case process for characterizing attenuation in the EVCC system
+A specific test case designed to characterize the attenuation properties in a vehicle-to-grid communication scenario, involving the execution of procedures and message exchanges to measure attenuation values.
+A test case process that describes the execution of attenuation characterization in electric vehicle communication systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_006
+Description: A specific test case designed to characterize the attenuation properties in a vehicle-to-grid communication scenario)
+<|COMPLETE|>
+A test case designed to characterize attenuation by executing the GoodCase procedure, sending specific messages, and measuring attenuation values
+A test case process for characterizing attenuation in the EVCC system
+A specific test case used to describe and execute attenuation characterization in electric vehicle communication systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_007
+Description: <|COMPLETE|>
+A test case designed to characterize attenuation in a vehicle-to-grid communication system, involving the execution of specific procedures and message exchanges to measure attenuation values
+A specific test case description used for evaluating the attenuation characterization in electric vehicle communication systems)
+A test case process for executing attenuation characterization in electric vehicle communication
+A test case process for characterizing attenuation in the EVCC system
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_008
+Description: A specific test case description related to the characterization of attenuation in vehicle-to-grid communication systems)
+<|COMPLETE|>
+A specific test case designed to characterize the attenuation properties in a vehicle-to-building communication scenario)
+A test case process for executing attenuation characterization in electric vehicle communication
+A test case designed to characterize attenuation in a vehicle-to-grid communication system by executing a procedure and sending specific messages to measure attenuation values
+A test case designed to evaluate the attenuation characterization of the EVCC communication system
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_009
+Description: <|COMPLETE|>
+Another test case aimed at assessing the attenuation characterization of the EVCC communication system
+A test case process for executing attenuation characterization in electric vehicle communication
+A test case designed to characterize attenuation in a vehicle-to-grid communication system, involving specific procedures and message exchanges.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_010
+Description: A specific test case designed to characterize the attenuation properties in a vehicle-to-grid communication scenario)
+A further test case for evaluating the attenuation characterization of the EVCC communication system
+<|COMPLETE|>
+A test case designed to characterize attenuation in electric vehicle communication, involving the execution of the GoodCase procedure and the exchange of specific messages to measure attenuation values
+A test case process for executing attenuation characterization in electric vehicle communication systems, including a specific description of the test case.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_ATTENUATIONCHARACTERIZATION_011
+Description: A test case designed to evaluate the attenuation characterization in electric vehicle communication, involving the execution of the GoodCase procedure and the exchange of specific messages to measure attenuation values
+A test case process used for executing and evaluating attenuation characterization in electric vehicle communication systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_012
+Description: A test case designed to evaluate the behavior of a system when the GoodCase procedure is initiated twice in parallel, with specific conditions regarding message transmission and response verification
+A test case process executed to verify the SLAC (Signal Level Attenuation Characterization) matching in electric vehicle communication
+A specific test case requirement executed as part of the CmSlacMatch process
+A specific test case identifier used in the context of electric vehicle communication and testing protocols.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_001
+Description: A test case designed to evaluate the attenuation characterization by executing a procedure that involves sending specific messages and measuring attenuation values
+A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+<|COMPLETE|>
+A test case for verifying the attenuation characterization in SECC systems
+A test case process for characterizing signal attenuation in the SECC communication system
+A specific test case used to describe the attenuation characterization in a communication or technology context
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_002
+Description: A test case designed to evaluate the attenuation characterization in a communication system, involving the execution of a GoodCase procedure and the exchange of specific messages
+<|COMPLETE|>
+Another test case process for characterizing signal attenuation in the SECC communication system
+A specific test case for characterizing the attenuation properties in a communication system related to vehicle-to-grid technologies.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_003
+Description: <|COMPLETE|>
+A further test case process for characterizing signal attenuation in the SECC communication system
+A test case designed to evaluate the attenuation characterization in a system by executing a procedure that involves sending specific messages and measuring attenuation values
+A specific test case that describes attenuation characterization in a communication or technology context.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_004
+Description: A test case designed to evaluate the attenuation characterization by executing the GoodCase procedure, sending specific messages, and measuring individual attenuation values
+A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+<|COMPLETE|>
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_005
+Description: A test case designed to evaluate the attenuation characterization by executing a procedure that involves sending specific messages and measuring attenuation values
+A specific test case description related to attenuation characterization in a communication or technology context)
+A test case executed to characterize signal attenuation in a communication protocol
+A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_006
+Description: A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar technologies)
+A test case designed to evaluate the attenuation characterization by executing the GoodCase procedure, sending specific messages, and measuring individual attenuation values
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A specific test case used for evaluating the attenuation characterization in a communication or technology context, as listed in Table 51)
+A test case executed to further characterize signal attenuation in a communication protocol
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_007
+Description: A test case designed to evaluate the attenuation characterization by executing a procedure that involves sending specific messages and measuring attenuation values
+A specific test case description related to attenuation characterization in a communication or technology context)
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A specific test case designed to evaluate the attenuation characterization in a communication scenario, likely related to vehicle-to-grid or similar technologies)
+A test case executed to further characterize signal attenuation in a communication protocol
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_008
+Description: A test case designed to evaluate the attenuation characterization by executing a procedure that involves sending specific messages and measuring attenuation values
+A specific test case description related to attenuation characterization in a communication or technology context)
+A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A test case designed to evaluate the attenuation characterization of the SECC system using the SECC_Tester
+A test case executed to further characterize signal attenuation in a communication protocol
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_009
+Description: A specific test case identified by the code 'TC_SECC_CMN_VTB_AttenuationCharacterization_009', which is related to attenuation characterization in a communication or testing context
+A test case designed to evaluate the attenuation characterization by executing a procedure that involves sending specific messages and measuring attenuation values
+Another test case aimed at assessing the attenuation characterization of the SECC system with specific parameters
+A specific test case description related to the characterization of attenuation in a communication or technology context, as listed in Table 54)
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A test case executed to further characterize signal attenuation in a communication protocol
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_010
+Description: A specific test case description related to the characterization of attenuation in a communication or technology context)
+A test case designed to evaluate the attenuation characterization by executing a procedure that involves sending specific messages and measuring attenuation values
+A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A further test case for evaluating the attenuation characterization of the SECC system
+A test case executed to further characterize signal attenuation in a communication protocol
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_011
+Description: A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A test case designed to evaluate the attenuation characterization in a system by executing a procedure that involves sending specific messages and measuring attenuation values
+A test case executed to further characterize signal attenuation in a communication protocol
+A specific test case used to describe the characterization of attenuation in a communication or technology context, possibly within a standard or protocol.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_013
+Description: A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A test case designed to evaluate the attenuation characterization in a communication system by sending specific invalid and valid messages and observing the system's response
+A specific test case used to describe the attenuation characterization in a communication or technology context
+A test case executed to further characterize signal attenuation in a communication protocol
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_018
+Description: A test case process for characterizing attenuation in the SECC communication module
+<|COMPLETE|>
+A test case designed to evaluate the attenuation characterization in a communication system by executing a procedure with specific parameters and checking the system's response
+A specific test case used to describe the attenuation characterization in a communication or technology context
+A test case executed to further characterize signal attenuation in a communication protocol
+A specific test case designed to evaluate the attenuation characterization in a communication system, likely related to vehicle-to-grid or similar technologies)
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_ATTENUATIONCHARACTERIZATION_020
+Description: Another test case similar to TC_SECC_CMN_VTB_AttenuationCharacterization_019, with additional steps and variables for attenuation characterization
+A test case designed to evaluate the attenuation characterization in a system by executing specific procedures and sending messages to measure attenuation values
+A specific test case designed to characterize the attenuation properties in a communication scenario, likely related to vehicle-to-grid or similar communication technologies)
+<|COMPLETE|>
+A specific test case used to describe the attenuation characterization in a communication or technology context
+An additional test case process for characterizing signal attenuation in the SECC communication system
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_PLCLINKSTATUS_004
+Description: A test case designed to evaluate the PLC link status by running the GoodCase procedure five times in parallel and starting five independent SLAC processes, checking the SUT's response to each EVCC instance
+A specific test case identifier used in a testing framework, likely related to the communication or link status in a vehicle-to-grid or similar context
+A further test case process for checking the PLC link status in the SECC system
+--------------------------------------------------------------------------------
+Entity: TP_EVSE_AVG_ATTEN_CALC
+Description: The performance time for the EVSE to calculate the average attenuation profile after reception of all M-SOUNDs or after TT_EVSE_match_MNBC has expired
+A performance timer that starts when TT_EVSE_match_MNBC expires, used for calculating the average attenuation profile
+TP_EVSE_avg_atten_calc is a term referring to the time period or process for calculating average attenuation in EVSE systems
+--------------------------------------------------------------------------------
+Entity: TT_EV_ATTEN_RESULTS
+Description: Time the EV shall wait for CM_ATTEN_CHAR.IND messages from EVSEs, starting with the sending of the first CM_START_ATTEN_CHAR.IND
+A term referring to a timer or process related to evaluating the results of attenuation characterization in electric vehicle communication
+A term referring to the results of attenuation tests for electric vehicles
+A timer used in the test case to determine when the CM_ATTEN_CHAR.IND message should be sent
+A timer used in the test case to determine when certain actions or messages should occur
+A timer used in the process of handling CM_ATTEN_CHAR.IND messages by an electric vehicle (EV)
+TT_EV_atten_results is a process that times out if no CM_ATTEN_CHAR.IND messages are received, indicating EVSE_NOT_FOUND
+A timer used in the vehicle-to-grid communication process to track the time for receiving anticipated responses
+TT_EV_atten_results is a term referring to a timeout timer used in the context of electric vehicle communication protocols
+A process in the SLAC protocol related to evaluating attenuation results for electric vehicles
+A timer used in the test case to determine when the system should not send a specific message
+A timer in the test case determines when the system should send a message, which can be either a response or a specific message.
+A process related to evaluating attenuation results in electric vehicle communication systems.
+TT_EV_atten_results is a process that involves measuring, evaluating, and checking the attenuation results in electric vehicle communication, and may also refer to a timer.
+--------------------------------------------------------------------------------
+Entity: V2G3-A09-22
+Description: V2G3-A09-22 is a specific standard related to vehicle-to-grid communication, focusing on signal attenuation and discovery status
+--------------------------------------------------------------------------------
+Entity: V2G3-A09-35
+Description: A specific requirement within the V2G3 standard, tested indirectly by consideration of requirement V2G3-A09-123
+A specific requirement related to the handling of CM_ATTEN_CHAR.IND messages by an electric vehicle (EV)
+--------------------------------------------------------------------------------
+Entity: V2G3-A09-37
+Description: V2G3-A09-37 is a specific standard or specification related to vehicle-to-grid communication protocols
+A specific requirement within the V2G3 standard, testable only partially
+--------------------------------------------------------------------------------
+
+
+TABLE INFORMATION:
+Table 1: A.8 Timings and constants - Table A.4 (continued)
+Table 2: A.9.2.1 Functional description - Table A.3 — EV_Discovering_Status definition
+
+FIGURE INFORMATION:
+Figure 1: A.9.2 Signal strength measurement - Figure A.4 — Sequence chart of signal strength measurement
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+Figure 2: A.8 Timings and constants - Table A.1 (continued)
+
+Image Description for Figure 2:
+```markdown
+# Detailed Description of Figure 2 — [ISO-3] Relationship to the ISO/IEC OSI Reference Model
+
+This figure shows how the Physical and Data Link layers used in ISO 15118‑3 (specifically for Power Line Communication on electric vehicles) align with the classic ISO/IEC 7498-1 (OSI) reference model. It illustrates the layered network architecture, culminating in interfaces that connect to higher-level protocols (Application, Presentation, Session, Transport, Network) and basic signaling (Control Pilot) as specified in IEC 61851‑1.
+
+Below is a step-by-step, layer-by-layer description of each entity in the figure and how they relate to each other.
+
+---
+
+## 1. Entities Overview
+
+From **bottom** to **top**, the following entities appear in the diagram:
+
+1. **Communication media**  
+   The physical medium (the cable assembly) through which signals and energy are exchanged between the Electric Vehicle (EV) and the Electric Vehicle Supply Equipment (EVSE).
+
+2. **Signal coupling**  
+   This represents the method of coupling the PLC (Power Line Communication) signal onto the AC or DC charging cable. It ensures the high-frequency PLC signal is injected or extracted without interfering with the power transfer itself.
+
+3. **PLC Physical layer**  
+   The physical layer of the Power Line Communication (e.g., HomePlug GreenPHY). It defines the electrical and modulation specifications required to transmit bits over the communication media.
+
+4. **MAC/PHY SAP**  
+   The Service Access Point between the PHY (Physical) and MAC (Medium Access Control) layers. It represents the interface through which the upper layer (MAC) exchanges data and control information with the physical layer.
+
+5. **PLC MAC layer**  
+   The Medium Access Control layer that handles packet framing, addressing, and channel-access mechanisms specific to PLC (e.g., carrier-sense multiple access, collision avoidance, etc.).
+
+6. **Convergence MAC SAP**  
+   The interface between the PLC MAC layer and the convergence layer. It ensures that data from higher-layer protocols is properly formatted for MAC-layer transmission and vice versa.
+
+7. **Convergence layer**  
+   A bridging layer that adapts the classic OSI Data Link–level services (like Ethernet bridging or VLAN tagging) into the specific requirements/format of the PLC protocols. It converges or translates data to align with HomePlug GreenPHY or other PLC standards.
+
+8. **Control SAP**  
+   A specialized Service Access Point providing a control interface for the PLC or other network-management functions (e.g., encryption key management, SLAC services, link status queries). This is used by upper software modules that need direct PLC-related control/configuration.
+
+9. **Data link control SAP**  
+   An interface that provides link-status information, error management, and other data link control functionalities. This SAP ties the connection coordination module to the lower-level Data Link functionalities.
+
+10. **Connection coordination**  
+   A functional block that coordinates establishing or tearing down logical connections. It helps with matching EVs to EVSEs, exchanging handshake signals, and managing the relationship between basic IEC 61851-1 signaling and the higher, logical data connections of ISO 15118.
+
+11. **Data SAP**  
+   The interface between the Data Link layer and the Network (layer 3) or higher layers for actual V2G (vehicle-to-grid) data exchange. All high-level charging messages (e.g., those required by ISO 15118-2) flow through the Data SAP.
+
+12. **Higher layers**  
+   In OSI terms, these encapsulate the Application, Presentation, Session, Transport, and Network layers. ISO 15118-2 typically operates at these layers (exchanging XML messages, session management, security, etc.).
+
+13. **Control pilot (IEC 61851-1) Hardware I/Os**  
+   Shown to the right, this denotes the separate hardware line(s) used for “basic signaling” (PWM duty cycle, pilot states, etc.). It is not strictly part of the PLC communication stack but interplays with it (for example, telling the EV and EVSE when to begin or end coupling for high-level communication).
+
+14. **OSI reference model layers**  
+   A vertical bracket on the left reminding us that Physical and Data Link layers in the OSI model are here implemented by the PLC layers and the “convergence layer.”
+
+15. **Key**: “covered by communication technology specification”  
+   The figure highlights (in gray) the parts (Convergence layer, PLC MAC, PLC PHY, etc.) that are defined by specific communication technology standards (e.g., HomePlug GreenPHY, IEEE 1901 Profile GreenPHY).
+
+---
+
+## 2. Detailed Layer-by-Layer Explanation and “Flow”
+
+Although this is not a conventional “flowchart,” the diagram can be read from the **Physical** layer at the bottom to the **Application** layer at the top to understand how data flows and which components interact:
+
+1. **Communication Media (Bottom Layer)**  
+   • Power cabling used for vehicle charging is also used to carry data signals.  
+   • Power is transferred from the EVSE to the EV; meanwhile, high-frequency signals are superimposed for data exchange.
+
+2. **Signal Coupling Layer**  
+   • Couples the PLC signal on top of the AC or DC power line.  
+   • Ensures minimal interference and correct impedance matching to pass data effectively between EV and EVSE.
+
+3. **PLC Physical Layer**  
+   • Responsible for modulating and demodulating waveforms on the power line.  
+   • Follows standards such as HomePlug GreenPHY for robust physical signaling (e.g., OFDM, error correction).
+
+4. **MAC/PHY SAP**  
+   • Logical interface that the MAC layer uses to send and receive frames (bits, symbols) via the Physical layer.  
+   • Transmits or receives packets after being encoded/decoded at the PHY.
+
+5. **PLC MAC Layer**  
+   • Implements media access rules (channel sensing, collision avoidance, etc.).  
+   • Adds header/trailer fields managing addressing and error detection.  
+   • Manages bridging to upper or lower layers via convergence sub-layers.
+
+6. **Convergence MAC SAP**  
+   • Provides a standardized interface for the next layer (Convergence layer) to get data from MAC frames.  
+   • Ensures correct framing and token passing between the Convergence and MAC layers.
+
+7. **Convergence Layer**  
+   • Adapts the PLC MAC frames into a more generic data link structure or vice versa.  
+   • Potentially includes bridging or VLAN tagging for IP-based or ISO 15118-2 application data.  
+   • At this layer, the system transitions from technology-specific data link frames to a more general data link service usable by higher protocols.
+
+8. **Control SAP**  
+   • A specialized side-interface that configuration/control processes (like encryption-key management or the SLAC process used for EV–EVSE association) can call.  
+   • Enables reading/writing certain parameters in the PLC MAC or PHY, including link status, encryption keys, and networking specifics.
+
+9. **Data Link Control SAP**  
+   • Presents data link status (connected, disconnected, error) and handles command signals for enabling or disabling link functionalities.  
+   • Ties in to the Connection Coordination function, letting higher-layer logic know about link conditions.
+
+10. **Connection Coordination**  
+    • Supervises or orchestrates which link or channel is used, how the handshake or matching occurs, and whether the EV and EVSE are “paired.”  
+    • Tightly integrated with basic signaling from IEC 61851-1 (Control Pilot) and high-level communication from ISO 15118-2.
+
+11. **Data SAP**  
+    • The normal “data” interface for exchanging V2G protocol payloads (e.g., charging session requests, contract identification) between the Data Link layer and the higher OSI layers (Network and above).  
+    • Actual ISO 15118-2 messages pass through this Data SAP after being encapsulated into MAC frames.
+
+12. **Higher Layers**  
+    • Spanning OSI Layers 3 to 7 (Network, Transport, Session, Presentation, Application).  
+    • In the context of ISO 15118, these higher layers format, encrypt, and interpret the actual “plug-and-charge” or “vehicle-to-grid” messages.
+
+13. **Control Pilot (IEC 61851-1) Hardware I/Os**  
+    • Shown on the right side as a separate domain.  
+    • Provides basic PWM signaling to indicate EV states, EVSE states, maximum current capability, presence of the EV, or charging fault conditions.  
+    • Ties into overall Connection Coordination to start or stop the PLC communication as required by the standard.
+
+---
+
+## 3. Relationship and Connection of Entities
+
+- **Physical to MAC**  
+  Data moves from the **Communication media** (power lines) through **Signal coupling** into the **PLC Physical layer**, which transmits/receives bits. The **MAC/PHY SAP** is then used to pass frames to/from the **PLC MAC layer**.
+
+- **MAC to Convergence**  
+  The **PLC MAC layer** sends or receives data frames to the **Convergence layer** through the **Convergence MAC SAP**. At this stage, commands and bridging logic are aligned with the needs of higher-level protocols.
+
+- **Convergence to Higher Protocols**  
+  After the Convergence layer, there are multiple SAPs:
+  1. **Control SAP** for direct PLC control and configuration queries (e.g., security keys, link info).  
+  2. **Data Link Control SAP** for controlling the link status, error notifications, and link enable/disable.  
+  3. **Data SAP** for normal data traffic that flows up to the OSI Network or Transport layers.
+
+- **Coordination with Basic Signaling**  
+  The **Connection coordination** block leverages the **Control SAP** and **Data link control SAP** to manage the handshake between the EV and EVSE at both the PLC level and the basic PWM signaling level. Meanwhile, the **Control pilot** line (IEC 61851-1) physically coordinates the presence detection and permissible current via the duty cycle.
+
+- **Higher Layers**  
+  Above the **Data SAP**, normal IP networking (or the ISO 15118-2 application messages) can proceed. These higher-layer protocols rely on the data path established at lower layers by the PLC system and are orchestrated by the **Connection coordination** function.
+
+---
+
+## 4. Key Takeaways
+
+1. **Layered Architecture**  
+   The figure highlights how the Physical and Data Link layers of ISO 15118‑3 map directly onto the OSI reference model. The “convergence layer” ensures that higher layers can remain mostly independent of the underlying PLC technology.
+
+2. **Control vs. Data**  
+   Two main SAP families exist:  
+   - **Control SAP / Data Link Control SAP**: For link management, error reporting, and secure network configuration.  
+   - **Data SAP**: For passing normal application data (ISO 15118-2 messages) to the upper layers.
+
+3. **Basic Signaling Integration**  
+   IEC 61851-1’s control pilot is shown outside the PLC stack, yet it is integral to “Connection coordination,” ensuring correct startup, safety interlocks, and fallback charging states.
+
+4. **Covered by Communication Technology Specification**  
+   The gray regions (Convergence layer, MAC, PHY) are implementations guided by specific PLC standards (e.g., HomePlug GreenPHY). They are thus “covered by communication technology specification.”
+
+By understanding each block and interface, engineers can quickly trace how signals and data flow from the power line (physical) up to the ISO 15118 application protocol, and how the system coordinates the link state with basic pilot signaling.
+```
+
+
+TEXTUAL INFORMATION:
+Text 1: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message.
+Text 2: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1.
+Text 3: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one.
+Text 4: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.
+Text 5: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.
+Text 6: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.
+Text 7: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The signal strength measurement method to be used is the SLAC defined in the [HPGP].
+Text 8: A.9.2.3.2 EV side (Context: A.9.2.3.2 EV side > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - If the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_ PROFILE has no significance and the whole messages shall be ignored. It is up to the EV to decide what number of M-SOUNDS used for the attenuation profile is sufficient for its decision (i.e. whether to discard CM_ATTEN_CHAR.IND if NUM_ SOUNDs is less than C_EV_match_MNBC).
+Text 9: A.9.2.3.2 EV side (Context: A.9.2.3.2 EV side > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - If the EV receives a CM_ATTEN_CHAR.IND with invalid content, it shall be ignored.
+Text 10: A.9.2.3.2 EV side (Context: A.9.2.3.2 EV side > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - If a CM_ATTEN_CHAR.IND is received and its origin is an EVSE that has not sent a CM_SLAC_PARM.CNF before, the message shall be processed and not ignored.
+Text 11: A.9.2.3.3 EVSE side (Context: A.9.2.3.3 EVSE side > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - If the EVSE has not received a CM_ATTEN_CHAR.RSP within TT_match_response, it shall retransmit a CM_ATTEN_CHAR.IND when the TT_match_response expires and reset this timer. After C_EV_match_retry attempts, if no CM_ATTEN_CHAR. RSP is received by the EVSE, the matching process shall be considered as FAILED.
+Text 12: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:
+Text 13: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;
+Text 14: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;
+Text 15: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.
+
+ADDITIONAL CONTEXT:
+Related Information 1: By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way. (sibling of Text 1)
+Related Information 2: The signal strength measurement method to be used is the SLAC defined in the [HPGP]. (sibling of Text 1)
+Related Information 3: [V2G3-A09-17] The SLAC implementation of the low-layer communciation module on EV and EVSE side shall be compliant with the messages defined in [HPGP]. (sibling of Text 1)
+Related Information 4: [V2G3-A09-18] The low-layer communciation module on EV and EVSE sides shall be compliant with the sequence diagram of Figure A.1. (sibling of Text 1)
+Related Information 5: [V2G3-A09-19] The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1. (sibling of Text 1)
+Related Information 6: [V2G3-A09-20] The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one. (sibling of Text 1)
+Related Information 7: [V2G3-A09-21] According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message: (sibling of Text 1)
+Related Information 8: — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4; (sibling of Text 1)
+Related Information 9: — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3; (sibling of Text 1)
+Related Information 10: — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED. (sibling of Text 1)
+Related Information 11: [V2G3-A09-22] Based on the signal attenuation read by the “CM_ATTEN_CHAR.IND” message, the EV_Discovery_Status shall be set according to Table A.3. (sibling of Text 1)
+Related Information 12: Table A.3 — EV_Discovering_Status definition (sibling of Text 1)
+Related Information 13: Table A.3 — EV_Discovering_Status definition <table border="1"> <td colspan="1" rowspan="2">Status</td> <td colspan="2" rowspan="1">Average_Attenuation</td> <td colspan="1" rowspan="2">Description</td> <tr> <td colspan="1" rowspan="1">From</td> <td colspan="1" rowspan="1">To</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_FOUND</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">C_EV_match_signal-&lt;br&gt;attn_direct</td> <td colspan="1" rowspan="1">The EVSE is identified without&lt;br&gt;any doubt</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_POTENTIALLY_&lt;br&gt;FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;direct</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">One or several EVSEs are identi-&lt;br&gt;fied. The next step of the match-&lt;br&gt;ing process will allow deciding&lt;br&gt;if the most probable candidate is&lt;br&gt;the connected EVSE.</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_NOT_FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">No direct connected EVSE is&lt;br&gt;found</td> </tr> </table> (sibling of Text 1)
+Contextual Information 1: A.9.2.1 Functional description (ancestor of Text 1)
+Contextual Information 2: A.9.2 Signal strength measurement (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 14: After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP. (sibling of Text 2)
+Related Information 15: [V2G3-A09-25] With receiving a CM_SLAC_PARM.CNF, the EV shall start the timer TP_match_ sequence. When the TP_match_sequence timer expires, the EV shall send a sequence of C_EV_start_atten_char_inds CM_START_ATTEN_CHAR.IND messages. (sibling of Text 8)
+Related Information 16: [V2G3-A09-26] The time duration between consecutive CM_START_ATTEN_CHAR.IND messages shall be TP_EV_batch_msg_interval. (sibling of Text 8)
+Related Information 17: [V2G3-A09-27] After sending the last message of the CM_START_ATTEN_CHAR.IND message sequence, the EV shall wait for TP_EV_batch_msg_interval before starting the CM_MNBC_SOUND.IND message sequence. (sibling of Text 8)
+Related Information 18: [V2G3-A09-28] Within CM_MNBC_SOUND.IND message sequence, the EV shall transmit the CM_ MNBC_SOUND.IND message C_EV_match_MNBC times. With each message, the counter field “cnt” shall be decremented. (sibling of Text 8)
+Related Information 19: [V2G3-A09-29] The time duration between consecutive CM_MNBC_SOUND.IND messages shall be TP_EV_batch_msg_interval. (sibling of Text 8)
+Related Information 20: [V2G3-A09-30] The EV shall start the timeout timer TT_EV_atten_results when sending the first CM_START_ATTEN_CHAR.IND. (sibling of Text 8)
+Related Information 21: [V2G3-A09-31] While the timer TT_EV_atten_results is running, the EV shall process incoming CM_ATTEN_CHAR.IND messages. If the CM_ATTEN_CHAR.IND messages from all EVSEs are received, which were recognized during the parameter exchange, the EV is allowed to stop the TT_EV_atten_results timer and continue the match- ing process. To be able to service also EVSEs which were not received during the parameter exchange, the EV may wait for incoming CM_ATTEN_CHAR.IND mes- sages until the TT_EV_atten_results timer expires before continuing the matching process. (sibling of Text 8)
+Related Information 22: [V2G3-A09-32] If no CM_ATTEN_CHAR.IND is received before TT_EV_atten_results expires, the matching process shall be considered as FAILED. (sibling of Text 8)
+Related Information 23: [V2G3-A09-33] If a CM_ATTEN_CHAR.IND is received and its origin is an EVSE that has not sent a CM_SLAC_PARM.CNF before, the message shall be processed and not ignored. (sibling of Text 8)
+Related Information 24: [V2G3-A09-34] If the TT_EV_atten_results timer expires and not all anticipated responses are received, the EV shall continue the matching process. (sibling of Text 8)
+Related Information 25: [V2G3-A09-35] If the EV receives a CM_ATTEN_CHAR.IND with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.4 is invalid. (sibling of Text 8)
+Related Information 26: [V2G3-A09-37] On reception of CM_ATTEN_CHAR.IND, the EV shall answer by sending the CM_ ATTEN_CHAR.RSP within TP_match_sequence. (sibling of Text 8)
+Related Information 27: [V2G3-A09-38] After sending a CM_ATTEN_CHAR.RSP, the EV shall continue the matching pro- cess with the other EVSEs whose EV_Discovering_Status are “EVSE_FOUND” and/ or “EVSE_POTENTIALLY_FOUND” by sending either a CM_SLAC_MATCH.REQ to the selected EVSE or a CM_VALIDATE.REQ to one of the potential EVSEs within TP_EV_match_session. (sibling of Text 8)
+Contextual Information 4: A.9.2.3.2 EV side (ancestor of Text 8)
+Related Information 28: [V2G3-A09-36] If the NUM_SOUNDS field in a CM_ATTEN_CHAR.IND is zero, then the ATTEN_ PROFILE has no significance and the whole messages shall be ignored. It is up to the EV to decide what number of M-SOUNDS used for the attenuation profile is sufficient for its decision (i.e. whether to discard CM_ATTEN_CHAR.IND if NUM_ SOUNDs is less than C_EV_match_MNBC). (sibling of Text 9)
+Related Information 29: [V2G3-A09-39] While sending the CM_SLAC_PARM.CNF in the parameter exchange sequence, the EVSE shall start a timer TT_match_sequence. The reception of a single valid CM_START_ATTEN_CHAR.IND message shall be sufficient to stop the timer TT_ match_sequence. (sibling of Text 11)
+Related Information 30: [V2G3-A09-40] If the EVSE has not received a CM_START_ATTEN_CHAR.IND within TT_match_ sequence, the matching process shall be considered as FAILED. (sibling of Text 11)
+Related Information 31: [V2G3-A09-41] If the EVSE receives a CM_START_ATTEN_CHAR.IND with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.4 is invalid. (sibling of Text 11)
+Related Information 32: [V2G3-A09-42] On reception of a CM_START_ATTEN_CHAR.IND message, the EVSE shall start the TT_EVSE_match_MNBC timer. (sibling of Text 11)
+Related Information 33: [V2G3-A09-43] While the timer TT_EVSE_match_MNBC is running, the EVSE shall receive and process incoming CM_ATTEN_PROFILE.IND messages. If the anticipated number of CM_ATTEN_PROFILE messages is not achieved, the EVSE shall keep listening for incoming CM_ATTEN_PROFILE.IND messages until the timer TT_EVSE_match_ MNBC expires. (sibling of Text 11)
+Related Information 34: [V2G3-A09-44] If all M-Sound messages are received by the EVSE or the TT_EVSE_match_MNBC timer expires, the EVSE shall compute (analyse and average) all received CM_ ATTEN_PROFILE messages within the time window given by the TP_EVSE_avg_ atten_calc timer. This performance timer shall be started as soon as TT_EVSE_ match_MNBC expires. (sibling of Text 11)
+Related Information 35: [V2G3-A09-45] After having computed all received data, the EVSE shall send a CM_ATTEN_CHAR. IND within TP_EVSE_avg_atten_calc and start the timer TT_match_response. (sibling of Text 11)
+Related Information 36: [V2G3-A09-47] If the EVSE receives a CM_ATTEN_CHAR.RSP with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.4 is invalid. (sibling of Text 11)
+Contextual Information 5: A.9.2.3.3 EVSE side (ancestor of Text 11)
+Related Information 37: This Clause summarizes all timings used in this Annex. (sibling of Table 1)
+Related Information 38: [V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1. (sibling of Table 1)
+Related Information 39: Table A.1 — Timing and constant values (sibling of Table 1)
+Related Information 40: Table A.1 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_EV_match_MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds sent for the&lt;br&gt;SLAC</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_retry</td> <td colspan="1" rowspan="1">Number of retries of the correspond-&lt;br&gt;ing message within the matching&lt;br&gt;process</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_direct</td> <td colspan="1" rowspan="1">Lower threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_indirect</td> <td colspan="1" rowspan="1">Higher threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_start_atten_char_inds</td> <td colspan="1" rowspan="1">Number of CM_START_ATTEN_CHAR.&lt;br&gt;INDs sent by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">TP_amp_map_exchange</td> <td colspan="1" rowspan="1">Performance timer for the start of an&lt;br&gt;AMP MAP Exchange&lt;br&gt;Either the EV or the EVSE shall send&lt;br&gt;a CM_AMP_MAP.REQ within the&lt;br&gt;max value of this timer after link is&lt;br&gt;detected in order to trigger an AMP&lt;br&gt;MAP Exchange.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_batch_msg_interval</td> <td colspan="1" rowspan="1">Interval between two CM_START_&lt;br&gt;ATTEN_CHAR.IND or CM_MNBC_&lt;br&gt;SOUND.IND messages</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_match_session</td> <td colspan="1" rowspan="1">Performance time for the EV to start&lt;br&gt;validation or SLAC_MATCH after&lt;br&gt;sending CM_ATTEN_CHAR.RSP</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_SLAC_init</td> <td colspan="1" rowspan="1">Time between plug-in (state B&lt;br&gt;detected) or wake-up and start of&lt;br&gt;matching by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EVSE_avg_atten_calc</td> <td colspan="1" rowspan="1">Performance time for the EVSE to&lt;br&gt;calculate the average attenuation pro-&lt;br&gt;file after reception of all M-SOUNDs&lt;br&gt;or after TT_EVSE_match_MNBC has&lt;br&gt;expired</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_link_ready_notification</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">0,2</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_response</td> <td colspan="1" rowspan="1">General performance time for a&lt;br&gt;response to a request</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 1)
+Related Information 41: Table A.1 (continued) <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">TP_match_sequence</td> <td colspan="1" rowspan="1">General performance time for sub-&lt;br&gt;sequent requests after a response to&lt;br&gt;previous request has been received</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_amp_map_exchange</td> <td colspan="1" rowspan="1">Timeout timer that runs on both EV&lt;br&gt;and EVSE side after link is detected&lt;br&gt;If an EV or EVSE does not want to&lt;br&gt;start an AMP MAP Exchange and no&lt;br&gt;request is received by the other side&lt;br&gt;within the timeout value of this timer,&lt;br&gt;then it is to be assumed that no AMP&lt;br&gt;MAP Exchange will take place and&lt;br&gt;a D-LINK_READY.indication is to be&lt;br&gt;sent to the HLE.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EV_atten_results</td> <td colspan="1" rowspan="1">Time the EV shall wait for CM_&lt;br&gt;ATTEN_CHAR.IND messages from&lt;br&gt;EVSEs. Timer starts with the sending&lt;br&gt;of the first CM_START_ATTEN_CHAR.&lt;br&gt;IND</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1 200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_MNBC</td> <td colspan="1" rowspan="1">Timeout on the EVSE side that trig-&lt;br&gt;gers the calculation of the average&lt;br&gt;attenuation profile</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_session</td> <td colspan="1" rowspan="1">Maximum time from the expiration of&lt;br&gt;TT_EVSE_match_MNBC and the recep-&lt;br&gt;tion of either CM_VALIDATE.REQ or&lt;br&gt;CM_SLAC_MATCH.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_SLAC_init</td> <td colspan="1" rowspan="1">Time between detecting state B and&lt;br&gt;receiving CM_SLAC_PARM.REQ on the&lt;br&gt;EVSE side</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_join</td> <td colspan="1" rowspan="1">Maximum time between CM_SLAC_&lt;br&gt;MATCH.CNF and link establishment&lt;br&gt;If there is no link after this timeout&lt;br&gt;expires, EV retries matching process&lt;br&gt;and EVSE resets its state machine</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">12</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_response</td> <td colspan="1" rowspan="1">Time that the EV/EVSE shall wait for a&lt;br&gt;response from the EVSE/EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_sequence</td> <td colspan="1" rowspan="1">Time that the EVSE/EV shall wait for&lt;br&gt;a request from the EV/EVSE</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_repetition</td> <td colspan="1" rowspan="1">Time duration for repetitions of the&lt;br&gt;matching process when an error&lt;br&gt;occurs</td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_rate</td> <td colspan="1" rowspan="1">Time to wait for a repetition of the&lt;br&gt;whole matching process after a failed&lt;br&gt;matching process</td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 1)
+Contextual Information 6: A.8 Timings and constants (ancestor of Table 1)
+Contextual Information 7: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Table 1)
+Contextual Information 8: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Table 1)
+Related Information 42: A.9.2.1 Functional description (sibling of Figure 1)
+Related Information 43: A.9.2.2 Description of involved MMEs (sibling of Figure 1)
+Related Information 44: A.9.2.3.1 Sequence chart (sibling of Figure 1)
+Related Information 45: A.9.2.3.2 EV side (sibling of Figure 1)
+Related Information 46: A.9.2.3.3 EVSE side (sibling of Figure 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
+
+
+Question: What is CM_ATTEN_CHAR.IND?
+
+Above is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.

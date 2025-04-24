@@ -1,0 +1,392 @@
+Question What is CM_START_ATTEN_CHAR.IND?: What is CM_START_ATTEN_CHAR.IND?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: A.9.2.2 Description of involved MMEs - Table A.4 — MMEs parameters definition for SLAC
+Table 2: A.9.1.2 Description of involved MMEs - Table A.2 — Involved MMEs for parameters exchange
+Table 3: A.8 Timings and constants - Table A.4 (continued)
+
+FIGURE INFORMATION:
+Figure 1: A.9.8.1 Example of matching process error handling - Figure A.9 — Example of sequence chart of matching process error handling
+
+Image Description for Figure A.9:
+# Detailed Description of Figure A.9 — Example of Sequence Chart of Matching Process Error Handling
+
+Below is a step-by-step explanation, in **Markdown** format, of the sequence chart labeled **Figure A.9**. This figure illustrates the **SLAC (Signal-Level Attenuation Characterization) matching process** between an Electric Vehicle (EV) and an Electric Vehicle Supply Equipment (EVSE), with emphasis on how errors and timing constraints are handled. The diagram shows four main entities:
+
+1. **EV Host**  
+2. **EV PLC node** (the EV’s low-layer communication module)  
+3. **EVSE PLC node** (the EVSE’s low-layer communication module)  
+4. **EVSE Host**
+
+Various **timers** and **messages** govern the retry logic, confirmations, and triggering conditions. The goal is to establish a matched communication link (sometimes referred to as SLAC matching). This specific figure highlights an error-handling example where the EV repeatedly sends parameter requests until the EVSE’s low-layer module is fully ready.
+
+---
+
+## 1. Entities and Their Roles
+
+1. **EV Host**  
+   - Coordinates overall EV-side communication and initiates the SLAC matching sequence upon detecting plug-in or other triggers.  
+   - Waits for “Matching Process Start Trigger” to begin SLAC parameter exchange.
+
+2. **EV PLC Node**  
+   - The EV’s low-layer communication module that actually sends and receives SLAC messages (e.g., CM_SLAC_PARM.REQ).  
+   - Interacts with the EVSE’s PLC node to configure parameters, confirm matching status, and finalize the SLAC link.
+
+3. **EVSE PLC Node**  
+   - The EVSE’s low-layer communication module. It responds to requests from the EV PLC node and eventually sends a CM_SLAC_PARM.CNF message when ready.  
+   - May be initially “asleep” or in a booting state, causing the EV to resend parameter requests if no confirmation is received.
+
+4. **EVSE Host**  
+   - Oversees the EVSE side, can send key-setting commands to the EVSE PLC node (CM_SET_KEY.REQ) and receives confirmations (CM_SET_KEY.CNF).  
+   - Also waits internally for the “Matching Process Start Trigger” before instructing the low-layer module to proceed with matching.
+
+---
+
+## 2. Key Messages in the Chart
+
+- **CM_SET_KEY.REQ** / **CM_SET_KEY.CNF**  
+  Used by the EVSE Host to set cryptographic or network keys in the EVSE PLC module. A request/confirmation exchange (REQ/CNF) ensures keys are established before proceeding.
+
+- **CM_SLAC_PARM.REQ**  
+  A crucial request message sent by the EV PLC node. It initiates or retries the SLAC parameter negotiation. Several of these may be sent if the EVSE PLC node is not yet ready to respond.
+
+- **CM_SLAC_PARM.CNF**  
+  The confirmation message that the EVSE PLC node sends in response to a valid CM_SLAC_PARM.REQ. Once this is received by the EV PLC node, the matching process can progress to the next stage (or conclude if final parameters are agreed).
+
+---
+
+## 3. Timers and Their Significance
+
+The figure shows multiple timers or time parameters in the margin. Each timer serves a distinct purpose in error handling and retry logic during matching:
+
+- **TP_EV_SLAC_init**:  
+  A time parameter on the EV side. Indicates when the EV is ready to start sending SLAC messages after plug-in or initialization.
+
+- **TT_EVSE_SLAC_init**:  
+  A similar timeout event on the EVSE side, signifying the EVSE’s readiness for the matching process (or that it is still booting).
+
+- **TT_match_response** and **TP_match_response**:  
+  Both appear repeatedly in the message sequence. They govern how long each side waits for a response to SLAC messages (e.g., how long the EV will await a CM_SLAC_PARM.CNF before resending a CM_SLAC_PARM.REQ).  
+  - “TT_match_response” often indicates a test timeout or internal handling.  
+  - “TP_match_response” can denote a performance or protocol timer requiring the message to be answered within a specific duration.
+
+- **TT_matching_rate**:  
+  A wait time before restarting the SLAC matching process after a failure or no-response scenario. Used to avoid flooding the network with frequent retry attempts.
+
+- **TT_matching_repetition**:  
+  The maximum duration or repetition window during which multiple matching attempts can be retried before concluding that matching has failed entirely.
+
+- **TT_match_sequence** / **TP_match_sequence**:  
+  These timers define or bound the overall sequence of matching attempts. “TT_match_sequence” may mark the final stage of the matching process or the cutoff for the entire exchange sequence.
+
+---
+
+## 4. Step-by-Step Flow of the Sequence Chart
+
+### A. Initial Key-Setting on the EVSE Side
+
+1. **EVSE Host → EVSE PLC node: CM_SET_KEY.REQ**  
+   - The EVSE Host sends a request to configure or set security/network keys on the EVSE PLC node.
+
+2. **EVSE PLC node → EVSE Host: CM_SET_KEY.CNF**  
+   - The EVSE PLC node confirms successful key setting back to the EVSE Host.  
+   - After this step, the EVSE side is (or soon will be) ready to exchange SLAC parameters, once the matching trigger event starts.
+
+### B. Waiting for Matching Process Start
+
+3. **EV Host**: “Wait for Matching Process Start Trigger”  
+   - On the EV side, the system is idle until the matching process is triggered (e.g., plug-in detected or higher-layer instruction).
+
+4. **EVSE Host**: “Wait for Matching Process Start Trigger”  
+   - Similarly, the EVSE Host is also waiting for the condition to begin the SLAC matching process.
+
+5. **TP_EV_SLAC_init** and **TT_EVSE_SLAC_init**  
+   - These timers are activated (or at least monitored) to ensure both sides begin matching in a timely manner.  
+   - “TP_EV_SLAC_init” is often started on the EV side, while “TT_EVSE_SLAC_init” is tracked on the EVSE side.
+
+### C. Repeated SLAC Parameter Requests and Error Handling
+
+6. **EV PLC node → EVSE PLC node: CM_SLAC_PARM.REQ** (Attempt 1)  
+   - As soon as the EV is ready, it sends the first parameter request to the EVSE.  
+   - If the EVSE PLC node is not fully operational yet, no immediate response is given.
+
+7. **Timer Trigger: TT_match_response** or **TP_match_response**  
+   - The EV waits for a response from the EVSE PLC node within a defined time.  
+   - If no **CM_SLAC_PARM.CNF** is received, the EV concludes the EVSE is not ready and may resend the request.
+
+8. **EV PLC node → EVSE PLC node: CM_SLAC_PARM.REQ** (Attempt 2, 3, …)  
+   - The EV PLC node continues sending CM_SLAC_PARM.REQ at intervals governed by **TT_match_response** (or **TP_match_response**).  
+   - Each attempt is followed by another wait period.  
+   - If the EVSE PLC node remains unresponsive, the timer **TT_matching_rate** might also come into play to delay the next retry.
+
+9. **TT_matching_repetition**  
+   - This overarching timer is running in the background. It ensures the total number of attempts remains within a certain window.  
+   - If the EV times out on repeated attempts (and **TT_matching_repetition** expires), the process transitions to a “failed” state.
+
+10. **EV PLC node → EVSE PLC node: CM_SLAC_PARM.REQ** (Final Attempt)  
+    - Eventually, the EVSE PLC node is ready (i.e., has finished booting or is fully awake).
+
+11. **EVSE PLC node → EV PLC node: CM_SLAC_PARM.CNF**  
+    - At long last, the EVSE responds with the confirmation message.  
+    - Reception of **CM_SLAC_PARM.CNF** indicates that the EVSE PLC node has accepted the request parameters and has effectively “caught up” to the EV’s repeated attempts.
+
+### D. Conclusion of Matching Sequence
+
+12. **TP_match_sequence** and **TT_match_sequence**  
+    - As soon as the correct confirmation is received, the final matching sequence timers are observed.  
+    - Typically, this implies the SLAC parameter exchange has succeeded, or at least the matching process can progress to the next step in the standard (e.g., amplitude map exchange or final link readiness).
+
+13. **Matched State**  
+    - Once a valid exchange has completed, the link enters the “Matched” state (per the standard’s definitions).  
+    - At this point, no further **CM_SLAC_PARM** messages should be sent (per [V2G3-A09-118]) unless the process fails or restarts.
+
+---
+
+## 5. Relationships and Connections
+
+1. **Key Setting First, Then SLAC Matching**  
+   - The EVSE Host sets up keys on the EVSE PLC node before the matching process triggers.  
+   - This ensures that secure or correct network parameters are in place once the EV and EVSE attempt to exchange SLAC parameters.
+
+2. **Timers Govern Retrying and Error Handling**  
+   - Each **CM_SLAC_PARM.REQ** attempt has a corresponding timer (TT_match_response / TP_match_response). If no reply is received within that window, the EV resends.  
+   - Global repetition timers **TT_matching_repetition** and **TT_matching_rate** regulate how often and how many times the EV can resend these requests before declaring failure.
+
+3. **Confirmation Ends Parameter Repetition**  
+   - Once **CM_SLAC_PARM.CNF** arrives, the repeated attempts stop.  
+   - The EV and EVSE effectively coordinate to finalize the link parameters.
+
+4. **High-Level Wait States**  
+   - Both the EV Host and EVSE Host remain in a “Wait for Matching Process Start Trigger” state until preconditions (like plug-in or system readiness) are met.  
+   - Only after triggers and initial timers do the low-layer modules actually exchange messages.
+
+---
+
+## 6. Summary
+
+Figure A.9 demonstrates a **typical SLAC matching sequence** with a strong focus on **error recovery and timing**. The EV tries multiple times to initiate the parameter exchange, while the EVSE might be booting or unready to respond. Each repeated **CM_SLAC_PARM.REQ** is gated by **TT_match_response**. If the EVSE still does not confirm, the EV eventually retries but must obey the higher-level timers (**TT_matching_rate**, **TT_matching_repetition**). Ultimately, the EVSE PLC node becomes active, responds with **CM_SLAC_PARM.CNF**, and the process can conclude successfully within **TT_match_sequence**.  
+
+Such a design ensures robust handling of real-world delays (e.g., EVSE boot times) and aligns with ISO 15118-3 requirements that define how an “Unmatched” state eventually transitions to “Matched,” or else leads to a matching failure if all retries are exhausted.
+
+---
+
+> **Note:** These timers, messages, and states are specified in ISO 15118-3 Annex A for HomePlug Green PHY communication over the vehicle’s control pilot line. The standard also provides additional constraints (e.g., amplitude map exchange in A.9.6) and states that no further SLAC messages shall be processed once a “Matched” state is achieved ([V2G3-A09-118]).
+
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+
+TEXTUAL INFORMATION:
+Text 1: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.
+Text 2: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.
+Text 3: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The signal strength measurement method to be used is the SLAC defined in the [HPGP].
+
+ADDITIONAL CONTEXT:
+Related Information 1: After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP. (sibling of Text 1)
+Related Information 2: The signal strength measurement method to be used is the SLAC defined in the [HPGP]. (sibling of Text 1)
+Related Information 3: [V2G3-A09-17] The SLAC implementation of the low-layer communciation module on EV and EVSE side shall be compliant with the messages defined in [HPGP]. (sibling of Text 1)
+Related Information 4: [V2G3-A09-18] The low-layer communciation module on EV and EVSE sides shall be compliant with the sequence diagram of Figure A.1. (sibling of Text 1)
+Related Information 5: [V2G3-A09-19] The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1. (sibling of Text 1)
+Related Information 6: [V2G3-A09-20] The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one. (sibling of Text 1)
+Related Information 7: [V2G3-A09-21] According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message: (sibling of Text 1)
+Related Information 8: — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4; (sibling of Text 1)
+Related Information 9: — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3; (sibling of Text 1)
+Related Information 10: — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED. (sibling of Text 1)
+Related Information 11: [V2G3-A09-22] Based on the signal attenuation read by the “CM_ATTEN_CHAR.IND” message, the EV_Discovery_Status shall be set according to Table A.3. (sibling of Text 1)
+Related Information 12: Table A.3 — EV_Discovering_Status definition (sibling of Text 1)
+Related Information 13: Table A.3 — EV_Discovering_Status definition <table border="1"> <td colspan="1" rowspan="2">Status</td> <td colspan="2" rowspan="1">Average_Attenuation</td> <td colspan="1" rowspan="2">Description</td> <tr> <td colspan="1" rowspan="1">From</td> <td colspan="1" rowspan="1">To</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_FOUND</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">C_EV_match_signal-&lt;br&gt;attn_direct</td> <td colspan="1" rowspan="1">The EVSE is identified without&lt;br&gt;any doubt</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_POTENTIALLY_&lt;br&gt;FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;direct</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">One or several EVSEs are identi-&lt;br&gt;fied. The next step of the match-&lt;br&gt;ing process will allow deciding&lt;br&gt;if the most probable candidate is&lt;br&gt;the connected EVSE.</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_NOT_FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">No direct connected EVSE is&lt;br&gt;found</td> </tr> </table> (sibling of Text 1)
+Contextual Information 1: A.9.2.1 Functional description (ancestor of Text 1)
+Contextual Information 2: A.9.2 Signal strength measurement (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 14: By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way. (sibling of Text 2)
+Related Information 15: [V2G3-A09-23] For the SLAC process, the low-layer communciation module shall use the set of MMEs defined in Figure A.1. The parameters to be used within the MMEs are defined in Table A.4. (sibling of Table 1)
+Related Information 16: [V2G3-A09-24] The Ethernet Destination MAC address field shall be filled either as Broadcast or Unicast, as defined in Table A.4. (sibling of Table 1)
+Related Information 17: Table A.4 — MMEs parameters definition for SLAC <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="7">CM_START_ATTEN_&lt;br&gt;CHAR.IND&lt;br&gt;broadcast</td> <td colspan="1" rowspan="1">APPLICATION_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">NUM_SOUNDS</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">C_EV_match_&lt;br&gt;MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds trans-&lt;br&gt;mitted by the GP station&lt;br&gt;during the SLAC process</td> </tr> <tr> <td colspan="1" rowspan="1">Time_Out</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">TT_EVSE_&lt;br&gt;match_MNBC</td> <td colspan="1" rowspan="1">Max. time window within the&lt;br&gt;M-Sounds are sent</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_TYPE</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value indicating “other&lt;br&gt;Green PHY station”</td> </tr> <tr> <td colspan="1" rowspan="1">FORWARDING_&lt;br&gt;STA</td> <td colspan="1" rowspan="1">5 to 10</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">EV Host MAC&lt;br&gt;address</td> <td colspan="1" rowspan="1">The destination of SLAC&lt;br&gt;results is always the EV Host</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">11 to&lt;br&gt;18</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> </table> (sibling of Table 1)
+Related Information 18: Table A.4 (continued) (sibling of Table 1)
+Related Information 19: Table A.4 (continued) <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="7">CM_MNBC_SOUND.IND&lt;br&gt;broadcast</td> <td colspan="0" rowspan="1"></td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">SenderID</td> <td colspan="1" rowspan="1">2 to 18</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">Cnt</td> <td colspan="1" rowspan="1">19</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Countdown counter for num-&lt;br&gt;ber of sounds remaining after&lt;br&gt;the certain message</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">20 to&lt;br&gt;27</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">28 to&lt;br&gt;35</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> <tr> <td colspan="1" rowspan="1">Rnd</td> <td colspan="1" rowspan="1">36 to&lt;br&gt;51</td> <td colspan="1" rowspan="1">16</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Random value</td> </tr> <tr> <td colspan="1" rowspan="8">CM_ATTEN_CHAR.IND&lt;br&gt;unicast </td> <td colspan="1" rowspan="1">APPLICATION_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_&lt;br&gt;ADDRESS</td> <td colspan="1" rowspan="1">2 to 7</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC address&lt;br&gt;of the EV Host</td> <td colspan="1" rowspan="1">MAC address of the EV Host&lt;br&gt;which initiates the SLAC&lt;br&gt;process</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">8 to 15</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_ID</td> <td colspan="1" rowspan="1">16 to&lt;br&gt;32</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_ID</td> <td colspan="1" rowspan="1">33 to&lt;br&gt;49</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">NumSounds</td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Number of M-Sounds used for&lt;br&gt;generation of the ATTEN_PRO-&lt;br&gt;FILE</td> </tr> <tr> <td colspan="1" rowspan="1">ATTEN_PROFILE</td> <td colspan="1" rowspan="1">51 to&lt;br&gt;109</td> <td colspan="1" rowspan="1">59</td> <td colspan="1" rowspan="1">Attenuation&lt;br&gt;value</td> <td colspan="1" rowspan="1">Signal level attenuation&lt;br&gt;(Field format in Table&lt;br&gt;”ATTEN_PROFILE” of [HPGP])</td> </tr> </table> (sibling of Table 1)
+Related Information 20: Table A.4 (continued) <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="7">CM_ATTEN_CHAR.RSP&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">APPLICATION_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_&lt;br&gt;ADDRESS</td> <td colspan="1" rowspan="1">2 to 7</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC address&lt;br&gt;of the EV Host</td> <td colspan="1" rowspan="1">MAC address of the EV which&lt;br&gt;initiates the SLAC process</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">8 to 15</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_ID</td> <td colspan="1" rowspan="1">16 to&lt;br&gt;32</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_ID</td> <td colspan="1" rowspan="1">33 to&lt;br&gt;49</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value of 0x00 indicates a&lt;br&gt;successful SLAC process</td> </tr> <tr> <td colspan="1" rowspan="6">CM_ATTEN_PROFILE.&lt;br&gt;IND</td> <td colspan="1" rowspan="1">PEV MAC</td> <td colspan="1" rowspan="1">0 to 5</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC address&lt;br&gt;of the EV Host</td> <td colspan="1" rowspan="1">MAC address of EV Host</td> </tr> <tr> <td colspan="1" rowspan="1">NumGroups</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x3A</td> <td colspan="1" rowspan="1">Number of OFDM carrier&lt;br&gt;groups used for the SLAC sig-&lt;br&gt;nal characterization.</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">7</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> <tr> <td colspan="1" rowspan="1">AAG[1]</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">Attenuation&lt;br&gt;value</td> <td colspan="1" rowspan="1">Average Attenuation of Group&lt;br&gt;1</td> </tr> <tr> <td colspan="1" rowspan="1">…</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">AAG[58]</td> <td colspan="1" rowspan="1">65</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">Attenuation&lt;br&gt;value</td> <td colspan="1" rowspan="1">Average Attenuation of Group&lt;br&gt;58</td> </tr> </table> (sibling of Table 1)
+Contextual Information 4: A.9.2.2 Description of involved MMEs (ancestor of Table 1)
+Related Information 21: [V2G3-A09-04] The MMEs for the parameter exchange shall be used with the following content and be sent as Ethernet unicast/broadcast messages as defined. (sibling of Table 2)
+Related Information 22: Table A.2 — Involved MMEs for parameters exchange <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;No.</td> <td colspan="1" rowspan="1">Field&lt;br&gt;Size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="3">CM_SLAC_PARM.REQ&lt;br&gt;Broadcast</td> <td colspan="1" rowspan="1">APPLICATION_TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">2 to 9</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Identifier for a matching&lt;br&gt;run, randomly chosen by&lt;br&gt;the EV for each CM_SLAC_&lt;br&gt;PARM.REQ message and&lt;br&gt;constant for all following&lt;br&gt;messages of the same run</td> </tr> <tr> <td colspan="1" rowspan="5">CM_SLAC_PARM.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">M-SOUND_TARGET</td> <td colspan="1" rowspan="1">0 to 5</td> <td colspan="1" rowspan="1">6</td> <td colspan="2" rowspan="1">0xFFFFFFFFFFFF Fixed value indicating that&lt;br&gt;M-Sounds to be sent as Eth-&lt;br&gt;ernet broadcast</td> </tr> <tr> <td colspan="1" rowspan="1">NUM_SOUNDS</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">C_EV_match_&lt;br&gt;MNBC</td> <td colspan="1" rowspan="1">Number of expected&lt;br&gt;M-Sounds transmitted by&lt;br&gt;the GP station during the&lt;br&gt;SLAC process</td> </tr> <tr> <td colspan="1" rowspan="1">Time_Out</td> <td colspan="1" rowspan="1">7</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x06</td> <td colspan="1" rowspan="1">Duration TT_EVSE_&lt;br&gt;match_MNBC while the&lt;br&gt;EVSE receives incoming&lt;br&gt;M-SOUNDS after a CM_&lt;br&gt;START_ATTEN_CHAR.IND</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_TYPE</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value indicating&lt;br&gt;“Other GP station”</td> </tr> <tr> <td colspan="1" rowspan="1">FORWARDING_STA</td> <td colspan="1" rowspan="1">9 to&lt;br&gt;14</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">EV Host MAC&lt;br&gt;address</td> <td colspan="1" rowspan="1">The destination of SLAC&lt;br&gt;results is always the EV&lt;br&gt;Host</td> </tr> <tr> <td colspan="1" rowspan="3"></td> <td colspan="1" rowspan="1">APPLICATION_TYPE</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">16</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">17 to&lt;br&gt;24</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same&lt;br&gt;as the one sent in the CM_&lt;br&gt;SLAC_PARM.REQ message&lt;br&gt;by the EV</td> </tr> </table> (sibling of Table 2)
+Contextual Information 5: A.9.1.2 Description of involved MMEs (ancestor of Table 2)
+Contextual Information 6: A.9.1 Signal strength measurement – parameter exchange (ancestor of Table 2)
+Related Information 23: This Clause summarizes all timings used in this Annex. (sibling of Table 3)
+Related Information 24: [V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1. (sibling of Table 3)
+Related Information 25: Table A.1 — Timing and constant values (sibling of Table 3)
+Related Information 26: Table A.1 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_EV_match_MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds sent for the&lt;br&gt;SLAC</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_retry</td> <td colspan="1" rowspan="1">Number of retries of the correspond-&lt;br&gt;ing message within the matching&lt;br&gt;process</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_direct</td> <td colspan="1" rowspan="1">Lower threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_indirect</td> <td colspan="1" rowspan="1">Higher threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_start_atten_char_inds</td> <td colspan="1" rowspan="1">Number of CM_START_ATTEN_CHAR.&lt;br&gt;INDs sent by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">TP_amp_map_exchange</td> <td colspan="1" rowspan="1">Performance timer for the start of an&lt;br&gt;AMP MAP Exchange&lt;br&gt;Either the EV or the EVSE shall send&lt;br&gt;a CM_AMP_MAP.REQ within the&lt;br&gt;max value of this timer after link is&lt;br&gt;detected in order to trigger an AMP&lt;br&gt;MAP Exchange.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_batch_msg_interval</td> <td colspan="1" rowspan="1">Interval between two CM_START_&lt;br&gt;ATTEN_CHAR.IND or CM_MNBC_&lt;br&gt;SOUND.IND messages</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_match_session</td> <td colspan="1" rowspan="1">Performance time for the EV to start&lt;br&gt;validation or SLAC_MATCH after&lt;br&gt;sending CM_ATTEN_CHAR.RSP</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_SLAC_init</td> <td colspan="1" rowspan="1">Time between plug-in (state B&lt;br&gt;detected) or wake-up and start of&lt;br&gt;matching by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EVSE_avg_atten_calc</td> <td colspan="1" rowspan="1">Performance time for the EVSE to&lt;br&gt;calculate the average attenuation pro-&lt;br&gt;file after reception of all M-SOUNDs&lt;br&gt;or after TT_EVSE_match_MNBC has&lt;br&gt;expired</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_link_ready_notification</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">0,2</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_response</td> <td colspan="1" rowspan="1">General performance time for a&lt;br&gt;response to a request</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 3)
+Related Information 27: Table A.1 (continued) <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">TP_match_sequence</td> <td colspan="1" rowspan="1">General performance time for sub-&lt;br&gt;sequent requests after a response to&lt;br&gt;previous request has been received</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_amp_map_exchange</td> <td colspan="1" rowspan="1">Timeout timer that runs on both EV&lt;br&gt;and EVSE side after link is detected&lt;br&gt;If an EV or EVSE does not want to&lt;br&gt;start an AMP MAP Exchange and no&lt;br&gt;request is received by the other side&lt;br&gt;within the timeout value of this timer,&lt;br&gt;then it is to be assumed that no AMP&lt;br&gt;MAP Exchange will take place and&lt;br&gt;a D-LINK_READY.indication is to be&lt;br&gt;sent to the HLE.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EV_atten_results</td> <td colspan="1" rowspan="1">Time the EV shall wait for CM_&lt;br&gt;ATTEN_CHAR.IND messages from&lt;br&gt;EVSEs. Timer starts with the sending&lt;br&gt;of the first CM_START_ATTEN_CHAR.&lt;br&gt;IND</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1 200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_MNBC</td> <td colspan="1" rowspan="1">Timeout on the EVSE side that trig-&lt;br&gt;gers the calculation of the average&lt;br&gt;attenuation profile</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_session</td> <td colspan="1" rowspan="1">Maximum time from the expiration of&lt;br&gt;TT_EVSE_match_MNBC and the recep-&lt;br&gt;tion of either CM_VALIDATE.REQ or&lt;br&gt;CM_SLAC_MATCH.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_SLAC_init</td> <td colspan="1" rowspan="1">Time between detecting state B and&lt;br&gt;receiving CM_SLAC_PARM.REQ on the&lt;br&gt;EVSE side</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_join</td> <td colspan="1" rowspan="1">Maximum time between CM_SLAC_&lt;br&gt;MATCH.CNF and link establishment&lt;br&gt;If there is no link after this timeout&lt;br&gt;expires, EV retries matching process&lt;br&gt;and EVSE resets its state machine</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">12</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_response</td> <td colspan="1" rowspan="1">Time that the EV/EVSE shall wait for a&lt;br&gt;response from the EVSE/EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_sequence</td> <td colspan="1" rowspan="1">Time that the EVSE/EV shall wait for&lt;br&gt;a request from the EV/EVSE</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_repetition</td> <td colspan="1" rowspan="1">Time duration for repetitions of the&lt;br&gt;matching process when an error&lt;br&gt;occurs</td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_rate</td> <td colspan="1" rowspan="1">Time to wait for a repetition of the&lt;br&gt;whole matching process after a failed&lt;br&gt;matching process</td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 3)
+Contextual Information 7: A.8 Timings and constants (ancestor of Table 3)
+Contextual Information 8: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Table 3)
+Contextual Information 9: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Table 3)
+Related Information 28: Figure A.9 gives an example of matching process error handling. The low-layer communication module of the EV is awake and the low-layer communication module of the EVSE is asleep. The EVCC sends first CM_SLAC_PARM.REQ message immediately after cable plug-in. The EVSE has to boot its low-layer communication module and is not able to answer the CM_SLAC_PARM.REQ message. After the low-layer communication module on the EVSE side is ready for communication, it sends a CM_SLAC_PARM.CNF. (sibling of Figure 1)
+Related Information 29: Figure A.9 — Example of sequence chart of matching process error handling (sibling of Figure 1)
+Contextual Information 10: A.9.8.1 Example of matching process error handling (ancestor of Figure 1)
+Contextual Information 11: A.9.8 General error handling and timing constraints (ancestor of Figure 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

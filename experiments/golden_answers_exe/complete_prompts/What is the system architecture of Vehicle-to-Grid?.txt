@@ -1,0 +1,1444 @@
+Question What is the system architecture of Vehicle-to-Grid communication?: What is the system architecture of Vehicle-to-Grid communication?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+FIGURE INFORMATION:
+Figure 1: 6.1 Communication layers overview - Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+Figure 2: Key - Figure 2 — [ISO-3] relationship to the ISO/IEC OSI reference model
+
+Image Description for Figure 2:
+```markdown
+# Detailed Description of Figure 2 — [ISO-3] Relationship to the ISO/IEC OSI Reference Model
+
+This figure shows how the Physical and Data Link layers used in ISO 15118‑3 (specifically for Power Line Communication on electric vehicles) align with the classic ISO/IEC 7498-1 (OSI) reference model. It illustrates the layered network architecture, culminating in interfaces that connect to higher-level protocols (Application, Presentation, Session, Transport, Network) and basic signaling (Control Pilot) as specified in IEC 61851‑1.
+
+Below is a step-by-step, layer-by-layer description of each entity in the figure and how they relate to each other.
+
+---
+
+## 1. Entities Overview
+
+From **bottom** to **top**, the following entities appear in the diagram:
+
+1. **Communication media**  
+   The physical medium (the cable assembly) through which signals and energy are exchanged between the Electric Vehicle (EV) and the Electric Vehicle Supply Equipment (EVSE).
+
+2. **Signal coupling**  
+   This represents the method of coupling the PLC (Power Line Communication) signal onto the AC or DC charging cable. It ensures the high-frequency PLC signal is injected or extracted without interfering with the power transfer itself.
+
+3. **PLC Physical layer**  
+   The physical layer of the Power Line Communication (e.g., HomePlug GreenPHY). It defines the electrical and modulation specifications required to transmit bits over the communication media.
+
+4. **MAC/PHY SAP**  
+   The Service Access Point between the PHY (Physical) and MAC (Medium Access Control) layers. It represents the interface through which the upper layer (MAC) exchanges data and control information with the physical layer.
+
+5. **PLC MAC layer**  
+   The Medium Access Control layer that handles packet framing, addressing, and channel-access mechanisms specific to PLC (e.g., carrier-sense multiple access, collision avoidance, etc.).
+
+6. **Convergence MAC SAP**  
+   The interface between the PLC MAC layer and the convergence layer. It ensures that data from higher-layer protocols is properly formatted for MAC-layer transmission and vice versa.
+
+7. **Convergence layer**  
+   A bridging layer that adapts the classic OSI Data Link–level services (like Ethernet bridging or VLAN tagging) into the specific requirements/format of the PLC protocols. It converges or translates data to align with HomePlug GreenPHY or other PLC standards.
+
+8. **Control SAP**  
+   A specialized Service Access Point providing a control interface for the PLC or other network-management functions (e.g., encryption key management, SLAC services, link status queries). This is used by upper software modules that need direct PLC-related control/configuration.
+
+9. **Data link control SAP**  
+   An interface that provides link-status information, error management, and other data link control functionalities. This SAP ties the connection coordination module to the lower-level Data Link functionalities.
+
+10. **Connection coordination**  
+   A functional block that coordinates establishing or tearing down logical connections. It helps with matching EVs to EVSEs, exchanging handshake signals, and managing the relationship between basic IEC 61851-1 signaling and the higher, logical data connections of ISO 15118.
+
+11. **Data SAP**  
+   The interface between the Data Link layer and the Network (layer 3) or higher layers for actual V2G (vehicle-to-grid) data exchange. All high-level charging messages (e.g., those required by ISO 15118-2) flow through the Data SAP.
+
+12. **Higher layers**  
+   In OSI terms, these encapsulate the Application, Presentation, Session, Transport, and Network layers. ISO 15118-2 typically operates at these layers (exchanging XML messages, session management, security, etc.).
+
+13. **Control pilot (IEC 61851-1) Hardware I/Os**  
+   Shown to the right, this denotes the separate hardware line(s) used for “basic signaling” (PWM duty cycle, pilot states, etc.). It is not strictly part of the PLC communication stack but interplays with it (for example, telling the EV and EVSE when to begin or end coupling for high-level communication).
+
+14. **OSI reference model layers**  
+   A vertical bracket on the left reminding us that Physical and Data Link layers in the OSI model are here implemented by the PLC layers and the “convergence layer.”
+
+15. **Key**: “covered by communication technology specification”  
+   The figure highlights (in gray) the parts (Convergence layer, PLC MAC, PLC PHY, etc.) that are defined by specific communication technology standards (e.g., HomePlug GreenPHY, IEEE 1901 Profile GreenPHY).
+
+---
+
+## 2. Detailed Layer-by-Layer Explanation and “Flow”
+
+Although this is not a conventional “flowchart,” the diagram can be read from the **Physical** layer at the bottom to the **Application** layer at the top to understand how data flows and which components interact:
+
+1. **Communication Media (Bottom Layer)**  
+   • Power cabling used for vehicle charging is also used to carry data signals.  
+   • Power is transferred from the EVSE to the EV; meanwhile, high-frequency signals are superimposed for data exchange.
+
+2. **Signal Coupling Layer**  
+   • Couples the PLC signal on top of the AC or DC power line.  
+   • Ensures minimal interference and correct impedance matching to pass data effectively between EV and EVSE.
+
+3. **PLC Physical Layer**  
+   • Responsible for modulating and demodulating waveforms on the power line.  
+   • Follows standards such as HomePlug GreenPHY for robust physical signaling (e.g., OFDM, error correction).
+
+4. **MAC/PHY SAP**  
+   • Logical interface that the MAC layer uses to send and receive frames (bits, symbols) via the Physical layer.  
+   • Transmits or receives packets after being encoded/decoded at the PHY.
+
+5. **PLC MAC Layer**  
+   • Implements media access rules (channel sensing, collision avoidance, etc.).  
+   • Adds header/trailer fields managing addressing and error detection.  
+   • Manages bridging to upper or lower layers via convergence sub-layers.
+
+6. **Convergence MAC SAP**  
+   • Provides a standardized interface for the next layer (Convergence layer) to get data from MAC frames.  
+   • Ensures correct framing and token passing between the Convergence and MAC layers.
+
+7. **Convergence Layer**  
+   • Adapts the PLC MAC frames into a more generic data link structure or vice versa.  
+   • Potentially includes bridging or VLAN tagging for IP-based or ISO 15118-2 application data.  
+   • At this layer, the system transitions from technology-specific data link frames to a more general data link service usable by higher protocols.
+
+8. **Control SAP**  
+   • A specialized side-interface that configuration/control processes (like encryption-key management or the SLAC process used for EV–EVSE association) can call.  
+   • Enables reading/writing certain parameters in the PLC MAC or PHY, including link status, encryption keys, and networking specifics.
+
+9. **Data Link Control SAP**  
+   • Presents data link status (connected, disconnected, error) and handles command signals for enabling or disabling link functionalities.  
+   • Ties in to the Connection Coordination function, letting higher-layer logic know about link conditions.
+
+10. **Connection Coordination**  
+    • Supervises or orchestrates which link or channel is used, how the handshake or matching occurs, and whether the EV and EVSE are “paired.”  
+    • Tightly integrated with basic signaling from IEC 61851-1 (Control Pilot) and high-level communication from ISO 15118-2.
+
+11. **Data SAP**  
+    • The normal “data” interface for exchanging V2G protocol payloads (e.g., charging session requests, contract identification) between the Data Link layer and the higher OSI layers (Network and above).  
+    • Actual ISO 15118-2 messages pass through this Data SAP after being encapsulated into MAC frames.
+
+12. **Higher Layers**  
+    • Spanning OSI Layers 3 to 7 (Network, Transport, Session, Presentation, Application).  
+    • In the context of ISO 15118, these higher layers format, encrypt, and interpret the actual “plug-and-charge” or “vehicle-to-grid” messages.
+
+13. **Control Pilot (IEC 61851-1) Hardware I/Os**  
+    • Shown on the right side as a separate domain.  
+    • Provides basic PWM signaling to indicate EV states, EVSE states, maximum current capability, presence of the EV, or charging fault conditions.  
+    • Ties into overall Connection Coordination to start or stop the PLC communication as required by the standard.
+
+---
+
+## 3. Relationship and Connection of Entities
+
+- **Physical to MAC**  
+  Data moves from the **Communication media** (power lines) through **Signal coupling** into the **PLC Physical layer**, which transmits/receives bits. The **MAC/PHY SAP** is then used to pass frames to/from the **PLC MAC layer**.
+
+- **MAC to Convergence**  
+  The **PLC MAC layer** sends or receives data frames to the **Convergence layer** through the **Convergence MAC SAP**. At this stage, commands and bridging logic are aligned with the needs of higher-level protocols.
+
+- **Convergence to Higher Protocols**  
+  After the Convergence layer, there are multiple SAPs:
+  1. **Control SAP** for direct PLC control and configuration queries (e.g., security keys, link info).  
+  2. **Data Link Control SAP** for controlling the link status, error notifications, and link enable/disable.  
+  3. **Data SAP** for normal data traffic that flows up to the OSI Network or Transport layers.
+
+- **Coordination with Basic Signaling**  
+  The **Connection coordination** block leverages the **Control SAP** and **Data link control SAP** to manage the handshake between the EV and EVSE at both the PLC level and the basic PWM signaling level. Meanwhile, the **Control pilot** line (IEC 61851-1) physically coordinates the presence detection and permissible current via the duty cycle.
+
+- **Higher Layers**  
+  Above the **Data SAP**, normal IP networking (or the ISO 15118-2 application messages) can proceed. These higher-layer protocols rely on the data path established at lower layers by the PLC system and are orchestrated by the **Connection coordination** function.
+
+---
+
+## 4. Key Takeaways
+
+1. **Layered Architecture**  
+   The figure highlights how the Physical and Data Link layers of ISO 15118‑3 map directly onto the OSI reference model. The “convergence layer” ensures that higher layers can remain mostly independent of the underlying PLC technology.
+
+2. **Control vs. Data**  
+   Two main SAP families exist:  
+   - **Control SAP / Data Link Control SAP**: For link management, error reporting, and secure network configuration.  
+   - **Data SAP**: For passing normal application data (ISO 15118-2 messages) to the upper layers.
+
+3. **Basic Signaling Integration**  
+   IEC 61851-1’s control pilot is shown outside the PLC stack, yet it is integral to “Connection coordination,” ensuring correct startup, safety interlocks, and fallback charging states.
+
+4. **Covered by Communication Technology Specification**  
+   The gray regions (Convergence layer, MAC, PHY) are implementations guided by specific PLC standards (e.g., HomePlug GreenPHY). They are thus “covered by communication technology specification.”
+
+By understanding each block and interface, engineers can quickly trace how signals and data flow from the power line (physical) up to the ISO 15118 application protocol, and how the system coordinates the link state with basic pilot signaling.
+```
+
+
+TEXTUAL INFORMATION:
+Text 1: 6.1 Communication layers overview (Context: 6.1 Communication layers overview > 6 System architecture > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - [ISO-3] defines requirements applicable to layer 1 and layer 2, including V2G standardized service primitive interface, according to the OSI layered architecture. Layer 3 to layer 7 is specified in [ISO-2]
+
+ADDITIONAL CONTEXT:
+Related Information 1: This part of ISO 15118 is organized along architectural lines, emphasizing the large-scale separation of the system into two parts: the MAC sublayer of the data link layer and the physical layer. These layers are intended to correspond closely to the lowest layers of the ISO/IEC model for open systems. Figure 1 shows the relationship of the [ISO-3] to the OSI reference model. (sibling of Text 1)
+Related Information 2: Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model (sibling of Text 1)
+Related Information 3: Vehicle-to-Grid communication ISO 15118-2 Network and application protocol requirements OSI layer 3 Network V2G standardized service primitive interface OSI layer 4 Transport OSI layer 5 Session OSI layer 6 Presentation OSI layer 7 Application ISO 15118-1 General information and use-case de�inition Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model (sibling of Text 1)
+Related Information 4: This part of ISO 15118 is covering both AC and DC use-cases. If not defined differently, requirements apply for both AC and DC. (sibling of Text 1)
+Related Information 5: Application Presentation Session Transport Network Data Link Physical PLC MAC layer Convergence layer Convergence MAC SAP MAC/PHY SAP Control SAP Data link control SAP Connection coordination Data SAP Higher layers Control pilot (IEC 61851-1) Hardware I/Os PLC Physical layer (sibling of Text 1)
+Related Information 6: Key (sibling of Text 1)
+Contextual Information 1: 6.1 Communication layers overview (ancestor of Text 1)
+Contextual Information 2: 6 System architecture (ancestor of Text 1)
+Contextual Information 3: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Related Information 7: [ISO-3] defines requirements applicable to layer 1 and layer 2, including V2G standardized service primitive interface, according to the OSI layered architecture. Layer 3 to layer 7 is specified in [ISO-2]. Beside the communication related stack on the left and middle of Figure 2, a hardware control path on the right provides triggering and signalling means for [IEC-1] related signalling. (sibling of Figure 1)
+Related Information 8: covered by communication technology specification (sibling of Figure 2)
+Related Information 9: Figure 2 — [ISO-3] relationship to the ISO/IEC OSI reference model (sibling of Figure 2)
+Related Information 10: possible procedure mandatory procedure HLC-C charging controlled by high-level communication BC charging controlled by IEC 61851-1 trigger condition (sibling of Figure 2)
+Related Information 11: NOTE 1 CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage). (sibling of Figure 2)
+Related Information 12: NOTE 2 Branch d) is for EVs not supporting HLC-C. (sibling of Figure 2)
+Related Information 13: Figure 3 — Connection coordination Seq 1: AC EVSE with PnC and EIM and matching process not started before EIM, 5 % control pilot duty cycle after plug-in (sibling of Figure 2)
+
+Image Description for Figure 3:
+# Detailed Description of the Flow Chart (Figure 3)  
+
+Below is a step-by-step explanation of the flow chart, including each key entity, the transitions between states, and how they relate to one another. This chart describes an AC EVSE (Electric Vehicle Supply Equipment) supporting different modes of charging, including High-Level Communication Charging (HLC-C) and Basic Charging (BC), under both Plug & Charge (PnC) and External Identification Means (EIM). 
+
+---
+
+## 1. Entities Overview
+
+1. **Plug-in**  
+   The moment the EV is physically connected to the EVSE.
+
+2. **X1 or X2 (5%)**  
+   Indicates that upon plug-in, the Control Pilot (CP) can be in either state X1 or state X2 with a 5% duty cycle.  
+   • NOTE 1: According to IEC standards ([IEC‐3], Table 5), CP state X1 may be used for a brief period until the CP oscillator is switched on. If not using X1, then 5% duty cycle in X2 is used instead.
+
+3. **X2 (5%)**  
+   Shows the CP remains at 5% duty cycle while waiting for authorization or the start of the matching process.
+
+4. **“Matched state” and authorization OK**  
+   Once the EV and EVSE have established that the authorization (PnC or EIM) is successful, and the matching process (for high-level communication) is complete, the charging can proceed under HLC-C.
+
+5. **EIM done & matching process not started**  
+   An indication that External Identification Means is completed, but the matching process (to move to HLC-C) has not started. This situation might lead to remaining in a 5% duty cycle or transitioning to other states.
+
+6. **Re-init**  
+   A session restart without physically unplugging the EV (often triggered by an error or a control pilot transition to state E).
+
+7. **E/F (0%)**  
+   The control pilot is in an error or fault state (0% duty cycle). This typically happens if a fault or error has been detected, or if the system invokes a “re-init” procedure.
+
+8. **T_step_EF**  
+   The specific time duration the system remains in the E/F (0%) state (error handling) before transitioning back to a normal control pilot state.  
+   • T_step_EF is defined by the standard to allow proper reset/clearing of faults.
+
+9. **X2 (nom.)**  
+   The nominal duty cycle in control pilot state X2 (indicating readiness for normal or basic charging). When HLC-C is not active or is completed, the CP uses the nominal duty cycle instead of 5%.
+
+10. **HLC-C (charging controlled by high-level communication)**  
+    Indicates that charging (or “V2G Setup”) is controlled via ISO 15118 high-level messages. PnC or EIM with HLC-C will use this path.
+
+11. **BC (charging controlled by IEC 61851-1)**  
+    Basic charging mode (without high-level communication). This is allowed before or after the high-level communication session, or as a fallback if the EV does not support HLC-C.
+
+12. **V2G Setup finished**  
+    Signals that the high-level communication (ISO 15118) setup phase is completed.
+
+13. **a) PnC**  
+    Branch “a” indicates the Plug & Charge path where authorization and matching take place over the high-level communication interface.
+
+14. **b) EIM w. BC**  
+    Branch “b” is for External Identification Means with Basic Charging. The EVSE and EV proceed in a basic IEC 61851-1 manner once EIM is successful.
+
+15. **c) EIM w/o BC**  
+    Branch “c” is for an EVSE that supports EIM and HLC-C but does not do full BC fallback. The result is high-level communication (HLC-C) for charging.
+
+16. **d) [IEC-1] Charging**  
+    Branch “d” shows the fallback or default IEC 61851-1 charging for EVs that do not support HLC-C.  
+    • NOTE 2: This branch is specifically for EVs not supporting HLC-C.
+
+17. **Trigger condition**  
+    Marked by an open arrow outline in the key. It indicates a condition (like “Matched state,” “authorization OK,” or “Re-init”) that triggers a transition.
+
+18. **Possible procedure (dotted arrow)** versus **Mandatory procedure (solid arrow)**  
+    Per the chart key, certain steps are allowed/possible, whereas others are mandatory in this coordination sequence.
+
+19. **Refer to IEC 61851-1 Ed 3, A5**  
+    A reference pointing to further details in the IEC 61851-1 standard regarding nominal CP states and transitions.
+
+20. **NOTE 1**  
+    “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).” This clarifies that the EVSE may briefly apply X1 as an alternative to X2(nom.) in certain conditions.
+
+21. **NOTE 2**  
+    “Branch d) is for EVs not supporting HLC-C.” This clarifies that path “d” in the diagram applies only to vehicles that cannot handle high-level communication.
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+Below is the logical progression from plug-in to charging, including all key points:
+
+1. **Plug-in**  
+   - The EV is physically connected to the EVSE (control pilot circuit becomes active).
+
+2. **Initial CP State (X1 or X2 at 5% duty cycle)**  
+   - Right after plugging in, the EVSE may apply either:  
+     • X1 (5%) briefly, or  
+     • X2 (5%) immediately.  
+   - This 5% duty cycle indicates a low-current pilot signal, often used when the matching process (for HLC-C) is not started yet or when PnC/EIM authorization has not completed.
+
+3. **Transition to X2 (5%)**  
+   - If X1 was used initially, the EVSE then transitions to X2 at 5% duty cycle.  
+   - At this point, the “V2G Setup” may finish if the EV and EVSE quickly reach the “matched state” and authorization is OK (PnC or EIM).
+
+4. **Check Authorization / Matching**  
+   - If the EVSE detects that the vehicle is in the “matched state” with authorization OK (e.g., PnC done successfully or EIM done successfully with HLC-C), the diagram shows branch **a)** for PnC.  
+   - Otherwise, if the EIM is done but the matching process has not started, the EVSE may hold the 5% duty cycle or move to handle basic charging.
+
+5. **Re-init Condition (Optional Error Handling)**  
+   - If an error arises before successful authorization, the EVSE (or EV) may force a “Re-init.”  
+   - “Re-init” triggers a transition to CP state **E/F (0%)**.
+
+6. **E/F (0%) State**  
+   - The EVSE remains in E or F at 0% duty cycle for a duration **T_step_EF**, allowing the system to reset or clear fault conditions.
+
+7. **Transition to X2 (nom.)**  
+   - After T_step_EF, the EVSE switches the control pilot to **X2 (nom.)**, the normal duty cycle for potential basic charging or high-level communication readiness.
+   - At this point, there are several possible (and mandatory) branches:
+
+   ### a) PnC  
+   - If “Matched state” and PnC authorization are confirmed, high-level communication (HLC-C) controls the charging session (marked as “V2G Setup finished”).
+
+   ### b) EIM w. BC (External Identification Means with Basic Charging)  
+   - If EIM is used and the EVSE is configured to allow BC fallback, the EV charges under IEC 61851-1 control.  
+   - The diagram labels this as “b) EIM w. BC” with a mandatory arrow to “BC” or to “HLC-C,” depending on the setup.
+
+   ### c) EIM w/o BC (External Identification Means without Basic Charging fallback)  
+   - The EVSE supports EIM, but does not provide a Basic Charging fallback. Instead, once authorized, the system proceeds to high-level communication (HLC-C).  
+   - Labeled “c) EIM w/o BC.”
+
+   ### d) [IEC-1] Charging (No HLC-C Support)  
+   - This is the simple IEC 61851-1 path for EVs **not** supporting high-level communication.  
+   - **NOTE 2** reminds us that branch “d)” is explicitly for EVs incapable of HLC-C.
+
+8. **V2G Setup Finished**  
+   - For cases (a) PnC and (c) EIM w/o BC, the EVSE can complete the “V2G Setup” (i.e., high-level communication is established), and the EV can start charging with HLC-C controlling the current.  
+   - For (b) EIM w. BC or (d) IEC 61851-1, the EV charges under basic control pilot rules (nominal duty cycle).
+
+---
+
+## 3. Relation and Connection of Entities
+
+1. **Control Pilot States (X1, X2, E/F)**  
+   - These states indicate the duty cycle signals from the EVSE to the EV.  
+   - X1 or X2 at 5% represents “limited pilot signal” while waiting for matching or authorization.  
+   - X2 (nom.) represents “normal pilot signal,” allowing higher charging current or standard communication.  
+   - E/F (0%) is the error or fault state, where no charging current is offered.
+
+2. **High-Level Communication (HLC-C) vs. Basic Charging (BC)**  
+   - HLC-C requires a matching process and an active ISO 15118 negotiation. Once authorized (PnC or EIM w/o BC), the EVSE and EV exchange communication messages to control charging.  
+   - BC is the fallback or simpler mode, controlled by IEC 61851-1 duty cycles. It is used if the EV does not support high-level communication or if the system transitions to a basic mode.
+
+3. **Authorization Paths**  
+   - **PnC (a)**: Fully automatic method with contract certificates (Plug & Charge).  
+   - **EIM (b, c)**: The user must apply some external identification, possibly an RFID card or other method.  
+   - If an EV does not support HLC-C, branch **d** is used.
+
+4. **Re-init / Error Handling**  
+   - “Re-init” indicates that the system restarts the session logic (without a physical unplug) by transitioning to E/F (0%) for a set time **T_step_EF**.
+
+5. **Notes and References**  
+   - **NOTE 1**: CP state X1 is equivalent in usage to X2 (nom.) for a limited timeframe, based on IEC 61851-1 guidelines.  
+   - **NOTE 2**: Branch (d) is specifically for vehicles not supporting HLC-C.  
+   - **Refer to IEC 61851‐1 Ed 3, A5**: For deeper details on the CP states and transitions, especially X1 vs. X2 usage.
+
+---
+
+## 4. Summary
+
+- The flow chart details how an EVSE handles an EV connection from plug-in through error conditions (Re-init/E/F) to different charging modes (PnC, EIM with or without BC, or pure IEC 61851-1).  
+- The fundamental distinction is between using high-level communication (HLC-C) under ISO 15118 or defaulting to basic IEC 61851-1 control (BC).  
+- The 5% duty cycle (X2 or X1) is used directly after plug-in for authorization and matching steps.  
+- Once “V2G Setup” is finished (PnC or EIM w/o BC), the EV can charge under high-level communication.  
+- If the EV does not support HLC-C, or if an error triggers re-init, the EVSE can revert to basic charging (nominal X2 duty cycle).
+
+By following this step-by-step diagram, engineers can quickly discern the control pilot behavior at each phase of the charging process, helping them implement or troubleshoot ISO 15118-3–compliant AC charging scenarios. ## 1. **Entities Overview**
+
+Below is a list of the key entities and notations shown in the figure, along with brief definitions or notes:
+
+1. **Plug-in**  
+   Indicates that the EV (Electric Vehicle) is physically connected to the EVSE (Electric Vehicle Supply Equipment).
+
+2. **Re-init**  
+   A trigger condition that implies re-initialization of the charging or communication process.
+
+3. **X1 or X2 (5%)**  
+   • These represent control pilot states after the EV is plugged in.  
+   • “X2 (5%)” often indicates a 5% duty cycle on the control pilot, meaning the EVSE is signaling a low current or limited mode.  
+   • “X1” is a control pilot state defined in certain IEC standards.  
+   • Per the note, CP state X1 is allowed instead of X2 (nominal) following [IEC-3] (Table 5).  
+   • “X1 is required by TS 62763” is an additional note found in the diagram.
+
+4. **X2 (5% or nom.)**  
+   Once communication or certain conditions are met, the control pilot can be set to either 5% duty cycle or its nominal (full) duty cycle. “Nominal” typically means a normal charging current limit.
+
+5. **EIM done & matching process started**  
+   “EIM” denotes External Identification Means. This label indicates that the EVSE has completed authentication/identification by external means, and a matching process for PnC (Plug and Charge) or other protocols has begun.
+
+6. **“Matched state” and authorization OK**  
+   A state where the EVSE and EV have successfully exchanged necessary authorization data (e.g., for PnC or EIM) and are ready to proceed with charging setup.
+
+7. **a) PnC**  
+   Indicates the pathway for charging using Plug-and-Charge under high-level communication (HLC). Shown as a dedicated branch labeled “a) PnC.”
+
+8. **b) EIM w/ BC**  
+   Indicates the path for charging with External Identification Means and “BC” (Basic Charging). The label “BC charging controlled by IEC 61851‑1” means this branch follows standard IEC 61851‑1 basic signaling without advanced high-level communication for energy/power negotiation.
+
+9. **c) EIM w/o BC**  
+   Another EIM branch without Basic Charging fallback (or “w/o BC”). In this diagram, the EV may still use HLC-C for control or complete the process differently.
+
+10. **HLC-C**  
+    Stands for “High-Level Communication – Control,” referring to an EV and EVSE communication interface governed by upper-layer protocols (per ISO 15118). The label “charging controlled by high-level communication” clarifies that the EV and EVSE negotiate charging parameters using a higher-level standardized protocol.
+
+11. **BC**  
+    “Basic Charging,” which follows IEC 61851‑1, uses only the PWM duty cycle on the control pilot to communicate available current, without additional data link layers.
+
+12. **V2G Setup finished**  
+    V2G (Vehicle-to-Grid) services are set up. This note indicates that the initialization (communication, authorization, and matching) is complete.
+
+13. **Possible procedure** (dashed arrow)  
+    Indicates that this path may occur under certain conditions but is not mandatory.
+
+14. **Mandatory procedure** (solid arrow)  
+    Indicates that this path must occur in the standard defined sequence.
+
+15. **Trigger condition** (arrow with open box)  
+    Highlights an external event or action that triggers a state transition, such as “Re-init.”
+
+16. **Note**  
+    “CP state X1 is allowed instead of X2 (nom.) following [IEC‑3].” This clarifies that certain EVSEs may use X1 in place of nominal X2 under IEC guidelines.
+
+
+## 2. **Flow of the Diagram**
+
+Below is a step-by-step walk-through of the entire flow based on the figure:
+
+1. **Start: Plug-in**  
+   - The process begins with the EV being physically connected to the EVSE.  
+   - Immediately after plug-in, the control pilot can be in **X1** or **X2 (5%)**.  
+   - In some designs, the EVSE may initially apply **X1**, and in others, a 5% duty cycle (X2) is established.
+
+2. **Re-init (Optional Trigger)**  
+   - There is a possibility that a “Re-init” trigger occurs. If so, the system might revert to the initial condition of X1 or X2 (5%), effectively restarting the coordination process.
+
+3. **EIM Done & Matching Process Started**  
+   - When External Identification Means is completed (e.g., RFID authentication or another method) and the matching process (for user authorization or contract setup) begins, the EVSE may transition the control pilot state to either **X1** or **X2 (5% or nominal)**.
+
+4. **Proceed to X2 (5% or nominal)**  
+   - After EIM is done, the control pilot often shifts or remains at a recognized state, typically **X2** with either a restricted 5% duty cycle or the nominal duty cycle.  
+   - There is a note (in the diagram) specifying that the EVSE can apply X1 if needed (per TS 62763), but for most cases, X2 is used.
+
+5. **“Matched State” & Authorization OK**  
+   - Once the EVSE and EV have validated each other (e.g., cryptographic handshake, contract validation, or user identification is approved), they achieve a “matched state.”  
+   - This means that the EV is fully authorized to proceed with charging, and the system can complete the V2G communication steps.
+
+6. **Branching into Three Main Paths**  
+   - After reaching the matched/authorized state, the setup is effectively complete (noted by “V2G Setup finished”), and the diagram shows three branches:
+
+   **a) PnC**  
+   - Plug-and-Charge path that uses HLC-C (high-level communication). Charging is entirely controlled by ISO 15118 protocols over a high-level data link.  
+
+   **b) EIM w/ BC**  
+   - External Identification Means with Basic Charging. The EVSE and EV continue charging under IEC 61851‑1 basic pilot signaling (“BC”), but the overall session is still recognized as EIM-based. High-level communication (HLC-C) might be used for some coordination but the actual current control is handled by BC signals.  
+
+   **c) EIM w/o BC**  
+   - External Identification Means (with no basic charging fallback). The EV and EVSE rely on HLC-C for control once authorized. The current levels and charging details are governed purely by high-level communications.
+
+7. **V2G Setup Finished**  
+   - In each branch, once the matching and authorization steps are validated, the communication channel is established or not needed (depending on BC vs. HLC-C). The vehicle and EVSE are now in a position to deliver power under the correct protocol and policies. The note “V2G Setup finished” emphasizes the system is ready for energy transfer, time-based adjustments, or other V2G-related functions.
+
+8. **Note about X1 vs. X2**  
+   - If the EVSE chooses to apply CP state X1 (instead of X2 nominal) at certain times, this is allowed by IEC references, but typically X2 nominal is expected for normal charging readiness.  
+   - Additional references mention that X1 might be used temporarily or in certain compliance contexts (TS 62763).
+
+Throughout the flow, **solid arrows** denote **mandatory steps** specified by the standard, and **dashed arrows** denote **possible (optional or conditional) procedures** that may or may not occur, based on the EVSE’s capabilities or the local configuration.
+
+
+## 3. **Relationship and Connection of Entities**
+
+- **EVSE and EV**: The diagram revolves around their interaction—from the moment of plugging in to the completion of the V2G setup.  
+- **Control Pilot States (X1 or X2)**: These states define the electrical conditions on the control pilot line per IEC 61851‐1 or TS 62763. Either X1 or X2 (5% or nominal) signals the readiness and current capacity available to the EV.  
+- **HLC-C (High-Level Communication)**: Serves as a communication channel (ISO 15118) enabling advanced features like Plug-and-Charge (PnC) and dynamic negotiation of charging parameters.  
+- **BC (Basic Charging)**: Uses the simpler IEC 61851–1 PWM scheme. When the EVSE or EV is not using the advanced HLC, they fall back to BC for setting current limits (branch b) and (by extension) c).  
+- **EIM**: Provides user identification external to the vehicle (e.g., via RFID or smartphone). Once “EIM done,” authorization and matching processes can either continue or finalize for charging.
+
+In summary, the flow chart details how an AC EVSE can coordinate multiple charging modes (PnC, EIM with BC, or EIM without BC):
+
+• It starts when the EV is plugged in (applying X1 or X2 at 5% duty cycle).  
+• Moves through user/contract authentication (EIM done, matching process).  
+• Transitions to a valid charging or matched state (X2 nominal or remain at 5% if needed).  
+• Finally splits into whichever method is supported or authorized—PnC (high-level comm) or EIM-based charging (either with or without BC).
+
+All of these steps ensure the EV and EVSE establish the correct communication and power transfer settings before actual charging begins.# Detailed Description of the Flow Chart
+
+Below is a step-by-step description of the flow chart shown in the figure. The diagram illustrates an AC EVSE (Electric Vehicle Supply Equipment) supporting High-Level Communication Control (HLC‑C) with both “Plug & Charge” (PnC) and EIM (External Identification Means). It also shows where Basic Charging (BC) fits in the process. The important note here is that some EVSEs support both PnC and EIM, while others may only support one path. Additionally, Control Pilot (CP) states X1 or X2 govern the duty cycle used on the control pilot signal.
+
+---
+
+## 1. Entities Overview
+
+1. **Plug-in**  
+   The event where the EV is physically connected to the EVSE.
+
+2. **Re-init**  
+   A trigger condition indicating that the EVSE and/or EV re-initializes the communication or charging process.
+
+3. **CP State X1 (100%)**  
+   A control pilot state that can be active immediately after plugging in (100% duty cycle).  
+   – Note: “X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+4. **CP State X2 (nom.)**  
+   A nominal control pilot state that is typically used once the EVSE begins its normal duty cycle configuration.
+
+5. **CP State X2 (5% or nom.)**  
+   A possibly reduced duty cycle (at 5%) or nominal duty cycle, used to signal and confirm matching/authorization states between the EV and EVSE.
+
+6. **“Matched state” and authorization OK**  
+   Indicates that the EV and EVSE have successfully “matched” each other’s communication requirements and that authorization to charge is confirmed.
+
+7. **EIM done & matching process started**  
+   After the External Identification Means is completed, the matching process (which checks that the EV and EVSE can communicate properly) begins.
+
+8. **V2G Setup finished**  
+   Denotes that the high-level Vehicle-to-Grid (V2G) communication setup is established (in other words, the communication handshake is complete).
+
+9. **HLC‑C**  
+   “High-Level Communication Control”: indicates charging that is controlled via ISO 15118 high-level messages.
+
+10. **BC**  
+   “Basic Charging” (controlled by IEC 61851‑1): a simpler control mechanism using the basic control pilot signals without advanced ISO 15118 communication features.
+
+11. **a) PnC**  
+   A branch of the process for “Plug & Charge,” whereby authentication and authorization can be done automatically via certificates exchanged over high-level communication.
+
+12. **b) EIM w/ BC**  
+   A branch indicating blended EIM with Basic Charging. Communication is still possible at a high level, but actual current or power levels may be regulated in a simpler manner (BC).
+
+13. **c) EIM w/o BC**  
+   A branch in which EIM is used, and the charging proceeds without Basic Charging fallback (or simply uses the high-level communication directly).
+
+14. **possible procedure** (dashed arrow)  
+   Indicates a pathway or step that is allowed but not strictly mandatory in every implementation.
+
+15. **mandatory procedure** (solid arrow)  
+   Indicates a step that is required per the standard or the scenario.
+
+16. **trigger condition** (block arrow)  
+   A condition or event that initiates a transition (e.g., “Re-init,” “EIM done,” etc.).
+
+17. **NOTE**  
+   “CP state X1 is allowed instead of X2 (nom.) following [IEC‑3] (Table 5, X1 state usage).”
+
+---
+
+## 2. Flow of the Diagram
+
+The chart can be broken down into the following sequence:
+
+1. **Plug-in → X1 (100%)**  
+   - The EV is plugged in.  
+   - Initially, the control pilot may be in state X1 (100% duty cycle).  
+   - This step might be very brief or can remain active until the EVSE activates its control pilot oscillator.  
+   - Alternatively, some implementations go directly to X2 (nom.) or X2 (5%) shortly after plug-in.
+
+2. **EIM Done & Matching Process Started**  
+   - As soon as the EV is plugged in and recognized, the EVSE can begin the EIM procedure (if applicable).  
+   - Once EIM completes, the EVSE and EV can begin the matching process (confirming the EV is ready for high-level communication and/or basic charging).  
+
+3. **Transition to X2 (5% or nom.)**  
+   - The EVSE shifts the control pilot signal to a “5% or nominal” duty cycle.  
+   - This denotes that the system is seeking or has established a “matched state” and is checking authorization compatibility.
+
+4. **X2 (5% or Nom.) “Matched State” and Authorization OK**  
+   - At this point, the EV and EVSE have confirmed each other’s presence and authorization.  
+   - From here, the diagram specifies the main charging branches.
+
+5. **V2G Setup Finished**  
+   - The high-level communication (ISO 15118) or the matching for basic charging (IEC 61851‑1) is complete.  
+   - The system is ready to begin energy transfer, subject to the branch chosen (PnC or EIM).
+
+6. **Branches (After V2G Setup Finished)**
+   - **(a) PnC**  
+     1. The EV proceeds under the “Plug & Charge” mechanism.  
+     2. All further charging control is managed by HLC‑C (high-level communication).  
+     3. This path is mandatory if the EV and EVSE are both configured for PnC and the user wishes to use it.  
+
+   - **(b) EIM w/ BC**  
+     1. The EV chooses EIM for identification/authorization.  
+     2. The actual charging current (or power) is controlled primarily by Basic Charging (BC) signals per IEC 61851‑1.  
+     3. Meanwhile, the high-level communication (HLC‑C) can still provide additional status or monitoring as necessary, but the main control is BC.  
+
+   - **(c) EIM w/o BC**  
+     1. The EV also uses EIM for identification, but BC is not utilized.  
+     2. The charging is controlled directly by the high-level communication (HLC‑C).  
+
+7. **Re-init**  
+   - A trigger condition that resets the process if necessary (for example, if some error occurs or a new cycle starts).  
+   - This can bring the CP signal back to X1 (100%) or the sequence might revert to an earlier step.
+
+---
+
+## 3. Relation and Connection of Entities
+
+- **Control Pilot States (X1, X2)**  
+  - These states represent different duty cycle signals on the control pilot line in accordance with IEC 61851‑1.  
+  - X1 (100%) may appear at plug-in or during re-initialization.  
+  - X2 (nom.) or X2 (5% or nominal) typically indicates the EVSE is in an active state waiting for or confirming communication or charging readiness.
+
+- **HLC‑C and BC**  
+  - These represent two different control planes for charging.  
+    - **HLC‑C (High-Level Communication)** follows ISO 15118 protocols for advanced features (e.g., PnC, contract certificates).  
+    - **BC (Basic Charging)** follows the simpler IEC 61851‑1 approach using the control pilot’s duty cycle to modulate charging current.
+
+- **Trigger Conditions**  
+  - “EIM done & matching process started,” “Re-init,” or “Plug-in” are events that move the system from one state to the next.
+
+- **PnC and EIM**  
+  - **PnC (Plug & Charge)** relies on automatic certificate-based authorization over the HLC connection.  
+  - **EIM (External Identification Means)** typically uses RFID cards, credit cards, or other external methods to authorize charging.
+
+- **NOTE on CP State Usage**  
+  - The chart clarifies that an EVSE may operate in CP state X1 instead of X2 (nom.) for a short time upon plugging in, depending on the implementation and compliance with IEC rules.
+
+---
+
+## 4. Summary
+
+This flow chart (often referenced in ISO 15118-3 and related IEC 61851-1 guidelines) illustrates how an AC charging session can be coordinated when both PnC and EIM options are available:
+
+1. EV is plugged in (CP state X1 or X2).  
+2. EIM completes (if used) and the matching/authorization process starts.  
+3. Control pilot transitions to a 5% or nominal duty cycle, indicating a “matched state.”  
+4. Authorization is confirmed (PnC or EIM).  
+5. V2G Setup finishes.  
+6. Charging proceeds under one of three branches:  
+   - (a) PnC (fully high-level)  
+   - (b) EIM with Basic Charging  
+   - (c) EIM with high-level communication only (no BC).  
+
+At every step, the chart differentiates **mandatory** arrows (solid) from **possible** (dashed) ones, highlighting which state transitions might be optional under certain system configurations.
+
+---
+
+> **Important Note:**  
+> If an EVSE only supports EIM or only supports PnC, any unused branches in the diagram (e.g., BC or HLC‑C) need not be followed. The figure covers the “universal” scenario where both are supported and the matching process has already started when EIM is finished.# Detailed Description of the Flow Chart
+
+Below is a thorough, step-by-step explanation in markdown format, covering all entities, transitions, and notes shown in the figure.
+
+---
+
+## 1. Entities Overview
+
+1. **A**  
+   - Represents an initial state or entry point (before the EV is plugged in or any charging coordination begins).
+
+2. **Plug-in**  
+   - Indicates the action of connecting the EV to the EVSE (Electric Vehicle Supply Equipment).
+
+3. **Re-init**  
+   - Denotes a re-initialization step, potentially triggered if the system needs to restart the setup process.
+
+4. **X2 (nom.)**  
+   - Refers to the nominal Control Pilot (CP) state “X2” as defined in the IEC/ISO standards. This is typically the normal state for AC charging pilot signaling.  
+   - According to the NOTE, “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+5. **X2 (5 % or nom.)**  
+   - A variant on the Control Pilot “X2” state, potentially signifying a reduced PWM duty cycle (e.g., 5% for low-level communication or nominal duty cycle).
+
+6. **b) EIM w. BC**  
+   - A branch indicating External Identification Means (EIM) with Basic Charging (BC).  
+   - “BC” (Basic Charging) is charging controlled by IEC 61851‑1.
+
+7. **c) EIM w/o BC**  
+   - Another branch indicating EIM but without Basic Charging. Here, charging is controlled by high-level communication (HLC-C).
+
+8. **d) [IEC-1] Charging**  
+   - Represents a standard IEC 61851‑1 charging process (basic “Mode 3” charging), labeled as [IEC‑1] in the figure.
+
+9. **Trigger condition**  
+   - A condition or event that causes the transition from one control pilot state or step to another.
+
+10. **HLC-C**  
+    - High-Level Communication – Configuration (or simply High-Level Communication for Charging).  
+    - Indicates that the charging process is coordinated through advanced communication protocols (ISO 15118 / DIN 70121).
+
+11. **BC**  
+    - Basic Charging.  
+    - Charging controlled purely by the IEC 61851‑1 “Mode 3” protocol, without high-level comms.
+
+12. **V2G Setup finished**  
+    - A status showing that all necessary Vehicle-to-Grid (V2G) high-level communication steps or matching processes have completed successfully.
+
+13. **NOTE**  
+    - Provides an additional standard-specific note:  
+      “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+14. **Possible procedure** (represented by dashed arrows)  
+    - Indicates paths or transitions that may occur depending on the EVSE/EV implementation but are not strictly mandatory by the standard.
+
+15. **Mandatory procedure** (represented by solid arrows)  
+    - Indicates paths or transitions that must occur to meet the standard requirements.
+
+16. **Refer to IEC 61851‑1 Ed. 3, A.5**  
+    - This reference points to a specific subclause in IEC 61851‑1 Edition 3, Annex A.5, which further explains or clarifies the CP states.
+
+17. **Key**  
+    - A legend/guide to the flowchart’s symbols and lines (possible/mandatory procedures, trigger conditions, etc.).
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+1. **State A (Idle/Pre-Connection)**  
+   - The dotted line labeled “possible procedure” leads to the circle marked “A,” showing that the system may start in this idle state or arrive here after a previous cycle.
+
+2. **Transition to “Plug-in” or Re-init**  
+   - From state “A,” two possible (dotted) paths can occur:  
+     1. **Plug-in**: The user connects the EV to the EVSE.  
+     2. **Re-init**: Some systems may need to reset, reinitialize, or re-attempt the procedure.
+
+3. **Arrival at X2 (nom.)**  
+   - Once plugged in or re-initialized, the EVSE sets the control pilot to “X2 (nom.)” (or “X1” if the NOTE is applicable). This is indicated by the solid arrow (mandatory procedure) leading to “X2 (nom.).”
+
+4. **Branch from X2 (nom.)**  
+   - At “X2 (nom.),” the chart shows multiple possible paths depending on whether high-level communication (HLC-C) or basic charging (BC) is being used, and whether External Identification Means (EIM) is required:
+
+   a) **From X2 (nom.) → X2 (5 % or nom.) with HLC-C → b) EIM w. BC**  
+      - If EIM is used with Basic Charging, then after V2G setup completion, the system references HLC-C for controlling the process. The duty cycle on the pilot might switch to “5 % or nominal,” and the EVSE is in an EIM mode with BC.  
+      - “BC” then handles charging under IEC 61851‑1.
+
+   b) **From X2 (nom.) → X2 (5 % or nom.) with HLC-C → c) EIM w/o BC**  
+      - Similar to the above, but if Basic Charging is not utilized, the EV/EVSE rely solely on high-level communication. The flow indicates “V2G Setup finished,” leading to EIM without BC.
+
+   c) **From X2 (nom.) → X2 (nom.) → d) [IEC-1] Charging**  
+      - If high-level communication is not used or not requested, the diagram references the standard IEC 61851‑1 charging process directly. This path also indicates that at some point after “X2 (nom.),” the EV goes into normal AC charging according to [IEC-1].
+
+5. **V2G Setup Finished**  
+   - Whenever HLC-C is invoked, the arrow from “HLC-C” shows “V2G Setup finished,” confirming that the vehicle-to-grid communication handshake is complete.
+
+6. **Reference to IEC 61851-1 Ed. 3, A.5**  
+   - The flow returns to “X2 (nom.)” with an accompanying note referencing IEC 61851‑1 for further details on pilot-state transitions.
+
+7. **NOTE**  
+   - The flow chart includes a note at the bottom clarifying that **CP state X1** may be used in place of **X2 (nom.)** if IEC-3 (Table 5) X1 state usage is applicable. This might occur in certain EVSE/EV configurations.
+
+---
+
+## 3. Relation and Connection of Entities
+
+1. **Control Pilot States (“X2(nom.)” or “X2(5% or nom.)”)**  
+   - These states define the level of duty cycle on the control pilot signal, crucial for indicating charging readiness, EIM usage, or high-level communication readiness.
+
+2. **HLC-C (High-Level Communication)**  
+   - When invoked, it coordinates the charging session (e.g., V2G features, advanced authorization, dynamic control). The flow chart clearly shows transitions that involve HLC-C lead to “V2G Setup finished” before actual charging can begin.
+
+3. **BC (Basic Charging)**  
+   - The simpler IEC 61851‑1–based control method, either used alone ([IEC-1] path) or in conjunction with EIM (b) EIM w. BC).
+
+4. **EIM w. BC vs. EIM w/o BC**  
+   - EIM (External Identification Means) can be combined with basic signaling or purely high-level communications. The diagram shows these two distinct branches:  
+     - **b) EIM w. BC:** EIM authentication plus IEC 61851‑1.  
+     - **c) EIM w/o BC:** EIM authentication and purely HLC-based control.
+
+5. **Trigger Conditions**  
+   - The arrows labeled with trigger conditions indicate transitions that depend on completing setup steps (e.g., “V2G Setup finished” or successful EIM). They show how the system might jump from “X2(nom.)” to “X2(5% or nom.)” or remain at “X2(nom.)” for traditional IEC 61851‑1 charging.
+
+---
+
+## 4. Additional Notes & References
+
+- **NOTE on CP state X1**:  
+  “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).” Depending on the EVSE implementation, the initial pilot state right after plug-in may be X1 rather than X2(nom.).
+
+- **IEC 61851-1 Ed. 3, A.5**:  
+  Additional details for CP signal definitions, pilot states, and the behavior in normal or reduced pilot duty cycles can be found in Annex A.5 of the third edition of IEC 61851‑1.
+
+- **High-Level Communication**:  
+  Typically refers to ISO 15118 (PnC, Plug-and-Charge) or DIN 70121-based solutions that enable advanced negotiation, payment handling, and bidirectional (V2G) features.
+
+- **Basic Charging**:  
+  Follows the simple IEC 61851‑1 conduction-based control pilot methodology without advanced communication.
+
+---
+
+### Conclusion
+
+This flow chart depicts how an AC EVSE supporting high-level communication (HLC-C) and/or basic charging (BC) transitions through its control pilot states and procedures once an EV is plugged in (or re-initialized). The diagram includes multiple branches for External Identification Means (EIM) with or without BC, as well as a direct [IEC-1] charging path. Each step—plug-in, re-init, moving from A state to X2(nom.), optionally switching to X2(5% or nom.), completing V2G setup, and beginning charging—corresponds to specific control pilot and communication states. The note clarifies that X1 can stand in for X2(nom.) in certain implementations per IEC-3.
+
+Related Information 14: Figure 4 shows an AC EVSE supporting HLC-C with PnC and EIM. The matching process is not started when EIM is done. The EVSE applies control pilot state X1 after plug-in. If an EVSE only supports EIM or PnC, only some branches exist. (sibling of Figure 2)
+Related Information 15: Key possible procedure mandatory procedure HLC-C charging controlled by high-level communication BC charging controlled by IEC 61851-1 trigger condition (sibling of Figure 2)
+Related Information 16: Figure 4 — Connection coordination Seq 2: AC EVSE with PnC and EIM and matching process not started before EIM, control pilot state X1 after plug-in (sibling of Figure 2)
+Related Information 17: message does not reach its destination (sibling of Figure 2)
+Related Information 18: 1 voltage measurement (sibling of Figure 2)
+Related Information 19: 2 oscillator ±12 V, 1 kHz (sibling of Figure 2)
+Related Information 20: 3 pilot contact (sibling of Figure 2)
+Related Information 21: 4 earth (ground) (sibling of Figure 2)
+Related Information 22: 5 Green PHY modem (sibling of Figure 2)
+Related Information 23: 6 duty cycle and frequency measurement (sibling of Figure 2)
+Related Information 24: additional components for PLC coupling (sibling of Figure 2)
+Related Information 25: Figure A.10 — Implementation of parallel injection (sibling of Figure 2)
+
+Image Description for Figure A.10:
+## Figure A.10 — Implementation of Parallel Injection
+
+Below is a detailed description of each labeled element in the schematic and how they interconnect. Although this figure is presented as a circuit diagram (rather than a traditional “flowchart”), the step-by-step structure below will help you follow the signal path and understand how each component relates to the others. This diagram shows how HomePlug Green PHY signals are injected in parallel (between the Control Pilot line and ground/earth) for communication between the EVSE and EV.
+
+---
+
+### 1. Entities Overview
+
+1. **EVSE (Electric Vehicle Supply Equipment)**  
+   The left rectangular region represents the EVSE side. It provides the ±12 V, 1 kHz control pilot signal, measures voltage on the pilot line, injects and receives PLC (Power Line Communication) signals via a Green PHY modem, and references Earth (ground).
+
+2. **EV (Electric Vehicle)**  
+   The right rectangular region is the EV side. It also includes a Green PHY modem and supporting components for parallel injection and measurement of the control pilot signal (duty cycle and frequency). The EV’s contactors and internal circuitry ultimately use the pilot to detect charging states and enable communication.
+
+3. **Oscillator ±12 V, 1 kHz (Key #2)**  
+   Generates the low-frequency (1 kHz) PWM control pilot signal. This signal is crucial for basic control pilot functions prescribed by IEC 61851 (e.g., indicating EV readiness or maximum current availability).
+
+4. **Pilot Contact (Key #3)**  
+   The pilot contact is effectively the point where the EVSE’s control pilot line is physically connected to the corresponding pilot input on the EV side (through the charging cable and coupler).
+
+5. **R1 1 k (on EVSE side)**  
+   A series resistor (1 kΩ) connected to the oscillator output. It helps set the correct pilot voltage levels and limits current.
+
+6. **C_S (on EVSE side)**  
+   Often called the “control pilot capacitor” in IEC standards. It shapes the pilot signal to comply with specific requirements and influences the total capacitive behavior on the pilot line.
+
+7. **Green PHY Modems (Key #5)**  
+   Both the EVSE and EV sides include a Green PHY modem. These modems handle high-frequency HomePlug Green PHY (HPGP) communication on top of the pilot line. Each modem is shown in a dashed box on both sides (the rectangle labeled “5”).
+
+8. **R_damp (Damping Resistor) and L (Inductor)**  
+   Each side has an R_damp and L in series, forming part of the low-pass filter for the pilot signal (the LC network) and a high-pass path for the HomePlug Green PHY signals. R_damp prevents or limits resonance in the LC filter.
+
+9. **C_PLC (Coupling Capacitors to the Green PHY Modem)**  
+   These capacitors provide a high-frequency coupling path for the Green PHY signals from the pilot line into the modem, while isolating low-frequency or DC components.
+
+10. **C_v (EV side)**  
+   Defined in IEC documents, C_v is another capacitor related to the detection/measuring circuit inside the EV, usually affecting pilot line diagnostics or measurements.
+
+11. **R2, R3, and S2 (EV side)**  
+   — **R2 and R3**: Resistors on the EV side pilot circuitry, used for pilot line detection, current sensing, or dividing voltages for pilot sensing.  
+   — **S2**: A switch (or contact) that can open/close for pilot line control or internal EV states.
+
+12. **Voltage Measurement (Key #1)**  
+   Indicates that the EVSE side monitors pilot voltage levels for compliance with control pilot specifications (e.g., states A, B, C in IEC 61851).
+
+13. **Earth (ground) (Key #4)**  
+   The reference earth or protective earth (PE). The high-frequency signal is injected between the pilot line and earth/ground. This ensures the HomePlug Green PHY signals have a proper return path.
+
+14. **Duty Cycle and Frequency Measurement (Key #6)**  
+   On the EV side, the duty cycle and frequency measurement block monitors the PWM characteristics of the pilot signal (i.e., the 1 kHz, ±12 V waveform) to interpret the EVSE’s indication of available current and other pilot states.
+
+15. **Additional Components for PLC Coupling**  
+   Shown as a dashed region, these might include filters, ESD protection, or EMC compliance parts. They should not degrade the HomePlug Green PHY signals beyond stated limits.
+
+---
+
+### 2. Step-by-Step Signal Flow and Connections
+
+Even though this is a circuit schematic rather than a traditional flowchart, we can describe how signals traverse or how each function occurs in succession:
+
+1. **Pilot Signal Generation (EVSE side)**  
+   - The **oscillator (±12 V, 1 kHz)** produces the control pilot waveform.  
+   - The pilot waveform goes through **R1 (1 kΩ)** and **C_S**, shaping the signal and ensuring correct amplitude as per IEC requirements.
+
+2. **Pilot Line Connection to Green PHY Modem (EVSE side)**  
+   - The **pilot line** is also branched through the **LC filter** formed by **L** (inductor) and **R_damp** (damping resistor) to the **C_PLC** capacitor.  
+   - **C_PLC** feeds the **Green PHY modem**, allowing high-frequency components (the HPGP signal) to pass to/from the modem but blocking the lower-frequency 1 kHz pilot wave from saturating the modem.
+
+3. **Voltage Measurement (EVSE side)**  
+   - The EVSE monitors the pilot voltage (labeled Key #1) to verify pilot states, detect EV presence, and measure any duty cycle references required by the standard.
+
+4. **Pilot Contact (Connector) Between EVSE and EV (Key #3)**  
+   - The pilot line physically transitions from the EVSE circuit to the EV circuit at the **pilot contact**. This is typically inside the charging cable and coupler.
+
+5. **Green PHY Parallel Injection Path to Earth (EV Side)**  
+   - On reaching the EV side, the pilot line splits:  
+     - One path continues into the EV’s measurement and pilot control logic (through R3, R2, and possibly S2).  
+     - Another path branches through another LC filter stage (**L**, **R_damp**, **C_PLC**) to the **Green PHY modem** on the EV side. The parallel injection is again between the pilot line and **earth/ground**.  
+   - The diode shown in the pilot line (on the EV side) can be part of the standard pilot detection or protective circuitry.
+
+6. **Duty Cycle and Frequency Measurement (EV side, Key #6)**  
+   - The EV needs to interpret the EVSE’s PWM signal to understand the available current or states (A, B, C, etc.). Thus, there is a block that directly measures the pilot’s duty cycle and frequency once it has passed through the EV’s front-end components.
+
+7. **S2 (EV side switch)**  
+   - **S2** may engage or disengage certain parts of the EV’s pilot circuitry, depending on the EV’s state (e.g., if the EV is ready to charge or certain fault conditions). When closed, the pilot circuit is fully connected; when open, the pilot circuit is interrupted.
+
+8. **Additional Components for PLC Coupling**  
+   - Finally, any **additional PLC coupling** components (EMC filters, ESD protection, etc.) are placed so they do not adversely affect the high-frequency Green PHY signals or the low-frequency pilot signal. They must maintain compliance with the emission and immunity constraints (A.10 EMC requirements and others cited in ISO 15118-3).
+
+---
+
+### 3. Relationship and Purpose of Each Section
+
+- **Low-Frequency Pilot Signal Path (1 kHz)**  
+  Passes through R1, C_S, the pilot contact, R2, R3, and S2 (when closed). The EVSE and EV measure this pilot for verifying connection status, charging states, and maximum current availability.
+
+- **High-Frequency Communication Path (HomePlug Green PHY)**  
+  Injected in parallel to earth at both the EVSE and EV sides via the LC filters (L, R_damp, and C_PLC). These filters isolate the 1 kHz pilot wave from the modem but allow the higher-frequency data signals to travel between the two Green PHY modems.
+
+- **Filtering and EMC Considerations**  
+  Inductors, damping resistors, and capacitors create low-pass filtering for pilot signals and high-pass filtering for the PLC signals. This design ensures that high-frequency data does not overly distort the control pilot, while the pilot line remains within standard requirements (IEC 61851, ISO 15118-3, etc.).
+
+- **Measurement Points**  
+  Key #1 (voltage measurement) and Key #6 (duty cycle/frequency measurement) denote where the EVSE and EV measure the pilot signal. In each case, there may be a low-pass filter recommended to remove the high-frequency components from the measurement path (per the notes in ISO 15118-3).
+
+---
+
+### 4. Summary
+
+Figure A.10 demonstrates an example implementation of “parallel injection” for HomePlug Green PHY signals onto the control pilot line:
+
+- The **EVSE** supplies the main pilot signal via an oscillator and monitors pilot voltage.  
+- **Parallel injection** ensures both the EVSE and EV couple the high-frequency Green PHY signals between the pilot and ground.  
+- **Low-pass + high-pass filtering** (with L, R_damp, and capacitors) allows the 1 kHz pilot control signal to pass unimpeded while at the same time guiding the high-frequency Green PHY data to each modem.  
+- **Duty-cycle/frequency measurements** are taken by both sides (the EVSE monitors the raw pilot voltage; the EV monitors duty cycle) while the high-frequency data is superimposed.  
+
+Through these components and connections, the system meets the dual requirements of standard pilot signaling (for charging states) and HomePlug Green PHY communication (for vehicle-to-grid data exchange) on the same control pilot conductor.
+
+Related Information 26: NOTE 1 Different topologies like point-to-multipoint are not covered and might require adaptations. (sibling of Figure 2)
+Related Information 27: NOTE 2 The coupling drawing is valid for cases A, B, and C, as defined in the [IEC-1]. (sibling of Figure 2)
+Related Information 28: NOTE 3 The coupling capacitors are equivalent components, which can be implemented with more than one component. For example, two capacitors, as soon as the requirements about values given in the table below is fulfilled. (sibling of Figure 2)
+Related Information 29: NOTE 4 L and RDamp associated with capacitors form low pass filters, which ensure the basic signalling and HomePlug Green PHY communication at the same time. Through the filters, low frequency signals can pass to the control pilot line and high frequency signals are available at the Green PHY modem. The RDamp resistors limit resonance effects of the RLC filters. (sibling of Figure 2)
+Related Information 30: [V2G3-A11-02] In case of parallel injection, the HomePlug Green PHY signal shall be coupled between the control pilot wire and the PE (Protective Earth) wire. (sibling of Figure 2)
+Related Information 31: [V2G3-A11-03] In case of parallel injection, the HomePlug Green PHY injection circuit on EVSE side shall be wired to the control pilot and the PE. Additional components, such as EMC or ESD protection, should not affect the HomePlug Green PHY signals. (sibling of Figure 2)
+Related Information 32: [V2G3-A11-04] In case of parallel injection, the HomePlug Green PHY injection circuit on EV side shall be wired to the control pilot line and the ground. Additional components, such as EMC or ESD protection, should not affect the HomePlug Green PHY sig- nals. (sibling of Figure 2)
+Related Information 33: [V2G3-A11-05] HomePlug Green PHY shall work with any valid control pilot duty cycle or state as defined in [IEC-1]. (sibling of Figure 2)
+Related Information 34: [V2G3-A11-06] A proper voltage level and duty cycle of the control pilot raw signal shall be imple- mented on EVSE side, to ensure [IEC-1] compliancy in presence of an additional HomePlug Green PHY signal. (sibling of Figure 2)
+Related Information 35: The [ISO-3] highly recommends to apply at least a first order low pass filter with a cut-off frequency of 100 kHz to 200 kHz for measurements on the control pilot signal (e.g. duty cycle or amplitude), not to disturb the measurement by high frequency HomePlug Green PHY signals. (sibling of Figure 2)
+Related Information 36: 1 amplitude/state measurement (sibling of Figure 2)
+Related Information 37: 2 oscillator ±12 V 1 kHz (sibling of Figure 2)
+Related Information 38: 3 PLC chipset (sibling of Figure 2)
+Related Information 39: 4 charge cord Cc < 1 500pF (sibling of Figure 2)
+Related Information 40: 5 dutycycle measurement (sibling of Figure 2)
+Related Information 41: Figure A.13 — Implementation example with a HomePlug Green PHY coupling transformer (sibling of Figure 2)
+
+Image Description for Figure A.13:
+# Detailed Description of Figure A.13 – Implementation Example with a HomePlug Green PHY Coupling Transformer
+
+Below is a detailed, step-by-step description of the schematic labeled “Figure A.13 — Implementation example with a HomePlug Green PHY coupling transformer.” Although the figure is presented more like a circuit schematic than a traditional flowchart, this explanation follows each “path” and notes all components to help engineers quickly understand how signals and connections are arranged.  
+
+---
+
+## 1. Overall Schematic Overview
+
+The diagram shows two main sections:
+
+1. **EVSE (Electric Vehicle Supply Equipment) side** (left block)  
+2. **EV (Electric Vehicle) side** (right block)  
+
+These two blocks are connected via the **control pilot line** and share the same protective earth/ground reference. Within each block, various components provide:
+
+- The generation and measurement of the PWM “control pilot” signal (nominal ±12 V at 1 kHz).  
+- The coupling of high-frequency HomePlug Green PHY signals through a dedicated transformer and capacitors.  
+- Protective and filtering elements (resistors, inductors, damping networks, diodes).  
+
+The high-level purpose is to **inject** and **receive** HomePlug Green PHY communication signals over the control pilot while simultaneously maintaining the standard EVSE–EV PWM control signal (1 kHz) and capturing duty-cycle and amplitude measurements.
+
+---
+
+## 2. Entities (Components) and Their Roles
+
+Below is a list of the labeled entities from the figure and a short description of each:
+
+1. **Amplitude/state measurement** (labeled “1”)  
+   - Measures the voltage amplitude of the pilot signal, helping determine EV connection state and diagnostic information.
+
+2. **Oscillator ±12 V 1 kHz** (labeled “2”)  
+   - The fundamental PWM generator that provides the control pilot signal (±12 V) at 1 kHz on the EVSE side.
+
+3. **PLC chipset** (labeled “3”)  
+   - The HomePlug Green PHY powerline communication module. It couples the data signal onto the control pilot line through a transformer and filter network.
+
+4. **Charge cord Cc < 1 500 pF** (labeled “4”)  
+   - Indicates the total parasitic capacitance of the charging cord connecting the EVSE pilot line to the EV’s inlet. It must be below 1,500 pF.
+
+5. **Dutycycle measurement** (labeled “5”)  
+   - A measurement block that evaluates the PWM duty cycle on the EV side. The EV uses this for determining the available current and state of charge control.
+
+6. **Implementation example with a HomePlug Green PHY coupling transformer** (text at the bottom of the diagram) and **Figure A.13**  
+   - Indicates that this schematic is the official example of how to implement a HomePlug Green PHY coupling onto the control pilot line.
+
+7. **R1, R2, R3**  
+   - Resistors necessary to meet IEC 61851 or ISO 15118 pilot wiring guidelines (e.g., R1 on the EVSE side, R2 & R3 inside the EV circuit). They help set pilot voltages and sense states.
+
+8. **L** (shown on both EVSE and EV as part of an LC filter with “RDamp”)  
+   - An inductor for filtering and shaping the communication and pilot signals. Often used to suppress high-frequency noise.
+
+9. **S2**  
+   - A switching element on the EV side. It may represent enable/disable or grounding states as required by the control pilot standard (IEC 61851).
+
+10. **RDamp**  
+    - A damping resistor (220 Ω in the example) placed in series with the inductor L. It helps control or damp resonances in the pilot line.
+
+11. **Cs**  
+    - A capacitor on the EVSE side that, together with R1 and other passive components, forms part of the pilot shaping and filtering network.
+
+12. **CM**  
+    - A small coupling capacitor (100 pF in the example) used for noise filtering or common-mode coupling.
+
+13. **RM**  
+    - A resistor in the megaohm-to-kilohm range (shown as 10 kΩ in the example). Often used to form a referencing path for measuring pilot or for protection.
+
+14. **2× CPLC**  
+    - Two coupling capacitors (each about 1.35 nF in the example) that convey the high-frequency communication signals from the PLC chipset transformer out to, or in from, the pilot line—while blocking the low-frequency (1 kHz) PWM from interfering directly with the PLC chipset.
+
+15. **CV**  
+    - Another capacitor (labeled “[IEC-1]” in the example table) on the EV side for pilot signal conditioning or filtering.
+
+16. **D**  
+    - A diode in the EV circuit. It can be for polarity protection or controlling certain pilot states (e.g., releasing pilot line if there is an error).
+
+17. **EVSE**  
+    - The electric vehicle supply equipment block containing the control pilot generation, measurement, and the PLC modem coupling network (left-hand block).
+
+18. **EV**  
+    - The electric vehicle block containing the pilot detection circuit, duty cycle measurement, and the complementary PLC modem coupling (right-hand block).
+
+---
+
+## 3. Signal Paths and Connections
+
+Although not a classic “flowchart,” the diagram displays how signals flow between the EVSE and EV via the pilot line. The main paths are:
+
+1. **Pilot PWM Path (Low-Frequency: 1 kHz)**  
+   - On the **EVSE side**, the ±12 V, 1 kHz oscillator (2) injects the control pilot signal.  
+   - The pilot amplitude is monitored by the **amplitude/state measurement** (1) in the EVSE to detect EV presence and state transitions.  
+   - On the **EV side**, the duty-cycle measurement (5) monitors the arriving PWM for the pilot signal’s high/low levels. The EV can switch S2 or adjust internal connections to signal different EV states (e.g., charging, ventilation required, etc.).  
+   - **R1, R2, R3, Cs, CV, CM, and RM** adjust or sense the pilot line level and ensure pilot compliance to IEC 61851-1.
+
+2. **HomePlug Green PHY Data Path (High-Frequency: ~1.8 MHz–30 MHz)**  
+   - **PLC chipset (3)** on the EVSE side drives/receives high-frequency signals through a **coupling transformer** and the pair of capacitors **(2× CPLC)**.  
+   - The communication signals combine with the pilot line through these coupling capacitors but do not substantially affect the 1 kHz pilot thanks to filtering by the inductor **L**, resistors **RDamp**, and other high-frequency–blocking elements.  
+   - At the **EV side**, the high-frequency PLC signal also couples via **2× CPLC** and a similar **transformer** arrangement.  
+   - **L** (the inductor) and **RDamp** components on both sides help prevent large resonance or undesired signal reflection.  
+   - The diode **D** can protect the EV from any reversed or high-voltage events.  
+
+3. **Charge Cord Consideration**  
+   - The **charge cord Cc < 1 500 pF** (4) is shown as the cable parasitic capacitance. Keeping this capacitance low is necessary to preserve signal integrity for both the pilot PWM and high-frequency PLC communication.
+
+4. **Ground/Earth Reference**  
+   - Both EVSE and EV are referenced to a common ground for safety and measurement consistency.  
+   - The standard requires that the pilot line operate with known references for amplitude measurement and duty cycle detection.
+
+---
+
+## 4. Step-by-Step Function (Interpretation)
+
+To interpret this schematic in a stepwise “flow,” consider the main functionality:
+
+1. **Pilot Signal Generation (EVSE side)**  
+   a. The oscillator (2) outputs a ±12 V, 1 kHz PWM.  
+   b. This signal passes through R1, Cs, and other pilot-conditioning components.  
+   c. The **amplitude/state measurement** (1) on the EVSE side observes the pilot voltage amplitude to detect EV presence.  
+
+2. **Pilot Signal Transmission via Control Pilot**  
+   a. The pilot line travels through the charge cord.  
+   b. **2× CPLC** capacitors on each side couple the broadband PLC signals but appear high-impedance at low frequency (1 kHz), so the pilot is only mildly affected.  
+   c. The pilot line arrives at the EV’s circuit with R2, R3, etc., that set or detect the pilot level.  
+
+3. **Pilot Signal Detection (EV side)**  
+   a. The duty cycle measurement (5) block measures the incoming PWM signal.  
+   b. S2 and the diode (D) can switch states according to standard charging protocols (e.g., controlling whether the EV is ready for charging, demands ventilation, etc.).  
+
+4. **HomePlug Green PHY Communication**  
+   a. The EVSE’s PLC chipset (3) injects high-frequency signals through a coupling transformer and **2× CPLC**.  
+   b. The EV’s PLC circuitry also couples through an identical transformer and capacitor arrangement.  
+   c. Inductor (L) and RDamp on both sides help shape or attenuate high-frequency noise.  
+   d. This ensures data can flow between EVSE and EV over the same pilot line used for PWM.  
+
+By combining these steps, the system achieves **both** standard pilot control (per IEC 61851-1) **and** high-frequency data communication (per ISO 15118 / HomePlug Green PHY).
+
+---
+
+## 5. Additional Notes for Engineers
+
+- **Component Values**:  
+  Table A.12 of the standard gives typical component values (e.g., L = 220 µH, RDamp = 220 Ω, CPLC = 1.35 nF, etc.). Actual values depend on the specific PLC chipset design and compliance with ISO 15118-3 and IEC 61851.  
+
+- **50 Ω Considerations**:  
+  Many measurement recommendations in ISO 15118-3 specify a 50 Ω environment (e.g., for spectrum analyzers, for measuring PSD). The design must ensure consistent 50 Ω terminations and minimal insertion loss in the PLC frequency range.
+
+- **PWM Integrity**:  
+  The pilot’s ±12 V amplitude and shape must not be distorted beyond specification. This includes ensuring the high-frequency coupling doesn’t degrade the 1 kHz pilot signal or the EV’s ability to measure duty cycle accurately.
+
+- **Safety**:  
+  Elements like the diode (D) and the resistor networks protect against transient conditions and ensure no unsafe voltages appear on the pilot line.
+
+---
+
+## 6. Summary
+
+Figure A.13 illustrates a complete example of how to **inject HomePlug Green PHY signals** onto the **control pilot** between EVSE and EV, while still respecting the **IEC 61851** pilot requirements (±12 V at 1 kHz) and enabling **iso15118** high-level communication. Each component shown is carefully chosen to filter, protect, or measure signals at both low (1 kHz pilot) and high (1.8–30 MHz) frequencies, ensuring proper broadband communication and standard-compliant PWM pilot functionality.
+
+Related Information 42: For the implementation example in Figure A.13, the component values defined in Table A.12 should be applied. (sibling of Figure 2)
+Related Information 43: Table A.12 — Component values of implementation example (sibling of Figure 2)
+Related Information 44: Table A.12 — Component values of implementation example <table border="1"> <td colspan="1" rowspan="1">Component</td> <td colspan="1" rowspan="1">Value</td> <tr> <td colspan="1" rowspan="1">R1</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">R2</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">R3</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">RM</td> <td colspan="1" rowspan="1">10 kΩ</td> </tr> <tr> <td colspan="1" rowspan="1">CM</td> <td colspan="1" rowspan="1">100 pF</td> </tr> <tr> <td colspan="1" rowspan="1">CV</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">CS</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">S&lt;br&gt;CPLC</td> <td colspan="1" rowspan="1">1,35 nF</td> </tr> <tr> <td colspan="1" rowspan="1">T1/T2</td> <td colspan="1" rowspan="1">Example: 1:1:1 Coupling transformer&lt;br&gt;(Depends on the chips and the TX / RX band-pass&lt;br&gt;filter)</td> </tr> <tr> <td colspan="1" rowspan="1">D</td> <td colspan="1" rowspan="1">[IEC-1]</td> </tr> <tr> <td colspan="1" rowspan="1">L</td> <td colspan="1" rowspan="1">220 µH</td> </tr> <tr> <td colspan="1" rowspan="1">R Damp</td> <td colspan="1" rowspan="1">220 Ω</td> </tr> </table> (sibling of Figure 2)
+Related Information 45: 1 modem on EVSE (sibling of Figure 2)
+Related Information 46: 2 modem on EV (sibling of Figure 2)
+Related Information 47: Figure B.2 — Coupling circuit for G3 technology on pilot wire (sibling of Figure 2)
+
+Image Description for Figure B.2:
+**# Detailed Description of Figure B.2 — Coupling Circuit for G3 Technology on Pilot Wire**
+
+Below is a step-by-step, detailed explanation of the schematic shown in “Figure B.2 — Coupling circuit for G3 technology on pilot wire.” This diagram illustrates how the high-frequency G3-PLC (IEEE 1901.2) communication signals are coupled to the control pilot line between an EVSE (Electric Vehicle Supply Equipment) and an EV (Electric Vehicle). Although it is presented more like a circuit diagram than a traditional “flow chart,” the following description walks through each component and path in order.
+
+---
+
+## 1. Diagram Overview
+
+- The diagram shows two main blocks labeled:
+  1. **modem on EVSE** (on the left side)  
+  2. **modem on EV** (on the right side)  
+
+- Between these two sides, there is a **pilot line** that incorporates inductors (Lx1, Lx2), resistors (Rx1, Rx2), coupling capacitors (Cx1, Cx2, Cx3, Cx4), and other passive components.  
+- Additional standard pilot-circuit elements (R1, C1, R2, R3, S1, etc.) are shown but described as “indicated for information only” in the standard.  
+- The cable assembly between the EVSE and EV is represented as **T2**, with an additional coupler T7 in the middle.  
+
+---
+
+## 2. Entities (Components) Listed
+
+Below is a list of each labeled entity, along with its role or function as per the figure:
+
+1. **R1 (1 kΩ)**  
+   - Standard resistor connected from the EVSE’s supply to the pilot line. Part of the IEC 61851-1 pilot interface.
+
+2. **C1 (300 pF)**  
+   - A capacitor to ground from the pilot line on the EVSE side, also part of the pilot basic filtering.
+
+3. **0 (Ground reference)**  
+   - Denotes the reference node or chassis/earth ground on the EVSE side.
+
+4. **Lx1 (1 000 µH)** and **Rx1 (680 Ω)**  
+   - A series inductor and resistor inserted in the pilot line on the EVSE side.  
+   - These components help prevent the high-frequency PLC signal from being excessively attenuated or shorted to ground through other EVSE internal circuitry.
+
+5. **T2**  
+   - Represents the cable assembly carrying the pilot wire (and potentially other conductors) between the EVSE and the EV.
+
+6. **T7**  
+   - Shown in the middle, typically a coupling or test point (sometimes an additional physical coupler or choke) that is part of the overall pilot line path.
+
+7. **Lx2 (1 000 µH)** and **Rx2 (680 Ω)**  
+   - The second set of inductor/resistor in series with the pilot line, but on the EV side.  
+   - Same purpose as the Lx1 and Rx1 pair on the EVSE side: forming the series impedance to avoid shorting out high-frequency signals.
+
+8. **C2b (1 n?)**, **R2 (2.7 kΩ)**, **R3 (1.3 kΩ)**, **S1**  
+   - Shown on the EV side as part of the standard pilot-circuit elements, including the proximity detection or pilot detection circuit. From IEC 61851-1 perspective, R2, R3, and S1 are typical pilot-line components internal to the EV.
+
+9. **Modem 1 (EVSE Modem Block)**  
+   - Marked in the figure as “1.”  
+   - The G3-PLC modem on the EVSE side has two pins: **In** and **Out** for the high-frequency signals.
+   - It connects to the pilot line through coupling capacitors **Cx1 (500 pF)** and **Cx3 (< 500 pF)** and through resistors **Rx3 (1 kΩ)** and **Rx5 (> 10 kΩ)**.
+
+10. **Modem 2 (EV Modem Block)**  
+   - Marked in the figure as “2.”  
+   - The G3-PLC modem on the EV side, also with **In** and **Out** pins. 
+   - It uses coupling capacitors **Cx2 (500 pF)** and **Cx4 (< 500 pF)** in conjunction with resistors **Rx4 (1 kΩ)** and **Rx6 (> 10 kΩ)**.
+
+11. **Cx1 (500 pF) / Cx2 (500 pF)**  
+   - Mandatory coupling capacitors for injecting and receiving the high-frequency PLC signals onto the pilot line.
+
+12. **Cx3 (< 500 pF) / Cx4 (< 500 pF)**  
+   - Additional coupling capacitors (generally smaller) that may be used on the input side for the modem to filter or shape signals.
+
+13. **Rx3 (1 kΩ) / Rx4 (1 kΩ)**  
+   - Represent the internal output impedance of the modem transmitter. They ensure that the voltage variations of the PLC signal remain within acceptable limits.
+
+14. **Rx5 (> 10 kΩ)** / **Rx6 (> 10 kΩ)**  
+   - Optional high-value input impedance resistors on the receiving end of the modem, limiting current draw and preserving the high-frequency signal.
+
+15. **C2a (1 nF)**  
+   - A capacitor bridging the mid-line in the schematic, typically providing low-impedance coupling for common-mode signals across T2/T7. Its exact function is to aid in the high-frequency path or EMI considerations.
+
+16. **Key**  
+   - The figure’s reference text indicates “1” is the modem on EVSE side and “2” is the modem on EV side.
+
+---
+
+## 3. Step-by-Step Signal/Circuit Path Description
+
+Because this diagram is a coupling circuit rather than a traditional directional “flow chart,” the best way to describe its “flow” is to trace how a G3-PLC signal travels between the modems:
+
+1. **AC Pilot Supply and Pilot Reference (Left Most Side)**  
+   - A pilot signal or supply is connected through **R1 (1 kΩ)**.  
+   - **C1 (300 pF)** goes from the pilot conductor to ground (node “0”) for noise filtering.  
+
+2. **Series Inductor and Resistor on EVSE Side (Lx1 & Rx1)**  
+   - After leaving R1/C1, the pilot line passes through **Lx1 (1 000 µH)** in series with **Rx1 (680 Ω)**.  
+   - These form the mandatory high-frequency blocking or “choke” to keep the pilot circuit from shunting all high-frequency energy to ground.
+
+3. **Coupling to EVSE Modem (Block “1”)**  
+   - The pilot line node (between Lx1/Rx1 and T2/T7) goes to two coupling capacitors feeding the EVSE modem:  
+     - **Cx3 (< 500 pF)** → Possibly connected toward the modem **In** pin, with resistor **Rx5 (> 10 kΩ)** referencing input impedance to ground.  
+     - **Cx1 (500 pF)** → Possibly connected toward the modem **Out** pin, with resistor **Rx3 (1 kΩ)** as the modem’s internal source resistor for the HF signal.  
+   - These capacitors pass the high-frequency G3-PLC signals but block low-frequency or DC pilot currents.
+
+4. **Cable Assembly and Center Coupling (T2 and T7)**  
+   - **T2** is the physical cable from EVSE to EV, carrying the pilot conductor (and possibly other conductors).  
+   - **T7** is an in-line coupling element or test point. The standard simply shows T7 in the path, which might be used for measurement or for additional filtering.
+
+5. **Series Inductor and Resistor on EV Side (Lx2 & Rx2)**  
+   - On the vehicle side, the pilot conductor is again routed through another set of inductor and resistor: **Lx2 (1 000 µH)** and **Rx2 (680 Ω)**.  
+   - As on the EVSE side, Lx2 and Rx2 ensure that the EV’s internal pilot circuitry does not excessively load or short out the PLC signal.
+
+6. **EV Standard Pilot Connection (C2b, R2, R3, S1)**  
+   - The figure shows some typical pilot-circuit resistors **R2 (2.7 kΩ)**, **R3 (1.3 kΩ)**, and switch **S1**. These are part of the standard IEC 61851-1 pilot function for controlling and detecting EV presence or charging states.  
+   - A capacitor **C2b (1 n? )** may also appear, used for smoothing or filtering within the EV’s pilot logic.  
+
+7. **Coupling to EV Modem (Block “2”)**  
+   - Similar to the EVSE side, the EV modem connects to the pilot line through coupling capacitors and limiting resistors:  
+     - **Cx2 (500 pF)** is the main coupling capacitor for the high-frequency transmit/receive path.  
+     - **Rx4 (1 kΩ)** is the internal source/limiting resistor.  
+     - **Cx4 (< 500 pF)** could be the receive filter capacitor.  
+     - **Rx6 (> 10 kΩ)** is again an optional high-value input impedance resistor to ground.  
+
+8. **Signal Path for G3-PLC**  
+   - In essence, the G3-PLC signal travels from the EVSE modem (left block) → coupling capacitors (Cx1/Cx3) → pilot line through Lx1 + Rx1 → T2/T7 → Lx2 + Rx2 → coupling capacitors (Cx2/Cx4) → EV modem (right block).  
+   - The mandatory values of Lx1, Lx2 (each 1 000 µH), Rx1, Rx2 (each 680 Ω), and Cx1, Cx2 (each 500 pF) are specified to ensure consistent attenuation and adequate coupling across a wide frequency range, while also meeting EMC requirements.
+
+---
+
+## 4. Connections and Relationships
+
+- **Pilot Wire Core**: The pilot wire is the main conductor bridging EVSE and EV. It carries both the standard PWM pilot signal (per IEC 61851-1) and now the superimposed high-frequency G3-PLC signals.
+- **High-Frequency Isolation**:  
+  - Lx1, Rx1, Lx2, Rx2 form the series choke and damping sections.  
+  - These prevent the pilot line’s normal low-frequency control signal from interfering with G3-PLC, and vice versa.
+- **Coupling Capacitors**:  
+  - Cx1, Cx2 provide the primary path for injecting/extracting high-frequency signals to/from the pilot line.  
+  - Cx3, Cx4 are secondary capacitors for filtering or for the input side of the modem.
+- **Resistive Networks**:  
+  - Rx3, Rx4 are the output resistors from the modem perspective (limiting voltage amplitude).  
+  - Rx5, Rx6 are optional high-value input resistors to ground or to the reference inside the modem, allowing minimal loading.  
+- **Standard Pilot Components**:  
+  - R1, C1, R2, R3, and S1 are from IEC 61851-1 pilot circuit definition, ensuring safe operation and standardized detection of charge states. They are “informational” in this figure but included so that engineers see the complete interplay between pilot function and PLC signals.
+
+---
+
+## 5. Additional Notes from the Standard
+
+1. **Signal Level Requirements**  
+   - Per ISO 15118-3 and IEEE 1901.2 references, the PLC signal on the pilot wire is limited to 0.5 V RMS maximum (to avoid interference with pilot PWM) and at least 0.2 V RMS to ensure reliable communication.
+
+2. **Mandatory Coupling Values**  
+   - Inductors:  
+     - Lx1, Lx2 = 1 000 µH (each)  
+   - Resistors:  
+     - Rx1, Rx2 ≈ 680 Ω (each)  
+     - Rx3, Rx4 ≈ 1 kΩ (internal source)  
+     - Rx5, Rx6 > 10 kΩ (optional input)  
+   - Capacitors:  
+     - Cx1, Cx2 = 500 pF  
+     - Cx3, Cx4 < 500 pF (exact value can vary)  
+
+3. **EMC Compliance**  
+   - Clause B.10 in ISO 15118-3 references EMC requirements from IEEE 1901.2. Additional filtering or decoupling elements can be added to ensure no more than 0.5 V RMS on the pilot-based PWM signal.
+
+4. **Cable Assembly (T2)**  
+   - T2 denotes the physical link between EVSE and EV. The standard clarifies that cable/detachable connectors must accommodate the pilot line for both the low-frequency PWM and the high-frequency G3-PLC signals.
+
+---
+
+## 6. Practical Engineering Takeaways
+
+1. **Must-Have Components**:  
+   - Ensure the presence of inductors (Lx1, Lx2) and the coupling capacitors (Cx1, Cx2) per the mandatory values if implementing G3 technology on the pilot line.  
+2. **In-Modem Resistance**:  
+   - The 1 kΩ resistors (Rx3, Rx4) help maintain consistent pilot-wire voltage amplitude for the G3 signals.  
+3. **EMC & Filtering**:  
+   - Additional filtering on power lines (e.g., at the EVSE side) might be necessary in noisy environments.  
+4. **Pilot Circuit**:  
+   - R1, R2, R3, C1, and S1 remain part of basic pilot architecture per IEC 61851-1:2010 Annex A.
+
+---
+
+### In Summary
+
+Figure B.2 shows how a G3-PLC modem on both the EVSE (block “1”) and the EV (block “2”) couples their high-frequency communication signals onto the same pilot wire used for the standard IEC 61851-1 charging control. Key components—**Lx1, Lx2, Rx1, Rx2, Cx1, Cx2**—protect the pilot circuit from unwanted loading and allow reliable PLC signal transmission. The resistor-capacitor networks and optional additional filters ensure the PLC signal stays within required amplitude limits (0.2–0.5 V RMS) while still leaving the pilot function intact.
+
+Engineers referencing this figure should pay special attention to the mandatory component values and overall pilot-circuit layout, verifying that each device (EVSE and EV) implements these coupling elements as specified by ISO 15118-3, Annex B, and IEEE 1901.2 to ensure interoperability and EMC compliance.
+
+Related Information 48: [V2G3-B11-03] The values of the coupling components as shown in Table B.1 are mandatory both on the EV and on the EVSE sides. (sibling of Figure 2)
+Related Information 49: Table B.1 — Coupling components values (sibling of Figure 2)
+Related Information 50: Table B.1 — Coupling components values <table border="1"> <td colspan="1" rowspan="1">Group</td> <td colspan="1" rowspan="1">Function</td> <td colspan="1" rowspan="1">Mandatory values</td> <tr> <td colspan="1" rowspan="1">A1, A2</td> <td colspan="1" rowspan="1">Series impedance designed to avoid short circuiting of&lt;br&gt;the High frequency high-level data carrier by EVSE or&lt;br&gt;EV capacitors to ground</td> <td colspan="1" rowspan="1">Lx1, Lx2 = 1 000 mH&lt;br&gt;Rx1, Rx2 typically 680 Ω</td> </tr> <tr> <td colspan="1" rowspan="1">B1, B2</td> <td colspan="1" rowspan="1">Transmission matching impedance for high frequency&lt;br&gt;signals</td> <td colspan="1" rowspan="1">Circuit not implemented</td> </tr> <tr> <td colspan="1" rowspan="1">C1, C2</td> <td colspan="1" rowspan="1">Common mode rejection</td> <td colspan="1" rowspan="1">Circuit not implemented</td> </tr> <tr> <td colspan="1" rowspan="1">D1, D2</td> <td colspan="1" rowspan="1">Capacitive coupling circuit&lt;br&gt;Rx3, Rx4 = source resistance of HF output&lt;br&gt;Rx5, Rx6 = optional input impedance of modem</td> <td colspan="1" rowspan="1">— Cx1, Cx2 = 500 pF&lt;br&gt;— Rx5, Rx6 &gt; 10 kΩ&lt;br&gt;— Cx5, Cx6 = 500 pF</td> </tr> </table> (sibling of Figure 2)
+Related Information 51: [V2G3-B11-04] The PLC transmission devices shall limit the signal voltage on the pilot wire to 0.5 V RMS. (sibling of Figure 2)
+Related Information 52: Further, decoupling circuits may be added to the pilot wire circuit. (sibling of Figure 2)
+Related Information 53: Additional filtering components may be added to the EVSE power lines to improve reliability for specific environments and to ensure no more than an 0.5Vrms PLC signal on the PWM signal at the receiver. (sibling of Figure 2)
+Related Information 54: [V2G3-B11-05] The signal voltage of the PLC transmission devices shall be at least on the pilot wire to 0,2 V RMS. (sibling of Figure 2)
+Contextual Information 4: Key (ancestor of Figure 2)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

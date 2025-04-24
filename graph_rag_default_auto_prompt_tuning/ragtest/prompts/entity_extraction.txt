@@ -1,0 +1,139 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in The primary language of the provided text is "English". as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into The primary language of the provided text is "English"., just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+text:
+09-60]
+The EV shall set the result field of the CM_VALIDATE.REQ with 0x01 to indicate 
+that a toggle process starts.
+[V2G3-A09-61]
+The EVSE shall set the result field of the CM_VALIDATE.CNF to
+ 
+—    “Success” to confirm that the toggle process is done with success and the 
+result field contains valid data, or
+ 
+—    “Failure” to indicate that the toggle process could not be finished with success 
+and the result field contains no valid data.
+﻿
+© ISO 2015 – All rights reserved
+49
+Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) 
+ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 
+Single user licence only, copying and networking prohibited.
+﻿
+ISO 15118-3:2015(E)
+A.9.3.3	 Timing
+------------------------
+output:
+("entity"{tuple_delimiter}EV{tuple_delimiter}DEVICE{tuple_delimiter}The Electric Vehicle (EV) involved in the communication process)
+{record_delimiter}
+("entity"{tuple_delimiter}CM_VALIDATE.REQ{tuple_delimiter}MESSAGE{tuple_delimiter}A request message used in the communication process between the EV and EVSE)
+{record_delimiter}
+("entity"{tuple_delimiter}CM_VALIDATE.CNF{tuple_delimiter}MESSAGE{tuple_delimiter}A confirmation message used in the communication process between the EV and EVSE)
+{record_delimiter}
+("entity"{tuple_delimiter}EVSE{tuple_delimiter}DEVICE{tuple_delimiter}The Electric Vehicle Supply Equipment (EVSE) involved in the communication process)
+{record_delimiter}
+("entity"{tuple_delimiter}ISO 15118-3:2015(E){tuple_delimiter}STANDARD{tuple_delimiter}The ISO standard that specifies the communication protocol for electric vehicle charging)
+{record_delimiter}
+("relationship"{tuple_delimiter}EV{tuple_delimiter}CM_VALIDATE.REQ{tuple_delimiter}The EV sets the result field of the CM_VALIDATE.REQ message to indicate the start of a toggle process{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}EVSE{tuple_delimiter}CM_VALIDATE.CNF{tuple_delimiter}The EVSE sets the result field of the CM_VALIDATE.CNF message to indicate the success or failure of the toggle process{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}ISO 15118-3:2015(E){tuple_delimiter}EV{tuple_delimiter}The EV operates under the communication protocol specified by ISO 15118-3:2015(E){tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}ISO 15118-3:2015(E){tuple_delimiter}EVSE{tuple_delimiter}The EVSE operates under the communication protocol specified by ISO 15118-3:2015(E){tuple_delimiter}7)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+text:
+ICS_CMN_CMN_CombinedTesting 
+:= true, PICS_SECC_CMN_Pause := false 
+PIXIT selection 
+  
+PreCondition 
+f_SECC_AC_PR_SessionStop_002 
+Expected behavior 
+f_SECC_CMN_TB_VTB_PLCLinkStatus_008 
+Table 116 lists the test case description for 'TC_SECC_AC_VTB_PLCLinkStatus_009'. 
+Table 116 — Test case description for 'TC_SECC_AC_VTB_PLCLinkStatus_009' 
+TC Id 
+TC_SECC_AC_VTB_PLCLinkStatus_009 
+Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) 
+ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 
+Single user licence only, copying and networking prohibited.
+ISO 15118-5:2018(E) 
+105 
+© ISO 2018 – All rights reserved 
+ 
+
+------------------------
+output:
+("entity"{tuple_delimiter}ICS_CMN_CMN_COMBINEDTESTING{tuple_delimiter}TECHNICAL_TERM{tuple_delimiter}A combined testing parameter used in the context of the document)
+{record_delimiter}
+("entity"{tuple_delimiter}PICS_SECC_CMN_PAUSE{tuple_delimiter}TECHNICAL_TERM{tuple_delimiter}A parameter related to the pause functionality in the SECC context)
+{record_delimiter}
+("entity"{tuple_delimiter}PIXIT_SELECTION{tuple_delimiter}TECHNICAL_TERM{tuple_delimiter}A selection parameter used in the context of the document)
+{record_delimiter}
+("entity"{tuple_delimiter}PRECONDITION{tuple_delimiter}TECHNICAL_TERM{tuple_delimiter}A condition that must be met before a test or procedure can proceed)
+{record_delimiter}
+("entity"{tuple_delimiter}F_SECC_AC_PR_SESSIONSTOP_002{tuple_delimiter}TEST_CASE{tuple_delimiter}A specific test case related to the SECC AC PR session stop functionality)
+{record_delimiter}
+("entity"{tuple_delimiter}EXPECTED_BEHAVIOR{tuple_delimiter}TECHNICAL_TERM{tuple_delimiter}The anticipated outcome or response in a given test scenario)
+{record_delimiter}
+("entity"{tuple_delimiter}F_SECC_CMN_TB_VTB_PLCLINKSTATUS_008{tuple_delimiter}TEST_CASE{tuple_delimiter}A specific test case related to the SECC CMN TB VTB PLC link status functionality)
+{record_delimiter}
+("entity"{tuple_delimiter}TABLE_116{tuple_delimiter}DOCUMENT_SECTION{tuple_delimiter}A table in the document that lists the test case description for 'TC_SECC_AC_VTB_PLCLinkStatus_009')
+{record_delimiter}
+("entity"{tuple_delimiter}TC_SECC_AC_VTB_PLCLINKSTATUS_009{tuple_delimiter}TEST_CASE{tuple_delimiter}A specific test case related to the SECC AC VTB PLC link status functionality)
+{record_delimiter}
+("entity"{tuple_delimiter}NATIONAL_TSING_HUA_UNIVERSITY{tuple_delimiter}ORGANIZATION{tuple_delimiter}An educational institution licensed to use the document)
+{record_delimiter}
+("entity"{tuple_delimiter}YI-SHIN_CHEN{tuple_delimiter}PERSON{tuple_delimiter}An individual associated with National Tsing Hua University, licensed to use the document)
+{record_delimiter}
+("entity"{tuple_delimiter}ISO_STORE_ORDER{tuple_delimiter}DOCUMENT{tuple_delimiter}An order from the ISO store, associated with the document)
+{record_delimiter}
+("entity"{tuple_delimiter}ISO_15118-5:2018(E){tuple_delimiter}STANDARD{tuple_delimiter}An ISO standard referenced in the document)
+{record_delimiter}
+("relationship"{tuple_delimiter}NATIONAL_TSING_HUA_UNIVERSITY{tuple_delimiter}YI-SHIN_CHEN{tuple_delimiter}Yi-Shin Chen is associated with National Tsing Hua University and is licensed to use the document{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}ISO_STORE_ORDER{tuple_delimiter}ISO_15118-5:2018(E){tuple_delimiter}The ISO store order is associated with the ISO 15118-5:2018(E) standard{tuple_delimiter}7)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:

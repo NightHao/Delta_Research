@@ -1,0 +1,94 @@
+You are an AI assistant tasked with answering questions based on a variety of information sources. Your goal is to provide detailed, accurate answers while citing the appropriate sources. Here's how you should approach this task:
+
+1. First, review all the information provided to help answer the question, including:
+
+<question>
+What is the difference between basic signaling and high-level communication?
+</question>
+
+<table_info>
+
+</table_info>
+
+<figure_info>
+
+</figure_info>
+
+<textual_info>
+Any charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal. (sibling of Text 1)
+Contextual Information 1: 6.2.1 Basic signalling (ancestor of Text 1)
+Contextual Information 2: 6.2 Definition of high-level communication and basic signalling (ancestor of Text 1)
+Contextual Information 3: 6 System architecture (ancestor of Text 1)
+
+[V2G3-M06-01] The basic signalling follows [IEC-1]. All timings shall be compliant with the [IEC-1], Annex A. (sibling of Text 2)
+
+The sequence of the data exchange within the HLC-based charging session is done in accordance with the [ISO-2] communication protocol. (sibling of Text 3)
+
+It can be split into three periods as follows: (sibling of Text 3)
+
+— data link setup; (sibling of Text 3)
+
+— V2G setup; (sibling of Text 3)
+
+— V2G charging loop. (sibling of Text 3)
+
+NOTE The detailed descriptions are given in [ISO-2]. (sibling of Text 3)
+
+[V2G3-M06-03] During the V2G charging loop, the PWM duty cycle shall not change due to dynam- ically changed grid information. Those dynamically changed grid limitations shall be provided through the high-level communication messages. (sibling of Text 3)
+
+In case basic charging is used as back-up of HLC-C (e.g. when HLC-C has failed), the duty cycle is allowed to change due to dynamically changed grid information, according [IEC-1] requirements. (sibling of Text 3)
+Contextual Information 4: 6.2.2 High-level communication (ancestor of Text 3)
+
+[V2G3-M06-02] The HLC shall be used in addition to the basic signalling in order to enable a bidi- rectional communication and offer additional features. (sibling of Text 4)
+</textual_info>
+
+<additional_info>
+
+6.2.1 Basic signalling (ancestor of Text 1)
+
+6.2 Definition of high-level communication and basic signalling (ancestor of Text 1)
+
+6 System architecture (ancestor of Text 1)
+Related Information 2: [V2G3-M06-01] The basic signalling follows [IEC-1]. All timings shall be compliant with the [IEC-1], Annex A. (sibling of Text 2)
+Related Information 3: The sequence of the data exchange within the HLC-based charging session is done in accordance with the [ISO-2] communication protocol. (sibling of Text 3)
+Related Information 4: It can be split into three periods as follows: (sibling of Text 3)
+Related Information 5: — data link setup; (sibling of Text 3)
+Related Information 6: — V2G setup; (sibling of Text 3)
+Related Information 7: — V2G charging loop. (sibling of Text 3)
+Related Information 8: NOTE The detailed descriptions are given in [ISO-2]. (sibling of Text 3)
+Related Information 9: [V2G3-M06-03] During the V2G charging loop, the PWM duty cycle shall not change due to dynam- ically changed grid information. Those dynamically changed grid limitations shall be provided through the high-level communication messages. (sibling of Text 3)
+Related Information 10: In case basic charging is used as back-up of HLC-C (e.g. when HLC-C has failed), the duty cycle is allowed to change due to dynamically changed grid information, according [IEC-1] requirements. (sibling of Text 3)
+
+6.2.2 High-level communication (ancestor of Text 3)
+Related Information 11: [V2G3-M06-02] The HLC shall be used in addition to the basic signalling in order to enable a bidi- rectional communication and offer additional features. (sibling of Text 4)
+</additional_info>
+
+2. When formulating your answer, adhere to these output format guidelines:
+<output_format>
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
+</output_format>
+
+3. Analyze and synthesize the information from all provided sources to form a comprehensive answer to the question.
+
+4. Structure your answer to be as detailed as possible, ensuring that you address all aspects of the question.
+
+5. Cite your sources throughout your answer. When referencing information, mention the specific source, such as "According to Figure X...", "As shown in the table...", "Based on ISO 15118-20...", or "The documentation indicates that...". This adds credibility to your response and allows the user to verify the information.
+
+6. Before providing your final answer, use a scratchpad to organize your thoughts and plan your response.
+
+<scratchpad>
+Use this space to outline your answer, noting key points from each information source and how they relate to the question. Plan how you will structure your response and which citations you will include.
+</scratchpad>
+
+7. Now, provide your detailed answer within <answer> tags. Remember to incorporate citations throughout your response and follow the output format guidelines provided earlier.
+
+Remember, your goal is to provide the most accurate, detailed, and well-cited answer possible based on all the information provided.

@@ -1,0 +1,178 @@
+================================= Entity Chunks for CCO =================================
+Entity: CCO
+Description: The CCo detects a link in its logical network, which ends the TT_match_join timer The higher layer can request the CCo to terminate the link, indicating a control relationship The CCo manages the logical network and detects when an EV leaves The Central Coordinator (CCo) likely uses Management Message Entry (MME) for network management tasks The requirement V2G3-A06-02 ensures that the low-layer communication module never becomes the CCo The low-layer communication module must always be configured to act as the CCo Central Coordinator is a term used to refer to the entity responsible for managing and coordinating communication within a network
+Central Coordinator (CCo) is a device or system responsible for managing and coordinating the logical network
+Central Communication Controller, a role in communication systems that manages and controls communication processes
+Central Coordinator (CCo) is responsible for managing the logical network and detecting when an Electric Vehicle (EV) has left the network
+Central Coordinator, a term used to describe the main controlling entity in a network
+CCo stands for Central Communication Controller, which is a role or function that the low-layer communication module on the EVSE side must always assume For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause 'Control SAP Service' of the [HPGP] may be used.
+--------------------------------------------------------------------------------
+Entity: HIGHER LAYER
+Description: A layer in a network protocol stack that can request the termination of a link
+The higher layer in a network architecture that processes data before passing it to lower layers for further handling
+The upper layers in a communication network that are not immediately informed about data link status changes during certain processes The context of the candidate answers discusses the Physical layer and data link layer conformance tests, which are part of the higher layer communication standards.
+--------------------------------------------------------------------------------
+Entity: LOGICAL NETWORK
+Description: A virtual network structure that facilitates communication between nodes
+A logical network refers to a network configuration that allows devices to communicate and exchange encrypted payload data within the same network, while being visible to each other on higher layers
+A logical network refers to a virtual network that is defined and managed at a specific layer of the network architecture, in this case, layer 2
+A logical network is an infrastructure setup that allows for the organization and management of network resources and communication paths
+A network structure that is defined by its logical connections and configurations, rather than its physical layout
+A logical network refers to a virtual network structure that facilitates communication between different nodes and systems
+A virtual network configuration that allows communication and data exchange between an EV and an EVSE
+A virtual network that allows devices to communicate as if they are on the same physical network, despite being on different physical networks
+A logical network is an infrastructure component that represents the virtual network environment in which the EV's communication node operates
+A logical network is a virtual network that is created to manage and organize communication nodes and data flow within a system
+A virtual network that is formed by logically connecting devices and systems, often used in network management and communication
+A virtual network setup that allows communication between different modules or devices, facilitating data exchange
+A network that is organized and managed through logical connections and configurations, rather than physical connections
+The network infrastructure that facilitates communication between the EVSE and other entities
+A virtual network structure that is created to enhance communication capabilities, often by organizing and managing data flow more efficiently
+A virtual network that is configured with specific parameters to facilitate communication between devices
+A logical network is a virtual network that is created and managed through software, allowing for the organization and management of network resources
+A network structure managed by the CCo, which includes the EV and other network components
+A logical network is a virtual network that allows communication between devices, such as an EV and EVSE, over a shared physical network.
+--------------------------------------------------------------------------------
+Entity: LOW-LAYER COMMUNICATION MODULE
+Description: A component responsible for handling basic communication tasks at the lower layers of a network protocol stack, used in both EVSE and EV
+A module responsible for handling basic communication tasks at the lower layers of a communication protocol stack, particularly in vehicle-to-grid systems
+A module within the EVSE responsible for handling low-level communication tasks, such as configuring network identifiers and keys
+A communication module responsible for managing communication at a lower layer, particularly in charging stations with multiple outlets
+A component that needs to be configured as described in A.4.5 before the matching process begins
+A low-layer communication module is a technology component responsible for handling basic communication tasks in a network, as specified in the V2G3-A09-115 standard
+A component responsible for handling communication at the lower layers of a network protocol stack, often dealing with data transmission and reception
+A module responsible for handling basic communication tasks in a vehicle-to-grid system, which can be optionally unpowered
+A module responsible for handling the initial stages of communication in a system, particularly after a cable assembly is plugged in
+A low-layer communication module is a component responsible for handling basic communication tasks directly connected to the EVSE
+A component on the EVSE side responsible for handling basic communication tasks, including detecting the zero cross of the AC line cycle
+A module responsible for handling the basic communication protocols and message flows between devices in a network
+A component responsible for basic communication functions in an electric vehicle, which can be powered off during sleep mode
+A communication layer responsible for handling basic communication tasks, such as receiving the first SLAC message
+A component responsible for handling basic communication functions between the electric vehicle and the EVSE
+A component responsible for handling communication at a lower layer in the communication stack, particularly in vehicle-to-grid systems
+A communication module assigned locally to each socket-outlet on the EVSE side, responsible for handling low-level communication tasks
+A component in a communication system responsible for handling low-level data transmission tasks, including managing additional carriers and sending amplitude maps
+A component within a communication system responsible for handling low-level communication tasks, including adjusting transmission power
+A component of the EVSE responsible for handling communication at a basic network level, which can be configured to known logical network parameters
+A communication module responsible for handling low-level data exchange between an electric vehicle and the charging infrastructure
+A module responsible for establishing initial communication between the EVSE and the electric vehicle at a basic level
+A low-layer communication module is a component that handles the basic, foundational aspects of data transmission in a communication system
+A component in communication systems responsible for handling lower-level communication tasks, including power management and signal processing
+A module responsible for handling communication at a lower layer, crucial for processes like matching and responding to MMEs
+A module responsible for handling communication at the lower layers of a network, including joining and leaving logical networks
+A module responsible for handling communication protocols and data exchange between Electric Vehicles (EV) and Electric Vehicle Supply Equipment (EVSE), including message exchanges at the lowest level of the communication stack.
+A component of the EVSE responsible for handling both basic and low-level communication tasks, which may be powered off during sleep mode or switched into low-power mode.
+A module on the electric vehicle (EV) side responsible for handling basic communication functions.
+A module in an electric vehicle responsible for handling low-level communication tasks.
+A component of the EVSE responsible for handling basic communication tasks, protocols, and functions.
+A component that handles basic communication tasks and protocols at a lower level of the communication stack within a network.
+A module responsible for handling basic communication tasks and settings in a network, operating at lower layers of the communication protocol stack.
+A module responsible for handling communication at the lower layers of a network stack, essential for establishing connections and ensuring data transmission and reception, typically involving the data link and physical layers. The candidate answer refers to the Physical layer and data link layer, which are components of low-layer communication modules in the context of vehicle to grid communication.
+--------------------------------------------------------------------------------
+Entity: MME
+Description: MME is a protocol template used for defining the structure of SLAC management message entries in communication systems
+A protocol message used in the SLAC communication process
+A term referring to a message or entity involved in the communication process, possibly related to the SLAC protocol
+A term referring to a specific definition or standard outlined in Table A.4, which is used to validate the content of CM_ATTEN_CHAR.RSP messages
+A term that could refer to a message or module involved in the testing or communication process
+Mobility Management Entity, which is involved in the communication process with the electric vehicle
+Management Message Entity, a type of message used in communication protocols
+Management Message Entry used in the context of SLAC communication
+Message Management Entity used in communication protocols
+MME refers to a specific definition or set of criteria outlined in Table A.5 and Table A.6 that content must adhere to
+A component or system involved in managing messages or communication in the SECC system
+<|COMPLETE|>
+A term likely referring to a message or module in the context of communication protocols
+A term referring to a specific definition or standard outlined in Table A.2, which the content of CM_SLAC_PARM.CNF must adhere to
+MME refers to a protocol message used in the context of communication processes, possibly related to mobility management
+MME stands for Message Management Entity, which is used in the context of SLAC to define parameters for communication
+MME refers to a message exchange mechanism or entity involved in the communication process
+A term referring to a specific definition or standard that CM_ATTEN_CHAR.IND content must adhere to, as outlined in Table A.4
+A term referring to the Message Management Entity, which defines the structure and content of messages like CM_SLAC_PARM.REQ
+A term referring to the Message Management Entity, which defines the content standards for protocol messages like CM_SLAC_MATCH.CNF
+A protocol message used in SLAC communication, which stands for Message Management Entity
+MME stands for Mobility Management Entity, which is involved in managing network connections and exchanges, such as amplitude map exchanges
+MME refers to a specific definition or standard that outlines valid content for communication protocols
+A term referring to a specific definition or set of criteria outlined in Table A.5 and Table A.6
+MME refers to a component or variable used in the context of message handling within the SLAC protocol testing environment
+MME stands for Mobility Management Entity, which is a key control-node for the LTE access-network. It is responsible for idle mode UE tracking and paging procedure including retransmissions
+A protocol record within the DataStructure_SLAC module, consisting of MME_Header and MME_Payload
+Management Message Entry, a term used to describe a type of message used for management purposes in a network
+MME refers to Management Message Entity, which is used for exchanging control messages between PLC nodes or between a PLC node and higher layers
+A term referring to a variable type used in the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001
+MME stands for Management Message Entry, which is used in communication systems to define parameters for joining a logical network and manage message exchanges.
+A term referring to a message management entity involved in communication protocols and processes.
+MME stands for Message Management Entity, which is involved in managing and processing messages and defines their structure and content in communication protocols.
+MME, or Mobility Management Entity, is a key component in mobile networks that manages mobile devices, handles signaling and session management, and oversees parameters for validation processes in communication protocols.
+MME stands for Mobility Management Entity, a key component in mobile networks responsible for handling signaling and session management Electric Vehicle Communication Controller (EVCC) and Supply Equipment Communication Controller (SECC) are mentioned, which are relevant to the communication modules in the context of vehicle to grid communication.
+No relevant information found.
+--------------------------------------------------------------------------------
+Entity: TT_MATCH_JOIN TIMER
+Description: A timer used by the EVSE to manage the duration of the matching and joining process in a network
+A timer used in the process of matching connections between electric vehicles and the supply equipment
+A timer is used to control the duration before a data link connection is established in the test scenario. No relevant information found.
+--------------------------------------------------------------------------------
+Entity: V2G3-A06-02
+Description: A specific requirement related to the configuration of the low-layer communication module on the electric vehicle (EV) side, ensuring it never becomes the Central Communication Controller (CCo) No relevant information found.
+The low-layer communication module on the EV side shall be configured in order to never become the CCo.
+--------------------------------------------------------------------------------
+
+
+TEXTUAL INFORMATION:
+Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - CCo Central Coordinator
+Text 2: 3.2 central coordinator (Context: 3.2 central coordinator > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - manager of a HomePlug Green PHY network
+Text 3: A.6.5.2 Functional description (Context: A.6.5.2 Functional description > A.6.5 Configuration of a PLC module > A.6 System architecture) - [V2G3-A06-02] The low-layer communication module on the EV side shall be configured in order to never become the CCo.
+Text 4: A.6.5.2 Functional description (Context: A.6.5.2 Functional description > A.6.5 Configuration of a PLC module > A.6 System architecture) - [V2G3-A06-03] The low-layer communication module on the EVSE side shall be configured in order to always be the CCo.
+Text 5: A.6.5.2 Functional description (Context: A.6.5.2 Functional description > A.6.5 Configuration of a PLC module > A.6 System architecture) - For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause “Control SAP Service” of the [HPGP] may be used.
+Text 6: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV.
+
+ADDITIONAL CONTEXT:
+Related Information 1: MME Management Message Entry (sibling of Text 1)
+Related Information 2: PE Protective Earth (sibling of Text 1)
+Related Information 3: PLC Power Line Communication (sibling of Text 1)
+Related Information 4: PnC Plug and Charge (as defined in ISO 15118-1) (sibling of Text 1)
+Related Information 5: QPSK Quadrature Phase Shift Keying (sibling of Text 1)
+Related Information 6: SAP Service Access Point (sibling of Text 1)
+Related Information 7: SE Supply Equipment (sibling of Text 1)
+Related Information 8: SLAC Signal Level Attenuation Characterization (sibling of Text 1)
+Contextual Information 1: 4 Symbols and abbreviated terms (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 3: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 1)
+Contextual Information 4: 3.2 central coordinator (ancestor of Text 2)
+Contextual Information 5: 3 Terms and definitions (ancestor of Text 2)
+Related Information 9: After this process, the low-layer communication module is configured to a defined state. This configuration is a precondition for the matching process and is done latest with entering the matching process. (sibling of Text 3)
+Related Information 10: [V2G3-A06-03] The low-layer communication module on the EVSE side shall be configured in order to always be the CCo. (sibling of Text 3)
+Related Information 11: For the configuration of the CCo mode the APCM_SET_CCo.REQ primitive defined in Clause “Control SAP Service” of the [HPGP] may be used. (sibling of Text 3)
+Related Information 12: [V2G3-A06-04] To speed up the matching process, the low-layer communication module shall be configured to use CAP3 priority for all frames related to the matching process. [V2G3-A06-05] The low-layer communication module on the EV side shall never respond to the following MMEs: — CM_SLAC_PARM.REQ; — CM_START_ATTEN_CHAR.IND; — CM_MNBC_SOUND.IND; — CM_ATTEN_CHAR.RSP; (sibling of Text 3)
+Related Information 13: — CM_VALIDATE.REQ; (sibling of Text 3)
+Related Information 14: — CM_SLAC_MATCH.REQ. (sibling of Text 3)
+Contextual Information 6: A.6.5.2 Functional description (ancestor of Text 3)
+Contextual Information 7: A.6.5 Configuration of a PLC module (ancestor of Text 3)
+Contextual Information 8: A.6 System architecture (ancestor of Text 3)
+Related Information 15: [V2G3-A06-02] The low-layer communication module on the EV side shall be configured in order to never become the CCo. (sibling of Text 5)
+Related Information 16: The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage. (sibling of Text 6)
+Related Information 17: As HomePlug Green PHY signal’s coupling is directly linked to the control pilot, the schematic in [IEC-1], Annex A specification is basis for definitions regarding the control pilot signal. (sibling of Text 6)
+Related Information 18: To enable HomePlug Green PHY injection, the path from EVSE’s output to EV’s input should not be considered as capacitive only as it is sufficient for the low frequency control pilot signal. For high frequency HomePlug Green PHY, the path should be considered as a transmission line. To take the high frequency into account, the control pilot circuit and the component values have to be specified in more detail. (sibling of Text 6)
+Related Information 19: For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause. (sibling of Text 6)
+Contextual Information 9: A.11.1 Overview (ancestor of Text 6)
+Contextual Information 10: A.11 Signal coupling (ancestor of Text 6)
+Contextual Information 11: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Text 6)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
+
+
+Question: What is CCo?
+
+Above is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.

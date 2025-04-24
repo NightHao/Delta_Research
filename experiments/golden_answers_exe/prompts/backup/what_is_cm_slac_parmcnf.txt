@@ -1,0 +1,213 @@
+Question What is CM_SLAC_PARM.CNF?: What is CM_SLAC_PARM.CNF?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: A.9.1.1 Functional description (Context: A.9.1.1 Functional description > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - Before the signal strength measurement starts, the EV broadcasts the parameters to be used for the following signal strength measurement sequence by means of the message CM_SLAC_PARM.REQ. Any
+Text 2: A.9.1.1 Functional description (Context: A.9.1.1 Functional description > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - unmatched EVSE which receives the parameter exchange broadcast sends a response to the EV by means of the message CM_SLAC_PARM.CNF.
+Text 3: A.9.1.2 Description of involved MMEs (Context: A.9.1.2 Description of involved MMEs > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - [V2G3-A09-04] The MMEs for the parameter exchange shall be used with the following content and be sent as Ethernet unicast/broadcast messages as defined.
+Text 4: A.9.1.3.2 EV side (Context: A.9.1.3.2 EV side > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - [V2G3-A09-10] If no valid CM_SLAC_PARM.CNF arrives at the EV when TT_match_response expires, the EV shall retransmit the request and wait again for TT_match_ response. The total number of retries is given by C_EV_match_retry. If C_EV_ match_retry is reached, the matching process shall be considered as FAILED.
+Text 5: A.9.1.3.2 EV side (Context: A.9.1.3.2 EV side > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - [V2G3-A09-09] If the EV receives a CM_SLAC_PARM.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.2 is invalid.
+Text 6: A.9.8.1 Example of matching process error handling (Context: A.9.8.1 Example of matching process error handling > A.9.8 General error handling and timing constraints > A.9 Matching EV – EVSE process) - Figure A.9 gives an example of matching process error handling. The low-layer communication module of the EV is awake and the low-layer communication module of the EVSE is asleep. The EVCC sends first CM_SLAC_PARM.REQ message immediately after cable plug-in. The EVSE has to boot its low-layer communication module and is not able to answer the CM_SLAC_PARM.REQ message. After the low-layer communication module on the EVSE side is ready for communication, it sends a CM_SLAC_PARM.CNF.
+
+Image Description for Figure A.9:
+# Detailed Description of Figure A.9 — Example of Sequence Chart of Matching Process Error Handling
+
+Below is a step-by-step explanation, in **Markdown** format, of the sequence chart labeled **Figure A.9**. This figure illustrates the **SLAC (Signal-Level Attenuation Characterization) matching process** between an Electric Vehicle (EV) and an Electric Vehicle Supply Equipment (EVSE), with emphasis on how errors and timing constraints are handled. The diagram shows four main entities:
+
+1. **EV Host**  
+2. **EV PLC node** (the EV’s low-layer communication module)  
+3. **EVSE PLC node** (the EVSE’s low-layer communication module)  
+4. **EVSE Host**
+
+Various **timers** and **messages** govern the retry logic, confirmations, and triggering conditions. The goal is to establish a matched communication link (sometimes referred to as SLAC matching). This specific figure highlights an error-handling example where the EV repeatedly sends parameter requests until the EVSE’s low-layer module is fully ready.
+
+---
+
+## 1. Entities and Their Roles
+
+1. **EV Host**  
+   - Coordinates overall EV-side communication and initiates the SLAC matching sequence upon detecting plug-in or other triggers.  
+   - Waits for “Matching Process Start Trigger” to begin SLAC parameter exchange.
+
+2. **EV PLC Node**  
+   - The EV’s low-layer communication module that actually sends and receives SLAC messages (e.g., CM_SLAC_PARM.REQ).  
+   - Interacts with the EVSE’s PLC node to configure parameters, confirm matching status, and finalize the SLAC link.
+
+3. **EVSE PLC Node**  
+   - The EVSE’s low-layer communication module. It responds to requests from the EV PLC node and eventually sends a CM_SLAC_PARM.CNF message when ready.  
+   - May be initially “asleep” or in a booting state, causing the EV to resend parameter requests if no confirmation is received.
+
+4. **EVSE Host**  
+   - Oversees the EVSE side, can send key-setting commands to the EVSE PLC node (CM_SET_KEY.REQ) and receives confirmations (CM_SET_KEY.CNF).  
+   - Also waits internally for the “Matching Process Start Trigger” before instructing the low-layer module to proceed with matching.
+
+---
+
+## 2. Key Messages in the Chart
+
+- **CM_SET_KEY.REQ** / **CM_SET_KEY.CNF**  
+  Used by the EVSE Host to set cryptographic or network keys in the EVSE PLC module. A request/confirmation exchange (REQ/CNF) ensures keys are established before proceeding.
+
+- **CM_SLAC_PARM.REQ**  
+  A crucial request message sent by the EV PLC node. It initiates or retries the SLAC parameter negotiation. Several of these may be sent if the EVSE PLC node is not yet ready to respond.
+
+- **CM_SLAC_PARM.CNF**  
+  The confirmation message that the EVSE PLC node sends in response to a valid CM_SLAC_PARM.REQ. Once this is received by the EV PLC node, the matching process can progress to the next stage (or conclude if final parameters are agreed).
+
+---
+
+## 3. Timers and Their Significance
+
+The figure shows multiple timers or time parameters in the margin. Each timer serves a distinct purpose in error handling and retry logic during matching:
+
+- **TP_EV_SLAC_init**:  
+  A time parameter on the EV side. Indicates when the EV is ready to start sending SLAC messages after plug-in or initialization.
+
+- **TT_EVSE_SLAC_init**:  
+  A similar timeout event on the EVSE side, signifying the EVSE’s readiness for the matching process (or that it is still booting).
+
+- **TT_match_response** and **TP_match_response**:  
+  Both appear repeatedly in the message sequence. They govern how long each side waits for a response to SLAC messages (e.g., how long the EV will await a CM_SLAC_PARM.CNF before resending a CM_SLAC_PARM.REQ).  
+  - “TT_match_response” often indicates a test timeout or internal handling.  
+  - “TP_match_response” can denote a performance or protocol timer requiring the message to be answered within a specific duration.
+
+- **TT_matching_rate**:  
+  A wait time before restarting the SLAC matching process after a failure or no-response scenario. Used to avoid flooding the network with frequent retry attempts.
+
+- **TT_matching_repetition**:  
+  The maximum duration or repetition window during which multiple matching attempts can be retried before concluding that matching has failed entirely.
+
+- **TT_match_sequence** / **TP_match_sequence**:  
+  These timers define or bound the overall sequence of matching attempts. “TT_match_sequence” may mark the final stage of the matching process or the cutoff for the entire exchange sequence.
+
+---
+
+## 4. Step-by-Step Flow of the Sequence Chart
+
+### A. Initial Key-Setting on the EVSE Side
+
+1. **EVSE Host → EVSE PLC node: CM_SET_KEY.REQ**  
+   - The EVSE Host sends a request to configure or set security/network keys on the EVSE PLC node.
+
+2. **EVSE PLC node → EVSE Host: CM_SET_KEY.CNF**  
+   - The EVSE PLC node confirms successful key setting back to the EVSE Host.  
+   - After this step, the EVSE side is (or soon will be) ready to exchange SLAC parameters, once the matching trigger event starts.
+
+### B. Waiting for Matching Process Start
+
+3. **EV Host**: “Wait for Matching Process Start Trigger”  
+   - On the EV side, the system is idle until the matching process is triggered (e.g., plug-in detected or higher-layer instruction).
+
+4. **EVSE Host**: “Wait for Matching Process Start Trigger”  
+   - Similarly, the EVSE Host is also waiting for the condition to begin the SLAC matching process.
+
+5. **TP_EV_SLAC_init** and **TT_EVSE_SLAC_init**  
+   - These timers are activated (or at least monitored) to ensure both sides begin matching in a timely manner.  
+   - “TP_EV_SLAC_init” is often started on the EV side, while “TT_EVSE_SLAC_init” is tracked on the EVSE side.
+
+### C. Repeated SLAC Parameter Requests and Error Handling
+
+6. **EV PLC node → EVSE PLC node: CM_SLAC_PARM.REQ** (Attempt 1)  
+   - As soon as the EV is ready, it sends the first parameter request to the EVSE.  
+   - If the EVSE PLC node is not fully operational yet, no immediate response is given.
+
+7. **Timer Trigger: TT_match_response** or **TP_match_response**  
+   - The EV waits for a response from the EVSE PLC node within a defined time.  
+   - If no **CM_SLAC_PARM.CNF** is received, the EV concludes the EVSE is not ready and may resend the request.
+
+8. **EV PLC node → EVSE PLC node: CM_SLAC_PARM.REQ** (Attempt 2, 3, …)  
+   - The EV PLC node continues sending CM_SLAC_PARM.REQ at intervals governed by **TT_match_response** (or **TP_match_response**).  
+   - Each attempt is followed by another wait period.  
+   - If the EVSE PLC node remains unresponsive, the timer **TT_matching_rate** might also come into play to delay the next retry.
+
+9. **TT_matching_repetition**  
+   - This overarching timer is running in the background. It ensures the total number of attempts remains within a certain window.  
+   - If the EV times out on repeated attempts (and **TT_matching_repetition** expires), the process transitions to a “failed” state.
+
+10. **EV PLC node → EVSE PLC node: CM_SLAC_PARM.REQ** (Final Attempt)  
+    - Eventually, the EVSE PLC node is ready (i.e., has finished booting or is fully awake).
+
+11. **EVSE PLC node → EV PLC node: CM_SLAC_PARM.CNF**  
+    - At long last, the EVSE responds with the confirmation message.  
+    - Reception of **CM_SLAC_PARM.CNF** indicates that the EVSE PLC node has accepted the request parameters and has effectively “caught up” to the EV’s repeated attempts.
+
+### D. Conclusion of Matching Sequence
+
+12. **TP_match_sequence** and **TT_match_sequence**  
+    - As soon as the correct confirmation is received, the final matching sequence timers are observed.  
+    - Typically, this implies the SLAC parameter exchange has succeeded, or at least the matching process can progress to the next step in the standard (e.g., amplitude map exchange or final link readiness).
+
+13. **Matched State**  
+    - Once a valid exchange has completed, the link enters the “Matched” state (per the standard’s definitions).  
+    - At this point, no further **CM_SLAC_PARM** messages should be sent (per [V2G3-A09-118]) unless the process fails or restarts.
+
+---
+
+## 5. Relationships and Connections
+
+1. **Key Setting First, Then SLAC Matching**  
+   - The EVSE Host sets up keys on the EVSE PLC node before the matching process triggers.  
+   - This ensures that secure or correct network parameters are in place once the EV and EVSE attempt to exchange SLAC parameters.
+
+2. **Timers Govern Retrying and Error Handling**  
+   - Each **CM_SLAC_PARM.REQ** attempt has a corresponding timer (TT_match_response / TP_match_response). If no reply is received within that window, the EV resends.  
+   - Global repetition timers **TT_matching_repetition** and **TT_matching_rate** regulate how often and how many times the EV can resend these requests before declaring failure.
+
+3. **Confirmation Ends Parameter Repetition**  
+   - Once **CM_SLAC_PARM.CNF** arrives, the repeated attempts stop.  
+   - The EV and EVSE effectively coordinate to finalize the link parameters.
+
+4. **High-Level Wait States**  
+   - Both the EV Host and EVSE Host remain in a “Wait for Matching Process Start Trigger” state until preconditions (like plug-in or system readiness) are met.  
+   - Only after triggers and initial timers do the low-layer modules actually exchange messages.
+
+---
+
+## 6. Summary
+
+Figure A.9 demonstrates a **typical SLAC matching sequence** with a strong focus on **error recovery and timing**. The EV tries multiple times to initiate the parameter exchange, while the EVSE might be booting or unready to respond. Each repeated **CM_SLAC_PARM.REQ** is gated by **TT_match_response**. If the EVSE still does not confirm, the EV eventually retries but must obey the higher-level timers (**TT_matching_rate**, **TT_matching_repetition**). Ultimately, the EVSE PLC node becomes active, responds with **CM_SLAC_PARM.CNF**, and the process can conclude successfully within **TT_match_sequence**.  
+
+Such a design ensures robust handling of real-world delays (e.g., EVSE boot times) and aligns with ISO 15118-3 requirements that define how an “Unmatched” state eventually transitions to “Matched,” or else leads to a matching failure if all retries are exhausted.
+
+---
+
+> **Note:** These timers, messages, and states are specified in ISO 15118-3 Annex A for HomePlug Green PHY communication over the vehicle’s control pilot line. The standard also provides additional constraints (e.g., amplitude map exchange in A.9.6) and states that no further SLAC messages shall be processed once a “Matched” state is achieved ([V2G3-A09-118]).
+
+
+ADDITIONAL CONTEXT:
+Related Information 1: unmatched EVSE which receives the parameter exchange broadcast sends a response to the EV by means of the message CM_SLAC_PARM.CNF. (sibling of Text 1)
+Related Information 2: [V2G3-A09-03] A SLAC request shall only be responded by EVSEs low-layer communciation module if all the following conditions are fulfilled: (sibling of Text 1)
+Related Information 3: — EVSE is connected to an EV, detected by a valid control pilot; (sibling of Text 1)
+Related Information 4: — EVSE is in “Unmatched” state. (sibling of Text 1)
+Contextual Information 1: A.9.1.1 Functional description (ancestor of Text 1)
+Contextual Information 2: A.9.1 Signal strength measurement – parameter exchange (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 5: Before the signal strength measurement starts, the EV broadcasts the parameters to be used for the following signal strength measurement sequence by means of the message CM_SLAC_PARM.REQ. Any (sibling of Text 2)
+Related Information 6: Table A.2 — Involved MMEs for parameters exchange (sibling of Text 3)
+Related Information 7: Table A.2 — Involved MMEs for parameters exchange <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;No.</td> <td colspan="1" rowspan="1">Field&lt;br&gt;Size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="3">CM_SLAC_PARM.REQ&lt;br&gt;Broadcast</td> <td colspan="1" rowspan="1">APPLICATION_TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">2 to 9</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Identifier for a matching&lt;br&gt;run, randomly chosen by&lt;br&gt;the EV for each CM_SLAC_&lt;br&gt;PARM.REQ message and&lt;br&gt;constant for all following&lt;br&gt;messages of the same run</td> </tr> <tr> <td colspan="1" rowspan="5">CM_SLAC_PARM.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">M-SOUND_TARGET</td> <td colspan="1" rowspan="1">0 to 5</td> <td colspan="1" rowspan="1">6</td> <td colspan="2" rowspan="1">0xFFFFFFFFFFFF Fixed value indicating that&lt;br&gt;M-Sounds to be sent as Eth-&lt;br&gt;ernet broadcast</td> </tr> <tr> <td colspan="1" rowspan="1">NUM_SOUNDS</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">C_EV_match_&lt;br&gt;MNBC</td> <td colspan="1" rowspan="1">Number of expected&lt;br&gt;M-Sounds transmitted by&lt;br&gt;the GP station during the&lt;br&gt;SLAC process</td> </tr> <tr> <td colspan="1" rowspan="1">Time_Out</td> <td colspan="1" rowspan="1">7</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x06</td> <td colspan="1" rowspan="1">Duration TT_EVSE_&lt;br&gt;match_MNBC while the&lt;br&gt;EVSE receives incoming&lt;br&gt;M-SOUNDS after a CM_&lt;br&gt;START_ATTEN_CHAR.IND</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_TYPE</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value indicating&lt;br&gt;“Other GP station”</td> </tr> <tr> <td colspan="1" rowspan="1">FORWARDING_STA</td> <td colspan="1" rowspan="1">9 to&lt;br&gt;14</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">EV Host MAC&lt;br&gt;address</td> <td colspan="1" rowspan="1">The destination of SLAC&lt;br&gt;results is always the EV&lt;br&gt;Host</td> </tr> <tr> <td colspan="1" rowspan="3"></td> <td colspan="1" rowspan="1">APPLICATION_TYPE</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">16</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">17 to&lt;br&gt;24</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same&lt;br&gt;as the one sent in the CM_&lt;br&gt;SLAC_PARM.REQ message&lt;br&gt;by the EV</td> </tr> </table> (sibling of Text 3)
+Contextual Information 4: A.9.1.2 Description of involved MMEs (ancestor of Text 3)
+Related Information 8: [V2G3-A09-05] The EV shall send a CM_SLAC_PARM.REQ within TP_EV_SLAC_init time window. (sibling of Text 4)
+Related Information 9: [V2G3-A09-06] The start condition of the TP_EV_SLAC_init timer shall be the trigger of the match- ing process defined in 6.4.3.2. (sibling of Text 4)
+Related Information 10: [V2G3-A09-07] In the SLAC parameter exchange phase, the EV shall send a CM_SLAC_PARM.REQ and wait for the maximum value of TT_match_response for CM_SLAC_PARM.CNFs from potential EVSEs. (sibling of Text 4)
+Related Information 11: [V2G3-A09-08] The start condition of TT_match_response shall be the transmission of CM_SLAC_ PARM.REQ. (sibling of Text 4)
+Related Information 12: [V2G3-A09-09] If the EV receives a CM_SLAC_PARM.CNF with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.2 is invalid. (sibling of Text 4)
+Contextual Information 5: A.9.1.3.2 EV side (ancestor of Text 4)
+Related Information 13: [V2G3-A09-10] If no valid CM_SLAC_PARM.CNF arrives at the EV when TT_match_response expires, the EV shall retransmit the request and wait again for TT_match_ response. The total number of retries is given by C_EV_match_retry. If C_EV_ match_retry is reached, the matching process shall be considered as FAILED. (sibling of Text 5)
+Related Information 14: Figure A.9 — Example of sequence chart of matching process error handling (sibling of Text 6)
+Contextual Information 6: A.9.8.1 Example of matching process error handling (ancestor of Text 6)
+Contextual Information 7: A.9.8 General error handling and timing constraints (ancestor of Text 6)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

@@ -1,0 +1,467 @@
+================================= Entity Chunks for LOGICAL NETWORK =================================
+Entity: LOGICAL NETWORK
+Description: The EVSE is part of the logical network to facilitate communication with the EV
+The logical network is a configuration that the EVSE manages for communication with the EV
+The EVSE leaves the logical network as part of its error handling process The EV joins the logical network of the EVSE after successful parameter exchange
+The EV joins the logical network to communicate with the EVSE
+The EV is a part of the logical network and its presence or absence is detected by the CCo
+The EV seeks to join the logical network managed by the EVSE The low-layer communication module operates within the logical network and must inform other components when it leaves
+The low-layer communication module operates within the logical network to facilitate communication
+The low-layer communication module operates within a logical network to facilitate communication
+The low-layer communication module is configured with the parameters of the logical network to enable communication The requirement V2G3-A09-100 involves the joining of a logical network MMEs parameters are used for the process of joining or integrating into a logical network The sequence chart is used to illustrate the process of joining the logical network
+The sequence chart is used to depict the process of joining a logical network The amplitude map is sent over the logical network to ensure proper communication between modules The CCo manages the logical network and detects when an EV leaves Members of the same logical network are visible to each other on higher layers, facilitating data exchange Different logical networks can exist on the same physical media, allowing for network segmentation A logical network is defined and operates within layer 2 of the network architecture The communication node interacts with the logical network to maintain or change its state
+Communication nodes are part of the logical network, facilitating data exchange
+The communication node is part of the logical network and interacts with it TP_match_leave defines the time within which the EVSE should leave the logical network In the Bx state, the communication node leaves the logical network The low-layer communication technology may require the construction of a logical network to improve communication A virtual network structure that facilitates communication between nodes
+A logical network refers to a network configuration that allows devices to communicate and exchange encrypted payload data within the same network, while being visible to each other on higher layers
+A logical network refers to a virtual network that is defined and managed at a specific layer of the network architecture, in this case, layer 2
+A logical network is an infrastructure setup that allows for the organization and management of network resources and communication paths
+A network structure that is defined by its logical connections and configurations, rather than its physical layout
+A logical network refers to a virtual network structure that facilitates communication between different nodes and systems
+A virtual network configuration that allows communication and data exchange between an EV and an EVSE
+A virtual network that allows devices to communicate as if they are on the same physical network, despite being on different physical networks
+A logical network is an infrastructure component that represents the virtual network environment in which the EV's communication node operates
+A logical network is a virtual network that is created to manage and organize communication nodes and data flow within a system
+A virtual network that is formed by logically connecting devices and systems, often used in network management and communication
+A virtual network setup that allows communication between different modules or devices, facilitating data exchange
+A network that is organized and managed through logical connections and configurations, rather than physical connections
+The network infrastructure that facilitates communication between the EVSE and other entities
+A virtual network structure that is created to enhance communication capabilities, often by organizing and managing data flow more efficiently
+A virtual network that is configured with specific parameters to facilitate communication between devices
+A logical network is a virtual network that is created and managed through software, allowing for the organization and management of network resources
+A network structure managed by the CCo, which includes the EV and other network components
+A logical network is a virtual network that allows communication between devices, such as an EV and EVSE, over a shared physical network. A logical network is defined for layer 2. Only members of the same logical network are able to exchange encrypted payload data and are visible for each other on higher layers. Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation.
+The low-layer communication module shall leave the logical network, reset the NMK, and switch to matching state 'Unmatched'.
+The configuration of the low-layer communication module with the parameters of the logical network may be done with the MMEs CM_SET_KEY.REQ and CM_SET_KEY.CNF.
+--------------------------------------------------------------------------------
+Entity: AMPLITUDE MAP
+Description: A specification that defines a transmit power-reduction factor for each subcarrier in a communication system
+A data structure or representation used in communication systems to define the amplitude levels of signals for transmission
+An amplitude map specifies a transmit power-reduction factor for each subcarrier, which is related to the tone mask in communication systems
+Amplitude Map refers to a data structure or set of information used in the context of communication protocols to map signal amplitudes
+--------------------------------------------------------------------------------
+Entity: BX STATE
+Description: A term used to describe a specific state in the communication protocol where the EV's communication node transitions after receiving a D-LINK_ERROR.request
+--------------------------------------------------------------------------------
+Entity: CCO
+Description: Central Coordinator is a term used to refer to the entity responsible for managing and coordinating communication within a network
+Central Coordinator (CCo) is a device or system responsible for managing and coordinating the logical network
+Central Communication Controller, a role in communication systems that manages and controls communication processes
+Central Coordinator (CCo) is responsible for managing the logical network and detecting when an Electric Vehicle (EV) has left the network
+Central Coordinator, a term used to describe the main controlling entity in a network
+CCo stands for Central Communication Controller, which is a role or function that the low-layer communication module on the EVSE side must always assume The CCo of the logical network may need several seconds to discover that the EV has left the network.
+--------------------------------------------------------------------------------
+Entity: COMMUNICATION NODE
+Description: A component within the EVSE responsible for managing communication processes and transitions between states
+A device or system that facilitates the exchange of data between different points in a network, ensuring compliance with frequency restrictions
+A communication node is a point in a network that facilitates data exchange between devices, such as between an EV and EVSE
+A communication node is a device or point in a network that facilitates data exchange and communication between different parts of the network
+A device or system on the electric vehicle (EV) side responsible for measuring and concluding signal strength as part of the communication process
+A node within a network responsible for managing communication processes
+A component within the functional assembly that facilitates communication between the electric vehicle and the charging infrastructure
+A communication node in an EV is a technological component that manages communication with the grid and other external networks and systems. With receiving a D-LINK_TERMINATE.request from HLE, the communication node shall leave the logical network within TP_match_leave.
+--------------------------------------------------------------------------------
+Entity: ELECTRIC VEHICLE
+Description: <|COMPLETE|>
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged through the grid
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can detect communication loss during charging
+An Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion and must comply with local frequency legislation through the EVSE
+An Electric Vehicle (EV) that initiates the signal strength measurement process
+An Electric Vehicle (EV) that participates in the validation process by sending and receiving protocol messages
+An Electric Vehicle, which is a type of vehicle powered by electric motors using energy stored in rechargeable batteries
+An electric vehicle that processes incoming messages and interacts with EVSEs during the parameter exchange and matching process
+An electric vehicle that requires connection to a communication module for charging and data exchange
+EV refers to Electric Vehicle, which is a type of vehicle that operates on electric power and participates in vehicle-to-grid communication
+EV refers to an Electric Vehicle, which is a type of vehicle that operates on electric power
+Electric Vehicle (EV) is a type of vehicle that operates using electric power instead of traditional fuel
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged via a power outlet
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can communicate with EVSE by sending public keys
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and is involved in the triggering process immediately after the plug-in of the cable assembly
+Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion, mentioned in the context of power flow with EVSE
+Electric Vehicle (EV) that connects to and disconnects from the logical network
+Electric Vehicle, a general term for vehicles that operate on electric power, including BEVs and PHEVs
+Electric Vehicle, a type of vehicle that is powered by electricity instead of traditional fuel sources
+Electric Vehicle, a type of vehicle that uses electric motors for propulsion and is capable of being charged through an external power source
+Electric Vehicle, which can decide whether to follow the EVSE's recommendation or proceed with the validation process
+Electric Vehicle, which initiates the validation process by sending a readiness signal
+Electric Vehicle, which interacts with EVSE for charging and communication processes
+Electric Vehicle, which is a type of vehicle powered by electricity and capable of interacting with EVSE for charging
+Electric Vehicle, which is capable of making decisions on how to proceed in certain situations
+Electric Vehicle, which is expected to be prepared for a forced restart by an EVSE during the T_conn_resetup waiting state
+Electric Vehicle, which is involved in the communication process and message exchanges in the test case
+Electric Vehicle, which is involved in the validation process and must perform certain actions based on the protocol message
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must adhere to specific requirements
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must continue the matching process if certain conditions are met
+Electric Vehicle, which is the recipient of charging and communication from the EVSE
+Electric Vehicle, which is the recipient of communication from the EVSE and must comply with certain PSD values
+Electric Vehicle, which is the recipient of the CM_SLAC_PARM.CNF message in the context of vehicle-to-grid communication
+Electric Vehicle, which is the recipient of the communication from the low-layer communication module
+Electric Vehicle, which is the subject of the protocol command to change its state
+Electric Vehicle, which is the subject of the requirement to continue with the communication process
+Electric Vehicle, which is the subject of the timers and validation process described
+Electric Vehicle, which is the type of vehicle involved in the matching process mentioned
+Electric Vehicle, which is the type of vehicle involved in the parallel injection process
+Electric Vehicle, which participates in the SLAC process and communicates with EVSE
+Electric Vehicle, which uses electricity as its primary source of propulsion
+Electric Vehicle, which uses the low-layer communication module for various communication processes
+Electric Vehicle, which uses the method to discover and select communication nodes based on signal strength
+An Electric Vehicle (EV) is powered by electric motors and batteries for propulsion, offering an alternative to internal combustion engine vehicles.
+An Electric Vehicle (EV) uses electric power for propulsion and is involved in vehicle-to-grid communication processes.
+EV stands for Electric Vehicle, which is powered by electricity and uses electric motors for propulsion instead of traditional fuel sources.
+Electric Vehicles (EVs), which are powered by electric motors, use energy stored in rechargeable batteries.
+An Electric Vehicle is a type of vehicle that operates using electric power stored in batteries and is powered by electric motors.
+Electric Vehicle, a type of vehicle powered by electricity.
+Electric Vehicle is involved in the validation process with Electric Vehicle Supply Equipment (EVSE).
+Electric Vehicles (EVs) are powered by electric motors and batteries instead of internal combustion engines.
+Electric Vehicles are a type of vehicle that use electric motors for propulsion and require charging infrastructure.
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion, requires charging infrastructure like EVSE, and can communicate with it for charging and validation processes.
+Electric Vehicle (EV) is a type of vehicle that operates on electric power using electric motors for propulsion, powered by electricity stored in rechargeable batteries or fuel cells.
+--------------------------------------------------------------------------------
+Entity: EVSE
+Description: Electric Vehicle Supply Equipment, which is the infrastructure that supplies electric energy for recharging electric vehicles and interacts with various signals and toggles
+Electric Vehicle Supply Equipment, which handles parallel matching processes and monitors control pilot states
+Electric Vehicle Supply Equipment involved in the communication process, particularly in sending and receiving specific messages
+Electric Vehicle Supply Equipment, which provides recommendations to the electric vehicle regarding the validation process
+Electric Vehicle Supply Equipment, which is responsible for receiving and processing messages in the vehicle-to-grid communication system
+Electric Vehicle Supply Equipment, which defines the maximum charge current for the vehicle in the HLC-C mode
+Electric Vehicle Supply Equipment that calculates signal strength based on M-SOUNDS
+Electric Vehicle Supply Equipment, which provides the interface between the electric vehicle and the power source, and can affect signal transmission
+Electric Vehicle Supply Equipment (EVSE) is the technology used to supply electric energy for recharging electric vehicles, specifically covered under modes 3 and 4 in this context
+<|COMPLETE|>
+Electric Vehicle Supply Equipment (EVSE) is the technology responsible for generating the valid duty cycle as per the IEC-1 standard
+Electric Vehicle Supply Equipment that communicates with EVs through messages like CM_ATTEN_CHAR.IND during the parameter exchange
+Electric Vehicle Supply Equipment, which supplies electric energy for recharging electric vehicles and participates in communication protocols
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can make decisions based on ID recognition
+Electric Vehicle Supply Equipment, which interacts with the EV during the validation process
+Electric Vehicle Supply Equipment (EVSE) is the technology that provides electric energy for recharging electric vehicles and can set a nominal duty cycle
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can establish a point-to-point link with an EV using G3PLC technology
+Electric Vehicle Supply Equipment, which counts control pilot toggles and communicates results back to the EV
+Electric Vehicle Supply Equipment, which can force an EV to restart if it has implemented option A
+Electric Vehicle Supply Equipment, the infrastructure that supplies electric energy for recharging electric vehicles and participates in communication protocols like SLAC
+Electric Vehicle Supply Equipment provides the infrastructure for charging electric vehicles, offering both electrical energy and communication capabilities, including socket-outlets.
+Electric Vehicle Supply Equipment is involved in both matching and validation processes.
+Electric Vehicle Supply Equipment provides electric energy for recharging electric vehicles and includes communication capabilities.
+Electric Vehicle Supply Equipment provides the necessary infrastructure for charging electric vehicles.
+Electric Vehicle Supply Equipment (EVSE) supplies electric energy for recharging electric vehicles, manages communication with the vehicle, handles validation processes including power limitation requests, detects state variations on the control pilot line, ensures compliance with local legislation, and can switch states while connecting to a private network.
+Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles, supports wake-up mechanisms, and facilitates communication with EVs. Matching EV – EVSE process involves setting up a logical network.
+At any time an EVSE switches to a private logical network, the local NMK shall be set per random value to ensure a unique logical network.
+The selected EVSE responds to the EV request with a CM_SLAC_MATCH.CNF, which contains all parameters to be set to join the logical network of the EVSE.
+--------------------------------------------------------------------------------
+Entity: HIGHER LAYERS
+Description: The upper layers in a network protocol stack that receive indications from lower layers
+The higher layers in a communication system architecture that interact with lower layers to facilitate data exchange
+The layers in a communication protocol stack that receive indications from lower layers, such as data link status
+The upper layers in a communication protocol stack that handle data before it is passed to lower layers for transmission
+The layers in a network architecture that are above the data link control layer, typically responsible for more complex data processing and application services
+Higher layers refer to the upper levels in a network architecture that receive link status and error information from the Data Link Control SAP
+Higher layers refer to the layers above the data link layer in the network protocol stack, which utilize the services provided by the data link layer
+Higher layers refer to the upper layers in a network protocol stack that interact with lower layers like PLC nodes for data exchange and control
+Components or protocols that operate at a higher level in the communication stack, utilizing services provided by lower layers
+The layers in a communication protocol stack that manage and control data transmission and error handling above the data link layer
+Higher layers refer to the upper layers in a network protocol stack where data exchange and visibility among devices in the same logical network occur
+The upper layers in a communication system that process data received from lower layers
+Higher layers in a communication model or protocol stack manage complex functions including control, identification, and data processing.
+Refers to the upper layers of the OSI model, which include the application, presentation, and session layers, responsible for end-user services and data representation.
+Higher layers in a protocol stack, whether communication or network, rely on lower layers for data transmission and communication.
+--------------------------------------------------------------------------------
+Entity: LAYER 2
+Description: Layer 2, also known as the Data Link Layer, is the data link layer in the OSI model responsible for node-to-node data transfer and error detection and correction.
+--------------------------------------------------------------------------------
+Entity: LOW-LAYER COMMUNICATION MODULE
+Description: A component responsible for handling basic communication tasks at the lower layers of a network protocol stack, used in both EVSE and EV
+A module responsible for handling basic communication tasks at the lower layers of a communication protocol stack, particularly in vehicle-to-grid systems
+A module within the EVSE responsible for handling low-level communication tasks, such as configuring network identifiers and keys
+A communication module responsible for managing communication at a lower layer, particularly in charging stations with multiple outlets
+A component that needs to be configured as described in A.4.5 before the matching process begins
+A low-layer communication module is a technology component responsible for handling basic communication tasks in a network, as specified in the V2G3-A09-115 standard
+A component responsible for handling communication at the lower layers of a network protocol stack, often dealing with data transmission and reception
+A module responsible for handling basic communication tasks in a vehicle-to-grid system, which can be optionally unpowered
+A module responsible for handling the initial stages of communication in a system, particularly after a cable assembly is plugged in
+A low-layer communication module is a component responsible for handling basic communication tasks directly connected to the EVSE
+A component on the EVSE side responsible for handling basic communication tasks, including detecting the zero cross of the AC line cycle
+A module responsible for handling the basic communication protocols and message flows between devices in a network
+A component responsible for basic communication functions in an electric vehicle, which can be powered off during sleep mode
+A communication layer responsible for handling basic communication tasks, such as receiving the first SLAC message
+A component responsible for handling basic communication functions between the electric vehicle and the EVSE
+A component responsible for handling communication at a lower layer in the communication stack, particularly in vehicle-to-grid systems
+A communication module assigned locally to each socket-outlet on the EVSE side, responsible for handling low-level communication tasks
+A component in a communication system responsible for handling low-level data transmission tasks, including managing additional carriers and sending amplitude maps
+A component within a communication system responsible for handling low-level communication tasks, including adjusting transmission power
+A component of the EVSE responsible for handling communication at a basic network level, which can be configured to known logical network parameters
+A communication module responsible for handling low-level data exchange between an electric vehicle and the charging infrastructure
+A module responsible for establishing initial communication between the EVSE and the electric vehicle at a basic level
+A low-layer communication module is a component that handles the basic, foundational aspects of data transmission in a communication system
+A component in communication systems responsible for handling lower-level communication tasks, including power management and signal processing
+A module responsible for handling communication at a lower layer, crucial for processes like matching and responding to MMEs
+A module responsible for handling communication at the lower layers of a network, including joining and leaving logical networks
+A module responsible for handling communication protocols and data exchange between Electric Vehicles (EV) and Electric Vehicle Supply Equipment (EVSE), including message exchanges at the lowest level of the communication stack.
+A component of the EVSE responsible for handling both basic and low-level communication tasks, which may be powered off during sleep mode or switched into low-power mode.
+A module on the electric vehicle (EV) side responsible for handling basic communication functions.
+A module in an electric vehicle responsible for handling low-level communication tasks.
+A component of the EVSE responsible for handling basic communication tasks, protocols, and functions.
+A component that handles basic communication tasks and protocols at a lower level of the communication stack within a network.
+A module responsible for handling basic communication tasks and settings in a network, operating at lower layers of the communication protocol stack.
+A module responsible for handling communication at the lower layers of a network stack, essential for establishing connections and ensuring data transmission and reception, typically involving the data link and physical layers. With receiving a D-LINK_TERMINATE.request from HLE, the low-layer communication module shall leave the logical network, reset the NMK, and switch to matching state 'Unmatched'.
+--------------------------------------------------------------------------------
+Entity: LOW-LAYER COMMUNICATION TECHNOLOGY
+Description: A type of communication technology that operates at the lower layers of a network stack, focusing on the basic transmission of data
+The foundational communication technology layer responsible for managing link status and data transmission According to the low-layer communication technology, a logical network might have to be built in order to enhance the communication.
+--------------------------------------------------------------------------------
+Entity: MMES
+Description: MMEs refer to the specific messages or data units used for parameter exchange in communication protocols
+MMEs refers to specific parameters used in the context of SLAC, which likely stands for Signal Level Attenuation Characterization
+MMEs refers to a set of parameters used in the context of amplitude map exchange, likely related to communication or data processing
+Management Message Entities (MMEs) are specific messages used in communication protocols to manage and control communication processes
+Mobility Management Entities (MMEs) are network components that manage network parameters and configurations
+MMEs refers to specific parameters used in a validation process, likely related to a technical or communication protocol
+MMEs refers to a set of parameters used in logical network management and configuration, specifically for parameter exchange and joining a logical network. In order to create the logical network, both EV and EVSE shall use the CM_SLAC_MATCH MMEs defined in the [HPGP] messages, using sequences defined in Figure A.1.
+Table A.8 — MMEs parameters definition for joining the logical network.
+--------------------------------------------------------------------------------
+Entity: PHYSICAL MEDIA
+Description: The physical media refers to the tangible components that carry communication signals, such as cables, in a network
+The physical medium used for transmitting data between different systems, which can include cables, fiber optics, or wireless channels
+The physical medium through which communication signals are transmitted, such as cables or wireless channels
+Physical media includes the tangible hardware or mediums through which network data and communication signals are transmitted, such as cables and wireless channels.
+--------------------------------------------------------------------------------
+Entity: SEQUENCE CHART
+Description: A visual representation used to illustrate the sequence of logical network parameter exchanges in a system
+<|COMPLETE|>
+A sequence chart is a diagram that represents the order of processes or events, often used in technical and engineering contexts to illustrate the flow of operations or interactions)
+A visual representation used to depict the order of operations or events, such as signal strength measurement, in a structured format
+A visual representation that depicts the order of operations or the sequence of steps in a process, such as the amplitude map exchange.
+A visual representation illustrating the order of operations related to signal strength measurement and parameter exchange.
+A visual representation that illustrates the sequence of steps and actions involved in joining a logical network.
+--------------------------------------------------------------------------------
+Entity: TP_MATCH_LEAVE
+Description: A term referring to the time period within which a communication node must leave the logical network after receiving a termination request
+A term used to describe the time period within which the EV's communication node must leave the logical network and change its state to "Unmatched"
+The maximum time to leave the logical network, set at 1 second
+TP_match_leave is a term used to describe the time period or condition under which a communication node should leave the logical network
+A specific condition or parameter related to the timing of leaving a logical network
+A timing parameter that defines the duration within which the EVSE should leave the logical network The communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status 'Unmatched'.
+--------------------------------------------------------------------------------
+Entity: V2G3-A09-100
+Description: A specific requirement that dictates conditions under which a low-layer communication module can join a logical network The low-layer communication module shall join the logical network only if the EV_Discovering_status is EVSE_FOUND.
+--------------------------------------------------------------------------------
+
+
+Question What is Logical Network?
+
+TABLE INFORMATION:
+Table 1: 8 Timings and constants - Table 3 — Timing and constant values
+
+FIGURE INFORMATION:
+Figure 1: A.9.5.3 Timing constraints and error handling - Figure A.7 — Sequence chart of joining the logical network
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+
+TEXTUAL INFORMATION:
+Text 1: 3.16 logical network (Context: 3.16 logical network > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - set of low-layer communication stations which use the same network key
+Text 2: 3.16 logical network (Context: 3.16 logical network > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Note 1 to entry: Only members of the same logical network are able to exchange encrypted payload data and are visible for each other on higher layers. Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation.
+Text 3: 3.16 logical network (Context: 3.16 logical network > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation.
+Text 4: 3.16 logical network (Context: 3.16 logical network > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Note 2 to entry: A logical network is defined for layer 2.
+Text 5: 9.6 Leave the logical network (Context: 9.6 Leave the logical network > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - [V2G3-M09-19] In the following cases, the communication node shall leave the logical network within TP_match_leave. All parameters related to the current link shall be set to the default value and shall change to the status “Unmatched”.
+Text 6: 8 Timings and constants (Context: 8 Timings and constants > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - [V2G3-M08-01] All low-layer communication devices shall comply with Table 3.
+Text 7: A.9.4.1 Functional description (Context: A.9.4.1 Functional description > A.9.4 Logical network parameter exchange > A.9 Matching EV – EVSE process) - [V2G3-A09-92] At any time an EVSE switches to a private logical network, the local NMK shall be set per random value to ensure a unique logical network. The configuration of the NMK on EVSE side shall be done with sending a CM_SLAC_MATCH.CNF MME or at anytime before.
+Text 8: A.9.4.1 Functional description (Context: A.9.4.1 Functional description > A.9.4 Logical network parameter exchange > A.9 Matching EV – EVSE process) - [V2G3-A09-93] The NID of the logical network shall be derived from the NMK according to [HPGP], 4.4.3.1 using a security level value of 0b00.
+
+ADDITIONAL CONTEXT:
+Related Information 1: Note 1 to entry: Only members of the same logical network are able to exchange encrypted payload data and are visible for each other on higher layers. Different logical networks might exist on the same physical media at the same time and are typically used for network segmentation. (sibling of Text 1)
+Related Information 2: Note 2 to entry: A logical network is defined for layer 2. (sibling of Text 1)
+Contextual Information 1: 3.16 logical network (ancestor of Text 1)
+Contextual Information 2: 3 Terms and definitions (ancestor of Text 1)
+Contextual Information 3: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Related Information 3: set of low-layer communication stations which use the same network key (sibling of Text 2)
+Related Information 4: [V2G3-M09-18] When the low-layer communication module leaves the logical network, it shall inform HLE through the D-LINK_READY.indication (no link). (sibling of Text 5)
+Contextual Information 4: 9.6 Leave the logical network (ancestor of Text 5)
+Contextual Information 5: 9 Matching EV — EVSE process (ancestor of Text 5)
+Related Information 5: This Clause summarizes all timings used in the main body of this part of ISO 15118. (sibling of Text 6)
+Related Information 6: Table 3 — Timing and constant values (sibling of Text 6)
+Related Information 7: Table 3 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_conn_max_match</td> <td colspan="1" rowspan="1">Number of retries of matching&lt;br&gt;process</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_vald_nb_toggles</td> <td colspan="1" rowspan="1">Number of BCB-Toggles</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EVSE_match_parallel</td> <td colspan="1" rowspan="1">Number of parallel matching&lt;br&gt;processes to be handled by&lt;br&gt;EVSE</td> <td colspan="1" rowspan="1">5</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_sequ_retry</td> <td colspan="1" rowspan="1">Number of matching retries by&lt;br&gt;Control Pilot state E transitions</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_init_HLC</td> <td colspan="1" rowspan="1">Minimum B state duration after&lt;br&gt;a state F, D, or C</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resume</td> <td colspan="1" rowspan="1">Time after the wake up trigger&lt;br&gt;(e.g. BCB-Toggle) until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_max_comm</td> <td colspan="1" rowspan="1">Time after plug-in until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resetup</td> <td colspan="1" rowspan="1">Time to resetup the matching&lt;br&gt;process after a loss of commu-&lt;br&gt;nication</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_vald_detect_time</td> <td colspan="1" rowspan="1">Time to detect a variation of the&lt;br&gt;state on EVSE side</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_state_duration</td> <td colspan="1" rowspan="1">Duration of each state B or C&lt;br&gt;within the BCB-Toggle</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_toggle</td> <td colspan="1" rowspan="1">Duration of BCB-Toggle&lt;br&gt;sequence</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_vald_toggle</td> <td colspan="1" rowspan="1">Timeout timer for the EVSE to&lt;br&gt;stop monitoring control pilot for&lt;br&gt;BCB-Toggle. Value comes from&lt;br&gt;CM_VALIDATE.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_leave</td> <td colspan="1" rowspan="1">Maximum time to leave the logi-&lt;br&gt;cal network</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_step_EF</td> <td colspan="1" rowspan="1">Time to stay at E/F state</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> </table> (sibling of Text 6)
+Related Information 8: [V2G3-M08-02] Any successful matching process shall reset all the timeout timers and reset the retry_counters. (sibling of Text 6)
+Contextual Information 6: 8 Timings and constants (ancestor of Text 6)
+Contextual Information 7: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 6)
+Related Information 9: After the EV has finished the matching decision, it requests the parameter for the logical network from the selected EVSE by means of the message CM_SLAC_MATCH.REQ. The selected EVSE responses to the EV request with a CM_SLAC_MATCH.CNF, which contains all parameters to be set to join the logical network of the EVSE. (sibling of Text 7)
+Related Information 10: [V2G3-A09-91] In order to create the logical network, both EV and EVSE shall use the CM_SLAC_ MATCH MMEs defined in the [HPGP] messages, using sequences defined in Fig- ure A.1. (sibling of Text 7)
+Related Information 11: It is recommended to set the local NMK on EVSE side before the matching process begins, e.g. at the transition from “matched” to “unmatched” state. (sibling of Text 7)
+Related Information 12: [V2G3-A09-93] The NID of the logical network shall be derived from the NMK according to [HPGP], 4.4.3.1 using a security level value of 0b00. (sibling of Text 7)
+Contextual Information 8: A.9.4.1 Functional description (ancestor of Text 7)
+Contextual Information 9: A.9.4 Logical network parameter exchange (ancestor of Text 7)
+Contextual Information 10: A.9 Matching EV – EVSE process (ancestor of Text 7)
+Related Information 13: [V2G3-A09-92] At any time an EVSE switches to a private logical network, the local NMK shall be set per random value to ensure a unique logical network. The configuration of the NMK on EVSE side shall be done with sending a CM_SLAC_MATCH.CNF MME or at anytime before. (sibling of Text 8)
+Related Information 14: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 1)
+Related Information 15: A.9.5.3.1 Sequence chart (sibling of Figure 1)
+Related Information 16: Figure A.7 — Sequence chart of joining the logical network (sibling of Figure 1)
+Contextual Information 11: A.9.5.3 Timing constraints and error handling (ancestor of Figure 1)
+Contextual Information 12: A.9.5 Joining the logical network (ancestor of Figure 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
+
+
+Question: What is Logical Network?
+
+Above is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.

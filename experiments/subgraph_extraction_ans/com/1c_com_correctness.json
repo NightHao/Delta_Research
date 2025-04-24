@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the commonality between Data SAP and Data link control SAP?",
+        "score": 0.9,
+        "reason": "In the Input, the question asks about commonality between Data SAP and Data Link Control SAP. The Actual Output matches the Expected Output by describing both as SAPs in the data-link layer facilitating communication with higher layers. However, there is a minor omission regarding the downward interface detail for the Data SAP that the Expected Output explicitly mentions."
+    },
+    {
+        "question": "What is the commonality between basic signaling and high-level communication?",
+        "score": 0.6,
+        "reason": "The actual output does not contradict expected facts (both reference ISO 15118 and V2G bidirectional communication), but it omits key details mentioned in the expected output (IEC 61851, physical link specifics like PWM/PLC, and the notion that they are two layers rather than separate modes)."
+    },
+    {
+        "question": "What is the commonality between MTC and PTC?",
+        "score": 0.7,
+        "reason": "In Input, the question is about MTC and PTC. The Actual Output correctly describes their IEC 61851-1 roles and mentions HAL_61851_Internal_Port but omits key TTCN-3 details and port references (e.g. pt_SLAC_Port) from the Expected Output. It does not contradict facts but lacks several specifics outlined there."
+    }
+]

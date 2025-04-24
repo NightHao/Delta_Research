@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 0.4,
+        "reason": "No factual contradictions, but the Actual Output omits many specifics from the Expected Output (e.g., PLC link management primitives like D-LINK_READY, D-LINK_ERROR) and does not detail the connection coordination entity. The Input asked for differences between Data SAP and Data Link Control SAP, and while the Actual Output addresses it, it lacks the detailed link-status and PLC considerations found in the Expected Output."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.7,
+        "reason": "The actual output aligns with the input question and does not contradict facts (mentions ISO 15118-3, fallback mechanism, advanced V2G features) but omits specific details from the expected output (e.g., 5\u201396% PWM duty cycle, pilot states A/B/C, PLC references like G3-PLC and SLAC messages)."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.6,
+        "reason": "In the Input, the question asks about MTC vs. PTC, and the Actual Output addresses hierarchy (MTC as controller, PTC as subordinate). However, it omits key protocol-level details from the Expected Output (SLAC steps, attenuation characterization, specific port usage), leaving out significant information."
+    }
+]

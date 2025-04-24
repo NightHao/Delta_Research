@@ -1,0 +1,1235 @@
+================================= Entity Chunks for CM_SLAC_MATCH.REQ =================================
+Entity: CM_SLAC_MATCH.REQ
+Description: TT_EVSE_MATCH_SESSION involves the reception of CM_SLAC_MATCH.REQ
+The CM_SLAC_MATCH.REQ message is sent after the TT_EVSE_match_session timer expires The EVSE needs to receive a valid CM_SLAC_MATCH.REQ message as part of its operation
+The EVSE receives the CM_SLAC_MATCH.REQ as part of its communication protocol with electric vehicles
+The EVSE expects to receive a CM_SLAC_MATCH.REQ to establish a connection with the EV
+The EVSE receives the CM_SLAC_MATCH.REQ message from the EV as part of the communication protocol
+The EVSE must handle CM_SLAC_MATCH.REQ retries from the EV
+CM_SLAC_MATCH.REQ is used to communicate decisions to the EVSE, showing a functional relationship
+The CM_SLAC_MATCH.REQ protocol message is received by the EVSE as part of the communication process
+The CM_SLAC_MATCH.REQ is sent to a selected EVSE to initiate a secure connection
+The CM_SLAC_MATCH.REQ protocol is used for matching PEVs with EVSEs The requirement involves the Electric Vehicle sending the CM_SLAC_MATCH.REQ message The EV sends the CM_SLAC_MATCH.REQ message to the EVSE to initiate or retransmit a connection request
+The EV sends the CM_SLAC_MATCH.REQ message to initiate the matching process with the EVSE
+The Electric Vehicle must send the CM_SLAC_MATCH.REQ message as part of the protocol The CM_SLAC_MATCH.REQ message is sent after receiving the CM_VALIDATE.CNF confirmation
+CM_VALIDATE.CNF and CM_SLAC_MATCH.REQ are alternative protocol messages that can follow in the process CM_SLAC_MATCH.REQ is a part of the process involving communication between EVSE and EV The TT_MATCH_SEQUENCE timer stops with the reception of a valid CM_SLAC_MATCH.REQ message
+The TT_match_sequence timer stops when a CM_SLAC_MATCH.REQ message is received, indicating a relationship between the timer and the message The matching process involves the receipt and validation of the CM_SLAC_MATCH.REQ message CM_SLAC_MATCH.CNF is a confirmation message that follows a CM_SLAC_MATCH.REQ request
+The CM_SLAC_MATCH.REQ message is sent to initiate a SLAC match, and the CM_SLAC_MATCH.CNF message is expected as a confirmation
+The CM_SLAC_MATCH.REQ message is expected to be followed by a CM_SLAC_MATCH.CNF message under certain conditions
+CM_SLAC_MATCH.REQ is the request message sent by the EV, and CM_SLAC_MATCH.CNF is the confirmation message expected from the EVSE
+CM_SLAC_MATCH.REQ is the request message that initiates the SLAC matching process, and CM_SLAC_MATCH.CNF is the confirmation message that completes the process
+The CM_SLAC_MATCH.REQ message is sent, and the CM_SLAC_MATCH.CNF message is expected in response
+The CM_SLAC_MATCH.REQ message is part of the process that leads to the CM_SLAC_MATCH.CNF message
+The CM_SLAC_MATCH.REQ message is part of the process that eventually leads to the CM_SLAC_MATCH.CNF message
+CM_SLAC_MATCH.REQ is a request message from the EV, and CM_SLAC_MATCH.CNF is the response from the EVSE
+The CM_SLAC_MATCH.REQ message is sent to request a SLAC match, and the CM_SLAC_MATCH.CNF message is received as confirmation
+The CM_SLAC_MATCH.REQ message is sent to initiate a process that is confirmed by the CM_SLAC_MATCH.CNF message
+The CM_SLAC_MATCH.REQ message is sent to initiate a request, and the CM_SLAC_MATCH.CNF message is expected as a confirmation
+CM_SLAC_MATCH.REQ initiates a process that requires a response in the form of CM_SLAC_MATCH.CNF
+The CM_SLAC_MATCH.REQ message is sent to initiate communication, and the CM_SLAC_MATCH.CNF message is expected as a confirmation
+The CM_SLAC_MATCH.REQ message is expected to be confirmed by a CM_SLAC_MATCH.CNF message
+The CM_SLAC_MATCH.CNF is sent in response to the CM_SLAC_MATCH.REQ to confirm receipt
+The CM_SLAC_MATCH.REQ message is expected to be followed by a CM_SLAC_MATCH.CNF message
+The CM_SLAC_MATCH.CNF message is expected as a response to the CM_SLAC_MATCH.REQ message
+CM_SLAC_MATCH.CNF is a confirmation message for the CM_SLAC_MATCH.REQ
+The CM_SLAC_MATCH.REQ message is sent to initiate SLAC matching, and the CM_SLAC_MATCH.CNF message is expected as a confirmation
+CM_SLAC_MATCH.CNF is a confirmation message sent in response to the CM_SLAC_MATCH.REQ message The CM_SLAC_MATCH.REQ protocol is used for matching PEVs with EVSEs The CM_SLAC_MATCH.REQ message includes the runID as a parameter
+RunID is a value used in the CM_SLAC_MATCH.REQ protocol for matching purposes
+The CM_SLAC_MATCH.REQ message includes a runID as a parameter C_EV_match_retry specifies the maximum number of times the CM_SLAC_MATCH.REQ can be retransmitted The content of CM_SLAC_MATCH.REQ is validated against the MME definition in Table A.7 The test case involves sending the CM_SLAC_MATCH.REQ message to check the SUT's response The test case involves sending a CM_SLAC_MATCH.REQ message The test case requires sending a CM_SLAC_MATCH.REQ message The CM_SLAC_MATCH.REQ message includes the EV MAC address
+The EV MAC is included as a parameter in the CM_SLAC_MATCH.REQ message The EVSE MAC is included as a parameter in the CM_SLAC_MATCH.REQ message
+The CM_SLAC_MATCH.REQ message includes the EVSE MAC address The SLAC validation process involves sending a CM_SLAC_MATCH.REQ message
+The SLAC validation process is related to the sending of CM_SLAC_MATCH.REQ messages The expiration of the TT_EVSE_match_session timer triggers the sending of the CM_SLAC_MATCH.REQ message
+The CM_SLAC_MATCH.REQ message is sent after the TT_EVSE_match_session timer expires The SUT is tested to ensure it does not send a CM_SLAC_MATCH.CNF message until the TT_MATCH_RESPONSE timer has expired The CM_SLAC_MATCH.REQ message includes the applicationType parameter The test case involves sending a CM_SLAC_MATCH.REQ message The GoodCase procedure involves counting the repetitions of the CM_SLAC_MATCH.REQ message
+The GoodCase procedure involves sending a CM_SLAC_MATCH.REQ message The test case involves waiting for and validating the CM_SLAC_Match.REQ message The test case requires sending a CM_SLAC_Match.REQ message as part of the validation process The test case ensures that a CM_SLAC_Match.REQ message is sent with the necessary parameters The test case involves executing and counting the repetitions of the CM_SLAC_MATCH.REQ protocol message The test case involves executing and monitoring the CM_SLAC_MATCH.REQ protocol message The test case involves counting the repetitions of the CM_SLAC_MATCH.REQ message The test case involves executing and counting the repetitions of the CM_SLAC_MATCH.REQ protocol message The test case involves executing and counting the repetitions of the CM_SLAC_MATCH.REQ protocol message The test case involves executing and counting the repetitions of the CM_SLAC_MATCH.REQ protocol message The test case involves executing and counting the repetitions of the CM_SLAC_MATCH.REQ protocol message The test case involves the execution and repetition count of the CM_SLAC_MATCH.REQ protocol message The test case checks for the sending of a CM_SLAC_Match.REQ message under specific conditions The SLAC process involves the use of CM_SLAC_MATCH.REQ messages to initiate signal level matching CM_SLAC_MATCH.REQ is a request message that is confirmed by CM_SLAC_MATCH_CNF A protocol message used in the communication between electric vehicles and charging stations, specifically for matching purposes
+A protocol message involved in the SLAC (Signal Level Attenuation Characterization) process, used to match and validate communication parameters between EV and EVSE
+A protocol request sent by the EV to initiate a secure link and authentication process with a selected EVSE
+A protocol message used in SLAC communication to request matching of SLAC parameters
+A protocol message used for PEV-EVSE matching in logical network parameter exchange
+A protocol message used in the communication between electric vehicles and charging stations, specifically for matching purposes in the SLAC process
+A protocol message used in the test case to verify the matching process between electric vehicle and supply equipment
+A protocol message used in the communication process between EVSE and EV, indicating a request for a SLAC match
+A communication protocol or message used to inform the EVSE about decisions related to the validation process
+A protocol message sent by the Test System to check the SUT's response in the validation process
+A protocol message involved in the test case, which is repeated and monitored for its frequency of occurrence
+A protocol message sent with parameters like runID, EV MAC, and EVSE MAC to establish communication between EV and EVSE
+A communication protocol message sent by the EV to request parameters for joining the logical network from the EVSE
+A protocol message used in the matching process, which needs to be repeated if not acknowledged
+A message protocol that the system under test (SUT) is expected to send if certain conditions are met, such as the expiration of a timer and lack of anticipated responses
+A protocol message used in the SLAC (Signal Level Attenuation Characterization) process to initiate a matching request
+A message protocol used in the communication between electric vehicles and charging stations, containing parameters like runID, EV MAC, and EVSE MAC
+A request message sent during the test case to match SLAC parameters, including runID, EV MAC, and EVSE MAC
+A protocol message that the Electric Vehicle must send as part of the communication process after validation
+A protocol message sent by the Test System containing the current runID, EV MAC, EVSE MAC, and additional parameters for SLAC matching
+A protocol message used in the communication process to match certain conditions or parameters
+A request message sent during the communication process containing parameters like runID, EV MAC, and EVSE MAC
+A communication protocol used in the interaction between an electric vehicle and an EVSE to establish a connection.
+A protocol message in the test case verifies the repetition and handling of requests, along with the matching process and parameter validation between EV and EVSE.
+CM_SLAC_MATCH.REQ is a protocol message in the SLAC framework that requests matching of communication parameters to ensure proper signal performance.
+The sun rises in the east and sets in the west.
+A protocol request message used by an EV to request a match with an EVSE is involved in the matching session.
+CM_SLAC_MATCH.REQ is a protocol message sent by the electric vehicle to initiate a matching process with the Electric Vehicle Supply Equipment, used in both communication and matching sequences.
+A protocol message used to initiate SLAC matching and during the validation process, containing parameters such as runID, EV MAC, and EVSE MAC. Test System executes GoodCase procedure with SLAC validation process, indicates CP State A and sends a CM_SLAC_MATCH.REQ message with the current runID, EV MAC, EVSE MAC and all additional valid parameters.
+--------------------------------------------------------------------------------
+Entity: APPLICATIONTYPE
+Description: A parameter used in communication messages, set to 'FF'H in this test case to simulate an invalid condition
+A parameter in the CM_SLAC_MATCH.REQ message that specifies the type of application, with 'FF'H indicating an invalid type
+--------------------------------------------------------------------------------
+Entity: CM_SLAC_MATCH.CNF
+Description: A protocol message that confirms the successful matching in the SLAC process between electric vehicles and charging stations
+A protocol message used in the SLAC process to confirm a matching request
+A protocol message confirming the CM_SLAC_MATCH.REQ, used to validate the process and parameters in the test case.
+A protocol message that follows CM_SLAC_MATCH.REQ, used to confirm the application type and other parameters
+A protocol message used to confirm the matching of network parameters in the EVSE
+A protocol message used in the communication process to confirm the matching of certain parameters, such as NID and NMK, between the EVSE and the vehicle
+A protocol message used in the vehicle-to-grid communication process to confirm a successful match
+A protocol message used in the communication process between an Electric Vehicle Supply Equipment (EVSE) and a vehicle, containing a Network Membership Key (NMK) and a Network Identifier (NID)
+A protocol message used to confirm the handling of CM_SLAC_MATCH.REQ messages, particularly after sending an invalid 'mvfLength'
+A protocol message confirming the handling of CM_SLAC_MATCH.REQ, used to test the system's response to invalid 'evID' inputs
+A protocol message used in the communication between electric vehicles and charging infrastructure, which must adhere to specific content standards
+A protocol message used in the test case to confirm the matching of parameters such as runID, NID, NMK, EV MAC, and EVSE MAC
+A protocol message used to confirm the handling of CM_SLAC_MATCH.REQ, particularly after sending an invalid 'runID'
+A confirmation message expected in response to the CM_SLAC_MATCH.REQ, containing valid SLAC parameters
+A confirmation message used in the communication protocol to confirm a successful SLAC (Signal Level Attenuation Characterization) match
+A protocol message used to confirm the matching of parameters in the SLAC validation process
+A protocol message confirming the CM_SLAC_MATCH.REQ, used to test the handling of invalid 'evMac' values
+A protocol message confirming the matching process, which is tested for handling invalid 'securityType' values
+A communication protocol message sent by the EVSE in response to the EV's request, containing parameters for joining the logical network
+A protocol message expected from the SUT in response to the CM_SLAC_MATCH.REQ message
+A confirmation message used in the communication protocol to validate the matching process in PLC communication
+A confirmation message expected to be sent in response to a CM_SLAC_MATCH.REQ message
+A confirmation message used in the communication protocol to confirm a successful SLAC match
+A protocol message used in the process of establishing a secure link between the electric vehicle and the charging station
+A protocol message confirming the SLAC match, including the request, settings, and process, is expected to be sent after certain conditions are met.
+A protocol message confirming the receipt and validation of a CM_SLAC_MATCH.REQ message, expected to be sent in response to a successful request.
+CM_SLAC_MATCH.CNF is a protocol message that confirms the matching process between an electric vehicle and an EVSE, initiated by CM_SLAC_MATCH.REQ.
+A confirmation message protocol used in the communication between an Electric Vehicle Supply Equipment (EVSE) and an Electric Vehicle (EV) to confirm a successful match.
+A protocol confirmation message related to SLAC matching is expected to be sent after successful matching.
+A protocol message that confirms the SLAC match is sent after the TT_match_response timer expires.
+A message protocol confirming a SLAC match, including parameters such as runID, valid NID, NMK, EV MAC, EVSE MAC, and additional parameters. Test system then checks that no CM_SLAC_MATCH.CNF message is sent by the SUT until the TT_match_response timer has expired.
+--------------------------------------------------------------------------------
+Entity: CM_SLAC_MATCH_CNF
+Description: A protocol message type used in the SLAC communication process, identified by the hexadecimal code '607D'H, which confirms a matching request
+A protocol record type used in communication systems, containing fields such as SLAC_Header and mvflength
+A protocol message confirmation used in SLAC matching processes
+A protocol message type used in the SLAC (Signal Level Attenuation Characterization) process, indicating a confirmation of a match
+A protocol message type with a specific hexadecimal value '607D'H, part of the MMTYPE union
+A protocol message used in SLAC for confirming matches of parameters, which contains various identifiers.
+CM_SLAC_MATCH_CNF is a protocol message in the SLAC process that confirms a match in communication settings between devices.
+A confirmation message type in the SLAC protocol that indicates a successful match. SECC test cases for CmSlacMatch
+--------------------------------------------------------------------------------
+Entity: CM_VALIDATE.CNF
+Description: A confirmation message protocol used in the communication process to validate certain conditions
+A protocol message confirming the validation of the matching status in the communication process
+A confirmation message in the communication protocol used to validate the result of a previous request
+A protocol message used in the validation process to confirm validation, indicating specific signal types and field values
+A confirmation protocol message that includes parameters like 'toggleNum' and 'signalType' used in the validation process
+A confirmation message in the protocol used to validate the communication between the system and the EVSE
+A protocol message received by the Test System confirming the communication parameters as part of the validation process
+A protocol message received by the Test System as part of the validation process in the test case TC_SECC_CMN_VTB_CmValidate_003, which is checked for repetitions
+A protocol message used in the validation process, which should not be repeated if the count exceeds a certain retry parameter
+A protocol message confirming the validation process between an EVSE and a vehicle
+A confirmation message used in the validation process to confirm the matching decision in electric vehicle charging
+A confirmation message expected as part of the communication protocol after a validation request
+A message protocol used to confirm the validation process, indicating successful validation with a result of '00'H and additional valid parameters
+A protocol message used in the validation process to confirm the success of a step and provide necessary data for comparison
+A protocol message expected from the SUT indicating the result of the validation process
+A confirmation message in the validation protocol used by electric vehicles to confirm readiness or success of a validation step
+A protocol message expected as a confirmation response during the test case process, indicating the result of the validation
+A confirmation message used in the communication protocol to confirm the validation of parameters in electric vehicle charging systems
+A protocol message used in the validation process, containing a result field that indicates the status of the validation step
+A protocol message used to confirm validation in a communication process
+A protocol message or confirmation step used in the validation process to determine the readiness status of an EV or EVSE
+A protocol message used in the validation process to confirm the number of BC-edges detected by the EVSE and the result of the validation
+A protocol message used to confirm the validation of parameters with a specific result code
+A protocol message used in the test case to confirm the validation of parameters, including results and specific parameters such as 'result' and communication parameters.
+A protocol message sent by the Test System to confirm validation, including a 'result' parameter and additional valid parameters.
+A confirmation protocol message used during the validation process in the communication between electric vehicle components.
+A protocol message received by the Test System confirms the validation status and results while indicating the system's response.
+A protocol message confirming the result of the validation process is exchanged between EVSE, EV, and EVCC.
+A confirmation message received by the test system indicating the result of the validation process.
+A protocol message used to confirm the validation of parameters, indicating successful communication and the result of a validation request, which reflects success or failure in the validation process.
+CM_VALIDATE.CNF is a protocol message used in communication and validation to confirm the validation status of an operation and verify whether validation is required.
+A protocol confirmation message indicating the result of the validation for the CM_VALIDATE.REQ request, expected to be received in response.
+CM_VALIDATE.CNF is a protocol message used by the EVSE to confirm the validation process initiated by electric vehicles (EVs) in vehicle-to-grid communication and in communication with networks.
+--------------------------------------------------------------------------------
+Entity: C_EV_MATCH_RETRY
+Description: C_EV_match_retry is a term that refers to the number of retries an electric vehicle will attempt if the initial validation request does not receive a response
+A term indicating the maximum number of retransmissions allowed for a communication request
+The number of retries of the corresponding message within the matching process, indicating attempts to re-establish communication
+C_EV_match_retry is a term referring to the maximum number of times the EV is allowed to retransmit the matching request if no valid confirmation is received
+A term referring to the number of retry attempts allowed for matching in the communication process
+A requirement specifying the total number of retries allowed for an EV to retransmit a request if no valid response is received
+C_EV_MATCH_RETRY is a term referring to the number of retries allowed for matching sequences in the EVSE process
+--------------------------------------------------------------------------------
+Entity: ELECTRIC VEHICLE
+Description: <|COMPLETE|>
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged through the grid
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can detect communication loss during charging
+An Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion and must comply with local frequency legislation through the EVSE
+An Electric Vehicle (EV) that initiates the signal strength measurement process
+An Electric Vehicle (EV) that participates in the validation process by sending and receiving protocol messages
+An Electric Vehicle, which is a type of vehicle powered by electric motors using energy stored in rechargeable batteries
+An electric vehicle that processes incoming messages and interacts with EVSEs during the parameter exchange and matching process
+An electric vehicle that requires connection to a communication module for charging and data exchange
+EV refers to Electric Vehicle, which is a type of vehicle that operates on electric power and participates in vehicle-to-grid communication
+EV refers to an Electric Vehicle, which is a type of vehicle that operates on electric power
+Electric Vehicle (EV) is a type of vehicle that operates using electric power instead of traditional fuel
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged via a power outlet
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can communicate with EVSE by sending public keys
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and is involved in the triggering process immediately after the plug-in of the cable assembly
+Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion, mentioned in the context of power flow with EVSE
+Electric Vehicle (EV) that connects to and disconnects from the logical network
+Electric Vehicle, a general term for vehicles that operate on electric power, including BEVs and PHEVs
+Electric Vehicle, a type of vehicle that is powered by electricity instead of traditional fuel sources
+Electric Vehicle, a type of vehicle that uses electric motors for propulsion and is capable of being charged through an external power source
+Electric Vehicle, which can decide whether to follow the EVSE's recommendation or proceed with the validation process
+Electric Vehicle, which initiates the validation process by sending a readiness signal
+Electric Vehicle, which interacts with EVSE for charging and communication processes
+Electric Vehicle, which is a type of vehicle powered by electricity and capable of interacting with EVSE for charging
+Electric Vehicle, which is capable of making decisions on how to proceed in certain situations
+Electric Vehicle, which is expected to be prepared for a forced restart by an EVSE during the T_conn_resetup waiting state
+Electric Vehicle, which is involved in the communication process and message exchanges in the test case
+Electric Vehicle, which is involved in the validation process and must perform certain actions based on the protocol message
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must adhere to specific requirements
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must continue the matching process if certain conditions are met
+Electric Vehicle, which is the recipient of charging and communication from the EVSE
+Electric Vehicle, which is the recipient of communication from the EVSE and must comply with certain PSD values
+Electric Vehicle, which is the recipient of the CM_SLAC_PARM.CNF message in the context of vehicle-to-grid communication
+Electric Vehicle, which is the recipient of the communication from the low-layer communication module
+Electric Vehicle, which is the subject of the protocol command to change its state
+Electric Vehicle, which is the subject of the requirement to continue with the communication process
+Electric Vehicle, which is the subject of the timers and validation process described
+Electric Vehicle, which is the type of vehicle involved in the matching process mentioned
+Electric Vehicle, which is the type of vehicle involved in the parallel injection process
+Electric Vehicle, which participates in the SLAC process and communicates with EVSE
+Electric Vehicle, which uses electricity as its primary source of propulsion
+Electric Vehicle, which uses the low-layer communication module for various communication processes
+Electric Vehicle, which uses the method to discover and select communication nodes based on signal strength
+An Electric Vehicle (EV) is powered by electric motors and batteries for propulsion, offering an alternative to internal combustion engine vehicles.
+An Electric Vehicle (EV) uses electric power for propulsion and is involved in vehicle-to-grid communication processes.
+EV stands for Electric Vehicle, which is powered by electricity and uses electric motors for propulsion instead of traditional fuel sources.
+Electric Vehicles (EVs), which are powered by electric motors, use energy stored in rechargeable batteries.
+An Electric Vehicle is a type of vehicle that operates using electric power stored in batteries and is powered by electric motors.
+Electric Vehicle, a type of vehicle powered by electricity.
+Electric Vehicle is involved in the validation process with Electric Vehicle Supply Equipment (EVSE).
+Electric Vehicles (EVs) are powered by electric motors and batteries instead of internal combustion engines.
+Electric Vehicles are a type of vehicle that use electric motors for propulsion and require charging infrastructure.
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion, requires charging infrastructure like EVSE, and can communicate with it for charging and validation processes.
+Electric Vehicle (EV) is a type of vehicle that operates on electric power using electric motors for propulsion, powered by electricity stored in rechargeable batteries or fuel cells.
+--------------------------------------------------------------------------------
+Entity: EV MAC
+Description: The MAC address of the electric vehicle involved in the SLAC validation process
+The Media Access Control address of the Electric Vehicle, used in the test case for identification purposes
+The MAC address of electric vehicles is used for network identification and communication in protocols. Test System executes GoodCase procedure with SLAC validation process, indicates CP State A and sends a CM_SLAC_MATCH.REQ message with the current runID, EV MAC, EVSE MAC and all additional valid parameters.
+--------------------------------------------------------------------------------
+Entity: EVSE
+Description: Electric Vehicle Supply Equipment, which is the infrastructure that supplies electric energy for recharging electric vehicles and interacts with various signals and toggles
+Electric Vehicle Supply Equipment, which handles parallel matching processes and monitors control pilot states
+Electric Vehicle Supply Equipment involved in the communication process, particularly in sending and receiving specific messages
+Electric Vehicle Supply Equipment, which provides recommendations to the electric vehicle regarding the validation process
+Electric Vehicle Supply Equipment, which is responsible for receiving and processing messages in the vehicle-to-grid communication system
+Electric Vehicle Supply Equipment, which defines the maximum charge current for the vehicle in the HLC-C mode
+Electric Vehicle Supply Equipment that calculates signal strength based on M-SOUNDS
+Electric Vehicle Supply Equipment, which provides the interface between the electric vehicle and the power source, and can affect signal transmission
+Electric Vehicle Supply Equipment (EVSE) is the technology used to supply electric energy for recharging electric vehicles, specifically covered under modes 3 and 4 in this context
+<|COMPLETE|>
+Electric Vehicle Supply Equipment (EVSE) is the technology responsible for generating the valid duty cycle as per the IEC-1 standard
+Electric Vehicle Supply Equipment that communicates with EVs through messages like CM_ATTEN_CHAR.IND during the parameter exchange
+Electric Vehicle Supply Equipment, which supplies electric energy for recharging electric vehicles and participates in communication protocols
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can make decisions based on ID recognition
+Electric Vehicle Supply Equipment, which interacts with the EV during the validation process
+Electric Vehicle Supply Equipment (EVSE) is the technology that provides electric energy for recharging electric vehicles and can set a nominal duty cycle
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can establish a point-to-point link with an EV using G3PLC technology
+Electric Vehicle Supply Equipment, which counts control pilot toggles and communicates results back to the EV
+Electric Vehicle Supply Equipment, which can force an EV to restart if it has implemented option A
+Electric Vehicle Supply Equipment, the infrastructure that supplies electric energy for recharging electric vehicles and participates in communication protocols like SLAC
+Electric Vehicle Supply Equipment provides the infrastructure for charging electric vehicles, offering both electrical energy and communication capabilities, including socket-outlets.
+Electric Vehicle Supply Equipment is involved in both matching and validation processes.
+Electric Vehicle Supply Equipment provides electric energy for recharging electric vehicles and includes communication capabilities.
+Electric Vehicle Supply Equipment provides the necessary infrastructure for charging electric vehicles.
+Electric Vehicle Supply Equipment (EVSE) supplies electric energy for recharging electric vehicles, manages communication with the vehicle, handles validation processes including power limitation requests, detects state variations on the control pilot line, ensures compliance with local legislation, and can switch states while connecting to a private network.
+Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles, supports wake-up mechanisms, and facilitates communication with EVs.
+--------------------------------------------------------------------------------
+Entity: EVSE MAC
+Description: The MAC address of the Electric Vehicle Supply Equipment involved in the SLAC validation process
+The Media Access Control address of the Electric Vehicle Supply Equipment, used in the test case for identification purposes
+The MAC address of the Electric Vehicle Supply Equipment, used for identification in network communications
+The Media Access Control (MAC) address of the Electric Vehicle Supply Equipment, used for network identification and in communication protocols, facilitates communication processes.
+The Media Access Control address of the Electric Vehicle Supply Equipment is used for network identification and communication. Test System executes GoodCase procedure with SLAC validation process, indicates CP State A and sends a CM_SLAC_MATCH.REQ message with the current runID, EV MAC, EVSE MAC and all additional valid parameters.
+--------------------------------------------------------------------------------
+Entity: GOODCASE PROCEDURE
+Description: A procedure executed by the Test System to ensure proper functioning by indicating the key at the local PLC node after receiving a valid message
+A procedure executed by the Test System as part of the test case to ensure correct system behavior without SLAC validation
+A procedure executed by the Test System as part of the test case to ensure proper message sending and system evaluation
+A procedure executed by the Test System to ensure proper signaling and message handling during the test case
+A procedure executed by the Test System to initiate a paused V2G communication session by sending a SessionStopReq message with specific parameters
+A procedure executed by the Test System as part of the test case to ensure proper message handling and attenuation measurement
+A procedure executed by the Test System to validate SLAC and send specific messages as part of the test case
+A procedure within the test system that is initiated twice in parallel to test the system's response to CM_VALIDATE.CNF messages
+A procedure executed by the test system to ensure that the test case runs under expected conditions
+A procedure executed by the test system without SLAC validation to test the sending of CM_SLAC_MATCH.REQ messages
+A procedure executed by the Test System to ensure initial conditions and successful process execution in the test case
+A procedure in the test system that is executed twice in parallel to test the system's response to validation messages
+A procedure executed by the Test System to indicate the initial CP State B transition in the test case TC_SECC_CMN_VTB_CmSlacParm_006
+A procedure executed by the Test System to send specific messages and measure attenuation values as part of the test case
+A procedure initiated by the test system to ensure proper communication and validation in the test case scenario
+A procedure executed by the Test System to ensure proper functioning and validation of communication parameters in electric vehicle systems
+A procedure executed by the Test System to ensure proper handling of the SECC communication in a specific test case
+A procedure initiated by the test system to validate communication by waiting for specific messages
+A procedure executed by the Test System to ensure the correct operation of the system under test by sending specific messages
+A procedure executed by the Test System to evaluate the behavior of the system under test, particularly focusing on the repetition of CM_AMP_MAP.REQ messages
+A procedure executed by the Test System to establish a new AVLN and send a CM_SLAC_PARM.REQ message with valid parameters
+A procedure executed by the test system to ensure correct operation and validation of communication messages
+A procedure executed by the Test System to count the number of CM_SLAC_MATCH.REQ repetitions and validate parameters
+A procedure executed by the test system to ensure a 100% duty cycle with a specified delay
+A procedure executed by the Test System to ensure proper handling of messages and duty cycle during the test case
+A procedure in the test system that is initiated twice in parallel to test the system's response to invalid and valid messages
+A procedure executed by the test system to ensure proper functionality, including a 5% duty cycle and a delay after the initial CP State B transition.
+A procedure executed by the Test System to establish a new AVLN as part of the test case, ensuring proper communication and verifying network behavior.
+A procedure executed by the test system without SLAC validation to test the communication protocol.
+A procedure executed by the test system to ensure the correctness of the initial CP State B transition while also testing the initial CP State A transition.
+A procedure executed by the test system to ensure that communication messages are sent and received correctly under expected conditions.
+A procedure executed by the test system to simulate a specific scenario with a 53% duty cycle and a delay.
+A procedure executed by the test system to ensure the correct sequence of operations and message exchanges during the test case.
+A procedure executed by the Test System ensures the correct transitions of initial CP States C, D, and B, independently managing duty cycles.
+A procedure executed by the test system without SLAC validation to test the communication between EV and EVSE.
+A procedure executed by the Test System to establish a new AVLN and test both the connection loss scenario and the system's response.
+A procedure executed by the test system to validate SLAC communication and the SLAC process, ensuring correct message exchanges.
+A procedure executed by the Test System to ensure proper functionality, compliance with specified parameters, and correct behavior under expected conditions during testing.
+A procedure executed by the test system to ensure that the system behaves correctly under both normal and specified conditions.
+A procedure executed by the test system to ensure a 5% duty cycle under specified conditions, including delay and parameters. Test System executes GoodCase procedure with SLAC validation process.
+--------------------------------------------------------------------------------
+Entity: MATCHING PROCESS
+Description: The procedure initiated after EIM authorization to ensure all parameters are aligned for operation
+The procedure described in Clause 9 that involves aligning or comparing elements to ensure compatibility or agreement)
+The process involved in matching communication messages and ensuring correct message exchange in a system
+The procedure to uniquely match an electric vehicle (EV) with a specific charge coupler of the EVSE
+The process that follows the parameter exchange, where the EV continues its operations based on the received messages
+The Matching process is a procedure to ensure successful communication and protocol matching between devices, often involving retries and confirmations
+A procedure that requires the low-layer communication module to be in a defined state before it can proceed
+The procedure involved in determining whether certain conditions or criteria are met, which can result in a pass or fail outcome
+The procedure by which an EV attempts to connect and communicate with an EVSE to establish compatibility
+The procedure involved in aligning or pairing systems or components, which can be interrupted if a plug out is detected
+The matching process involves the exchange of SLAC protocol messages to establish communication between devices
+The procedure followed by an EV to identify and connect with suitable Electric Vehicle Supply Equipment (EVSE) for charging
+A procedure involved in vehicle-to-grid communication that attempts to establish a connection or match between entities
+The procedure by which an EV and EVSE establish and validate a connection
+The procedure involved in matching an electric vehicle with an Electric Vehicle Supply Equipment (EVSE)
+The procedure involved in aligning or synchronizing certain parameters or operations between systems, in this context, related to electric vehicles
+The procedure involved in aligning or synchronizing certain parameters or states in vehicle-to-grid communication
+The Matching process is a procedure in the communication protocol testing that involves verifying the correct exchange of messages
+A procedure that determines the correct matching between an electric vehicle (EV) and an Electric Vehicle Supply Equipment (EVSE) by measuring signal strength
+The Matching Process is a procedure involved in a system or protocol, which requires error handling as indicated in the document
+A procedure involved in validating and establishing a connection between systems, which can be considered as failed under certain conditions
+A generic procedure described in Figure 10, with a full description available in the corresponding annex)
+A procedure that the electric vehicle (EV) must restart after the condition in V2G3-M07-16 is met
+The procedure involving the exchange of messages and parameters between an EV and the charging infrastructure to establish a successful connection
+<|COMPLETE|>
+A procedure to align the electric vehicle's charging needs with the available charging infrastructure capabilities
+A procedure in the vehicle-to-grid communication system where the electric vehicle aligns its communication with the grid or other systems
+The matching process is a procedure to ensure successful communication or connection between entities, such as an electric vehicle and the grid
+The procedure used to re-establish or verify connections after a loss of communication, similar to the process during the initial plug-in phase
+A procedure used to match certain parameters or conditions in a communication protocol, which can be considered failed if specific criteria are not met
+A procedure to align or synchronize communication between different modules or systems
+A procedure defined in section 6.4.3.2 that triggers the start condition of the TP_EV_SLAC_init timer
+The procedure involved in aligning or synchronizing systems or protocols, such as between an EVSE and a vehicle
+The procedure involved in ensuring successful communication and connection between an EVSE and other systems or vehicles
+A procedure involving the alignment or comparison of data or entities to find correspondences or similarities
+A process defined in Clause 6 that triggers the start condition of the timer TT_EVSE_SLAC_init
+The matching process is a procedure that evaluates the result field in CM_VALIDATE.REQ to determine if it is "ready" or not
+The procedure that an EVSE uses to identify and connect with multiple EVs simultaneously, ensuring proper communication and charging
+The procedure involved in ensuring that the local NMK on the EVSE side is set correctly before transitioning between states
+The procedure involved in establishing a communication link between an electric vehicle and the grid
+A procedure defined in the requirements for vehicle-to-grid communication, which involves matching certain parameters or conditions
+The procedure designed to facilitate communication between the low-layer communication module and the EVCC
+A procedure used to verify and validate certain conditions or parameters, potentially involving multiple attempts and retries
+The procedure of matching signal data to determine the presence of an EVSE
+The procedure during which the EVSE and the electric vehicle exchange messages to establish a communication link
+The procedure of aligning or verifying certain parameters or conditions to ensure compatibility or readiness for further actions
+The matching process is a procedure that aligns the capabilities and requirements of the EVSE and the electric vehicle before charging
+The procedure involved in restarting the data link connection to ensure proper communication
+The procedure at the MAC level to match and verify the contract ID for charging services
+The procedure involved in ensuring that the EVSE receives valid protocol messages for successful operation
+The procedure described in section 7.5 for setting up a connection between the EVSE and the vehicle
+A procedure that relies on messages defined in HPGP for its execution
+A procedure to align or verify certain parameters or conditions, which can fail if not completed successfully
+A procedure in the SLAC communication protocol to ensure successful connection and communication between devices
+The process of establishing communication between the electric vehicle and the charging station, which may be ongoing
+The matching process is a sequence of steps outlined in Figures A.1 and A.2, detailing the procedure from discovering low-layer communication modules to initiating nominal communication
+The procedure by which the EVSE and a vehicle establish a communication link and prepare for charging
+The procedure of re-establishing communication between the EV and the EVSE to ensure proper charging
+The procedure involved in establishing a connection between an electric vehicle and the supply equipment
+A procedure involved in establishing a connection or agreement between two entities in a communication protocol
+A procedure to ensure that the correct matching of communication parameters is achieved, considered failed if retries are exhausted
+The procedure involved in aligning or synchronizing systems or protocols, such as PnC and EIM, to ensure proper operation
+A procedure involved in the V2G3 standard that involves matching certain criteria or conditions
+The procedure of ensuring successful communication between modules, which involves sending requests and receiving confirmations
+The procedure used to align or correlate data or signals, which may produce ambiguous results under certain technical conditions
+The procedure involved in successfully pairing or aligning two or more systems or components, which in this context involves resetting timers and retry counters
+A procedure that is initiated by transitioning from one state to another, specifically from state A, E, or F to state Bx, Cx, or Dx
+The procedure involving the exchange of protocol messages between EVSE and another system to establish a successful communication link
+The procedure by which an electric vehicle (EV) determines compatibility with an EVSE for charging
+The procedure that ensures compatibility and synchronization between the EVSE and the electric vehicle begins when EIM is completed.
+The matching process involves communication and confirmation exchange between an EV and an EVSE to ensure compatibility and readiness for charging.
+The procedure for aligning or synchronizing HomePlug Green PHY devices ensures proper communication and functionality.
+--------------------------------------------------------------------------------
+Entity: PEV
+Description: Plug-in Electric Vehicle, which is a type of electric vehicle that can be recharged by plugging into an external source of electric power
+Plug-in Electric Vehicle, a type of vehicle that uses electricity stored in batteries for propulsion
+--------------------------------------------------------------------------------
+Entity: PROCESS
+Description: A procedure defined in the clause that involves measuring output voltages at specific terminals with a 50 Ω load
+The sequence of steps involved in the communication and validation between EVSE and EV
+--------------------------------------------------------------------------------
+Entity: RUNID
+Description: An identifier for a matching run, randomly chosen by the EV for each CM_SLAC_PARM.REQ message and constant for all following messages of the same run
+A unique identifier used in the CM_SLAC_MATCH.REQ message to track the communication session
+A unique identifier used to track the current execution of a test or process
+A field within the MME that should match the value sent in the CM_SLAC_PARM.REQ message by the EV
+A unique identifier used in the SLAC validation process to track message exchanges
+A field within a protocol message that should match the value sent in a related message, CM_SLAC_PARM.REQ, by the EV
+A variable value that should match the one sent in the CM_SLAC_PARM.REQ message by the EV
+A unique identifier used in the SLAC validation process to track the current session
+A term used to identify a specific execution or instance of a process or operation
+RunID is a field containing a variable value that should match the one sent in the CM_SLAC_PARM.REQ message by the EV
+RunID is a unique identifier for each test run in the testing process, ensuring distinct and traceable executions. Test System executes GoodCase procedure with SLAC validation process, indicates CP State A and sends a CM_SLAC_MATCH.REQ message with the current runID.
+--------------------------------------------------------------------------------
+Entity: SLAC
+Description: Signal Level Attenuation Characterization, a protocol used in the context of EVCC testing
+Signal Level Attenuation Characterization, a protocol used for measuring and characterizing signal attenuation in power line communication
+A protocol used for encoding in the given communication system
+Signal Level Attenuation Characterization, a protocol used in the context of SECC for communication and matching processes
+Signal Level Attenuation Characterization, a protocol used in the context of the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001
+SLAC is a protocol used for communication in electric vehicle charging, particularly for matching and session management
+<|COMPLETE|>
+Signal Level Attenuation Characterization (SLAC) is a process used for matching Plug-in Electric Vehicles (PEV) with Electric Vehicle Supply Equipment (EVSE)
+Signal Level Attenuation Characterization, a process or technology for which data structures are needed in Annex G
+Signal Level Attenuation Characterization (SLAC) is a process used in HomePlug Green PHY for network management, including link status and encryption key management
+Signal Level Attenuation Characterization is a protocol for measuring signal attenuation in electric vehicle charging systems and communication, including matching and validation processes, specifically in power line communication.
+Signal Level Attenuation Characterization is a process, technology, and protocol used to measure, assess, and manage signal attenuation in communication systems.
+SLAC is a protocol used in power line and electric vehicle communication to measure, characterize, and manage signal attenuation, ensuring compatibility and proper data transmission between devices.
+SLAC (Signal Level Attenuation Characterization) is a protocol used in electric vehicle communication and power line networks to manage signal quality, characterize signal attenuation, ensure reliable data transmission, establish connections, and facilitate matching between vehicles and charging stations. Test System executes GoodCase procedure with SLAC validation process.
+--------------------------------------------------------------------------------
+Entity: SLAC VALIDATION PROCESS
+Description: A process involving the validation of the Signal Level Attenuation Characterization, which may require retries
+A process used to validate the Signal Level Attenuation Characterization in vehicle-to-grid communication
+A process to validate the SLAC protocol, ensuring proper communication and signal levels in EVCC systems
+A process to validate the communication link in electric vehicle charging systems
+A process that involves validating the Secure Link Association Control (SLAC) to ensure secure communication between EV and EVSE
+A procedure used to validate the Secure Link Access Control (SLAC) during communication between electric vehicles and charging stations
+A process involved in the validation of communication between electric vehicles and supply equipment, ensuring secure and reliable data exchange
+A process used to validate the Signal Level Attenuation Characterization in communication protocols
+A process involving Signal Level Attenuation Characterization, used to validate the communication link between the EVCC and the EVSE
+A process used to validate communication links in electric vehicle charging systems, which can be stopped by detecting a timeout
+A process involving the validation of communication parameters between an electric vehicle and supply equipment using SLAC protocol messages.
+A process to validate the communication link between the EVCC and the EVSE, ensuring secure, reliable, and proper data exchange.
+A process to validate the Signal Level Attenuation Characterization (SLAC) to ensure proper communication and signal integrity between EV and EVSE.
+A procedure to validate the Signal Level Attenuation Characterization (SLAC) in electric vehicle communication, including interactions with charging stations and vehicle-to-grid systems. Test System executes GoodCase procedure with SLAC validation process.
+--------------------------------------------------------------------------------
+Entity: SYSTEM UNDER TEST
+Description: A placeholder term often used in documentation or templates to represent a system under test
+A segment of an identifier that stands for System Under Test, indicating the specific system being evaluated
+SUT stands for System Under Test, which is the system being tested for its ability to signal the corresponding duty cycle
+System Under Test (SUT) refers to the system being tested for its ability to perform amplitude map exchanges
+System Under Test (SUT) refers to the system being tested, which receives encoded data from the codec
+System Under Test, referring to the system being tested for compliance with V2G communication standards and protocols
+System Under Test, referring to the system being tested for its ability to leave the logical network under certain conditions
+System Under Test, referring to the system being tested, in this context, using the IEC 61851-1 standard
+System Under Test, the system being tested for conformance to the relevant requirements
+System Under Test, the system being tested for its response to the SLAC match request
+System Under Test, which consumes bit strings encoded or decoded by the SLAC codec during testing
+System Under Test, which is expected to send a CM_AMP_MAP.CNF message during the test case
+System Under Test, which is responsible for handling the validation process with the EVSE
+System Under Test, which is the system being evaluated in the test case to check its behavior regarding message repetition
+System Under Test, which is the system being tested for its ability to handle communication messages correctly
+System Under Test, which is the system being tested to ensure it sends a valid SDP request message
+The system being evaluated or tested, which can include EVCC and SECC in the context of ISO 15118
+System Under Test, which is the system being evaluated in the test case for its response to protocol messages
+The term 'System Under Test' denotes the system being evaluated or tested in a particular context.
+SUT stands for System Under Test, referring to the systems being tested, specifically EVCC and SECC, with a focus on EVCC in this context.
+SUT, or System Under Test, refers to the EVSE being tested for compatibility and functionality.
+The System Under Test (SUT) in V2G communication refers to the system being tested in both the communication scenario and session process related to electric vehicles.
+System Under Test, which is being tested for compliance and response to the SLAC validation process.
+The System Under Test, which is being validated and tested for its response to validation processes and messages, is central to the validation process.
+System Under Test refers to the system being tested, which can be either an EVCC or SECC.
+The System Under Test is evaluated for its ability to measure and report attenuation values, handle attenuation values, and respond to attenuation characterization.
+The System Under Test is the specific system or component currently undergoing testing to verify its performance, compliance with specified requirements and protocols, and ability to perform specific functions according to test case procedures.
+The System Under Test evaluates its response to communication protocols and protocol messages, testing its ability to handle and respond to test case protocols and messages.
+The System Under Test is being tested for its response to the test case scenario.
+System Under Test refers to the system being tested in both the test suite and the testing process.
+The System Under Test (SUT) refers to the system being tested, which includes either an Electric Vehicle Communication Controller (EVCC) or a Supply Equipment Communication Controller (SECC), specifically in the context of PLC bridges.
+SUT, or System Under Test, is evaluated for message handling, functionality, performance, and its response to protocol messages and SLAC operations to ensure it meets specified requirements.
+System Under Test refers to the system being evaluated or tested in various contexts, including its response to test case scenarios and specific executions.
+The System Under Test (SUT) is evaluated in a testing environment using a test suite to ensure it meets specified requirements, expected behavior, and compliance with standards.
+The System Under Test (SUT) is the specific system evaluated in a testing environment for compliance with standards like ISO 15118‐3, focusing on validation, communication processes, and expected behavior under various configurations and scenarios.
+--------------------------------------------------------------------------------
+Entity: TABLE A.7
+Description: <|COMPLETE|>
+A reference to a specific table within a document, likely containing detailed information or data relevant to the context in which it is mentioned)
+A specific table that defines the MME content requirements for protocol messages
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_001
+Description: A specific test case for the CmSlacMatch functionality in the EVCC
+<|COMPLETE|>
+A test case designed to execute the GoodCase procedure and validate the SLAC process by counting BCB toggles and sending a CM_SLAC_Match.REQ message with necessary parameters
+A specific test case requirement executed as part of the CmSlacMatch process
+A specific test case identifier used for testing electric vehicle communication standards and protocols, focusing on compatibility and matching.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_002
+Description: A test case designed to execute the GoodCase procedure without entering the SLAC validation process, ensuring that a CM_SLAC_Match.REQ message is sent with the current runID, EV MAC, EVSE MAC, and all additional valid parameters
+A specific test case identifier used in the context of evaluating communication or compatibility aspects, likely related to electric vehicle communication standards)
+<|COMPLETE|>
+A specific test case requirement executed as part of the CmSlacMatch process
+A specific test case identifier used in a testing framework, likely related to electric vehicle communication or charging systems
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_003
+Description: <|COMPLETE|>
+A test case procedure executed by the Test System to verify the repetition of CM_SLAC_MATCH.REQ messages and ensure it is limited to 2 retries by the System Under Test (SUT)
+A specific test case identifier used in testing communication or compatibility in electric vehicle charging systems, likely related to their communication protocols.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_004
+Description: A test case process for executing CmSlac parameter matching in electric vehicle communication
+A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions and checking if they are limited to 2 retries by the System Under Test (SUT)
+A specific test case identifier used in testing related to communication and compatibility in electric vehicle charging systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_005
+Description: A test case that runs on the EVCC_Tester system, involving preconditions, test behavior, and post conditions related to SLAC matching
+A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions, including parameters like runID, EV MAC, and EVSE MAC, after sending an invalid 'securityType' in CM_SLAC_MATCH.CNF
+A specific test case identifier used in a testing framework, likely related to electric vehicle communication or charging systems
+A test case process for executing CmSlac parameter matching in electric vehicle communication
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_006
+Description: <|COMPLETE|>
+A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions, including parameters like runID, EV MAC, and EVSE MAC, after sending an invalid 'mvfLength' in CM_SLAC_MATCH.CNF
+A test case process for executing CmSlac parameter matching in electric vehicle communication
+A specific test case description related to the communication and matching process in electric vehicle communication systems)
+A specific test case identifier used in the context of testing, likely related to electric vehicle communication or charging systems
+Another test case similar to TC_EVCC_CMN_VTB_CmSlacMatch_005, with variations in test behavior and conditions
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_007
+Description: A test case process for executing CmSlac parameter matching in electric vehicle communication
+A specific test case identifier used in the context of evaluating communication or compatibility aspects, likely related to electric vehicle communication standards
+A further test case in the series, with specific conditions and behaviors for SLAC matching
+A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions and checking if retries are limited to 2 by the System Under Test (SUT)
+A specific test case identifier used in a testing framework, likely related to electric vehicle communication or charging systems
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_008
+Description: A test case process for executing CmSlac parameter matching in electric vehicle communication
+A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions, including parameters like runID, EV MAC, and EVSE MAC, after sending an invalid 'evMac' in CM_SLAC_MATCH.CNF
+A specific test case identifier used in testing frameworks for electric vehicle communication protocols and charging systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_009
+Description: <|COMPLETE|>
+A test case process for executing CmSlac parameter matching in electric vehicle communication
+A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions and checking if the repetition is limited to 2 retries by the System Under Test (SUT) after sending an invalid 'evseID'.
+A specific test case identifier used in a testing framework for testing communication or compatibility in electric vehicle charging systems.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_011
+Description: A test case designed to execute the GoodCase procedure, counting the number of CM_SLAC_MATCH.REQ repetitions, including parameters like runID, EV MAC, and EVSE MAC, after sending an invalid 'runID' in CM_SLAC_MATCH.CNF
+A specific test case description related to the communication and matching process in electric vehicle communication systems)
+A test case process for executing CmSlac parameter matching in electric vehicle communication)
+A specific test case identifier used in a testing framework, likely related to electric vehicle communication or charging systems
+The sun rises in the east and sets in the west.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMSLACMATCH_012
+Description: A test case designed to evaluate the behavior of a system when the GoodCase procedure is initiated twice in parallel, with specific conditions regarding message transmission and response verification
+A test case process executed to verify the SLAC (Signal Level Attenuation Characterization) matching in electric vehicle communication
+A specific test case requirement executed as part of the CmSlacMatch process
+A specific test case identifier used in the context of electric vehicle communication and testing protocols.
+--------------------------------------------------------------------------------
+Entity: TC_EVCC_CMN_VTB_CMVALIDATEORCMSLACMATCH_001
+Description: A specific test case requirement executed as part of either the CmValidate or CmSlacMatch process
+A test case description related to validating or matching SLAC (Signal Level Attenuation Characterization) in the context of electric vehicle communication)
+A test case process where the Test System executes a GoodCase procedure and waits for a CM_SLAC_Match.REQ message, checking that it is sent with the correct parameters
+<|COMPLETE|>
+A specific test case identifier used in the context of validating or matching SLAC (Signal Level Attenuation Characterization) in electric vehicle communication systems
+A specific test case for validating or matching SLAC in EVCC systems
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_CMSLACMATCH_001
+Description: A specific test case description related to the SECC (Supply Equipment Communication Controller) and its communication matching process)
+A test case process for matching SLAC parameters in the SECC system
+A test case procedure where the Test System executes a GoodCase procedure without SLAC validation, sends a CM_SLAC_MATCH.REQ message, and waits for a CM_SLAC_MATCH.CNF message
+<|COMPLETE|>
+A specific test case identifier used in a testing framework, likely related to communication or matching protocols in a system Table 99 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_021'.
+Table 94 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_016'.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_CMSLACMATCH_002
+Description: A specific test case identifier used in a testing framework, likely related to communication or matching protocols in a system
+Another test case process for matching SLAC parameters in the SECC system
+A test case identifier used to describe a specific test scenario involving SLAC validation and message exchange between EV and EVSE Table 97 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_019'.
+Table 100 lists the test case description for 'TC_SECC_CMN_VTB_CmSlacMatch_022'.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_CMSLACMATCH_010
+Description: <|COMPLETE|>
+A test case identifier used to describe a specific test scenario involving SLAC validation and message exchanges in electric vehicle communication systems
+A specific test case executed when PIXIT_SECC_CMN_CmValidate is set to cmValidate
+A specific test case identifier used in a testing framework, likely related to communication or matching protocols in a system.
+--------------------------------------------------------------------------------
+Entity: TC_SECC_CMN_VTB_CMVALIDATE_012
+Description: A test case procedure where the Test System executes the GoodCase procedure, sends the CM_VALIDATE.REQ message, and checks for the CM_VALIDATE.CNF message if validation is not required
+<|COMPLETE|>
+Another test case process for validating communication parameters in the SECC system when architecture validation is not required
+A specific test case identifier used in a testing framework, likely related to validating certain functionalities or components.
+--------------------------------------------------------------------------------
+Entity: TT_EVSE_MATCH_SESSION
+Description: A process involving a session to match or validate communication messages specifically related to Electric Vehicle Supply Equipment (EVSE)
+A session process for matching EVSE, which can timeout and affect the validation outcome
+A process involved in matching the EVSE with the system under test (SUT) to ensure compatibility and readiness
+A session process related to matching or validating the connection between an EVSE and another system
+A term referring to the session during which the matching process between the EVSE and another entity is conducted
+A timer used in the test case to determine the duration before sending a CM_SLAC_MATCH.REQ message
+A term referring to the maximum time value allowed for the EVSE to receive a matching request from the EV
+Maximum time from the expiration of TT_EVSE_MATCH_MNBC to the reception of either CM_VALIDATE.REQ or CM_SLAC_MATCH.REQ
+A process session specifically for matching and validating communication with an EVSE
+A timer that expires before the CM_SLAC_MATCH.REQ message is sent
+A timer used to manage the session duration for matching EV and EVSE in the test case
+TT_EVSE_match_session is a process for matching Electric Vehicle Supply Equipment (EVSE) sessions in the SLAC communication protocol, which can fail due to timeouts and involves confirming matches between EVSE and the protocol.
+A process related to the matching session for Electric Vehicle Supply Equipment (EVSE) is considered failed if it times out and is not completed in time.
+A timer is used in the SLAC validation process to manage the session duration for matching settings between EV and EVSE.
+--------------------------------------------------------------------------------
+Entity: TT_EVSE_MATCH_SESSION TIMER
+Description: A timer used to manage the duration of the EVSE match session in the test case
+A timer used to manage the session duration for matching electric vehicles and charging stations
+A timer that dictates when the CM_SLAC_MATCH.REQ message is sent during the test case
+A timer that dictates the duration for which the EVSE match session is valid before expiration
+A timer used to manage the duration of a session in the communication protocol between EV and EVSE
+A timer used to manage the duration of the SLAC validation session
+A timer is used to manage the duration of the EVSE match session in both the SLAC process and the SLAC validation process.
+--------------------------------------------------------------------------------
+Entity: TT_MATCH_SEQUENCE
+Description: A process involving a sequence of operations to match and validate communication between devices
+A process involved in matching sequences, which includes timeouts and retries to ensure successful completion
+Time that the EVSE/EV shall wait for a request from the EV/EVSE
+A process involving a sequence of operations that can timeout, indicating the total number of retries has been reached and the validation process is considered failed
+TT_MATCH_SEQUENCE is a process that involves matching sequences in the context of message validation and communication
+A process involving a sequence of operations for matching in a communication protocol
+TT_match_sequence is a timer term used to track the duration of a specific sequence in the communication process
+A process involved in matching sequences, which can timeout and is subject to repetition limits
+TT_MATCH_SEQUENCE is a timer used in the EVSE process to manage the sequence of validation steps
+TT_MATCH_SEQUENCE is a process involving a sequence of operations to match certain criteria or conditions
+A process involving a sequence of operations to match or validate communication messages within a protocol
+A term referring to a specific timer used in the matching process within the V2G3 standard
+A process related to timing and matching sequences in a testing environment, which can be terminated by the System Under Test (SUT) if the timer expires
+A process involved in matching sequences within the SLAC protocol
+A term referring to the time frame or sequence within which certain actions or communications must occur in the matching process
+A timer used in the parameter exchange sequence to ensure timely communication between EVSE and other components
+TT_match_sequence is a process that involves timing and sequence matching during the validation of communication protocols.
+TT_match_sequence is a process related to the SLAC protocol that involves a sequence of actions to confirm a match in communication parameters.
+TT_match_sequence is a process used during testing to match sequences, involving timeouts and retries, which can lead to failures. Test system then checks that no CM_SLAC_MATCH.CNF message is sent by the SUT until the TT_match_response timer has expired.
+--------------------------------------------------------------------------------
+Entity: V2G3-A09-74
+Description: A specific requirement related to the vehicle-to-grid communication process, detailing the actions to be taken if the matching status is confirmed
+A specific requirement within the V2G3 standard, testable only partially
+--------------------------------------------------------------------------------
+
+
+TABLE INFORMATION:
+Table 1: 8 Timings and constants - Table A.1 — Timing and constant values
+Table 2: A.8 Timings and constants - Table A.1 (continued)
+Table 3: A.9.4.2 Description of involved MMEs - Table A.7 — MMEs parameters definition for logical network parameter exchange
+Table 4: A.8 Timings and constants - Table A.4 (continued)
+Table 5: A.9.3.2 Description of involved MMEs - Table A.5 — MMEs parameters definition for validation process – First request-response
+Table 6: A.9.3.2 Description of involved MMEs - Table A.6 — MMEs parameters definition for validation process – Second request-response
+Table 7: A.8 Timings and constants - Table A.7 (continued)
+
+FIGURE INFORMATION:
+Figure 1: A.9.3.3.1 Sequence chart - Figure A.5 — Sequence chart of validation process of matching decision
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+Figure 2: A.9 Matching EV – EVSE process - Figure A.2 — Sequence chart of HomePlug Green PHY matching process (part 2
+
+Image Description for Figure A.2:
+**Detailed Description of Figure A.2 — Sequence Chart of HomePlug Green PHY Matching Process (Part 2)**
+
+Below is a step‐by‐step walkthrough of the second part of the SLAC (Signal-Level Attenuation Characterization) matching process, as shown in Figure A.2. The figure involves four principal entities:
+1. **EV Host**  
+2. **EV PLC Node** (the low‐layer communication module on the EV side)  
+3. **EVSE PLC Node** (the low‐layer communication module on the EVSE side)  
+4. **EVSE Host**  
+
+Several timers are used throughout (e.g., TT_match_response, TT_EVSE_match_MNBC, TT_EV_atten_results, etc.), and numerous message exchanges take place to coordinate the matching, measurement, validation, and eventual linking of the EV and the EVSE. The main goal is to ensure that the EV joins the EVSE’s HomePlug Green PHY network only if the correct EVSE is physically connected.
+
+---
+
+## 1. Entities Shown in the Figure
+
+1. **EV Host**  
+   • Triggers and manages part of the matching and SLAC processes on the vehicle side.  
+   • May also participate in the amplitude map exchange and final notifications to higher layers.
+
+2. **EV PLC Node**  
+   • The low‐layer communication module in the EV.  
+   • Sends/receives SLAC‐related messages (e.g., CM_SLAC_PARM.REQ), handles attenuation measurement steps (CM_START_ATTEN_CHAR.IND, CM_MNBC_SOUND.IND, CM_ATTEN_CHAR.RSP), and initiates validation or matching requests.
+
+3. **EVSE PLC Node**  
+   • The low‐layer communication module in the charging station.  
+   • Responds to the EV’s messages (e.g., CM_SLAC_PARM.CNF), performs attenuation measurements, and returns results (e.g., CM_ATTEN_CHAR.IND).  
+   • May also carry out a validation procedure upon EV requests and send final match confirmations.
+
+4. **EVSE Host**  
+   • Controls higher-level aspects on the EVSE side, including key sets (CM_SET_KEY.REQ) or other logic.  
+   • May provide triggers to begin or end the matching process.
+
+---
+
+## 2. High‐Level Flow Overview
+
+Figure A.2 shows the continuation of the overall HomePlug Green PHY matching process, focusing on:  
+- Attenuation measurements using M‐Sound messages and collecting CM_ATTEN_PROFILE.IND data.  
+- Final attenuation confirmations (CM_ATTEN_CHAR.IND and CM_ATTEN_CHAR.RSP).  
+- (Optionally) Validation steps (CM_VALIDATE) with possible BCB toggles.  
+- Network matching confirmation (CM_SLAC_MATCH).  
+- Key setting (CM_SET_KEY) on both sides.  
+- Detection of the link and optional amplitude map exchange (CM_AMP_MAPREQ and CM_AMP_MAPCNF).  
+- Final “D_LINK_READY” notification to the higher layers once the link is established.
+
+---
+
+## 3. Detailed Step‐by‐Step Flow
+
+Below, each arrow or step in the figure is described in sequence (from top to bottom):
+
+1. **Wait for Matching Process Start Trigger**  
+   - Both the EV side and the EVSE side wait internally until a trigger condition indicates that SLAC matching should begin.  
+   - Timers such as TP_EV_SLAC_init (for the EV) and TT_EVSE_SLAC_init (for the EVSE) are started.
+
+2. **EV PLC Node → CM_SLAC_PARM.REQ**  
+   - Once triggered, the EV PLC node sends a “CM_SLAC_PARM.REQ” broadcast request.  
+   - This request announces the EV’s parameters to potential EVSE nodes and includes a unique runID.
+
+3. **EVSE PLC Node → CM_SLAC_PARM.CNF**  
+   - An unmatched EVSE node that is ready replies with “CM_SLAC_PARM.CNF” to the EV’s broadcast.  
+   - This confirmation message includes details like M-Sound counts, a matching runID, and a time-out field (Time_Out) dictating how long the EVSE will receive M-Sounds.
+
+4. **Timers and Response Windows**  
+   - The EV uses TT_match_response to await CM_SLAC_PARM.CNF messages. If valid CNFs are received, it proceeds. Otherwise, it retries or declares failure after repeated timeouts.
+
+5. **EV PLC Node → CM_START_ATTEN_CHAR.IND** (multiple times)
+   - After the EV obtains a valid parameter confirmation, it waits for TP_match_sequence to expire, then begins attenuation characterization by sending “CM_START_ATTEN_CHAR.IND” messages in a short batch.  
+   - Each indicates the number of M‐Sounds to transmit (NUM_SOUNDS) and includes the runID.
+
+6. **EV PLC Node → CM_MNBC_SOUND.IND** (multiple times)
+   - Following its last “CM_START_ATTEN_CHAR.IND,” the EV sends a sequence of “CM_MNBC_SOUND.IND” messages C_EV_match_MNBC times (for example, 8 times).  
+   - A decrementing counter (Cnt) goes down with each M‐Sound message. The EV typically spaces these out with TP_EV_batch_msg_interval to avoid congestion.
+
+7. **EVSE PLC Node → CM_ATTEN_PROFILE.IND** (multiple times)
+   - While the EV is sending M‐Sounds, the EVSE may measure and aggregate the received signals. It can send multiple “CM_ATTEN_PROFILE.IND” messages back to the EV if necessary.  
+   - The EV receives these within TT_EV_atten_results.
+
+8. **EVSE PLC Node → CM_ATTEN_CHAR.IND**
+   - After collecting or averaging enough M‐Sounds, the EVSE compiles final attenuation data and sends “CM_ATTEN_CHAR.IND” to the EV.  
+   - This is typically triggered once TT_EVSE_match_MNBC expires and the EVSE finishes averaging.
+
+9. **EV PLC Node → CM_ATTEN_CHAR.RSP**
+   - Upon receiving the final attenuation characterization message, the EV responds with “CM_ATTEN_CHAR.RSP,” acknowledging the data.  
+   - At this point, the EV has the final measured attenuation and can decide whether the EVSE is indeed the physically connected one (i.e., “EVSE_FOUND,” “EVSE_POTENTIALLY_FOUND,” or “EVSE_NOT_FOUND”).
+
+10. **Optional Validation Phase**  
+   - If the EV determines it needs further certainty, it performs a validation step:  
+     1. **CM_VALIDATE.REQ (Step 1)** from EV to EVSE – the EV requests the EVSE’s readiness to do a BCB toggle validation on the control pilot.  
+     2. **CM_VALIDATE.CNF (Step 1)** from EVSE to EV – the EVSE states “Ready,” “Not Required,” “Not Ready,” or “Failure.”  
+     3. **BCB Toggle** – If the EVSE is “Ready,” the EV toggles the battery control block for a specific time.  
+     4. **CM_VALIDATE.REQ (Step 2)** from EV to EVSE – includes how long the EVSE should count toggles.  
+     5. **CM_VALIDATE.CNF (Step 2)** from EVSE to EV – indicates success/failure and includes the count of toggles.  
+   - The EV can confirm the physically linked EVSE if the toggles match the EV’s expectation.
+
+11. **EV PLC Node → CM_SLAC_MATCH.REQ**
+   - Once the EV is confident it has identified the correct EVSE, it sends “CM_SLAC_MATCH.REQ” to finalize the network join parameters.  
+   - This message includes MAC addresses, the runID, and other final matching fields.
+
+12. **EVSE PLC Node → CM_SLAC_MATCH.CNF**
+   - The EVSE acknowledges with “CM_SLAC_MATCH.CNF,” which supplies the EV with the NMK (network membership key) or other parameters needed for a private logical network.  
+   - Both sides now have the exact security and channel information.
+
+13. **EV PLC Node ↔ EV Host** and **EVSE Host**: Key‐Setting (CM_SET_KEY)
+   - The figure may show “CM_SET_KEY.REQ” from the EVSE Host to EVSE PLC node (or from the EV Host to the EV PLC node).  
+   - “CM_SET_KEY.CNF” confirms that the local low‐layer module is configured with the correct NMK.
+
+14. **Link Detected & TT_match_join**  
+   - Once the EV sets its own key, it attempts to join the EVSE’s logical network. If a link is detected within TT_match_join, the process proceeds. Otherwise, the EV or EVSE decides the matching has failed and may retry.
+
+15. **(Optional) Amplitude Map Exchange (CM_AMP_MAPREQ, CM_AMP_MAPCNF)**  
+   - If either the EV or the EVSE requests a reduced transmit power or localized notched carriers, it may initiate the amplitude map exchange.  
+   - “CM_AMP_MAP.REQ” is sent, followed by “CM_AMP_MAP.CNF.” If no amplitude map exchange is needed, this part is skipped.
+
+16. **Inform Higher‐Layer Entities**  
+   - Once the link is securely established, the final step is a “D-LINK_READY” indication to the higher‐layer entity (HLE) in both the EV and the EVSE. This notifies both that the HomePlug Green PHY link is active and ready for ISO 15118 application‐layer communication.
+
+---
+
+## 4. Relationships and Key Connection Points
+
+- **EV PLC Node ↔ EVSE PLC Node**:  
+  Almost all SLAC measurement messages flow between these two low‐layer communication modules. They exchange parameter sets, attenuation data, and matching confirmations.
+
+- **EV Host ↔ EV PLC Node**:  
+  The EV Host instructs or triggers the EV PLC node to start SLAC or to proceed with validation. It may also configure local amplitude maps or set keys.
+
+- **EVSE Host ↔ EVSE PLC Node**:  
+  The EVSE Host can command its low‐layer module to set a new key (e.g., CM_SET_KEY.REQ) or to confirm certain states. It also triggers the EVSE PLC node to respond after a successful matching.
+
+- **Timers**:  
+  Many timers appear in the sequence and govern when a node can give up, retry, or proceed to the next step. For example:  
+  - **TT_EVSE_SLAC_init**: Time for EVSE to listen for CM_SLAC_PARM.REQ after detecting state B.  
+  - **TP_match_sequence**: A performance time ensuring that the next request (e.g., CM_START_ATTEN_CHAR.IND) happens only after the prior response.  
+  - **TT_match_response**: Both EV and EVSE wait up to this duration for a particular response; if it times out, they may retry or declare a failure.  
+  - **TT_EV_atten_results**: EV’s time window to receive all CM_ATTEN_CHAR.IND.  
+  - **TT_EVSE_match_MNBC**: EVSE’s time window to collect M-Sound data and produce CM_ATTEN_CHAR.IND.  
+  - **TP_EV_batch_msg_interval**: Interval between consecutive messages in a batch (e.g., multiple CM_MNBC_SOUND.IND).  
+  - **TT_match_join**: Maximum time allowed for the newly provided NMK/NID to form a valid link.  
+  - **TT_amp_map_exchange**: Time for optional amplitude map request/response.  
+  - **TP_link_ready_notification**: Performance limit to notify HLE that the data link is established.
+
+---
+
+## 5. Concluding Notes
+
+- **Failure Handling**:  
+  If any node fails to receive the expected messages within the specified timers or if content is invalid (e.g., invalid runID or mismatch in message definitions), the matching may be retried until certain repetition counts are reached. Ultimately, if repeated attempts fail, the matching process ends in “Unmatched” state.
+
+- **Optional Validation**:  
+  The EV is free to skip the CM_VALIDATE steps if the signal strength measurement unambiguously identifies the EVSE. If the EVSE is “Busy” or “Not Ready,” the EV can either wait and retry or attempt matching with a different EVSE (if multiple stations were discovered).
+
+- **Amplitude Map Exchange**:  
+  This may or may not be used in every session. It is only performed if either side wants to restrict transmit power further. If performed, both sides finalize an amplitude map to ensure compliance with local regulations and minimal interference.
+
+---
+
+### Final Outcome
+
+By the end of the sequence shown in Figure A.2, the EV has:  
+1. Exchanged parameters and measured attenuation with all potential EVSEs.  
+2. (Optionally) Validated the correct EVSE with BCB toggles.  
+3. Requested and received final matching data (NMK, NID).  
+4. Joined the logical network by setting keys.  
+5. Confirmed or skipped the amplitude map exchange.  
+6. Indicated to higher layers that the link is ready for powerline communication.
+
+All these steps ensure that only the physically connected EVSE is selected, avoiding interference or incorrect pairing with other EVSE nodes on the same powerline network.
+
+
+Image Description for Figure 2:
+```markdown
+# Detailed Description of Figure 2 — [ISO-3] Relationship to the ISO/IEC OSI Reference Model
+
+This figure shows how the Physical and Data Link layers used in ISO 15118‑3 (specifically for Power Line Communication on electric vehicles) align with the classic ISO/IEC 7498-1 (OSI) reference model. It illustrates the layered network architecture, culminating in interfaces that connect to higher-level protocols (Application, Presentation, Session, Transport, Network) and basic signaling (Control Pilot) as specified in IEC 61851‑1.
+
+Below is a step-by-step, layer-by-layer description of each entity in the figure and how they relate to each other.
+
+---
+
+## 1. Entities Overview
+
+From **bottom** to **top**, the following entities appear in the diagram:
+
+1. **Communication media**  
+   The physical medium (the cable assembly) through which signals and energy are exchanged between the Electric Vehicle (EV) and the Electric Vehicle Supply Equipment (EVSE).
+
+2. **Signal coupling**  
+   This represents the method of coupling the PLC (Power Line Communication) signal onto the AC or DC charging cable. It ensures the high-frequency PLC signal is injected or extracted without interfering with the power transfer itself.
+
+3. **PLC Physical layer**  
+   The physical layer of the Power Line Communication (e.g., HomePlug GreenPHY). It defines the electrical and modulation specifications required to transmit bits over the communication media.
+
+4. **MAC/PHY SAP**  
+   The Service Access Point between the PHY (Physical) and MAC (Medium Access Control) layers. It represents the interface through which the upper layer (MAC) exchanges data and control information with the physical layer.
+
+5. **PLC MAC layer**  
+   The Medium Access Control layer that handles packet framing, addressing, and channel-access mechanisms specific to PLC (e.g., carrier-sense multiple access, collision avoidance, etc.).
+
+6. **Convergence MAC SAP**  
+   The interface between the PLC MAC layer and the convergence layer. It ensures that data from higher-layer protocols is properly formatted for MAC-layer transmission and vice versa.
+
+7. **Convergence layer**  
+   A bridging layer that adapts the classic OSI Data Link–level services (like Ethernet bridging or VLAN tagging) into the specific requirements/format of the PLC protocols. It converges or translates data to align with HomePlug GreenPHY or other PLC standards.
+
+8. **Control SAP**  
+   A specialized Service Access Point providing a control interface for the PLC or other network-management functions (e.g., encryption key management, SLAC services, link status queries). This is used by upper software modules that need direct PLC-related control/configuration.
+
+9. **Data link control SAP**  
+   An interface that provides link-status information, error management, and other data link control functionalities. This SAP ties the connection coordination module to the lower-level Data Link functionalities.
+
+10. **Connection coordination**  
+   A functional block that coordinates establishing or tearing down logical connections. It helps with matching EVs to EVSEs, exchanging handshake signals, and managing the relationship between basic IEC 61851-1 signaling and the higher, logical data connections of ISO 15118.
+
+11. **Data SAP**  
+   The interface between the Data Link layer and the Network (layer 3) or higher layers for actual V2G (vehicle-to-grid) data exchange. All high-level charging messages (e.g., those required by ISO 15118-2) flow through the Data SAP.
+
+12. **Higher layers**  
+   In OSI terms, these encapsulate the Application, Presentation, Session, Transport, and Network layers. ISO 15118-2 typically operates at these layers (exchanging XML messages, session management, security, etc.).
+
+13. **Control pilot (IEC 61851-1) Hardware I/Os**  
+   Shown to the right, this denotes the separate hardware line(s) used for “basic signaling” (PWM duty cycle, pilot states, etc.). It is not strictly part of the PLC communication stack but interplays with it (for example, telling the EV and EVSE when to begin or end coupling for high-level communication).
+
+14. **OSI reference model layers**  
+   A vertical bracket on the left reminding us that Physical and Data Link layers in the OSI model are here implemented by the PLC layers and the “convergence layer.”
+
+15. **Key**: “covered by communication technology specification”  
+   The figure highlights (in gray) the parts (Convergence layer, PLC MAC, PLC PHY, etc.) that are defined by specific communication technology standards (e.g., HomePlug GreenPHY, IEEE 1901 Profile GreenPHY).
+
+---
+
+## 2. Detailed Layer-by-Layer Explanation and “Flow”
+
+Although this is not a conventional “flowchart,” the diagram can be read from the **Physical** layer at the bottom to the **Application** layer at the top to understand how data flows and which components interact:
+
+1. **Communication Media (Bottom Layer)**  
+   • Power cabling used for vehicle charging is also used to carry data signals.  
+   • Power is transferred from the EVSE to the EV; meanwhile, high-frequency signals are superimposed for data exchange.
+
+2. **Signal Coupling Layer**  
+   • Couples the PLC signal on top of the AC or DC power line.  
+   • Ensures minimal interference and correct impedance matching to pass data effectively between EV and EVSE.
+
+3. **PLC Physical Layer**  
+   • Responsible for modulating and demodulating waveforms on the power line.  
+   • Follows standards such as HomePlug GreenPHY for robust physical signaling (e.g., OFDM, error correction).
+
+4. **MAC/PHY SAP**  
+   • Logical interface that the MAC layer uses to send and receive frames (bits, symbols) via the Physical layer.  
+   • Transmits or receives packets after being encoded/decoded at the PHY.
+
+5. **PLC MAC Layer**  
+   • Implements media access rules (channel sensing, collision avoidance, etc.).  
+   • Adds header/trailer fields managing addressing and error detection.  
+   • Manages bridging to upper or lower layers via convergence sub-layers.
+
+6. **Convergence MAC SAP**  
+   • Provides a standardized interface for the next layer (Convergence layer) to get data from MAC frames.  
+   • Ensures correct framing and token passing between the Convergence and MAC layers.
+
+7. **Convergence Layer**  
+   • Adapts the PLC MAC frames into a more generic data link structure or vice versa.  
+   • Potentially includes bridging or VLAN tagging for IP-based or ISO 15118-2 application data.  
+   • At this layer, the system transitions from technology-specific data link frames to a more general data link service usable by higher protocols.
+
+8. **Control SAP**  
+   • A specialized side-interface that configuration/control processes (like encryption-key management or the SLAC process used for EV–EVSE association) can call.  
+   • Enables reading/writing certain parameters in the PLC MAC or PHY, including link status, encryption keys, and networking specifics.
+
+9. **Data Link Control SAP**  
+   • Presents data link status (connected, disconnected, error) and handles command signals for enabling or disabling link functionalities.  
+   • Ties in to the Connection Coordination function, letting higher-layer logic know about link conditions.
+
+10. **Connection Coordination**  
+    • Supervises or orchestrates which link or channel is used, how the handshake or matching occurs, and whether the EV and EVSE are “paired.”  
+    • Tightly integrated with basic signaling from IEC 61851-1 (Control Pilot) and high-level communication from ISO 15118-2.
+
+11. **Data SAP**  
+    • The normal “data” interface for exchanging V2G protocol payloads (e.g., charging session requests, contract identification) between the Data Link layer and the higher OSI layers (Network and above).  
+    • Actual ISO 15118-2 messages pass through this Data SAP after being encapsulated into MAC frames.
+
+12. **Higher Layers**  
+    • Spanning OSI Layers 3 to 7 (Network, Transport, Session, Presentation, Application).  
+    • In the context of ISO 15118, these higher layers format, encrypt, and interpret the actual “plug-and-charge” or “vehicle-to-grid” messages.
+
+13. **Control Pilot (IEC 61851-1) Hardware I/Os**  
+    • Shown on the right side as a separate domain.  
+    • Provides basic PWM signaling to indicate EV states, EVSE states, maximum current capability, presence of the EV, or charging fault conditions.  
+    • Ties into overall Connection Coordination to start or stop the PLC communication as required by the standard.
+
+---
+
+## 3. Relationship and Connection of Entities
+
+- **Physical to MAC**  
+  Data moves from the **Communication media** (power lines) through **Signal coupling** into the **PLC Physical layer**, which transmits/receives bits. The **MAC/PHY SAP** is then used to pass frames to/from the **PLC MAC layer**.
+
+- **MAC to Convergence**  
+  The **PLC MAC layer** sends or receives data frames to the **Convergence layer** through the **Convergence MAC SAP**. At this stage, commands and bridging logic are aligned with the needs of higher-level protocols.
+
+- **Convergence to Higher Protocols**  
+  After the Convergence layer, there are multiple SAPs:
+  1. **Control SAP** for direct PLC control and configuration queries (e.g., security keys, link info).  
+  2. **Data Link Control SAP** for controlling the link status, error notifications, and link enable/disable.  
+  3. **Data SAP** for normal data traffic that flows up to the OSI Network or Transport layers.
+
+- **Coordination with Basic Signaling**  
+  The **Connection coordination** block leverages the **Control SAP** and **Data link control SAP** to manage the handshake between the EV and EVSE at both the PLC level and the basic PWM signaling level. Meanwhile, the **Control pilot** line (IEC 61851-1) physically coordinates the presence detection and permissible current via the duty cycle.
+
+- **Higher Layers**  
+  Above the **Data SAP**, normal IP networking (or the ISO 15118-2 application messages) can proceed. These higher-layer protocols rely on the data path established at lower layers by the PLC system and are orchestrated by the **Connection coordination** function.
+
+---
+
+## 4. Key Takeaways
+
+1. **Layered Architecture**  
+   The figure highlights how the Physical and Data Link layers of ISO 15118‑3 map directly onto the OSI reference model. The “convergence layer” ensures that higher layers can remain mostly independent of the underlying PLC technology.
+
+2. **Control vs. Data**  
+   Two main SAP families exist:  
+   - **Control SAP / Data Link Control SAP**: For link management, error reporting, and secure network configuration.  
+   - **Data SAP**: For passing normal application data (ISO 15118-2 messages) to the upper layers.
+
+3. **Basic Signaling Integration**  
+   IEC 61851-1’s control pilot is shown outside the PLC stack, yet it is integral to “Connection coordination,” ensuring correct startup, safety interlocks, and fallback charging states.
+
+4. **Covered by Communication Technology Specification**  
+   The gray regions (Convergence layer, MAC, PHY) are implementations guided by specific PLC standards (e.g., HomePlug GreenPHY). They are thus “covered by communication technology specification.”
+
+By understanding each block and interface, engineers can quickly trace how signals and data flow from the power line (physical) up to the ISO 15118 application protocol, and how the system coordinates the link state with basic pilot signaling.
+```
+
+
+TEXTUAL INFORMATION:
+Text 1: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:
+Text 2: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;
+Text 3: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;
+Text 4: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.
+Text 5: A.9.4.3.3 EVSE side (Context: A.9.4.3.3 EVSE side > A.9.4 Logical network parameter exchange > A.9 Matching EV – EVSE process) - If the EVSE receives another CM_SLAC_MATCH.REQ from the same EV, this means that the EV retransmitted its request for some reason (i.e. the CM_SLAC_MATCH. CNF was not received). The EVSE shall respond to the request again.
+Text 6: A.9.1.3.2 EV side (Context: A.9.1.3.2 EV side > A.9.1 Signal strength measurement – parameter exchange > A.9 Matching EV – EVSE process) - If the EVSE receives a CM_SLAC_MATCH.REQ with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.7 is invalid.
+
+ADDITIONAL CONTEXT:
+Related Information 1: By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way. (sibling of Text 1)
+Related Information 2: After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP. (sibling of Text 1)
+Related Information 3: The signal strength measurement method to be used is the SLAC defined in the [HPGP]. (sibling of Text 1)
+Related Information 4: [V2G3-A09-17] The SLAC implementation of the low-layer communciation module on EV and EVSE side shall be compliant with the messages defined in [HPGP]. (sibling of Text 1)
+Related Information 5: [V2G3-A09-18] The low-layer communciation module on EV and EVSE sides shall be compliant with the sequence diagram of Figure A.1. (sibling of Text 1)
+Related Information 6: [V2G3-A09-19] The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1. (sibling of Text 1)
+Related Information 7: [V2G3-A09-20] The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one. (sibling of Text 1)
+Related Information 8: — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4; (sibling of Text 1)
+Related Information 9: — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3; (sibling of Text 1)
+Related Information 10: — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED. (sibling of Text 1)
+Related Information 11: [V2G3-A09-22] Based on the signal attenuation read by the “CM_ATTEN_CHAR.IND” message, the EV_Discovery_Status shall be set according to Table A.3. (sibling of Text 1)
+Related Information 12: Table A.3 — EV_Discovering_Status definition (sibling of Text 1)
+Related Information 13: Table A.3 — EV_Discovering_Status definition <table border="1"> <td colspan="1" rowspan="2">Status</td> <td colspan="2" rowspan="1">Average_Attenuation</td> <td colspan="1" rowspan="2">Description</td> <tr> <td colspan="1" rowspan="1">From</td> <td colspan="1" rowspan="1">To</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_FOUND</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">C_EV_match_signal-&lt;br&gt;attn_direct</td> <td colspan="1" rowspan="1">The EVSE is identified without&lt;br&gt;any doubt</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_POTENTIALLY_&lt;br&gt;FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;direct</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">One or several EVSEs are identi-&lt;br&gt;fied. The next step of the match-&lt;br&gt;ing process will allow deciding&lt;br&gt;if the most probable candidate is&lt;br&gt;the connected EVSE.</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_NOT_FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">No direct connected EVSE is&lt;br&gt;found</td> </tr> </table> (sibling of Text 1)
+Contextual Information 1: A.9.2.1 Functional description (ancestor of Text 1)
+Contextual Information 2: A.9.2 Signal strength measurement (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 14: [V2G3-A09-21] According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message: (sibling of Text 2)
+Related Information 15: [V2G3-A09-96] According to the decision of the EV, if the EVSE does not receive either CM_SLAC_ MATCH.REQ or a CM_VALIDATE.REQ within the maximum value of TT_EVSE_ match_session, the EVSE shall consider that it is not connected to the EV and shall consider the matching process as FAILED. (sibling of Text 5)
+Related Information 16: [V2G3-A09-98] If the EVSE receives a CM_SLAC_MATCH.REQ with invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.7 is invalid. (sibling of Text 5)
+Related Information 17: [V2G3-A09-99] After receiving a CM_SLAC_MATCH.REQ, the EVSE shall answer by a CM_SLAC_ MATCH.CNF within TP_match_response. (sibling of Text 5)
+Contextual Information 4: A.9.4.3.3 EVSE side (ancestor of Text 5)
+Contextual Information 5: A.9.4 Logical network parameter exchange (ancestor of Text 5)
+Related Information 18: [V2G3-A09-05] The EV shall send a CM_SLAC_PARM.REQ within TP_EV_SLAC_init time window. (sibling of Text 6)
+Related Information 19: [V2G3-A09-06] The start condition of the TP_EV_SLAC_init timer shall be the trigger of the match- ing process defined in 6.4.3.2. (sibling of Text 6)
+Related Information 20: [V2G3-A09-07] In the SLAC parameter exchange phase, the EV shall send a CM_SLAC_PARM.REQ and wait for the maximum value of TT_match_response for CM_SLAC_PARM.CNFs from potential EVSEs. (sibling of Text 6)
+Related Information 21: [V2G3-A09-08] The start condition of TT_match_response shall be the transmission of CM_SLAC_ PARM.REQ. (sibling of Text 6)
+Related Information 22: [V2G3-A09-10] If no valid CM_SLAC_PARM.CNF arrives at the EV when TT_match_response expires, the EV shall retransmit the request and wait again for TT_match_ response. The total number of retries is given by C_EV_match_retry. If C_EV_ match_retry is reached, the matching process shall be considered as FAILED. (sibling of Text 6)
+Contextual Information 6: A.9.1.3.2 EV side (ancestor of Text 6)
+Contextual Information 7: A.9.1 Signal strength measurement – parameter exchange (ancestor of Text 6)
+Related Information 23: This Clause summarizes all timings used in the main body of this part of ISO 15118. (sibling of Table 1)
+Related Information 24: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 1)
+Related Information 25: Table 3 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_conn_max_match</td> <td colspan="1" rowspan="1">Number of retries of matching&lt;br&gt;process</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_vald_nb_toggles</td> <td colspan="1" rowspan="1">Number of BCB-Toggles</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EVSE_match_parallel</td> <td colspan="1" rowspan="1">Number of parallel matching&lt;br&gt;processes to be handled by&lt;br&gt;EVSE</td> <td colspan="1" rowspan="1">5</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_sequ_retry</td> <td colspan="1" rowspan="1">Number of matching retries by&lt;br&gt;Control Pilot state E transitions</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_init_HLC</td> <td colspan="1" rowspan="1">Minimum B state duration after&lt;br&gt;a state F, D, or C</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resume</td> <td colspan="1" rowspan="1">Time after the wake up trigger&lt;br&gt;(e.g. BCB-Toggle) until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_max_comm</td> <td colspan="1" rowspan="1">Time after plug-in until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resetup</td> <td colspan="1" rowspan="1">Time to resetup the matching&lt;br&gt;process after a loss of commu-&lt;br&gt;nication</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_vald_detect_time</td> <td colspan="1" rowspan="1">Time to detect a variation of the&lt;br&gt;state on EVSE side</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_state_duration</td> <td colspan="1" rowspan="1">Duration of each state B or C&lt;br&gt;within the BCB-Toggle</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_toggle</td> <td colspan="1" rowspan="1">Duration of BCB-Toggle&lt;br&gt;sequence</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_vald_toggle</td> <td colspan="1" rowspan="1">Timeout timer for the EVSE to&lt;br&gt;stop monitoring control pilot for&lt;br&gt;BCB-Toggle. Value comes from&lt;br&gt;CM_VALIDATE.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_leave</td> <td colspan="1" rowspan="1">Maximum time to leave the logi-&lt;br&gt;cal network</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_step_EF</td> <td colspan="1" rowspan="1">Time to stay at E/F state</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> </table> (sibling of Table 1)
+Related Information 26: [V2G3-M08-02] Any successful matching process shall reset all the timeout timers and reset the retry_counters. (sibling of Table 1)
+Contextual Information 8: 8 Timings and constants (ancestor of Table 1)
+Contextual Information 9: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Table 1)
+Contextual Information 10: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Table 1)
+Related Information 27: This Clause summarizes all timings used in this Annex. (sibling of Table 2)
+Related Information 28: [V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1. (sibling of Table 2)
+Related Information 29: Table A.1 — Timing and constant values (sibling of Table 2)
+Related Information 30: Table A.1 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_EV_match_MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds sent for the&lt;br&gt;SLAC</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_retry</td> <td colspan="1" rowspan="1">Number of retries of the correspond-&lt;br&gt;ing message within the matching&lt;br&gt;process</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_direct</td> <td colspan="1" rowspan="1">Lower threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_indirect</td> <td colspan="1" rowspan="1">Higher threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_start_atten_char_inds</td> <td colspan="1" rowspan="1">Number of CM_START_ATTEN_CHAR.&lt;br&gt;INDs sent by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">TP_amp_map_exchange</td> <td colspan="1" rowspan="1">Performance timer for the start of an&lt;br&gt;AMP MAP Exchange&lt;br&gt;Either the EV or the EVSE shall send&lt;br&gt;a CM_AMP_MAP.REQ within the&lt;br&gt;max value of this timer after link is&lt;br&gt;detected in order to trigger an AMP&lt;br&gt;MAP Exchange.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_batch_msg_interval</td> <td colspan="1" rowspan="1">Interval between two CM_START_&lt;br&gt;ATTEN_CHAR.IND or CM_MNBC_&lt;br&gt;SOUND.IND messages</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_match_session</td> <td colspan="1" rowspan="1">Performance time for the EV to start&lt;br&gt;validation or SLAC_MATCH after&lt;br&gt;sending CM_ATTEN_CHAR.RSP</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_SLAC_init</td> <td colspan="1" rowspan="1">Time between plug-in (state B&lt;br&gt;detected) or wake-up and start of&lt;br&gt;matching by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EVSE_avg_atten_calc</td> <td colspan="1" rowspan="1">Performance time for the EVSE to&lt;br&gt;calculate the average attenuation pro-&lt;br&gt;file after reception of all M-SOUNDs&lt;br&gt;or after TT_EVSE_match_MNBC has&lt;br&gt;expired</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_link_ready_notification</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">0,2</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_response</td> <td colspan="1" rowspan="1">General performance time for a&lt;br&gt;response to a request</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 2)
+Related Information 31: Table A.1 (continued) <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">TP_match_sequence</td> <td colspan="1" rowspan="1">General performance time for sub-&lt;br&gt;sequent requests after a response to&lt;br&gt;previous request has been received</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_amp_map_exchange</td> <td colspan="1" rowspan="1">Timeout timer that runs on both EV&lt;br&gt;and EVSE side after link is detected&lt;br&gt;If an EV or EVSE does not want to&lt;br&gt;start an AMP MAP Exchange and no&lt;br&gt;request is received by the other side&lt;br&gt;within the timeout value of this timer,&lt;br&gt;then it is to be assumed that no AMP&lt;br&gt;MAP Exchange will take place and&lt;br&gt;a D-LINK_READY.indication is to be&lt;br&gt;sent to the HLE.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EV_atten_results</td> <td colspan="1" rowspan="1">Time the EV shall wait for CM_&lt;br&gt;ATTEN_CHAR.IND messages from&lt;br&gt;EVSEs. Timer starts with the sending&lt;br&gt;of the first CM_START_ATTEN_CHAR.&lt;br&gt;IND</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1 200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_MNBC</td> <td colspan="1" rowspan="1">Timeout on the EVSE side that trig-&lt;br&gt;gers the calculation of the average&lt;br&gt;attenuation profile</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_session</td> <td colspan="1" rowspan="1">Maximum time from the expiration of&lt;br&gt;TT_EVSE_match_MNBC and the recep-&lt;br&gt;tion of either CM_VALIDATE.REQ or&lt;br&gt;CM_SLAC_MATCH.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_SLAC_init</td> <td colspan="1" rowspan="1">Time between detecting state B and&lt;br&gt;receiving CM_SLAC_PARM.REQ on the&lt;br&gt;EVSE side</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_join</td> <td colspan="1" rowspan="1">Maximum time between CM_SLAC_&lt;br&gt;MATCH.CNF and link establishment&lt;br&gt;If there is no link after this timeout&lt;br&gt;expires, EV retries matching process&lt;br&gt;and EVSE resets its state machine</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">12</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_response</td> <td colspan="1" rowspan="1">Time that the EV/EVSE shall wait for a&lt;br&gt;response from the EVSE/EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_sequence</td> <td colspan="1" rowspan="1">Time that the EVSE/EV shall wait for&lt;br&gt;a request from the EV/EVSE</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_repetition</td> <td colspan="1" rowspan="1">Time duration for repetitions of the&lt;br&gt;matching process when an error&lt;br&gt;occurs</td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_rate</td> <td colspan="1" rowspan="1">Time to wait for a repetition of the&lt;br&gt;whole matching process after a failed&lt;br&gt;matching process</td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 2)
+Contextual Information 11: A.8 Timings and constants (ancestor of Table 2)
+Contextual Information 12: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Table 2)
+Related Information 32: Table A.7 — MMEs parameters definition for logical network parameter exchange <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="9">CM_SLAC_MATCH.&lt;br&gt;REQ&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">APPLICA-&lt;br&gt;TION_TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-EVSE&lt;br&gt;matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No Secu-&lt;br&gt;rity”</td> </tr> <tr> <td colspan="1" rowspan="1">MVFLength</td> <td colspan="1" rowspan="1">2 to 3</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">0x3e</td> <td colspan="1" rowspan="1">Fixed value for matching</td> </tr> <tr> <td colspan="1" rowspan="1">PEV ID</td> <td colspan="1" rowspan="1">4 to 21</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">PEV MAC</td> <td colspan="1" rowspan="1">21 to 26</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC&lt;br&gt;address of&lt;br&gt;the EV Host</td> <td colspan="1" rowspan="1">MAC address of EV Host</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE ID</td> <td colspan="1" rowspan="1">26 to 43</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE MAC</td> <td colspan="1" rowspan="1">44 to 49</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC&lt;br&gt;address of&lt;br&gt;the EVSE&lt;br&gt;Host</td> <td colspan="1" rowspan="1">EVSE MAC address</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">50 to 57</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as the&lt;br&gt;one sent in the CM_SLAC_PARM.&lt;br&gt;REQ message by the EV.</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">58 to 65</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> </table> (sibling of Table 3)
+Related Information 33: Table A.7 (continued) (sibling of Table 3)
+Related Information 34: Table A.7 (continued) <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="12">CM_SLAC_MATCH.&lt;br&gt;CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">APPLICA-&lt;br&gt;TION_TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-EVSE&lt;br&gt;matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No Secu-&lt;br&gt;rity”</td> </tr> <tr> <td colspan="1" rowspan="1">MVFLength</td> <td colspan="1" rowspan="1">2 to 3</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">0x56</td> <td colspan="1" rowspan="1">Fixed value for matching</td> </tr> <tr> <td colspan="1" rowspan="1">PEV ID</td> <td colspan="1" rowspan="1">4 to 20</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">PEV MAC</td> <td colspan="1" rowspan="1">21 to 26</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC&lt;br&gt;address of&lt;br&gt;the EV Host</td> <td colspan="1" rowspan="1">PEV MAC address</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE ID</td> <td colspan="1" rowspan="1">27 to 43</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE MAC</td> <td colspan="1" rowspan="1">44-49</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC&lt;br&gt;address of&lt;br&gt;the EVSE&lt;br&gt;Host</td> <td colspan="1" rowspan="1">EVSE MAC address</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">50 to 57</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as the&lt;br&gt;one sent in the CM_SLAC_PARM.&lt;br&gt;REQ message by the EV.</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">58 to 65</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> <tr> <td colspan="1" rowspan="1">NID</td> <td colspan="1" rowspan="1">66 to 72</td> <td colspan="1" rowspan="1">7</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Network ID derived from the NMK&lt;br&gt;by the EVSE according to [HPGP],&lt;br&gt;4.4.3.1</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">73</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> <tr> <td colspan="1" rowspan="1">NMK</td> <td colspan="1" rowspan="1">74 to 89</td> <td colspan="1" rowspan="1">16</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Private NMK of the EVSE (random&lt;br&gt;value)</td> </tr> </table> (sibling of Table 3)
+Contextual Information 13: A.9.4.2 Description of involved MMEs (ancestor of Table 3)
+Related Information 35: [V2G3-A09-54] Both EV and EVSE shall use the CM_VALIDATE messages to exchange the BCB-Tog- gle related values, using the parameters defined in 9.4. [V2G3-A09-55] The Ethernet Destination MAC address field shall be filled either as Broadcast or Unicast, as defined in the Table A.5 and Table A.6. (sibling of Table 5)
+Related Information 36: Table A.5 — MMEs parameters definition for validation process – First request-response <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.REQ&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">Signal Type</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on control pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">Timer</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the first VALIDATE Request-Re-&lt;br&gt;sponse exchange, the Timer field shall&lt;br&gt;be set to zero.</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the first VALIDATE Request-Re-&lt;br&gt;sponse exchange, the Result field shall&lt;br&gt;be set to 0x01 = “ready”.</td> </tr> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">SignalType</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on control pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">ToggleNum</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the first VALIDATE Request-Re-&lt;br&gt;sponse exchange, the ToggleNum field&lt;br&gt;shall be set to zero.</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Result code:&lt;br&gt;0x00 = Not Ready&lt;br&gt;0x01 = Ready&lt;br&gt;0x02 = Success&lt;br&gt;0x03 = Failure&lt;br&gt;0x04 = Not Required</td> </tr> </table> (sibling of Table 5)
+Related Information 37: [V2G3-A09-56] For the first CM_VALIDATE request-response exchange, the result field shall be filled as follows: (sibling of Table 5)
+Related Information 38: [V2G3-A09-57] The EV shall set the result field of the CM_VALIDATE.REQ with 0x01 to indicate that a validation process starts. (sibling of Table 5)
+Related Information 39: [V2G3-A09-58] The EVSE shall set the Result field of the CM_VALIDATE.CNF to the following: (sibling of Table 5)
+Related Information 40: — “Ready” to confirm the readiness for a validation process; (sibling of Table 5)
+Related Information 41: — “Not Ready” to indicate that it is busy and temporarily not able to perform a validation (An immediate retry with the step 1 CM_VALIDATE.REQ by the EV is reasonable); (sibling of Table 5)
+Related Information 42: — “Success” shall not be used; (sibling of Table 5)
+Related Information 43: — “Not required” to indicate that a validation is not required; (sibling of Table 5)
+Related Information 44: — “Failure” to indicate that it does not support the validation procedure. Accord- ing to A.7.3.1, the EV can decide on how to continue. (sibling of Table 5)
+Related Information 45: Table A.6 — MMEs parameters definition for validation process – Second request-response (sibling of Table 5)
+Related Information 46: Table A.6 — MMEs parameters definition for validation process – Second request-response <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.REQ&lt;br&gt;Broadcast</td> <td colspan="1" rowspan="1">Signal Type</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on control pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">Timer</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Variable value indicating the time&lt;br&gt;duration while the EVSE shall listen to&lt;br&gt;BCB-Toggles (TT_EVSE_vald_toggle):&lt;br&gt;0x00 = 100 ms&lt;br&gt;0x01 = 200 ms</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the second VALIDATE Request-Re-&lt;br&gt;sponse exchange, the Result field shall&lt;br&gt;be set to 0x01 = “ready”.</td> </tr> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">SignalType</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on Control Pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">ToggleNum</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value contains the number of&lt;br&gt;BC-edges detected by the EVSE during&lt;br&gt;TT_EVSE_vald_toggle</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Result code:&lt;br&gt;0x00 = Not Ready&lt;br&gt;0x01 = Ready&lt;br&gt;0x02 = Success&lt;br&gt;0x03 = Failure&lt;br&gt;0x04 = Not Required</td> </tr> </table> (sibling of Table 5)
+Related Information 47: [V2G3-A09-59] For the second CM_VALIDATE request-response exchange, the result field shall be filled as follows: (sibling of Table 5)
+Related Information 48: [V2G3-A09-60] The EV shall set the result field of the CM_VALIDATE.REQ with 0x01 to indicate that a toggle process starts. (sibling of Table 5)
+Related Information 49: [V2G3-A09-61] The EVSE shall set the result field of the CM_VALIDATE.CNF to (sibling of Table 5)
+Related Information 50: — “Success” to confirm that the toggle process is done with success and the result field contains valid data, or (sibling of Table 5)
+Related Information 51: — “Failure” to indicate that the toggle process could not be finished with success and the result field contains no valid data. (sibling of Table 5)
+Contextual Information 14: A.9.3.2 Description of involved MMEs (ancestor of Table 5)
+Contextual Information 15: A.9.3 Validation of matching decision (ancestor of Table 5)
+Related Information 52: Figure A.5 — Sequence chart of validation process of matching decision (sibling of Figure 1)
+Contextual Information 16: A.9.3.3.1 Sequence chart (ancestor of Figure 1)
+Related Information 53: [V2G3-A09-01] The matching process shall base on the messages defined in [HPGP]. [V2G3-A09-02] The configuration of the low-layer communciation module as described in A.4.5 shall be done prior to entering the matching process. (sibling of Figure 2)
+Related Information 54: Figures A.1and A.2 outlines the complete sequence of the matching process. It shows the sequence to follow, from the discovery of the other low-layer communciation modules to the start of the nominal communication. (sibling of Figure 2)
+Related Information 55: Figure A.1 — Sequence chart of HomePlug Green PHY matching process (part 1) (sibling of Figure 2)
+Related Information 56: ISO Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (sibling of Figure 2)
+Related Information 57: A.9.1 Signal strength measurement – parameter exchange (sibling of Figure 2)
+Related Information 58: A.9.2 Signal strength measurement (sibling of Figure 2)
+Related Information 59: A.9.3 Validation of matching decision (sibling of Figure 2)
+Related Information 60: A.9.4 Logical network parameter exchange (sibling of Figure 2)
+Related Information 61: A.9.5 Joining the logical network (sibling of Figure 2)
+Related Information 62: A.9.6 Amplitude map exchange (sibling of Figure 2)
+Related Information 63: A.9.7 Leave the logical network (sibling of Figure 2)
+Related Information 64: A.9.8 General error handling and timing constraints (sibling of Figure 2)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
+
+
+Question: What is CM_SLAC_MATCH.REQ?
+
+Above is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.

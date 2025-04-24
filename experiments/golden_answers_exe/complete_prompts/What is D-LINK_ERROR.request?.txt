@@ -1,0 +1,620 @@
+Question What is D-LINK_ERROR.request?: What is D-LINK_ERROR.request?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: [V2G3-M12-01] - Table 6 — D-LINK_ERROR.request primitive
+Table 2: 8 Timings and constants - Table 3 — Timing and constant values
+
+FIGURE INFORMATION:
+Figure 1: 9.1 Overview - Figure 11 — Matching state machine
+
+Image Description for Figure 11:
+# Detailed Description of the Connection Coordination Flow Chart (Figure 3)
+
+Below is a step-by-step explanation in **Markdown** format, intended to help engineers quickly understand every element and pathway in the flow chart. The chart corresponds to “Figure 3” in the ISO 15118‑3 documentation, specifically showing **AC EVSE** behavior supporting PnC (Plug and Charge) and EIM (External Identification Means), with the **matching process** not started before EIM completion, and the **5 % control pilot duty cycle** is applied after the vehicle plugs in.
+
+---
+
+## 1. Entities Overview
+
+**From the figure and key, these entities appear:**
+
+1. **Plug-in**  
+   - The event of connecting the EV’s inlet to the EVSE’s connector.
+
+2. **Re-init**  
+   - A restart of the session (without unplugging) by applying Control Pilot state E transition (often triggered by error handling).
+
+3. **X1 or X2 (5 %)**  
+   - Control Pilot (CP) state at 5 % duty cycle (or nominally “X1” if not yet stabilized).  
+   - NOTE 1: As indicated, CP state “X1” is allowed instead of “X2 (nom.)” per IEC‑3 Table 5.
+
+4. **X2 (5 % or nom.) "Matched state" and authorization OK**  
+   - A state signifying that the EV and EVSE have achieved a matched condition at CP state X2 (which can be 5 % or nominal duty cycle); authorization is validated.
+
+5. **EIM done & matching process not started**  
+   - A condition where EIM (External Identification Means) is completed, but the V2G “matching process” (high-level communication negotiation) has not yet begun.
+
+6. **E/F (0 %)**  
+   - A Control Pilot state indicating 0 % duty cycle. Typically used for error or re-initialization handling.
+
+7. **T_step_EF**  
+   - The time duration for which the system remains in control pilot states E or F (0 %), as required by certain error or transition handling.
+
+8. **X2 (nom.)**  
+   - Control Pilot state at the nominal duty cycle for AC charging (different from the 5 % duty cycle).
+
+9. **PnC**  
+   - “Plug and Charge,” meaning automatic identification/authorization of the EV without separate user action.
+
+10. **EIM**  
+   - “External Identification Means,” such as RFID or other manual authentication methods.
+
+11. **BC (Basic Charging)**  
+   - Charging controlled purely by IEC 61851‑1 signals (i.e., CP PWM duty cycle).  
+   - Represented in the flow chart as “BC” or “charging controlled by IEC 61851‑1.”
+
+12. **HLC‑C**  
+   - High‑Level Communication (HLC) for charging control, typically governed by the ISO 15118 V2G communication protocol.  
+   - This is shown as “HLC‑C” or “charging controlled by high-level communication.”
+
+13. **b) EIM w. BC**  
+   - A specific branch in the flow chart where EIM is used and the charging is performed with Basic Charging (IEC 61851‑1) once authorized.
+
+14. **c) EIM w/o BC**  
+   - A branch where EIM is used, but the charging control is done via High‑Level Communication (HLC‑C).
+
+15. **d) [IEC‑1] Charging**  
+   - A branch illustrating basic IEC 61851‑1 charging (without HLC‑C).  
+   - NOTE 2: Indicated in the figure that branch d) is for EVs not supporting HLC‑C.
+
+16. **V2G Setup finished**  
+   - The end of the V2G (Vehicle‑to‑Grid) high‑level communication setup. After this, power transfer can begin in the chosen mode (PnC, EIM w. BC, EIM w/o BC, or plain IEC 61851‑1).
+
+17. **Trigger condition**  
+   - Noted in the legend as the condition that prompts a transition in the flow (e.g., “Plug-in,” “Re-init”).
+
+18. **Possible procedure vs. Mandatory procedure**  
+   - The figure’s arrow styles:  
+     - Dotted Arrow = Possible procedure  
+     - Solid Arrow = Mandatory procedure
+
+---
+
+## 2. Key/Notes from the Figure
+
+- **“NOTE 1: CP state X1 is allowed instead of X2 (nom.) following [IEC‑3] (Table 5).”**  
+  This means that shortly after plug-in, the EVSE might momentarily apply CP state X1 before transitioning to X2(nom.) or X2(5 %).  
+- **“NOTE 2: Branch d) is for EVs not supporting HLC‑C.”**  
+  Some EVs are incapable of high-level communication for AC charging; in that case, they can only proceed with the basic IEC 61851‑1 method, shown in branch d).
+
+---
+
+## 3. Step-by-Step Flow Description
+
+Below is the sequence of steps shown in the diagram, from left to right and top to bottom.  
+
+1. **Plug-in**  
+   - The EV is connected to the EVSE.  
+   - At this moment, the EVSE typically sets the Control Pilot to either **X1** or **X2 (5 %)**.
+
+2. **Initial CP State: X1 or X2 (5 %)**  
+   - According to the standard, the EVSE might start with a 5 % duty cycle to indicate a low-current or minimal power state.  
+   - **In parallel**, a “Re-init” action could also lead the CP state back to **X1 or X2 (5 %)** (this can happen if an error arises and the EVSE needs to reset the session without physically unplugging).
+
+3. **Two Parallel Paths Emerge**  
+
+   ### Path A – “Matched State” with Authorization (Top Branch)
+
+   3A. **X2 (5 % or nom.) "Matched state" and authorization OK**  
+       - If the EV and EVSE move quickly into a matched state at X2 (either 5 % or nominal), and the EV’s authorization is confirmed (for example, via **PnC** credentials automatically), then it proceeds as follows:
+
+   4A. **PnC**  
+       - This indicates “Plug and Charge.” The EVSE instructs high-level communication for finalizing charging parameters.
+
+   5A. **HLC‑C**  
+       - The EVSE and EV exchange ISO 15118 (V2G) messages. This is mandatory if using PnC in AC-charging with HLC.
+
+   6A. **V2G Setup finished**  
+       - Once the high-level communication successfully completes, the system is ready and can begin actual power transfer under the PnC agreement.  
+
+   *(End of Path A)*
+
+   ### Path B – EIM Done & Matching Not Started (Middle Branch)
+
+   3B. **EIM done & matching process not started**  
+       - The EIM process (e.g., scanning an RFID card) is finished, but the V2G “matching” session has not begun.  
+       - The EVSE transitions to an error or reset state on the Control Pilot:
+
+   4B. **E/F (0 %)**  
+       - The duty cycle is driven to 0 %. This is an error/reset state or a neutral state forcing the EV to stop momentarily.
+
+   5B. **T_step_EF**  
+       - The EVSE remains in CP state E or F for a required duration (T_step_EF). This wait is mandatory before re-enabling a normal charging state.
+
+   6B. **X2 (nom.)**  
+       - After T_step_EF, the EVSE sets the duty cycle to the nominal level (X2). This indicates an intent to supply standard AC current.  
+
+   From **X2 (nom.)**, we see three sub-branches:
+
+   - **b) EIM w. BC**  
+     7b. The “b)” label indicates “EIM with Basic Charging.” Once the system is at X2(nom.), the EV can start charging based solely on **IEC 61851‑1**.  
+     8b. **BC** is used (the PWM duty cycle signals the requested current).  
+     9b. **V2G Setup finished** (here, it effectively means no high-level comm is used for controlling power or has ended).  
+     10b. Charging proceeds with BC.
+
+   - **c) EIM w/o BC**  
+     7c. The “c)” label indicates “EIM without Basic Charging,” meaning the EV and EVSE do use **HLC‑C** (ISO 15118 high-level communication) to regulate charging.  
+     8c. **HLC‑C** is started. The standard’s V2G messages help orchestrate the charging session.  
+     9c. **V2G Setup finished.**  
+     10c. Charging now occurs under high-level communications, with EIM credentials having authorized it.
+
+   - **d) [IEC‑1] Charging**  
+     7d. The “d)” label references **IEC 61851‑1**-only charging. **NOTE 2** states that this branch is used by EVs that do **not** support HLC‑C.  
+     8d. The EVSE continues in Basic Charging mode with the nominal duty cycle on the Control Pilot.  
+     9d. The EV charges following **IEC 61851‑1** specifications.  
+
+   *(End of Paths B, b), c), and d) )*
+
+---
+
+## 4. Relationship and Connection of Entities
+
+- **Trigger conditions (“Plug-in” / “Re-init”)**: These conditions cause the CP state to go to **X1 or X2 (5 %)**. Re-init is typically an internal reset without physical disconnection.  
+- **Control Pilot States (X1, X2, E, F)**: These represent distinct duty-cycle signals sent by the EVSE to the EV.  
+- **EIM or PnC**:  
+  - **PnC** automatically authorizes the EV if it supports the ISO 15118 plug-and-charge certificate exchange.  
+  - **EIM** involves an external user action (e.g., RFID card).  
+- **HLC‑C** vs. **BC**:  
+  - **HLC‑C** stands for “High‑Level Communication Controlled” charging, governed by ISO 15118 messages.  
+  - **BC** stands for “Basic Charging,” governed by IEC 61851‑1 duty cycle alone.  
+- **Matching Process**: The step where the EV and EVSE exchange messages to confirm that advanced communication is possible and desired (via HLC‑C). In the figure, if that process is “not started” before EIM is done, the EVSE is shown forcing a short E/F(0 %) state before rejoining the nominal X2.  
+- **T_step_EF**: A defined time to remain at 0 % duty cycle for transitional or error recovery steps.  
+
+---
+
+## 5. Extras / Notes
+
+- **NOTE 1**: The chart allows CP State X1 as an alternative to X2(nom.) in early or transitional steps, aligning with IEC standards.  
+- **NOTE 2**: The “d)” branch specifically caters to EVs that cannot handle ISO 15118 high-level communication. They will remain in IEC 61851‑1 basic mode.  
+- **Mandatory vs. Possible Procedures**:  
+  - Solid arrows are steps that must occur according to the standard if the conditions apply.  
+  - Dashed or dotted arrows are possible transitions depending on EV/EVSE capabilities.  
+
+---
+
+### Summary
+
+In essence, **Figure 3** shows how an **AC EVSE** can handle different authorization scenarios (**PnC** or **EIM**) and how the system either proceeds into **high-level communication** (HLC‑C) or stays with **basic IEC 61851‑1** charging. The *matching process* for ISO 15118 can begin once the EV is at a suitable control pilot state (X2). If the EV does **not** support HLC‑C, it will remain at nominal duty cycle X2 and proceed with basic AC charging (branch **d**). For an EV that does support HLC‑C, it can either do **PnC** (branch **a**) or **EIM** (branches **b/c**) with high-level communication or fallback to BC if HLC fails.
+
+All paths ensure that the EVSE and EV coordinate on CP states (X1, X2, E/F with 0 %) to manage transitions (like resets or error states) before the final charging mode is achieved.
+
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+
+TEXTUAL INFORMATION:
+Text 1: 7.5 Loss of communication (Context: 7.5 Loss of communication > 7 Connection coordination > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - This Clause covers the situation where the communication link is lost. A loss of communication after the establishment of a data link [D-LINK_READY.indication(link established) was already indicated] is handled by higher layers, by requesting with D-LINK_ERROR.request.
+Text 2: 9.1 Overview (Context: 9.1 Overview > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Figure 11 shows a high-level overview of the matching process. The default state of a PLC node at plug- in is “Unmatched”. A control pilot state change from state A, E or F to B, C or D triggers the matching process (state “Matching” in Figure 11) which determines the correct EV-EVSE matching by signal strength measurement. A successful matching process leads to the state “Matched” in Figure 11.
+Text 3: 9.1 Overview (Context: 9.1 Overview > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Any transition from the state “Matching” triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup.
+Text 4: 9.1 Overview (Context: 9.1 Overview > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - Any loss of the control pilot or a request from HLE leads to a reset to state “Unmatched”.
+Text 5: 7.5.1 EVSE side (Context: 7.5.1 EVSE side > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-04] With receiving a D-LINK_ERROR.request from HLE in X1 state, the EVSE’s commu- nication node shall perform a state X1 to state E/F to state X1 or X2 transition.
+Text 6: 7.5.1 EVSE side (Context: 7.5.1 EVSE side > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-05] With receiving a D-LINK_ERROR.request in X2 state from HLE, the EVSE’s commu- nication node shall perform a state X2 to X1 to state E/F to state X1 or X2 transi- tion.
+Text 7: 7.5.2.1 Error handling with control pilot duty cycle of 5 % (Context: 7.5.2.1 Error handling with control pilot duty cycle of 5 % > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-13] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall change to Bx state, leave the logical network and change the matching state to “Unmatched” within TP_match_leave and wait for a new incoming matching trigger (control pilot X1 or X2 state).
+Text 8: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-10] With receiving a D-LINK_ERROR.request from HLE, the EVSE’s communication node shall implement one of the two following options:
+Text 9: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - Option A: to have behaviour independent of the duty cycle:
+Text 10: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-11] The requirements of 7.5.1.1 shall be applied to have behaviour independent of the duty cycle.
+Text 11: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - Option B: not to interrupt charging due to a control pilot state change to state E:
+Text 12: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-12] With receiving a D-LINK_ERROR.request from HLE, the EVSE’s communication node shall stay in X2 control pilot state, leave the logical network within TP_ match_leave, and change the matching state to “Unmatched” to be ready for a new matching process.
+Text 13: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-14] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall implement one of the two following options:
+Text 14: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - Option A: to have behaviour independent of the duty cycle:
+Text 15: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-15] The requirements of 7.5.2.1 shall be applied to have behaviour independent of the duty cycle.
+Text 16: 7.5.1.2 Error handling with nominal control pilot duty cycle (Context: 7.5.1.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - Option B: not to interrupt charging due to a control pilot state change to state E:
+Text 17: 7.5.2.2 Error handling with nominal control pilot duty cycle (Context: 7.5.2.2 Error handling with nominal control pilot duty cycle > 7.5 Loss of communication > 7 Connection coordination) - [V2G3-M07-16] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall keep the current state and leave the logical network and change the matching state to “unmatched”.
+
+ADDITIONAL CONTEXT:
+Related Information 1: [V2G3-M07-03] If a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers. (sibling of Text 1)
+Related Information 2: 7.5.1 EVSE side (sibling of Text 1)
+Related Information 3: 7.5.1.1 Error handling with a Control Pilot duty cycle of 5 % (sibling of Text 1)
+Related Information 4: 7.5.1.2 Error handling with nominal control pilot duty cycle (sibling of Text 1)
+Related Information 5: 7.5.2 EV side (sibling of Text 1)
+Related Information 6: 7.5.2.1 Error handling with control pilot duty cycle of 5 % (sibling of Text 1)
+Related Information 7: 7.5.2.2 Error handling with nominal control pilot duty cycle (sibling of Text 1)
+Contextual Information 1: 7.5 Loss of communication (ancestor of Text 1)
+Contextual Information 2: 7 Connection coordination (ancestor of Text 1)
+Contextual Information 3: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Related Information 8: A unique matching between the EV and a specific charge coupler of the EVSE is necessary for most of the use cases. After the matching process, which is defined within this Clause, upper layers are able to proceed their binding process. Interfaces related to data link status between the layers are defined in Clause 12. Depending on the communication signal paths, the matching process depends on the infrastructure topology. (sibling of Text 2)
+Related Information 9: Under some technical conditions, the matching process might render ambiguous results. In this case, an additional validation process based on a signalling through the control pilot line can be necessary to confirm the matching. (sibling of Text 2)
+Related Information 10: Figure 10 gives a generic overview of the matching process. The full description is given in the corresponding annex. (sibling of Text 2)
+
+Image Description for Figure 10:
+# Detailed Description of Figure 10 — EV Point of View (Matching Process)
+
+Below is a step-by-step walkthrough of the flowchart. The diagram illustrates how an Electric Vehicle (EV) determines the correct Electric Vehicle Supply Equipment (EVSE) connection (i.e., “matching”) based on discovery, signal strength measurements, possible validation, and ultimately setting up or failing to set up a data link.
+
+---
+
+## 1. List of Key Entities in the Figure
+
+1. **Entering matching process**  
+   - Represents the beginning of the procedure once the EV is ready to identify which EVSE it is physically connected to.
+
+2. **Discovery of the connected communication nodes**  
+   - The EV discovers all communication nodes (EVSEs) detected on the physical link.
+
+3. **Signal strength measurement**  
+   - The EV measures signal strength metrics from all discovered communication nodes.  
+   - “Signal Strength Measurement is a value range indication within the matching process.”
+
+4. **Signal strength analysis**  
+   - The EV analyzes the measured signal strength to determine how strongly the EVSE’s signals are received.
+
+5. **Low signal attenuation**  
+   - Indicates a strong signal measurement.  
+   - If the analysis confirms a single strong connection, the result can be “EVSE_FOUND.”
+
+6. **Ambiguous result (multiple EVSE’s, uncertain signal strength)**  
+   - The EV sees more than one possible candidate or uncertain measurement.  
+   - Proceeds with the interim status “EVSE_POTENTIALLY_FOUND.”
+
+7. **High signal attenuation**  
+   - Indicates a weak signal.  
+   - If the analysis indicates no suitable EVSE, the result is “EVSE_NOT_FOUND.”
+
+8. **Result is “EVSE_FOUND”**  
+   - The outcome that the EV confirms exactly one matching EVSE based on the signal measurement.
+
+9. **Result is “EVSE_POTENTIALLY_FOUND”**  
+   - The outcome that the EV sees a possible match but cannot fully confirm. A validation step might be needed.
+
+10. **Result is “EVSE_NOT_FOUND”**  
+    - The outcome that the EV determines no valid EVSE is connected.
+
+11. **Declared result is “EVSE_FOUND” / “EVSE_POTENTIALLY_FOUND” / “EVSE_NOT_FOUND”**  
+    - Refers to the EV deciding or declaring the final outcome after possibly applying use-case-based rules.  
+    - For “EVSE_POTENTIALLY_FOUND,” the EV may treat that result as either “EVSE_FOUND” or “EVSE_NOT_FOUND,” depending on scenario.
+
+12. **optional**  
+    - Indicates that certain paths (e.g., additional validation) might be skipped according to the configuration or use-case definition.
+
+13. **Validation of matching decision**  
+    - An optional or necessary process (depending on the result and the system requirements) to confirm physically that the EV is indeed connected to the intended EVSE.  
+    - Can involve “BCB-Toggle” sequences on the control pilot line if the discovery result was ambiguous.
+
+14. **Validation result? (found / not found)**  
+    - After attempting validation, the EV either confirms or rejects the EVSE.  
+    - If confirmed → proceed to network setup.  
+    - If rejected → proceed to “next EVSE” or declare no link.
+
+15. **Remaining unvalidated EVSE?**  
+    - If more than one EVSE was discovered and not yet validated, the EV can continue validating in sequence.
+
+16. **next EVSE**  
+    - The EV moves to another candidate EVSE and repeats the validation step.
+
+17. **Setup logical network**  
+    - If the EV is satisfied with the discovered/validated EVSE, it sets up the logical (data link) communication network with that EVSE.
+
+18. **Data link established?**  
+    - Checks whether the EV has successfully established the data link (i.e., the communication session and all necessary transport layers).
+
+19. **Call D-LINK_READY.IND (Link established)**  
+    - Indicates to higher-layer entities (HLE) that a data link is set up (matching is successful).  
+    - From here, upper layers continue the binding process outlined in ISO 15118-3.
+
+20. **Call D-LINK_READY.IND (No link)**  
+    - Indicates that no valid data link is available (matching has failed).  
+    - The process can exit, and higher layers are notified that no link was established.
+
+21. **Exit matching process with success / failure**  
+    - Final outcome: the EV is either matched or not matched to an EVSE.
+
+22. **NOTE**  
+    - “Error handling for Matching Process is not shown in this figure. See A.9.8.”  
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+1. **Entering matching process**  
+   The EV transitions into the matching phase (often triggered by a control pilot transition to an active charging state).
+
+2. **Discovery of the connected communication nodes**  
+   - The EV enumerates all communication nodes visible on the physical link.  
+   - Multiple EVSEs may be detected (e.g., in scenarios with cross-talk).
+
+3. **Signal strength measurement**  
+   - The EV measures how strongly each communication node’s signal is received.
+
+4. **Signal strength analysis**  
+   - The EV compares measured signals. Three possible outcomes:  
+     a) **Low signal attenuation** → strong signal from one node.  
+     b) **Ambiguous result** → multiple nodes with uncertain or similarly strong signals.  
+     c) **High signal attenuation** → no suitable (or extremely weak) signals.
+
+5. **Branching into three results**  
+   - If **low signal attenuation** is observed:  
+     → The EV sets **Result = “EVSE_FOUND.”**  
+   - If **ambiguous** measurement is observed:  
+     → The EV sets **Result = “EVSE_POTENTIALLY_FOUND.”**  
+   - If **high signal attenuation** is observed:  
+     → The EV sets **Result = “EVSE_NOT_FOUND.”**
+
+6. **Result is “EVSE_FOUND”**  
+   - Optionally, the EV may do a sanity/validation check (depending on the scenario).  
+   - Otherwise, it can declare final result as “EVSE_FOUND” and proceed.
+
+   **Declared result is “EVSE_FOUND”**  
+   → Next step: **Setup logical network**.
+
+7. **Result is “EVSE_POTENTIALLY_FOUND”**  
+   - The EV might treat it as “EVSE_FOUND” or “EVSE_NOT_FOUND,” or it can continue with an actual **Validation of matching decision**.  
+   - If it decides not to validate further (per system rules), it may directly set “Declared result is ‘EVSE_POTENTIALLY_FOUND’” and treat it accordingly.  
+   - Otherwise, proceed to the next diamond: **Validation of matching decision**.
+
+8. **Result is “EVSE_NOT_FOUND”**  
+   - If the EV cannot identify a valid EVSE, or the signal is too weak to be recognized, the EV declares “EVSE_NOT_FOUND.”  
+   - **Declared result is “EVSE_NOT_FOUND.”**  
+   - This immediately leads to the EV calling **D-LINK_READY.IND (No link)** and exiting the process (with failure).
+
+9. **Validation of matching decision** (found on the “EVSE_POTENTIALLY_FOUND” path or optionally on the “EVSE_FOUND” path)  
+   - The EV requests (and performs) additional confirmation with the EVSE (for instance, using the control pilot “BCB-Toggle” procedure mentioned in Clause 9.4).  
+   - **Validation result?**  
+     1. **found**: The EV confirms the EVSE is correct. Proceed to “Setup logical network.”  
+     2. **not found**: The EV rejects this EVSE, checks if there is a **Remaining unvalidated EVSE?**  
+        - If **yes**, go to **next EVSE** and repeat.  
+        - If **no**, proceed to “Call D-LINK_READY.IND (No link)” (failure).
+
+10. **Setup logical network**  
+    - Once certain of the correct EVSE, the EV sets up the low-level communication (logical network).  
+    - **Data link established?**  
+      - If **yes** → **Call D-LINK_READY.IND (Link established)** → exit with success.  
+      - If **no** → **Call D-LINK_READY.IND (No link)** → exit with failure.
+
+11. **Exit matching process**  
+    - Either as a success (the EV is matched and ready for higher-layer communication) or as a failure (no valid link or incorrect EVSE discovered).
+
+12. **NOTE**  
+    - “Error handling for Matching Process is not shown in this figure. See A.9.8.” The figure omits certain fallback or error paths (e.g., hardware faults) that are described in Annex A.9.8 in the standard.
+
+---
+
+## 3. Relation and Connection Among Entities
+
+1. **EV** – The primary actor performing discovery, measurement, and analysis.  
+2. **Communication Nodes** (EVSEs) – Possible candidates that the EV might be physically attached to.  
+3. **Signal Strength Measurement** – Core step for determining whether the EV has a strong enough link to confirm “EVSE_FOUND,” or if there is ambiguity (“EVSE_POTENTIALLY_FOUND”), or if no match can be made (“EVSE_NOT_FOUND”).  
+4. **Validation Process** – A separate (optional or required) mechanism that uses control pilot line toggles to double-check the physical wiring.  
+5. **Logical Network Setup** – The bridging or data-layer step established once the EV confidently decides on an EVSE.  
+6. **D-LINK_READY.ind** – The primitive called to indicate either a successful link or a failed link to the higher layers.
+
+---
+
+## 4. Additional Notes from ISO 15118-3
+
+- **Under ambiguous conditions** (“EVSE_POTENTIALLY_FOUND”), an EV may ask the EVSE to confirm the connection via a separate pilot-line validation.  
+- **Error handling** is largely omitted in Figure 10; full details appear in Annex A.9.8.  
+- **Any transition**—whether success or failure—results in calling D-LINK_READY.IND to notify higher layers.  
+- **According to Annex 9.5**, once the logical network is successfully set up, the status changes to “Matched” and upper-layer protocols (e.g., TLS, V2G messages) can begin binding.
+
+---
+
+### Conclusion
+
+Figure 10 (EV point of view) outlines how the EV:  
+1) **Discovers** possible EVSE nodes,  
+2) **Measures** and **analyzes** each node’s signal strength,  
+3) **Determines** whether a single, multiple, or zero EVSEs are valid matches,  
+4) **Optionally validates** ambiguous results,  
+5) **Sets up** a logical network with the matched EVSE, and  
+6) **Exits** by either calling “D-LINK_READY.IND (Link established)” for success or “D-LINK_READY.IND (No link)” for failure.
+
+This step-by-step process ensures the EV consistently identifies the correct EVSE in multi-charger environments and starts a reliable higher-level communication session for the charging process.
+
+Related Information 11: Discovery of the connected communication nodes Signal strength measurement Signal strength analysis Result is "EVSE_NOT_FOUND" Result is "EVSE_FOUND" Low signal attenuation High signal attenuation Result is "EVSE_POTENTIALLY_FOUND" Ambiguous result (multiple EVSE's, uncertain signal strength) next EVSE Setup logical network found Validation result? Remaining unvalidated EVSE? yes Data link etablished? yes Call D-LINK_READY.IND (Link etablished) Call D-LINK_READY.IND (No link) Entering matching process Declared result is "EVSE_POTENTIALLY_FOUND" optional Validation of matching decision optional optional Declared result is "EVSE_FOUND" Declared result is "EVSE_NOT_FOUND" (sibling of Text 2)
+Related Information 12: NOTE Error handling for Matching Process is not shown in this figure. See A.9.8. (sibling of Text 2)
+Related Information 13: Figure 10 — EV point of view (sibling of Text 2)
+Related Information 14: Figure 11 — Matching state machine (sibling of Text 2)
+Related Information 15: Any transition from the state “Matching” triggers a call of the primitive D-LINK_READY.indication to indicate a successful or failed data-link setup. (sibling of Text 2)
+Related Information 16: Any loss of the control pilot or a request from HLE leads to a reset to state “Unmatched”. (sibling of Text 2)
+Contextual Information 4: 9.1 Overview (ancestor of Text 2)
+Contextual Information 5: 9 Matching EV — EVSE process (ancestor of Text 2)
+Related Information 17: Figure 11 shows a high-level overview of the matching process. The default state of a PLC node at plug- in is “Unmatched”. A control pilot state change from state A, E or F to B, C or D triggers the matching process (state “Matching” in Figure 11) which determines the correct EV-EVSE matching by signal strength measurement. A successful matching process leads to the state “Matched” in Figure 11. (sibling of Text 3)
+Contextual Information 6: 7.5.1 EVSE side (ancestor of Text 5)
+Contextual Information 7: 7.5.2.1 Error handling with control pilot duty cycle of 5 % (ancestor of Text 7)
+Related Information 18: Option A: to have behaviour independent of the duty cycle: (sibling of Text 8)
+Related Information 19: [V2G3-M07-11] The requirements of 7.5.1.1 shall be applied to have behaviour independent of the duty cycle. (sibling of Text 8)
+Related Information 20: Option B: not to interrupt charging due to a control pilot state change to state E: (sibling of Text 8)
+Related Information 21: [V2G3-M07-12] With receiving a D-LINK_ERROR.request from HLE, the EVSE’s communication node shall stay in X2 control pilot state, leave the logical network within TP_ match_leave, and change the matching state to “Unmatched” to be ready for a new matching process. (sibling of Text 8)
+Contextual Information 8: 7.5.1.2 Error handling with nominal control pilot duty cycle (ancestor of Text 8)
+Related Information 22: [V2G3-M07-10] With receiving a D-LINK_ERROR.request from HLE, the EVSE’s communication node shall implement one of the two following options: (sibling of Text 9)
+Related Information 23: [V2G3-M07-14] With receiving a D-LINK_ERROR.request from HLE, the EV’s communication node shall implement one of the two following options: (sibling of Text 17)
+Related Information 24: [V2G3-M07-15] The requirements of 7.5.2.1 shall be applied to have behaviour independent of the duty cycle. (sibling of Text 17)
+Related Information 25: [V2G3-M07-17] T_conn_resetup after the condition in [V2G3-M07-16] is met; the EV shall restart the Matching process. (sibling of Text 17)
+Related Information 26: [V2G3-M07-18] During the T_conn_resetup waiting state according to [V2G3-M07-17], the EV shall be prepared to be forced to restart by an EVSE, which has implemented option A according to [V2G3-M07-10]. (sibling of Text 17)
+Contextual Information 9: 7.5.2.2 Error handling with nominal control pilot duty cycle (ancestor of Text 17)
+Related Information 27: The D-LINK_READY.indication shall inform higher layers about a change of com- munication link status. This indication shall be sent with any change in link status. The values of the D-LINK_READY status are independent of the states of the con- trol pilot signal. (sibling of Table 1)
+Related Information 28: Table 4 — D-LINK_READY.indication primitive (sibling of Table 1)
+Related Information 29: Table 4 — D-LINK_READY.indication primitive <table border="1"> <td colspan="1" rowspan="1">Primitive</td> <td colspan="1" rowspan="1">D-LINK_READY.indication</td> <tr> <td colspan="1" rowspan="1">Entity to support</td> <td colspan="1" rowspan="1">EV, EVSE</td> </tr> <tr> <td colspan="1" rowspan="1">Parameter name</td> <td colspan="1" rowspan="1">Description</td> </tr> <tr> <td colspan="1" rowspan="1">D-LINKSTATUS</td> <td colspan="1" rowspan="1">Status of communication link:&lt;br&gt;— no link&lt;br&gt;— link established</td> </tr> </table> (sibling of Table 1)
+Related Information 30: The D-LINK_TERMINATE.request requests lower layers to terminate the data link. (sibling of Table 1)
+Related Information 31: Table 5 — D-LINK_TERMINATE.request primitive <table border="1"> <td colspan="1" rowspan="1">Primitive</td> <td colspan="1" rowspan="1">D-LINK_TERMINATE.request</td> <tr> <td colspan="1" rowspan="1">Entity to support</td> <td colspan="1" rowspan="1">EV, EVSE</td> </tr> </table> (sibling of Table 1)
+Related Information 32: The D-LINK_ERROR.request requests lower layers to terminate the data link and restart the matching process by a control pilot transition through state E. (sibling of Table 1)
+Related Information 33: Table 6 — D-LINK_ERROR.request primitive (sibling of Table 1)
+Related Information 34: Table 6 — D-LINK_ERROR.request primitive <table border="1"> <td colspan="1" rowspan="1">Primitive</td> <td colspan="1" rowspan="1">D-LINK_ERROR.request</td> <tr> <td colspan="1" rowspan="1">Entity to support</td> <td colspan="1" rowspan="1">EVSE</td> </tr> </table> (sibling of Table 1)
+Related Information 35: The D-LINK_PAUSE.request requests lower layers to enter a power saving mode. While being in this mode, the state will be kept to “Matched”. (sibling of Table 1)
+Contextual Information 10: [V2G3-M12-01] (ancestor of Table 1)
+Contextual Information 11: 12.3 Data link control SAP to layer 3 (ancestor of Table 1)
+Contextual Information 12: 12 Layer 2 interfaces (ancestor of Table 1)
+Related Information 36: This Clause summarizes all timings used in the main body of this part of ISO 15118. (sibling of Table 2)
+Related Information 37: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 2)
+Related Information 38: Table 3 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_conn_max_match</td> <td colspan="1" rowspan="1">Number of retries of matching&lt;br&gt;process</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_vald_nb_toggles</td> <td colspan="1" rowspan="1">Number of BCB-Toggles</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EVSE_match_parallel</td> <td colspan="1" rowspan="1">Number of parallel matching&lt;br&gt;processes to be handled by&lt;br&gt;EVSE</td> <td colspan="1" rowspan="1">5</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_sequ_retry</td> <td colspan="1" rowspan="1">Number of matching retries by&lt;br&gt;Control Pilot state E transitions</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_init_HLC</td> <td colspan="1" rowspan="1">Minimum B state duration after&lt;br&gt;a state F, D, or C</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resume</td> <td colspan="1" rowspan="1">Time after the wake up trigger&lt;br&gt;(e.g. BCB-Toggle) until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_max_comm</td> <td colspan="1" rowspan="1">Time after plug-in until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resetup</td> <td colspan="1" rowspan="1">Time to resetup the matching&lt;br&gt;process after a loss of commu-&lt;br&gt;nication</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_vald_detect_time</td> <td colspan="1" rowspan="1">Time to detect a variation of the&lt;br&gt;state on EVSE side</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_state_duration</td> <td colspan="1" rowspan="1">Duration of each state B or C&lt;br&gt;within the BCB-Toggle</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_toggle</td> <td colspan="1" rowspan="1">Duration of BCB-Toggle&lt;br&gt;sequence</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_vald_toggle</td> <td colspan="1" rowspan="1">Timeout timer for the EVSE to&lt;br&gt;stop monitoring control pilot for&lt;br&gt;BCB-Toggle. Value comes from&lt;br&gt;CM_VALIDATE.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_leave</td> <td colspan="1" rowspan="1">Maximum time to leave the logi-&lt;br&gt;cal network</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_step_EF</td> <td colspan="1" rowspan="1">Time to stay at E/F state</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> </table> (sibling of Table 2)
+Related Information 39: [V2G3-M08-02] Any successful matching process shall reset all the timeout timers and reset the retry_counters. (sibling of Table 2)
+Contextual Information 13: 8 Timings and constants (ancestor of Table 2)
+Contextual Information 14: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Table 2)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

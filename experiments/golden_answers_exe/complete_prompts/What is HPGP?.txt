@@ -1,0 +1,180 @@
+Question What is HPGP?: What is HPGP?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: A.11.3 Signal requirements for HomePlug Green PHY injection - Table A.11 — Definition of electrical characteristics
+
+TEXTUAL INFORMATION:
+Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - HPGP HomePlug Green PHY
+Text 2: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV
+Text 3: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage.
+Text 4: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause.
+Text 5: A.11.2 General drawing for HomePlug Green PHY injection (Context: A.11.2 General drawing for HomePlug Green PHY injection > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - All technical requirements described in this Clause are assumed to have a dedi- cated pair of HomePlug Green PHY chips implemented for the couple (EVSE, EV), linked by a control pilot wire. Figure A.10 depicts an implementation of parallel injection and gives definitions used further.
+
+Image Description for Figure A.10:
+## Figure A.10 — Implementation of Parallel Injection
+
+Below is a detailed description of each labeled element in the schematic and how they interconnect. Although this figure is presented as a circuit diagram (rather than a traditional “flowchart”), the step-by-step structure below will help you follow the signal path and understand how each component relates to the others. This diagram shows how HomePlug Green PHY signals are injected in parallel (between the Control Pilot line and ground/earth) for communication between the EVSE and EV.
+
+---
+
+### 1. Entities Overview
+
+1. **EVSE (Electric Vehicle Supply Equipment)**  
+   The left rectangular region represents the EVSE side. It provides the ±12 V, 1 kHz control pilot signal, measures voltage on the pilot line, injects and receives PLC (Power Line Communication) signals via a Green PHY modem, and references Earth (ground).
+
+2. **EV (Electric Vehicle)**  
+   The right rectangular region is the EV side. It also includes a Green PHY modem and supporting components for parallel injection and measurement of the control pilot signal (duty cycle and frequency). The EV’s contactors and internal circuitry ultimately use the pilot to detect charging states and enable communication.
+
+3. **Oscillator ±12 V, 1 kHz (Key #2)**  
+   Generates the low-frequency (1 kHz) PWM control pilot signal. This signal is crucial for basic control pilot functions prescribed by IEC 61851 (e.g., indicating EV readiness or maximum current availability).
+
+4. **Pilot Contact (Key #3)**  
+   The pilot contact is effectively the point where the EVSE’s control pilot line is physically connected to the corresponding pilot input on the EV side (through the charging cable and coupler).
+
+5. **R1 1 k (on EVSE side)**  
+   A series resistor (1 kΩ) connected to the oscillator output. It helps set the correct pilot voltage levels and limits current.
+
+6. **C_S (on EVSE side)**  
+   Often called the “control pilot capacitor” in IEC standards. It shapes the pilot signal to comply with specific requirements and influences the total capacitive behavior on the pilot line.
+
+7. **Green PHY Modems (Key #5)**  
+   Both the EVSE and EV sides include a Green PHY modem. These modems handle high-frequency HomePlug Green PHY (HPGP) communication on top of the pilot line. Each modem is shown in a dashed box on both sides (the rectangle labeled “5”).
+
+8. **R_damp (Damping Resistor) and L (Inductor)**  
+   Each side has an R_damp and L in series, forming part of the low-pass filter for the pilot signal (the LC network) and a high-pass path for the HomePlug Green PHY signals. R_damp prevents or limits resonance in the LC filter.
+
+9. **C_PLC (Coupling Capacitors to the Green PHY Modem)**  
+   These capacitors provide a high-frequency coupling path for the Green PHY signals from the pilot line into the modem, while isolating low-frequency or DC components.
+
+10. **C_v (EV side)**  
+   Defined in IEC documents, C_v is another capacitor related to the detection/measuring circuit inside the EV, usually affecting pilot line diagnostics or measurements.
+
+11. **R2, R3, and S2 (EV side)**  
+   — **R2 and R3**: Resistors on the EV side pilot circuitry, used for pilot line detection, current sensing, or dividing voltages for pilot sensing.  
+   — **S2**: A switch (or contact) that can open/close for pilot line control or internal EV states.
+
+12. **Voltage Measurement (Key #1)**  
+   Indicates that the EVSE side monitors pilot voltage levels for compliance with control pilot specifications (e.g., states A, B, C in IEC 61851).
+
+13. **Earth (ground) (Key #4)**  
+   The reference earth or protective earth (PE). The high-frequency signal is injected between the pilot line and earth/ground. This ensures the HomePlug Green PHY signals have a proper return path.
+
+14. **Duty Cycle and Frequency Measurement (Key #6)**  
+   On the EV side, the duty cycle and frequency measurement block monitors the PWM characteristics of the pilot signal (i.e., the 1 kHz, ±12 V waveform) to interpret the EVSE’s indication of available current and other pilot states.
+
+15. **Additional Components for PLC Coupling**  
+   Shown as a dashed region, these might include filters, ESD protection, or EMC compliance parts. They should not degrade the HomePlug Green PHY signals beyond stated limits.
+
+---
+
+### 2. Step-by-Step Signal Flow and Connections
+
+Even though this is a circuit schematic rather than a traditional flowchart, we can describe how signals traverse or how each function occurs in succession:
+
+1. **Pilot Signal Generation (EVSE side)**  
+   - The **oscillator (±12 V, 1 kHz)** produces the control pilot waveform.  
+   - The pilot waveform goes through **R1 (1 kΩ)** and **C_S**, shaping the signal and ensuring correct amplitude as per IEC requirements.
+
+2. **Pilot Line Connection to Green PHY Modem (EVSE side)**  
+   - The **pilot line** is also branched through the **LC filter** formed by **L** (inductor) and **R_damp** (damping resistor) to the **C_PLC** capacitor.  
+   - **C_PLC** feeds the **Green PHY modem**, allowing high-frequency components (the HPGP signal) to pass to/from the modem but blocking the lower-frequency 1 kHz pilot wave from saturating the modem.
+
+3. **Voltage Measurement (EVSE side)**  
+   - The EVSE monitors the pilot voltage (labeled Key #1) to verify pilot states, detect EV presence, and measure any duty cycle references required by the standard.
+
+4. **Pilot Contact (Connector) Between EVSE and EV (Key #3)**  
+   - The pilot line physically transitions from the EVSE circuit to the EV circuit at the **pilot contact**. This is typically inside the charging cable and coupler.
+
+5. **Green PHY Parallel Injection Path to Earth (EV Side)**  
+   - On reaching the EV side, the pilot line splits:  
+     - One path continues into the EV’s measurement and pilot control logic (through R3, R2, and possibly S2).  
+     - Another path branches through another LC filter stage (**L**, **R_damp**, **C_PLC**) to the **Green PHY modem** on the EV side. The parallel injection is again between the pilot line and **earth/ground**.  
+   - The diode shown in the pilot line (on the EV side) can be part of the standard pilot detection or protective circuitry.
+
+6. **Duty Cycle and Frequency Measurement (EV side, Key #6)**  
+   - The EV needs to interpret the EVSE’s PWM signal to understand the available current or states (A, B, C, etc.). Thus, there is a block that directly measures the pilot’s duty cycle and frequency once it has passed through the EV’s front-end components.
+
+7. **S2 (EV side switch)**  
+   - **S2** may engage or disengage certain parts of the EV’s pilot circuitry, depending on the EV’s state (e.g., if the EV is ready to charge or certain fault conditions). When closed, the pilot circuit is fully connected; when open, the pilot circuit is interrupted.
+
+8. **Additional Components for PLC Coupling**  
+   - Finally, any **additional PLC coupling** components (EMC filters, ESD protection, etc.) are placed so they do not adversely affect the high-frequency Green PHY signals or the low-frequency pilot signal. They must maintain compliance with the emission and immunity constraints (A.10 EMC requirements and others cited in ISO 15118-3).
+
+---
+
+### 3. Relationship and Purpose of Each Section
+
+- **Low-Frequency Pilot Signal Path (1 kHz)**  
+  Passes through R1, C_S, the pilot contact, R2, R3, and S2 (when closed). The EVSE and EV measure this pilot for verifying connection status, charging states, and maximum current availability.
+
+- **High-Frequency Communication Path (HomePlug Green PHY)**  
+  Injected in parallel to earth at both the EVSE and EV sides via the LC filters (L, R_damp, and C_PLC). These filters isolate the 1 kHz pilot wave from the modem but allow the higher-frequency data signals to travel between the two Green PHY modems.
+
+- **Filtering and EMC Considerations**  
+  Inductors, damping resistors, and capacitors create low-pass filtering for pilot signals and high-pass filtering for the PLC signals. This design ensures that high-frequency data does not overly distort the control pilot, while the pilot line remains within standard requirements (IEC 61851, ISO 15118-3, etc.).
+
+- **Measurement Points**  
+  Key #1 (voltage measurement) and Key #6 (duty cycle/frequency measurement) denote where the EVSE and EV measure the pilot signal. In each case, there may be a low-pass filter recommended to remove the high-frequency components from the measurement path (per the notes in ISO 15118-3).
+
+---
+
+### 4. Summary
+
+Figure A.10 demonstrates an example implementation of “parallel injection” for HomePlug Green PHY signals onto the control pilot line:
+
+- The **EVSE** supplies the main pilot signal via an oscillator and monitors pilot voltage.  
+- **Parallel injection** ensures both the EVSE and EV couple the high-frequency Green PHY signals between the pilot and ground.  
+- **Low-pass + high-pass filtering** (with L, R_damp, and capacitors) allows the 1 kHz pilot control signal to pass unimpeded while at the same time guiding the high-frequency Green PHY data to each modem.  
+- **Duty-cycle/frequency measurements** are taken by both sides (the EVSE monitors the raw pilot voltage; the EV monitors duty cycle) while the high-frequency data is superimposed.  
+
+Through these components and connections, the system meets the dual requirements of standard pilot signaling (for charging states) and HomePlug Green PHY communication (for vehicle-to-grid data exchange) on the same control pilot conductor.
+
+Text 6: A.11.3 Signal requirements for HomePlug Green PHY injection (Context: A.11.3 Signal requirements for HomePlug Green PHY injection > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - Table A.11 gives requirements that physical signals shall comply with, in order to enable HomePlug Green PHY injection into the control pilot line, according to previous requirements.
+
+ADDITIONAL CONTEXT:
+Related Information 1: MME Management Message Entry (sibling of Text 1)
+Related Information 2: PE Protective Earth (sibling of Text 1)
+Related Information 3: PLC Power Line Communication (sibling of Text 1)
+Related Information 4: PnC Plug and Charge (as defined in ISO 15118-1) (sibling of Text 1)
+Related Information 5: QPSK Quadrature Phase Shift Keying (sibling of Text 1)
+Related Information 6: SAP Service Access Point (sibling of Text 1)
+Related Information 7: SE Supply Equipment (sibling of Text 1)
+Related Information 8: SLAC Signal Level Attenuation Characterization (sibling of Text 1)
+Contextual Information 1: 4 Symbols and abbreviated terms (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 3: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 1)
+Related Information 9: The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage. (sibling of Text 2)
+Related Information 10: As HomePlug Green PHY signal’s coupling is directly linked to the control pilot, the schematic in [IEC-1], Annex A specification is basis for definitions regarding the control pilot signal. (sibling of Text 2)
+Related Information 11: To enable HomePlug Green PHY injection, the path from EVSE’s output to EV’s input should not be considered as capacitive only as it is sufficient for the low frequency control pilot signal. For high frequency HomePlug Green PHY, the path should be considered as a transmission line. To take the high frequency into account, the control pilot circuit and the component values have to be specified in more detail. (sibling of Text 2)
+Related Information 12: For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause. (sibling of Text 2)
+Contextual Information 4: A.11.1 Overview (ancestor of Text 2)
+Contextual Information 5: A.11 Signal coupling (ancestor of Text 2)
+Contextual Information 6: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Text 2)
+Related Information 13: This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV. (sibling of Text 3)
+Related Information 14: C S R Damp L C PLC V CP_EVSE V CP_EV R Damp L C PLC C V R1 EVSE 1k R2 R3 S2 EV 1 3 4 5 5 2 6 (sibling of Text 5)
+Contextual Information 7: A.11.2 General drawing for HomePlug Green PHY injection (ancestor of Text 5)
+Related Information 15: NOTE The HomePlug Green PHY signal has to be added to control pilot signal on the control pilot line. The resulting signal should be the algebraic sum of PWM control pilot signal and of the HomePlug Green PHY signals. (sibling of Text 6)
+Related Information 16: [V2G3-A11-07] The control pilot line and the PE wires shall be considered as a transmission line for the HomePlug Green PHY signal; as defined in Table A.11. (sibling of Text 6)
+Related Information 17: Table A.11 — Definition of electrical characteristics (sibling of Text 6)
+Related Information 18: Table A.11 — Definition of electrical characteristics <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Conditions and comments</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typ</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <td colspan="1" rowspan="1">Note</td> <tr> <td colspan="1" rowspan="1">Length of the cable assembly</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">m</td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">CPLC</td> <td colspan="1" rowspan="1">See definition above</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">1,35</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nF</td> <td colspan="1" rowspan="1">3,4</td> </tr> <tr> <td colspan="1" rowspan="1">RDamp</td> <td colspan="1" rowspan="1">See definition above</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">220</td> <td colspan="1" rowspan="1">1 k</td> <td colspan="1" rowspan="1">Ω</td> <td colspan="1" rowspan="1">3,4</td> </tr> <tr> <td colspan="1" rowspan="1">L</td> <td colspan="1" rowspan="1">See definition above</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">220</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">µH</td> <td colspan="1" rowspan="1">3,4</td> </tr> <tr> <td colspan="1" rowspan="1">CS</td> <td colspan="1" rowspan="1">See definition in [IEC-1]</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">pF</td> <td colspan="1" rowspan="1">1,3,4</td> </tr> <tr> <td colspan="1" rowspan="1">CV</td> <td colspan="1" rowspan="1">See definition in [IEC-1]</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">pF</td> <td colspan="1" rowspan="1">1,3,4</td> </tr> <tr> <td colspan="1" rowspan="1">Power Spectral Density of Home-&lt;br&gt;Plug Green PHY signals at VCP_EVSE&lt;br&gt;and VCP_EV&lt;br&gt;Measurement method defined in&lt;br&gt;A.9.4.2</td> <td colspan="1" rowspan="1">From 1,8 MHz to 30 MHz,&lt;br&gt;RBW = 9 kHz on 50 Ω.&lt;br&gt;Non-notched carriers</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">−75</td> <td colspan="1" rowspan="1">−73</td> <td colspan="1" rowspan="1">dBm/&lt;br&gt;Hz</td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">Peak-Peak Voltage of HomePlug&lt;br&gt;Green PHY signals at VCP_EVSE and&lt;br&gt;VCP_EV</td> <td colspan="1" rowspan="1">Control pilot signal steady at&lt;br&gt;high or low level – 1 low-layer&lt;br&gt;communciation actually emit-&lt;br&gt;ting at a time (peak to peak) –&lt;br&gt;EV connected to the EVSE with&lt;br&gt;the cable assembly.&lt;br&gt;Measured at max PSD level&lt;br&gt;with example of injection cir-&lt;br&gt;cuit given below</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">1,3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">Vpp</td> <td colspan="1" rowspan="1">2,3</td> </tr> <tr> <td colspan="1" rowspan="1">Conducted crosstalk from control&lt;br&gt;pilot line to the mains (through&lt;br&gt;power supply)&lt;br&gt;(measured between any live or&lt;br&gt;neutral wire and PE/CP)</td> <td colspan="1" rowspan="1">From 2 MHz to 28 MHz</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">−40</td> <td colspan="1" rowspan="1">dB</td> <td colspan="1" rowspan="1"></td> </tr> </table> (sibling of Text 6)
+Related Information 19: NOTE 1 Any capacity on the control pilot line which is directly connected between the control pilot line and ground should be as small as possible, not to attenuate the HomePlug Green PHY signal in an excessive way. Most of the capacitive load should be separated from the high frequency HomePlug Green PHY with the inductor L. (sibling of Text 6)
+Related Information 20: NOTE 2 At given impedance, the maximum peak to peak amplitude is directly linked to the PSD, also defined in Table A.11. For the purpose of limiting the impact of the high frequency signal on the control pilot line, a simplification from definition in frequency domain to a peak-to-peak voltage is sufficient. (sibling of Text 6)
+Related Information 21: NOTE 3 The maximum values are defined by [IEC-1], Annex A. NOTE 4 These parameters are to be considered with parallel injection only, as defined in Figure A.10. (sibling of Text 6)
+Contextual Information 8: A.11.3 Signal requirements for HomePlug Green PHY injection (ancestor of Text 6)
+Related Information 22: Table A.11 gives requirements that physical signals shall comply with, in order to enable HomePlug Green PHY injection into the control pilot line, according to previous requirements. (sibling of Table 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

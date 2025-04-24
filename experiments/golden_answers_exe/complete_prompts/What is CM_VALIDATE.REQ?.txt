@@ -1,0 +1,677 @@
+Question What is CM_VALIDATE.REQ?: What is CM_VALIDATE.REQ?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: 8 Timings and constants - Table 3 — Timing and constant values
+Table 2: A.8 Timings and constants - Table A.1 (continued)
+Table 3: A.9.2.1 Functional description - Table A.3 — EV_Discovering_Status definition
+Table 4: A.8 Timings and constants - Table A.4 (continued)
+Table 5: A.9.3.2 Description of involved MMEs - Table A.5 — MMEs parameters definition for validation process – First request-response
+Table 6: A.9.3.2 Description of involved MMEs - Table A.6 — MMEs parameters definition for validation process – Second request-response
+Table 7: A.8 Timings and constants - Table A.7 (continued)
+
+FIGURE INFORMATION:
+Figure 1: A.9.3.3.1 Sequence chart - Figure A.5 — Sequence chart of validation process of matching decision
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+Figure 2: 9.4 Validation of matching decision - Figure 12 — Example of BCB-Toggle sequence with C_EV_vald_nb_toggles = 2 and active oscillator
+
+Image Description for Figure 2:
+```markdown
+# Detailed Description of Figure 2 — [ISO-3] Relationship to the ISO/IEC OSI Reference Model
+
+This figure shows how the Physical and Data Link layers used in ISO 15118‑3 (specifically for Power Line Communication on electric vehicles) align with the classic ISO/IEC 7498-1 (OSI) reference model. It illustrates the layered network architecture, culminating in interfaces that connect to higher-level protocols (Application, Presentation, Session, Transport, Network) and basic signaling (Control Pilot) as specified in IEC 61851‑1.
+
+Below is a step-by-step, layer-by-layer description of each entity in the figure and how they relate to each other.
+
+---
+
+## 1. Entities Overview
+
+From **bottom** to **top**, the following entities appear in the diagram:
+
+1. **Communication media**  
+   The physical medium (the cable assembly) through which signals and energy are exchanged between the Electric Vehicle (EV) and the Electric Vehicle Supply Equipment (EVSE).
+
+2. **Signal coupling**  
+   This represents the method of coupling the PLC (Power Line Communication) signal onto the AC or DC charging cable. It ensures the high-frequency PLC signal is injected or extracted without interfering with the power transfer itself.
+
+3. **PLC Physical layer**  
+   The physical layer of the Power Line Communication (e.g., HomePlug GreenPHY). It defines the electrical and modulation specifications required to transmit bits over the communication media.
+
+4. **MAC/PHY SAP**  
+   The Service Access Point between the PHY (Physical) and MAC (Medium Access Control) layers. It represents the interface through which the upper layer (MAC) exchanges data and control information with the physical layer.
+
+5. **PLC MAC layer**  
+   The Medium Access Control layer that handles packet framing, addressing, and channel-access mechanisms specific to PLC (e.g., carrier-sense multiple access, collision avoidance, etc.).
+
+6. **Convergence MAC SAP**  
+   The interface between the PLC MAC layer and the convergence layer. It ensures that data from higher-layer protocols is properly formatted for MAC-layer transmission and vice versa.
+
+7. **Convergence layer**  
+   A bridging layer that adapts the classic OSI Data Link–level services (like Ethernet bridging or VLAN tagging) into the specific requirements/format of the PLC protocols. It converges or translates data to align with HomePlug GreenPHY or other PLC standards.
+
+8. **Control SAP**  
+   A specialized Service Access Point providing a control interface for the PLC or other network-management functions (e.g., encryption key management, SLAC services, link status queries). This is used by upper software modules that need direct PLC-related control/configuration.
+
+9. **Data link control SAP**  
+   An interface that provides link-status information, error management, and other data link control functionalities. This SAP ties the connection coordination module to the lower-level Data Link functionalities.
+
+10. **Connection coordination**  
+   A functional block that coordinates establishing or tearing down logical connections. It helps with matching EVs to EVSEs, exchanging handshake signals, and managing the relationship between basic IEC 61851-1 signaling and the higher, logical data connections of ISO 15118.
+
+11. **Data SAP**  
+   The interface between the Data Link layer and the Network (layer 3) or higher layers for actual V2G (vehicle-to-grid) data exchange. All high-level charging messages (e.g., those required by ISO 15118-2) flow through the Data SAP.
+
+12. **Higher layers**  
+   In OSI terms, these encapsulate the Application, Presentation, Session, Transport, and Network layers. ISO 15118-2 typically operates at these layers (exchanging XML messages, session management, security, etc.).
+
+13. **Control pilot (IEC 61851-1) Hardware I/Os**  
+   Shown to the right, this denotes the separate hardware line(s) used for “basic signaling” (PWM duty cycle, pilot states, etc.). It is not strictly part of the PLC communication stack but interplays with it (for example, telling the EV and EVSE when to begin or end coupling for high-level communication).
+
+14. **OSI reference model layers**  
+   A vertical bracket on the left reminding us that Physical and Data Link layers in the OSI model are here implemented by the PLC layers and the “convergence layer.”
+
+15. **Key**: “covered by communication technology specification”  
+   The figure highlights (in gray) the parts (Convergence layer, PLC MAC, PLC PHY, etc.) that are defined by specific communication technology standards (e.g., HomePlug GreenPHY, IEEE 1901 Profile GreenPHY).
+
+---
+
+## 2. Detailed Layer-by-Layer Explanation and “Flow”
+
+Although this is not a conventional “flowchart,” the diagram can be read from the **Physical** layer at the bottom to the **Application** layer at the top to understand how data flows and which components interact:
+
+1. **Communication Media (Bottom Layer)**  
+   • Power cabling used for vehicle charging is also used to carry data signals.  
+   • Power is transferred from the EVSE to the EV; meanwhile, high-frequency signals are superimposed for data exchange.
+
+2. **Signal Coupling Layer**  
+   • Couples the PLC signal on top of the AC or DC power line.  
+   • Ensures minimal interference and correct impedance matching to pass data effectively between EV and EVSE.
+
+3. **PLC Physical Layer**  
+   • Responsible for modulating and demodulating waveforms on the power line.  
+   • Follows standards such as HomePlug GreenPHY for robust physical signaling (e.g., OFDM, error correction).
+
+4. **MAC/PHY SAP**  
+   • Logical interface that the MAC layer uses to send and receive frames (bits, symbols) via the Physical layer.  
+   • Transmits or receives packets after being encoded/decoded at the PHY.
+
+5. **PLC MAC Layer**  
+   • Implements media access rules (channel sensing, collision avoidance, etc.).  
+   • Adds header/trailer fields managing addressing and error detection.  
+   • Manages bridging to upper or lower layers via convergence sub-layers.
+
+6. **Convergence MAC SAP**  
+   • Provides a standardized interface for the next layer (Convergence layer) to get data from MAC frames.  
+   • Ensures correct framing and token passing between the Convergence and MAC layers.
+
+7. **Convergence Layer**  
+   • Adapts the PLC MAC frames into a more generic data link structure or vice versa.  
+   • Potentially includes bridging or VLAN tagging for IP-based or ISO 15118-2 application data.  
+   • At this layer, the system transitions from technology-specific data link frames to a more general data link service usable by higher protocols.
+
+8. **Control SAP**  
+   • A specialized side-interface that configuration/control processes (like encryption-key management or the SLAC process used for EV–EVSE association) can call.  
+   • Enables reading/writing certain parameters in the PLC MAC or PHY, including link status, encryption keys, and networking specifics.
+
+9. **Data Link Control SAP**  
+   • Presents data link status (connected, disconnected, error) and handles command signals for enabling or disabling link functionalities.  
+   • Ties in to the Connection Coordination function, letting higher-layer logic know about link conditions.
+
+10. **Connection Coordination**  
+    • Supervises or orchestrates which link or channel is used, how the handshake or matching occurs, and whether the EV and EVSE are “paired.”  
+    • Tightly integrated with basic signaling from IEC 61851-1 (Control Pilot) and high-level communication from ISO 15118-2.
+
+11. **Data SAP**  
+    • The normal “data” interface for exchanging V2G protocol payloads (e.g., charging session requests, contract identification) between the Data Link layer and the higher OSI layers (Network and above).  
+    • Actual ISO 15118-2 messages pass through this Data SAP after being encapsulated into MAC frames.
+
+12. **Higher Layers**  
+    • Spanning OSI Layers 3 to 7 (Network, Transport, Session, Presentation, Application).  
+    • In the context of ISO 15118, these higher layers format, encrypt, and interpret the actual “plug-and-charge” or “vehicle-to-grid” messages.
+
+13. **Control Pilot (IEC 61851-1) Hardware I/Os**  
+    • Shown on the right side as a separate domain.  
+    • Provides basic PWM signaling to indicate EV states, EVSE states, maximum current capability, presence of the EV, or charging fault conditions.  
+    • Ties into overall Connection Coordination to start or stop the PLC communication as required by the standard.
+
+---
+
+## 3. Relationship and Connection of Entities
+
+- **Physical to MAC**  
+  Data moves from the **Communication media** (power lines) through **Signal coupling** into the **PLC Physical layer**, which transmits/receives bits. The **MAC/PHY SAP** is then used to pass frames to/from the **PLC MAC layer**.
+
+- **MAC to Convergence**  
+  The **PLC MAC layer** sends or receives data frames to the **Convergence layer** through the **Convergence MAC SAP**. At this stage, commands and bridging logic are aligned with the needs of higher-level protocols.
+
+- **Convergence to Higher Protocols**  
+  After the Convergence layer, there are multiple SAPs:
+  1. **Control SAP** for direct PLC control and configuration queries (e.g., security keys, link info).  
+  2. **Data Link Control SAP** for controlling the link status, error notifications, and link enable/disable.  
+  3. **Data SAP** for normal data traffic that flows up to the OSI Network or Transport layers.
+
+- **Coordination with Basic Signaling**  
+  The **Connection coordination** block leverages the **Control SAP** and **Data link control SAP** to manage the handshake between the EV and EVSE at both the PLC level and the basic PWM signaling level. Meanwhile, the **Control pilot** line (IEC 61851-1) physically coordinates the presence detection and permissible current via the duty cycle.
+
+- **Higher Layers**  
+  Above the **Data SAP**, normal IP networking (or the ISO 15118-2 application messages) can proceed. These higher-layer protocols rely on the data path established at lower layers by the PLC system and are orchestrated by the **Connection coordination** function.
+
+---
+
+## 4. Key Takeaways
+
+1. **Layered Architecture**  
+   The figure highlights how the Physical and Data Link layers of ISO 15118‑3 map directly onto the OSI reference model. The “convergence layer” ensures that higher layers can remain mostly independent of the underlying PLC technology.
+
+2. **Control vs. Data**  
+   Two main SAP families exist:  
+   - **Control SAP / Data Link Control SAP**: For link management, error reporting, and secure network configuration.  
+   - **Data SAP**: For passing normal application data (ISO 15118-2 messages) to the upper layers.
+
+3. **Basic Signaling Integration**  
+   IEC 61851-1’s control pilot is shown outside the PLC stack, yet it is integral to “Connection coordination,” ensuring correct startup, safety interlocks, and fallback charging states.
+
+4. **Covered by Communication Technology Specification**  
+   The gray regions (Convergence layer, MAC, PHY) are implementations guided by specific PLC standards (e.g., HomePlug GreenPHY). They are thus “covered by communication technology specification.”
+
+By understanding each block and interface, engineers can quickly trace how signals and data flow from the power line (physical) up to the ISO 15118 application protocol, and how the system coordinates the link state with basic pilot signaling.
+```
+
+
+TEXTUAL INFORMATION:
+Text 1: A.9.3.1 Functional description (Context: A.9.3.1 Functional description > A.9.3 Validation of matching decision > A.9 Matching EV – EVSE process) - The validation process is divided in two parts consisting of a CM_VALIDATE.REQ and CM_VALIDATE.CNF each. It is important to consider that the first and second request-response differ in the contents of the messages. In the following messages related to the first/second request-response are designated with “step 1” or “step 2”, respectively.
+Text 2: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.
+Text 3: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS.
+Text 4: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP.
+Text 5: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The signal strength measurement method to be used is the SLAC defined in the [HPGP].
+Text 6: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message:
+Text 7: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4;
+Text 8: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3;
+Text 9: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED.
+Text 10: A.9.3.3.2 EV side (Context: A.9.3.3.2 EV side > A.9.3 Validation of matching decision > A.9 Matching EV – EVSE process) - If any received CM_VALIDATE.REQ contains invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.5 and Table A.6 is inva- lid.
+Text 11: A.9.3.3.3 EVSE side (Context: A.9.3.3.3 EVSE side > A.9.3 Validation of matching decision > A.9 Matching EV – EVSE process) - If any CM_VALIDATE.REQ contains a result field other than “ready”, the matching process shall be considered as FAILED.
+Text 12: 9.4 Validation of matching decision (Context: 9.4 Validation of matching decision > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - After the signal strength measurement, the EV can decide on the basis of the results to request the EVSE for an additional validation process. As soon as the EVSE is ready to detect the control pilot line, the EV sends a random timer value TP_EV_vald_toggle to the EVSE. After sending the message, the EV switches the control pilot state in the sequence B-C-B. This switching sequence is called BCB-Toggle in the following.
+Text 13: 9.4 Validation of matching decision (Context: 9.4 Validation of matching decision > 9 Matching EV — EVSE process > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements) - The number of BCB-Toggles (C_EV_vald_nb_toggles) is chosen randomly in the available time.
+
+ADDITIONAL CONTEXT:
+Related Information 1: The validation process is an asynchronous process, which means that an unmatched EVSE answers to a CM_VALIDATE.REQ in any case even with no signal strength measurement immediately before. This behaviour is necessary because the time between the signal strength measurement and the validation for a specific EVSE is not predictable due to an unknown number of validation processes with other EVSEs before. (sibling of Text 1)
+Related Information 2: To request a validation process, the EV sends a first CM_VALIDATE.REQ to the EVSE, which contains a timer value of zero and a result field indicating “ready”. The EVSE responds with a first CM_VALIDATE. (sibling of Text 1)
+Related Information 3: CNF, which contains a ToggleNum of zero. The result field of the message is filled in consistence with the current state of the EVSE: (sibling of Text 1)
+Related Information 4: — When the EVSE is ready to perform the validation process, it fills the result field with “ready”. In this case, the EV will continue with sending the step 2 CM_VALIDATE.REQ. (sibling of Text 1)
+Related Information 5: — When the EVSE is busy and not able to perform a validation, it fills the result field with “not ready”. In this case, the EVSE is not ready for the step 2 CM_VALIDATE.REQ. The EV may start a retry by resending the first CM_VALIDATE.REQ again. (sibling of Text 1)
+Related Information 6: — When the EVSE wants to indicate that a validation is not required, it fills the result field with “not required”. In this case, the EV may follow this advice and stop the validation process or continue the process with sending the step 2 CM_VALIDATE.REQ to force the EVSE to follow the validation process. (sibling of Text 1)
+Related Information 7: — In any special case where the EVSE is not able to perform any validation process or it does not have implemented the validation process feature, it fills the result field with “failure”. (sibling of Text 1)
+Related Information 8: The second part of the validation process covers the control pilot toggle sequence on EV side and the counting of control pilot toggles on the EVSE side. The EV starts this process by sending the step 2 indicating “ready”. With receiving the step 2 CM_VALIDATE.REQ, the EVSE starts counting the BCB- toggles for a time window given by the timer field of the request. As soon as the timer expires, the EVSE sends a step 2 CM_VALIDATE.CNF to the EV containing the number of BCB-Toggles seen and the result field filled with “Success”. The field is filled with “failure” whenever the validation could not be performed or the number of seen BCB-Toggles does not contain valid data. (sibling of Text 1)
+Related Information 9: In the case the validation does not confirm the matching decision of the signal strength measurement, the EV may continue with the next potential EVSE. (sibling of Text 1)
+Related Information 10: The main process is described in 9.4. (sibling of Text 1)
+Related Information 11: [V2G3-A09-48] If the EV_Discovering_Status is “EVSE_FOUND”, validation shall only be performed if the EV insists to. Otherwise, the validation process shall be skipped. (sibling of Text 1)
+Related Information 12: [V2G3-A09-49] If the EV decides that “EVSE_POTENTIALLY_FOUND” is equal to “EVSE_FOUND”, then a BCB-Toggle is not mandatory. (sibling of Text 1)
+Related Information 13: [V2G3-A09-50] According to the EVSE Architecture, the EVSE can decide to answer to a CM_VAL- IDATE.REQ with the result field of CM_VALIDATE.CNF filled to “Not_Required”. In this case, the EV shall decide (sibling of Text 1)
+Related Information 14: — either to continue the validation process, by continuing with the step 2 CM_ VALIDATE.REQ, or (sibling of Text 1)
+Related Information 15: — either to skip the validation process by informing the EVSE of the decision, using the CM_SLAC_MATCH.REQ. (sibling of Text 1)
+Related Information 16: [V2G3-A09-51] According to the EVSE Implementation, the EVSE can decide to answer to a CM_VALIDATE.REQ with the result field of CM_VALIDATE.CNF filled to “Failure”, if it does not have implemented the validation process feature. In this case, the EV shall decide — either to skip the validation process and continue the matching process with SLAC_MATCH.REQ message, — either to continue the validation process with the next available EVSE, which was “EVSE_POTENTIALLY_FOUND” according to Figure 10, or — either to terminate the session if there is no other available EVSE with “EVSE_ POTENTIALLY_FOUND” status according to Figure 10. (sibling of Text 1)
+
+Image Description for Figure 10:
+# Detailed Description of Figure 10 — EV Point of View (Matching Process)
+
+Below is a step-by-step walkthrough of the flowchart. The diagram illustrates how an Electric Vehicle (EV) determines the correct Electric Vehicle Supply Equipment (EVSE) connection (i.e., “matching”) based on discovery, signal strength measurements, possible validation, and ultimately setting up or failing to set up a data link.
+
+---
+
+## 1. List of Key Entities in the Figure
+
+1. **Entering matching process**  
+   - Represents the beginning of the procedure once the EV is ready to identify which EVSE it is physically connected to.
+
+2. **Discovery of the connected communication nodes**  
+   - The EV discovers all communication nodes (EVSEs) detected on the physical link.
+
+3. **Signal strength measurement**  
+   - The EV measures signal strength metrics from all discovered communication nodes.  
+   - “Signal Strength Measurement is a value range indication within the matching process.”
+
+4. **Signal strength analysis**  
+   - The EV analyzes the measured signal strength to determine how strongly the EVSE’s signals are received.
+
+5. **Low signal attenuation**  
+   - Indicates a strong signal measurement.  
+   - If the analysis confirms a single strong connection, the result can be “EVSE_FOUND.”
+
+6. **Ambiguous result (multiple EVSE’s, uncertain signal strength)**  
+   - The EV sees more than one possible candidate or uncertain measurement.  
+   - Proceeds with the interim status “EVSE_POTENTIALLY_FOUND.”
+
+7. **High signal attenuation**  
+   - Indicates a weak signal.  
+   - If the analysis indicates no suitable EVSE, the result is “EVSE_NOT_FOUND.”
+
+8. **Result is “EVSE_FOUND”**  
+   - The outcome that the EV confirms exactly one matching EVSE based on the signal measurement.
+
+9. **Result is “EVSE_POTENTIALLY_FOUND”**  
+   - The outcome that the EV sees a possible match but cannot fully confirm. A validation step might be needed.
+
+10. **Result is “EVSE_NOT_FOUND”**  
+    - The outcome that the EV determines no valid EVSE is connected.
+
+11. **Declared result is “EVSE_FOUND” / “EVSE_POTENTIALLY_FOUND” / “EVSE_NOT_FOUND”**  
+    - Refers to the EV deciding or declaring the final outcome after possibly applying use-case-based rules.  
+    - For “EVSE_POTENTIALLY_FOUND,” the EV may treat that result as either “EVSE_FOUND” or “EVSE_NOT_FOUND,” depending on scenario.
+
+12. **optional**  
+    - Indicates that certain paths (e.g., additional validation) might be skipped according to the configuration or use-case definition.
+
+13. **Validation of matching decision**  
+    - An optional or necessary process (depending on the result and the system requirements) to confirm physically that the EV is indeed connected to the intended EVSE.  
+    - Can involve “BCB-Toggle” sequences on the control pilot line if the discovery result was ambiguous.
+
+14. **Validation result? (found / not found)**  
+    - After attempting validation, the EV either confirms or rejects the EVSE.  
+    - If confirmed → proceed to network setup.  
+    - If rejected → proceed to “next EVSE” or declare no link.
+
+15. **Remaining unvalidated EVSE?**  
+    - If more than one EVSE was discovered and not yet validated, the EV can continue validating in sequence.
+
+16. **next EVSE**  
+    - The EV moves to another candidate EVSE and repeats the validation step.
+
+17. **Setup logical network**  
+    - If the EV is satisfied with the discovered/validated EVSE, it sets up the logical (data link) communication network with that EVSE.
+
+18. **Data link established?**  
+    - Checks whether the EV has successfully established the data link (i.e., the communication session and all necessary transport layers).
+
+19. **Call D-LINK_READY.IND (Link established)**  
+    - Indicates to higher-layer entities (HLE) that a data link is set up (matching is successful).  
+    - From here, upper layers continue the binding process outlined in ISO 15118-3.
+
+20. **Call D-LINK_READY.IND (No link)**  
+    - Indicates that no valid data link is available (matching has failed).  
+    - The process can exit, and higher layers are notified that no link was established.
+
+21. **Exit matching process with success / failure**  
+    - Final outcome: the EV is either matched or not matched to an EVSE.
+
+22. **NOTE**  
+    - “Error handling for Matching Process is not shown in this figure. See A.9.8.”  
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+1. **Entering matching process**  
+   The EV transitions into the matching phase (often triggered by a control pilot transition to an active charging state).
+
+2. **Discovery of the connected communication nodes**  
+   - The EV enumerates all communication nodes visible on the physical link.  
+   - Multiple EVSEs may be detected (e.g., in scenarios with cross-talk).
+
+3. **Signal strength measurement**  
+   - The EV measures how strongly each communication node’s signal is received.
+
+4. **Signal strength analysis**  
+   - The EV compares measured signals. Three possible outcomes:  
+     a) **Low signal attenuation** → strong signal from one node.  
+     b) **Ambiguous result** → multiple nodes with uncertain or similarly strong signals.  
+     c) **High signal attenuation** → no suitable (or extremely weak) signals.
+
+5. **Branching into three results**  
+   - If **low signal attenuation** is observed:  
+     → The EV sets **Result = “EVSE_FOUND.”**  
+   - If **ambiguous** measurement is observed:  
+     → The EV sets **Result = “EVSE_POTENTIALLY_FOUND.”**  
+   - If **high signal attenuation** is observed:  
+     → The EV sets **Result = “EVSE_NOT_FOUND.”**
+
+6. **Result is “EVSE_FOUND”**  
+   - Optionally, the EV may do a sanity/validation check (depending on the scenario).  
+   - Otherwise, it can declare final result as “EVSE_FOUND” and proceed.
+
+   **Declared result is “EVSE_FOUND”**  
+   → Next step: **Setup logical network**.
+
+7. **Result is “EVSE_POTENTIALLY_FOUND”**  
+   - The EV might treat it as “EVSE_FOUND” or “EVSE_NOT_FOUND,” or it can continue with an actual **Validation of matching decision**.  
+   - If it decides not to validate further (per system rules), it may directly set “Declared result is ‘EVSE_POTENTIALLY_FOUND’” and treat it accordingly.  
+   - Otherwise, proceed to the next diamond: **Validation of matching decision**.
+
+8. **Result is “EVSE_NOT_FOUND”**  
+   - If the EV cannot identify a valid EVSE, or the signal is too weak to be recognized, the EV declares “EVSE_NOT_FOUND.”  
+   - **Declared result is “EVSE_NOT_FOUND.”**  
+   - This immediately leads to the EV calling **D-LINK_READY.IND (No link)** and exiting the process (with failure).
+
+9. **Validation of matching decision** (found on the “EVSE_POTENTIALLY_FOUND” path or optionally on the “EVSE_FOUND” path)  
+   - The EV requests (and performs) additional confirmation with the EVSE (for instance, using the control pilot “BCB-Toggle” procedure mentioned in Clause 9.4).  
+   - **Validation result?**  
+     1. **found**: The EV confirms the EVSE is correct. Proceed to “Setup logical network.”  
+     2. **not found**: The EV rejects this EVSE, checks if there is a **Remaining unvalidated EVSE?**  
+        - If **yes**, go to **next EVSE** and repeat.  
+        - If **no**, proceed to “Call D-LINK_READY.IND (No link)” (failure).
+
+10. **Setup logical network**  
+    - Once certain of the correct EVSE, the EV sets up the low-level communication (logical network).  
+    - **Data link established?**  
+      - If **yes** → **Call D-LINK_READY.IND (Link established)** → exit with success.  
+      - If **no** → **Call D-LINK_READY.IND (No link)** → exit with failure.
+
+11. **Exit matching process**  
+    - Either as a success (the EV is matched and ready for higher-layer communication) or as a failure (no valid link or incorrect EVSE discovered).
+
+12. **NOTE**  
+    - “Error handling for Matching Process is not shown in this figure. See A.9.8.” The figure omits certain fallback or error paths (e.g., hardware faults) that are described in Annex A.9.8 in the standard.
+
+---
+
+## 3. Relation and Connection Among Entities
+
+1. **EV** – The primary actor performing discovery, measurement, and analysis.  
+2. **Communication Nodes** (EVSEs) – Possible candidates that the EV might be physically attached to.  
+3. **Signal Strength Measurement** – Core step for determining whether the EV has a strong enough link to confirm “EVSE_FOUND,” or if there is ambiguity (“EVSE_POTENTIALLY_FOUND”), or if no match can be made (“EVSE_NOT_FOUND”).  
+4. **Validation Process** – A separate (optional or required) mechanism that uses control pilot line toggles to double-check the physical wiring.  
+5. **Logical Network Setup** – The bridging or data-layer step established once the EV confidently decides on an EVSE.  
+6. **D-LINK_READY.ind** – The primitive called to indicate either a successful link or a failed link to the higher layers.
+
+---
+
+## 4. Additional Notes from ISO 15118-3
+
+- **Under ambiguous conditions** (“EVSE_POTENTIALLY_FOUND”), an EV may ask the EVSE to confirm the connection via a separate pilot-line validation.  
+- **Error handling** is largely omitted in Figure 10; full details appear in Annex A.9.8.  
+- **Any transition**—whether success or failure—results in calling D-LINK_READY.IND to notify higher layers.  
+- **According to Annex 9.5**, once the logical network is successfully set up, the status changes to “Matched” and upper-layer protocols (e.g., TLS, V2G messages) can begin binding.
+
+---
+
+### Conclusion
+
+Figure 10 (EV point of view) outlines how the EV:  
+1) **Discovers** possible EVSE nodes,  
+2) **Measures** and **analyzes** each node’s signal strength,  
+3) **Determines** whether a single, multiple, or zero EVSEs are valid matches,  
+4) **Optionally validates** ambiguous results,  
+5) **Sets up** a logical network with the matched EVSE, and  
+6) **Exits** by either calling “D-LINK_READY.IND (Link established)” for success or “D-LINK_READY.IND (No link)” for failure.
+
+This step-by-step process ensures the EV consistently identifies the correct EVSE in multi-charger environments and starts a reliable higher-level communication session for the charging process.
+
+Related Information 17: [V2G3-A09-52] Both EV and EVSE shall comply with the sequence diagrams defined in Figure A.2. (sibling of Text 1)
+Related Information 18: [V2G3-A09-53] If the EVSE is not able to perform any BCB-Toggle due to not having implemented this feature, it shall set the result field to “failure”. (sibling of Text 1)
+Contextual Information 1: A.9.3.1 Functional description (ancestor of Text 1)
+Contextual Information 2: A.9.3 Validation of matching decision (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+Related Information 19: After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP. (sibling of Text 2)
+Related Information 20: The signal strength measurement method to be used is the SLAC defined in the [HPGP]. (sibling of Text 2)
+Related Information 21: [V2G3-A09-17] The SLAC implementation of the low-layer communciation module on EV and EVSE side shall be compliant with the messages defined in [HPGP]. (sibling of Text 2)
+Related Information 22: [V2G3-A09-18] The low-layer communciation module on EV and EVSE sides shall be compliant with the sequence diagram of Figure A.1. (sibling of Text 2)
+Related Information 23: [V2G3-A09-19] The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1. (sibling of Text 2)
+Related Information 24: [V2G3-A09-20] The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one. (sibling of Text 2)
+Related Information 25: [V2G3-A09-21] According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message: (sibling of Text 2)
+Related Information 26: — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4; (sibling of Text 2)
+Related Information 27: — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3; (sibling of Text 2)
+Related Information 28: — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED. (sibling of Text 2)
+Related Information 29: [V2G3-A09-22] Based on the signal attenuation read by the “CM_ATTEN_CHAR.IND” message, the EV_Discovery_Status shall be set according to Table A.3. (sibling of Text 2)
+Related Information 30: Table A.3 — EV_Discovering_Status definition (sibling of Text 2)
+Related Information 31: Table A.3 — EV_Discovering_Status definition <table border="1"> <td colspan="1" rowspan="2">Status</td> <td colspan="2" rowspan="1">Average_Attenuation</td> <td colspan="1" rowspan="2">Description</td> <tr> <td colspan="1" rowspan="1">From</td> <td colspan="1" rowspan="1">To</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_FOUND</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">C_EV_match_signal-&lt;br&gt;attn_direct</td> <td colspan="1" rowspan="1">The EVSE is identified without&lt;br&gt;any doubt</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_POTENTIALLY_&lt;br&gt;FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;direct</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">One or several EVSEs are identi-&lt;br&gt;fied. The next step of the match-&lt;br&gt;ing process will allow deciding&lt;br&gt;if the most probable candidate is&lt;br&gt;the connected EVSE.</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_NOT_FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">No direct connected EVSE is&lt;br&gt;found</td> </tr> </table> (sibling of Text 2)
+Contextual Information 4: A.9.2.1 Functional description (ancestor of Text 2)
+Contextual Information 5: A.9.2 Signal strength measurement (ancestor of Text 2)
+Related Information 32: By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way. (sibling of Text 3)
+Related Information 33: [V2G3-A09-62] With sending the step 1 CM_VALIDATE.REQ, the EV shall start the timer TT_ match_response. When the TT_match_response timer expires, the EV shall resend the step 1 CM_VALIDATE.REQ with C_EV_match_retry number of retries. The timer shall be restarted with any retry. The TT_match_response timer shall stop with the reception of a valid CM_VALIDATE.CNF. (sibling of Text 10)
+Related Information 34: [V2G3-A09-63] If the EV does not receive any valid CM_VALIDATE.CNF for all retries, the EV shall stop the validation process with the current EVSE and continue the validation pro- cess with the next potential EVSE. (sibling of Text 10)
+Related Information 35: [V2G3-A09-65] If the result field of the step 1 CM_VALIDATE.CNF contains “Success”, the EV shall stop the validation process with the current EVSE and continue the validation pro- cess with the next potential EVSE. (sibling of Text 10)
+Related Information 36: [V2G3-A09-66] If the result field of the step 1 CM_VALIDATE.CNF contains “not ready” the EV shall either retry after undefined amount of time or continue the validation with the next potential EVSE with the option to retry the validation with the “not ready” EVSE again afterwards. (sibling of Text 10)
+Related Information 37: If the Result field of the step 1 CM_VALIDATE.CNF contains “not required”, the EV may skip the validation process. (sibling of Text 10)
+Related Information 38: [V2G3-A09-67] If the result field of the step 1 CM_VALIDATE.CNF contains “ready”, the EV shall send the step 2 CM_VALIDATE.REQ within TP_match_sequence with a timer value which covers the whole BCB-Toggle sequence. (sibling of Text 10)
+Related Information 39: [V2G3-A09-68] With sending the step 2 CM_VALIDATE.REQ, the EV shall start the timer TP_EV_ vald_toggle and shall start the BCB-Toggle sequence. The timer TP_EV_vald_toggle shall be equal to the timer value sent within the step 2 CM_VALIDATE.REQ. (sibling of Text 10)
+Related Information 40: [V2G3-A09-69] The BCB-Toggle sequence shall be finished before the TP_EV_vald_toggle timer expires. (sibling of Text 10)
+Related Information 41: [V2G3-A09-70] When TP_EV_vald_toggle timer expires, the EV shall start the TT_match_response timer. While the TT_match_response timer is running, the EV shall listen for the incoming step 2 CM_VALIDATE.CNF MME. The TT_match_response timer shall stop as soon as a valid CM_VALIDATE.CNF was received. (sibling of Text 10)
+Related Information 42: [V2G3-A09-71] If the TT_match_response timer expires, the EV shall stop the validation process with the current EVSE and continue the validation process with the next potential EVSE. (sibling of Text 10)
+Related Information 43: [V2G3-A09-72] If the result field of the step 2 CM_VALIDATE.CNF contains “failure”, “not ready”, or “not required”, the EV shall stop the validation process with the current EVSE and continue the validation process with the next potential EVSE. (sibling of Text 10)
+Related Information 44: [V2G3-A09-73] If the result field of the step 2 CM_VALIDATE.CNF contains “Success” the EV shall compare the ToggleNum field of the CM_VALIDATE.CNF message with the number of BCB-Toggles executed. If the numbers are equal, the EV_Discovering_Status is confirmed as “EVSE_FOUND” otherwise, the EV shall continue the validation pro- cess with the next potential EVSE. (sibling of Text 10)
+Related Information 45: [V2G3-A09-74] If the matching status is confirmed by the validation, the EV shall continue with the CM_SLAC_MATCH.REQ within TP_match_sequence after receiving the step 2 CM_VALIDATE.CNF. (sibling of Text 10)
+Contextual Information 6: A.9.3.3.2 EV side (ancestor of Text 10)
+Related Information 46: [V2G3-A09-75] With receiving a step 1 CM_VALIDATE.REQ from the EV which started the match- ing process and with a timer field equal to “0x00”, the EVSE shall respond with a CM_VALIDATE.CNF within TP_match_response. (sibling of Text 11)
+Related Information 47: [V2G3-A09-76] If any received CM_VALIDATE.REQ contains invalid content, it shall be ignored. Content which deviate from the MME definition in Table A.5 and Table A.6 is inva- lid. (sibling of Text 11)
+Related Information 48: [V2G3-A09-77] If the EVSE receives another CM_VALIDATE.REQ with a timer field equal to zero after sending out the step 1 CM_VALIDATE.CNF, the step 1 CM_VALIDATE.CNF shall be resent. (sibling of Text 11)
+Related Information 49: [V2G3-A09-78] If the EVSE is occupied by another running validation process, it shall set the result field to “not ready”. (sibling of Text 11)
+Related Information 50: [V2G3-A09-79] If the EVSE is able to perform the validation process and is not occupied, it shall continue the validation process, setting the result field to “ready” or “not required”. (sibling of Text 11)
+Related Information 51: [V2G3-A09-80] If the EVSE is not able to perform the validation process, it shall set the result field to “failure”. (sibling of Text 11)
+Related Information 52: [V2G3-A09-81] If the EVSE has sent the step 1 CM_VALIDATE.CNF with result field set to “not required”, it shall be prepared that the EV will continue the process with the step 2 CM_VALIDATE.REQ or a CM_SLAC_MATCH.REQ message. (sibling of Text 11)
+Related Information 53: [V2G3-A09-82] With sending the step 1 CM_VALIDATE.CNF, the EVSE shall start the timer TT_ match_sequence. When the TT_match_sequence timer expires, the EVSE shall res- end the step 1 CM_VALIDATE.CNF with C_EV_match_retry number of retries. The timer shall be restarted with any retry. The TT_match_sequence timer shall stop with the reception of a valid step 2 CM_VALIDATE.REQ or with a valid CM_SLAC_ MATCH.REQ. (sibling of Text 11)
+Related Information 54: [V2G3-A09-83] If the EVSE does not receive any valid step 2 CM_VALIDATE.REQ or valid CM_ SLAC_MATCH.REQ for all retries, the matching process shall be considered as FAILED. (sibling of Text 11)
+Related Information 55: [V2G3-A09-85] With receiving a step 2 CM_VALIDATE.REQ from the EV which started the match- ing process, the EVSE shall start the timer TT_EVSE_vald_toggle. (sibling of Text 11)
+Related Information 56: [V2G3-A09-86] While the timer TT_EVSE_vald_toggle is running, the EVSE shall count the BCB-Toggles on the control pilot. (sibling of Text 11)
+Related Information 57: [V2G3-A09-87] After the timer TT_EVSE_vald_toggle is expired, the EVSE shall send a step 2 CM_ VALIDATE.CNF with the number of counted BCB-Toggles and the result field set to “Success” within TP_match_response. (sibling of Text 11)
+Related Information 58: [V2G3-A09-88] In case an error occurs on EVSE side while counting the BCB-Toggles so that the ToggleNum field does not contain valid data, the result field shall be set to “failure”. (sibling of Text 11)
+Related Information 59: [V2G3-A09-89] With sending the step 2 CM_VALIDATE.CNF, the EVSE shall start the timer TT_ match_sequence. The timer shall stop as soon as a CM_SLAC_MATCH.REQ message is received. (sibling of Text 11)
+Related Information 60: [V2G3-A09-90] When the timer TT_match_sequence expires, the matching process shall be consid- ered as FAILED. (sibling of Text 11)
+Contextual Information 7: A.9.3.3.3 EVSE side (ancestor of Text 11)
+Related Information 61: The validation of matching decision is a method to validate the signal strength measurement through an additional independent path, based on the hardwired control pilot line. (sibling of Text 12)
+Related Information 62: If a validation of matching decision is required to confirm that the EV is connected to the right low- layer communication module, the following requirements are considered as mandatory if validation of matching is supported. (sibling of Text 12)
+Related Information 63: NOTE To support a BCB-Toggle for Wake-up is mandatory on EVSE side. (sibling of Text 12)
+Related Information 64: According to the EVSE architecture, the EVSE can answer to the request by the following certain states. (sibling of Text 12)
+Related Information 65: — “Not Required” state: This is just a recommendation from the EVSE, the EV decides either to follow the EVSE recommendation and to skip the validation process or to continue the process and to perform the validation process. (sibling of Text 12)
+Related Information 66: — “Failure” state: This is an indication from the EVSE that it does not support the validation process. The EV decides to either terminate the matching process with the current EVSE and go on with the next EVSE or to skip the validation process with the current EVSE. (sibling of Text 12)
+Related Information 67: — “Ready” state: This is an indication from the EVSE that it does support the validation process and is ready to continue the validation process. (sibling of Text 12)
+Related Information 68: In case of a performed validation process, the EV performs multiple BCB-Toggles during the time TP_EV_ vald_toggle. The number of BCB-Toggles (C_EV_vald_nb_toggles) is chosen randomly in the available time. (sibling of Text 12)
+Related Information 69: At the end of the timer, the EVSE sends a frame with the number of BCB-Toggles seen on the Control Pilot line and waits for the decision value. (sibling of Text 12)
+Related Information 70: If supported, and in order to perform the validation process, EVs and EVSEs have to implement a method to validate the EV-EVSE connection based on the signal sequence “EV signal to the EVSE” defined in [IEC-1], Annex A. (sibling of Text 12)
+Related Information 71: CP state C CP state B TP_EV_vald_toggle TP_EV_vald_ state_duration TP_EV_vald_ state_duration TP_EV_vald_ state_duration TP_EV_vald_ state_duration TP_EV_vald_ state_duration 1st toggle 2nd toggle inital B-state (sibling of Text 12)
+Related Information 72: [V2G3-M09-06] In accordance with [IEC-1], the EV shall support the sequence of “BCB-Toggle” defined in Figure 12. (sibling of Text 12)
+Related Information 73: Figure 12 — Example of BCB-Toggle sequence with C_EV_vald_nb_toggles = 2 and active oscillator (sibling of Text 12)
+Related Information 74: [V2G3-M09-07] If the EV status is “EVSE_POTENTIALLY_FOUND”, the EV shall start the validation process. According to the grid architecture, the EVSE can inform the EV that it is allowed to abort the validation process. In such a case, the EV has the option to skip the validation process. (sibling of Text 12)
+Related Information 75: [V2G3-M09-08] According to its implementation, the EVSE can inform the EV that it does not sup- port the validation process. The EV decides to either terminate the matching pro- cess with the current EVSE and go on with the next EVSE or to skip the validation process with the current EVSE. (sibling of Text 12)
+Related Information 76: [V2G3-M09-09] Since the communication node on EV side concludes the signal strength measure- ment, the communication node on EV side shall also conclude this mechanism. This method shall be concluded by — EVSE_FOUND — EVSE_NOT_FOUND. (sibling of Text 12)
+Related Information 77: NOTE At this stage, the validation is physically performed with the control pilot line. The “EVSE_ POTENTIALLY_FOUND” state is not possible. (sibling of Text 12)
+Related Information 78: The following requirements only apply in case both the EV and the EVSE support the validation process: (sibling of Text 12)
+Related Information 79: [V2G3-M09-10] The EVSE shall be able to detect a state variation on the control pilot line within T_vald_detect_time. (sibling of Text 12)
+Related Information 80: [V2G3-M09-11] The duration of each state during the BCB-Toggle sequence is defined as TP_EV_ vald_state_duration. (sibling of Text 12)
+Related Information 81: [V2G3-M09-12] Both EV and EVSE shall support a set of messages to exchange the number of BCB-Toggles, using the messages defined in dedicated annexes. (sibling of Text 12)
+Related Information 82: [V2G3-M09-13] In the case an EVSE receives a validation request while it is still in a validation process with another EV, it shall give a negative response to incoming requests. [V2G3-M09-14] The EV shall perform C_EV_vald_nb_toggles BCB-Toggle(s) during the validation process and shall adjust the TP_EV_vald_toggle in coherence with the number of BCB-Toggles. [V2G3-M09-15] The control pilot duty cycle shall not have an impact on the validation process. (sibling of Text 12)
+Contextual Information 8: 9.4 Validation of matching decision (ancestor of Text 12)
+Contextual Information 9: 9 Matching EV — EVSE process (ancestor of Text 12)
+Contextual Information 10: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 12)
+Related Information 83: After the signal strength measurement, the EV can decide on the basis of the results to request the EVSE for an additional validation process. As soon as the EVSE is ready to detect the control pilot line, the EV sends a random timer value TP_EV_vald_toggle to the EVSE. After sending the message, the EV switches the control pilot state in the sequence B-C-B. This switching sequence is called BCB-Toggle in the following. (sibling of Text 13)
+Related Information 84: This Clause summarizes all timings used in the main body of this part of ISO 15118. (sibling of Table 1)
+Related Information 85: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 1)
+Related Information 86: Table 3 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_conn_max_match</td> <td colspan="1" rowspan="1">Number of retries of matching&lt;br&gt;process</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_vald_nb_toggles</td> <td colspan="1" rowspan="1">Number of BCB-Toggles</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EVSE_match_parallel</td> <td colspan="1" rowspan="1">Number of parallel matching&lt;br&gt;processes to be handled by&lt;br&gt;EVSE</td> <td colspan="1" rowspan="1">5</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_sequ_retry</td> <td colspan="1" rowspan="1">Number of matching retries by&lt;br&gt;Control Pilot state E transitions</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_init_HLC</td> <td colspan="1" rowspan="1">Minimum B state duration after&lt;br&gt;a state F, D, or C</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resume</td> <td colspan="1" rowspan="1">Time after the wake up trigger&lt;br&gt;(e.g. BCB-Toggle) until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_max_comm</td> <td colspan="1" rowspan="1">Time after plug-in until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resetup</td> <td colspan="1" rowspan="1">Time to resetup the matching&lt;br&gt;process after a loss of commu-&lt;br&gt;nication</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_vald_detect_time</td> <td colspan="1" rowspan="1">Time to detect a variation of the&lt;br&gt;state on EVSE side</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_state_duration</td> <td colspan="1" rowspan="1">Duration of each state B or C&lt;br&gt;within the BCB-Toggle</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_toggle</td> <td colspan="1" rowspan="1">Duration of BCB-Toggle&lt;br&gt;sequence</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_vald_toggle</td> <td colspan="1" rowspan="1">Timeout timer for the EVSE to&lt;br&gt;stop monitoring control pilot for&lt;br&gt;BCB-Toggle. Value comes from&lt;br&gt;CM_VALIDATE.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_leave</td> <td colspan="1" rowspan="1">Maximum time to leave the logi-&lt;br&gt;cal network</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_step_EF</td> <td colspan="1" rowspan="1">Time to stay at E/F state</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> </table> (sibling of Table 1)
+Related Information 87: [V2G3-M08-02] Any successful matching process shall reset all the timeout timers and reset the retry_counters. (sibling of Table 1)
+Contextual Information 11: 8 Timings and constants (ancestor of Table 1)
+Contextual Information 12: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Table 1)
+Related Information 88: This Clause summarizes all timings used in this Annex. (sibling of Table 2)
+Related Information 89: [V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1. (sibling of Table 2)
+Related Information 90: Table A.1 — Timing and constant values (sibling of Table 2)
+Related Information 91: Table A.1 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_EV_match_MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds sent for the&lt;br&gt;SLAC</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_retry</td> <td colspan="1" rowspan="1">Number of retries of the correspond-&lt;br&gt;ing message within the matching&lt;br&gt;process</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_direct</td> <td colspan="1" rowspan="1">Lower threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_match_signalattn_indirect</td> <td colspan="1" rowspan="1">Higher threshold for the signal&lt;br&gt;strength measurement</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">dB</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_start_atten_char_inds</td> <td colspan="1" rowspan="1">Number of CM_START_ATTEN_CHAR.&lt;br&gt;INDs sent by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">TP_amp_map_exchange</td> <td colspan="1" rowspan="1">Performance timer for the start of an&lt;br&gt;AMP MAP Exchange&lt;br&gt;Either the EV or the EVSE shall send&lt;br&gt;a CM_AMP_MAP.REQ within the&lt;br&gt;max value of this timer after link is&lt;br&gt;detected in order to trigger an AMP&lt;br&gt;MAP Exchange.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_batch_msg_interval</td> <td colspan="1" rowspan="1">Interval between two CM_START_&lt;br&gt;ATTEN_CHAR.IND or CM_MNBC_&lt;br&gt;SOUND.IND messages</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_match_session</td> <td colspan="1" rowspan="1">Performance time for the EV to start&lt;br&gt;validation or SLAC_MATCH after&lt;br&gt;sending CM_ATTEN_CHAR.RSP</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_SLAC_init</td> <td colspan="1" rowspan="1">Time between plug-in (state B&lt;br&gt;detected) or wake-up and start of&lt;br&gt;matching by the EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EVSE_avg_atten_calc</td> <td colspan="1" rowspan="1">Performance time for the EVSE to&lt;br&gt;calculate the average attenuation pro-&lt;br&gt;file after reception of all M-SOUNDs&lt;br&gt;or after TT_EVSE_match_MNBC has&lt;br&gt;expired</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_link_ready_notification</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">0,2</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_response</td> <td colspan="1" rowspan="1">General performance time for a&lt;br&gt;response to a request</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 2)
+Related Information 92: Table A.1 (continued) <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">TP_match_sequence</td> <td colspan="1" rowspan="1">General performance time for sub-&lt;br&gt;sequent requests after a response to&lt;br&gt;previous request has been received</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">100</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_amp_map_exchange</td> <td colspan="1" rowspan="1">Timeout timer that runs on both EV&lt;br&gt;and EVSE side after link is detected&lt;br&gt;If an EV or EVSE does not want to&lt;br&gt;start an AMP MAP Exchange and no&lt;br&gt;request is received by the other side&lt;br&gt;within the timeout value of this timer,&lt;br&gt;then it is to be assumed that no AMP&lt;br&gt;MAP Exchange will take place and&lt;br&gt;a D-LINK_READY.indication is to be&lt;br&gt;sent to the HLE.</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EV_atten_results</td> <td colspan="1" rowspan="1">Time the EV shall wait for CM_&lt;br&gt;ATTEN_CHAR.IND messages from&lt;br&gt;EVSEs. Timer starts with the sending&lt;br&gt;of the first CM_START_ATTEN_CHAR.&lt;br&gt;IND</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1 200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_MNBC</td> <td colspan="1" rowspan="1">Timeout on the EVSE side that trig-&lt;br&gt;gers the calculation of the average&lt;br&gt;attenuation profile</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_match_session</td> <td colspan="1" rowspan="1">Maximum time from the expiration of&lt;br&gt;TT_EVSE_match_MNBC and the recep-&lt;br&gt;tion of either CM_VALIDATE.REQ or&lt;br&gt;CM_SLAC_MATCH.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_SLAC_init</td> <td colspan="1" rowspan="1">Time between detecting state B and&lt;br&gt;receiving CM_SLAC_PARM.REQ on the&lt;br&gt;EVSE side</td> <td colspan="1" rowspan="1">20</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_join</td> <td colspan="1" rowspan="1">Maximum time between CM_SLAC_&lt;br&gt;MATCH.CNF and link establishment&lt;br&gt;If there is no link after this timeout&lt;br&gt;expires, EV retries matching process&lt;br&gt;and EVSE resets its state machine</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">12</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_response</td> <td colspan="1" rowspan="1">Time that the EV/EVSE shall wait for a&lt;br&gt;response from the EVSE/EV</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_match_sequence</td> <td colspan="1" rowspan="1">Time that the EVSE/EV shall wait for&lt;br&gt;a request from the EV/EVSE</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_repetition</td> <td colspan="1" rowspan="1">Time duration for repetitions of the&lt;br&gt;matching process when an error&lt;br&gt;occurs</td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">TT_matching_rate</td> <td colspan="1" rowspan="1">Time to wait for a repetition of the&lt;br&gt;whole matching process after a failed&lt;br&gt;matching process</td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> </table> (sibling of Table 2)
+Contextual Information 13: A.8 Timings and constants (ancestor of Table 2)
+Contextual Information 14: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Table 2)
+Related Information 93: [V2G3-A09-54] Both EV and EVSE shall use the CM_VALIDATE messages to exchange the BCB-Tog- gle related values, using the parameters defined in 9.4. [V2G3-A09-55] The Ethernet Destination MAC address field shall be filled either as Broadcast or Unicast, as defined in the Table A.5 and Table A.6. (sibling of Table 5)
+Related Information 94: Table A.5 — MMEs parameters definition for validation process – First request-response <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.REQ&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">Signal Type</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on control pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">Timer</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the first VALIDATE Request-Re-&lt;br&gt;sponse exchange, the Timer field shall&lt;br&gt;be set to zero.</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the first VALIDATE Request-Re-&lt;br&gt;sponse exchange, the Result field shall&lt;br&gt;be set to 0x01 = “ready”.</td> </tr> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">SignalType</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on control pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">ToggleNum</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the first VALIDATE Request-Re-&lt;br&gt;sponse exchange, the ToggleNum field&lt;br&gt;shall be set to zero.</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Result code:&lt;br&gt;0x00 = Not Ready&lt;br&gt;0x01 = Ready&lt;br&gt;0x02 = Success&lt;br&gt;0x03 = Failure&lt;br&gt;0x04 = Not Required</td> </tr> </table> (sibling of Table 5)
+Related Information 95: [V2G3-A09-56] For the first CM_VALIDATE request-response exchange, the result field shall be filled as follows: (sibling of Table 5)
+Related Information 96: [V2G3-A09-57] The EV shall set the result field of the CM_VALIDATE.REQ with 0x01 to indicate that a validation process starts. (sibling of Table 5)
+Related Information 97: [V2G3-A09-58] The EVSE shall set the Result field of the CM_VALIDATE.CNF to the following: (sibling of Table 5)
+Related Information 98: — “Ready” to confirm the readiness for a validation process; (sibling of Table 5)
+Related Information 99: — “Not Ready” to indicate that it is busy and temporarily not able to perform a validation (An immediate retry with the step 1 CM_VALIDATE.REQ by the EV is reasonable); (sibling of Table 5)
+Related Information 100: — “Success” shall not be used; (sibling of Table 5)
+Related Information 101: — “Not required” to indicate that a validation is not required; (sibling of Table 5)
+Related Information 102: — “Failure” to indicate that it does not support the validation procedure. Accord- ing to A.7.3.1, the EV can decide on how to continue. (sibling of Table 5)
+Related Information 103: Table A.6 — MMEs parameters definition for validation process – Second request-response (sibling of Table 5)
+Related Information 104: Table A.6 — MMEs parameters definition for validation process – Second request-response <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.REQ&lt;br&gt;Broadcast</td> <td colspan="1" rowspan="1">Signal Type</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on control pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">Timer</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Variable value indicating the time&lt;br&gt;duration while the EVSE shall listen to&lt;br&gt;BCB-Toggles (TT_EVSE_vald_toggle):&lt;br&gt;0x00 = 100 ms&lt;br&gt;0x01 = 200 ms</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value&lt;br&gt;In the second VALIDATE Request-Re-&lt;br&gt;sponse exchange, the Result field shall&lt;br&gt;be set to 0x01 = “ready”.</td> </tr> <tr> <td colspan="1" rowspan="3">CM_VALIDATE.CNF&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">SignalType</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value to indicate “PEV S2 toggles&lt;br&gt;on Control Pilot line”</td> </tr> <tr> <td colspan="1" rowspan="1">ToggleNum</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value contains the number of&lt;br&gt;BC-edges detected by the EVSE during&lt;br&gt;TT_EVSE_vald_toggle</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Result code:&lt;br&gt;0x00 = Not Ready&lt;br&gt;0x01 = Ready&lt;br&gt;0x02 = Success&lt;br&gt;0x03 = Failure&lt;br&gt;0x04 = Not Required</td> </tr> </table> (sibling of Table 5)
+Related Information 105: [V2G3-A09-59] For the second CM_VALIDATE request-response exchange, the result field shall be filled as follows: (sibling of Table 5)
+Related Information 106: [V2G3-A09-60] The EV shall set the result field of the CM_VALIDATE.REQ with 0x01 to indicate that a toggle process starts. (sibling of Table 5)
+Related Information 107: [V2G3-A09-61] The EVSE shall set the result field of the CM_VALIDATE.CNF to (sibling of Table 5)
+Related Information 108: — “Success” to confirm that the toggle process is done with success and the result field contains valid data, or (sibling of Table 5)
+Related Information 109: — “Failure” to indicate that the toggle process could not be finished with success and the result field contains no valid data. (sibling of Table 5)
+Contextual Information 15: A.9.3.2 Description of involved MMEs (ancestor of Table 5)
+Related Information 110: Figure A.5 — Sequence chart of validation process of matching decision (sibling of Figure 1)
+Contextual Information 16: A.9.3.3.1 Sequence chart (ancestor of Figure 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

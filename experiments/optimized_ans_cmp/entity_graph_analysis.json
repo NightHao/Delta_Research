@@ -1,0 +1,178 @@
+{
+  "tables": [
+    {
+      "id": "3",
+      "name": "TABLE 3"
+    },
+    {
+      "id": "2",
+      "name": "TABLE 2"
+    },
+    {
+      "id": "6",
+      "name": "TABLE 6"
+    },
+    {
+      "id": "7",
+      "name": "TABLE 7"
+    },
+    {
+      "id": "8",
+      "name": "TABLE 8"
+    },
+    {
+      "id": "12",
+      "name": "TABLE 12 - TABLE 15"
+    },
+    {
+      "id": "16",
+      "name": "TABLE 16"
+    },
+    {
+      "id": "18",
+      "name": "TABLE 18"
+    },
+    {
+      "id": "20",
+      "name": "TABLE 20"
+    },
+    {
+      "id": "22",
+      "name": "TABLE 22"
+    },
+    {
+      "id": "26",
+      "name": "TABLE 26"
+    },
+    {
+      "id": "27",
+      "name": "TABLE 27"
+    },
+    {
+      "id": "29",
+      "name": "TABLE 29"
+    },
+    {
+      "id": "30",
+      "name": "TABLE 30"
+    },
+    {
+      "id": "31",
+      "name": "TABLE 31"
+    },
+    {
+      "id": "32",
+      "name": "TABLE 32"
+    },
+    {
+      "id": "38",
+      "name": "TABLE 38"
+    },
+    {
+      "id": "45",
+      "name": "TABLE 45"
+    },
+    {
+      "id": "62",
+      "name": "TABLE 62"
+    },
+    {
+      "id": "72",
+      "name": "TABLE 72"
+    },
+    {
+      "id": "75",
+      "name": "TABLE 75"
+    },
+    {
+      "id": "78",
+      "name": "TABLE 78"
+    },
+    {
+      "id": "102",
+      "name": "TABLE 102"
+    },
+    {
+      "id": "105",
+      "name": "TABLE 105"
+    },
+    {
+      "id": "109",
+      "name": "TABLE 109"
+    },
+    {
+      "id": "111",
+      "name": "TABLE 111"
+    },
+    {
+      "id": "129",
+      "name": "TABLE 129"
+    },
+    {
+      "id": "136",
+      "name": "TABLE 136"
+    },
+    {
+      "id": "142",
+      "name": "TABLE 142"
+    },
+    {
+      "id": "143",
+      "name": "TABLE 143"
+    },
+    {
+      "id": "146",
+      "name": "TABLE 146"
+    },
+    {
+      "id": "152",
+      "name": "TABLE 152"
+    },
+    {
+      "id": "161",
+      "name": "TABLE 161"
+    },
+    {
+      "id": "174",
+      "name": "TABLE 174"
+    },
+    {
+      "id": "180",
+      "name": "TABLE 180"
+    },
+    {
+      "id": "181",
+      "name": "TABLE 181"
+    },
+    {
+      "id": "183",
+      "name": "TABLE 183"
+    },
+    {
+      "id": "200",
+      "name": "TABLE 200"
+    },
+    {
+      "id": "204",
+      "name": "TABLE 204"
+    },
+    {
+      "id": "230",
+      "name": "TABLE 230"
+    }
+  ],
+  "figures": [
+    {
+      "id": "10",
+      "name": "FIGURE 10"
+    },
+    {
+      "id": "3",
+      "name": "FIGURE 3"
+    },
+    {
+      "id": "2",
+      "name": "FIGURE 2"
+    }
+  ]
+}

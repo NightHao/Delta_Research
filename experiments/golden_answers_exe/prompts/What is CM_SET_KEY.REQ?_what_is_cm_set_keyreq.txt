@@ -1,0 +1,28 @@
+What is CM_SET_KEY.REQ?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TEXTUAL INFORMATION:
+Text 1: A.9.5.3.3 EVSE side (Context: A.9.5.3.3 EVSE side > A.9.5 Joining the logical network > A.9 Matching EV – EVSE process) - The EVSE shall configure its low-layer communciation module to the NID and NMK values sent in CM_SLAC_MATCH.CNF at the latest after sending the CM_SLAC_MATCH.CNF. The configuration can also be done at any time before (e.g. after unplugging of a previous EV). The configuration shall be done by sending a CM_SET_KEY.REQ.
+
+ADDITIONAL CONTEXT:
+Related Information 1: [V2G3-A09-103] After sending a CM_SLAC_MATCH.CNF containing a NMK and a NID, the EVSE shall start its TT_match_join timer. This timer ends when the CCo detects a link in its logical network. (sibling of Text 1)
+Related Information 2: [V2G3-A09-104] If no link is detected when the TT_match_join timer expires, the EVSE shall con- sider the matching process as FAILED. (sibling of Text 1)
+Related Information 3: NOTE 3 If the EVSE needs to configure its NMK and NID after the CM_SLAC_MATCH.CNF, it should consider that the just sent CM_SLAC_MATCH.CNF might get lost and the EV will send a CM_SLAC_MATCH.REQ retry within TT_match_response. Within this time, the EVSE should not be blind due to the configuration process for the incoming CM_SLAC_MATCH.REQ retry. (sibling of Text 1)
+Contextual Information 1: A.9.5.3.3 EVSE side (ancestor of Text 1)
+Contextual Information 2: A.9.5 Joining the logical network (ancestor of Text 1)
+Contextual Information 3: A.9 Matching EV – EVSE process (ancestor of Text 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

@@ -1,0 +1,792 @@
+================================= Entity Chunks for HOMEPLUG GREEN PHY =================================
+Entity: HOMEPLUG GREEN PHY
+Description: HomePlug Green PHY signals are injected into the control pilot line to enable communication
+The control pilot line is used as a transmission line for the HomePlug Green PHY signal
+The control pilot line must consider the additional capacity of the HomePlug Green PHY coupling circuit
+The control pilot line must maintain minimal capacity to avoid attenuating the HomePlug Green PHY signal
+HomePlug Green PHY technology is implemented on the control pilot line for communication purposes in electric vehicle charging
+HomePlug Green PHY technology is injected into the control pilot line for communication purposes
+HomePlug Green PHY technology can be implemented on the control pilot line for communication in smart grid applications The matching process is a necessary step for HomePlug Green PHY devices to communicate effectively
+The matching process is a crucial step in ensuring HomePlug Green PHY devices can communicate effectively
+The matching process is a critical step in ensuring that devices using HomePlug Green PHY technology can communicate effectively HomePlug Green PHY signal's coupling is directly linked to the control pilot, indicating a functional relationship in electric vehicle charging Within the EVSE, the HomePlug Green PHY signal is affected by insertion loss
+HomePlug Green PHY technology is used in EVSE systems for high frequency communication
+The HomePlug Green PHY signal is affected by the capacitive load of the EVSE
+EVSE may use HomePlug Green PHY for communication over power lines
+HomePlug Green PHY is used in EVSE for communication purposes HomePlug Green PHY technology facilitates communication between the EVSE and the EV
+The HomePlug Green PHY signal is affected by the capacitive load of the EV The path for HomePlug Green PHY signals is considered a transmission line for high frequency communication The HomePlug Green PHY signal is affected by the capacitive load of the charge cord
+The charge cord attenuates the HomePlug Green PHY signal, affecting its transmission The requirement V2G3-A11-01 specifies the use of HomePlug Green PHY chips for communication HomePlug Green PHY signals are coupled to the control pilot wire as part of the communication process
+HomePlug Green PHY technology is implemented over the control pilot wire for communication Low pass filters are used to ensure the HomePlug Green PHY communication by managing signal frequencies The Green PHY modem uses the HomePlug Green PHY protocol for communication The V2G3-A11-02 standard specifies the use of HomePlug Green PHY technology for signal coupling HomePlug Green PHY signals are also coupled to the Protective Earth wire for communication purposes The V2G3-A11-03 standard specifies the use of HomePlug Green PHY technology for communication in EVSE EMC measures are necessary to ensure that HomePlug Green PHY signals are not affected by electromagnetic disturbances
+The requirement specifies that EMC protection should not affect HomePlug Green PHY signals ESD protection is important to maintain the integrity of HomePlug Green PHY signals The requirement V2G3-A11-04 specifies how the HomePlug Green PHY injection circuit should be wired in the EV The requirement specifies that ESD protection should not affect HomePlug Green PHY signals The requirement V2G3-A11-05 specifies that HomePlug Green PHY must be compatible with any valid control pilot duty cycle or state HomePlug Green PHY must operate according to the control pilot duty cycles or states defined in the IEC-1 standard The requirement V2G3-A11-06 involves the presence of a HomePlug Green PHY signal The HomePlug Green PHY signal is added to the control pilot signal to enhance communication capabilities
+The control pilot signal measurements can be disturbed by high frequency HomePlug Green PHY signals, necessitating the use of a low pass filter
+The control pilot signal is involved in the communication process where HomePlug Green PHY technology is used PE wires are used as part of the transmission line for the HomePlug Green PHY signal HomePlug Green PHY signals are measured at the VCP_EVSE point HomePlug Green PHY signals are measured at the VCP_EV point The inductor L is used to separate capacitive loads from the high-frequency HomePlug Green PHY signal The transmission path is a critical component for the effective operation of HomePlug Green PHY technology, ensuring proper signal transmission SLAC is used in conjunction with HomePlug Green PHY to assess and manage signal attenuation in the transmission path The transmission power is adjusted using the HomePlug Green PHY technology The prescaler is a part of the HomePlug Green PHY technology that helps in adjusting transmission power The coupling transformer is used in conjunction with HomePlug Green PHY technology to enable powerline communication HomePlug Green PHY is a type of specification for powerline communication Release Version 1.1.1 is a specific version of the HomePlug Green PHY Specification The central coordinator manager is a key component in managing the HomePlug Green PHY network, ensuring efficient communication and operation The protocol is used to measure the signal strength between stations, ensuring effective communication The Annex specifies mandatory requirements for the implementation of HomePlug Green PHY technology The manager is responsible for overseeing and controlling the operations of the HomePlug Green PHY network The data link layer is part of the HomePlug Green PHY technology stack Control SAP provides a control interface for accessing HomePlug Green PHY specific data and configuration HomePlug Green PHY technology is required by ISO 15118 for its communication capabilities in smart grid and energy management applications The physical layer is a component of the HomePlug Green PHY technology, detailing how data is transmitted HomePlug Green PHY may be limited in performance when coexisting with a fully loaded HomePlug AV, affecting its data rate HomePlug GreenPHY utilizes notched carriers to manage frequency bands for effective communication TTCN-3 data representation for SLAC requests and responses is also defined according to the HomePlug GreenPHY specification, indicating its relevance The low-layer communication module must be compliant with the HPGP protocol The ATTEN_PROFILE field format is specified in the HPGP standard CM_SLAC_MATCH MMEs are part of the HPGP protocol used in the communication between EV and EVSE The derivation of the NID from the NMK follows the specifications outlined in the HPGP standard
+The NID is used in the context of the HPGP standard for network communication The CM_AMP_MAP.REQ message is defined within the HPGP standard The CM_AMP_MAP.CNF message is defined within the HPGP standard The HPGP standard defines the procedures for managing an AVLN Ethernet II-class SAP includes service primitives that are defined in the HPGP standards ISO 15118-3 includes test case descriptions for HPGP PLC signal measurement, indicating a direct relationship ISO 15118‐3 includes the calibration and measurement procedures for HPGP technology PLC signal technology is used in HPGP for vehicle-to-grid communication The method to prioritize channel access is related to the HPGP protocol, which may utilize such prioritization for efficient communication HomePlug Green PHY (HPGP) is a standard that operates using Power Line Communication (PLC) technology The ETH SAP is completely covered by the HPGP protocol, indicating that HPGP provides the necessary specifications or support for ETH SAP HPGP addresses coexistence mechanisms with other HomePlug technologies, indicating a direct relationship between the standard and the technologies HPGP implements the ISP protocol as a mechanism for device coexistence HPGP includes requirements for coexistence mechanisms that are covered by IEEE standards The APCM_SET_CCo.REQ is a primitive defined in the HPGP standard <|COMPLETE|>
+A communication technology used for networking over power lines, often used in smart grid applications
+A powerline communication technology used for networking over existing electrical wiring, specifically implemented in this context for communication between EVSE and EV
+A protocol that defines the messages used in the matching process
+A protocol used for communication over power lines, specifically designed for energy management and smart grid applications
+A standard that defines the CM_AMP_MAP.CNF message protocol for communication purposes
+A standard that defines the CM_AMP_MAP.REQ message protocol for exchanging amplitude maps
+HPGP is a standard document that fully describes the specifications and functionalities of the HomePlug Green PHY technology
+HPGP is a standard or specification referenced in the context of the document, likely related to a specific technology or process)
+HPGP is a technology that implements the ISP as a coexistence mechanism for various communication protocols
+HPGP refers to a set of standards that define service primitives and protocols for data communication
+High Performance Green Power (HPGP) is a standard that includes requirements for coexistence mechanisms with other technologies
+HomePlug Green PHY is a variant of the HomePlug technology designed for energy efficiency and smart grid applications, with reduced data rates compared to HomePlug AV
+A powerline communication technology standard specifically designed for energy management and smart grid applications.
+A powerline communication technology used for networking over existing electrical wiring, designed for energy management and electric vehicle charging systems.
+HomePlug Green PHY (HPGP) is a low-power, cost-effective powerline communication standard used in electric vehicle charging and smart grid applications, defining protocols for network operations, including SLAC and security, while facilitating energy management, vehicle-to-grid communication, and home automation.
+HomePlug Green PHY is a powerline communication technology designed for smart grid, energy management, home automation, and electric vehicle applications, providing a low-power, cost-effective solution that ensures energy efficiency, high-speed data transmission, and interoperability, while serving as a standard for home networking devices. The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage.
+Annex A (normative) HomePlug Green PHY on control pilot line
+The highlighted entities of Figure 2 represent the whole HomePlug Green PHY MAC and PHY layer and are covered by [HPGP].
+--------------------------------------------------------------------------------
+Entity: ANNEX
+Description: The Annex is a section of a document that outlines mandatory requirements for the implementation of HomePlug Green PHY technology on the control pilot line
+An appendix or supplementary section of a document that contains additional information, in this case, related to timings
+A supplementary addition to a document, often providing additional information or references
+A supplementary section of a document that provides additional information or details relevant to the main text.
+--------------------------------------------------------------------------------
+Entity: APCM_SET_CCO.REQ
+Description: APCM_SET_CCo.REQ is a protocol primitive used for setting or configuring the CCo mode in a network
+--------------------------------------------------------------------------------
+Entity: ATTEN_PROFILE
+Description: A field within a protocol message indicating the signal level attenuation, formatted as specified in the HPGP standard
+ATTEN_PROFILE refers to a profile used within a message to represent attenuation characteristics in communication systems
+ATTEN_PROFILE refers to the attenuation profile, which is a set of parameters or characteristics used to adjust signal strength or quality
+--------------------------------------------------------------------------------
+Entity: AVLN
+Description: Acronym for Application Virtual Local Network, which is established during the test procedure
+Acronym for Ad-hoc Virtual Local Network, a type of network configuration
+Acronym for a new network or logical link established during the test case process
+Abbreviation for Ad-hoc Vehicle Local Network, which is established through communication exchange in PLC systems
+Abbreviation for Ad-hoc Virtual Local Network, a temporary network established for testing purposes
+Abbreviation for AV Logical Network, a network established for communication between the electric vehicle and the charging station
+Abbreviation for Alternative Vehicle Local Network, a logical network used in vehicle communication testing
+The Ad-hoc Vehicle Local Network, which is established during the communication process between the EV and EVSE
+Acronym for Ad-hoc Vehicle Local Network, which is established during the test case execution
+The Ad-hoc Vehicle Local Network is a communication network established for interaction between electric vehicles and charging infrastructure.
+Acronym for a network, logical node, or system established during test case execution.
+The Ad-hoc Vehicle Local Network, an abbreviation for a network configuration used in vehicle communication systems and established during testing, contrasts with the Alternative Vehicle Local Network, which serves a similar purpose.
+A term referring to a new network or logical link established during the test case process.
+The Ad-hoc Vehicle Local Network (AVLN) is a logical network established during the test case to facilitate communication.
+--------------------------------------------------------------------------------
+Entity: CENTRAL COORDINATOR MANAGER
+Description: The central coordinator manager is responsible for managing and coordinating the operations within a HomePlug Green PHY network
+--------------------------------------------------------------------------------
+Entity: CHANNEL ACCESS
+Description: A method used to prioritize access to communication channels, ensuring efficient data transmission method to prioritize the channel access.
+--------------------------------------------------------------------------------
+Entity: CHARGE CORD
+Description: A charge cord is a component used in electric vehicle charging systems to connect the vehicle to the charging station
+A component that connects an electric vehicle to a power source, which can attenuate signals such as the HomePlug Green PHY signal
+The cable used to connect an electric vehicle to the EVSE for charging
+The charge cord is a component used to connect an electric vehicle to the EVSE for charging
+--------------------------------------------------------------------------------
+Entity: CM_AMP_MAP.CNF
+Description: CM_AMP_MAP.CNF is a protocol message confirmation used in response to a CM_AMP_MAP.REQ within the V2G3-A09-115 standard
+A type of message expected to be sent by the System Under Test (SUT) confirming the request with 'result' equals to '00'H and all additional valid parameters
+A confirmation message protocol expected to be sent by the System Under Test (SUT) with a result code
+A protocol message that is not sent during the execution of the test case TC_SECC_CMN_VTB_CmAmpMap_003 until the TT_match_response timer expires
+A protocol message or configuration file used in communication modules, which must contain valid content as per the MME definition
+A protocol message that contains a 'result' field, which is set to an invalid value 'FF'H in the test case to trigger specific behavior
+A protocol message that contains a 'result' field, which is tested for invalid values in the test case
+A protocol message or confirmation used to acknowledge the receipt or processing of a CM_AMP_MAP.REQ in electric vehicle systems
+A protocol message expected to be received with 'result' equals to '00'H as confirmation during the test case
+A confirmation message in the communication protocol used to map amplitude in vehicle communication systems
+A protocol confirmation message expected in response to the CM_AMP_MAP.REQ, indicating successful communication
+A confirmation message in the protocol used to map current amplitude in vehicle-to-grid communication
+CM_AMP_MAP.CNF is a protocol message used in unicast communication to confirm the result of an amplitude map request, with result codes indicating success, failure, or reserved status
+A confirmation message sent by the counterpart node in response to a CM_AMP_MAP.REQ command, indicating acknowledgment and action taken
+A confirmation message in the communication protocol indicating the receipt and processing of an amplitude map request
+A confirmation message type that is not sent until the TT_match_response timer has expired in the test case
+A protocol message confirming receipt and processing of a CM_AMP_MAP.REQ message with a result of '00'H and valid parameters, indicating successful receipt of the request.
+A message protocol used to confirm the successful exchange of an amplitude map.
+--------------------------------------------------------------------------------
+Entity: CM_AMP_MAP.REQ
+Description: A protocol message used in the communication process between low-layer communication modules
+A protocol message used in communication between stations, which may be retransmitted if the initial confirmation is not received
+A protocol message involved in the test case, which is repeated and checked for limitations in retries
+A protocol message or request used in the communication process between electric vehicle systems
+CM_AMP_MAP.REQ is a protocol message request used in the communication process within the V2G3-A09-115 standard
+A message type involved in the test case, which is repeated and counted during the test procedure
+A request message in the communication protocol used to map amplitude in vehicle communication systems
+A request message related to the amplitude map exchange process
+A message protocol used for exchanging amplitude maps in vehicle-to-grid communication
+A request message in the protocol used to map current amplitude in vehicle-to-grid communication
+A protocol message used to request a new amplitude map with additional valid parameters
+A protocol or request command used to map and adjust communication settings, such as attenuation values, in a network
+CM_AMP_MAP.REQ is a protocol message that has different functions based on the source or destination of the message
+A protocol request message that is part of the communication process, which can be received by a low-layer communication module
+A specific request message used in the communication protocol to initiate an amplitude map exchange
+A specific message protocol used to initiate the amplitude map exchange process between an EV and an EVSE
+A protocol request message used by the low-layer communication module to initiate a communication process
+A command sent by a device to request the counterpart node to reduce transmission power for certain carriers
+A protocol message involved in the test case TC_SECC_CMN_VTB_CmAmpMap_003, which is repeated and checked for limitations in retries
+A protocol message involved in the test case, which is repeated and counted during the test process
+CM_AMP_MAP.REQ is a protocol message sent by the EVSE to communicate specific values or commands to the EV Host
+A message type that includes a new amplitude map and additional valid parameters, sent by the System Under Test (SUT)
+A protocol message that requests an amplitude map exchange between devices in a network for communication purposes.
+A protocol message sent during the test case to request and send a new amplitude map along with additional parameters.
+CM_AMP_MAP.REQ is a protocol message that modifies transmission power and requests amplitude map data for amplitude map calculations and unicast communication, indicating the number of carriers used. To exchange an amplitude map, the CM_AMP_MAP.REQ message defined in [HPGP] shall be used.
+--------------------------------------------------------------------------------
+Entity: CM_SLAC_MATCH MMES
+Description: CM_SLAC_MATCH MMEs are specific protocol messages used in the communication between EV and EVSE to establish a logical network
+--------------------------------------------------------------------------------
+Entity: CONTROL PILOT
+Description: A signaling line used in EVSEs to control and monitor the charging process
+A term used in electric vehicle charging systems to refer to a communication line that controls the charging process between the electric vehicle and the charging station)
+A signal used in electric vehicle charging to communicate between the EVSE and the vehicle, often used to control charging parameters
+A signaling technology used in electric vehicle charging to detect and communicate the state of the connection
+<|COMPLETE|>
+A communication line used in electric vehicle charging systems to control and monitor the charging process
+A term used to describe the signal used in electric vehicle charging to control the charging process
+Control pilot is a technology used in EV charging systems to manage communication and control signals between the EV and the charging station
+A technology used in electric vehicle charging systems to manage communication and control between the vehicle and the charging station
+A component in the electric vehicle charging system used to manage communication and control signals between the vehicle and the charging station
+Control Pilot is a communication line used in electric vehicle charging systems to manage charging parameters and ensure safety
+A control pilot is a signaling mechanism used in EVSE to communicate with electric vehicles, often involving duty cycles to manage charging
+A control pilot is a communication line in electric vehicle charging systems that manages and controls the charging process, ensures safety and efficiency, detects and controls the connection between the EVSE and the EV, and handles state changes.
+--------------------------------------------------------------------------------
+Entity: CONTROL PILOT LINE
+Description: A communication line used between the EV and EVSE to control and monitor the charging process
+A line used for communication and control in electric vehicle charging systems, as referenced in IEC-1, Annex A
+A line used in electric vehicle charging systems to control and communicate the charging process, including plug-in and un-plug simulations
+CPL stands for Control Pilot Line, which is a communication line used in electric vehicle charging systems to manage and control the charging process
+Control Pilot Line is an infrastructure component used in electric vehicle charging systems for communication and control purposes
+The physical line or wire in an electric vehicle charging system that carries the control pilot signal
+A communication line used in electric vehicle charging systems to control and monitor the charging process, including detecting state variations.
+A communication line in electric vehicle (EV) charging systems that transmits control signals between the EV and the charging station.
+The Control Pilot line is a communication component of electric vehicle charging infrastructure that facilitates communication between the vehicle and the charging station (EVSE) to manage the charging process and ensure safety.
+--------------------------------------------------------------------------------
+Entity: CONTROL PILOT SIGNAL
+Description: A low frequency signal used in electric vehicle charging systems to control and communicate between the EVSE and the EV
+A communication signal used in electric vehicle charging systems to control and monitor the charging process
+A signal used in electric vehicle charging systems to control and communicate charging parameters between the vehicle and the charging station
+The control pilot signal is used in electric vehicle charging to communicate between the vehicle and the charging station, often involving parameters like duty cycle or amplitude
+The control pilot signal is a technology used in electric vehicle charging systems to manage and control the charging process
+Control pilot signal is a communication signal used in electric vehicle charging to manage the connection between the EV and EVSE
+--------------------------------------------------------------------------------
+Entity: CONTROL PILOT WIRE
+Description: A wire used to establish communication and control signals between the EVSE and the EV
+A control pilot wire is a component of the control pilot circuit used to transmit signals for controlling and monitoring the charging process
+The control pilot wire is part of the electric vehicle charging infrastructure, used for communication between the vehicle and the charging station.
+--------------------------------------------------------------------------------
+Entity: CONTROL SAP
+Description: Service Access Point (SAP) for control functions, managing control information exchange between layers
+Service Access Point used for control purposes in the data link layer
+Control Service Access Point (SAP) provides a control interface for accessing specific data and configuration in HomePlug Green PHY networks The control SAP provides a control interface to access HomePlug GreenPHY specific data and configuration for network management.
+--------------------------------------------------------------------------------
+Entity: COUPLING TRANSFORMER
+Description: A coupling transformer is a device used to connect and transfer electrical energy between two circuits, often used in powerline communication systems to facilitate signal transmission
+A coupling transformer is a device used to connect and transfer electrical energy between circuits, often used in powerline communication systems to facilitate signal transmission
+--------------------------------------------------------------------------------
+Entity: DATA LINK LAYER
+Description: A layer in the network protocol stack responsible for node-to-node data transfer, error detection, and correction in the communication process.
+The data link layer, the second layer of the OSI model, is responsible for node-to-node data transfer, provides interfaces to higher layers, and ensures error detection and correction. Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements
+--------------------------------------------------------------------------------
+Entity: ELECTRIC VEHICLE
+Description: <|COMPLETE|>
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged through the grid
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can detect communication loss during charging
+An Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion and must comply with local frequency legislation through the EVSE
+An Electric Vehicle (EV) that initiates the signal strength measurement process
+An Electric Vehicle (EV) that participates in the validation process by sending and receiving protocol messages
+An Electric Vehicle, which is a type of vehicle powered by electric motors using energy stored in rechargeable batteries
+An electric vehicle that processes incoming messages and interacts with EVSEs during the parameter exchange and matching process
+An electric vehicle that requires connection to a communication module for charging and data exchange
+EV refers to Electric Vehicle, which is a type of vehicle that operates on electric power and participates in vehicle-to-grid communication
+EV refers to an Electric Vehicle, which is a type of vehicle that operates on electric power
+Electric Vehicle (EV) is a type of vehicle that operates using electric power instead of traditional fuel
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged via a power outlet
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can communicate with EVSE by sending public keys
+Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and is involved in the triggering process immediately after the plug-in of the cable assembly
+Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion, mentioned in the context of power flow with EVSE
+Electric Vehicle (EV) that connects to and disconnects from the logical network
+Electric Vehicle, a general term for vehicles that operate on electric power, including BEVs and PHEVs
+Electric Vehicle, a type of vehicle that is powered by electricity instead of traditional fuel sources
+Electric Vehicle, a type of vehicle that uses electric motors for propulsion and is capable of being charged through an external power source
+Electric Vehicle, which can decide whether to follow the EVSE's recommendation or proceed with the validation process
+Electric Vehicle, which initiates the validation process by sending a readiness signal
+Electric Vehicle, which interacts with EVSE for charging and communication processes
+Electric Vehicle, which is a type of vehicle powered by electricity and capable of interacting with EVSE for charging
+Electric Vehicle, which is capable of making decisions on how to proceed in certain situations
+Electric Vehicle, which is expected to be prepared for a forced restart by an EVSE during the T_conn_resetup waiting state
+Electric Vehicle, which is involved in the communication process and message exchanges in the test case
+Electric Vehicle, which is involved in the validation process and must perform certain actions based on the protocol message
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must adhere to specific requirements
+Electric Vehicle, which is involved in the vehicle-to-grid communication process and must continue the matching process if certain conditions are met
+Electric Vehicle, which is the recipient of charging and communication from the EVSE
+Electric Vehicle, which is the recipient of communication from the EVSE and must comply with certain PSD values
+Electric Vehicle, which is the recipient of the CM_SLAC_PARM.CNF message in the context of vehicle-to-grid communication
+Electric Vehicle, which is the recipient of the communication from the low-layer communication module
+Electric Vehicle, which is the subject of the protocol command to change its state
+Electric Vehicle, which is the subject of the requirement to continue with the communication process
+Electric Vehicle, which is the subject of the timers and validation process described
+Electric Vehicle, which is the type of vehicle involved in the matching process mentioned
+Electric Vehicle, which is the type of vehicle involved in the parallel injection process
+Electric Vehicle, which participates in the SLAC process and communicates with EVSE
+Electric Vehicle, which uses electricity as its primary source of propulsion
+Electric Vehicle, which uses the low-layer communication module for various communication processes
+Electric Vehicle, which uses the method to discover and select communication nodes based on signal strength
+An Electric Vehicle (EV) is powered by electric motors and batteries for propulsion, offering an alternative to internal combustion engine vehicles.
+An Electric Vehicle (EV) uses electric power for propulsion and is involved in vehicle-to-grid communication processes.
+EV stands for Electric Vehicle, which is powered by electricity and uses electric motors for propulsion instead of traditional fuel sources.
+Electric Vehicles (EVs), which are powered by electric motors, use energy stored in rechargeable batteries.
+An Electric Vehicle is a type of vehicle that operates using electric power stored in batteries and is powered by electric motors.
+Electric Vehicle, a type of vehicle powered by electricity.
+Electric Vehicle is involved in the validation process with Electric Vehicle Supply Equipment (EVSE).
+Electric Vehicles (EVs) are powered by electric motors and batteries instead of internal combustion engines.
+Electric Vehicles are a type of vehicle that use electric motors for propulsion and require charging infrastructure.
+An Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion, requires charging infrastructure like EVSE, and can communicate with it for charging and validation processes.
+Electric Vehicle (EV) is a type of vehicle that operates on electric power using electric motors for propulsion, powered by electricity stored in rechargeable batteries or fuel cells.
+--------------------------------------------------------------------------------
+Entity: EMC
+Description: Electromagnetic Compatibility, which refers to the ability of electrical equipment to function properly in its electromagnetic environment without introducing intolerable electromagnetic disturbances
+Electromagnetic Compatibility (EMC) refers to the ability of electrical equipment to function properly in its electromagnetic environment without introducing intolerable electromagnetic disturbances
+--------------------------------------------------------------------------------
+Entity: ESD
+Description: Electrostatic Discharge, a sudden flow of electricity between two electrically charged objects, which can affect electronic components
+--------------------------------------------------------------------------------
+Entity: ESD PROTECTION
+Description: Electrostatic Discharge (ESD) Protection refers to measures taken to prevent damage to electronic components from electrostatic discharge
+--------------------------------------------------------------------------------
+Entity: ETH SAP
+Description: A term referring to the Ethernet Service Access Point, which is a specific type of SAP used in network communications
+ETH SAP, or Ethernet Service Access Point, is a service access point in the data link layer that provides an interface for Ethernet communication to higher layers. The data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP].
+The convergence layer adapts the generic HomePlug Green PHY MAC to an IEEE 802.3 Ethernet II-class interface through the ETH SAP.
+--------------------------------------------------------------------------------
+Entity: ETHERNET II-CLASS SAP
+Description: Ethernet II-class SAP is a protocol that includes specific service primitives for data communication
+A Service Access Point (SAP) that provides Ethernet II framing for data communication between layers
+Ethernet II-class SAP is a technology that supports applications using Ethernet II class packets, which are a type of data packet used in network communications
+--------------------------------------------------------------------------------
+Entity: EVSE
+Description: Electric Vehicle Supply Equipment, which is the infrastructure that supplies electric energy for recharging electric vehicles and interacts with various signals and toggles
+Electric Vehicle Supply Equipment, which handles parallel matching processes and monitors control pilot states
+Electric Vehicle Supply Equipment involved in the communication process, particularly in sending and receiving specific messages
+Electric Vehicle Supply Equipment, which provides recommendations to the electric vehicle regarding the validation process
+Electric Vehicle Supply Equipment, which is responsible for receiving and processing messages in the vehicle-to-grid communication system
+Electric Vehicle Supply Equipment, which defines the maximum charge current for the vehicle in the HLC-C mode
+Electric Vehicle Supply Equipment that calculates signal strength based on M-SOUNDS
+Electric Vehicle Supply Equipment, which provides the interface between the electric vehicle and the power source, and can affect signal transmission
+Electric Vehicle Supply Equipment (EVSE) is the technology used to supply electric energy for recharging electric vehicles, specifically covered under modes 3 and 4 in this context
+<|COMPLETE|>
+Electric Vehicle Supply Equipment (EVSE) is the technology responsible for generating the valid duty cycle as per the IEC-1 standard
+Electric Vehicle Supply Equipment that communicates with EVs through messages like CM_ATTEN_CHAR.IND during the parameter exchange
+Electric Vehicle Supply Equipment, which supplies electric energy for recharging electric vehicles and participates in communication protocols
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can make decisions based on ID recognition
+Electric Vehicle Supply Equipment, which interacts with the EV during the validation process
+Electric Vehicle Supply Equipment (EVSE) is the technology that provides electric energy for recharging electric vehicles and can set a nominal duty cycle
+An Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles and can establish a point-to-point link with an EV using G3PLC technology
+Electric Vehicle Supply Equipment, which counts control pilot toggles and communicates results back to the EV
+Electric Vehicle Supply Equipment, which can force an EV to restart if it has implemented option A
+Electric Vehicle Supply Equipment, the infrastructure that supplies electric energy for recharging electric vehicles and participates in communication protocols like SLAC
+Electric Vehicle Supply Equipment provides the infrastructure for charging electric vehicles, offering both electrical energy and communication capabilities, including socket-outlets.
+Electric Vehicle Supply Equipment is involved in both matching and validation processes.
+Electric Vehicle Supply Equipment provides electric energy for recharging electric vehicles and includes communication capabilities.
+Electric Vehicle Supply Equipment provides the necessary infrastructure for charging electric vehicles.
+Electric Vehicle Supply Equipment (EVSE) supplies electric energy for recharging electric vehicles, manages communication with the vehicle, handles validation processes including power limitation requests, detects state variations on the control pilot line, ensures compliance with local legislation, and can switch states while connecting to a private network.
+Electric Vehicle Supply Equipment (EVSE) is the infrastructure that supplies electric energy for recharging electric vehicles, supports wake-up mechanisms, and facilitates communication with EVs.
+--------------------------------------------------------------------------------
+Entity: GREEN PHY MODEM
+Description: A Green PHY modem is a device that facilitates communication using the HomePlug Green PHY protocol
+A device within the EVSE that modulates and demodulates the HomePlug Green PHY signal for communication
+--------------------------------------------------------------------------------
+Entity: HOMEPLUG AV
+Description: HomePlug AV is a technology standard for powerline networking, allowing data transmission over electrical wiring within a home
+--------------------------------------------------------------------------------
+Entity: HOMEPLUG TECHNOLOGIES
+Description: HomePlug technologies refer to a family of specifications for powerline communication, allowing devices to communicate over the existing electrical wiring in a home
+--------------------------------------------------------------------------------
+Entity: IEC-1
+Description: A standard document that provides guidelines and specifications for electric vehicles and related technologies
+A standard document that includes specifications for the signal sequence used in EV-EVSE connections, particularly detailed in Annex A
+IEC-1 is a standard document that provides guidelines and requirements for electric vehicle operations, including state transitions
+IEC-1 is a standard document that defines maximum values for certain parameters, as referenced in Annex A
+IEC-1 is a standard document that outlines the requirements for basic signaling, including specific timings as detailed in Annex A
+A standard that provides guidelines for the functional assembly behind each socket outlet or connector in an electric vehicle connection
+IEC-1 is a standard document that is involved in implementation and synchronization processes
+A standard document that specifies the parameters for a valid duty cycle in the context of electric vehicle charging
+A standard that ensures compliance for electric vehicle charging systems
+IEC-1 is a standard document that includes specifications and schematics, such as those in Annex A, for defining control pilot signals
+IEC-1 is a standard that defines modes 3 and 4 for Electric Vehicle Supply Equipment (EVSE) with high-level communication capabilities
+IEC-1 is a standard that provides guidelines and specifications for electric vehicle charging systems, including the control pilot duty cycle
+A standard that defines basic signaling requirements for electric vehicle charging installations
+A standard document that defines control pilot duty cycles or states for electric vehicle charging
+A standard document that includes specifications for the control pilot line, particularly detailed in Annex A
+IEC-1 is a standard document that specifies component values and requirements for electrical implementations
+IEC-1 is a standard document that provides guidelines or requirements related to V2G setup and processes
+A standard that specifies the use of bidirectional signalling in the charging process of electric vehicles
+IEC-1 is a standard document that describes various processes and specifications, including those related to charging modes 3 and 4
+IEC-1 is a standard related to signalling, providing triggering and signalling means in hardware control paths
+A standard document that defines the parameters and conditions for cases A, B, and C in relation to the coupling drawing
+IEC-1 is a standard document that defines parameters such as CS and CV related to electrical characteristics
+A standard document that provides guidelines and specifications for managing the control pilot line on the EVSE side
+IEC-1, which refers to the IEC 61851-1 standard, is a document that outlines requirements for electric vehicle charging systems.
+--------------------------------------------------------------------------------
+Entity: IEEE
+Description: The Institute of Electrical and Electronics Engineers (IEEE) is a professional association that develops and publishes industry standards, including those referenced in ISO 15118‐3
+IEEE is an organization that defines standards and protocols, including the ISP for device coexistence
+<|COMPLETE|>
+Institute of Electrical and Electronics Engineers is a professional association dedicated to advancing technology and setting industry standards
+The Institute of Electrical and Electronics Engineers (IEEE) is a professional association that develops and publishes standards for a wide range of technologies
+The Institute of Electrical and Electronics Engineers (IEEE) is a professional organization dedicated to advancing technology for the benefit of humanity, known for developing standards in various technological fields and providing information on diverse technological topics.
+--------------------------------------------------------------------------------
+Entity: INDUCTOR L
+Description: An electrical component used to separate capacitive loads from high-frequency signals, such as those used in HomePlug Green PHY communication
+--------------------------------------------------------------------------------
+Entity: ISO 15118
+Description: An international standard defining communication protocols for electric vehicle charging
+An international standard for the communication interface between electric vehicles and the electric vehicle supply equipment
+ISO 15118 is a standard for vehicle-to-grid communication interface, which includes test suite conventions for verdict handling
+ISO 15118 is a standard for vehicle-to-grid communication interface, which includes definitions and explanations of unique terminologies
+A standard that defines the communication interface between electric vehicles and the electric vehicle supply equipment, focusing on the physical and data link layers
+ISO 15118 is a standard for the communication interface between electric vehicles and the electric vehicle supply equipment, focusing on conformance testing and interoperability
+ISO 15118 is a standard that covers communication protocols for electric vehicle charging, including both AC and DC use-cases
+ISO 15118 is a standard that covers the communication interface between electric vehicles and charging stations, including high-level communication modules for EVSEs
+ISO 15118 is a set of standards that describe the use cases and technical specifications for the Vehicle-to-Grid Communication Interface, aimed at optimizing energy resource use for electric road vehicles
+ISO 15118 is a standard for vehicle-to-grid communication interface, which includes test suite naming conventions for PICS/PIXIT identifiers
+A standard for vehicle-to-grid communication interface, which the conformance tests in Annex D and E are based on
+ISO 15118 is a standard that covers the overall information exchange between all actors involved in the electrical energy exchange, specifically applicable for manually connected conductive charging
+ISO 15118 is a part of the International Standards Organization's specifications, under which V2G standards fall
+An international standard for vehicle-to-grid communication interface defines the communication between electric vehicles and the grid.
+ISO 15118 is a standard for vehicle-to-grid communication interface that includes specifications for test suite modules and naming conventions for template identifiers, test case identifiers, modules, and function names.
+ISO 15118 is a series of international standards for vehicle-to-grid communication that specifies the requirements and protocols for the interface between electric vehicles, charging stations, and the grid, focusing on both charging and discharging. Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements
+Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements.
+--------------------------------------------------------------------------------
+Entity: ISO 15118-3
+Description: A standard that defines requirements and specifications for electric vehicle communication interfaces
+ISO 15118-3 is a standard that defines the communication protocol for electric vehicle charging, including power line communication signal measurement
+ISO 15118-3, part of the ISO 15118 series, defines the communication interface between electric vehicles and the grid, focusing on the physical and data link layers.
+ISO 15118-3, part of the ISO 15118 series, defines standards and specifies communication interface and protocol requirements for electric vehicles and electric vehicle supply equipment. Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements.
+Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements
+--------------------------------------------------------------------------------
+Entity: ISO 15118‐3
+Description: ISO 15118‐3 is a part of the International Standards Organization's series of standards for vehicle-to-grid communication interfaces, focusing on the power line communication (PLC) signal calibration and measurement procedures
+A part of the ISO 15118 series that defines requirements and configurations for electric vehicle communication
+A part of the ISO 15118 series that specifies the conformance requirements for communication between electric vehicles and charging infrastructure
+ISO 15118‐3 is a part of the International Standards Organization's specifications related to vehicle-to-grid communication, focusing on timeouts and performance times
+A standard used for conformance testing, particularly involving the SLAC codec
+ISO 15118-3 is a part of the ISO 15118 series, which defines standards for vehicle-to-grid communication interfaces
+ISO 15118-3, part of the ISO 15118 series from the International Standards Organization, defines the communication interface and conformance requirements for electric vehicles and electric vehicle supply equipment, addressing both charging and discharging purposes.
+--------------------------------------------------------------------------------
+Entity: ISP
+Description: ISP is a protocol defined by IEEE that allows coexistence between devices using non-interoperable protocols
+Intersystem Protocol is a protocol that facilitates communication between different systems and networks. [HPGP] implements the ISP as a coexistence mechanism. The ISP, defined by [IEEE], allows coexistence between devices that implement non-interoperable protocols.
+--------------------------------------------------------------------------------
+Entity: LOW PASS FILTERS
+Description: Low pass filters are electronic filters that allow low-frequency signals to pass while attenuating high-frequency signals
+--------------------------------------------------------------------------------
+Entity: LOW-LAYER COMMUNICATION MODULE
+Description: A component responsible for handling basic communication tasks at the lower layers of a network protocol stack, used in both EVSE and EV
+A module responsible for handling basic communication tasks at the lower layers of a communication protocol stack, particularly in vehicle-to-grid systems
+A module within the EVSE responsible for handling low-level communication tasks, such as configuring network identifiers and keys
+A communication module responsible for managing communication at a lower layer, particularly in charging stations with multiple outlets
+A component that needs to be configured as described in A.4.5 before the matching process begins
+A low-layer communication module is a technology component responsible for handling basic communication tasks in a network, as specified in the V2G3-A09-115 standard
+A component responsible for handling communication at the lower layers of a network protocol stack, often dealing with data transmission and reception
+A module responsible for handling basic communication tasks in a vehicle-to-grid system, which can be optionally unpowered
+A module responsible for handling the initial stages of communication in a system, particularly after a cable assembly is plugged in
+A low-layer communication module is a component responsible for handling basic communication tasks directly connected to the EVSE
+A component on the EVSE side responsible for handling basic communication tasks, including detecting the zero cross of the AC line cycle
+A module responsible for handling the basic communication protocols and message flows between devices in a network
+A component responsible for basic communication functions in an electric vehicle, which can be powered off during sleep mode
+A communication layer responsible for handling basic communication tasks, such as receiving the first SLAC message
+A component responsible for handling basic communication functions between the electric vehicle and the EVSE
+A component responsible for handling communication at a lower layer in the communication stack, particularly in vehicle-to-grid systems
+A communication module assigned locally to each socket-outlet on the EVSE side, responsible for handling low-level communication tasks
+A component in a communication system responsible for handling low-level data transmission tasks, including managing additional carriers and sending amplitude maps
+A component within a communication system responsible for handling low-level communication tasks, including adjusting transmission power
+A component of the EVSE responsible for handling communication at a basic network level, which can be configured to known logical network parameters
+A communication module responsible for handling low-level data exchange between an electric vehicle and the charging infrastructure
+A module responsible for establishing initial communication between the EVSE and the electric vehicle at a basic level
+A low-layer communication module is a component that handles the basic, foundational aspects of data transmission in a communication system
+A component in communication systems responsible for handling lower-level communication tasks, including power management and signal processing
+A module responsible for handling communication at a lower layer, crucial for processes like matching and responding to MMEs
+A module responsible for handling communication at the lower layers of a network, including joining and leaving logical networks
+A module responsible for handling communication protocols and data exchange between Electric Vehicles (EV) and Electric Vehicle Supply Equipment (EVSE), including message exchanges at the lowest level of the communication stack.
+A component of the EVSE responsible for handling both basic and low-level communication tasks, which may be powered off during sleep mode or switched into low-power mode.
+A module on the electric vehicle (EV) side responsible for handling basic communication functions.
+A module in an electric vehicle responsible for handling low-level communication tasks.
+A component of the EVSE responsible for handling basic communication tasks, protocols, and functions.
+A component that handles basic communication tasks and protocols at a lower level of the communication stack within a network.
+A module responsible for handling basic communication tasks and settings in a network, operating at lower layers of the communication protocol stack.
+A module responsible for handling communication at the lower layers of a network stack, essential for establishing connections and ensuring data transmission and reception, typically involving the data link and physical layers.
+--------------------------------------------------------------------------------
+Entity: MANAGER
+Description: A manager in this context refers to an entity or system responsible for overseeing and controlling the operations of a HomePlug Green PHY network
+--------------------------------------------------------------------------------
+Entity: MATCHING PROCESS
+Description: The procedure initiated after EIM authorization to ensure all parameters are aligned for operation
+The procedure described in Clause 9 that involves aligning or comparing elements to ensure compatibility or agreement)
+The process involved in matching communication messages and ensuring correct message exchange in a system
+The procedure to uniquely match an electric vehicle (EV) with a specific charge coupler of the EVSE
+The process that follows the parameter exchange, where the EV continues its operations based on the received messages
+The Matching process is a procedure to ensure successful communication and protocol matching between devices, often involving retries and confirmations
+A procedure that requires the low-layer communication module to be in a defined state before it can proceed
+The procedure involved in determining whether certain conditions or criteria are met, which can result in a pass or fail outcome
+The procedure by which an EV attempts to connect and communicate with an EVSE to establish compatibility
+The procedure involved in aligning or pairing systems or components, which can be interrupted if a plug out is detected
+The matching process involves the exchange of SLAC protocol messages to establish communication between devices
+The procedure followed by an EV to identify and connect with suitable Electric Vehicle Supply Equipment (EVSE) for charging
+A procedure involved in vehicle-to-grid communication that attempts to establish a connection or match between entities
+The procedure by which an EV and EVSE establish and validate a connection
+The procedure involved in matching an electric vehicle with an Electric Vehicle Supply Equipment (EVSE)
+The procedure involved in aligning or synchronizing certain parameters or operations between systems, in this context, related to electric vehicles
+The procedure involved in aligning or synchronizing certain parameters or states in vehicle-to-grid communication
+The Matching process is a procedure in the communication protocol testing that involves verifying the correct exchange of messages
+A procedure that determines the correct matching between an electric vehicle (EV) and an Electric Vehicle Supply Equipment (EVSE) by measuring signal strength
+The Matching Process is a procedure involved in a system or protocol, which requires error handling as indicated in the document
+A procedure involved in validating and establishing a connection between systems, which can be considered as failed under certain conditions
+A generic procedure described in Figure 10, with a full description available in the corresponding annex)
+A procedure that the electric vehicle (EV) must restart after the condition in V2G3-M07-16 is met
+The procedure involving the exchange of messages and parameters between an EV and the charging infrastructure to establish a successful connection
+<|COMPLETE|>
+A procedure to align the electric vehicle's charging needs with the available charging infrastructure capabilities
+A procedure in the vehicle-to-grid communication system where the electric vehicle aligns its communication with the grid or other systems
+The matching process is a procedure to ensure successful communication or connection between entities, such as an electric vehicle and the grid
+The procedure used to re-establish or verify connections after a loss of communication, similar to the process during the initial plug-in phase
+A procedure used to match certain parameters or conditions in a communication protocol, which can be considered failed if specific criteria are not met
+A procedure to align or synchronize communication between different modules or systems
+A procedure defined in section 6.4.3.2 that triggers the start condition of the TP_EV_SLAC_init timer
+The procedure involved in aligning or synchronizing systems or protocols, such as between an EVSE and a vehicle
+The procedure involved in ensuring successful communication and connection between an EVSE and other systems or vehicles
+A procedure involving the alignment or comparison of data or entities to find correspondences or similarities
+A process defined in Clause 6 that triggers the start condition of the timer TT_EVSE_SLAC_init
+The matching process is a procedure that evaluates the result field in CM_VALIDATE.REQ to determine if it is "ready" or not
+The procedure that an EVSE uses to identify and connect with multiple EVs simultaneously, ensuring proper communication and charging
+The procedure involved in ensuring that the local NMK on the EVSE side is set correctly before transitioning between states
+The procedure involved in establishing a communication link between an electric vehicle and the grid
+A procedure defined in the requirements for vehicle-to-grid communication, which involves matching certain parameters or conditions
+The procedure designed to facilitate communication between the low-layer communication module and the EVCC
+A procedure used to verify and validate certain conditions or parameters, potentially involving multiple attempts and retries
+The procedure of matching signal data to determine the presence of an EVSE
+The procedure during which the EVSE and the electric vehicle exchange messages to establish a communication link
+The procedure of aligning or verifying certain parameters or conditions to ensure compatibility or readiness for further actions
+The matching process is a procedure that aligns the capabilities and requirements of the EVSE and the electric vehicle before charging
+The procedure involved in restarting the data link connection to ensure proper communication
+The procedure at the MAC level to match and verify the contract ID for charging services
+The procedure involved in ensuring that the EVSE receives valid protocol messages for successful operation
+The procedure described in section 7.5 for setting up a connection between the EVSE and the vehicle
+A procedure that relies on messages defined in HPGP for its execution
+A procedure to align or verify certain parameters or conditions, which can fail if not completed successfully
+A procedure in the SLAC communication protocol to ensure successful connection and communication between devices
+The process of establishing communication between the electric vehicle and the charging station, which may be ongoing
+The matching process is a sequence of steps outlined in Figures A.1 and A.2, detailing the procedure from discovering low-layer communication modules to initiating nominal communication
+The procedure by which the EVSE and a vehicle establish a communication link and prepare for charging
+The procedure of re-establishing communication between the EV and the EVSE to ensure proper charging
+The procedure involved in establishing a connection between an electric vehicle and the supply equipment
+A procedure involved in establishing a connection or agreement between two entities in a communication protocol
+A procedure to ensure that the correct matching of communication parameters is achieved, considered failed if retries are exhausted
+The procedure involved in aligning or synchronizing systems or protocols, such as PnC and EIM, to ensure proper operation
+A procedure involved in the V2G3 standard that involves matching certain criteria or conditions
+The procedure of ensuring successful communication between modules, which involves sending requests and receiving confirmations
+The procedure used to align or correlate data or signals, which may produce ambiguous results under certain technical conditions
+The procedure involved in successfully pairing or aligning two or more systems or components, which in this context involves resetting timers and retry counters
+A procedure that is initiated by transitioning from one state to another, specifically from state A, E, or F to state Bx, Cx, or Dx
+The procedure involving the exchange of protocol messages between EVSE and another system to establish a successful communication link
+The procedure by which an electric vehicle (EV) determines compatibility with an EVSE for charging
+The procedure that ensures compatibility and synchronization between the EVSE and the electric vehicle begins when EIM is completed.
+The matching process involves communication and confirmation exchange between an EV and an EVSE to ensure compatibility and readiness for charging.
+The procedure for aligning or synchronizing HomePlug Green PHY devices ensures proper communication and functionality.
+--------------------------------------------------------------------------------
+Entity: NID
+Description: A term referring to a network identifier, used in the context of generating unique identifiers for communication sessions
+Network ID derived from the NMK by the EVSE, used for network identification and communication
+NID stands for Network Identifier, a variable value used in network communication to identify a network, with specific bits reserved for certain purposes
+Network Identifier, a parameter used in network communication to identify a specific network
+NID refers to a unique identifier generated for network communication purposes
+Network Identifier (NID) is a unique identifier used in network configurations, such as those involving EVSE
+Network Identifier (NID) is a unique identifier used to distinguish different networks, particularly in communication systems and logical networks.
+Nid is a network identifier used for secure communication and generating unique identifiers for network communication sessions.
+--------------------------------------------------------------------------------
+Entity: NOTCHED CARRIERS
+Description: Notched carriers refer to specific frequency bands that are used or avoided in communication technologies to prevent interference or optimize performance
+A term likely referring to a specific type of carrier with notches, possibly used in a technical or industrial context)
+<|COMPLETE|>
+A term referring to specific frequencies within a band that are intentionally reduced or eliminated to avoid interference
+--------------------------------------------------------------------------------
+Entity: PE (PROTECTIVE EARTH) WIRE
+Description: The Protective Earth wire is part of the electrical infrastructure, providing a path to ground for safety
+--------------------------------------------------------------------------------
+Entity: PE WIRES
+Description: PE wires, or Protective Earth wires, are part of the electrical infrastructure ensuring safety and grounding in electric vehicle charging systems
+--------------------------------------------------------------------------------
+Entity: PHYSICAL LAYER
+Description: The physical layer is responsible for the transmission and reception of raw data streams over a physical medium, utilizing OFDM modulation in the FCC band
+The layer responsible for the physical connection between devices and the transmission and reception of raw bit streams
+The physical layer, the first layer in the OSI model, is responsible for the physical connection between devices and the transmission and reception of raw bit streams.
+The first layer of the OSI model is responsible for the physical connection between devices and the transmission of raw data. Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements
+--------------------------------------------------------------------------------
+Entity: PLC SIGNAL
+Description: Power Line Communication (PLC) signal is a method of transmitting data over electrical power lines, utilized in electric vehicle charging systems and vehicle-to-grid communication. As defined in ISO 15118‐3, the power level of the PLC signal of a SUT has to be calibrated according to the attenuation characteristics specific to the SUT.
+--------------------------------------------------------------------------------
+Entity: POWER LINE COMMUNICATION
+Description: <|COMPLETE|>
+Power Line Communication, a communication technology that uses electrical wiring to transmit data
+Power line communication is a technology that allows data transmission over electrical power lines, utilizing the existing power infrastructure for communication purposes
+Power Line Communication (PLC) is a technology that enables simultaneous data transmission and electric power delivery over existing power lines, commonly used in electric vehicle charging systems, smart grids, home automation, and internet access.
+--------------------------------------------------------------------------------
+Entity: PRESCALER
+Description: A component or function within the HomePlug Green PHY chip that adjusts the transmission power to meet defined limits
+--------------------------------------------------------------------------------
+Entity: RELEASE VERSION 1.1.1
+Description: The specific version of the HomePlug Green PHY Specification that was released on July 4, 2013
+--------------------------------------------------------------------------------
+Entity: SIGNAL STRENGTH
+Description: Signal strength refers to the power level received by a communication device, indicating the quality and reliability of the connection
+A measure of the power level received by a communication device, indicating the quality of the connection
+--------------------------------------------------------------------------------
+Entity: SLAC
+Description: Signal Level Attenuation Characterization, a protocol used in the context of EVCC testing
+Signal Level Attenuation Characterization, a protocol used for measuring and characterizing signal attenuation in power line communication
+A protocol used for encoding in the given communication system
+Signal Level Attenuation Characterization, a protocol used in the context of SECC for communication and matching processes
+Signal Level Attenuation Characterization, a protocol used in the context of the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001
+SLAC is a protocol used for communication in electric vehicle charging, particularly for matching and session management
+<|COMPLETE|>
+Signal Level Attenuation Characterization (SLAC) is a process used for matching Plug-in Electric Vehicles (PEV) with Electric Vehicle Supply Equipment (EVSE)
+Signal Level Attenuation Characterization, a process or technology for which data structures are needed in Annex G
+Signal Level Attenuation Characterization (SLAC) is a process used in HomePlug Green PHY for network management, including link status and encryption key management
+Signal Level Attenuation Characterization is a protocol for measuring signal attenuation in electric vehicle charging systems and communication, including matching and validation processes, specifically in power line communication.
+Signal Level Attenuation Characterization is a process, technology, and protocol used to measure, assess, and manage signal attenuation in communication systems.
+SLAC is a protocol used in power line and electric vehicle communication to measure, characterize, and manage signal attenuation, ensuring compatibility and proper data transmission between devices.
+SLAC (Signal Level Attenuation Characterization) is a protocol used in electric vehicle communication and power line networks to manage signal quality, characterize signal attenuation, ensure reliable data transmission, establish connections, and facilitate matching between vehicles and charging stations. The signal strength measurement method to be used is the SLAC defined in the [HPGP].
+--------------------------------------------------------------------------------
+Entity: SPECIFICATION
+Description: A complete and independent document detailing the actions required to achieve a specific test purpose
+A detailed description of the design and materials used to make something, in this context, it refers to the HomePlug Green PHY standard
+A document that provides detailed guidelines or rules for communication behavior
+A detailed description of the criteria and conditions that a system or component must meet, ensuring that executable test cases can be run independently and start and finish in an "idle" state
+A detailed description of the design and materials used to make something, which the implementation or system is claimed to conform to
+A detailed description of the criteria and conditions that must be met to enable a test verdict to be assigned unambiguously to each potentially observable test outcome
+A detailed description of the criteria and conditions that the Abstract Test Method must meet, including starting and ending in stable testing states
+--------------------------------------------------------------------------------
+Entity: TRANSMISSION LINE
+Description: A path considered for high frequency signals, such as those used in HomePlug Green PHY technology, to ensure effective communication
+--------------------------------------------------------------------------------
+Entity: TRANSMISSION PATH
+Description: The typical route or method through which the HomePlug Green PHY signal is transmitted, including considerations for power spectral densities (PSDs), attenuations, and measurement procedures
+The route or medium through which the PLC signal travels, including various components that may affect signal quality
+--------------------------------------------------------------------------------
+Entity: TRANSMISSION POWER
+Description: The specified power level that a communication module must adhere to for effective data transmission
+The requirement that the transmission power should be adjusted to fit within specified limits
+--------------------------------------------------------------------------------
+Entity: TTCN-3
+Description: TTCN-3 is a testing language used for defining test cases and values, into which MME frames are decoded by the SLAC codec
+TTCN-3 is a standard for testing and test control notation, used for defining data structures and representations for testing purposes
+<|COMPLETE|>
+TTCN-3 is a standardized test specification language used for defining test configurations and executing test cases
+TTCN-3 is a testing language used for defining test cases and verdicts in the ISO 15118 test suite
+Testing and Test Control Notation version 3 (TTCN-3) is a technology and standard for testing communication protocols and systems, used for defining test scripts and test cases.
+TTCN-3 is a standardized testing technology used for defining and executing test cases and test suites for communication protocols and systems, particularly in telecommunications, and includes the encoding of values.
+--------------------------------------------------------------------------------
+Entity: V CP_EV
+Description: A term that might refer to a voltage control point or configuration related to an Electric Vehicle (EV)
+VCP_EV refers to a measurement point for HomePlug Green PHY signals at the Electric Vehicle
+--------------------------------------------------------------------------------
+Entity: V CP_EVSE
+Description: A term that might refer to a voltage control point or configuration related to Electric Vehicle Supply Equipment (EVSE)
+VCP_EVSE refers to a measurement point for HomePlug Green PHY signals at the Electric Vehicle Supply Equipment
+--------------------------------------------------------------------------------
+Entity: V2G3-A11-01
+Description: A specific technical requirement that involves the implementation of HomePlug Green PHY chips for communication between an Electric Vehicle Supply Equipment (EVSE) and an Electric Vehicle (EV) using a control pilot wire
+--------------------------------------------------------------------------------
+Entity: V2G3-A11-02
+Description: V2G3-A11-02 is a specific standard related to vehicle-to-grid communication, particularly concerning the parallel injection of signals
+--------------------------------------------------------------------------------
+Entity: V2G3-A11-03
+Description: V2G3-A11-03 is a specific standard related to vehicle-to-grid communication, particularly concerning the wiring and signal integrity in electric vehicle supply equipment
+--------------------------------------------------------------------------------
+Entity: V2G3-A11-04
+Description: A specific requirement related to the parallel injection process in vehicle-to-grid communication, detailing how the HomePlug Green PHY injection circuit should be wired on the EV side
+--------------------------------------------------------------------------------
+Entity: V2G3-A11-05
+Description: A specific requirement that HomePlug Green PHY must work with any valid control pilot duty cycle or state
+--------------------------------------------------------------------------------
+Entity: V2G3-A11-06
+Description: A specific requirement related to the implementation of voltage level and duty cycle of the control pilot raw signal on the EVSE side
+--------------------------------------------------------------------------------
+
+
+TABLE INFORMATION:
+Table 1: A.11.3 Signal requirements for HomePlug Green PHY injection - Table A.11 — Definition of electrical characteristics
+
+TEXTUAL INFORMATION:
+Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - HPGP HomePlug Green PHY
+Text 2: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV
+Text 3: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage.
+Text 4: A.11.1 Overview (Context: A.11.1 Overview > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause.
+Text 5: A.11.2 General drawing for HomePlug Green PHY injection (Context: A.11.2 General drawing for HomePlug Green PHY injection > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - All technical requirements described in this Clause are assumed to have a dedi- cated pair of HomePlug Green PHY chips implemented for the couple (EVSE, EV), linked by a control pilot wire. Figure A.10 depicts an implementation of parallel injection and gives definitions used further.
+
+Image Description for Figure A.10:
+## Figure A.10 — Implementation of Parallel Injection
+
+Below is a detailed description of each labeled element in the schematic and how they interconnect. Although this figure is presented as a circuit diagram (rather than a traditional “flowchart”), the step-by-step structure below will help you follow the signal path and understand how each component relates to the others. This diagram shows how HomePlug Green PHY signals are injected in parallel (between the Control Pilot line and ground/earth) for communication between the EVSE and EV.
+
+---
+
+### 1. Entities Overview
+
+1. **EVSE (Electric Vehicle Supply Equipment)**  
+   The left rectangular region represents the EVSE side. It provides the ±12 V, 1 kHz control pilot signal, measures voltage on the pilot line, injects and receives PLC (Power Line Communication) signals via a Green PHY modem, and references Earth (ground).
+
+2. **EV (Electric Vehicle)**  
+   The right rectangular region is the EV side. It also includes a Green PHY modem and supporting components for parallel injection and measurement of the control pilot signal (duty cycle and frequency). The EV’s contactors and internal circuitry ultimately use the pilot to detect charging states and enable communication.
+
+3. **Oscillator ±12 V, 1 kHz (Key #2)**  
+   Generates the low-frequency (1 kHz) PWM control pilot signal. This signal is crucial for basic control pilot functions prescribed by IEC 61851 (e.g., indicating EV readiness or maximum current availability).
+
+4. **Pilot Contact (Key #3)**  
+   The pilot contact is effectively the point where the EVSE’s control pilot line is physically connected to the corresponding pilot input on the EV side (through the charging cable and coupler).
+
+5. **R1 1 k (on EVSE side)**  
+   A series resistor (1 kΩ) connected to the oscillator output. It helps set the correct pilot voltage levels and limits current.
+
+6. **C_S (on EVSE side)**  
+   Often called the “control pilot capacitor” in IEC standards. It shapes the pilot signal to comply with specific requirements and influences the total capacitive behavior on the pilot line.
+
+7. **Green PHY Modems (Key #5)**  
+   Both the EVSE and EV sides include a Green PHY modem. These modems handle high-frequency HomePlug Green PHY (HPGP) communication on top of the pilot line. Each modem is shown in a dashed box on both sides (the rectangle labeled “5”).
+
+8. **R_damp (Damping Resistor) and L (Inductor)**  
+   Each side has an R_damp and L in series, forming part of the low-pass filter for the pilot signal (the LC network) and a high-pass path for the HomePlug Green PHY signals. R_damp prevents or limits resonance in the LC filter.
+
+9. **C_PLC (Coupling Capacitors to the Green PHY Modem)**  
+   These capacitors provide a high-frequency coupling path for the Green PHY signals from the pilot line into the modem, while isolating low-frequency or DC components.
+
+10. **C_v (EV side)**  
+   Defined in IEC documents, C_v is another capacitor related to the detection/measuring circuit inside the EV, usually affecting pilot line diagnostics or measurements.
+
+11. **R2, R3, and S2 (EV side)**  
+   — **R2 and R3**: Resistors on the EV side pilot circuitry, used for pilot line detection, current sensing, or dividing voltages for pilot sensing.  
+   — **S2**: A switch (or contact) that can open/close for pilot line control or internal EV states.
+
+12. **Voltage Measurement (Key #1)**  
+   Indicates that the EVSE side monitors pilot voltage levels for compliance with control pilot specifications (e.g., states A, B, C in IEC 61851).
+
+13. **Earth (ground) (Key #4)**  
+   The reference earth or protective earth (PE). The high-frequency signal is injected between the pilot line and earth/ground. This ensures the HomePlug Green PHY signals have a proper return path.
+
+14. **Duty Cycle and Frequency Measurement (Key #6)**  
+   On the EV side, the duty cycle and frequency measurement block monitors the PWM characteristics of the pilot signal (i.e., the 1 kHz, ±12 V waveform) to interpret the EVSE’s indication of available current and other pilot states.
+
+15. **Additional Components for PLC Coupling**  
+   Shown as a dashed region, these might include filters, ESD protection, or EMC compliance parts. They should not degrade the HomePlug Green PHY signals beyond stated limits.
+
+---
+
+### 2. Step-by-Step Signal Flow and Connections
+
+Even though this is a circuit schematic rather than a traditional flowchart, we can describe how signals traverse or how each function occurs in succession:
+
+1. **Pilot Signal Generation (EVSE side)**  
+   - The **oscillator (±12 V, 1 kHz)** produces the control pilot waveform.  
+   - The pilot waveform goes through **R1 (1 kΩ)** and **C_S**, shaping the signal and ensuring correct amplitude as per IEC requirements.
+
+2. **Pilot Line Connection to Green PHY Modem (EVSE side)**  
+   - The **pilot line** is also branched through the **LC filter** formed by **L** (inductor) and **R_damp** (damping resistor) to the **C_PLC** capacitor.  
+   - **C_PLC** feeds the **Green PHY modem**, allowing high-frequency components (the HPGP signal) to pass to/from the modem but blocking the lower-frequency 1 kHz pilot wave from saturating the modem.
+
+3. **Voltage Measurement (EVSE side)**  
+   - The EVSE monitors the pilot voltage (labeled Key #1) to verify pilot states, detect EV presence, and measure any duty cycle references required by the standard.
+
+4. **Pilot Contact (Connector) Between EVSE and EV (Key #3)**  
+   - The pilot line physically transitions from the EVSE circuit to the EV circuit at the **pilot contact**. This is typically inside the charging cable and coupler.
+
+5. **Green PHY Parallel Injection Path to Earth (EV Side)**  
+   - On reaching the EV side, the pilot line splits:  
+     - One path continues into the EV’s measurement and pilot control logic (through R3, R2, and possibly S2).  
+     - Another path branches through another LC filter stage (**L**, **R_damp**, **C_PLC**) to the **Green PHY modem** on the EV side. The parallel injection is again between the pilot line and **earth/ground**.  
+   - The diode shown in the pilot line (on the EV side) can be part of the standard pilot detection or protective circuitry.
+
+6. **Duty Cycle and Frequency Measurement (EV side, Key #6)**  
+   - The EV needs to interpret the EVSE’s PWM signal to understand the available current or states (A, B, C, etc.). Thus, there is a block that directly measures the pilot’s duty cycle and frequency once it has passed through the EV’s front-end components.
+
+7. **S2 (EV side switch)**  
+   - **S2** may engage or disengage certain parts of the EV’s pilot circuitry, depending on the EV’s state (e.g., if the EV is ready to charge or certain fault conditions). When closed, the pilot circuit is fully connected; when open, the pilot circuit is interrupted.
+
+8. **Additional Components for PLC Coupling**  
+   - Finally, any **additional PLC coupling** components (EMC filters, ESD protection, etc.) are placed so they do not adversely affect the high-frequency Green PHY signals or the low-frequency pilot signal. They must maintain compliance with the emission and immunity constraints (A.10 EMC requirements and others cited in ISO 15118-3).
+
+---
+
+### 3. Relationship and Purpose of Each Section
+
+- **Low-Frequency Pilot Signal Path (1 kHz)**  
+  Passes through R1, C_S, the pilot contact, R2, R3, and S2 (when closed). The EVSE and EV measure this pilot for verifying connection status, charging states, and maximum current availability.
+
+- **High-Frequency Communication Path (HomePlug Green PHY)**  
+  Injected in parallel to earth at both the EVSE and EV sides via the LC filters (L, R_damp, and C_PLC). These filters isolate the 1 kHz pilot wave from the modem but allow the higher-frequency data signals to travel between the two Green PHY modems.
+
+- **Filtering and EMC Considerations**  
+  Inductors, damping resistors, and capacitors create low-pass filtering for pilot signals and high-pass filtering for the PLC signals. This design ensures that high-frequency data does not overly distort the control pilot, while the pilot line remains within standard requirements (IEC 61851, ISO 15118-3, etc.).
+
+- **Measurement Points**  
+  Key #1 (voltage measurement) and Key #6 (duty cycle/frequency measurement) denote where the EVSE and EV measure the pilot signal. In each case, there may be a low-pass filter recommended to remove the high-frequency components from the measurement path (per the notes in ISO 15118-3).
+
+---
+
+### 4. Summary
+
+Figure A.10 demonstrates an example implementation of “parallel injection” for HomePlug Green PHY signals onto the control pilot line:
+
+- The **EVSE** supplies the main pilot signal via an oscillator and monitors pilot voltage.  
+- **Parallel injection** ensures both the EVSE and EV couple the high-frequency Green PHY signals between the pilot and ground.  
+- **Low-pass + high-pass filtering** (with L, R_damp, and capacitors) allows the 1 kHz pilot control signal to pass unimpeded while at the same time guiding the high-frequency Green PHY data to each modem.  
+- **Duty-cycle/frequency measurements** are taken by both sides (the EVSE monitors the raw pilot voltage; the EV monitors duty cycle) while the high-frequency data is superimposed.  
+
+Through these components and connections, the system meets the dual requirements of standard pilot signaling (for charging states) and HomePlug Green PHY communication (for vehicle-to-grid data exchange) on the same control pilot conductor.
+
+Text 6: A.11.3 Signal requirements for HomePlug Green PHY injection (Context: A.11.3 Signal requirements for HomePlug Green PHY injection > A.11 Signal coupling > Annex A (normative) HomePlug Green PHY on control pilot line) - Table A.11 gives requirements that physical signals shall comply with, in order to enable HomePlug Green PHY injection into the control pilot line, according to previous requirements.
+
+ADDITIONAL CONTEXT:
+Related Information 1: MME Management Message Entry (sibling of Text 1)
+Related Information 2: PE Protective Earth (sibling of Text 1)
+Related Information 3: PLC Power Line Communication (sibling of Text 1)
+Related Information 4: PnC Plug and Charge (as defined in ISO 15118-1) (sibling of Text 1)
+Related Information 5: QPSK Quadrature Phase Shift Keying (sibling of Text 1)
+Related Information 6: SAP Service Access Point (sibling of Text 1)
+Related Information 7: SE Supply Equipment (sibling of Text 1)
+Related Information 8: SLAC Signal Level Attenuation Characterization (sibling of Text 1)
+Contextual Information 1: 4 Symbols and abbreviated terms (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 3: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 1)
+Related Information 9: The HomePlug Green PHY signals on the control pilot line are compliant with [HPGP] except the signal coupling, signal levels, and carrier usage. (sibling of Text 2)
+Related Information 10: As HomePlug Green PHY signal’s coupling is directly linked to the control pilot, the schematic in [IEC-1], Annex A specification is basis for definitions regarding the control pilot signal. (sibling of Text 2)
+Related Information 11: To enable HomePlug Green PHY injection, the path from EVSE’s output to EV’s input should not be considered as capacitive only as it is sufficient for the low frequency control pilot signal. For high frequency HomePlug Green PHY, the path should be considered as a transmission line. To take the high frequency into account, the control pilot circuit and the component values have to be specified in more detail. (sibling of Text 2)
+Related Information 12: For the control pilot line, the additional capacity of the HomePlug Green PHY coupling circuit has to be considered. For the HomePlug Green PHY signal, the partitioning of the capacitive load of the EV, EVSE, and the charge cord is important and is detailed in this Clause. (sibling of Text 2)
+Contextual Information 4: A.11.1 Overview (ancestor of Text 2)
+Contextual Information 5: A.11 Signal coupling (ancestor of Text 2)
+Contextual Information 6: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Text 2)
+Related Information 13: This Clause defines the requirements that have to be fulfilled in order to inject HomePlug Green PHY signals into the control pilot line to enable bidirectional HomePlug Green PHY communication between one EVSE and one EV. (sibling of Text 3)
+Related Information 14: C S R Damp L C PLC V CP_EVSE V CP_EV R Damp L C PLC C V R1 EVSE 1k R2 R3 S2 EV 1 3 4 5 5 2 6 (sibling of Text 5)
+Contextual Information 7: A.11.2 General drawing for HomePlug Green PHY injection (ancestor of Text 5)
+Related Information 15: NOTE The HomePlug Green PHY signal has to be added to control pilot signal on the control pilot line. The resulting signal should be the algebraic sum of PWM control pilot signal and of the HomePlug Green PHY signals. (sibling of Text 6)
+Related Information 16: [V2G3-A11-07] The control pilot line and the PE wires shall be considered as a transmission line for the HomePlug Green PHY signal; as defined in Table A.11. (sibling of Text 6)
+Related Information 17: Table A.11 — Definition of electrical characteristics (sibling of Text 6)
+Related Information 18: Table A.11 — Definition of electrical characteristics <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Conditions and comments</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typ</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <td colspan="1" rowspan="1">Note</td> <tr> <td colspan="1" rowspan="1">Length of the cable assembly</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">10</td> <td colspan="1" rowspan="1">m</td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">CPLC</td> <td colspan="1" rowspan="1">See definition above</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">1,35</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nF</td> <td colspan="1" rowspan="1">3,4</td> </tr> <tr> <td colspan="1" rowspan="1">RDamp</td> <td colspan="1" rowspan="1">See definition above</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">220</td> <td colspan="1" rowspan="1">1 k</td> <td colspan="1" rowspan="1">Ω</td> <td colspan="1" rowspan="1">3,4</td> </tr> <tr> <td colspan="1" rowspan="1">L</td> <td colspan="1" rowspan="1">See definition above</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">220</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">µH</td> <td colspan="1" rowspan="1">3,4</td> </tr> <tr> <td colspan="1" rowspan="1">CS</td> <td colspan="1" rowspan="1">See definition in [IEC-1]</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">pF</td> <td colspan="1" rowspan="1">1,3,4</td> </tr> <tr> <td colspan="1" rowspan="1">CV</td> <td colspan="1" rowspan="1">See definition in [IEC-1]</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">pF</td> <td colspan="1" rowspan="1">1,3,4</td> </tr> <tr> <td colspan="1" rowspan="1">Power Spectral Density of Home-&lt;br&gt;Plug Green PHY signals at VCP_EVSE&lt;br&gt;and VCP_EV&lt;br&gt;Measurement method defined in&lt;br&gt;A.9.4.2</td> <td colspan="1" rowspan="1">From 1,8 MHz to 30 MHz,&lt;br&gt;RBW = 9 kHz on 50 Ω.&lt;br&gt;Non-notched carriers</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">−75</td> <td colspan="1" rowspan="1">−73</td> <td colspan="1" rowspan="1">dBm/&lt;br&gt;Hz</td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">Peak-Peak Voltage of HomePlug&lt;br&gt;Green PHY signals at VCP_EVSE and&lt;br&gt;VCP_EV</td> <td colspan="1" rowspan="1">Control pilot signal steady at&lt;br&gt;high or low level – 1 low-layer&lt;br&gt;communciation actually emit-&lt;br&gt;ting at a time (peak to peak) –&lt;br&gt;EV connected to the EVSE with&lt;br&gt;the cable assembly.&lt;br&gt;Measured at max PSD level&lt;br&gt;with example of injection cir-&lt;br&gt;cuit given below</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">1,3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">Vpp</td> <td colspan="1" rowspan="1">2,3</td> </tr> <tr> <td colspan="1" rowspan="1">Conducted crosstalk from control&lt;br&gt;pilot line to the mains (through&lt;br&gt;power supply)&lt;br&gt;(measured between any live or&lt;br&gt;neutral wire and PE/CP)</td> <td colspan="1" rowspan="1">From 2 MHz to 28 MHz</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">−40</td> <td colspan="1" rowspan="1">dB</td> <td colspan="1" rowspan="1"></td> </tr> </table> (sibling of Text 6)
+Related Information 19: NOTE 1 Any capacity on the control pilot line which is directly connected between the control pilot line and ground should be as small as possible, not to attenuate the HomePlug Green PHY signal in an excessive way. Most of the capacitive load should be separated from the high frequency HomePlug Green PHY with the inductor L. (sibling of Text 6)
+Related Information 20: NOTE 2 At given impedance, the maximum peak to peak amplitude is directly linked to the PSD, also defined in Table A.11. For the purpose of limiting the impact of the high frequency signal on the control pilot line, a simplification from definition in frequency domain to a peak-to-peak voltage is sufficient. (sibling of Text 6)
+Related Information 21: NOTE 3 The maximum values are defined by [IEC-1], Annex A. NOTE 4 These parameters are to be considered with parallel injection only, as defined in Figure A.10. (sibling of Text 6)
+Contextual Information 8: A.11.3 Signal requirements for HomePlug Green PHY injection (ancestor of Text 6)
+Related Information 22: Table A.11 gives requirements that physical signals shall comply with, in order to enable HomePlug Green PHY injection into the control pilot line, according to previous requirements. (sibling of Table 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
+
+
+Question: What is HPGP?
+
+Above is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.

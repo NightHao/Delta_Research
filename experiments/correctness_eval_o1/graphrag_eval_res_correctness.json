@@ -1,0 +1,152 @@
+[
+    {
+        "question": "What is HPGP?",
+        "score": 0.5,
+        "reason": "No contradictions between Actual and Expected, but Actual Output does not include several technical details highlighted in Expected Output (e.g., reduced data rate specifics, coupling circuit, SLAC, security features) and thus omits important aspects discussed under the control pilot line and broader HomePlug functionalities."
+    },
+    {
+        "question": "What is SLAC?",
+        "score": 0.4,
+        "reason": "Though no factual contradictions appear, the Actual Output omits significant details from the Expected Output (e.g., reference to HomePlug Green PHY, multiple SLAC attenuation measurement messages, and matching steps), reducing completeness."
+    },
+    {
+        "question": "What is Logical Network?",
+        "score": 0.5,
+        "reason": "In the Input, we asked about \u2018Logical Network.\u2019 The Actual Output covers encryption, states, and membership (e.g., shared network key, SLAC), but omits layer 2 details, multiple networks on one medium, and a central coordinator from the Expected Output, so it loses points for those omissions."
+    },
+    {
+        "question": "What is CCo?",
+        "score": 0.4,
+        "reason": "Although there is no direct contradiction, the Actual Output only mentions communication under ISO 15118-3 without addressing the Central Coordinator role or network management responsibilities found in the Expected Output, causing omission of important details from the Input\u2019s question."
+    },
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 0.9,
+        "reason": "No contradictions between Actual Output and Expected Output; Actual Output references HPGP for Data SAP, while Expected Output identifies it as 'ETH SAP' and mentions flow control for Data Link Control SAP, which is not spelled out in Actual Output."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.6,
+        "reason": "No conflicting facts, but actual output omits key expected details like IEC 61851-1, ISO 15118-3 references, fallback usage, and advanced identification. It covers basic vs. high-level communication yet lacks PWM/control pilot specifics mentioned in the expected output."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.0,
+        "reason": "The actual output describes MTC/PTC as \u2018Mandatory/Performance Test Cases,\u2019 contradicting the expected \u2018Main/Parallel Test Component\u2019 definitions and omitting crucial details about test environment orchestration and real-time monitoring from the expected output."
+    },
+    {
+        "question": "What is ATS?",
+        "score": 0.2,
+        "reason": "The input requests a definition of ATS, yet the actual output only suggests it might be about testing/validation without stating it is an Abstract Test Suite or detailing scope, coverage, and usage as in the expected output."
+    },
+    {
+        "question": "What is TSS?",
+        "score": 0.3,
+        "reason": "In the Input, TSS refers to 'Test Suite Structure,' but in the Actual Output it's called a 'Test System' and lacks the ISO 15118 section 7.2, PICS/PIXIT, and naming conventions details from the Expected Output, indicating significant omission."
+    },
+    {
+        "question": "What is EIM?",
+        "score": 0.3,
+        "reason": "From the Input question about EIM, the Actual Output references ISO 15118-3:2015(E) instead of ISO 15118-1 in the Expected Output and omits details like AC/DC usage and pre-plug identification, which the Expected Output highlights."
+    },
+    {
+        "question": "What is CM_START_ATTEN_CHAR.IND?",
+        "score": 0.4,
+        "reason": "The Actual Output does not clarify that the EV is the sender and EVSE is the recipient, nor does it mention SLAC or timing constraints from the Expected Output. It omits many details (e.g., requirement references, TT_match_sequence) while only partially describing the process from the Input."
+    },
+    {
+        "question": "What is CM_MNBC_SOUND.IND?",
+        "score": 0.3,
+        "reason": "No direct contradictions, but the Actual Output omits critical SLAC, EV/EVSE, and power\u2010line communication details described in the Expected Output (e.g., C_EV_match_MNBC times, TP_EV_batch_msg_interval, RUNID), which are essential for fully answering the Input."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.IND?",
+        "score": 0.5,
+        "reason": "No direct contradictions, but the Actual Output omits several key fields (e.g., NUM_SOUNDS, SOURCE_ADDRESS) and the fact that CM_ATTEN_CHAR.IND usually comes from the EVSE with a corresponding RSP. It also misses SLAC-specific details about ignoring the message if NUM_SOUNDS=0. While it references TT_EV_ATTEN_RESULTS_TIMER and some test cases, it is less detailed than the Expected Output."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.RSP?",
+        "score": 0.3,
+        "reason": "The Actual Output says CM_ATTEN_CHAR.RSP is sent after TT_MATCH_RESPONSE_TIMER expires, contradicting the Expected Output\u2019s requirement that it be received within TT_match_response. It also omits that it is a direct reply to CM_ATTEN_CHAR.IND and misses key SLAC details stated in the Expected Output."
+    },
+    {
+        "question": "What is CM_ATTEN_PROFILE.IND?",
+        "score": 0.2,
+        "reason": "The Actual Output admits having no information on CM_ATTEN_PROFILE.IND, while the Expected Output specifically describes it as a protocol message with an associated TT_EVSE_MATCH_MNBC timer. This key detail from the Input question is omitted, resulting in a significant lack of alignment with the Expected Output."
+    },
+    {
+        "question": "What is CM_VALIDATE.REQ?",
+        "score": 0.5,
+        "reason": "The Actual Output aligns with the Expected Output on basic ISO standard coverage and test-case role, but it omits key details (e.g. timer fields, retry conditions, and explicit mention of the EV typically sending it) that the Expected Output provides."
+    },
+    {
+        "question": "What is CM_VALIDATE.CNF?",
+        "score": 0.6,
+        "reason": "The Actual Output aligns with the Input and does not contradict the Expected Output, but it omits fields like \u201cResult\u201d and \u201cToggleNum,\u201d as well as timing and resend details mentioned in the Expected Output."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.REQ?",
+        "score": 0.4,
+        "reason": "The input asks about CM_SLAC_MATCH.REQ; the actual output correctly references ISO 15118-3:2015:IS and a matching process but omits key details (e.g., runID, MAC addresses, trigger timers) that the expected output describes (such as TT_EVSE_match_session and retries)."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.CNF?",
+        "score": 0.5,
+        "reason": "Input asked about CM_SLAC_MATCH.CNF. The actual output described it as a confirmation message focusing on a Test System and TT_match_join, but did not mention it is typically sent by the EVSE to the EV in direct response to CM_SLAC_MATCH.REQ (as in the expected output). It also omitted specific timing details (TT_match_response) and ignoring invalid content that the expected output highlighted."
+    },
+    {
+        "question": "What is CM_SET_KEY.REQ?",
+        "score": 0.2,
+        "reason": "The Actual Output says no details exist for CM_SET_KEY.REQ, contradicting the Expected Output, which clearly states it's an MME for setting or updating network keys (e.g., NMK). This also omits key information requested in the Input."
+    },
+    {
+        "question": "What is CM_SET_KEY.CNF?",
+        "score": 0.8,
+        "reason": "The input asks about CM_SET_KEY.CNF, the actual output discusses its potential as a confirmation message for key-setting but does not mention the negative response handling or the explicit post-CM_SLAC_MATCH.CNF usage cited in the expected output."
+    },
+    {
+        "question": "What is CM_AMP_MAP.REQ?",
+        "score": 0.3,
+        "reason": "From the Input asking about CM_AMP_MAP.REQ, the Actual Output omits crucial details from the Expected Output (e.g., \u221250 dBm/Hz baseline, AMDATA field, and retransmission info), though it does not contradict them."
+    },
+    {
+        "question": "What is CM_AMP_MAP.CNF?",
+        "score": 0.4,
+        "reason": "The actual output does not contradict the expected facts but omits key details from the expected output, such as explicit HPGP references, MME definitions, result codes (0x00, 0x01, etc.), and the TT_MATCH_RESPONSE timer. While the actual output references ISO 15118 and test cases, it lacks the more specific HPGP protocol details and timing constraints noted in the expected output."
+    },
+    {
+        "question": "What is D-LINK_READY.indication?",
+        "score": 0.5,
+        "reason": "No contradictions found, but the Actual Output omits details about the specific triggers (Matching state), timing references (TP_link_ready_notification, TT_AMP_MAP_EXCHANGE), and requirements (V2G3-A09-117, V2G3-A09-120) mentioned in the Expected Output, even though both discuss signaling link changes for EV communication."
+    },
+    {
+        "question": "What is D-LINK_TERMINATE.request?",
+        "score": 0.8,
+        "reason": "No contradictions found; Actual Output covers ISO 15118 references, EV\u2013EVSE communication, and resetting link state (matching the Expected Output). However, it omits key information about TP_match_leave timing and V2G3 references present in the Expected Output."
+    },
+    {
+        "question": "What is D-LINK_ERROR.request?",
+        "score": 0.7,
+        "reason": "Input asks about D-LINK_ERROR.request. The Actual Output correctly explains its role but omits Expected Output details such as control pilot transitions, V2G3-M07 specifications, and specific state-based handling. No factual contradictions are present, yet key information from the Expected Output is missing."
+    },
+    {
+        "question": "What is D-LINK_PAUSE.request?",
+        "score": 0.5,
+        "reason": "The actual output matches the input and expected output on power-saving mode and maintaining a matched link, but it omits critical expected details (e.g., V2G3-M07-20 reference, control pilot state X1, EV and EVSE actions)."
+    },
+    {
+        "question": "What is the system architecture of Vehicle-to-Grid?",
+        "score": 0.4,
+        "reason": "The actual output references ISO 15118-3:2015(E) but omits details on EVCC/SECC controllers, AC/DC distinctions, test cases (e.g., SessionStopReq), bidirectional power flow, and B1/B2 transitions noted in the expected output. No direct contradictions, but key details are missing."
+    },
+    {
+        "question": "What is CM_SLAC_PARM.REQ?",
+        "score": 0.6,
+        "reason": "In the Actual Output, there is alignment with the Input on test cases and RunID, but it omits many details (e.g., timers, who sends the message) that appear in the Expected Output. No contradictory facts were found, yet key SLAC parameter exchange specifics are missing."
+    },
+    {
+        "question": "What is CM_SLAC_PARM.CNF?",
+        "score": 0.5,
+        "reason": "Although the actual output aligns with the request\u2013confirmation nature of CM_SLAC_PARM.CNF, it omits key details from the expected output\u2014like EVSE as sender, M-SOUND_TARGET, TT_match_response timer requirements, and other fields. These omissions reduce completeness compared to what the Input and Expected Output describe."
+    }
+]

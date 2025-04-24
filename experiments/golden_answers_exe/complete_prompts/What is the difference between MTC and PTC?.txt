@@ -1,0 +1,852 @@
+Question What is the difference between MTC and PTC?: What is the difference between MTC and PTC?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: 7.3.2 Components and ports - Table 4 — Component definitions
+Table 2: 7.3.2 Components and ports - Table 5 — Port type definitions
+
+FIGURE INFORMATION:
+Figure 1: 7.3.1 Test configurations - Figure 3 — ISO 15118-5 test configuration
+
+Image Description for Figure 3:
+# Detailed Description of the Flow Chart (Figure 3)  
+
+Below is a step-by-step explanation of the flow chart, including each key entity, the transitions between states, and how they relate to one another. This chart describes an AC EVSE (Electric Vehicle Supply Equipment) supporting different modes of charging, including High-Level Communication Charging (HLC-C) and Basic Charging (BC), under both Plug & Charge (PnC) and External Identification Means (EIM). 
+
+---
+
+## 1. Entities Overview
+
+1. **Plug-in**  
+   The moment the EV is physically connected to the EVSE.
+
+2. **X1 or X2 (5%)**  
+   Indicates that upon plug-in, the Control Pilot (CP) can be in either state X1 or state X2 with a 5% duty cycle.  
+   • NOTE 1: According to IEC standards ([IEC‐3], Table 5), CP state X1 may be used for a brief period until the CP oscillator is switched on. If not using X1, then 5% duty cycle in X2 is used instead.
+
+3. **X2 (5%)**  
+   Shows the CP remains at 5% duty cycle while waiting for authorization or the start of the matching process.
+
+4. **“Matched state” and authorization OK**  
+   Once the EV and EVSE have established that the authorization (PnC or EIM) is successful, and the matching process (for high-level communication) is complete, the charging can proceed under HLC-C.
+
+5. **EIM done & matching process not started**  
+   An indication that External Identification Means is completed, but the matching process (to move to HLC-C) has not started. This situation might lead to remaining in a 5% duty cycle or transitioning to other states.
+
+6. **Re-init**  
+   A session restart without physically unplugging the EV (often triggered by an error or a control pilot transition to state E).
+
+7. **E/F (0%)**  
+   The control pilot is in an error or fault state (0% duty cycle). This typically happens if a fault or error has been detected, or if the system invokes a “re-init” procedure.
+
+8. **T_step_EF**  
+   The specific time duration the system remains in the E/F (0%) state (error handling) before transitioning back to a normal control pilot state.  
+   • T_step_EF is defined by the standard to allow proper reset/clearing of faults.
+
+9. **X2 (nom.)**  
+   The nominal duty cycle in control pilot state X2 (indicating readiness for normal or basic charging). When HLC-C is not active or is completed, the CP uses the nominal duty cycle instead of 5%.
+
+10. **HLC-C (charging controlled by high-level communication)**  
+    Indicates that charging (or “V2G Setup”) is controlled via ISO 15118 high-level messages. PnC or EIM with HLC-C will use this path.
+
+11. **BC (charging controlled by IEC 61851-1)**  
+    Basic charging mode (without high-level communication). This is allowed before or after the high-level communication session, or as a fallback if the EV does not support HLC-C.
+
+12. **V2G Setup finished**  
+    Signals that the high-level communication (ISO 15118) setup phase is completed.
+
+13. **a) PnC**  
+    Branch “a” indicates the Plug & Charge path where authorization and matching take place over the high-level communication interface.
+
+14. **b) EIM w. BC**  
+    Branch “b” is for External Identification Means with Basic Charging. The EVSE and EV proceed in a basic IEC 61851-1 manner once EIM is successful.
+
+15. **c) EIM w/o BC**  
+    Branch “c” is for an EVSE that supports EIM and HLC-C but does not do full BC fallback. The result is high-level communication (HLC-C) for charging.
+
+16. **d) [IEC-1] Charging**  
+    Branch “d” shows the fallback or default IEC 61851-1 charging for EVs that do not support HLC-C.  
+    • NOTE 2: This branch is specifically for EVs not supporting HLC-C.
+
+17. **Trigger condition**  
+    Marked by an open arrow outline in the key. It indicates a condition (like “Matched state,” “authorization OK,” or “Re-init”) that triggers a transition.
+
+18. **Possible procedure (dotted arrow)** versus **Mandatory procedure (solid arrow)**  
+    Per the chart key, certain steps are allowed/possible, whereas others are mandatory in this coordination sequence.
+
+19. **Refer to IEC 61851-1 Ed 3, A5**  
+    A reference pointing to further details in the IEC 61851-1 standard regarding nominal CP states and transitions.
+
+20. **NOTE 1**  
+    “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).” This clarifies that the EVSE may briefly apply X1 as an alternative to X2(nom.) in certain conditions.
+
+21. **NOTE 2**  
+    “Branch d) is for EVs not supporting HLC-C.” This clarifies that path “d” in the diagram applies only to vehicles that cannot handle high-level communication.
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+Below is the logical progression from plug-in to charging, including all key points:
+
+1. **Plug-in**  
+   - The EV is physically connected to the EVSE (control pilot circuit becomes active).
+
+2. **Initial CP State (X1 or X2 at 5% duty cycle)**  
+   - Right after plugging in, the EVSE may apply either:  
+     • X1 (5%) briefly, or  
+     • X2 (5%) immediately.  
+   - This 5% duty cycle indicates a low-current pilot signal, often used when the matching process (for HLC-C) is not started yet or when PnC/EIM authorization has not completed.
+
+3. **Transition to X2 (5%)**  
+   - If X1 was used initially, the EVSE then transitions to X2 at 5% duty cycle.  
+   - At this point, the “V2G Setup” may finish if the EV and EVSE quickly reach the “matched state” and authorization is OK (PnC or EIM).
+
+4. **Check Authorization / Matching**  
+   - If the EVSE detects that the vehicle is in the “matched state” with authorization OK (e.g., PnC done successfully or EIM done successfully with HLC-C), the diagram shows branch **a)** for PnC.  
+   - Otherwise, if the EIM is done but the matching process has not started, the EVSE may hold the 5% duty cycle or move to handle basic charging.
+
+5. **Re-init Condition (Optional Error Handling)**  
+   - If an error arises before successful authorization, the EVSE (or EV) may force a “Re-init.”  
+   - “Re-init” triggers a transition to CP state **E/F (0%)**.
+
+6. **E/F (0%) State**  
+   - The EVSE remains in E or F at 0% duty cycle for a duration **T_step_EF**, allowing the system to reset or clear fault conditions.
+
+7. **Transition to X2 (nom.)**  
+   - After T_step_EF, the EVSE switches the control pilot to **X2 (nom.)**, the normal duty cycle for potential basic charging or high-level communication readiness.
+   - At this point, there are several possible (and mandatory) branches:
+
+   ### a) PnC  
+   - If “Matched state” and PnC authorization are confirmed, high-level communication (HLC-C) controls the charging session (marked as “V2G Setup finished”).
+
+   ### b) EIM w. BC (External Identification Means with Basic Charging)  
+   - If EIM is used and the EVSE is configured to allow BC fallback, the EV charges under IEC 61851-1 control.  
+   - The diagram labels this as “b) EIM w. BC” with a mandatory arrow to “BC” or to “HLC-C,” depending on the setup.
+
+   ### c) EIM w/o BC (External Identification Means without Basic Charging fallback)  
+   - The EVSE supports EIM, but does not provide a Basic Charging fallback. Instead, once authorized, the system proceeds to high-level communication (HLC-C).  
+   - Labeled “c) EIM w/o BC.”
+
+   ### d) [IEC-1] Charging (No HLC-C Support)  
+   - This is the simple IEC 61851-1 path for EVs **not** supporting high-level communication.  
+   - **NOTE 2** reminds us that branch “d)” is explicitly for EVs incapable of HLC-C.
+
+8. **V2G Setup Finished**  
+   - For cases (a) PnC and (c) EIM w/o BC, the EVSE can complete the “V2G Setup” (i.e., high-level communication is established), and the EV can start charging with HLC-C controlling the current.  
+   - For (b) EIM w. BC or (d) IEC 61851-1, the EV charges under basic control pilot rules (nominal duty cycle).
+
+---
+
+## 3. Relation and Connection of Entities
+
+1. **Control Pilot States (X1, X2, E/F)**  
+   - These states indicate the duty cycle signals from the EVSE to the EV.  
+   - X1 or X2 at 5% represents “limited pilot signal” while waiting for matching or authorization.  
+   - X2 (nom.) represents “normal pilot signal,” allowing higher charging current or standard communication.  
+   - E/F (0%) is the error or fault state, where no charging current is offered.
+
+2. **High-Level Communication (HLC-C) vs. Basic Charging (BC)**  
+   - HLC-C requires a matching process and an active ISO 15118 negotiation. Once authorized (PnC or EIM w/o BC), the EVSE and EV exchange communication messages to control charging.  
+   - BC is the fallback or simpler mode, controlled by IEC 61851-1 duty cycles. It is used if the EV does not support high-level communication or if the system transitions to a basic mode.
+
+3. **Authorization Paths**  
+   - **PnC (a)**: Fully automatic method with contract certificates (Plug & Charge).  
+   - **EIM (b, c)**: The user must apply some external identification, possibly an RFID card or other method.  
+   - If an EV does not support HLC-C, branch **d** is used.
+
+4. **Re-init / Error Handling**  
+   - “Re-init” indicates that the system restarts the session logic (without a physical unplug) by transitioning to E/F (0%) for a set time **T_step_EF**.
+
+5. **Notes and References**  
+   - **NOTE 1**: CP state X1 is equivalent in usage to X2 (nom.) for a limited timeframe, based on IEC 61851-1 guidelines.  
+   - **NOTE 2**: Branch (d) is specifically for vehicles not supporting HLC-C.  
+   - **Refer to IEC 61851‐1 Ed 3, A5**: For deeper details on the CP states and transitions, especially X1 vs. X2 usage.
+
+---
+
+## 4. Summary
+
+- The flow chart details how an EVSE handles an EV connection from plug-in through error conditions (Re-init/E/F) to different charging modes (PnC, EIM with or without BC, or pure IEC 61851-1).  
+- The fundamental distinction is between using high-level communication (HLC-C) under ISO 15118 or defaulting to basic IEC 61851-1 control (BC).  
+- The 5% duty cycle (X2 or X1) is used directly after plug-in for authorization and matching steps.  
+- Once “V2G Setup” is finished (PnC or EIM w/o BC), the EV can charge under high-level communication.  
+- If the EV does not support HLC-C, or if an error triggers re-init, the EVSE can revert to basic charging (nominal X2 duty cycle).
+
+By following this step-by-step diagram, engineers can quickly discern the control pilot behavior at each phase of the charging process, helping them implement or troubleshoot ISO 15118-3–compliant AC charging scenarios. ## 1. **Entities Overview**
+
+Below is a list of the key entities and notations shown in the figure, along with brief definitions or notes:
+
+1. **Plug-in**  
+   Indicates that the EV (Electric Vehicle) is physically connected to the EVSE (Electric Vehicle Supply Equipment).
+
+2. **Re-init**  
+   A trigger condition that implies re-initialization of the charging or communication process.
+
+3. **X1 or X2 (5%)**  
+   • These represent control pilot states after the EV is plugged in.  
+   • “X2 (5%)” often indicates a 5% duty cycle on the control pilot, meaning the EVSE is signaling a low current or limited mode.  
+   • “X1” is a control pilot state defined in certain IEC standards.  
+   • Per the note, CP state X1 is allowed instead of X2 (nominal) following [IEC-3] (Table 5).  
+   • “X1 is required by TS 62763” is an additional note found in the diagram.
+
+4. **X2 (5% or nom.)**  
+   Once communication or certain conditions are met, the control pilot can be set to either 5% duty cycle or its nominal (full) duty cycle. “Nominal” typically means a normal charging current limit.
+
+5. **EIM done & matching process started**  
+   “EIM” denotes External Identification Means. This label indicates that the EVSE has completed authentication/identification by external means, and a matching process for PnC (Plug and Charge) or other protocols has begun.
+
+6. **“Matched state” and authorization OK**  
+   A state where the EVSE and EV have successfully exchanged necessary authorization data (e.g., for PnC or EIM) and are ready to proceed with charging setup.
+
+7. **a) PnC**  
+   Indicates the pathway for charging using Plug-and-Charge under high-level communication (HLC). Shown as a dedicated branch labeled “a) PnC.”
+
+8. **b) EIM w/ BC**  
+   Indicates the path for charging with External Identification Means and “BC” (Basic Charging). The label “BC charging controlled by IEC 61851‑1” means this branch follows standard IEC 61851‑1 basic signaling without advanced high-level communication for energy/power negotiation.
+
+9. **c) EIM w/o BC**  
+   Another EIM branch without Basic Charging fallback (or “w/o BC”). In this diagram, the EV may still use HLC-C for control or complete the process differently.
+
+10. **HLC-C**  
+    Stands for “High-Level Communication – Control,” referring to an EV and EVSE communication interface governed by upper-layer protocols (per ISO 15118). The label “charging controlled by high-level communication” clarifies that the EV and EVSE negotiate charging parameters using a higher-level standardized protocol.
+
+11. **BC**  
+    “Basic Charging,” which follows IEC 61851‑1, uses only the PWM duty cycle on the control pilot to communicate available current, without additional data link layers.
+
+12. **V2G Setup finished**  
+    V2G (Vehicle-to-Grid) services are set up. This note indicates that the initialization (communication, authorization, and matching) is complete.
+
+13. **Possible procedure** (dashed arrow)  
+    Indicates that this path may occur under certain conditions but is not mandatory.
+
+14. **Mandatory procedure** (solid arrow)  
+    Indicates that this path must occur in the standard defined sequence.
+
+15. **Trigger condition** (arrow with open box)  
+    Highlights an external event or action that triggers a state transition, such as “Re-init.”
+
+16. **Note**  
+    “CP state X1 is allowed instead of X2 (nom.) following [IEC‑3].” This clarifies that certain EVSEs may use X1 in place of nominal X2 under IEC guidelines.
+
+
+## 2. **Flow of the Diagram**
+
+Below is a step-by-step walk-through of the entire flow based on the figure:
+
+1. **Start: Plug-in**  
+   - The process begins with the EV being physically connected to the EVSE.  
+   - Immediately after plug-in, the control pilot can be in **X1** or **X2 (5%)**.  
+   - In some designs, the EVSE may initially apply **X1**, and in others, a 5% duty cycle (X2) is established.
+
+2. **Re-init (Optional Trigger)**  
+   - There is a possibility that a “Re-init” trigger occurs. If so, the system might revert to the initial condition of X1 or X2 (5%), effectively restarting the coordination process.
+
+3. **EIM Done & Matching Process Started**  
+   - When External Identification Means is completed (e.g., RFID authentication or another method) and the matching process (for user authorization or contract setup) begins, the EVSE may transition the control pilot state to either **X1** or **X2 (5% or nominal)**.
+
+4. **Proceed to X2 (5% or nominal)**  
+   - After EIM is done, the control pilot often shifts or remains at a recognized state, typically **X2** with either a restricted 5% duty cycle or the nominal duty cycle.  
+   - There is a note (in the diagram) specifying that the EVSE can apply X1 if needed (per TS 62763), but for most cases, X2 is used.
+
+5. **“Matched State” & Authorization OK**  
+   - Once the EVSE and EV have validated each other (e.g., cryptographic handshake, contract validation, or user identification is approved), they achieve a “matched state.”  
+   - This means that the EV is fully authorized to proceed with charging, and the system can complete the V2G communication steps.
+
+6. **Branching into Three Main Paths**  
+   - After reaching the matched/authorized state, the setup is effectively complete (noted by “V2G Setup finished”), and the diagram shows three branches:
+
+   **a) PnC**  
+   - Plug-and-Charge path that uses HLC-C (high-level communication). Charging is entirely controlled by ISO 15118 protocols over a high-level data link.  
+
+   **b) EIM w/ BC**  
+   - External Identification Means with Basic Charging. The EVSE and EV continue charging under IEC 61851‑1 basic pilot signaling (“BC”), but the overall session is still recognized as EIM-based. High-level communication (HLC-C) might be used for some coordination but the actual current control is handled by BC signals.  
+
+   **c) EIM w/o BC**  
+   - External Identification Means (with no basic charging fallback). The EV and EVSE rely on HLC-C for control once authorized. The current levels and charging details are governed purely by high-level communications.
+
+7. **V2G Setup Finished**  
+   - In each branch, once the matching and authorization steps are validated, the communication channel is established or not needed (depending on BC vs. HLC-C). The vehicle and EVSE are now in a position to deliver power under the correct protocol and policies. The note “V2G Setup finished” emphasizes the system is ready for energy transfer, time-based adjustments, or other V2G-related functions.
+
+8. **Note about X1 vs. X2**  
+   - If the EVSE chooses to apply CP state X1 (instead of X2 nominal) at certain times, this is allowed by IEC references, but typically X2 nominal is expected for normal charging readiness.  
+   - Additional references mention that X1 might be used temporarily or in certain compliance contexts (TS 62763).
+
+Throughout the flow, **solid arrows** denote **mandatory steps** specified by the standard, and **dashed arrows** denote **possible (optional or conditional) procedures** that may or may not occur, based on the EVSE’s capabilities or the local configuration.
+
+
+## 3. **Relationship and Connection of Entities**
+
+- **EVSE and EV**: The diagram revolves around their interaction—from the moment of plugging in to the completion of the V2G setup.  
+- **Control Pilot States (X1 or X2)**: These states define the electrical conditions on the control pilot line per IEC 61851‐1 or TS 62763. Either X1 or X2 (5% or nominal) signals the readiness and current capacity available to the EV.  
+- **HLC-C (High-Level Communication)**: Serves as a communication channel (ISO 15118) enabling advanced features like Plug-and-Charge (PnC) and dynamic negotiation of charging parameters.  
+- **BC (Basic Charging)**: Uses the simpler IEC 61851–1 PWM scheme. When the EVSE or EV is not using the advanced HLC, they fall back to BC for setting current limits (branch b) and (by extension) c).  
+- **EIM**: Provides user identification external to the vehicle (e.g., via RFID or smartphone). Once “EIM done,” authorization and matching processes can either continue or finalize for charging.
+
+In summary, the flow chart details how an AC EVSE can coordinate multiple charging modes (PnC, EIM with BC, or EIM without BC):
+
+• It starts when the EV is plugged in (applying X1 or X2 at 5% duty cycle).  
+• Moves through user/contract authentication (EIM done, matching process).  
+• Transitions to a valid charging or matched state (X2 nominal or remain at 5% if needed).  
+• Finally splits into whichever method is supported or authorized—PnC (high-level comm) or EIM-based charging (either with or without BC).
+
+All of these steps ensure the EV and EVSE establish the correct communication and power transfer settings before actual charging begins.# Detailed Description of the Flow Chart
+
+Below is a step-by-step description of the flow chart shown in the figure. The diagram illustrates an AC EVSE (Electric Vehicle Supply Equipment) supporting High-Level Communication Control (HLC‑C) with both “Plug & Charge” (PnC) and EIM (External Identification Means). It also shows where Basic Charging (BC) fits in the process. The important note here is that some EVSEs support both PnC and EIM, while others may only support one path. Additionally, Control Pilot (CP) states X1 or X2 govern the duty cycle used on the control pilot signal.
+
+---
+
+## 1. Entities Overview
+
+1. **Plug-in**  
+   The event where the EV is physically connected to the EVSE.
+
+2. **Re-init**  
+   A trigger condition indicating that the EVSE and/or EV re-initializes the communication or charging process.
+
+3. **CP State X1 (100%)**  
+   A control pilot state that can be active immediately after plugging in (100% duty cycle).  
+   – Note: “X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+4. **CP State X2 (nom.)**  
+   A nominal control pilot state that is typically used once the EVSE begins its normal duty cycle configuration.
+
+5. **CP State X2 (5% or nom.)**  
+   A possibly reduced duty cycle (at 5%) or nominal duty cycle, used to signal and confirm matching/authorization states between the EV and EVSE.
+
+6. **“Matched state” and authorization OK**  
+   Indicates that the EV and EVSE have successfully “matched” each other’s communication requirements and that authorization to charge is confirmed.
+
+7. **EIM done & matching process started**  
+   After the External Identification Means is completed, the matching process (which checks that the EV and EVSE can communicate properly) begins.
+
+8. **V2G Setup finished**  
+   Denotes that the high-level Vehicle-to-Grid (V2G) communication setup is established (in other words, the communication handshake is complete).
+
+9. **HLC‑C**  
+   “High-Level Communication Control”: indicates charging that is controlled via ISO 15118 high-level messages.
+
+10. **BC**  
+   “Basic Charging” (controlled by IEC 61851‑1): a simpler control mechanism using the basic control pilot signals without advanced ISO 15118 communication features.
+
+11. **a) PnC**  
+   A branch of the process for “Plug & Charge,” whereby authentication and authorization can be done automatically via certificates exchanged over high-level communication.
+
+12. **b) EIM w/ BC**  
+   A branch indicating blended EIM with Basic Charging. Communication is still possible at a high level, but actual current or power levels may be regulated in a simpler manner (BC).
+
+13. **c) EIM w/o BC**  
+   A branch in which EIM is used, and the charging proceeds without Basic Charging fallback (or simply uses the high-level communication directly).
+
+14. **possible procedure** (dashed arrow)  
+   Indicates a pathway or step that is allowed but not strictly mandatory in every implementation.
+
+15. **mandatory procedure** (solid arrow)  
+   Indicates a step that is required per the standard or the scenario.
+
+16. **trigger condition** (block arrow)  
+   A condition or event that initiates a transition (e.g., “Re-init,” “EIM done,” etc.).
+
+17. **NOTE**  
+   “CP state X1 is allowed instead of X2 (nom.) following [IEC‑3] (Table 5, X1 state usage).”
+
+---
+
+## 2. Flow of the Diagram
+
+The chart can be broken down into the following sequence:
+
+1. **Plug-in → X1 (100%)**  
+   - The EV is plugged in.  
+   - Initially, the control pilot may be in state X1 (100% duty cycle).  
+   - This step might be very brief or can remain active until the EVSE activates its control pilot oscillator.  
+   - Alternatively, some implementations go directly to X2 (nom.) or X2 (5%) shortly after plug-in.
+
+2. **EIM Done & Matching Process Started**  
+   - As soon as the EV is plugged in and recognized, the EVSE can begin the EIM procedure (if applicable).  
+   - Once EIM completes, the EVSE and EV can begin the matching process (confirming the EV is ready for high-level communication and/or basic charging).  
+
+3. **Transition to X2 (5% or nom.)**  
+   - The EVSE shifts the control pilot signal to a “5% or nominal” duty cycle.  
+   - This denotes that the system is seeking or has established a “matched state” and is checking authorization compatibility.
+
+4. **X2 (5% or Nom.) “Matched State” and Authorization OK**  
+   - At this point, the EV and EVSE have confirmed each other’s presence and authorization.  
+   - From here, the diagram specifies the main charging branches.
+
+5. **V2G Setup Finished**  
+   - The high-level communication (ISO 15118) or the matching for basic charging (IEC 61851‑1) is complete.  
+   - The system is ready to begin energy transfer, subject to the branch chosen (PnC or EIM).
+
+6. **Branches (After V2G Setup Finished)**
+   - **(a) PnC**  
+     1. The EV proceeds under the “Plug & Charge” mechanism.  
+     2. All further charging control is managed by HLC‑C (high-level communication).  
+     3. This path is mandatory if the EV and EVSE are both configured for PnC and the user wishes to use it.  
+
+   - **(b) EIM w/ BC**  
+     1. The EV chooses EIM for identification/authorization.  
+     2. The actual charging current (or power) is controlled primarily by Basic Charging (BC) signals per IEC 61851‑1.  
+     3. Meanwhile, the high-level communication (HLC‑C) can still provide additional status or monitoring as necessary, but the main control is BC.  
+
+   - **(c) EIM w/o BC**  
+     1. The EV also uses EIM for identification, but BC is not utilized.  
+     2. The charging is controlled directly by the high-level communication (HLC‑C).  
+
+7. **Re-init**  
+   - A trigger condition that resets the process if necessary (for example, if some error occurs or a new cycle starts).  
+   - This can bring the CP signal back to X1 (100%) or the sequence might revert to an earlier step.
+
+---
+
+## 3. Relation and Connection of Entities
+
+- **Control Pilot States (X1, X2)**  
+  - These states represent different duty cycle signals on the control pilot line in accordance with IEC 61851‑1.  
+  - X1 (100%) may appear at plug-in or during re-initialization.  
+  - X2 (nom.) or X2 (5% or nominal) typically indicates the EVSE is in an active state waiting for or confirming communication or charging readiness.
+
+- **HLC‑C and BC**  
+  - These represent two different control planes for charging.  
+    - **HLC‑C (High-Level Communication)** follows ISO 15118 protocols for advanced features (e.g., PnC, contract certificates).  
+    - **BC (Basic Charging)** follows the simpler IEC 61851‑1 approach using the control pilot’s duty cycle to modulate charging current.
+
+- **Trigger Conditions**  
+  - “EIM done & matching process started,” “Re-init,” or “Plug-in” are events that move the system from one state to the next.
+
+- **PnC and EIM**  
+  - **PnC (Plug & Charge)** relies on automatic certificate-based authorization over the HLC connection.  
+  - **EIM (External Identification Means)** typically uses RFID cards, credit cards, or other external methods to authorize charging.
+
+- **NOTE on CP State Usage**  
+  - The chart clarifies that an EVSE may operate in CP state X1 instead of X2 (nom.) for a short time upon plugging in, depending on the implementation and compliance with IEC rules.
+
+---
+
+## 4. Summary
+
+This flow chart (often referenced in ISO 15118-3 and related IEC 61851-1 guidelines) illustrates how an AC charging session can be coordinated when both PnC and EIM options are available:
+
+1. EV is plugged in (CP state X1 or X2).  
+2. EIM completes (if used) and the matching/authorization process starts.  
+3. Control pilot transitions to a 5% or nominal duty cycle, indicating a “matched state.”  
+4. Authorization is confirmed (PnC or EIM).  
+5. V2G Setup finishes.  
+6. Charging proceeds under one of three branches:  
+   - (a) PnC (fully high-level)  
+   - (b) EIM with Basic Charging  
+   - (c) EIM with high-level communication only (no BC).  
+
+At every step, the chart differentiates **mandatory** arrows (solid) from **possible** (dashed) ones, highlighting which state transitions might be optional under certain system configurations.
+
+---
+
+> **Important Note:**  
+> If an EVSE only supports EIM or only supports PnC, any unused branches in the diagram (e.g., BC or HLC‑C) need not be followed. The figure covers the “universal” scenario where both are supported and the matching process has already started when EIM is finished.# Detailed Description of the Flow Chart
+
+Below is a thorough, step-by-step explanation in markdown format, covering all entities, transitions, and notes shown in the figure.
+
+---
+
+## 1. Entities Overview
+
+1. **A**  
+   - Represents an initial state or entry point (before the EV is plugged in or any charging coordination begins).
+
+2. **Plug-in**  
+   - Indicates the action of connecting the EV to the EVSE (Electric Vehicle Supply Equipment).
+
+3. **Re-init**  
+   - Denotes a re-initialization step, potentially triggered if the system needs to restart the setup process.
+
+4. **X2 (nom.)**  
+   - Refers to the nominal Control Pilot (CP) state “X2” as defined in the IEC/ISO standards. This is typically the normal state for AC charging pilot signaling.  
+   - According to the NOTE, “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+5. **X2 (5 % or nom.)**  
+   - A variant on the Control Pilot “X2” state, potentially signifying a reduced PWM duty cycle (e.g., 5% for low-level communication or nominal duty cycle).
+
+6. **b) EIM w. BC**  
+   - A branch indicating External Identification Means (EIM) with Basic Charging (BC).  
+   - “BC” (Basic Charging) is charging controlled by IEC 61851‑1.
+
+7. **c) EIM w/o BC**  
+   - Another branch indicating EIM but without Basic Charging. Here, charging is controlled by high-level communication (HLC-C).
+
+8. **d) [IEC-1] Charging**  
+   - Represents a standard IEC 61851‑1 charging process (basic “Mode 3” charging), labeled as [IEC‑1] in the figure.
+
+9. **Trigger condition**  
+   - A condition or event that causes the transition from one control pilot state or step to another.
+
+10. **HLC-C**  
+    - High-Level Communication – Configuration (or simply High-Level Communication for Charging).  
+    - Indicates that the charging process is coordinated through advanced communication protocols (ISO 15118 / DIN 70121).
+
+11. **BC**  
+    - Basic Charging.  
+    - Charging controlled purely by the IEC 61851‑1 “Mode 3” protocol, without high-level comms.
+
+12. **V2G Setup finished**  
+    - A status showing that all necessary Vehicle-to-Grid (V2G) high-level communication steps or matching processes have completed successfully.
+
+13. **NOTE**  
+    - Provides an additional standard-specific note:  
+      “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+14. **Possible procedure** (represented by dashed arrows)  
+    - Indicates paths or transitions that may occur depending on the EVSE/EV implementation but are not strictly mandatory by the standard.
+
+15. **Mandatory procedure** (represented by solid arrows)  
+    - Indicates paths or transitions that must occur to meet the standard requirements.
+
+16. **Refer to IEC 61851‑1 Ed. 3, A.5**  
+    - This reference points to a specific subclause in IEC 61851‑1 Edition 3, Annex A.5, which further explains or clarifies the CP states.
+
+17. **Key**  
+    - A legend/guide to the flowchart’s symbols and lines (possible/mandatory procedures, trigger conditions, etc.).
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+1. **State A (Idle/Pre-Connection)**  
+   - The dotted line labeled “possible procedure” leads to the circle marked “A,” showing that the system may start in this idle state or arrive here after a previous cycle.
+
+2. **Transition to “Plug-in” or Re-init**  
+   - From state “A,” two possible (dotted) paths can occur:  
+     1. **Plug-in**: The user connects the EV to the EVSE.  
+     2. **Re-init**: Some systems may need to reset, reinitialize, or re-attempt the procedure.
+
+3. **Arrival at X2 (nom.)**  
+   - Once plugged in or re-initialized, the EVSE sets the control pilot to “X2 (nom.)” (or “X1” if the NOTE is applicable). This is indicated by the solid arrow (mandatory procedure) leading to “X2 (nom.).”
+
+4. **Branch from X2 (nom.)**  
+   - At “X2 (nom.),” the chart shows multiple possible paths depending on whether high-level communication (HLC-C) or basic charging (BC) is being used, and whether External Identification Means (EIM) is required:
+
+   a) **From X2 (nom.) → X2 (5 % or nom.) with HLC-C → b) EIM w. BC**  
+      - If EIM is used with Basic Charging, then after V2G setup completion, the system references HLC-C for controlling the process. The duty cycle on the pilot might switch to “5 % or nominal,” and the EVSE is in an EIM mode with BC.  
+      - “BC” then handles charging under IEC 61851‑1.
+
+   b) **From X2 (nom.) → X2 (5 % or nom.) with HLC-C → c) EIM w/o BC**  
+      - Similar to the above, but if Basic Charging is not utilized, the EV/EVSE rely solely on high-level communication. The flow indicates “V2G Setup finished,” leading to EIM without BC.
+
+   c) **From X2 (nom.) → X2 (nom.) → d) [IEC-1] Charging**  
+      - If high-level communication is not used or not requested, the diagram references the standard IEC 61851‑1 charging process directly. This path also indicates that at some point after “X2 (nom.),” the EV goes into normal AC charging according to [IEC-1].
+
+5. **V2G Setup Finished**  
+   - Whenever HLC-C is invoked, the arrow from “HLC-C” shows “V2G Setup finished,” confirming that the vehicle-to-grid communication handshake is complete.
+
+6. **Reference to IEC 61851-1 Ed. 3, A.5**  
+   - The flow returns to “X2 (nom.)” with an accompanying note referencing IEC 61851‑1 for further details on pilot-state transitions.
+
+7. **NOTE**  
+   - The flow chart includes a note at the bottom clarifying that **CP state X1** may be used in place of **X2 (nom.)** if IEC-3 (Table 5) X1 state usage is applicable. This might occur in certain EVSE/EV configurations.
+
+---
+
+## 3. Relation and Connection of Entities
+
+1. **Control Pilot States (“X2(nom.)” or “X2(5% or nom.)”)**  
+   - These states define the level of duty cycle on the control pilot signal, crucial for indicating charging readiness, EIM usage, or high-level communication readiness.
+
+2. **HLC-C (High-Level Communication)**  
+   - When invoked, it coordinates the charging session (e.g., V2G features, advanced authorization, dynamic control). The flow chart clearly shows transitions that involve HLC-C lead to “V2G Setup finished” before actual charging can begin.
+
+3. **BC (Basic Charging)**  
+   - The simpler IEC 61851‑1–based control method, either used alone ([IEC-1] path) or in conjunction with EIM (b) EIM w. BC).
+
+4. **EIM w. BC vs. EIM w/o BC**  
+   - EIM (External Identification Means) can be combined with basic signaling or purely high-level communications. The diagram shows these two distinct branches:  
+     - **b) EIM w. BC:** EIM authentication plus IEC 61851‑1.  
+     - **c) EIM w/o BC:** EIM authentication and purely HLC-based control.
+
+5. **Trigger Conditions**  
+   - The arrows labeled with trigger conditions indicate transitions that depend on completing setup steps (e.g., “V2G Setup finished” or successful EIM). They show how the system might jump from “X2(nom.)” to “X2(5% or nom.)” or remain at “X2(nom.)” for traditional IEC 61851‑1 charging.
+
+---
+
+## 4. Additional Notes & References
+
+- **NOTE on CP state X1**:  
+  “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).” Depending on the EVSE implementation, the initial pilot state right after plug-in may be X1 rather than X2(nom.).
+
+- **IEC 61851-1 Ed. 3, A.5**:  
+  Additional details for CP signal definitions, pilot states, and the behavior in normal or reduced pilot duty cycles can be found in Annex A.5 of the third edition of IEC 61851‑1.
+
+- **High-Level Communication**:  
+  Typically refers to ISO 15118 (PnC, Plug-and-Charge) or DIN 70121-based solutions that enable advanced negotiation, payment handling, and bidirectional (V2G) features.
+
+- **Basic Charging**:  
+  Follows the simple IEC 61851‑1 conduction-based control pilot methodology without advanced communication.
+
+---
+
+### Conclusion
+
+This flow chart depicts how an AC EVSE supporting high-level communication (HLC-C) and/or basic charging (BC) transitions through its control pilot states and procedures once an EV is plugged in (or re-initialized). The diagram includes multiple branches for External Identification Means (EIM) with or without BC, as well as a direct [IEC-1] charging path. Each step—plug-in, re-init, moving from A state to X2(nom.), optionally switching to X2(5% or nom.), completing V2G setup, and beginning charging—corresponds to specific control pilot and communication states. The note clarifies that X1 can stand in for X2(nom.) in certain implementations per IEC-3.
+
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+
+TEXTUAL INFORMATION:
+Text 1: 4 Symbols (and abbreviated terms) (Context: 4 Symbols (and abbreviated terms) > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests > Road vehicles — Vehicle to grid communication interface — Part 5: Physical layer and data link layer conformance test) - MTC Main Test Component
+Text 2: 3.12 main test component (Context: 3.12 main test component > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - parallel test component
+Text 3: 3.12 main test component (Context: 3.12 main test component > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - MTC single test component in a test component configuration responsible for creating and controlling parallel test components and computing and assigning the test verdict
+Text 4: 3.13 parallel test component PTC (Context: 3.13 parallel test component PTC > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - test component created by the main test component
+Text 5: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - The MTC always contains a TTCN‐3 test configuration and delimits the lifeline during test execution. Next to using ports for communication purposes, local timers, variables or constants may be assigned to components to store dynamic information during test case execution.
+Text 6: 7.7.7 IEC 61851-1 PWM event handling and control (Context: 7.7.7 IEC 61851-1 PWM event handling and control > 7.7 Test case specification > 7 Test suite conventions) - The parallel test component (PTC) for IEC 61851‐1 signaling continuously observes the protocol specific parameters positive voltage (state), frequency, duty cycle and the proximity resistor value in accordance with the defined valid range of values (as defined in IEC 61851‐1:2017, Annex A), during the entire test case execution.
+Text 7: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - These components and ports compose relevant test configurations for this document. Whether the type EVCC_Tester or SECC_Tester is to be used as MTC depends on the type of the SUT.
+Text 8: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - [V2G5-010] If the SUT is an SECC, the MTC shall use the type SECC_Tester.
+Text 9: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - The HAL_61851_Listener combines all necessary listener functionality into one component, independent on whether the MTC represents an SECC_Tester or an EVCC_Tester.
+Text 10: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - As shown in Figure 3 the port mappings are defined statically as follows:
+Text 11: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - — The port pt_SLAC_Port of the TSI is always mapped to port pt_SLAC_Port of the MTC.
+Text 12: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - — The port pt_HAL_61851_Port of the TSI is always mapped to port pt_HAL_61851_Port of the MTC.
+Text 13: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - — The port pt_HAL_61851_Listener_Port of the TSI is always mapped to port pt_HAL_61851_Listener_Port of the v_HAL_61851_Listener. The pt_HAL_61851_Listener_Port is from the same type HAL_61851_Port as the pt_HAL_61851_Port.
+Text 14: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - — The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC.
+Text 15: 4 Symbols (and abbreviated terms) (Context: 4 Symbols (and abbreviated terms) > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests > Road vehicles — Vehicle to grid communication interface — Part 5: Physical layer and data link layer conformance test) - TSI TTCN‐3 System Interface
+Text 16: 3.30 test system interface TSI (Context: 3.30 test system interface TSI > 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests) - test component that provides a mapping of the ports available in the (abstract) TTCN‐3 test system to those offered by a real test system
+Text 17: 7.3.2 Components and ports (Context: 7.3.2 Components and ports > 7.3 Test profiles > 7 Test suite conventions) - In addition to the MTC and PTC and their corresponding port type definitions, a test configuration also consists of respective Test System Interfaces (TSI). An abstract Test System Interface (TSI) is specified as a collection of ports. A TSI has no local timers, constants or variables. Only ports are assigned to it. During the test case execution test components ports can be mapped dynamically to the TSI ports to establish communication channel to the real test system interface. In the test configuration the TSI uses the type System_EVCC or System_SECC depending on the type of the SUT. If the SUT is an EVCC, the TSI uses the type System_EVCC. If the SUT is an SECC, the TSI uses the type System_SECC.
+
+ADDITIONAL CONTEXT:
+Related Information 1: For the purposes of this document, the following abbreviations apply: (sibling of Text 1)
+Related Information 2: AC Alternating Current (sibling of Text 1)
+Related Information 3: ATS Abstract Test Suite (sibling of Text 1)
+Related Information 4: CPL Control Pilot Line (sibling of Text 1)
+Related Information 5: DC Direct Current (sibling of Text 1)
+Related Information 6: EIM External Identification Means (sibling of Text 1)
+Related Information 7: ETSI European Telecommunications Standards Institute (sibling of Text 1)
+Related Information 8: EV Electric Vehicle (sibling of Text 1)
+Related Information 9: EVCC Electric Vehicle Communication Controller (sibling of Text 1)
+Related Information 10: EVSE Electric Vehicle Supply Equipment (sibling of Text 1)
+Related Information 11: HAL Hardware Abstraction Layer (sibling of Text 1)
+Related Information 12: HPGP HomePlug GreenPHY (sibling of Text 1)
+Related Information 13: ITB Invalid Test Behavior (sibling of Text 1)
+Related Information 14: MME Management Message Entry (sibling of Text 1)
+Related Information 15: PICS Protocol Implementation Conformance Statement (sibling of Text 1)
+Related Information 16: PIXIT Protocol Implementation eXtra Information for Testing (sibling of Text 1)
+Related Information 17: PLC Power Line Communication (sibling of Text 1)
+Related Information 18: PnC Plug and Charge (sibling of Text 1)
+Related Information 19: PTC Parallel Test Component (sibling of Text 1)
+Related Information 20: PWM Pulse Width Modulation (sibling of Text 1)
+Related Information 21: SECC Supply Equipment Communication Controller (sibling of Text 1)
+Related Information 22: SLAC Signal Level Attenuation Characterization (sibling of Text 1)
+Related Information 23: SUT System Under Test (sibling of Text 1)
+Related Information 24: TC Test Case (sibling of Text 1)
+Related Information 25: TCI TTCN‐3 Control Interface (sibling of Text 1)
+Related Information 26: TCI‐CD TCI‐Coding and Decoding (sibling of Text 1)
+Related Information 27: TE Test Execution (sibling of Text 1)
+Related Information 28: TFW Test Framework (sibling of Text 1)
+Related Information 29: TP Test Purpose (sibling of Text 1)
+Related Information 30: TRI TTCN‐3 Runtime Interface (sibling of Text 1)
+Related Information 31: TSI TTCN‐3 System Interface (sibling of Text 1)
+Related Information 32: TSS Test Suite Structure (sibling of Text 1)
+Related Information 33: TTCN‐3 Testing and Test Control Notation version 3 (sibling of Text 1)
+Related Information 34: V2G Vehicle‐to‐Grid (sibling of Text 1)
+Related Information 35: VTB Valid Test Behavior (sibling of Text 1)
+Contextual Information 1: 4 Symbols (and abbreviated terms) (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 5: Physical and data link layer conformance tests (ancestor of Text 1)
+Contextual Information 3: Road vehicles — Vehicle to grid communication interface — Part 5: Physical layer and data link layer conformance test (ancestor of Text 1)
+Related Information 36: Note 1 to entry: Compare with ITU‐T X.292. (sibling of Text 2)
+Contextual Information 4: 3.12 main test component (ancestor of Text 2)
+Contextual Information 5: 3 Terms and definitions (ancestor of Text 2)
+Contextual Information 6: 3.13 parallel test component PTC (ancestor of Text 4)
+Related Information 37: In correspondence to the identified set of relevant test configurations this sub clause defines test components which reflect the main entities needed for stimulation of the SUT with respect to ISO 15118. Ports are used to connect these components with each other and the SUT. Port types define which kind of messages can be sent or received by this port. All relevant components and ports are defined in Table 4 and Table 5 respectively. (sibling of Text 5)
+Related Information 38: Table 4 — Component definitions (sibling of Text 5)
+Related Information 39: Table 4 — Component definitions <table border="1"> <td colspan="1" rowspan="1">Components </td> <td colspan="1" rowspan="1">Description </td> <tr> <td colspan="1" rowspan="1">SECC_Tester (MTC) </td> <td colspan="1" rowspan="1">This component type is the main type for the tests of an SECC. A SLAC_Port,&lt;br&gt;HAL_61851_Port and a HAL_61851_Internal_Port (see Table 5) are assigned to&lt;br&gt;this component type. </td> </tr> <tr> <td colspan="1" rowspan="1">EVCC_Tester (MTC) </td> <td colspan="1" rowspan="1">This component type is the main type for the tests of an EVCC. A SLAC_Port,&lt;br&gt;HAL_61851_Port and a HAL_61851_Internal_Port (see Table 5) are assigned to&lt;br&gt;this component type. </td> </tr> <tr> <td colspan="1" rowspan="1">HAL_61851_Listener&lt;br&gt;(PTC) </td> <td colspan="1" rowspan="1">The HAL_61851_Listener is responsible for watching the correct IEC 61851&lt;br&gt;behavior and is used in the form of a parallel test component (PTC). This&lt;br&gt;component uses the HAL_61851_Port (see Table 5) to communicate with an&lt;br&gt;IEC 61851‐1 SUT Adapter and the HAL_61851_Internal_Port to communicate&lt;br&gt;with the MTC. </td> </tr> </table> (sibling of Text 5)
+Related Information 40: Table 5 — Port type definitions (sibling of Text 5)
+Related Information 41: Table 5 — Port type definitions <table border="1"> <td colspan="1" rowspan="1">Port Type </td> <td colspan="1" rowspan="1">Description </td> <tr> <td colspan="1" rowspan="1">SLAC_Port </td> <td colspan="1" rowspan="1">This port is used to send/receive SLAC messages defined in ISO 15118‐3&lt;br&gt;to/from the EVCC/SECC. </td> </tr> <tr> <td colspan="1" rowspan="1">HAL_61851_Port </td> <td colspan="1" rowspan="1">This port is used to interact with an IEC 61851 signalling unit. The unit will&lt;br&gt;set the corresponding signalling to the SUT (SECC/EVCC). The specification&lt;br&gt;of the IEC 61851 signalling unit is out of scope of this standard. </td> </tr> <tr> <td colspan="1" rowspan="1">HAL_61851_Internal_Port </td> <td colspan="1" rowspan="1">This port is used to synchronize the status of the IEC 61851‐1 PWM signal&lt;br&gt;between the MTC (SECC_Tester or EVCC_Tester) and PTC&lt;br&gt;(HAL_61851_Listener_Port). </td> </tr> </table> (sibling of Text 5)
+Related Information 42: These components and ports compose relevant test configurations for this document. Whether the type EVCC_Tester or SECC_Tester is to be used as MTC depends on the type of the SUT. (sibling of Text 5)
+Related Information 43: [V2G5-009] If the SUT is an EVCC, the MTC shall use the type EVCC_Tester. (sibling of Text 5)
+Related Information 44: [V2G5-010] If the SUT is an SECC, the MTC shall use the type SECC_Tester. (sibling of Text 5)
+Related Information 45: In addition to the MTC and PTC and their corresponding port type definitions, a test configuration also consists of respective Test System Interfaces (TSI). An abstract Test System Interface (TSI) is specified as a collection of ports. A TSI has no local timers, constants or variables. Only ports are assigned to it. During the test case execution test components ports can be mapped dynamically to the TSI ports to establish communication channel to the real test system interface. In the test configuration the TSI uses the type System_EVCC or System_SECC depending on the type of the SUT. If the SUT is an EVCC, the TSI uses the type System_EVCC. If the SUT is an SECC, the TSI uses the type System_SECC. (sibling of Text 5)
+Related Information 46: The test configuration is illustrated in Figure 3. The type of the V2G components and ports (EVCC or SECC) depends on the SUT type. (sibling of Text 5)
+Related Information 47: Figure 3 — ISO 15118-5 test configuration (sibling of Text 5)
+Related Information 48: As shown in Figure 3 the port mappings are defined statically as follows: (sibling of Text 5)
+Related Information 49: — The port pt_SLAC_Port of the TSI is always mapped to port pt_SLAC_Port of the MTC. (sibling of Text 5)
+Related Information 50: — The port pt_HAL_61851_Port of the TSI is always mapped to port pt_HAL_61851_Port of the MTC. (sibling of Text 5)
+Related Information 51: — The port pt_HAL_61851_Listener_Port of the TSI is always mapped to port pt_HAL_61851_Listener_Port of the v_HAL_61851_Listener. The pt_HAL_61851_Listener_Port is from the same type HAL_61851_Port as the pt_HAL_61851_Port. (sibling of Text 5)
+Related Information 52: — The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC. (sibling of Text 5)
+Contextual Information 7: 7.3.2 Components and ports (ancestor of Text 5)
+Contextual Information 8: 7.3 Test profiles (ancestor of Text 5)
+Contextual Information 9: 7 Test suite conventions (ancestor of Text 5)
+Contextual Information 10: 7.7.7 IEC 61851-1 PWM event handling and control (ancestor of Text 6)
+Contextual Information 11: 7.7 Test case specification (ancestor of Text 6)
+Related Information 53: The HAL_61851_Listener combines all necessary listener functionality into one component, independent on whether the MTC represents an SECC_Tester or an EVCC_Tester. The MTC always contains a TTCN‐3 test configuration and delimits the lifeline during test execution. Next to using ports for communication purposes, local timers, variables or constants may be assigned to components to store dynamic information during test case execution. (sibling of Text 7)
+Related Information 54: MTC Main Test Component (sibling of Text 15)
+Related Information 55: Note 1 to entry: Compare with ETSI ES 201 873‐6 V4.6.1. (sibling of Text 16)
+Contextual Information 12: 3.30 test system interface TSI (ancestor of Text 16)
+Related Information 56: The test configuration reflects various ISO 15118 scenarios. The main entities for the System Under Test (SUT) are: (sibling of Figure 1)
+Related Information 57: — Electric Vehicle Communication Controller (EVCC); and (sibling of Figure 1)
+Related Information 58: — Supply Equipment Communication Controller (SECC) (sibling of Figure 1)
+Related Information 59: The combination of entities and additionally used test components are grouped by Test Configuration IDs (CF_Part_ID). Table 3 shows the test configurations for this document. (sibling of Figure 1)
+Related Information 60: Table 3 — ISO 15118-5 test configurations <table border="1"> <td colspan="1" rowspan="1">CF_Part_ID </td> <td colspan="1" rowspan="1">SUT </td> <td colspan="1" rowspan="1">Tester </td> <td colspan="1" rowspan="1">PTCs </td> <tr> <td colspan="1" rowspan="1">CF_05_001 </td> <td colspan="1" rowspan="1">SECC + PLC Bridge </td> <td colspan="1" rowspan="1">EVCC + PLC Bridge </td> <td colspan="1" rowspan="1">PTC1 = 61851 </td> </tr> <tr> <td colspan="1" rowspan="1">CF_05_002 </td> <td colspan="1" rowspan="1">EVCC + PLC Bridge </td> <td colspan="1" rowspan="1">SECC + PLC Bridge </td> <td colspan="1" rowspan="1">PTC1 = 61851 </td> </tr> </table> (sibling of Figure 1)
+Contextual Information 13: 7.3.1 Test configurations (ancestor of Figure 1)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.

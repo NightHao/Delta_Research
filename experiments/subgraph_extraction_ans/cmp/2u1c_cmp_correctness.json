@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 0.9,
+        "reason": "They match each other with no factual contradictions, referencing \"ETH SAP\" for user data and link-management details for the control SAP. The Actual Output covers error handling and initialization as in the Expected Output. However, some specific primitives (e.g., DATA-LINK-SEND.request) and references to the MAC sublayer are not explicitly mentioned."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.6,
+        "reason": "No direct factual contradictions, but the Actual Output omits pilot states (A, B, C, D, etc.) and detailed PLC references mentioned in the Expected Output, resulting in missing detail compared to what was requested in the Input."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.8,
+        "reason": "In the Input, the focus is on clarifying MTC vs PTC. The Actual Output aligns with the Expected Output on test orchestration and pilot-signal monitoring but does not mention details like CmValidate, CmSlacMatch, or physical pilot-signal manipulations that the Expected Output specifies."
+    }
+]

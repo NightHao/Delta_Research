@@ -26,7 +26,7 @@
             "Electromagnetic Compatibility"
         ],
         "DATA SAP": [
-            "a Service Access Point"
+            "Service Access Point for Data"
         ],
         "SAP": [
             "The Data Link Control Service Access Point",
@@ -218,8 +218,7 @@
             "The Test Suite Structure",
             "TEST SUITE STRUCTURE",
             "Test Suite Specification",
-            "a Test Suite Specification",
-            "Test Suite Structure"
+            "a Test Suite Specification"
         ],
         "PICS": [
             "Protocol Implementation Conformance Statement",
@@ -237,10 +236,8 @@
             "Common Message Notation"
         ],
         "ATS": [
-            "the Abstract Test Suite",
             "ABSTRACT TEST SUITE",
-            "The Abstract Test Suite",
-            "Abstract Test Suite"
+            "The Abstract Test Suite"
         ],
         "ETSI": [
             "European Telecommunications Standards Institute",
@@ -312,8 +309,7 @@
             "Protocol Test Controller",
             "Parallel Test Component",
             "Positive Train Control",
-            "The Parallel Test Component",
-            "PARALLEL TEST COMPONENT"
+            "The Parallel Test Component"
         ],
         "TCI": [
             "TTCN-3 Control Interface"

@@ -1,0 +1,147 @@
+[
+    {
+        "question": "What is HPGP?",
+        "score": 0.3335981194725191,
+        "reason": "The actual output provides a detailed explanation of HPGP, but it contradicts the expected output by not simply stating what HPGP stands for and mentioning the specification without elaboration."
+    },
+    {
+        "question": "What is SLAC?",
+        "score": 0.5065931412185216,
+        "reason": "While the actual output provides a detailed explanation of SLAC and its functionality, it diverges significantly from the expected output regarding the main focus of how SLAC is specifically used for matching EV and EVSE through signal strength measurement. Key aspects of the expected output are omitted."
+    },
+    {
+        "question": "What is Logical Network?",
+        "score": 0.48952824860563854,
+        "reason": "While the actual output explains the concept of a logical network in detail, it contradicts the expected output by focusing on elements like EV and EVSE instead of the set of low-layer communication stations and the NMK network key. Additionally, it elaborates too much on specific characteristics, leading to an omission of the succinct definition presented in the expected output."
+    },
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 0.6204032840801965,
+        "reason": "The actual output provides detailed descriptions of both SAPs, but it lacks the specific mention of 'v2g-related payload' and 'HPGP' which are important in the expected output. There is a clear alignment on the functions but missing specific details results in a lower score."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.6439758428643436,
+        "reason": "While the actual output provides detailed information on differences between basic signaling and high-level communication, it exceeds the expected output in length and detail, making it somewhat verbose compared to the concise summary requested."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.6216906596822066,
+        "reason": "The actual output provides a detailed explanation of the MTC and PTC roles, but it does not directly state that the MTC creates and controls the PTC as mentioned in the expected output, leading to a slight omission of key detail."
+    },
+    {
+        "question": "What is ATS?",
+        "score": 0.7302149189056137,
+        "reason": "The actual output accurately describes ATS and its relation to ISO 15118-3, but it includes excessive details and examples not found in the concise expected output, which impacts focus on the main idea."
+    },
+    {
+        "question": "What is TSS?",
+        "score": 0.5410567872894563,
+        "reason": "While the actual output provides a detailed explanation of TSS, including its functions and relation to ISO 15118, it deviates from the expected output's concise definition and focus on conformance testing, leading to a slight omission of key specifics."
+    },
+    {
+        "question": "What is EIM?",
+        "score": 0.5578009021563108,
+        "reason": "The actual output provides extensive detail about EIM and its functions but contains extraneous information beyond the definition requested in the expected output, which simply identifies EIM as External Identification Means defined in ISO 15118-1."
+    },
+    {
+        "question": "What is CCo?",
+        "score": 0.4922060179495607,
+        "reason": "The actual output provides a detailed explanation of the Central Coordinator's role and functions, which aligns with part of the expected output. However, it incorrectly emphasizes that the low-layer communication module on the EV side must never assume the role of the CCo without adequately noting that the EVSE side should always be the CCo. This omission affects the completeness of the information."
+    },
+    {
+        "question": "What is CM_SLAC_PARAM.REQ?",
+        "score": 0.46103725871816337,
+        "reason": "While the actual output provides detailed information about CM_SLAC_PARM.REQ, including its purpose, communication protocol, and other specific details, it deviates from the expected output by focusing excessively on technicalities rather than the brief main idea of broadcasting parameters for signal strength measurement."
+    },
+    {
+        "question": "What is CM_SLAC_PARAM.CNF?",
+        "score": 0.3106158221038785,
+        "reason": "The actual output provides a detailed explanation of CM_SLAC_PARM.CNF, including its purpose and context, but it contradicts the expected output by referring to it as a confirmation message, whereas the expected output describes it as the MME response. Additionally, it adds unnecessary details about testing and relation to other messages that deviate from the main idea."
+    },
+    {
+        "question": "What is CM_START_ATTEN_CHAR.IND?",
+        "score": 0.875671130872397,
+        "reason": "The actual output provides a detailed and accurate explanation of CM_START_ATTEN_CHAR.IND, aligning well with the context of electric vehicle communications as expected. However, the absence of a stated expected output could result in minor penalties for omission of detail."
+    },
+    {
+        "question": "What is CM_MNBC_SOUND.IND?",
+        "score": 0.2804667464106062,
+        "reason": "The actual output provides a detailed explanation of CM_MNBC_SOUND.IND, but it diverges from the expected output by discussing multiple functions and technical details instead of simply stating that it is the MME through which the EVSE calculates attenuation."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.IND?",
+        "score": 0.5907603272254864,
+        "reason": "The actual output provides a comprehensive explanation of CM_ATTEN_CHAR.IND, including its purpose, fields, and communication protocol, but it diverges slightly from the expected output by providing more detail than necessary, which may not align perfectly with the core essence of the expected output."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.RSP?",
+        "score": 0.32690713114252223,
+        "reason": "The actual output provides detailed context about CM_ATTEN_CHAR.RSP and its role, but it incorrectly emphasizes the EV's response as a confirmation to CM_ATTEN_CHAR.IND, rather than the expected behavior which indicates a more general signaling role in the measurement process."
+    },
+    {
+        "question": "What is CM_ATTEN_PROFILE.IND?",
+        "score": 0.6000860310401758,
+        "reason": "While the actual output provides a detailed explanation of CM_ATTEN_PROFILE.IND and its significance, it deviates from the expected output by incorrectly stating the role of NUM_SOUNDS and includes information not found in the expected output, leading to a moderate score."
+    },
+    {
+        "question": "What is CM_VALIDATE.REQ?",
+        "score": 0.4325789438051705,
+        "reason": "While the actual output provides comprehensive details about CM_VALIDATE.REQ, it diverges from the expected output's focus on the MME and specific mention of the steps. It also contains extraneous information that, while relevant, neglects to clearly outline the two-step validation process as required."
+    },
+    {
+        "question": "What is CM_VALIDATE.CNF?",
+        "score": 0.5296667356712595,
+        "reason": "The actual output provides accurate details about CM_VALIDATE.CNF as a protocol message and its role in the validation process, but it includes excessive detail and structure that goes beyond the expected output, which focuses more on concise step descriptions."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.REQ?",
+        "score": 0.31218899444130455,
+        "reason": "While the actual output provides extensive detail about the CM_SLAC_MATCH.REQ message, it contradicts the expected output by focusing on its role in communication protocol rather than being solely the MME through which the EV requests parameters from EVSE."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.CNF?",
+        "score": 0.4389458573848432,
+        "reason": "The actual output provides detailed information about CM_SLAC_MATCH.CNF, but it contradicts the expected output by emphasizing its role in the SLAC matching process rather than simply serving as a confirmation message for joining the logical network, leading to a partial alignment with the criteria."
+    },
+    {
+        "question": "What is CM_SET_KEY.REQ?",
+        "score": 0.5815463000890629,
+        "reason": "While the actual output provides a comprehensive overview of CM_SET_KEY.REQ's functions and context, it omits the specific mention of the timing and conditions under which the EV and EVSE configure their low-layer communication modules, as noted in the expected output."
+    },
+    {
+        "question": "What is CM_SET_KEY.CNF?",
+        "score": 0.2741115034534917,
+        "reason": "The actual output provides a detailed explanation of CM_SET_KEY.CNF, but it contradicts the expected output by identifying it as a protocol message rather than specifically as the MME responding to CM_SET_KEY.REQ."
+    },
+    {
+        "question": "What is CM_AMP_MAP.REQ?",
+        "score": 0.0,
+        "reason": "The actual output does not provide any information about CM_AMP_MAP.REQ, which directly contradicts the detailed explanation in the expected output."
+    },
+    {
+        "question": "What is CM_AMP_MAP.CNF?",
+        "score": 0.47342060922654594,
+        "reason": "The actual output provides detailed information about CM_AMP_MAP.CNF, including its purpose, structure, and importance, but it contradicts the expected output by not defining it as the MME directly. Additionally, while informative, it omits the brevity expected in the response."
+    },
+    {
+        "question": "What is D-LINK_READY.indication?",
+        "score": 0.5285206235895913,
+        "reason": "The actual output provides a detailed explanation of D-LINK_READY.indication but contains excess detail and diverges from the simpler format of the expected output. It includes regulatory requirements and higher layer interactions that are not mentioned in the expected output."
+    },
+    {
+        "question": "What is D-LINK_TERMINATE.request?",
+        "score": 0.6907525838376964,
+        "reason": "The actual output provides a comprehensive overview of the D-LINK_TERMINATE.request but lacks concise reference to certain details from the expected output, such as the 'Clause \u201cLeaving an AVLN\u201d' and 'defined according to [ISO-2]', leading to a light penalty for omission."
+    },
+    {
+        "question": "What is D-LINK_ERROR.request?",
+        "score": 0.673401795076556,
+        "reason": "The actual output provides detailed information about D-LINK_ERROR.request, including its purpose, origin, and error handling. However, it omits the specific mention of the protocol definition that the expected output cites, which slightly impacts the alignment with expected detail."
+    },
+    {
+        "question": "What is D-LINK_PAUSE.request?",
+        "score": 0.6893680368320124,
+        "reason": "The actual output provides detailed information about the D-LINK_PAUSE.request protocol, including its functions and compliance standards, but it omits the reference to the [ISO-2] standard and contains some redundancy in describing the state changes and storage of logical network parameters. Additionally, the control pilot states were not consistently referenced."
+    }
+]

@@ -1,0 +1,181 @@
+{
+  "tables": [
+    {
+      "id": "A.11",
+      "name": "Table A.11 \u2014 Definition of electrical characteristics",
+      "source": "table"
+    },
+    {
+      "id": "A.1",
+      "name": "Table A.1 (continued)",
+      "source": "table"
+    },
+    {
+      "id": "3",
+      "name": "Table 3 \u2014 Timing and constant values",
+      "source": "table"
+    },
+    {
+      "id": "4",
+      "name": "Table 4 \u2014 D-LINK_READY.indication primitive",
+      "source": "table"
+    },
+    {
+      "id": "5",
+      "name": "Table 5 \u2014 D-LINK_TERMINATE.request primitive",
+      "source": "table"
+    },
+    {
+      "id": "6",
+      "name": "Table 6 \u2014 D-LINK_ERROR.request primitive",
+      "source": "table"
+    },
+    {
+      "id": "7",
+      "name": "Table 7 \u2014 D-LINK_PAUSE.request primitive",
+      "source": "table"
+    },
+    {
+      "id": "8",
+      "name": "Table 8 \u2014 PICS for test system configuration CF_05_002 (SUT equals EVCC)",
+      "source": "table"
+    },
+    {
+      "id": "9",
+      "name": "Table 9 \u2014 Selected PIXIT for test system configurations CF_05_001 and CF_05_002 (SUT either SECC or EVCC)",
+      "source": "table"
+    },
+    {
+      "id": "1",
+      "name": "Table 1 \u2014 EIM and/or PnC in EVSEs",
+      "source": "table"
+    },
+    {
+      "id": "2",
+      "name": "Table 29 \u2014 ATS coverage of requirements in ISO 15118-3",
+      "source": "table"
+    },
+    {
+      "id": "A.2",
+      "name": "Table A.2 \u2014 Involved MMEs for parameters exchange",
+      "source": "table"
+    },
+    {
+      "id": "A.4",
+      "name": "Table A.4 (continued)",
+      "source": "table"
+    },
+    {
+      "id": "A.9",
+      "name": "Table A.9 \u2014 MMEs parameters definition for amplitude map exchange",
+      "source": "table"
+    },
+    {
+      "id": "A.3",
+      "name": "Table A.3 \u2014 EV_Discovering_Status definition",
+      "source": "table"
+    },
+    {
+      "id": "A.5",
+      "name": "Table A.5 \u2014 MMEs parameters definition for validation process \u2013 First request-response",
+      "source": "table"
+    },
+    {
+      "id": "A.6",
+      "name": "Table A.6 \u2014 MMEs parameters definition for validation process \u2013 Second request-response",
+      "source": "table"
+    },
+    {
+      "id": "A.7",
+      "name": "Table A.7 (continued)",
+      "source": "table"
+    },
+    {
+      "id": "A.8",
+      "name": "Table A.8 \u2014 MMEs parameters definition for joining the logical network",
+      "source": "table"
+    }
+  ],
+  "figures": [
+    {
+      "id": "1",
+      "name": "Figure 11 \u2014 Matching state machine",
+      "source": "figure"
+    },
+    {
+      "id": "2",
+      "name": "Figure 2 \u2014 General overview of the Test Suite Structure (TSS)",
+      "source": "figure"
+    },
+    {
+      "id": "A.4",
+      "name": "Figure A.4 \u2014 Sequence chart of signal strength measurement",
+      "source": "figure"
+    },
+    {
+      "id": "A.11",
+      "name": "Figure A.11 \u2014 HomePlug Green PHY-Transmission path example with SLAC relevant attenuations and calculations",
+      "source": "figure"
+    },
+    {
+      "id": "A.7",
+      "name": "Figure A.7 \u2014 Sequence chart of joining the logical network",
+      "source": "figure"
+    },
+    {
+      "id": "3",
+      "name": "Figure 3 \u2014 Connection coordination Seq 1: AC EVSE with PnC and EIM and matching process not",
+      "source": "figure"
+    },
+    {
+      "id": "4",
+      "name": "Figure 4 \u2014 Connection coordination Seq 2: AC EVSE with PnC and EIM and matching process not",
+      "source": "figure"
+    },
+    {
+      "id": "5",
+      "name": "Figure 5 \u2014 Connection coordination Seq 3: AC EVSE with PnC and EIM and matching process",
+      "source": "figure"
+    },
+    {
+      "id": "6",
+      "name": "Figure 6 \u2014 Connection coordination Seq 4: AC EVSE with PnC and EIM and matching process",
+      "source": "figure"
+    },
+    {
+      "id": "7",
+      "name": "Figure 7 \u2014 Connection coordination Seq 5: AC EVSE with EIM, EIM before plug-in, control pilot",
+      "source": "figure"
+    },
+    {
+      "id": "9",
+      "name": "Figure 9 \u2014 Connection coordination Seq 7: AC EVSE timeout handling for 5 % control pilot duty",
+      "source": "figure"
+    },
+    {
+      "id": "A.9",
+      "name": "Figure A.9 \u2014 Example of sequence chart of matching process error handling",
+      "source": "figure"
+    },
+    {
+      "id": "A.8",
+      "name": "Figure A.8 \u2014 Sequence chart of amplitude map exchange",
+      "source": "figure"
+    },
+    {
+      "id": "A.5",
+      "name": "Figure A.5 \u2014 Sequence chart of validation process of matching decision",
+      "source": "figure"
+    },
+    {
+      "id": "A.2",
+      "name": "Figure A.2 \u2014 Sequence chart of HomePlug Green PHY matching process (part 2",
+      "source": "figure"
+    },
+    {
+      "id": "A.1",
+      "name": "Figure A.1 \u2014 Sequence chart of HomePlug Green PHY matching process (part 1)",
+      "source": "figure"
+    }
+  ]
+}

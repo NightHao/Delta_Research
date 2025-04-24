@@ -1,0 +1,1140 @@
+Question What is SLAC?: What is SLAC?
+
+Below is all the available information related to this question.
+Use ONLY this information to construct a comprehensive answer.
+Do not add any new information that is not present below.
+
+TABLE INFORMATION:
+Table 1: 8 Timings and constants - Table A.1 — Timing and constant values
+
+FIGURE INFORMATION:
+Figure 1: A.9.2 Signal strength measurement - Figure A.4 — Sequence chart of signal strength measurement
+
+Image Description for Figure 1:
+# Detailed Description of Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI Reference Model
+
+Below is a comprehensive, step-by-step explanation of the diagram labeled **“Figure 1 — Overview of [ISO-0] in the ISO/IEC OSI reference model.”** Although this figure is not a traditional “flowchart” (with decision diamonds or arrows depicting process steps), it provides a layered architectural view of how the ISO 15118 standards align with the classic ISO/IEC Open Systems Interconnection (OSI) reference model. In the sections below, each labeled entity is identified, and its role and connections are described in detail.
+
+---
+
+## 1. Entities in the Figure
+
+1. **OSI layer 1 Physical**  
+2. **OSI layer 2 Data link**  
+3. **OSI layer 3 Network**  
+4. **OSI layer 4 Transport**  
+5. **OSI layer 5 Session**  
+6. **OSI layer 6 Presentation**  
+7. **OSI layer 7 Application**  
+8. **Vehicle-to-Grid communication**  
+9. **ISO 15118‑1**  
+10. **General information and use-case definition**  
+11. **ISO 15118‑2**  
+12. **Network and application protocol requirements**  
+13. **V2G standardized service primitive interface**  
+14. **ISO 15118‑3**  
+15. **Physical layer and Data link layer requirements**  
+16. **Figure 1 — Overview of [ISO‑0] in the ISO/IEC OSI reference model**  
+
+---
+
+## 2. Overall Structure of the Diagram
+
+The figure is conceptually divided into three major sections (from bottom to top):
+
+1. **Lower Layers (OSI Layer 1 and 2)** – Represented by the ISO 15118‑3 standard.  
+2. **Intermediate Layer Boundary** – Indicated by the “V2G standardized service primitive interface,” which bridges ISO 15118‑3 with the higher-layer protocols.  
+3. **Higher Layers (OSI Layers 3 through 7)** – Represented by the ISO 15118‑2 standard for network and application-level communication, with references to ISO 15118‑1 for general concepts and use-case definitions.  
+
+Within the big outer box labeled “Vehicle-to-Grid communication,” two standards are highlighted:
+- **ISO 15118-1** (covering general info and use-case definitions)
+- **ISO 15118-2** (covering network and application protocol requirements)
+
+At the bottom, a second large box is labeled **ISO 15118-3** (covering physical and data link layer requirements). Between these two boxes, a horizontal band is labeled **V2G standardized service primitive interface**, indicating the interface boundary where higher-level protocols interact with physical and data link services.
+
+---
+
+## 3. Layer-by-Layer Description
+
+### 3.1 OSI Layer 1 (Physical)
+- **Name in Diagram**: “OSI layer 1 Physical.”  
+- **Role**: The physical layer is responsible for the transmission and reception of raw bitstreams over a physical medium—e.g., the actual cable or wireless medium used for communications.  
+- **Referenced Standard**: **ISO 15118‑3** covers the physical layer requirements, ensuring that electric vehicles (EVs) and charging stations (EVSEs) are interoperable at the physical signal level (e.g., Power Line Communication (PLC), electromagnetic compatibility requirements, etc.).
+
+### 3.2 OSI Layer 2 (Data Link)
+- **Name in Diagram**: “OSI layer 2 Data link.”  
+- **Role**: The data link layer establishes and terminates a connection between two physically connected nodes, handling error detection/correction and basic framing.  
+- **Referenced Standard**: **ISO 15118‑3** also covers the data link layer requirements (e.g., MAC addressing, PLC MAC layer specifics) to ensure a stable “low-layer” communication for Vehicle-to-Grid (V2G).
+
+Both Layer 1 and Layer 2 appear inside the “ISO 15118‑3” box. They are the core focus of “Part 3” of the ISO 15118 series, which defines how signals and data frames are sent over the physical medium and how they link up into a standardized “pipe” for higher-layer messages.
+
+### 3.3 V2G Standardized Service Primitive Interface
+- **Name in Diagram**: “V2G standardized service primitive interface.”  
+- **Role**: This horizontal band sits between the physical/data link layers (bottom) and the upper layers (top). It serves as a boundary or interface that allows the protocols described in ISO 15118‑2 (network and application) to communicate with the lower-layer technology specified by ISO 15118‑3.  
+- **Importance**: It defines how services and primitives (e.g., data requests, acknowledgements, connection management) are exchanged between the data link layer and higher network/application layers. This is the main “handshake” region that ensures a consistent interface across potentially different hardware or firmware implementations.
+
+### 3.4 OSI Layer 3 (Network)
+- **Name in Diagram**: “OSI layer 3 Network.”  
+- **Role**: The network layer handles packet forwarding, including routing through intermediate routers. In the scope of V2G, it organizes data exchange at the IP layer (or other possible network-layer protocols).  
+- **Referenced Standard**: **ISO 15118‑2** is responsible for specifying how the network layer is used for V2G communication (e.g., IP addressing, transport selection requirements).
+
+### 3.5 OSI Layer 4 (Transport)
+- **Name in Diagram**: “OSI layer 4 Transport.”  
+- **Role**: Responsible for reliable or unreliable end-to-end transport of data (e.g., TCP/UDP). In V2G contexts, this layer ensures robust message delivery or streaming.  
+- **Referenced Standard**: Again, covered by **ISO 15118‑2**, which dictates how the transport layer interacts with the network layer and the session layer to support the V2G protocols.
+
+### 3.6 OSI Layer 5 (Session)
+- **Name in Diagram**: “OSI layer 5 Session.”  
+- **Role**: Helps manage and control the connections between applications, establishing, maintaining, and terminating communication sessions.  
+- **Referenced Standard**: Part of the **ISO 15118‑2** coverage, ensuring session-oriented capabilities (like initiating a charging session, exchanging messages for contract authorization, etc.).
+
+### 3.7 OSI Layer 6 (Presentation)
+- **Name in Diagram**: “OSI layer 6 Presentation.”  
+- **Role**: Ensures that data is in a usable format for the application layer—handling data encryption, serialization, and translation if necessary.  
+- **Referenced Standard**: **ISO 15118‑2** also governs how data representation and encoding details (e.g., XML, EXI) are handled in the V2G messages.
+
+### 3.8 OSI Layer 7 (Application)
+- **Name in Diagram**: “OSI layer 7 Application.”  
+- **Role**: Closest to the end-user; in V2G, it describes the application-level data exchanges that facilitate use-cases like contractual identification, pricing, charging profiles, and energy management.  
+- **Referenced Standard**: **ISO 15118‑2**. All relevant V2G messages (e.g., request/response for charging schedules, authentication, or payment) are part of the application layer protocols described here.
+
+### 3.9 Vehicle-to-Grid Communication (Top-Level Box)
+- **Name in Diagram**: “Vehicle-to-Grid communication.”  
+- **Role**: This large box depicts the entire scope of “V2G” communication from an OSI perspective—covering from network to application aspects. It conceptually contains two key parts:
+  1. **ISO 15118‑1** (General information and use-case definition)  
+  2. **ISO 15118‑2** (Network and application protocol requirements)
+
+  Where **ISO 15118‑1** sits within the conceptual top-level because it outlines overarching use-cases and contexts, while **ISO 15118‑2** addresses the technical details of how to implement them in the network/application layers.
+
+### 3.10 ISO 15118‑1
+- **Name in Diagram**: “ISO 15118‑1.”  
+- **Caption**: “General information and use-case definition.”  
+- **Role**: Provides the foundational concepts, goals, and use-case scenarios for V2G. It does not specify OSI layers per se but offers the background and scope for the more technical parts (‑2 and ‑3).
+
+### 3.11 ISO 15118‑2
+- **Name in Diagram**: “ISO 15118‑2.”  
+- **Caption**: “Network and application protocol requirements.”  
+- **Role**: Defines how the EV and EVSE communicate over the network and at the application layer to fulfill the use-cases that ISO 15118‑1 describes. It covers OSI layers 3 through 7 and ensures interoperability in message structuring, security, authentication, plug-and-charge features, etc.
+
+### 3.12 ISO 15118‑3
+- **Name in Diagram**: “ISO 15118‑3.”  
+- **Caption**: “Physical layer and Data link layer requirements.”  
+- **Role**: Specifies the physical mediums, data link procedures (PLC modems, MAC sublayer specifics), and any hardware-level interoperability requirements, including timing, cable specifications, electromagnetic compatibility, etc. This standard ensures that EV and EVSE can transmit signals reliably so that higher-layer protocols (ISO 15118‑2) can function as intended.
+
+---
+
+## 4. Relationship and Connections
+
+1. **ISO 15118‑3 → V2G Standardized Service Primitive Interface**  
+   - ISO 15118‑3 defines how data is physically encoded/decoded, then delivered to the next layer via service primitives. The horizontal interface states exactly how these data units or service requests move up to the higher layers.
+
+2. **V2G Standardized Service Primitive Interface → ISO 15118‑2**  
+   - The standardized interface allows protocols defined in ISO 15118‑2 to operate independently of the underlying physical or data link technologies. This separation provides modularity and helps different hardware implementations remain compatible as long as they abide by the same interface primitives.
+
+3. **ISO 15118‑2 → OSI Layers 3–7**  
+   - ISO 15118‑2 “lives” across the network, transport, session, presentation, and application layers, specifying how messages are constructed, routed, and validated for end-to-end V2G communication.
+
+4. **ISO 15118‑1 → Overall**  
+   - Although not explicitly mapped to a single OSI layer, ISO 15118‑1 supplies the conceptual building blocks—e.g., high-level use-cases, general requirements, and definitions—that shape the services needed in layers 1–7.
+
+5. **Vehicle-to-Grid Communication (Overall)**  
+   - Encompasses the end-to-end scenario, from the physical signals (lowest layer) to the application messages (highest layer). The entire diagonal or wave-like region that includes ISO 15118‑1 and ISO 15118‑2 is conceptually the V2G communication “stack,” reliant upon the hardware-level foundation described by ISO 15118‑3.
+
+---
+
+## 5. How the Diagram “Flows”
+While not a classic procedural “flowchart,” the layering suggests an upward flow of data and messages:
+
+1. **Physical/Layer 1**: Signals on the cable or PLC.  
+2. **Data Link/Layer 2**: Data is framed, and local links are established error-free.  
+3. **V2G Service Interface**: The boundary where well-defined primitives let higher-level protocols control or request link services.  
+4. **Network, Transport, Session, Presentation, Application (Layers 3–7)**: Actual V2G messages, session management, security, and application data (e.g., payment, contract ID exchange).  
+
+Each standard (ISO 15118‑1, ISO 15118‑2, and ISO 15118‑3) is responsible for a portion of this layered model. ISO 15118-1 sets the context, ISO 15118-2 handles the upper communication layers, and ISO 15118-3 ensures the physical/data link reliability.
+
+---
+
+## 6. Key Takeaways for Engineers
+
+- **Separation of concerns**: The figure neatly distinguishes the physical/data link requirements (ISO 15118‑3) from the network-to-application requirements (ISO 15118‑2), with ISO 15118‑1 providing conceptual underpinnings.  
+- **Modularity**: By adhering to the OSI layering, manufacturers can update physical or data link implementations without forcing redesign of higher-layer protocols, as long as the standardized service interface remains intact.  
+- **Interoperability**: Each layer’s compliance ensures that an EV from one vendor can communicate effectively with an EVSE from another vendor—covering everything from signal waveforms to network addresses to high-level billing transactions.
+
+---
+
+**Figure 1** thus serves as a foundational reference for how the entire V2G communication stack (layers 1 through 7) aligns with the separate parts of the ISO 15118 standard, illustrating the scope and boundary of each part in the OSI model. The layered design promotes a robust, flexible, and interoperable charging ecosystem for electric vehicles and charging infrastructure.
+
+Figure 2: A.11.4.1 Typical transmission path - Figure A.11 — HomePlug Green PHY-Transmission path example with SLAC relevant
+
+Image Description for Figure A.11:
+# Detailed Description of Figure A.11 — HomePlug Green PHY-Transmission Path Example
+
+Below is a comprehensive description of the flow chart shown in “Figure A.11 — HomePlug Green PHY-Transmission path example with SLAC relevant attenuations and calculations.” The diagram illustrates how the Power Line Communication (PLC) signal (M-Sound, in this context) travels from the Electric Vehicle (EV) side to the Electric Vehicle Supply Equipment (EVSE) side, with all the associated insertion losses, power spectral densities (PSDs), and measurement steps.
+
+---
+
+## 1. Entities Overview
+
+1. **PLC node EV**  
+   - Houses a Green PHY modem.  
+   - Has two paths connected to the modem:  
+     - Rx-Path AttnRxEV (receiving path insertion loss).  
+     - Tx-Path AttnTxEV (transmitting path insertion loss).
+
+2. **Charge cord (AttnCord)**  
+   - The physical charging cable between the EV and the EVSE.  
+   - It introduces its own insertion loss to the signal.
+
+3. **PLC node EVSE**  
+   - Also houses a Green PHY modem on the EVSE side.  
+   - Has two paths connected to the modem:  
+     - Rx-Path AttnRxEVSE (receiving path insertion loss).  
+     - Tx-Path AttnTxEVSE (transmitting path insertion loss).
+
+4. **PSD of M-Sound along the transmission path**  
+   - Shows the power spectral density at various points from EV to EVSE:  
+     - PSD at the EV modem transmitter output.  
+     - PSD at the EV socket.  
+     - PSD at the EVSE socket.  
+     - PSD at the EVSE modem input.
+
+5. **SLAC Measurement**  
+   - Refers to the Signal Level Attenuation Characterization measurement.  
+   - Uses a reference PSD of −50 dBm/Hz.  
+   - The EVSE corrects the measured values by adding back AttnRxEVSE (its insertion loss) before reporting to the EV.
+
+6. **Attenuation for Matching Decision**  
+   - A procedure to determine the final attenuation value by comparing reported attenuation values against a reference PSD (−26 dB in the example).  
+   - Averaged over all relevant carrier groups.
+
+7. **Reported Attenuation**  
+   - The final attenuation reported (e.g., “−28 dB”) is the per-carrier-group attenuation, factoring in EVSE’s internal correction.
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+The flow chart is read primarily from left to right (EV side to EVSE side), with a bottom branch showing how the SLAC measurement and final attenuation decisions are derived.
+
+1. **PSD at Trncv Output (EV side)**  
+   - The Green PHY modem inside the EV transmits the signal at a power spectral density of **−72 dBm/Hz**.  
+   - This output is labeled “PSD of M-Sound along the transmission path from EV to EVSE.”
+
+2. **−AttnTxEV**  
+   - The transmitting path on the EV side (Tx-Path AttnTxEV) incurs an insertion loss (example: ~4 dB).  
+   - After subtracting this loss, the resulting PSD at the EV socket is **−76 dBm/Hz** (the “design target”).
+
+3. **Passing Through Charge Cord (−AttnCord)**  
+   - The charge cord itself (AttnCord) further attenuates the signal.  
+   - The PSD at the EVSE socket becomes **−78 dBm/Hz**.
+
+4. **−AttnRxEVSE**  
+   - On the EVSE side, the receiving path (Rx-Path AttnRxEVSE) imposes an additional insertion loss (example: ~3 dB).  
+   - The PSD finally arrives at the EVSE modem input at **−81 dBm/Hz**.
+
+5. **SLAC Measurement**  
+   - The EVSE performs a SLAC measurement referencing **−50 dBm/Hz** as a baseline.  
+   - The raw measurement (labeled “−31 dB”) represents how much the EVSE side sees relative to −50 dBm/Hz.
+
+6. **Correction of Insertion Loss (AttnRxEVSE)**  
+   - Since the EVSE must correct for its own internal Rx-Path loss (AttnRxEVSE), it adds back this loss value.  
+   - This results in a final reported measured attenuation of **−28 dB** per carrier group.
+
+7. **Calculations for Attenuation Measurement for Matching Decision**  
+   - In parallel (shown at the bottom branch of the figure), the PSD at the EV socket (−76 dBm/Hz) is compared against a reference PSD mention (−50 dBm/Hz) with a reference offset (−26 dB).  
+   - The difference is averaged over all carrier groups to get a scalar attenuation value. An example final result shown is **2 dB**.
+
+8. **Report of Measured Attenuation**  
+   - The EVSE finally reports “−28 dB” as the measured attenuation per carrier group (after the insertion-loss correction).  
+   - The bottom label notes that the “Attenuation for matching decision is determined by averaging the difference between the reported attenuation values and the reference PSD over all carrier groups.”
+
+---
+
+## 3. Relation and Connection of Entities
+
+- **EV (PLC node EV) → EV Socket**:  
+  Signal originates from the EV’s Green PHY modem at −72 dBm/Hz. The “Tx-Path AttnTxEV” reduces it by a few dB (e.g., 4 dB).
+
+- **EV Socket → Charge Cord**:  
+  The EV socket outputs ~−76 dBm/Hz. The cord (AttnCord) introduces further loss, giving ~−78 dBm/Hz at the EVSE socket.
+
+- **EVSE Socket → EVSE Modem**:  
+  The signal then passes through the “Rx-Path AttnRxEVSE.” By the time it reaches the EVSE modem input, it is at ~−81 dBm/Hz.
+
+- **SLAC Measurement Reference**:  
+  The EVSE measures the signal level relative to −50 dBm/Hz. The measured result (−31 dB) is adjusted upward by the known AttnRxEVSE (3 dB in the example) to give a final reported attenuation of −28 dB.
+
+- **Attenuation for Matching Decision**:  
+  A reference of −26 dB is used to gauge how much attenuation is really observed relative to the design PSD target. An example final scalar value of 2 dB is shown, though in practice it is averaged over multiple carrier groups.
+
+---
+
+## Notes and Key Takeaways
+
+- All PSD and attenuation values in the diagram (−72 dBm/Hz, −76 dBm/Hz, −78 dBm/Hz, −81 dBm/Hz, etc.) are examples for illustration. Real values depend on design, cables, coupling components, and actual measurement setups.  
+- AttnRxEV, AttnTxEV, AttnRxEVSE, AttnTxEVSE, and AttnCord are all insertion-loss factors contributing to the overall reduction of the PLC signal from the EV modem transmitter to the EVSE modem receiver (and vice versa).  
+- The SLAC procedure relies on having a known reference PSD of −50 dBm/Hz and requires the EVSE to correct for its own internal losses before reporting attenuation data back to the EV.
+
+This completes the detailed breakdown of the figure, step-by-step, helping engineers understand precisely how the HomePlug Green PHY communication path is measured and how attenuation values are derived.
+
+
+Image Description for Figure 2:
+```markdown
+# Detailed Description of Figure 2 — [ISO-3] Relationship to the ISO/IEC OSI Reference Model
+
+This figure shows how the Physical and Data Link layers used in ISO 15118‑3 (specifically for Power Line Communication on electric vehicles) align with the classic ISO/IEC 7498-1 (OSI) reference model. It illustrates the layered network architecture, culminating in interfaces that connect to higher-level protocols (Application, Presentation, Session, Transport, Network) and basic signaling (Control Pilot) as specified in IEC 61851‑1.
+
+Below is a step-by-step, layer-by-layer description of each entity in the figure and how they relate to each other.
+
+---
+
+## 1. Entities Overview
+
+From **bottom** to **top**, the following entities appear in the diagram:
+
+1. **Communication media**  
+   The physical medium (the cable assembly) through which signals and energy are exchanged between the Electric Vehicle (EV) and the Electric Vehicle Supply Equipment (EVSE).
+
+2. **Signal coupling**  
+   This represents the method of coupling the PLC (Power Line Communication) signal onto the AC or DC charging cable. It ensures the high-frequency PLC signal is injected or extracted without interfering with the power transfer itself.
+
+3. **PLC Physical layer**  
+   The physical layer of the Power Line Communication (e.g., HomePlug GreenPHY). It defines the electrical and modulation specifications required to transmit bits over the communication media.
+
+4. **MAC/PHY SAP**  
+   The Service Access Point between the PHY (Physical) and MAC (Medium Access Control) layers. It represents the interface through which the upper layer (MAC) exchanges data and control information with the physical layer.
+
+5. **PLC MAC layer**  
+   The Medium Access Control layer that handles packet framing, addressing, and channel-access mechanisms specific to PLC (e.g., carrier-sense multiple access, collision avoidance, etc.).
+
+6. **Convergence MAC SAP**  
+   The interface between the PLC MAC layer and the convergence layer. It ensures that data from higher-layer protocols is properly formatted for MAC-layer transmission and vice versa.
+
+7. **Convergence layer**  
+   A bridging layer that adapts the classic OSI Data Link–level services (like Ethernet bridging or VLAN tagging) into the specific requirements/format of the PLC protocols. It converges or translates data to align with HomePlug GreenPHY or other PLC standards.
+
+8. **Control SAP**  
+   A specialized Service Access Point providing a control interface for the PLC or other network-management functions (e.g., encryption key management, SLAC services, link status queries). This is used by upper software modules that need direct PLC-related control/configuration.
+
+9. **Data link control SAP**  
+   An interface that provides link-status information, error management, and other data link control functionalities. This SAP ties the connection coordination module to the lower-level Data Link functionalities.
+
+10. **Connection coordination**  
+   A functional block that coordinates establishing or tearing down logical connections. It helps with matching EVs to EVSEs, exchanging handshake signals, and managing the relationship between basic IEC 61851-1 signaling and the higher, logical data connections of ISO 15118.
+
+11. **Data SAP**  
+   The interface between the Data Link layer and the Network (layer 3) or higher layers for actual V2G (vehicle-to-grid) data exchange. All high-level charging messages (e.g., those required by ISO 15118-2) flow through the Data SAP.
+
+12. **Higher layers**  
+   In OSI terms, these encapsulate the Application, Presentation, Session, Transport, and Network layers. ISO 15118-2 typically operates at these layers (exchanging XML messages, session management, security, etc.).
+
+13. **Control pilot (IEC 61851-1) Hardware I/Os**  
+   Shown to the right, this denotes the separate hardware line(s) used for “basic signaling” (PWM duty cycle, pilot states, etc.). It is not strictly part of the PLC communication stack but interplays with it (for example, telling the EV and EVSE when to begin or end coupling for high-level communication).
+
+14. **OSI reference model layers**  
+   A vertical bracket on the left reminding us that Physical and Data Link layers in the OSI model are here implemented by the PLC layers and the “convergence layer.”
+
+15. **Key**: “covered by communication technology specification”  
+   The figure highlights (in gray) the parts (Convergence layer, PLC MAC, PLC PHY, etc.) that are defined by specific communication technology standards (e.g., HomePlug GreenPHY, IEEE 1901 Profile GreenPHY).
+
+---
+
+## 2. Detailed Layer-by-Layer Explanation and “Flow”
+
+Although this is not a conventional “flowchart,” the diagram can be read from the **Physical** layer at the bottom to the **Application** layer at the top to understand how data flows and which components interact:
+
+1. **Communication Media (Bottom Layer)**  
+   • Power cabling used for vehicle charging is also used to carry data signals.  
+   • Power is transferred from the EVSE to the EV; meanwhile, high-frequency signals are superimposed for data exchange.
+
+2. **Signal Coupling Layer**  
+   • Couples the PLC signal on top of the AC or DC power line.  
+   • Ensures minimal interference and correct impedance matching to pass data effectively between EV and EVSE.
+
+3. **PLC Physical Layer**  
+   • Responsible for modulating and demodulating waveforms on the power line.  
+   • Follows standards such as HomePlug GreenPHY for robust physical signaling (e.g., OFDM, error correction).
+
+4. **MAC/PHY SAP**  
+   • Logical interface that the MAC layer uses to send and receive frames (bits, symbols) via the Physical layer.  
+   • Transmits or receives packets after being encoded/decoded at the PHY.
+
+5. **PLC MAC Layer**  
+   • Implements media access rules (channel sensing, collision avoidance, etc.).  
+   • Adds header/trailer fields managing addressing and error detection.  
+   • Manages bridging to upper or lower layers via convergence sub-layers.
+
+6. **Convergence MAC SAP**  
+   • Provides a standardized interface for the next layer (Convergence layer) to get data from MAC frames.  
+   • Ensures correct framing and token passing between the Convergence and MAC layers.
+
+7. **Convergence Layer**  
+   • Adapts the PLC MAC frames into a more generic data link structure or vice versa.  
+   • Potentially includes bridging or VLAN tagging for IP-based or ISO 15118-2 application data.  
+   • At this layer, the system transitions from technology-specific data link frames to a more general data link service usable by higher protocols.
+
+8. **Control SAP**  
+   • A specialized side-interface that configuration/control processes (like encryption-key management or the SLAC process used for EV–EVSE association) can call.  
+   • Enables reading/writing certain parameters in the PLC MAC or PHY, including link status, encryption keys, and networking specifics.
+
+9. **Data Link Control SAP**  
+   • Presents data link status (connected, disconnected, error) and handles command signals for enabling or disabling link functionalities.  
+   • Ties in to the Connection Coordination function, letting higher-layer logic know about link conditions.
+
+10. **Connection Coordination**  
+    • Supervises or orchestrates which link or channel is used, how the handshake or matching occurs, and whether the EV and EVSE are “paired.”  
+    • Tightly integrated with basic signaling from IEC 61851-1 (Control Pilot) and high-level communication from ISO 15118-2.
+
+11. **Data SAP**  
+    • The normal “data” interface for exchanging V2G protocol payloads (e.g., charging session requests, contract identification) between the Data Link layer and the higher OSI layers (Network and above).  
+    • Actual ISO 15118-2 messages pass through this Data SAP after being encapsulated into MAC frames.
+
+12. **Higher Layers**  
+    • Spanning OSI Layers 3 to 7 (Network, Transport, Session, Presentation, Application).  
+    • In the context of ISO 15118, these higher layers format, encrypt, and interpret the actual “plug-and-charge” or “vehicle-to-grid” messages.
+
+13. **Control Pilot (IEC 61851-1) Hardware I/Os**  
+    • Shown on the right side as a separate domain.  
+    • Provides basic PWM signaling to indicate EV states, EVSE states, maximum current capability, presence of the EV, or charging fault conditions.  
+    • Ties into overall Connection Coordination to start or stop the PLC communication as required by the standard.
+
+---
+
+## 3. Relationship and Connection of Entities
+
+- **Physical to MAC**  
+  Data moves from the **Communication media** (power lines) through **Signal coupling** into the **PLC Physical layer**, which transmits/receives bits. The **MAC/PHY SAP** is then used to pass frames to/from the **PLC MAC layer**.
+
+- **MAC to Convergence**  
+  The **PLC MAC layer** sends or receives data frames to the **Convergence layer** through the **Convergence MAC SAP**. At this stage, commands and bridging logic are aligned with the needs of higher-level protocols.
+
+- **Convergence to Higher Protocols**  
+  After the Convergence layer, there are multiple SAPs:
+  1. **Control SAP** for direct PLC control and configuration queries (e.g., security keys, link info).  
+  2. **Data Link Control SAP** for controlling the link status, error notifications, and link enable/disable.  
+  3. **Data SAP** for normal data traffic that flows up to the OSI Network or Transport layers.
+
+- **Coordination with Basic Signaling**  
+  The **Connection coordination** block leverages the **Control SAP** and **Data link control SAP** to manage the handshake between the EV and EVSE at both the PLC level and the basic PWM signaling level. Meanwhile, the **Control pilot** line (IEC 61851-1) physically coordinates the presence detection and permissible current via the duty cycle.
+
+- **Higher Layers**  
+  Above the **Data SAP**, normal IP networking (or the ISO 15118-2 application messages) can proceed. These higher-layer protocols rely on the data path established at lower layers by the PLC system and are orchestrated by the **Connection coordination** function.
+
+---
+
+## 4. Key Takeaways
+
+1. **Layered Architecture**  
+   The figure highlights how the Physical and Data Link layers of ISO 15118‑3 map directly onto the OSI reference model. The “convergence layer” ensures that higher layers can remain mostly independent of the underlying PLC technology.
+
+2. **Control vs. Data**  
+   Two main SAP families exist:  
+   - **Control SAP / Data Link Control SAP**: For link management, error reporting, and secure network configuration.  
+   - **Data SAP**: For passing normal application data (ISO 15118-2 messages) to the upper layers.
+
+3. **Basic Signaling Integration**  
+   IEC 61851-1’s control pilot is shown outside the PLC stack, yet it is integral to “Connection coordination,” ensuring correct startup, safety interlocks, and fallback charging states.
+
+4. **Covered by Communication Technology Specification**  
+   The gray regions (Convergence layer, MAC, PHY) are implementations guided by specific PLC standards (e.g., HomePlug GreenPHY). They are thus “covered by communication technology specification.”
+
+By understanding each block and interface, engineers can quickly trace how signals and data flow from the power line (physical) up to the ISO 15118 application protocol, and how the system coordinates the link state with basic pilot signaling.
+```
+
+Figure 3: A.11.4.1 Typical transmission path - attenuations and calculations
+
+Image Description for Figure 3:
+# Detailed Description of the Flow Chart (Figure 3)  
+
+Below is a step-by-step explanation of the flow chart, including each key entity, the transitions between states, and how they relate to one another. This chart describes an AC EVSE (Electric Vehicle Supply Equipment) supporting different modes of charging, including High-Level Communication Charging (HLC-C) and Basic Charging (BC), under both Plug & Charge (PnC) and External Identification Means (EIM). 
+
+---
+
+## 1. Entities Overview
+
+1. **Plug-in**  
+   The moment the EV is physically connected to the EVSE.
+
+2. **X1 or X2 (5%)**  
+   Indicates that upon plug-in, the Control Pilot (CP) can be in either state X1 or state X2 with a 5% duty cycle.  
+   • NOTE 1: According to IEC standards ([IEC‐3], Table 5), CP state X1 may be used for a brief period until the CP oscillator is switched on. If not using X1, then 5% duty cycle in X2 is used instead.
+
+3. **X2 (5%)**  
+   Shows the CP remains at 5% duty cycle while waiting for authorization or the start of the matching process.
+
+4. **“Matched state” and authorization OK**  
+   Once the EV and EVSE have established that the authorization (PnC or EIM) is successful, and the matching process (for high-level communication) is complete, the charging can proceed under HLC-C.
+
+5. **EIM done & matching process not started**  
+   An indication that External Identification Means is completed, but the matching process (to move to HLC-C) has not started. This situation might lead to remaining in a 5% duty cycle or transitioning to other states.
+
+6. **Re-init**  
+   A session restart without physically unplugging the EV (often triggered by an error or a control pilot transition to state E).
+
+7. **E/F (0%)**  
+   The control pilot is in an error or fault state (0% duty cycle). This typically happens if a fault or error has been detected, or if the system invokes a “re-init” procedure.
+
+8. **T_step_EF**  
+   The specific time duration the system remains in the E/F (0%) state (error handling) before transitioning back to a normal control pilot state.  
+   • T_step_EF is defined by the standard to allow proper reset/clearing of faults.
+
+9. **X2 (nom.)**  
+   The nominal duty cycle in control pilot state X2 (indicating readiness for normal or basic charging). When HLC-C is not active or is completed, the CP uses the nominal duty cycle instead of 5%.
+
+10. **HLC-C (charging controlled by high-level communication)**  
+    Indicates that charging (or “V2G Setup”) is controlled via ISO 15118 high-level messages. PnC or EIM with HLC-C will use this path.
+
+11. **BC (charging controlled by IEC 61851-1)**  
+    Basic charging mode (without high-level communication). This is allowed before or after the high-level communication session, or as a fallback if the EV does not support HLC-C.
+
+12. **V2G Setup finished**  
+    Signals that the high-level communication (ISO 15118) setup phase is completed.
+
+13. **a) PnC**  
+    Branch “a” indicates the Plug & Charge path where authorization and matching take place over the high-level communication interface.
+
+14. **b) EIM w. BC**  
+    Branch “b” is for External Identification Means with Basic Charging. The EVSE and EV proceed in a basic IEC 61851-1 manner once EIM is successful.
+
+15. **c) EIM w/o BC**  
+    Branch “c” is for an EVSE that supports EIM and HLC-C but does not do full BC fallback. The result is high-level communication (HLC-C) for charging.
+
+16. **d) [IEC-1] Charging**  
+    Branch “d” shows the fallback or default IEC 61851-1 charging for EVs that do not support HLC-C.  
+    • NOTE 2: This branch is specifically for EVs not supporting HLC-C.
+
+17. **Trigger condition**  
+    Marked by an open arrow outline in the key. It indicates a condition (like “Matched state,” “authorization OK,” or “Re-init”) that triggers a transition.
+
+18. **Possible procedure (dotted arrow)** versus **Mandatory procedure (solid arrow)**  
+    Per the chart key, certain steps are allowed/possible, whereas others are mandatory in this coordination sequence.
+
+19. **Refer to IEC 61851-1 Ed 3, A5**  
+    A reference pointing to further details in the IEC 61851-1 standard regarding nominal CP states and transitions.
+
+20. **NOTE 1**  
+    “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).” This clarifies that the EVSE may briefly apply X1 as an alternative to X2(nom.) in certain conditions.
+
+21. **NOTE 2**  
+    “Branch d) is for EVs not supporting HLC-C.” This clarifies that path “d” in the diagram applies only to vehicles that cannot handle high-level communication.
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+Below is the logical progression from plug-in to charging, including all key points:
+
+1. **Plug-in**  
+   - The EV is physically connected to the EVSE (control pilot circuit becomes active).
+
+2. **Initial CP State (X1 or X2 at 5% duty cycle)**  
+   - Right after plugging in, the EVSE may apply either:  
+     • X1 (5%) briefly, or  
+     • X2 (5%) immediately.  
+   - This 5% duty cycle indicates a low-current pilot signal, often used when the matching process (for HLC-C) is not started yet or when PnC/EIM authorization has not completed.
+
+3. **Transition to X2 (5%)**  
+   - If X1 was used initially, the EVSE then transitions to X2 at 5% duty cycle.  
+   - At this point, the “V2G Setup” may finish if the EV and EVSE quickly reach the “matched state” and authorization is OK (PnC or EIM).
+
+4. **Check Authorization / Matching**  
+   - If the EVSE detects that the vehicle is in the “matched state” with authorization OK (e.g., PnC done successfully or EIM done successfully with HLC-C), the diagram shows branch **a)** for PnC.  
+   - Otherwise, if the EIM is done but the matching process has not started, the EVSE may hold the 5% duty cycle or move to handle basic charging.
+
+5. **Re-init Condition (Optional Error Handling)**  
+   - If an error arises before successful authorization, the EVSE (or EV) may force a “Re-init.”  
+   - “Re-init” triggers a transition to CP state **E/F (0%)**.
+
+6. **E/F (0%) State**  
+   - The EVSE remains in E or F at 0% duty cycle for a duration **T_step_EF**, allowing the system to reset or clear fault conditions.
+
+7. **Transition to X2 (nom.)**  
+   - After T_step_EF, the EVSE switches the control pilot to **X2 (nom.)**, the normal duty cycle for potential basic charging or high-level communication readiness.
+   - At this point, there are several possible (and mandatory) branches:
+
+   ### a) PnC  
+   - If “Matched state” and PnC authorization are confirmed, high-level communication (HLC-C) controls the charging session (marked as “V2G Setup finished”).
+
+   ### b) EIM w. BC (External Identification Means with Basic Charging)  
+   - If EIM is used and the EVSE is configured to allow BC fallback, the EV charges under IEC 61851-1 control.  
+   - The diagram labels this as “b) EIM w. BC” with a mandatory arrow to “BC” or to “HLC-C,” depending on the setup.
+
+   ### c) EIM w/o BC (External Identification Means without Basic Charging fallback)  
+   - The EVSE supports EIM, but does not provide a Basic Charging fallback. Instead, once authorized, the system proceeds to high-level communication (HLC-C).  
+   - Labeled “c) EIM w/o BC.”
+
+   ### d) [IEC-1] Charging (No HLC-C Support)  
+   - This is the simple IEC 61851-1 path for EVs **not** supporting high-level communication.  
+   - **NOTE 2** reminds us that branch “d)” is explicitly for EVs incapable of HLC-C.
+
+8. **V2G Setup Finished**  
+   - For cases (a) PnC and (c) EIM w/o BC, the EVSE can complete the “V2G Setup” (i.e., high-level communication is established), and the EV can start charging with HLC-C controlling the current.  
+   - For (b) EIM w. BC or (d) IEC 61851-1, the EV charges under basic control pilot rules (nominal duty cycle).
+
+---
+
+## 3. Relation and Connection of Entities
+
+1. **Control Pilot States (X1, X2, E/F)**  
+   - These states indicate the duty cycle signals from the EVSE to the EV.  
+   - X1 or X2 at 5% represents “limited pilot signal” while waiting for matching or authorization.  
+   - X2 (nom.) represents “normal pilot signal,” allowing higher charging current or standard communication.  
+   - E/F (0%) is the error or fault state, where no charging current is offered.
+
+2. **High-Level Communication (HLC-C) vs. Basic Charging (BC)**  
+   - HLC-C requires a matching process and an active ISO 15118 negotiation. Once authorized (PnC or EIM w/o BC), the EVSE and EV exchange communication messages to control charging.  
+   - BC is the fallback or simpler mode, controlled by IEC 61851-1 duty cycles. It is used if the EV does not support high-level communication or if the system transitions to a basic mode.
+
+3. **Authorization Paths**  
+   - **PnC (a)**: Fully automatic method with contract certificates (Plug & Charge).  
+   - **EIM (b, c)**: The user must apply some external identification, possibly an RFID card or other method.  
+   - If an EV does not support HLC-C, branch **d** is used.
+
+4. **Re-init / Error Handling**  
+   - “Re-init” indicates that the system restarts the session logic (without a physical unplug) by transitioning to E/F (0%) for a set time **T_step_EF**.
+
+5. **Notes and References**  
+   - **NOTE 1**: CP state X1 is equivalent in usage to X2 (nom.) for a limited timeframe, based on IEC 61851-1 guidelines.  
+   - **NOTE 2**: Branch (d) is specifically for vehicles not supporting HLC-C.  
+   - **Refer to IEC 61851‐1 Ed 3, A5**: For deeper details on the CP states and transitions, especially X1 vs. X2 usage.
+
+---
+
+## 4. Summary
+
+- The flow chart details how an EVSE handles an EV connection from plug-in through error conditions (Re-init/E/F) to different charging modes (PnC, EIM with or without BC, or pure IEC 61851-1).  
+- The fundamental distinction is between using high-level communication (HLC-C) under ISO 15118 or defaulting to basic IEC 61851-1 control (BC).  
+- The 5% duty cycle (X2 or X1) is used directly after plug-in for authorization and matching steps.  
+- Once “V2G Setup” is finished (PnC or EIM w/o BC), the EV can charge under high-level communication.  
+- If the EV does not support HLC-C, or if an error triggers re-init, the EVSE can revert to basic charging (nominal X2 duty cycle).
+
+By following this step-by-step diagram, engineers can quickly discern the control pilot behavior at each phase of the charging process, helping them implement or troubleshoot ISO 15118-3–compliant AC charging scenarios. ## 1. **Entities Overview**
+
+Below is a list of the key entities and notations shown in the figure, along with brief definitions or notes:
+
+1. **Plug-in**  
+   Indicates that the EV (Electric Vehicle) is physically connected to the EVSE (Electric Vehicle Supply Equipment).
+
+2. **Re-init**  
+   A trigger condition that implies re-initialization of the charging or communication process.
+
+3. **X1 or X2 (5%)**  
+   • These represent control pilot states after the EV is plugged in.  
+   • “X2 (5%)” often indicates a 5% duty cycle on the control pilot, meaning the EVSE is signaling a low current or limited mode.  
+   • “X1” is a control pilot state defined in certain IEC standards.  
+   • Per the note, CP state X1 is allowed instead of X2 (nominal) following [IEC-3] (Table 5).  
+   • “X1 is required by TS 62763” is an additional note found in the diagram.
+
+4. **X2 (5% or nom.)**  
+   Once communication or certain conditions are met, the control pilot can be set to either 5% duty cycle or its nominal (full) duty cycle. “Nominal” typically means a normal charging current limit.
+
+5. **EIM done & matching process started**  
+   “EIM” denotes External Identification Means. This label indicates that the EVSE has completed authentication/identification by external means, and a matching process for PnC (Plug and Charge) or other protocols has begun.
+
+6. **“Matched state” and authorization OK**  
+   A state where the EVSE and EV have successfully exchanged necessary authorization data (e.g., for PnC or EIM) and are ready to proceed with charging setup.
+
+7. **a) PnC**  
+   Indicates the pathway for charging using Plug-and-Charge under high-level communication (HLC). Shown as a dedicated branch labeled “a) PnC.”
+
+8. **b) EIM w/ BC**  
+   Indicates the path for charging with External Identification Means and “BC” (Basic Charging). The label “BC charging controlled by IEC 61851‑1” means this branch follows standard IEC 61851‑1 basic signaling without advanced high-level communication for energy/power negotiation.
+
+9. **c) EIM w/o BC**  
+   Another EIM branch without Basic Charging fallback (or “w/o BC”). In this diagram, the EV may still use HLC-C for control or complete the process differently.
+
+10. **HLC-C**  
+    Stands for “High-Level Communication – Control,” referring to an EV and EVSE communication interface governed by upper-layer protocols (per ISO 15118). The label “charging controlled by high-level communication” clarifies that the EV and EVSE negotiate charging parameters using a higher-level standardized protocol.
+
+11. **BC**  
+    “Basic Charging,” which follows IEC 61851‑1, uses only the PWM duty cycle on the control pilot to communicate available current, without additional data link layers.
+
+12. **V2G Setup finished**  
+    V2G (Vehicle-to-Grid) services are set up. This note indicates that the initialization (communication, authorization, and matching) is complete.
+
+13. **Possible procedure** (dashed arrow)  
+    Indicates that this path may occur under certain conditions but is not mandatory.
+
+14. **Mandatory procedure** (solid arrow)  
+    Indicates that this path must occur in the standard defined sequence.
+
+15. **Trigger condition** (arrow with open box)  
+    Highlights an external event or action that triggers a state transition, such as “Re-init.”
+
+16. **Note**  
+    “CP state X1 is allowed instead of X2 (nom.) following [IEC‑3].” This clarifies that certain EVSEs may use X1 in place of nominal X2 under IEC guidelines.
+
+
+## 2. **Flow of the Diagram**
+
+Below is a step-by-step walk-through of the entire flow based on the figure:
+
+1. **Start: Plug-in**  
+   - The process begins with the EV being physically connected to the EVSE.  
+   - Immediately after plug-in, the control pilot can be in **X1** or **X2 (5%)**.  
+   - In some designs, the EVSE may initially apply **X1**, and in others, a 5% duty cycle (X2) is established.
+
+2. **Re-init (Optional Trigger)**  
+   - There is a possibility that a “Re-init” trigger occurs. If so, the system might revert to the initial condition of X1 or X2 (5%), effectively restarting the coordination process.
+
+3. **EIM Done & Matching Process Started**  
+   - When External Identification Means is completed (e.g., RFID authentication or another method) and the matching process (for user authorization or contract setup) begins, the EVSE may transition the control pilot state to either **X1** or **X2 (5% or nominal)**.
+
+4. **Proceed to X2 (5% or nominal)**  
+   - After EIM is done, the control pilot often shifts or remains at a recognized state, typically **X2** with either a restricted 5% duty cycle or the nominal duty cycle.  
+   - There is a note (in the diagram) specifying that the EVSE can apply X1 if needed (per TS 62763), but for most cases, X2 is used.
+
+5. **“Matched State” & Authorization OK**  
+   - Once the EVSE and EV have validated each other (e.g., cryptographic handshake, contract validation, or user identification is approved), they achieve a “matched state.”  
+   - This means that the EV is fully authorized to proceed with charging, and the system can complete the V2G communication steps.
+
+6. **Branching into Three Main Paths**  
+   - After reaching the matched/authorized state, the setup is effectively complete (noted by “V2G Setup finished”), and the diagram shows three branches:
+
+   **a) PnC**  
+   - Plug-and-Charge path that uses HLC-C (high-level communication). Charging is entirely controlled by ISO 15118 protocols over a high-level data link.  
+
+   **b) EIM w/ BC**  
+   - External Identification Means with Basic Charging. The EVSE and EV continue charging under IEC 61851‑1 basic pilot signaling (“BC”), but the overall session is still recognized as EIM-based. High-level communication (HLC-C) might be used for some coordination but the actual current control is handled by BC signals.  
+
+   **c) EIM w/o BC**  
+   - External Identification Means (with no basic charging fallback). The EV and EVSE rely on HLC-C for control once authorized. The current levels and charging details are governed purely by high-level communications.
+
+7. **V2G Setup Finished**  
+   - In each branch, once the matching and authorization steps are validated, the communication channel is established or not needed (depending on BC vs. HLC-C). The vehicle and EVSE are now in a position to deliver power under the correct protocol and policies. The note “V2G Setup finished” emphasizes the system is ready for energy transfer, time-based adjustments, or other V2G-related functions.
+
+8. **Note about X1 vs. X2**  
+   - If the EVSE chooses to apply CP state X1 (instead of X2 nominal) at certain times, this is allowed by IEC references, but typically X2 nominal is expected for normal charging readiness.  
+   - Additional references mention that X1 might be used temporarily or in certain compliance contexts (TS 62763).
+
+Throughout the flow, **solid arrows** denote **mandatory steps** specified by the standard, and **dashed arrows** denote **possible (optional or conditional) procedures** that may or may not occur, based on the EVSE’s capabilities or the local configuration.
+
+
+## 3. **Relationship and Connection of Entities**
+
+- **EVSE and EV**: The diagram revolves around their interaction—from the moment of plugging in to the completion of the V2G setup.  
+- **Control Pilot States (X1 or X2)**: These states define the electrical conditions on the control pilot line per IEC 61851‐1 or TS 62763. Either X1 or X2 (5% or nominal) signals the readiness and current capacity available to the EV.  
+- **HLC-C (High-Level Communication)**: Serves as a communication channel (ISO 15118) enabling advanced features like Plug-and-Charge (PnC) and dynamic negotiation of charging parameters.  
+- **BC (Basic Charging)**: Uses the simpler IEC 61851–1 PWM scheme. When the EVSE or EV is not using the advanced HLC, they fall back to BC for setting current limits (branch b) and (by extension) c).  
+- **EIM**: Provides user identification external to the vehicle (e.g., via RFID or smartphone). Once “EIM done,” authorization and matching processes can either continue or finalize for charging.
+
+In summary, the flow chart details how an AC EVSE can coordinate multiple charging modes (PnC, EIM with BC, or EIM without BC):
+
+• It starts when the EV is plugged in (applying X1 or X2 at 5% duty cycle).  
+• Moves through user/contract authentication (EIM done, matching process).  
+• Transitions to a valid charging or matched state (X2 nominal or remain at 5% if needed).  
+• Finally splits into whichever method is supported or authorized—PnC (high-level comm) or EIM-based charging (either with or without BC).
+
+All of these steps ensure the EV and EVSE establish the correct communication and power transfer settings before actual charging begins.# Detailed Description of the Flow Chart
+
+Below is a step-by-step description of the flow chart shown in the figure. The diagram illustrates an AC EVSE (Electric Vehicle Supply Equipment) supporting High-Level Communication Control (HLC‑C) with both “Plug & Charge” (PnC) and EIM (External Identification Means). It also shows where Basic Charging (BC) fits in the process. The important note here is that some EVSEs support both PnC and EIM, while others may only support one path. Additionally, Control Pilot (CP) states X1 or X2 govern the duty cycle used on the control pilot signal.
+
+---
+
+## 1. Entities Overview
+
+1. **Plug-in**  
+   The event where the EV is physically connected to the EVSE.
+
+2. **Re-init**  
+   A trigger condition indicating that the EVSE and/or EV re-initializes the communication or charging process.
+
+3. **CP State X1 (100%)**  
+   A control pilot state that can be active immediately after plugging in (100% duty cycle).  
+   – Note: “X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+4. **CP State X2 (nom.)**  
+   A nominal control pilot state that is typically used once the EVSE begins its normal duty cycle configuration.
+
+5. **CP State X2 (5% or nom.)**  
+   A possibly reduced duty cycle (at 5%) or nominal duty cycle, used to signal and confirm matching/authorization states between the EV and EVSE.
+
+6. **“Matched state” and authorization OK**  
+   Indicates that the EV and EVSE have successfully “matched” each other’s communication requirements and that authorization to charge is confirmed.
+
+7. **EIM done & matching process started**  
+   After the External Identification Means is completed, the matching process (which checks that the EV and EVSE can communicate properly) begins.
+
+8. **V2G Setup finished**  
+   Denotes that the high-level Vehicle-to-Grid (V2G) communication setup is established (in other words, the communication handshake is complete).
+
+9. **HLC‑C**  
+   “High-Level Communication Control”: indicates charging that is controlled via ISO 15118 high-level messages.
+
+10. **BC**  
+   “Basic Charging” (controlled by IEC 61851‑1): a simpler control mechanism using the basic control pilot signals without advanced ISO 15118 communication features.
+
+11. **a) PnC**  
+   A branch of the process for “Plug & Charge,” whereby authentication and authorization can be done automatically via certificates exchanged over high-level communication.
+
+12. **b) EIM w/ BC**  
+   A branch indicating blended EIM with Basic Charging. Communication is still possible at a high level, but actual current or power levels may be regulated in a simpler manner (BC).
+
+13. **c) EIM w/o BC**  
+   A branch in which EIM is used, and the charging proceeds without Basic Charging fallback (or simply uses the high-level communication directly).
+
+14. **possible procedure** (dashed arrow)  
+   Indicates a pathway or step that is allowed but not strictly mandatory in every implementation.
+
+15. **mandatory procedure** (solid arrow)  
+   Indicates a step that is required per the standard or the scenario.
+
+16. **trigger condition** (block arrow)  
+   A condition or event that initiates a transition (e.g., “Re-init,” “EIM done,” etc.).
+
+17. **NOTE**  
+   “CP state X1 is allowed instead of X2 (nom.) following [IEC‑3] (Table 5, X1 state usage).”
+
+---
+
+## 2. Flow of the Diagram
+
+The chart can be broken down into the following sequence:
+
+1. **Plug-in → X1 (100%)**  
+   - The EV is plugged in.  
+   - Initially, the control pilot may be in state X1 (100% duty cycle).  
+   - This step might be very brief or can remain active until the EVSE activates its control pilot oscillator.  
+   - Alternatively, some implementations go directly to X2 (nom.) or X2 (5%) shortly after plug-in.
+
+2. **EIM Done & Matching Process Started**  
+   - As soon as the EV is plugged in and recognized, the EVSE can begin the EIM procedure (if applicable).  
+   - Once EIM completes, the EVSE and EV can begin the matching process (confirming the EV is ready for high-level communication and/or basic charging).  
+
+3. **Transition to X2 (5% or nom.)**  
+   - The EVSE shifts the control pilot signal to a “5% or nominal” duty cycle.  
+   - This denotes that the system is seeking or has established a “matched state” and is checking authorization compatibility.
+
+4. **X2 (5% or Nom.) “Matched State” and Authorization OK**  
+   - At this point, the EV and EVSE have confirmed each other’s presence and authorization.  
+   - From here, the diagram specifies the main charging branches.
+
+5. **V2G Setup Finished**  
+   - The high-level communication (ISO 15118) or the matching for basic charging (IEC 61851‑1) is complete.  
+   - The system is ready to begin energy transfer, subject to the branch chosen (PnC or EIM).
+
+6. **Branches (After V2G Setup Finished)**
+   - **(a) PnC**  
+     1. The EV proceeds under the “Plug & Charge” mechanism.  
+     2. All further charging control is managed by HLC‑C (high-level communication).  
+     3. This path is mandatory if the EV and EVSE are both configured for PnC and the user wishes to use it.  
+
+   - **(b) EIM w/ BC**  
+     1. The EV chooses EIM for identification/authorization.  
+     2. The actual charging current (or power) is controlled primarily by Basic Charging (BC) signals per IEC 61851‑1.  
+     3. Meanwhile, the high-level communication (HLC‑C) can still provide additional status or monitoring as necessary, but the main control is BC.  
+
+   - **(c) EIM w/o BC**  
+     1. The EV also uses EIM for identification, but BC is not utilized.  
+     2. The charging is controlled directly by the high-level communication (HLC‑C).  
+
+7. **Re-init**  
+   - A trigger condition that resets the process if necessary (for example, if some error occurs or a new cycle starts).  
+   - This can bring the CP signal back to X1 (100%) or the sequence might revert to an earlier step.
+
+---
+
+## 3. Relation and Connection of Entities
+
+- **Control Pilot States (X1, X2)**  
+  - These states represent different duty cycle signals on the control pilot line in accordance with IEC 61851‑1.  
+  - X1 (100%) may appear at plug-in or during re-initialization.  
+  - X2 (nom.) or X2 (5% or nominal) typically indicates the EVSE is in an active state waiting for or confirming communication or charging readiness.
+
+- **HLC‑C and BC**  
+  - These represent two different control planes for charging.  
+    - **HLC‑C (High-Level Communication)** follows ISO 15118 protocols for advanced features (e.g., PnC, contract certificates).  
+    - **BC (Basic Charging)** follows the simpler IEC 61851‑1 approach using the control pilot’s duty cycle to modulate charging current.
+
+- **Trigger Conditions**  
+  - “EIM done & matching process started,” “Re-init,” or “Plug-in” are events that move the system from one state to the next.
+
+- **PnC and EIM**  
+  - **PnC (Plug & Charge)** relies on automatic certificate-based authorization over the HLC connection.  
+  - **EIM (External Identification Means)** typically uses RFID cards, credit cards, or other external methods to authorize charging.
+
+- **NOTE on CP State Usage**  
+  - The chart clarifies that an EVSE may operate in CP state X1 instead of X2 (nom.) for a short time upon plugging in, depending on the implementation and compliance with IEC rules.
+
+---
+
+## 4. Summary
+
+This flow chart (often referenced in ISO 15118-3 and related IEC 61851-1 guidelines) illustrates how an AC charging session can be coordinated when both PnC and EIM options are available:
+
+1. EV is plugged in (CP state X1 or X2).  
+2. EIM completes (if used) and the matching/authorization process starts.  
+3. Control pilot transitions to a 5% or nominal duty cycle, indicating a “matched state.”  
+4. Authorization is confirmed (PnC or EIM).  
+5. V2G Setup finishes.  
+6. Charging proceeds under one of three branches:  
+   - (a) PnC (fully high-level)  
+   - (b) EIM with Basic Charging  
+   - (c) EIM with high-level communication only (no BC).  
+
+At every step, the chart differentiates **mandatory** arrows (solid) from **possible** (dashed) ones, highlighting which state transitions might be optional under certain system configurations.
+
+---
+
+> **Important Note:**  
+> If an EVSE only supports EIM or only supports PnC, any unused branches in the diagram (e.g., BC or HLC‑C) need not be followed. The figure covers the “universal” scenario where both are supported and the matching process has already started when EIM is finished.# Detailed Description of the Flow Chart
+
+Below is a thorough, step-by-step explanation in markdown format, covering all entities, transitions, and notes shown in the figure.
+
+---
+
+## 1. Entities Overview
+
+1. **A**  
+   - Represents an initial state or entry point (before the EV is plugged in or any charging coordination begins).
+
+2. **Plug-in**  
+   - Indicates the action of connecting the EV to the EVSE (Electric Vehicle Supply Equipment).
+
+3. **Re-init**  
+   - Denotes a re-initialization step, potentially triggered if the system needs to restart the setup process.
+
+4. **X2 (nom.)**  
+   - Refers to the nominal Control Pilot (CP) state “X2” as defined in the IEC/ISO standards. This is typically the normal state for AC charging pilot signaling.  
+   - According to the NOTE, “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+5. **X2 (5 % or nom.)**  
+   - A variant on the Control Pilot “X2” state, potentially signifying a reduced PWM duty cycle (e.g., 5% for low-level communication or nominal duty cycle).
+
+6. **b) EIM w. BC**  
+   - A branch indicating External Identification Means (EIM) with Basic Charging (BC).  
+   - “BC” (Basic Charging) is charging controlled by IEC 61851‑1.
+
+7. **c) EIM w/o BC**  
+   - Another branch indicating EIM but without Basic Charging. Here, charging is controlled by high-level communication (HLC-C).
+
+8. **d) [IEC-1] Charging**  
+   - Represents a standard IEC 61851‑1 charging process (basic “Mode 3” charging), labeled as [IEC‑1] in the figure.
+
+9. **Trigger condition**  
+   - A condition or event that causes the transition from one control pilot state or step to another.
+
+10. **HLC-C**  
+    - High-Level Communication – Configuration (or simply High-Level Communication for Charging).  
+    - Indicates that the charging process is coordinated through advanced communication protocols (ISO 15118 / DIN 70121).
+
+11. **BC**  
+    - Basic Charging.  
+    - Charging controlled purely by the IEC 61851‑1 “Mode 3” protocol, without high-level comms.
+
+12. **V2G Setup finished**  
+    - A status showing that all necessary Vehicle-to-Grid (V2G) high-level communication steps or matching processes have completed successfully.
+
+13. **NOTE**  
+    - Provides an additional standard-specific note:  
+      “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).”
+
+14. **Possible procedure** (represented by dashed arrows)  
+    - Indicates paths or transitions that may occur depending on the EVSE/EV implementation but are not strictly mandatory by the standard.
+
+15. **Mandatory procedure** (represented by solid arrows)  
+    - Indicates paths or transitions that must occur to meet the standard requirements.
+
+16. **Refer to IEC 61851‑1 Ed. 3, A.5**  
+    - This reference points to a specific subclause in IEC 61851‑1 Edition 3, Annex A.5, which further explains or clarifies the CP states.
+
+17. **Key**  
+    - A legend/guide to the flowchart’s symbols and lines (possible/mandatory procedures, trigger conditions, etc.).
+
+---
+
+## 2. Flow of the Diagram (Step by Step)
+
+1. **State A (Idle/Pre-Connection)**  
+   - The dotted line labeled “possible procedure” leads to the circle marked “A,” showing that the system may start in this idle state or arrive here after a previous cycle.
+
+2. **Transition to “Plug-in” or Re-init**  
+   - From state “A,” two possible (dotted) paths can occur:  
+     1. **Plug-in**: The user connects the EV to the EVSE.  
+     2. **Re-init**: Some systems may need to reset, reinitialize, or re-attempt the procedure.
+
+3. **Arrival at X2 (nom.)**  
+   - Once plugged in or re-initialized, the EVSE sets the control pilot to “X2 (nom.)” (or “X1” if the NOTE is applicable). This is indicated by the solid arrow (mandatory procedure) leading to “X2 (nom.).”
+
+4. **Branch from X2 (nom.)**  
+   - At “X2 (nom.),” the chart shows multiple possible paths depending on whether high-level communication (HLC-C) or basic charging (BC) is being used, and whether External Identification Means (EIM) is required:
+
+   a) **From X2 (nom.) → X2 (5 % or nom.) with HLC-C → b) EIM w. BC**  
+      - If EIM is used with Basic Charging, then after V2G setup completion, the system references HLC-C for controlling the process. The duty cycle on the pilot might switch to “5 % or nominal,” and the EVSE is in an EIM mode with BC.  
+      - “BC” then handles charging under IEC 61851‑1.
+
+   b) **From X2 (nom.) → X2 (5 % or nom.) with HLC-C → c) EIM w/o BC**  
+      - Similar to the above, but if Basic Charging is not utilized, the EV/EVSE rely solely on high-level communication. The flow indicates “V2G Setup finished,” leading to EIM without BC.
+
+   c) **From X2 (nom.) → X2 (nom.) → d) [IEC-1] Charging**  
+      - If high-level communication is not used or not requested, the diagram references the standard IEC 61851‑1 charging process directly. This path also indicates that at some point after “X2 (nom.),” the EV goes into normal AC charging according to [IEC-1].
+
+5. **V2G Setup Finished**  
+   - Whenever HLC-C is invoked, the arrow from “HLC-C” shows “V2G Setup finished,” confirming that the vehicle-to-grid communication handshake is complete.
+
+6. **Reference to IEC 61851-1 Ed. 3, A.5**  
+   - The flow returns to “X2 (nom.)” with an accompanying note referencing IEC 61851‑1 for further details on pilot-state transitions.
+
+7. **NOTE**  
+   - The flow chart includes a note at the bottom clarifying that **CP state X1** may be used in place of **X2 (nom.)** if IEC-3 (Table 5) X1 state usage is applicable. This might occur in certain EVSE/EV configurations.
+
+---
+
+## 3. Relation and Connection of Entities
+
+1. **Control Pilot States (“X2(nom.)” or “X2(5% or nom.)”)**  
+   - These states define the level of duty cycle on the control pilot signal, crucial for indicating charging readiness, EIM usage, or high-level communication readiness.
+
+2. **HLC-C (High-Level Communication)**  
+   - When invoked, it coordinates the charging session (e.g., V2G features, advanced authorization, dynamic control). The flow chart clearly shows transitions that involve HLC-C lead to “V2G Setup finished” before actual charging can begin.
+
+3. **BC (Basic Charging)**  
+   - The simpler IEC 61851‑1–based control method, either used alone ([IEC-1] path) or in conjunction with EIM (b) EIM w. BC).
+
+4. **EIM w. BC vs. EIM w/o BC**  
+   - EIM (External Identification Means) can be combined with basic signaling or purely high-level communications. The diagram shows these two distinct branches:  
+     - **b) EIM w. BC:** EIM authentication plus IEC 61851‑1.  
+     - **c) EIM w/o BC:** EIM authentication and purely HLC-based control.
+
+5. **Trigger Conditions**  
+   - The arrows labeled with trigger conditions indicate transitions that depend on completing setup steps (e.g., “V2G Setup finished” or successful EIM). They show how the system might jump from “X2(nom.)” to “X2(5% or nom.)” or remain at “X2(nom.)” for traditional IEC 61851‑1 charging.
+
+---
+
+## 4. Additional Notes & References
+
+- **NOTE on CP state X1**:  
+  “CP state X1 is allowed instead of X2 (nom.) following [IEC-3] (Table 5, X1 state usage).” Depending on the EVSE implementation, the initial pilot state right after plug-in may be X1 rather than X2(nom.).
+
+- **IEC 61851-1 Ed. 3, A.5**:  
+  Additional details for CP signal definitions, pilot states, and the behavior in normal or reduced pilot duty cycles can be found in Annex A.5 of the third edition of IEC 61851‑1.
+
+- **High-Level Communication**:  
+  Typically refers to ISO 15118 (PnC, Plug-and-Charge) or DIN 70121-based solutions that enable advanced negotiation, payment handling, and bidirectional (V2G) features.
+
+- **Basic Charging**:  
+  Follows the simple IEC 61851‑1 conduction-based control pilot methodology without advanced communication.
+
+---
+
+### Conclusion
+
+This flow chart depicts how an AC EVSE supporting high-level communication (HLC-C) and/or basic charging (BC) transitions through its control pilot states and procedures once an EV is plugged in (or re-initialized). The diagram includes multiple branches for External Identification Means (EIM) with or without BC, as well as a direct [IEC-1] charging path. Each step—plug-in, re-init, moving from A state to X2(nom.), optionally switching to X2(5% or nom.), completing V2G setup, and beginning charging—corresponds to specific control pilot and communication states. The note clarifies that X1 can stand in for X2(nom.) in certain implementations per IEC-3.
+
+
+TEXTUAL INFORMATION:
+Text 1: 4 Symbols and abbreviated terms (Context: 4 Symbols and abbreviated terms > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - SLAC Signal Level Attenuation Characterization
+Text 2: 3 Terms and definitions (Context: 3 Terms and definitions > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - protocol to measure the signal strength of a signal between HomePlug Green PHY stations
+Text 3: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way.
+Text 4: A.9.2.1 Functional description (Context: A.9.2.1 Functional description > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - The signal strength measurement method to be used is the SLAC defined in the [HPGP].
+Text 5: 8 Timings and constants (Context: 8 Timings and constants > Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements > INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited.) - [V2G3-A08-01] All low-layer communciation modules shall comply with Table A.1.
+Text 6: A.9.2.2 Description of involved MMEs (Context: A.9.2.2 Description of involved MMEs > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - [V2G3-A09-23] For the SLAC process, the low-layer communciation module shall use the set of MMEs defined in Figure A.1. The parameters to be used within the MMEs are defined in Table A.4.
+Text 7: A.9.2.2 Description of involved MMEs (Context: A.9.2.2 Description of involved MMEs > A.9.2 Signal strength measurement > A.9 Matching EV – EVSE process) - [V2G3-A09-24] The Ethernet Destination MAC address field shall be filled either as Broadcast or Unicast, as defined in Table A.4.
+
+ADDITIONAL CONTEXT:
+Related Information 1: ARIB Association of Radio Industries and Businesses CAP Channel Access Priority CCo Central Coordinator D-LINK Data Link EIM External Identification Mean (as defined in ISO 15118-1) ERDF Electricité et Réseau de France FCC Federal Communications Commission HLE Higher Layers Entities HPGP HomePlug Green PHY ID Identification IEEE Institute of Electrical and Electronics Engineers ISP Intersystem Protocol ITU International Telecommunication Union MAC Media Access Control (sibling of Text 1)
+Related Information 2: MME Management Message Entry (sibling of Text 1)
+Related Information 3: PE Protective Earth (sibling of Text 1)
+Related Information 4: PLC Power Line Communication (sibling of Text 1)
+Related Information 5: PnC Plug and Charge (as defined in ISO 15118-1) (sibling of Text 1)
+Related Information 6: QPSK Quadrature Phase Shift Keying (sibling of Text 1)
+Related Information 7: SAP Service Access Point (sibling of Text 1)
+Related Information 8: SE Supply Equipment (sibling of Text 1)
+Contextual Information 1: 4 Symbols and abbreviated terms (ancestor of Text 1)
+Contextual Information 2: Road vehicles — Vehicle to grid communication interface — Part 3: Physical and data link layer requirements (ancestor of Text 1)
+Contextual Information 3: INTERNATIONAL STANDARD ISO 15118-3 First edition 2015-05-15 Licensed to National Tsing Hua University / Yi-Shin Chen (yishin@gmail.com) ISO Store Order: OP-720751 license #1/ Downloaded: 2023-10-04 Single user licence only, copying and networking prohibited. (ancestor of Text 1)
+Related Information 9: For the purposes of this document, the terms and definition in [ISO-1] and the following apply. (sibling of Text 2)
+Related Information 10: 3.1 amplitude map specifies a transmit power-reduction factor for each subcarrier related to the tone mask (sibling of Text 2)
+Related Information 11: 3.2 central coordinator (sibling of Text 2)
+Related Information 12: 3.3 channel access priority CAP (sibling of Text 2)
+Related Information 13: 3.4 coexistence (sibling of Text 2)
+Related Information 14: 3.5 communication media (sibling of Text 2)
+Related Information 15: 3.6 communication node (sibling of Text 2)
+Related Information 16: 3.7 connection coordination (sibling of Text 2)
+Related Information 17: crosstalk (sibling of Text 2)
+Related Information 18: 3.9 data link control SAP (sibling of Text 2)
+Related Information 19: 3.10 DATA SAP (sibling of Text 2)
+Related Information 20: 3.11 ETH SAP (sibling of Text 2)
+Related Information 21: 3.12 external identification means (sibling of Text 2)
+Related Information 22: 3.13 initialization (sibling of Text 2)
+Related Information 23: 3.14 IO SAP (sibling of Text 2)
+Related Information 24: 3.15 inter system protocol (sibling of Text 2)
+Related Information 25: 3.16 logical network (sibling of Text 2)
+Related Information 26: 3.17 low-layer communication (sibling of Text 2)
+Related Information 27: 3.18 low-layer communication module (sibling of Text 2)
+Related Information 28: 3.19 MAC address (sibling of Text 2)
+Related Information 29: 3.20 management message entry MME messages exchanged between PLC nodes or a PLC node and higher layers for control purposes (sibling of Text 2)
+Related Information 30: 3.21 matching (sibling of Text 2)
+Related Information 31: 3.22 nominal duty cycle (sibling of Text 2)
+Related Information 32: 3.23 pilot function controller (sibling of Text 2)
+Related Information 33: 3.24 plug and charge (sibling of Text 2)
+Related Information 34: 3.25 QPSK modulation (sibling of Text 2)
+Related Information 35: 3.26 ROBO mode (sibling of Text 2)
+Related Information 36: 3.27 shared bandwidth (sibling of Text 2)
+Related Information 37: 3.28 signal coupling (sibling of Text 2)
+Related Information 38: 3.30 tone mask (sibling of Text 2)
+Related Information 39: valid duty cycle (sibling of Text 2)
+Contextual Information 4: 3 Terms and definitions (ancestor of Text 2)
+Related Information 40: After the parameter exchange, the EV starts the signal strength measurement process by sending C_EV_ start_atten_char_inds times the message CM_START_ATTEN_CHAR.IND followed by C_EV_match_MNBC number of M-SOUNDS. Based on these M-SOUNDS, all potential EVSEs calculate the signal strength and send back the measurement result by means of the CM_ATTEN_CHAR.IND message. Each CM_ATTEN_ CHAR.IND is confirmed by the EV by an individual CM_ATTEN_CHAR.RSP. (sibling of Text 3)
+Related Information 41: The signal strength measurement method to be used is the SLAC defined in the [HPGP]. (sibling of Text 3)
+Related Information 42: [V2G3-A09-17] The SLAC implementation of the low-layer communciation module on EV and EVSE side shall be compliant with the messages defined in [HPGP]. (sibling of Text 3)
+Related Information 43: [V2G3-A09-18] The low-layer communciation module on EV and EVSE sides shall be compliant with the sequence diagram of Figure A.1. (sibling of Text 3)
+Related Information 44: [V2G3-A09-19] The ATTEN_PROFILE within the message CM_ATTEN_CHAR.IND shall be calcu- lated by arithmetic mean of the ATTEN_PROFILE of the CM_ATTEN_PROFILE.IND of previous M-SOUNDS corrected by the attenuation of the receive path AttnRx- EVSE as described in A.9.4.1. (sibling of Text 3)
+Related Information 45: [V2G3-A09-20] The Average_Attenuation used for matching decision shall be calculated by the arithmetic mean of all groups in the CM_ATTEN_CHAR.IND message. To take implementation specifics into account, a weighted average may be used. When using a weighted average, the sum of the weights of all groups shall be one. (sibling of Text 3)
+Related Information 46: [V2G3-A09-21] According to the result of the SLAC process, the low-layer communciation module on the EV side shall send its decision using the following relevant message after the CM_ATTEN_CHAR.IND message: (sibling of Text 3)
+Related Information 47: — if EV_Discovering_Status = EVSE_FOUND, the low-layer communciation module shall inform the corresponding EVSE by continuing the message flow as described in A.7.4; (sibling of Text 3)
+Related Information 48: — if EV_Discovering_Status = EVSE_POTENTIALLY_FOUND, the low-layer communciation module shall inform the most probable EVSE by continuing the message flow as described in A.7.3; (sibling of Text 3)
+Related Information 49: — if EV_Discovering_Status = EVSE_NOT_FOUND, the matching process shall be considered as FAILED. (sibling of Text 3)
+Related Information 50: [V2G3-A09-22] Based on the signal attenuation read by the “CM_ATTEN_CHAR.IND” message, the EV_Discovery_Status shall be set according to Table A.3. (sibling of Text 3)
+Related Information 51: Table A.3 — EV_Discovering_Status definition (sibling of Text 3)
+Related Information 52: Table A.3 — EV_Discovering_Status definition <table border="1"> <td colspan="1" rowspan="2">Status</td> <td colspan="2" rowspan="1">Average_Attenuation</td> <td colspan="1" rowspan="2">Description</td> <tr> <td colspan="1" rowspan="1">From</td> <td colspan="1" rowspan="1">To</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_FOUND</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">C_EV_match_signal-&lt;br&gt;attn_direct</td> <td colspan="1" rowspan="1">The EVSE is identified without&lt;br&gt;any doubt</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_POTENTIALLY_&lt;br&gt;FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;direct</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">One or several EVSEs are identi-&lt;br&gt;fied. The next step of the match-&lt;br&gt;ing process will allow deciding&lt;br&gt;if the most probable candidate is&lt;br&gt;the connected EVSE.</td> </tr> <tr> <td colspan="1" rowspan="1">EVSE_NOT_FOUND</td> <td colspan="1" rowspan="1">C_EV_match_signalattn_&lt;br&gt;indirect</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">No direct connected EVSE is&lt;br&gt;found</td> </tr> </table> (sibling of Text 3)
+Contextual Information 5: A.9.2.1 Functional description (ancestor of Text 3)
+Contextual Information 6: A.9.2 Signal strength measurement (ancestor of Text 3)
+Contextual Information 7: A.9 Matching EV – EVSE process (ancestor of Text 3)
+Related Information 53: By means of the signal strength measurement, the EV has to determine which counterpart EVSE nodes are available and which one is the right one to connect to. Therefore, the EVSE measures the attenuation of the signal coming from the EV for different groups of frequencies and reports the signal strength back to the EV. Based on the reports, the EV determines the EVSE which is connected in a direct way. (sibling of Text 4)
+Related Information 54: This Clause summarizes all timings used in the main body of this part of ISO 15118. (sibling of Text 5)
+Related Information 55: Table 3 — Timing and constant values (sibling of Text 5)
+Related Information 56: Table 3 — Timing and constant values <table border="1"> <td colspan="1" rowspan="1">Parameter</td> <td colspan="1" rowspan="1">Description</td> <td colspan="1" rowspan="1">Min</td> <td colspan="1" rowspan="1">Typical</td> <td colspan="1" rowspan="1">Max</td> <td colspan="1" rowspan="1">Unit</td> <tr> <td colspan="1" rowspan="1">C_conn_max_match</td> <td colspan="1" rowspan="1">Number of retries of matching&lt;br&gt;process</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EV_vald_nb_toggles</td> <td colspan="1" rowspan="1">Number of BCB-Toggles</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_EVSE_match_parallel</td> <td colspan="1" rowspan="1">Number of parallel matching&lt;br&gt;processes to be handled by&lt;br&gt;EVSE</td> <td colspan="1" rowspan="1">5</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">C_sequ_retry</td> <td colspan="1" rowspan="1">Number of matching retries by&lt;br&gt;Control Pilot state E transitions</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">nbr</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_init_HLC</td> <td colspan="1" rowspan="1">Minimum B state duration after&lt;br&gt;a state F, D, or C</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resume</td> <td colspan="1" rowspan="1">Time after the wake up trigger&lt;br&gt;(e.g. BCB-Toggle) until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_max_comm</td> <td colspan="1" rowspan="1">Time after plug-in until the low-&lt;br&gt;layer communication module is&lt;br&gt;ready for communciation</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_conn_resetup</td> <td colspan="1" rowspan="1">Time to resetup the matching&lt;br&gt;process after a loss of commu-&lt;br&gt;nication</td> <td colspan="1" rowspan="1">15</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_vald_detect_time</td> <td colspan="1" rowspan="1">Time to detect a variation of the&lt;br&gt;state on EVSE side</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_state_duration</td> <td colspan="1" rowspan="1">Duration of each state B or C&lt;br&gt;within the BCB-Toggle</td> <td colspan="1" rowspan="1">200</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">400</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_EV_vald_toggle</td> <td colspan="1" rowspan="1">Duration of BCB-Toggle&lt;br&gt;sequence</td> <td colspan="1" rowspan="1">600</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TT_EVSE_vald_toggle</td> <td colspan="1" rowspan="1">Timeout timer for the EVSE to&lt;br&gt;stop monitoring control pilot for&lt;br&gt;BCB-Toggle. Value comes from&lt;br&gt;CM_VALIDATE.REQ</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">3 500</td> <td colspan="1" rowspan="1">ms</td> </tr> <tr> <td colspan="1" rowspan="1">TP_match_leave</td> <td colspan="1" rowspan="1">Maximum time to leave the logi-&lt;br&gt;cal network</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">s</td> </tr> <tr> <td colspan="1" rowspan="1">T_step_EF</td> <td colspan="1" rowspan="1">Time to stay at E/F state</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1">s</td> </tr> </table> (sibling of Text 5)
+Related Information 57: [V2G3-M08-02] Any successful matching process shall reset all the timeout timers and reset the retry_counters. (sibling of Text 5)
+Contextual Information 8: 8 Timings and constants (ancestor of Text 5)
+Related Information 58: [V2G3-A09-24] The Ethernet Destination MAC address field shall be filled either as Broadcast or Unicast, as defined in Table A.4. (sibling of Text 6)
+Related Information 59: Table A.4 — MMEs parameters definition for SLAC (sibling of Text 6)
+Related Information 60: Table A.4 — MMEs parameters definition for SLAC <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="7">CM_START_ATTEN_&lt;br&gt;CHAR.IND&lt;br&gt;broadcast</td> <td colspan="1" rowspan="1">APPLICATION_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">NUM_SOUNDS</td> <td colspan="1" rowspan="1">2</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">C_EV_match_&lt;br&gt;MNBC</td> <td colspan="1" rowspan="1">Number of M-Sounds trans-&lt;br&gt;mitted by the GP station&lt;br&gt;during the SLAC process</td> </tr> <tr> <td colspan="1" rowspan="1">Time_Out</td> <td colspan="1" rowspan="1">3</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">TT_EVSE_&lt;br&gt;match_MNBC</td> <td colspan="1" rowspan="1">Max. time window within the&lt;br&gt;M-Sounds are sent</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_TYPE</td> <td colspan="1" rowspan="1">4</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x01</td> <td colspan="1" rowspan="1">Fixed value indicating “other&lt;br&gt;Green PHY station”</td> </tr> <tr> <td colspan="1" rowspan="1">FORWARDING_&lt;br&gt;STA</td> <td colspan="1" rowspan="1">5 to 10</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">EV Host MAC&lt;br&gt;address</td> <td colspan="1" rowspan="1">The destination of SLAC&lt;br&gt;results is always the EV Host</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">11 to&lt;br&gt;18</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> </table> (sibling of Text 6)
+Related Information 61: Table A.4 (continued) (sibling of Text 6)
+Related Information 62: Table A.4 (continued) <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="7">CM_MNBC_SOUND.IND&lt;br&gt;broadcast</td> <td colspan="0" rowspan="1"></td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">SenderID</td> <td colspan="1" rowspan="1">2 to 18</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">Cnt</td> <td colspan="1" rowspan="1">19</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Countdown counter for num-&lt;br&gt;ber of sounds remaining after&lt;br&gt;the certain message</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">20 to&lt;br&gt;27</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">-</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">28 to&lt;br&gt;35</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> <tr> <td colspan="1" rowspan="1">Rnd</td> <td colspan="1" rowspan="1">36 to&lt;br&gt;51</td> <td colspan="1" rowspan="1">16</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Random value</td> </tr> <tr> <td colspan="1" rowspan="8">CM_ATTEN_CHAR.IND&lt;br&gt;unicast </td> <td colspan="1" rowspan="1">APPLICATION_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_&lt;br&gt;ADDRESS</td> <td colspan="1" rowspan="1">2 to 7</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC address&lt;br&gt;of the EV Host</td> <td colspan="1" rowspan="1">MAC address of the EV Host&lt;br&gt;which initiates the SLAC&lt;br&gt;process</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">8 to 15</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_ID</td> <td colspan="1" rowspan="1">16 to&lt;br&gt;32</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_ID</td> <td colspan="1" rowspan="1">33 to&lt;br&gt;49</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">NumSounds</td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">Number of M-Sounds used for&lt;br&gt;generation of the ATTEN_PRO-&lt;br&gt;FILE</td> </tr> <tr> <td colspan="1" rowspan="1">ATTEN_PROFILE</td> <td colspan="1" rowspan="1">51 to&lt;br&gt;109</td> <td colspan="1" rowspan="1">59</td> <td colspan="1" rowspan="1">Attenuation&lt;br&gt;value</td> <td colspan="1" rowspan="1">Signal level attenuation&lt;br&gt;(Field format in Table&lt;br&gt;”ATTEN_PROFILE” of [HPGP])</td> </tr> </table> (sibling of Text 6)
+Related Information 63: Table A.4 (continued) <table border="1"> <td colspan="1" rowspan="1">MME</td> <td colspan="1" rowspan="1">Field</td> <td colspan="1" rowspan="1">Octet&lt;br&gt;no.</td> <td colspan="1" rowspan="1">Field size&lt;br&gt;(Octets)</td> <td colspan="1" rowspan="1">Value</td> <td colspan="1" rowspan="1">Definition</td> <tr> <td colspan="1" rowspan="7">CM_ATTEN_CHAR.RSP&lt;br&gt;Unicast</td> <td colspan="1" rowspan="1">APPLICATION_&lt;br&gt;TYPE</td> <td colspan="1" rowspan="1">0</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “PEV-&lt;br&gt;EVSE Matching”</td> </tr> <tr> <td colspan="1" rowspan="1">SECURITY_TYPE</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value indicating “No&lt;br&gt;Security”</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_&lt;br&gt;ADDRESS</td> <td colspan="1" rowspan="1">2 to 7</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC address&lt;br&gt;of the EV Host</td> <td colspan="1" rowspan="1">MAC address of the EV which&lt;br&gt;initiates the SLAC process</td> </tr> <tr> <td colspan="1" rowspan="1">RunID</td> <td colspan="1" rowspan="1">8 to 15</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">variable</td> <td colspan="1" rowspan="1">This value shall be the same as&lt;br&gt;the one sent in the CM_SLAC_&lt;br&gt;PARM.REQ message by the EV</td> </tr> <tr> <td colspan="1" rowspan="1">SOURCE_ID</td> <td colspan="1" rowspan="1">16 to&lt;br&gt;32</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">RESP_ID</td> <td colspan="1" rowspan="1">33 to&lt;br&gt;49</td> <td colspan="1" rowspan="1">17</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">-</td> </tr> <tr> <td colspan="1" rowspan="1">Result</td> <td colspan="1" rowspan="1">50</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">Fixed value of 0x00 indicates a&lt;br&gt;successful SLAC process</td> </tr> <tr> <td colspan="1" rowspan="6">CM_ATTEN_PROFILE.&lt;br&gt;IND</td> <td colspan="1" rowspan="1">PEV MAC</td> <td colspan="1" rowspan="1">0 to 5</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">MAC address&lt;br&gt;of the EV Host</td> <td colspan="1" rowspan="1">MAC address of EV Host</td> </tr> <tr> <td colspan="1" rowspan="1">NumGroups</td> <td colspan="1" rowspan="1">6</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x3A</td> <td colspan="1" rowspan="1">Number of OFDM carrier&lt;br&gt;groups used for the SLAC sig-&lt;br&gt;nal characterization.</td> </tr> <tr> <td colspan="1" rowspan="1">RSVD</td> <td colspan="1" rowspan="1">7</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">0x00</td> <td colspan="1" rowspan="1">reserved</td> </tr> <tr> <td colspan="1" rowspan="1">AAG[1]</td> <td colspan="1" rowspan="1">8</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">Attenuation&lt;br&gt;value</td> <td colspan="1" rowspan="1">Average Attenuation of Group&lt;br&gt;1</td> </tr> <tr> <td colspan="1" rowspan="1">…</td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> <td colspan="1" rowspan="1"></td> </tr> <tr> <td colspan="1" rowspan="1">AAG[58]</td> <td colspan="1" rowspan="1">65</td> <td colspan="1" rowspan="1">1</td> <td colspan="1" rowspan="1">Attenuation&lt;br&gt;value</td> <td colspan="1" rowspan="1">Average Attenuation of Group&lt;br&gt;58</td> </tr> </table> (sibling of Text 6)
+Contextual Information 9: A.9.2.2 Description of involved MMEs (ancestor of Text 6)
+Related Information 64: [V2G3-A09-23] For the SLAC process, the low-layer communciation module shall use the set of MMEs defined in Figure A.1. The parameters to be used within the MMEs are defined in Table A.4. (sibling of Text 7)
+Related Information 65: [V2G3-M08-01] All low-layer communication devices shall comply with Table 3. (sibling of Table 1)
+Related Information 66: A.9.2.1 Functional description (sibling of Figure 1)
+Related Information 67: A.9.2.2 Description of involved MMEs (sibling of Figure 1)
+Related Information 68: A.9.2.3.1 Sequence chart (sibling of Figure 1)
+Related Information 69: A.9.2.3.2 EV side (sibling of Figure 1)
+Related Information 70: A.9.2.3.3 EVSE side (sibling of Figure 1)
+Contextual Information 10: Annex A (normative) HomePlug Green PHY on control pilot line (ancestor of Figure 1)
+Related Information 71: Figure A.11 shows the transmission path for the PLC signal with example values for attenuations and PSDs. All PSD and attenuation values are intended as a list of values over carrier groups, single values in the following description are given for simplification only. The following are attenuations that are assumed as example values (sibling of Figure 2)
+Related Information 72: — AttnRxEV is the insertion loss of the receiving path between the HomePlug Green PHY Modem and the charge coupler on EV side. In the example, a value of 5 dB is assumed (e.g. through to transformers, lines, coupling components). (sibling of Figure 2)
+Related Information 73: — AttnTxEV is the insertion loss of the transmitting path between the HomePlug Green PHY Modem and the charge coupler on EV side. In the example, a value of 4 dB is assumed (e.g. through to transformers, lines, coupling components). (sibling of Figure 2)
+Related Information 74: — AttnRxEVSE is the insertion loss of the receiving path between the HomePlug Green PHY Modem and the charge coupler on EVSE side. In the example, a value of 3 dB is assumed (e.g. through to transformers, lines, coupling components). (sibling of Figure 2)
+Related Information 75: — AttnTxEVSE is the insertion loss of the transmitting path between the HomePlug Green PHY Modem and the charge coupler on EVSE side. In the example, a value of 5 dB is assumed (e.g. through to transformers, lines, coupling components). (sibling of Figure 2)
+Related Information 76: — AttnCord is the insertion loss of the charge cord itself. (sibling of Figure 2)
+Related Information 77: PLC node EV Green PHY modem Rx-Path AttnRxEV Tx-Path AttnTxEV Rx-Path AttnRxEVSE Tx-Path AttnTxEVSE Green PHY modem PLC node EVSE Charge cord AttnCord -72 dBm/Hz -76 dBm/Hz -78 dBm/Hz -81 dBm/Hz -50 dBm/Hz PSD at EV socket - + Attenuation for matching decision is determined by averaging the difference between the reported attenuation values and the reference PSD over all carrier groups. 2 dB -28 dB -31 dB SLAC Measurement, attenuation refered to -50 dbm/Hz (SLAC) PSD at Trncv output PSD at EV socket (design target) PSD at EVSE socket PSD at Trncv input - AttnCord - AttnTxEV - AttnRxEVSE Calculations for attenuation measurement for Matching decision PSD of M-Sound along the transmission path from EV to EVSE Report of measured Attenuation "-28 dB" per carrier group AttnRxEVSE correction of insertion loss AttnRxEVSE reference: -26 dB (sibling of Figure 2)
+Related Information 78: NOTE All PSD and attenuation values are intended as a list of values over carrier groups. In this figure, single values are given for simplification only. (sibling of Figure 2)
+Related Information 79: Figure A.11 — HomePlug Green PHY-Transmission path example with SLAC relevant attenuations and calculations (sibling of Figure 2)
+Related Information 80: In the example, the design target is to achieve a PSD at the inlet of device of −76 dBm/Hz over the spectrum. Due to insertion losses in the transmission path (AttnTxEV), the output power of the modem (−72 dBm/Hz) has to be higher to compensate the attenuation AttnTxEV. The way of measuring the PSD for the transmission path is given in A.9.4.2. (sibling of Figure 2)
+Related Information 81: The charge cord attenuates the HomePlug Green PHY signal by AttnCord, which leads in the example to a PSD at the counterpart socket-outlet of −78 dBm/Hz. Within the EVSE, the signal is also affected by an insertion loss (AttnRxEVSE) of the Rx path from the socket-outlet to the Green PHY modem. (sibling of Figure 2)
+Contextual Information 11: A.11.4.1 Typical transmission path (ancestor of Figure 2)
+Contextual Information 12: A.11.4 Signal transmission path and signal measurement (ancestor of Figure 2)
+Contextual Information 13: A.11 Signal coupling (ancestor of Figure 2)
+
+OUTPUT FORMAT INSTRUCTIONS:
+Your answer should follow these guidelines:
+1. Start with an 'Overview' section that provides a concise explanation of what this concept/topic is.
+2. For the related content, organize it into appropriate sections with descriptive headings based on the information available.
+   - Analyze the content and group related information logically.
+   - Choose section titles that best represent the information, such as 'Related Topics', 'Related Primitives', 'Configuration Requirements', etc.
+   - Let the content guide your choice of section titles rather than forcing a predefined structure.
+3. The structure should match the format used in technical documentation, with clear hierarchy and organization.
+4. Include any relevant figures, tables, or processes mentioned in the information.
+5. Be as detailed and comprehensive as possible while ONLY using the provided information.
+6. In writing your answer, strictly follow the content provided in the information, and do not add any new information or make assumptions.
