@@ -325,10 +325,10 @@ if assistant B is better, and "[[C]]" for a tie.
         # self.write_json("./prod_answers.json", prod_answers)
         # self.write_json("./optimized_answers.json", optimized_answers)
         # ===Generate answers by executing the agentic flow===
-        # QA_dict = self.load_json("./experiments/ground_truth_QA.json")
-        QA_dict = {"What is the commonality between Data SAP and Data link control SAP?": "No answer",
-                   "What is the commonality between basic signaling and high-level communication?": "No answer",
-                   "What is the commonality between MTC and PTC?": "No answer"}
+        QA_dict = self.load_json("./experiments/ground_truth_QA.json")
+        # QA_dict = {"What is the commonality between Data SAP and Data link control SAP?": "No answer",
+        #            "What is the commonality between basic signaling and high-level communication?": "No answer",
+        #            "What is the commonality between MTC and PTC?": "No answer"}
         for question, _ in QA_dict.items():
             #check if the question is already in the entities_chunks.json
             query_processor.flow_constructor.flow_operations.init_replaced_term()
@@ -342,15 +342,15 @@ if assistant B is better, and "[[C]]" for a tie.
             # answers_dict = self.load_json("./prod_answers.json")
             # answers_dict = self.load_json("./experiments/Answers/lightrag_ans_w_ag.json")
             # answers_dict = self.load_json("./experiments/Answers/graphrag_ans_w_ag.json")
-            # answers_dict = self.load_json("./experiments/Answers/4omini_ourgraph_ag.json")
-            answers_dict = self.load_json("./experiments/subgraph_extraction_ans/com/twohop_com.json")
+            answers_dict = self.load_json("./experiments/Answers/4omini_ourgraph_ag.json")
+            # answers_dict = self.load_json("./experiments/subgraph_extraction_ans/com/twohop_com.json")
             answers_dict[question] = answer
             # self.write_json("./optimized_answers.json", answers_dict)
             # self.write_json("./prod_answers.json", answers_dict)
             # self.write_json("./experiments/Answers/lightrag_ans_w_ag.json", answers_dict)
             # self.write_json("./experiments/Answers/graphrag_ans_w_ag.json", answers_dict)
-            # self.write_json("./experiments/Answers/4omini_ourgraph_ag.json", answers_dict)
-            self.write_json("./experiments/subgraph_extraction_ans/com/twohop_com.json", answers_dict)
+            self.write_json("./experiments/Answers/4omini_ourgraph_ag.json", answers_dict)
+            # self.write_json("./experiments/subgraph_extraction_ans/com/twohop_com.json", answers_dict)
 
         # answer = await query_processor.ask_question("What is EIM?")
         # print(answer)
@@ -449,7 +449,7 @@ if assistant B is better, and "[[C]]" for a tie.
         # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/1u2c_com.json", "./experiments/subgraph_extraction_ans/com/1u2c_com_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/1u1c_com.json", "./experiments/subgraph_extraction_ans/com/1u1c_com_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/1c_com.json", "./experiments/subgraph_extraction_ans/com/1c_com_correctness.json")
-        self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/twohop_com.json", "./experiments/subgraph_extraction_ans/com/twohop_com_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/twohop_com.json", "./experiments/subgraph_extraction_ans/com/twohop_com_correctness.json")
         # cmp_full = self.load_json("./experiments/subgraph_extraction_ans/full_two_hop_ans_correctness_op.json")
         # cmp_2u2c = self.load_json("./experiments/subgraph_extraction_ans/2u2c_cmp_correctness.json")
         # cmp_2u1c = self.load_json("./experiments/subgraph_extraction_ans/2u1c_cmp_correctness.json")
@@ -457,21 +457,21 @@ if assistant B is better, and "[[C]]" for a tie.
         # cmp_1u = self.load_json("./experiments/subgraph_extraction_ans/1u_cmp_correctness.json")
         # cmp_anchor = self.load_json("./experiments/subgraph_extraction_ans/anchor_correctness.json")
         # print(f"full_two_hop_ans_correctness: {sum([eval_res['score'] for eval_res in cmp_full]) / len(cmp_full)}")
-        com_2u2c = self.load_json("./experiments/subgraph_extraction_ans/com/2u2c_com_correctness.json")
-        com_1u2c = self.load_json("./experiments/subgraph_extraction_ans/com/1u2c_com_correctness.json")
-        com_1u1c = self.load_json("./experiments/subgraph_extraction_ans/com/1u1c_com_correctness.json")
-        com_1c = self.load_json("./experiments/subgraph_extraction_ans/com/1c_com_correctness.json")
-        twohop_com = self.load_json("./experiments/subgraph_extraction_ans/com/twohop_com_correctness.json")
+        # com_2u2c = self.load_json("./experiments/subgraph_extraction_ans/com/2u2c_com_correctness.json")
+        # com_1u2c = self.load_json("./experiments/subgraph_extraction_ans/com/1u2c_com_correctness.json")
+        # com_1u1c = self.load_json("./experiments/subgraph_extraction_ans/com/1u1c_com_correctness.json")
+        # com_1c = self.load_json("./experiments/subgraph_extraction_ans/com/1c_com_correctness.json")
+        # twohop_com = self.load_json("./experiments/subgraph_extraction_ans/com/twohop_com_correctness.json")
         # print(f"2u2c_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_2u2c]) / len(cmp_2u2c)}")
         # print(f"2u1c_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_2u1c]) / len(cmp_2u1c)}")
         # print(f"1u1c_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_1u1c]) / len(cmp_1u1c)}")
         # print(f"1u_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_1u]) / len(cmp_1u)}")
         # print(f"anchor_correctness: {sum([eval_res['score'] for eval_res in cmp_anchor]) / len(cmp_anchor)}")
-        print(f"2u2c_com_correctness: {sum([eval_res['score'] for eval_res in com_2u2c]) / len(com_2u2c)}")
-        print(f"1u2c_com_correctness: {sum([eval_res['score'] for eval_res in com_1u2c]) / len(com_1u2c)}")
-        print(f"1u1c_com_correctness: {sum([eval_res['score'] for eval_res in com_1u1c]) / len(com_1u1c)}")
-        print(f"1c_com_correctness: {sum([eval_res['score'] for eval_res in com_1c]) / len(com_1c)}")
-        print(f"twohop_com_correctness: {sum([eval_res['score'] for eval_res in twohop_com]) / len(twohop_com)}")
+        # print(f"2u2c_com_correctness: {sum([eval_res['score'] for eval_res in com_2u2c]) / len(com_2u2c)}")
+        # print(f"1u2c_com_correctness: {sum([eval_res['score'] for eval_res in com_1u2c]) / len(com_1u2c)}")
+        # print(f"1u1c_com_correctness: {sum([eval_res['score'] for eval_res in com_1u1c]) / len(com_1u1c)}")
+        # print(f"1c_com_correctness: {sum([eval_res['score'] for eval_res in com_1c]) / len(com_1c)}")
+        # print(f"twohop_com_correctness: {sum([eval_res['score'] for eval_res in twohop_com]) / len(twohop_com)}")
         # await self.judge_by_llm("./prod_answers.json", "./optimized_answers.json")
         # await self.judge_by_llm("./prod_answers.json", "./optimized_answers.json")
         # judgements = self.load_json("./llm_judgements.json")
