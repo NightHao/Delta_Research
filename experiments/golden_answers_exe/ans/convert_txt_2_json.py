@@ -26,6 +26,6 @@ def convert_txt_to_json(input_file, output_file):
     print(f"Converted {len(qa_dict)} question-answer pairs to {output_file}")
 
 if __name__ == "__main__":
-    input_file = "/home/yeskey525/Research_CODE/experiments/golden_answers/ans/complete_golden_answers.txt"
-    output_file = "/home/yeskey525/Research_CODE/experiments/golden_answers/ans/complete_golden_answers.json"
+    input_file = "/home/yeskey525/Research_CODE/experiments/golden_answers/ans/o1_answers.txt"
+    output_file = "/home/yeskey525/Research_CODE/experiments/golden_answers/ans/o1_answers.json"
     convert_txt_to_json(input_file, output_file)

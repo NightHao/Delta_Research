@@ -7,6 +7,7 @@ from langchain_core.prompts import PromptTemplate
 from deepeval.test_case import LLMTestCase
 from langchain_openai import ChatOpenAI
 import json, re, asyncio
+from pathlib import Path
 
 class AgenticFlowEval:
     def __init__(self):
@@ -108,7 +109,8 @@ class AgenticFlowEval:
             # ],
             evaluation_params=[LLMTestCaseParams.INPUT, LLMTestCaseParams.ACTUAL_OUTPUT, LLMTestCaseParams.EXPECTED_OUTPUT],
             #model=azure_openai,  # Replace with your actual model instance if different
-            model="gpt-4.1",
+            # model="gpt-4.1",
+            model="o1",
             async_mode=False
         )
         
@@ -324,28 +326,31 @@ if assistant B is better, and "[[C]]" for a tie.
         # self.write_json("./optimized_answers.json", optimized_answers)
         # ===Generate answers by executing the agentic flow===
         # QA_dict = self.load_json("./experiments/ground_truth_QA.json")
-        # for question, _ in QA_dict.items():
-        #     #check if the question is already in the entities_chunks.json
-        #     query_processor.flow_constructor.flow_operations.init_replaced_term()
-        #     answer = await query_processor.ask_question(question)
-        #     if answer is None:
-        #         continue
-        #     print("Question:\n", question)
-        #     print("Answer:\n", answer)
-        #     print("\n-----------------------------------\n")
-        #     # answers_dict = self.load_json("./optimized_answers.json")
-        #     # answers_dict = self.load_json("./prod_answers.json")
-        #     # answers_dict = self.load_json("./experiments/Answers/lightrag_ans_w_ag.json")
-        #     # answers_dict = self.load_json("./experiments/Answers/graphrag_ans_w_ag.json")
-        #     # answers_dict = self.load_json("./experiments/Answers/4omini_ourgraph_ag.json")
-        #     answers_dict = self.load_json("./experiments/Answers/o4mini_golden_ans.json")
-        #     answers_dict[question] = answer
-        #     # self.write_json("./optimized_answers.json", answers_dict)
-        #     # self.write_json("./prod_answers.json", answers_dict)
-        #     # self.write_json("./experiments/Answers/lightrag_ans_w_ag.json", answers_dict)
-        #     # self.write_json("./experiments/Answers/graphrag_ans_w_ag.json", answers_dict)
-        #     # self.write_json("./experiments/Answers/4omini_ourgraph_ag.json", answers_dict)
-        #     self.write_json("./experiments/Answers/o4mini_golden_ans.json", answers_dict)
+        QA_dict = {"What is the commonality between Data SAP and Data link control SAP?": "No answer",
+                   "What is the commonality between basic signaling and high-level communication?": "No answer",
+                   "What is the commonality between MTC and PTC?": "No answer"}
+        for question, _ in QA_dict.items():
+            #check if the question is already in the entities_chunks.json
+            query_processor.flow_constructor.flow_operations.init_replaced_term()
+            answer = await query_processor.ask_question(question)
+            if answer is None:
+                continue
+            print("Question:\n", question)
+            print("Answer:\n", answer)
+            print("\n-----------------------------------\n")
+            # answers_dict = self.load_json("./optimized_answers.json")
+            # answers_dict = self.load_json("./prod_answers.json")
+            # answers_dict = self.load_json("./experiments/Answers/lightrag_ans_w_ag.json")
+            # answers_dict = self.load_json("./experiments/Answers/graphrag_ans_w_ag.json")
+            # answers_dict = self.load_json("./experiments/Answers/4omini_ourgraph_ag.json")
+            answers_dict = self.load_json("./experiments/subgraph_extraction_ans/com/twohop_com.json")
+            answers_dict[question] = answer
+            # self.write_json("./optimized_answers.json", answers_dict)
+            # self.write_json("./prod_answers.json", answers_dict)
+            # self.write_json("./experiments/Answers/lightrag_ans_w_ag.json", answers_dict)
+            # self.write_json("./experiments/Answers/graphrag_ans_w_ag.json", answers_dict)
+            # self.write_json("./experiments/Answers/4omini_ourgraph_ag.json", answers_dict)
+            self.write_json("./experiments/subgraph_extraction_ans/com/twohop_com.json", answers_dict)
 
         # answer = await query_processor.ask_question("What is EIM?")
         # print(answer)
@@ -353,7 +358,56 @@ if assistant B is better, and "[[C]]" for a tie.
         # print(answer)
         # answer = await query_processor.ask_question("What is the difference between EIM and MTC?")
         # print(answer)
+
+        # ===Generate answers by executing the prompts===
+        # llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, seed = 42)
+        # llm = ChatOpenAI(model="o4-mini", seed = 42)
+        # merged_prompt_answers = {}
+        # # Load existing answers if they exist
+        # # target_file = "./experiments/Answers/4omini_all_info_ans.json"
+        # target_file = "./experiments/Answers/o4mini_all_info_ans.json"
+        # try:
+        #     existing_answers = self.load_json(target_file)
+        #     merged_prompt_answers = existing_answers
+        #     print(f"Loaded {len(merged_prompt_answers)} existing answers")
+        # except:
+        #     print(f"No existing answers file found, creating new one")
+            
+        # # merged_prompts_dir = ("./merged_prompts")
+        # # merged_prompts_dir = ("/home/yeskey525/Research_CODE/experiments/golden_answers_exe/complete_prompts")
+        # # merged_prompts_dir = ("/home/yeskey525/Research_CODE/merged_prompts")
+        # merged_prompts_dir = ("/home/yeskey525/Research_CODE/new_prompts")
+        # merged_prompts_dir = Path(merged_prompts_dir)
+        # if not merged_prompts_dir.exists():
+        #     print(f"Directory {merged_prompts_dir} does not exist.")
+        # else:
+        #     for prompt_file in merged_prompts_dir.glob("*.txt"):
+        #         question = prompt_file.stem
+        #         print(question)
+        #         # Skip if already processed
+        #         if question in merged_prompt_answers:
+        #             print(f"Skipping already processed question: {question}")
+        #             continue
+                    
+        #         print(f"Processing question: {question}")
+        #         try:
+        #             with open(prompt_file, 'r', encoding='utf-8') as f:
+        #                 prompt_content = f.read()
+        #             prompt = PromptTemplate.from_template("""{prompt_content}""")
+        #             chain = prompt | llm
+        #             answer = chain.invoke({"prompt_content": prompt_content}).content
+        #             merged_prompt_answers[question] = answer
+        #             print(f"Finished processing question: {question}")
+        #             # Save after each successful processing to avoid losing progress
+        #             self.write_json(target_file, merged_prompt_answers)
+        #         except Exception as e:
+        #             print(f"Error processing {prompt_file}: {e}")
+
+        #     self.write_json(target_file, merged_prompt_answers)
+        #     print(f"Saved {len(merged_prompt_answers)} answers to o4mini_all_info_ans.json")
+
         # ===Evaluate answers===
+        # o4mini_golden_ans
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/graphrag_ans_wo_ag.json", "./experiments/correctness_eval_ag/graphrag_ans_wo_ag_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/graphrag_ans_w_ag.json", "./experiments/correctness_eval_ag/graphrag_ans_w_ag_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/lightrag_naive.json", "./experiments/correctness_eval_ag/lightrag_naive_correctness.json")
@@ -367,6 +421,7 @@ if assistant B is better, and "[[C]]" for a tie.
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/Answers/4o_ourgraph_ag_answers.json", "./experiments/correctness_eval_ag/4o_ans_w_ag_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./o1_answers.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness_o1.json")
 
+        # Complete golden answers
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/graphrag_ans_wo_ag.json", "./experiments/correctness_eval_complete_ans/graphrag_ans_wo_ag_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/graphrag_ans_w_ag.json", "./experiments/correctness_eval_complete_ans/graphrag_ans_w_ag_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/lightrag_naive.json", "./experiments/correctness_eval_complete_ans/lightrag_naive_correctness.json")
@@ -380,6 +435,43 @@ if assistant B is better, and "[[C]]" for a tie.
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4o_ourgraph_ag_answers.json", "./experiments/correctness_eval_complete_ans/4o_ans_w_ag_correctness.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4omini_ourgraph_ag.json", "./experiments/correctness_eval_complete_ans/4omini_ans_w_ag_correctness_o1.json")
         # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/o4mini_golden_ans.json", "./experiments/correctness_eval_complete_ans/golden_ans_ag_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/4omini_all_info_ans.json", "./experiments/correctness_eval_complete_ans/4omini_all_info_ans_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/Answers/o4mini_all_info_ans.json", "./experiments/correctness_eval_complete_ans/o4mini_all_info_ans_correctness.json")
+
+        # Subgraph extraction answers
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/complete_golden_answers.json", "./experiments/subgraph_extraction_ans/full_two_hop_ans.json", "./experiments/subgraph_extraction_ans/full_two_hop_ans_correctness_op.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/subgraph_extraction_ans/2u2c_cmp.json", "./experiments/subgraph_extraction_ans/2u2c_cmp_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/subgraph_extraction_ans/2u1c_cmp.json", "./experiments/subgraph_extraction_ans/2u1c_cmp_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/subgraph_extraction_ans/1u1c_cmp.json", "./experiments/subgraph_extraction_ans/1u1c_cmp_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/subgraph_extraction_ans/1u_cmp.json", "./experiments/subgraph_extraction_ans/1u_cmp_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/Answers/o4mini_golden_ans.json", "./experiments/subgraph_extraction_ans/anchor.json", "./experiments/subgraph_extraction_ans/anchor_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/2u2c_com.json", "./experiments/subgraph_extraction_ans/com/2u2c_com_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/1u2c_com.json", "./experiments/subgraph_extraction_ans/com/1u2c_com_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/1u1c_com.json", "./experiments/subgraph_extraction_ans/com/1u1c_com_correctness.json")
+        # self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/1c_com.json", "./experiments/subgraph_extraction_ans/com/1c_com_correctness.json")
+        self.evaluate_correctness_with_checkpoint("./experiments/subgraph_extraction_ans/com/1u2c_o4mini_com.json", "./experiments/subgraph_extraction_ans/com/twohop_com.json", "./experiments/subgraph_extraction_ans/com/twohop_com_correctness.json")
+        # cmp_full = self.load_json("./experiments/subgraph_extraction_ans/full_two_hop_ans_correctness_op.json")
+        # cmp_2u2c = self.load_json("./experiments/subgraph_extraction_ans/2u2c_cmp_correctness.json")
+        # cmp_2u1c = self.load_json("./experiments/subgraph_extraction_ans/2u1c_cmp_correctness.json")
+        # cmp_1u1c = self.load_json("./experiments/subgraph_extraction_ans/1u1c_cmp_correctness.json")
+        # cmp_1u = self.load_json("./experiments/subgraph_extraction_ans/1u_cmp_correctness.json")
+        # cmp_anchor = self.load_json("./experiments/subgraph_extraction_ans/anchor_correctness.json")
+        # print(f"full_two_hop_ans_correctness: {sum([eval_res['score'] for eval_res in cmp_full]) / len(cmp_full)}")
+        com_2u2c = self.load_json("./experiments/subgraph_extraction_ans/com/2u2c_com_correctness.json")
+        com_1u2c = self.load_json("./experiments/subgraph_extraction_ans/com/1u2c_com_correctness.json")
+        com_1u1c = self.load_json("./experiments/subgraph_extraction_ans/com/1u1c_com_correctness.json")
+        com_1c = self.load_json("./experiments/subgraph_extraction_ans/com/1c_com_correctness.json")
+        twohop_com = self.load_json("./experiments/subgraph_extraction_ans/com/twohop_com_correctness.json")
+        # print(f"2u2c_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_2u2c]) / len(cmp_2u2c)}")
+        # print(f"2u1c_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_2u1c]) / len(cmp_2u1c)}")
+        # print(f"1u1c_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_1u1c]) / len(cmp_1u1c)}")
+        # print(f"1u_cmp_correctness: {sum([eval_res['score'] for eval_res in cmp_1u]) / len(cmp_1u)}")
+        # print(f"anchor_correctness: {sum([eval_res['score'] for eval_res in cmp_anchor]) / len(cmp_anchor)}")
+        print(f"2u2c_com_correctness: {sum([eval_res['score'] for eval_res in com_2u2c]) / len(com_2u2c)}")
+        print(f"1u2c_com_correctness: {sum([eval_res['score'] for eval_res in com_1u2c]) / len(com_1u2c)}")
+        print(f"1u1c_com_correctness: {sum([eval_res['score'] for eval_res in com_1u1c]) / len(com_1u1c)}")
+        print(f"1c_com_correctness: {sum([eval_res['score'] for eval_res in com_1c]) / len(com_1c)}")
+        print(f"twohop_com_correctness: {sum([eval_res['score'] for eval_res in twohop_com]) / len(twohop_com)}")
         # await self.judge_by_llm("./prod_answers.json", "./optimized_answers.json")
         # await self.judge_by_llm("./prod_answers.json", "./optimized_answers.json")
         # judgements = self.load_json("./llm_judgements.json")
@@ -412,11 +504,13 @@ if assistant B is better, and "[[C]]" for a tie.
         # lightrag_hybrid_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_hybrid_correctness.json")
         # lightrag_mix_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_mix_correctness.json")
         # lightrag_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/lightrag_ans_w_ag_correctness.json")
-        gpt4omini_ans_wo_ag_correctness = self.load_json("./experiments/correctness_eval_complete_ans/4omini_ans_wo_ag_correctness.json")
+        # gpt4omini_ans_wo_ag_correctness = self.load_json("./experiments/correctness_eval_complete_ans/4omini_ans_wo_ag_correctness.json")
         # gpt4omini_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness.json")
         # gpt4o_ans_w_ag_correctness = self.load_json("./experiments/correctness_eval_ag/4o_ans_w_ag_correctness.json")
         # golden_ans_ag_correctness = self.load_json("./experiments/correctness_eval_complete_ans/golden_ans_ag_correctness.json")
         # gpt4omini_ans_w_ag_correctness_o1 = self.load_json("./experiments/correctness_eval_ag/4omini_ans_w_ag_correctness_o1.json")
+        # gpt4omini_all_info_ans_correctness = self.load_json("./experiments/correctness_eval_complete_ans/4omini_all_info_ans_correctness_v2.json")
+        # o4mini_all_info_ans_correctness = self.load_json("./experiments/correctness_eval_complete_ans/o4mini_all_info_ans_correctness_backup.json")
         # # print the average score of the correctness
         # print(f"graphrag_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in graphrag_ans_wo_ag_correctness]) / len(graphrag_ans_wo_ag_correctness)}")
         # print(f"graphrag_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in graphrag_ans_w_ag_correctness]) / len(graphrag_ans_w_ag_correctness)}")
@@ -426,11 +520,13 @@ if assistant B is better, and "[[C]]" for a tie.
         # print(f"lightrag_hybrid_correctness: {sum([eval_res['score'] for eval_res in lightrag_hybrid_correctness]) / len(lightrag_hybrid_correctness)}")
         # print(f"lightrag_mix_correctness: {sum([eval_res['score'] for eval_res in lightrag_mix_correctness]) / len(lightrag_mix_correctness)}")
         # print(f"lightrag_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in lightrag_ans_w_ag_correctness]) / len(lightrag_ans_w_ag_correctness)}")
-        print(f"gpt4omini_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_wo_ag_correctness]) / len(gpt4omini_ans_wo_ag_correctness)}")
+        # print(f"gpt4omini_ans_wo_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_wo_ag_correctness]) / len(gpt4omini_ans_wo_ag_correctness)}")
         # print(f"gpt4omini_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_ans_w_ag_correctness]) / len(gpt4omini_ans_w_ag_correctness)}")
         # print(f"gpt4o_ans_w_ag_correctness: {sum([eval_res['score'] for eval_res in gpt4o_ans_w_ag_correctness]) / len(gpt4o_ans_w_ag_correctness)}")
         # print(f"golden_ans_ag_correctness: {sum([eval_res['score'] for eval_res in golden_ans_ag_correctness]) / len(golden_ans_ag_correctness)}")
         # print(f"gpt4omini_ans_w_ag_correctness_o1: {sum([eval_res['score'] for eval_res in gpt4omini_ans_w_ag_correctness_o1]) / len(gpt4omini_ans_w_ag_correctness_o1)}")
+        # print(f"4omini_all_info_ans_correctness: {sum([eval_res['score'] for eval_res in gpt4omini_all_info_ans_correctness]) / len(gpt4omini_all_info_ans_correctness)}")
+        # print(f"o4mini_all_info_ans_correctness: {sum([eval_res['score'] for eval_res in o4mini_all_info_ans_correctness]) / len(o4mini_all_info_ans_correctness)}")
         # # Compare graphrag_4o and graphrag for questions with scores >= 0.3 in graphrag_4o
         # print("\nComparison between graphrag_4o and graphrag (scores >= 0.3 in graphrag_4o):")
         

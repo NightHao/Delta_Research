@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the commonality between Data SAP and Data link control SAP?",
+        "score": 1.0,
+        "reason": "The Actual Output accurately describes both Data SAP and Data Link Control SAP as interfaces in the data-link layer, matching the Expected Output\u2019s details about their role in passing data/control/error information between higher/lower layers. There are no contradictions or omissions regarding their layer positioning or function."
+    },
+    {
+        "question": "What is the commonality between basic signaling and high-level communication?",
+        "score": 0.8,
+        "reason": "From the Input, the Actual Output correctly addresses synergy under ISO 15118 and V2G but omits details from the Expected Output such as references to IEC 61851, advanced features like Plug & Charge, and clarifying the two-layer approach. No factual contradictions were found."
+    },
+    {
+        "question": "What is the commonality between MTC and PTC?",
+        "score": 0.8,
+        "reason": "The Actual Output matches the Input by describing both MTC and PTC for EIM and PWM under IEC 61851-1, and aligns with the Expected Output\u2019s mention of MTC as control and PTC as monitoring. It omits, however, specific TTCN-3 details (e.g., pt_SLAC_Port) and stand-alone module clarifications present in the Expected Output."
+    }
+]

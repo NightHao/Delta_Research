@@ -218,8 +218,7 @@
             "The Test Suite Structure",
             "TEST SUITE STRUCTURE",
             "Test Suite Specification",
-            "a Test Suite Specification",
-            "Test Suite Structure"
+            "a Test Suite Specification"
         ],
         "PICS": [
             "Protocol Implementation Conformance Statement",
@@ -310,8 +309,7 @@
             "Protocol Test Controller",
             "Parallel Test Component",
             "Positive Train Control",
-            "The Parallel Test Component",
-            "PARALLEL TEST COMPONENT"
+            "The Parallel Test Component"
         ],
         "TCI": [
             "TTCN-3 Control Interface"

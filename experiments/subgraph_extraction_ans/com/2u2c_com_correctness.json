@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the commonality between Data SAP and Data link control SAP?",
+        "score": 1.0,
+        "reason": "The Input asks about the commonality, and both the Actual Output and Expected Output identify Data SAP and Data-Link Control SAP as interfaces (SAPs) at the data-link layer in the OSI model facilitating higher/lower layer communication. The Actual Output describes their roles and the link to the Connection Coordination Entity without missing or contradicting any details from the Expected Output."
+    },
+    {
+        "question": "What is the commonality between basic signaling and high-level communication?",
+        "score": 0.7,
+        "reason": "Input focuses on shared aspects, and Actual Output aligns with ISO 15118 references and V2G functionality without contradictions. However, Expected Output explicitly mentions IEC 61851, PWM duty-cycle, and advanced functions (e.g., Plug & Charge) that are not covered in Actual Output."
+    },
+    {
+        "question": "What is the commonality between MTC and PTC?",
+        "score": 0.8,
+        "reason": "The Input requires shared roles for MTC and PTC. The Actual Output aligns with the Expected Output on testing framework, EIM handling, and PWM monitoring under IEC 61851, but omits references to pt_SLAC_Port and certain conformance details found in the Expected Output."
+    }
+]

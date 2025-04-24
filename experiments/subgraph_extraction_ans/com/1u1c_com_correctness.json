@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the commonality between Data SAP and Data link control SAP?",
+        "score": 1.0,
+        "reason": "Input asks for commonality; Actual Output explains both SAPs handle communication at the data-link layer and interface with higher layers, matching Expected Output that they are two distinct SAPs in the same layer handing off data/control. No contradictions or omissions."
+    },
+    {
+        "question": "What is the commonality between basic signaling and high-level communication?",
+        "score": 0.7,
+        "reason": "No contradictions found and it addresses ISO 15118-3, fallback, and synergy with V2G from the Input and Actual Output. However, it omits IEC 61851 references and the explicit note from the Expected Output that basic signaling and high-level communication use the same physical link and function as two layers of the same system."
+    },
+    {
+        "question": "What is the commonality between MTC and PTC?",
+        "score": 0.8,
+        "reason": "In the Input, we asked for similarities; the Actual Output carefully covers most points from the Expected Output (roles, shared ports, EIM handling) without contradicting facts. It omits certain specifics, like pt_SLAC_Port mapping and callback details, so a bit of Expected Output detail is missing."
+    }
+]

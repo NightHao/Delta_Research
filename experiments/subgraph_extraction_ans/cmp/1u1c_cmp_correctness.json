@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 0.7,
+        "reason": "The Actual Output references 'ETH SAP' for Data SAP and aligns with the Expected Output\u2019s definitions, but it omits key details about primitives (e.g. 'DATA-LINK-SEND.request', 'D-LINK_READY.indication') mentioned in the Expected Output."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.7,
+        "reason": "Although the Actual Output addresses the Input question and does not directly contradict the Expected Output, it omits key details about single-wire pilot specifics, PLC-based message sets, and unidirectional limitations highlighted in the Expected Output."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.8,
+        "reason": "They match overall roles (MTC as test controller with pt_SLAC_Port, PTC as PWM monitor for EIM), referencing the Input question about differences and aligning with the Expected Output hierarchy and responsibilities. Missing details on specific SLAC messages (CmValidate, etc.) that the Expected Output lists, but no factual contradictions."
+    }
+]
