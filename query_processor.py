@@ -14,9 +14,10 @@ class QueryProcessor:
         self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
         # self.llm = ChatOpenAI(model="o4-mini", reasoning_effort="medium")
         if "subgraph_distance" in kwargs:
-            self.flow_constructor.set_subgraph_distance(kwargs["subgraph_distance"] + 1)
+            self.flow_constructor.set_subgraph_distance(kwargs["subgraph_distance"])
         if "graph_path" in kwargs:
             self.flow_constructor.flow_operations.set_graph_path(kwargs["graph_path"])
+            self.entity_graph_path = kwargs["graph_path"]
         self.agentic_flow = self.flow_constructor.create_agentic_flow()
         self.renewd_question = ""
 
@@ -267,13 +268,14 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
         for each entity in the JSON file into a single detailed description.
 
         Args:
-            input_file_path (str): The path to the entity_chunks.json file.
-
+            data (dict): Dictionary containing entity information
+            max_distance (int): Maximum distance to include entities
+            
         Returns:
             dict: A dictionary with entity names as keys and their combined descriptions as values.
         """
-    
         entities_chunks = {}
+        # Process entities up to max_distance
         for entity_chunk, entities in data.items():
             first_one = True
             main_entity = ""
@@ -285,10 +287,14 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
                     first_one = False
                 else: break
             entities_chunks[main_entity] = {}
+            
+            # Process entities up to max_distance
             for entity, details in entities.items():
                 if details.get('distance') > max_distance:
                     continue
+                
                 combined_parts = []
+                
                 # Extract and append 'relationship' if it's not empty
                 relationship = details.get('relationship', '').strip()
                 if relationship:
@@ -308,7 +314,6 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
 
                 # Join all parts with a space
                 combined_description = ' '.join(combined_parts)
-
                 entities_chunks[main_entity][entity] = combined_description
 
         return entities_chunks
@@ -319,37 +324,166 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
             chunks_prompt += f"Entity: {entity}\nDescription: {description}\n{'-'*80}\n"
         return chunks_prompt
 
+    def extend_entities_from_graph(self, data, max_distance=1):
+        """
+        Extends the entities in the data by finding their neighbors in the entity graph
+        up to a specified distance.
+
+        Args:
+            data (dict): Dictionary containing entity_chunk_X keys with entity information
+            max_distance (int): Maximum distance to extend entities in the graph
+            
+        Returns:
+            dict: The original data with additional entities added from the graph
+        """
+        try:
+            # Load the entity graph
+            entity_graph = self.load_json(self.entity_graph_path)
+            if not entity_graph:
+                print("Warning: Could not load entity graph, returning original data")
+                return data
+                
+            # Create a deep copy to avoid modifying the original data
+            import copy
+            extended_data = copy.deepcopy(data)
+            
+            # For each chunk in the data
+            for chunk_key, entities in extended_data.items():
+                # Find all entities at the boundary (maximum distance in current data)
+                current_max_distance = max([details.get('distance', 0) for entity, details in entities.items()])
+                boundary_entities = [entity for entity, details in entities.items() 
+                                    if details.get('distance') == current_max_distance]
+                
+                # Track processed entities to avoid duplicates
+                processed_entities = set(entities.keys())
+                
+                # For each entity at the boundary
+                for boundary_entity in boundary_entities:
+                    self._extend_entity_neighbors(
+                        entity_graph, 
+                        extended_data[chunk_key], 
+                        boundary_entity, 
+                        current_max_distance,
+                        processed_entities, 
+                        max_depth=max_distance
+                    )
+                    
+            return extended_data
+            
+        except Exception as e:
+            print(f"Error extending entities from graph: {e}")
+            return data
+            
+    def _extend_entity_neighbors(self, entity_graph, entities_dict, entity_name, current_distance, 
+                                processed_entities, max_depth=1, current_depth=0):
+        """
+        Recursively extends entity neighbors from the graph.
+        
+        Args:
+            entity_graph (dict): The loaded entity graph
+            entities_dict (dict): The dictionary to add new entities to
+            entity_name (str): The current entity to find neighbors for
+            current_distance (int): The current distance in the original data
+            processed_entities (set): Set of already processed entity names
+            max_depth (int): Maximum recursion depth
+            current_depth (int): Current recursion depth
+        """
+        # Base case: reached max depth or entity not in graph
+        if current_depth >= max_depth or entity_name not in entity_graph:
+            return
+            
+        # Get connections for this entity
+        connections = entity_graph.get(entity_name, {}).get("connections", [])
+        
+        # Add each connection as a new entity if not already processed
+        for connection in connections:
+            neighbor_name = connection.get("target", "")
+            if not neighbor_name or neighbor_name in processed_entities:
+                continue
+                
+            # Mark as processed
+            processed_entities.add(neighbor_name)
+            
+            # Create new entity details
+            new_distance = current_distance + 1
+            connection_desc = connection.get("description", "")
+            
+            # Get entity's own description if available
+            neighbor_desc = ""
+            if neighbor_name in entity_graph:
+                neighbor_desc = entity_graph[neighbor_name].get("description", "")
+                
+            # Create relationship description
+            relationship = f"Related to {entity_name}"
+            if connection_desc:
+                relationship = connection_desc
+                
+            # Add the new entity
+            entities_dict[neighbor_name] = {
+                'distance': new_distance,
+                'relationship': relationship,
+                'description': neighbor_desc,
+                'chunk_context': ""  # No context for graph-derived entities
+            }
+            
+            # Recursively extend from this new entity
+            self._extend_entity_neighbors(
+                entity_graph, 
+                entities_dict, 
+                neighbor_name, 
+                new_distance,
+                processed_entities, 
+                max_depth, 
+                current_depth + 1
+            )
+
     def generate_final_prompt(self, data, question: str, intention_category: str):
         final_prompt = ""
-        extracted_dis = self.flow_constructor.subgraph_distance - 1
+        extracted_dis = self.flow_constructor.subgraph_distance
         print("This is the extraction range: ", extracted_dis)
         print("This is the intention category: ", intention_category)
+        
+        # For General Information Query, no extension needed
         if intention_category == "General Information Query":
+            # No extension for general queries
             combined_dict = self.combine_entity_descriptions(data, max_distance=extracted_dis)
             for query_entity, entity_chunks in combined_dict.items():
                 final_prompt += self.format_entity_chunks_prompt(entity_chunks, query_entity)
 
         elif intention_category == "Comparison Query" or intention_category == "Commonality Query":
+            # Determine which aspect needs extension based on query type
+            common_extend = 1 if intention_category == "Commonality Query" else 0
+            diff_extend = 1 if intention_category == "Comparison Query" else 0
+            
             common_dis = extracted_dis + 1 if intention_category == "Commonality Query" else extracted_dis
             dif_dis = extracted_dis + 1 if intention_category == "Comparison Query" else extracted_dis
-            # common_dis = 1 if intention_category == "Commonality Query" else -1
-            # dif_dis = 1 if intention_category == "Comparison Query" else -1
-            # common_dis = 1
-            # dif_dis = -1
-            print("These are commin & dif distance: ", common_dis, dif_dis)
-            common_entities_dict = self.get_common_entities_dict(data, common_dis) if common_dis != -1 else {}
+            
+            print("These are common & diff distance: ", common_dis, dif_dis)
+            
+            # First extend the entities if needed
+            extended_data = data
+            if common_extend > 0 or diff_extend > 0:
+                extension_distance = max(common_extend, diff_extend)
+                extended_data = self.extend_entities_from_graph(data, max_distance=extension_distance)
+            
+            # Then extract common/unique entities from the extended data
+            common_entities_dict = self.get_common_entities_dict(extended_data, common_dis) if common_dis != -1 else {}
             common_chunks = self.combine_entity_descriptions(common_entities_dict, max_distance=common_dis)
             common_prompts = {}
             num_of_entities = 0
+            
             for entity_chunk, chunks in common_chunks.items():
                 num_of_entities += len(chunks.keys())
                 common_prompts[entity_chunk] = self.format_entity_chunks_prompt(chunks, entity_chunk)
-            unique_entities_dict = self.get_unique_entities_dict(data, dif_dis) if dif_dis != -1 else {}
+                
+            unique_entities_dict = self.get_unique_entities_dict(extended_data, dif_dis) if dif_dis != -1 else {}
             unique_chunks = self.combine_entity_descriptions(unique_entities_dict, max_distance=dif_dis)
             unique_prompts = {}
+            
             for entity_chunk, chunks in unique_chunks.items():
                 num_of_entities += len(chunks.keys())
                 unique_prompts[entity_chunk] = self.format_entity_chunks_prompt(chunks, entity_chunk)
+                
             for main_entity, chunks in unique_prompts.items():
                 final_prompt += f"Below is the unique entity information for {main_entity}\n"
                 final_prompt += chunks
@@ -358,7 +492,7 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
                 final_prompt += chunks
 
         final_prompt += f"You need to answer the following question as more details as possible based on the provided information above\n Question: {question}"
-        #print(final_prompt)
+        # print(final_prompt)
         # Save the prompt in a dictionary format with the question as the key
         # try:
         #     with open("final_prompt.json", "r") as f:
