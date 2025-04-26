@@ -1,0 +1,152 @@
+[
+    {
+        "question": "What is the system architecture of Vehicle-to-Grid?",
+        "score": 0.8254122150025702,
+        "reason": "The actual output covers nearly all components, protocols, and procedures described in the expected output, including EV, EVCC, EVSE, SECC, ISO 15118 standards, protocols (HLC-C, SessionStopReq), and testing details. It mentions service discovery, BCB, session management, and standards, matching expected technical details. However, it omits explicit coverage of the grid/aggregator domain and SLAC procedure, and has less discussion of grid constraint feedback and power flow coordination from the grid/operator. These omissions prevent a perfect score but the provided content is highly detailed and accurate."
+    },
+    {
+        "question": "What is HPGP?",
+        "score": 0.9012348578978945,
+        "reason": "The actual output accurately explains HPGP as a low-power, powerline communication technology for EV charging (Input and Expected Output align on this). It correctly mentions use of existing wiring, relevance to EVSE/EV, standards compliance (ISO 15118, IEC), use on the control pilot line, matching process, SLAC, central coordinator, coexistence with other HomePlug protocols, and filters to manage signals. However, it omits some key technical details present in the expected output, such as the use of OFDM with band-notching, specific MAC layer features (error correction, service-access points), security mechanisms (NID/NMK), explicit regulatory document versions (e.g., GPHY Spec v1.1.1, ISO 15118-3), conformance language (TTCN-3), coupling and EMC requirements, and certain implementation considerations like transmit power prescalers or physical layer modulation details. These omissions warrant penalty but the core content and most functions are covered without contradiction."
+    },
+    {
+        "question": "What is SLAC?",
+        "score": 0.7530873135248462,
+        "reason": "The actual output provides a factually accurate and mostly detailed description of SLAC, covering its purpose, key processes (like initialization, attenuation characterization, matching), message types (such as CM_SLAC_PARM.REQ, CM_ATTEN_CHAR.IND, etc.), and standards involved (ISO 15118-3, HomePlug Green PHY). However, some details from the expected output are omitted: the specifics of the sounding (CM_MNBC_SOUND_IND), details on the validation step (CM_VALIDATE_REQ/CNF), shutdown procedures, the \u2018best outlet\u2019 selection concept, and references to testing timers and conformance requirements (e.g., TT_EVSE_SLAC_init). No direct contradictions are present, but the omission of these specifics warrants a deduction."
+    },
+    {
+        "question": "What is Logical Network?",
+        "score": 0.9371767482313097,
+        "reason": "The actual output accurately covers most facts: Layer 2 scope, CCo management, network segmentation, join/leave processes, visibility at higher layers, and error handling. It mentions the EV joining after parameter exchange and network identifiers. However, it omits specific details like use of NMK encryption, the explicit SLAC matching process (e.g., CM_SLAC_MATCH, CM_SET_KEY), and D-LINK_TERMINATE.request, which are present in the expected output. Also, the actual output has fewer references to payload encryption and the precise SLAC process details, resulting in some loss of technical precision."
+    },
+    {
+        "question": "What is CCo?",
+        "score": 0.8869874626424932,
+        "reason": "The actual output provides accurate information on the CCo's network management, link termination, detection of EV status, and configuration requirements, matching most details from the expected output. However, it omits key specifics such as the CCo typically being located on the EVSE side, explicit mention of the TT_MATCH_JOIN timer, use of SLAC MMEs for communication, and the usage of APCM_SET_CCo.REQ for configuration. These omissions reduce the level of detail, resulting in a deduction."
+    },
+    {
+        "question": "What is the difference between Data SAP and Data link control SAP?",
+        "score": 0.6964667428161431,
+        "reason": "The actual output largely matches the expected output in describing Data SAP as a data-plane interface and Data Link Control SAP as a control-plane interface handling link management and error status, reflecting no factual contradictions. However, it omits important details such as specific primitive/message names (e.g., DATA-LINK_SEND.REQ, D-LINK_READY.indication), the explicit association of Data SAP with user-payload packets (like IP datagrams), and less clearly states that Control SAP is 'purely' the control-plane. This omission of explicit primitives and some specificity moderately reduces the score."
+    },
+    {
+        "question": "What is the difference between basic signaling and high-level communication?",
+        "score": 0.7922761788963293,
+        "reason": "The actual output does not contradict any facts from the expected output and covers the difference between basic signaling and high-level communication in EV charging. It mentions standards (IEC 61851-1, ISO 15118-3), fallback mechanisms, complexity, Plug and Charge, and bidirectional flow. However, some low-level technical detail is omitted or less precise: there is no mention of PWM as 'analog signaling,' specific states (A, B, C, etc.), PLC modems (HomePlug Green PHY), and SLAC process for HLC link establishment, which are all in the expected output. Overall structure and content align well, but there's slight loss in granularity."
+    },
+    {
+        "question": "What is the difference between MTC and PTC?",
+        "score": 0.7562176500885798,
+        "reason": "The actual output accurately describes the hierarchical relationship, roles, port mapping, and functional decomposition of MTC and PTC, matching key details in the expected output (e.g. MTC orchestrates, drives test logic, represents EVCC/SECC_Tester; PTC acts as subordinate observing PWM/EIM). However, some specific details are omitted, such as explicit mention of port mapping differences (e.g. pt_HAL_61851_Internal_Port connections), lifecycle handling (e.g. MTC creating/tearing down PTC), and the fine-grained test flows and messages (e.g. CM_*, V2G5-027). This omission of several concrete technical mechanisms and examples warrants a moderate penalty."
+    },
+    {
+        "question": "What is ATS?",
+        "score": 0.7731058584489496,
+        "reason": "Actual Output presents accurate information about the ATS, including its purpose, structure, conformance testing, documentation (mentions PICS/PIXIT), and directly connects it to ISO 15118-3, matching expected output details. However, it omits specific references to Test Framework definition (with adaptors), requirement mapping tables (e.g., Table 27 and 29 for coverage and omissions), explicit explanation of the interpretation phase, and full traceability features described in Expected Output. These omissions of detail warrant a slight penalty despite factual accuracy."
+    },
+    {
+        "question": "What is TSS?",
+        "score": 0.7437823499114201,
+        "reason": "The Actual Output is factually correct and covers all major components (PICS, PIXIT, Module Identifiers, Templates, Annexes, Utility Functions), and makes no contradictions. However, it omits several key details found in the Expected Output: lacks explicit explanation of the naming conventions, module/test case hierarchy and layout, usage of module identifiers (with examples), detailed explanation of test case templates (preconditions, stimuli, outcomes), reference to D.4 usage (e.g., timeouts, message parsing), relationship to Section 7.2, and how TSS is used in practice. The omission of these specifics warrants a penalty."
+    },
+    {
+        "question": "What is EIM?",
+        "score": 0.6946547734917586,
+        "reason": "Actual Output describes EIM as a method and protocol for identifying and authorizing EVs during charging, covers its role in EVSE, mentions ISO 15118-1, and outlines its involvement in Plug and Charge and V2G frameworks, consistent with Expected Output. However, it omits explicit mention of EIM as 'external means' like RFID cards or phone apps, and does not quote the detailed definitions or specific operational phases (such as distinction from Plug & Charge or the SLAC-based matching process) or key requirement references (V2G3-M06-04, V2G5-033/-034) present in Expected Output. The omission of concrete examples and direct standard language reduces detail fidelity."
+    },
+    {
+        "question": "What is CM_SLAC_PARAM.REQ?",
+        "score": 0.893991334793248,
+        "reason": "The actual output covers almost all key points from the expected output, including the purpose, timing, structure (fields Application_Type, Security_Type, RunID), message exchange sequence, and its link to the confirmation message and timers. However, it misses some details like the exact timer names (TT_match_response, TT_Matching_Repetition), information about message retries and their governance, and does not mention optional fields as per ISO 15118-3 or MAC address carriage for verification, causing a slight omission of detail."
+    },
+    {
+        "question": "What is CM_SLAC_PARAM.CNF?",
+        "score": 0.8904650534458218,
+        "reason": "The actual output correctly describes that CM_SLAC_PARM.CNF is the confirmation message sent by EVSE in response to CM_SLAC_PARM.REQ, outlines its role, key fields (including M-SOUND_TARGET, NUM_SOUNDS, TIME_OUT, RESP_TYPE, FORWARDING_STA), mentions timing in relation to TT_match_response, and covers validation via test cases, aligning closely with the expected output. However, it omits explicit mention of ISO 15118-3, MME template/Table A.2 conformity, the exact names of test case requirements (e.g., V2G3-A09-09), and the precise field usage for identifiers (EVSE MAC, EV MAC)."
+    },
+    {
+        "question": "What is CM_START_ATTEN_CHAR.IND?",
+        "score": 0.9082321298016271,
+        "reason": "The actual output provides accurate technical facts and does not contradict the expected output, correctly explaining that CM_START_ATTEN_CHAR.IND is sent by the EV to start attenuation characterization in SLAC/V2G. However, it omits several explicit details present in the expected output, such as the M-SOUND exchange trigger, the C_EV_START_ATTEN_CHAR_INDS parameter, explicit EV/EVSE origination/destination entities, examples of test-case naming, and some standards references. Message structure is referenced but lacks field-level detail. The main sequence and requirements are mostly covered, but omission of these specifics warrants point deduction."
+    },
+    {
+        "question": "What is CM_MNBC_SOUND.IND?",
+        "score": 0.8535466004022321,
+        "reason": "The actual output is detailed, accurate, and includes all major protocol facts such as application type, security type, RunID, timing requirements (V2G3-A09-29), and C_EV_match_MNBC governing transmissions. It covers the SLAC process and V2G context, giving a well-structured summary. However, it omits two specific details present in the expected output: the direct reference to V2G3-A09-28 (sequence use) and that the low-layer EV module should not respond to the message (V2G3-A06-05). Overall, there are no contradictions, but these omissions warrant a small penalty."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.IND?",
+        "score": 0.8328534962383376,
+        "reason": "The Actual Output accurately describes CM_ATTEN_CHAR.IND as a protocol message within SLAC used for signal attenuation characterization between EVSE and EV. It covers essential fields (ATTEN_PROFILE, APPLICATION_TYPE, SECURITY_TYPE, SOURCE_ADDRESS, NUM_SOUNDS), references standards (V2G3-A09-22, etc.), and outlines the response (CM_ATTEN_CHAR.RSP), timing (TT_EV_ATTEN_RESULTS), and high-level purpose. However, it omits specific details present in the Expected Output: the explicit runID field, arithmetic mean calculation for ATTEN_PROFILE entries, precise handling of timing and calculation logic (e.g., TP_EVSE_avg_atten_calc), the role of MME headers, and the EV's decision process based on Average_Attenuation versus C_EV_match_MNBC. No contradictions are present, but detail omission prevents a perfect score."
+    },
+    {
+        "question": "What is CM_ATTEN_CHAR.RSP?",
+        "score": 0.8924141823112637,
+        "reason": "The Actual Output matches the facts in the Expected Output with no contradictions and covers key details: protocol context (SLAC, ISO 15118-3/V2G3-A09-37), message flow (EVCC replying to CM_ATTEN_CHAR.IND from EVSE), timing requirements (TP_match_sequence, TT_match_response), message content and validation (parameters like applicationType, runID, etc.), and the purpose. Minor omission: Actual Output does not specify that the EV's RSP reply can also report the measurement results or outcome (it mostly focuses on acknowledging receipt), and doesn't directly mention that the response may contain path attenuation measurement details."
+    },
+    {
+        "question": "What is CM_ATTEN_PROFILE.IND?",
+        "score": 0.8377540661794489,
+        "reason": "The actual output captures most technical details from the expected output, such as CM_ATTEN_PROFILE.IND being a protocol message for conveying the attenuation profile in the SLAC process, its basis on M-SOUNDS, timing with TT_EVSE_match_MNBC, and the condition where it may be ignored if NUM_SOUNDS is zero. However, it omits minor points: the specific IEC-61851-24/HPGP standard reference, the explicit mention that ATTEN_PROFILE is a vector of per-tone values, that the EV computes the profile (whereas the actual output suggests EVSE might), and that profiles are averaged in downstream processing. Additionally, the role of CM_ATTEN_PROFILE.IND as not directly altering charging state and the precise EVSE sub-routine ('EVSE Listening Process') are absent. There is no factual contradiction."
+    },
+    {
+        "question": "What is CM_VALIDATE.REQ?",
+        "score": 0.6970637547421539,
+        "reason": "The actual output correctly describes CM_VALIDATE.REQ as initiating the validation process between EV and EVSE, being sent by the EV, requiring a response (CM_VALIDATE.CNF), being part of V2G protocols, and mentions retries and compliance. However, it omits key specifics from the expected output such as SLAC context, the timer field's specific role (TP_EV_VALD_TOGGLE), exact timer requirements (TP_MATCH_SEQUENCE), precise MME/field/table references (A.5/A.6), retry limits, invalid/zero-timer behaviors (requirements V2G3-A09-60, etc.), and test-case labels (TC_*_CMVALIDATE_*). Details are generalized, lacking protocol-specific values and exact procedural requirements, leading to a moderate penalty."
+    },
+    {
+        "question": "What is CM_VALIDATE.CNF?",
+        "score": 0.7294276430530799,
+        "reason": "The actual output accurately states the high-level role of CM_VALIDATE.CNF as the validation confirmation in the V2G protocol, describes its purpose, protocol role, timing (mentions TP_match_response), result field, dependencies (resending logic), and testing usage. However, it omits clear statements that this is part of the SLAC process and the ISO 15118-3 standard, does not mention the ToggleNum field which is a required part of the message per expected output, and misses explicit enumeration of conforming to the MME template details. These omissions are notable but it covers the main process, response nature, and test/conformance context well, so heavy penalty is avoided."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.REQ?",
+        "score": 0.9017986207330143,
+        "reason": "The actual output accurately covers the role, timing, principal fields, response expectations, retries, validation process, and testing aspects of CM_SLAC_MATCH.REQ as described in the expected output. It details key parameters (runID, MAC addresses, applicationType), explains timer roles (TT_EVSE_MATCH_SESSION, TT_MATCH_SEQUENCE), and covers retransmission logic with reference to C_EV_MATCH_RETRY. Minor omission includes not explicitly naming other SLAC-specific fields (e.g. mvfLength, securityType) or referencing Table A.7, and not mentioning the link association's specifics (e.g., NMK/NID keys), but completeness and factual alignment are strong."
+    },
+    {
+        "question": "What is CM_SLAC_MATCH.CNF?",
+        "score": 0.7562176500885798,
+        "reason": "The Actual Output accurately describes that CM_SLAC_MATCH.CNF is a confirmation message sent by the EVSE in response to the CM_SLAC_MATCH.REQ during the SLAC matching process, covers its role, main parameters (runID, MACs, NID, NMK), mentions timing with TT_match_response, MME conformity, test cases, and the importance of secure communication. However, it omits or glosses over details such as the requirement to wait until TT_match_response timer expires before sending, the requirement for the EV to begin TT_match_join after receipt, and misses specifics present in Expected Output about handling applicationType, mvfLength, and the explicit GoodCase procedure. No contradictions, but several finer procedural and field-specific details are omitted."
+    },
+    {
+        "question": "What is CM_SET_KEY.REQ?",
+        "score": 0.7880797085800515,
+        "reason": "The actual output provides a broadly accurate and detailed description of CM_SET_KEY.REQ, including its use in EV/EVSE SLAC protocol, the role of MME, key configuration, unicast delivery, involvement with CM_SET_KEY.CNF, and its context in network joining. However, it omits specific procedural detail from the expected output: namely, it does not explicitly mention that the message is originated after SLAC parameters have been negotiated (like after CM_SLAC_MATCH.CNF), lacks detail on the message encoding a key type identifier and new key value, and doesn't state the low-layer module's reply function to acknowledge or report errors. These omissions result in a deduction for detail loss per evaluation step 2, but there is no factual contradiction."
+    },
+    {
+        "question": "What is CM_SET_KEY.CNF?",
+        "score": 0.8268941409651012,
+        "reason": "The Actual Output accurately covers most aspects from the Expected Output, such as CM_SET_KEY.CNF's role as a confirmation MME, its relation to CM_SET_KEY.REQ and CM_SLAC_MATCH.CNF, its purpose in signaling key installation success/failure, and the discretion left to implementers on error handling. However, it omits the explicit mention that no further payload is defined beyond the status code, and slightly generalizes the cryptographic key aspect and higher-layer operations comment from Expected Output. All facts align, but minor omissions reduce the score."
+    },
+    {
+        "question": "What is CM_AMP_MAP.REQ?",
+        "score": 0.7437823499114201,
+        "reason": "The Actual Output accurately describes the purpose, basic structure, response mechanism, retransmission logic, and reference value (\u221250\u2009dBm/Hz) for CM_AMP_MAP.REQ as in the Expected Output. However, it omits the two specific main usages: (a) requesting a peer to reduce power on certain carriers, and (b) host-to-host power-vector transfer via the low-layer, both of which are detailed in the Expected Output. Actual Output also lacks explicit mention that use of CM_AMP_MAP.REQ is optional\u2014not mandatory on every link. Details about AMDATA encoding (e.g., 2\u2009dB steps, bit mapping) are less precise than in Expected Output. All critical protocol behaviors are present, but omission of these nuances warrants a substantial penalty."
+    },
+    {
+        "question": "What is CM_AMP_MAP.CNF?",
+        "score": 0.9,
+        "reason": "The actual output covers all key details from the expected output, including the confirmation role of CM_AMP_MAP.CNF in response to CM_AMP_MAP.REQ, the ResType field and its values, the conformance to MME definitions from HPGP, and the timing requirement involving the TT_match_response timer with retransmission if no valid CNF arrives. It also addresses test cases including omission/delay for negative scenarios. However, it lacks mention of specific table references (Table A.9) and could be slightly more explicit regarding 'PLC nodes,' though this is minor."
+    },
+    {
+        "question": "What is D-LINK_READY.indication?",
+        "score": 0.8939913351509118,
+        "reason": "The Actual Output consistently matches the Expected Output on all major points: it identifies D-LINK_READY.indication as a lower-layer to HLE notification primitive for link status changes, describes both 'link established' and 'no link' cases, explains standards references (V2G3-A09-117, V2G3-A09-120), and conveys use cases and trigger conditions. While slightly less explicit about SLAC_MATCH/AMP-MAP as compared to Expected Output and does not mention the exact D-LINKSTATUS parameter naming nor that link status change always triggers the indication, no major facts are omitted or contradicted. Detail omission is very minimal."
+    },
+    {
+        "question": "What is D-LINK_TERMINATE.request?",
+        "score": 0.9,
+        "reason": "The actual output provides accurate technical detail consistent with the expected output, capturing the role of D-LINK_TERMINATE.request in EV-to-EVSE communication, its initiation by the HLE, the requirement to leave the network within TP_match_leave, resetting parameters, and context with V2G3-M09-17. Minor omission: it is less explicit than the expected output about the request being delivered specifically to the lower-layer module on the same node and does not clearly mention the PLC (power-line communication) context, but overall alignment is high with no contradictions."
+    },
+    {
+        "question": "What is D-LINK_ERROR.request?",
+        "score": 0.8237972966653357,
+        "reason": "The actual output covers all major details such as HLE as origin, control pilot transition, termination of data link, MAC matching restart, and protocol compliance (V2G3-M07-13/14/16). It also accurately explains the error primitive's purpose and roles of communication entities. However, it omits the precise terminology such as 'restart duty-cycle state (state E)', the explicit SAP/layer 3 scope, and does not clearly state that the action is symmetrical for both EV and EVSE as noted in the expected output."
+    },
+    {
+        "question": "What is D-LINK_PAUSE.request?",
+        "score": 0.7851952803847783,
+        "reason": "The actual output accurately describes D-LINK_PAUSE.request as a protocol command for low-power mode in V2G, matching the expected output by covering power-saving, maintaining 'Matched' state, and referencing V2G3-M07-20. However, it omits that the sender must freeze all outstanding data-link traffic, and does not mention that both sides resume with D-LINK_READY.indication, resulting in some loss of detail."
+    }
+]

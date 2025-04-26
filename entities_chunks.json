@@ -1388,463 +1388,6 @@
             }
         }
     },
-    "What is the difference between Data SAP and Data link control SAP?": {
-        "entity_chunk_1": {
-            "DATA LINK CONTROL SAP": {
-                "relationship": "Both Data SAP and Data Link Control SAP are Service Access Points that facilitate communication between different network layers Data Link Control SAP provides access to Layer 3, enabling communication and data transfer between the data link layer and the network layer The Control SAP is used for managing control information, while the Data Link Control SAP handles data flow and error management The Data Link Control SAP is located between the connection coordination layer and higher layers, indicating a direct relationship in the network architecture The Data Link Control SAP provides link status and error information to higher layers\nThe Data Link Control SAP interfaces with higher layers, providing them with link status and error information The process uses the Data Link Control SAP protocol to manage communications during matching and initialization The data link layer provides the Data Link Control SAP as an interface to higher layers for data link control communication The Connection Coordination Entity provides the Data Link Control SAP",
-                "description": "Service Access Point (SAP) for data link control, managing data flow and error handling at the data link layer\nThe Data Link Control Service Access Point (SAP) is a protocol that provides link status and error information, control functionality, and manages data link layer communications, positioned between connection coordination and higher layers in a network architecture.\nData Link Control SAP is a service access point in the data link layer that provides an interface for communication to higher layers and manages access to the network layer.",
-                "type": "TERM",
-                "distance": 0,
-                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers.\nservice access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status\nData link control SAP to layer 3."
-            },
-            "CONNECTION COORDINATION": {
-                "relationship": "",
-                "description": "A network layer responsible for managing and coordinating connections between different network entities\nConnection coordination is the process of managing the establishment, maintenance, and termination of connections between systems or devices",
-                "type": "PROCESS",
-                "distance": 1,
-                "chunk_context": "7 Connection coordination 7.5 Loss of communication. If a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers."
-            },
-            "CONNECTION COORDINATION ENTITY": {
-                "relationship": "",
-                "description": "The Connection Coordination Entity is a process responsible for providing the Data Link Control SAP, managing link status, and error information",
-                "type": "PROCESS",
-                "distance": 1,
-                "chunk_context": "The data link control SAP indicates link status and error information to higher layers and is provided by the connection coordination entity."
-            },
-            "CONTROL SAP": {
-                "relationship": "",
-                "description": "Service Access Point (SAP) for control functions, managing control information exchange between layers\nService Access Point used for control purposes in the data link layer\nControl Service Access Point (SAP) provides a control interface for accessing specific data and configuration in HomePlug Green PHY networks",
-                "type": "TERM",
-                "distance": 1
-            },
-            "DATA LINK LAYER": {
-                "relationship": "",
-                "description": "A layer in the network protocol stack responsible for node-to-node data transfer, error detection, and correction in the communication process.\nThe data link layer, the second layer of the OSI model, is responsible for node-to-node data transfer, provides interfaces to higher layers, and ensures error detection and correction.",
-                "type": "LAYER",
-                "distance": 1,
-                "chunk_context": "Part 3: Physical and data link layer requirements."
-            },
-            "DATA SAP": {
-                "relationship": "",
-                "description": "Data SAP refers to a Service Access Point for data, which is a point where data services are accessed in a network layer\nData SAP is a protocol that serves as an interface between communication technology and network layers, such as layer 3\nService Access Point used for data transfer in the data link layer\nA term referring to a specific Service Access Point related to data communication",
-                "type": "TERM",
-                "distance": 1,
-                "chunk_context": "The data SAP interfaces higher layer data to a low-layer communication technologies data link layer.\nThe data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP]."
-            },
-            "HIGHER LAYERS": {
-                "relationship": "",
-                "description": "The upper layers in a network protocol stack that receive indications from lower layers\nThe higher layers in a communication system architecture that interact with lower layers to facilitate data exchange\nThe layers in a communication protocol stack that receive indications from lower layers, such as data link status\nThe upper layers in a communication protocol stack that handle data before it is passed to lower layers for transmission\nThe layers in a network architecture that are above the data link control layer, typically responsible for more complex data processing and application services\nHigher layers refer to the upper levels in a network architecture that receive link status and error information from the Data Link Control SAP\nHigher layers refer to the layers above the data link layer in the network protocol stack, which utilize the services provided by the data link layer\nHigher layers refer to the upper layers in a network protocol stack that interact with lower layers like PLC nodes for data exchange and control\nComponents or protocols that operate at a higher level in the communication stack, utilizing services provided by lower layers\nThe layers in a communication protocol stack that manage and control data transmission and error handling above the data link layer\nHigher layers refer to the upper layers in a network protocol stack where data exchange and visibility among devices in the same logical network occur\nThe upper layers in a communication system that process data received from lower layers\nHigher layers in a communication model or protocol stack manage complex functions including control, identification, and data processing.\nRefers to the upper layers of the OSI model, which include the application, presentation, and session layers, responsible for end-user services and data representation.\nHigher layers in a protocol stack, whether communication or network, rely on lower layers for data transmission and communication.",
-                "type": "LAYER",
-                "distance": 1,
-                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers."
-            },
-            "LAYER 3": {
-                "relationship": "",
-                "description": "Layer 3, also known as the network layer in the OSI model, is responsible for packet forwarding and routing through different routers.",
-                "type": "LAYER",
-                "distance": 1,
-                "chunk_context": "The D-LINK_READY.indication shall inform higher layers about a change of communication link status."
-            },
-            "MATCHING AND INITIALIZATION": {
-                "relationship": "",
-                "description": "The process of matching an Electric Vehicle (EV) with an Electric Vehicle Supply Equipment (EVSE) and initializing the connection for charging",
-                "type": "PROCESS",
-                "distance": 1
-            }
-        },
-        "entity_chunk_2": {
-            "DATA SAP": {
-                "relationship": "Both Data SAP and Data Link Control SAP are Service Access Points that facilitate communication between different network layers Data SAP acts as an interface between communication technology and network layers Data SAP interfaces with layer 3 to facilitate communication Data SAP is used in the Data Link layer for data transfer The DATA SAP is identified as the ETH SAP, indicating they are the same or closely related",
-                "description": "Data SAP refers to a Service Access Point for data, which is a point where data services are accessed in a network layer\nData SAP is a protocol that serves as an interface between communication technology and network layers, such as layer 3\nService Access Point used for data transfer in the data link layer\nA term referring to a specific Service Access Point related to data communication",
-                "type": "TERM",
-                "distance": 0,
-                "chunk_context": "The data link control SAP indicates link status and error information to higher layers and is provided by the connection coordination entity.\nThe data SAP interfaces higher layer data to a low-layer communication technologies data link layer.\nThe data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP]."
-            },
-            "COMMUNICATION TECHNOLOGY": {
-                "relationship": "",
-                "description": "Refers to the various technologies used for transmitting information over distances",
-                "type": "COMMUNICATION TECHNOLOGY",
-                "distance": 1
-            },
-            "DATA LINK": {
-                "relationship": "",
-                "description": "A specific type of communication link that facilitates the transfer of data between devices\nThe Data Link layer is responsible for node-to-node data transfer and error detection and correction, particularly in the context of the physical layer.",
-                "type": "LAYER",
-                "distance": 1,
-                "chunk_context": "The D-LINK_TERMINATE.request requests lower layers to terminate the data link."
-            },
-            "DATA LINK CONTROL SAP": {
-                "relationship": "",
-                "description": "Service Access Point (SAP) for data link control, managing data flow and error handling at the data link layer\nThe Data Link Control Service Access Point (SAP) is a protocol that provides link status and error information, control functionality, and manages data link layer communications, positioned between connection coordination and higher layers in a network architecture.\nData Link Control SAP is a service access point in the data link layer that provides an interface for communication to higher layers and manages access to the network layer.",
-                "type": "TERM",
-                "distance": 1,
-                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers.\nservice access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status\nData link control SAP to layer 3."
-            },
-            "ETH SAP": {
-                "relationship": "",
-                "description": "A term referring to the Ethernet Service Access Point, which is a specific type of SAP used in network communications\nETH SAP, or Ethernet Service Access Point, is a service access point in the data link layer that provides an interface for Ethernet communication to higher layers.",
-                "type": "PROTOCOL",
-                "distance": 1,
-                "chunk_context": "The definition of the data link layer provides two interfaces to higher layers; the ETH SAP and the data link control SAP."
-            },
-            "LAYER 3": {
-                "relationship": "",
-                "description": "Layer 3, also known as the network layer in the OSI model, is responsible for packet forwarding and routing through different routers.",
-                "type": "LAYER",
-                "distance": 1,
-                "chunk_context": "The D-LINK_READY.indication shall inform higher layers about a change of communication link status.\nData link control SAP to layer 3."
-            }
-        }
-    },
-    "What is the difference between basic signaling and high-level communication?": {
-        "entity_chunk_1": {
-            "HIGH-LEVEL COMMUNICATION": {
-                "relationship": "High-level communication and basic signalling are both components of a communication system, with basic signalling providing the foundational signals needed for high-level communication The V2G3-M06-02 requirement specifies the use of HLC to enhance communication capabilities HLC is a communication technology used by EVs for advanced interaction with charging infrastructure\nThe options for electric vehicles (EVs) are categorized based on the presence or absence of High-Level Communication (HLC) The presence or absence of High-Level Communication (HLC) in EVs affects the control pilot duty cycle values The counterpart station uses HLC to reestablish communication with the EV Basic charging is used as a backup when HLC-C fails, indicating a fallback relationship between the two The requirement V2G3-M06-14 mandates the use of the HLC-C protocol mode for charging The AC EVSE supports HLC-C, which is used to control the charging process\nThe AC EVSE supports the HLC-C protocol for communication during the charging process\nThe AC EVSE supports the HLC-C protocol for high-level communication during charging\nThe AC EVSE supports the HLC-C protocol for high-level communication during the charging process\nThe AC EVSE supports the HLC-C protocol to enable communication with electric vehicles EIM utilizes the HLC-C protocol for high-level communication control in V2G setups\nHLC-C protocol controls the charging process which involves EIM for identification and data exchange The V2G Setup process is controlled by the HLC-C protocol to manage the connection and communication\nHLC-C is part of the V2G setup process\nHLC-C is a component or process involved in the V2G setup\nHLC-C is a protocol used during the V2G setup process for communication purposes HLC-C and BC Charging are both methods of controlling charging processes, with HLC-C using high-level communication and BC Charging following the IEC 61851-1 standard HLC-C charging may be part of a mandatory procedure if required by specific standards or regulations The HLC-C protocol is used in conjunction with the Plug and Charge process to enable seamless communication and charging HLC-C is involved in the V2G setup, facilitating communication between the vehicle and the grid The DC EVSE supports the HLC-C protocol for managing communication between the vehicle and the charging station",
-                "description": "<|COMPLETE|>\nA communication technology that manages and controls the charging process of electric vehicles through advanced communication protocols\nA protocol mode used for high-level communication during the charging process of electric vehicles\nA protocol or communication layer involved in the high-level control of a process, possibly related to vehicle-to-grid communication\nA term possibly referring to a high-level communication component or process in the V2G setup\nHLC-C is a protocol or communication standard that some electric vehicles support for advanced communication capabilities\nHLC-C is a protocol used in the context of vehicle-to-grid (V2G) communication, possibly for high-level communication control\nHLC-C refers to a protocol used in communication messages to determine the maximum charge current for electric vehicle charging)\nHigh-Level Communication, a protocol or system used for advanced communication between an electric vehicle and a charging station\nHigh-level communication involves the exchange of complex data and commands between systems, often requiring sophisticated protocols and interfaces\nHigh-Level Communication Charging is a method and protocol for controlling charging processes through advanced communication techniques.\nHigh-Level Communication (HLC-C), a protocol for electric vehicles, facilitates advanced features and bidirectional communication with the charging infrastructure.\nHLC-C is a high-level communication protocol that facilitates communication between electric vehicle supply equipment (EVSE) and vehicles, managing interactions with charging stations and controlling the charging process.",
-                "type": "COMMUNICATION TECHNOLOGY",
-                "distance": 0,
-                "chunk_context": "The HLC shall be used in addition to the basic signalling in order to enable a bidirectional communication and offer additional features.\nDuring the V2G charging loop, the PWM duty cycle shall not change due to dynamically changed grid information. Those dynamically changed grid limitations shall be provided through the high-level communication messages.\nDefinition of high-level communication and basic signalling"
-            },
-            "AC EVSE": {
-                "relationship": "",
-                "description": "An Alternating Current Electric Vehicle Supply Equipment used for charging electric vehicles\nAC EVSE refers to Electric Vehicle Supply Equipment that provides alternating current for charging electric vehicles\nAlternating Current Electric Vehicle Supply Equipment, which provides electric energy for recharging electric vehicles using alternating current\nAn AC Electric Vehicle Supply Equipment (EVSE) is a type of charging station that provides alternating current for charging electric vehicles and supports various communication protocols.",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "BASIC CHARGING": {
-                "relationship": "",
-                "description": "A charging method that uses standard communication protocols for electric vehicle charging\nA term possibly referring to a component or process involved in the EIM or V2G setup\nA term possibly referring to a specific component or protocol involved in the process, such as a communication or control element\nBC likely refers to a specific component or feature related to EIM, possibly indicating a type of communication or control\nBC likely refers to a specific component or process within the context of EIM and V2G setup, possibly related to communication or control\nBC refers to a specific mode or condition in the electric vehicle charging process, possibly related to basic charging\nBasic Charging (BC) refers to a standard charging process controlled by specific conditions, such as those defined by IEC 61851-1\nBasic Charging, a protocol for controlling charging processes as defined by IEC 61851-1\nBasic charging refers to a fundamental method of charging electric vehicles, often used as a backup when more advanced systems fail",
-                "type": "PROCESS/TERM",
-                "distance": 1,
-                "chunk_context": "In case basic charging is used as back-up of HLC-C (e.g. when HLC-C has failed), the duty cycle is allowed to change due to dynamically changed grid information."
-            },
-            "BASIC SIGNALLING": {
-                "relationship": "",
-                "description": "Basic signalling refers to the initial communication steps required to establish a connection between devices or systems\nBasic signalling refers to the fundamental communication signals necessary for establishing, managing, and maintaining communication processes between systems.",
-                "type": "COMMUNICATION TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "Definition of high-level communication and basic signalling.\nAny charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal.\nDefinition of high-level communication and basic signalling"
-            },
-            "BC CHARGING": {
-                "relationship": "",
-                "description": "Basic Charging controlled by the standard IEC 61851-1, which outlines the basic requirements for electric vehicle charging\nBC charging refers to the process of charging electric vehicles, which is controlled by specific standards and protocols",
-                "type": "PROCESS",
-                "distance": 1
-            },
-            "CONTROL PILOT DUTY CYCLE": {
-                "relationship": "",
-                "description": "The control pilot duty cycle is a term used to describe the percentage of time a signal is active, ranging from 10% to 96%, in electric vehicle charging systems\nA term referring to the percentage of time a control pilot signal is active, used in the communication between EVSE and electric vehicles\nA term referring to the percentage of time a signal is active in a control pilot, used in electric vehicle communication systems\nA term referring to the duty cycle of the control pilot signal, which is used in electric vehicle charging to communicate charging status and control charging current\nThe control pilot duty cycle is a term used to describe the signal pattern that controls the charging process of electric vehicles\nA term referring to the method used to communicate the maximum charge current between an electric vehicle and a charging station\nThe control pilot signal's activity percentage is used to communicate charging status and control both charging power and current.",
-                "type": "TERM",
-                "distance": 1
-            },
-            "COUNTERPART STATION": {
-                "relationship": "",
-                "description": "The charging station or infrastructure that interacts with the electric vehicle during charging and communication processes\nA counterpart station in the context of PLC refers to the receiving or communicating station that interacts with the PLC system for data exchange\nA station connected to the Device Under Test (DUT) to enable data communication during measurements",
-                "type": "INFRASTRUCTURE",
-                "distance": 1,
-                "chunk_context": "A low-layer communication counterpart station shall be connected to the DUT to allow data communication during the measurement."
-            },
-            "DC EVSE": {
-                "relationship": "",
-                "description": "DC EVSE refers to Electric Vehicle Supply Equipment that provides direct current for charging electric vehicles\nDirect Current Electric Vehicle Supply Equipment (DC EVSE) is a type of charging station that provides direct current electricity for faster charging of electric vehicles.",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "EIM": {
-                "relationship": "",
-                "description": "External Identification Mean is a term defined in ISO 15118-1, used for identifying external entities in a communication network\n<|COMPLETE|>\nA term referring to a specific identification mode used in communication protocols\nElectricity Information Management (EIM) is any external means that enable the user to identify their contract or the car)\nExternal Identification Means (EIM) is a method and authentication profile for identifying and authorizing electric vehicles during charging, often used in charging infrastructure.\nElectricity Information Management is a system used for managing, identifying, and exchanging information in electric vehicle charging.\nElectricity Information Management (EIM) is a system for managing and exchanging identification, authorization, and status information related to electric vehicle charging, typically involving data exchange before plug-in.",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "ELECTRIC VEHICLE": {
-                "relationship": "",
-                "description": "<|COMPLETE|>\nAn Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged through the grid\nAn Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can detect communication loss during charging\nAn Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion and must comply with local frequency legislation through the EVSE\nAn Electric Vehicle (EV) that initiates the signal strength measurement process\nAn Electric Vehicle (EV) that participates in the validation process by sending and receiving protocol messages\nAn Electric Vehicle, which is a type of vehicle powered by electric motors using energy stored in rechargeable batteries\nAn electric vehicle that processes incoming messages and interacts with EVSEs during the parameter exchange and matching process\nAn electric vehicle that requires connection to a communication module for charging and data exchange\nEV refers to Electric Vehicle, which is a type of vehicle that operates on electric power and participates in vehicle-to-grid communication\nEV refers to an Electric Vehicle, which is a type of vehicle that operates on electric power\nElectric Vehicle (EV) is a type of vehicle that operates using electric power instead of traditional fuel\nElectric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged via a power outlet\nElectric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can communicate with EVSE by sending public keys\nElectric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and is involved in the triggering process immediately after the plug-in of the cable assembly\nElectric Vehicle (EV) is a type of vehicle that uses electric power for propulsion, mentioned in the context of power flow with EVSE\nElectric Vehicle (EV) that connects to and disconnects from the logical network\nElectric Vehicle, a general term for vehicles that operate on electric power, including BEVs and PHEVs\nElectric Vehicle, a type of vehicle that is powered by electricity instead of traditional fuel sources\nElectric Vehicle, a type of vehicle that uses electric motors for propulsion and is capable of being charged through an external power source\nElectric Vehicle, which can decide whether to follow the EVSE's recommendation or proceed with the validation process\nElectric Vehicle, which initiates the validation process by sending a readiness signal\nElectric Vehicle, which interacts with EVSE for charging and communication processes\nElectric Vehicle, which is a type of vehicle powered by electricity and capable of interacting with EVSE for charging\nElectric Vehicle, which is capable of making decisions on how to proceed in certain situations\nElectric Vehicle, which is expected to be prepared for a forced restart by an EVSE during the T_conn_resetup waiting state\nElectric Vehicle, which is involved in the communication process and message exchanges in the test case\nElectric Vehicle, which is involved in the validation process and must perform certain actions based on the protocol message\nElectric Vehicle, which is involved in the vehicle-to-grid communication process and must adhere to specific requirements\nElectric Vehicle, which is involved in the vehicle-to-grid communication process and must continue the matching process if certain conditions are met\nElectric Vehicle, which is the recipient of charging and communication from the EVSE\nElectric Vehicle, which is the recipient of communication from the EVSE and must comply with certain PSD values\nElectric Vehicle, which is the recipient of the CM_SLAC_PARM.CNF message in the context of vehicle-to-grid communication\nElectric Vehicle, which is the recipient of the communication from the low-layer communication module\nElectric Vehicle, which is the subject of the protocol command to change its state\nElectric Vehicle, which is the subject of the requirement to continue with the communication process\nElectric Vehicle, which is the subject of the timers and validation process described\nElectric Vehicle, which is the type of vehicle involved in the matching process mentioned\nElectric Vehicle, which is the type of vehicle involved in the parallel injection process\nElectric Vehicle, which participates in the SLAC process and communicates with EVSE\nElectric Vehicle, which uses electricity as its primary source of propulsion\nElectric Vehicle, which uses the low-layer communication module for various communication processes\nElectric Vehicle, which uses the method to discover and select communication nodes based on signal strength\nAn Electric Vehicle (EV) is powered by electric motors and batteries for propulsion, offering an alternative to internal combustion engine vehicles.\nAn Electric Vehicle (EV) uses electric power for propulsion and is involved in vehicle-to-grid communication processes.\nEV stands for Electric Vehicle, which is powered by electricity and uses electric motors for propulsion instead of traditional fuel sources.\nElectric Vehicles (EVs), which are powered by electric motors, use energy stored in rechargeable batteries.\nAn Electric Vehicle is a type of vehicle that operates using electric power stored in batteries and is powered by electric motors.\nElectric Vehicle, a type of vehicle powered by electricity.\nElectric Vehicle is involved in the validation process with Electric Vehicle Supply Equipment (EVSE).\nElectric Vehicles (EVs) are powered by electric motors and batteries instead of internal combustion engines.\nElectric Vehicles are a type of vehicle that use electric motors for propulsion and require charging infrastructure.\nAn Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion, requires charging infrastructure like EVSE, and can communicate with it for charging and validation processes.\nElectric Vehicle (EV) is a type of vehicle that operates on electric power using electric motors for propulsion, powered by electricity stored in rechargeable batteries or fuel cells.",
-                "type": "VEHICLE TYPE",
-                "distance": 1
-            },
-            "MANDATORY PROCEDURE": {
-                "relationship": "",
-                "description": "A procedure that is required and must be followed\nA procedure and process that must be followed as required by regulations or standards.",
-                "type": "PROCESS",
-                "distance": 1
-            },
-            "PLUG AND CHARGE": {
-                "relationship": "",
-                "description": "Plug and Charge, a technology that allows electric vehicles to automatically authenticate and start charging when connected to a compatible charging station\nPlug and Charge (PnC) is a technology that enables electric vehicles to automatically authenticate and initiate charging sessions using a vehicle ID at compatible charging stations, streamlining identification and billing without user intervention.",
-                "type": "TERM/PROTOCOL",
-                "distance": 1
-            },
-            "V2G SETUP": {
-                "relationship": "",
-                "description": "The process of configuring and preparing the vehicle-to-grid system for operation\nThe process of setting up vehicle-to-grid (V2G) communication and integration, involving various protocols and technologies\nThe procedure of configuring or preparing a system for vehicle-to-grid communication and interaction\nVehicle-to-Grid (V2G) Setup is the process of preparing an electric vehicle, which involves establishing a connection with the grid for energy exchange.",
-                "type": "PROCESS",
-                "distance": 1
-            },
-            "V2G3-M06-02": {
-                "relationship": "",
-                "description": "A specific requirement within the V2G3 standards that mandates the use of High-Level Communication (HLC) in addition to basic signaling for enabling bidirectional communication and offering additional features",
-                "type": "REQUIREMENT",
-                "distance": 1,
-                "chunk_context": "The HLC shall be used in addition to the basic signalling in order to enable a bidirectional communication and offer additional features."
-            },
-            "V2G3-M06-14": {
-                "relationship": "",
-                "description": "A specific requirement indicating that the electric vehicle (EV) must always charge in the HLC-C mode when the V2G charging loop is initiated",
-                "type": "REQUIREMENT",
-                "distance": 1
-            },
-            "VEHICLE-TO-GRID": {
-                "relationship": "",
-                "description": "<|COMPLETE|>\nV2G represents a set of standards related to vehicle-to-grid communication and technology\nVehicle-to-Grid is a system that allows electric vehicles to communicate with the power grid to exchange energy and information, enabling them to return electricity or draw it.\nVehicle-to-Grid (V2G) technology enables bidirectional communication and energy exchange between electric vehicles and the power grid, allowing vehicles to return electricity, manage charging rates, and balance demand.",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            }
-        },
-        "entity_chunk_2": {
-            "BASIC SIGNALING": {
-                "relationship": "Basic Signaling is a communication method specified in the ISO 15118\u20103 standard",
-                "description": "A fundamental communication method used in electric vehicle charging systems for basic data exchange",
-                "type": "COMMUNICATION TECHNOLOGY",
-                "distance": 0,
-                "chunk_context": "Definition of high-level communication and basic signalling is provided in section 6.2. In case basic charging is used as back-up of HLC-C, the duty cycle is allowed to change due to dynamically changed grid information.\nAny charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal.\n6.2 Definition of high-level communication and basic signalling"
-            },
-            "ISO 15118\u20103": {
-                "relationship": "",
-                "description": "ISO 15118\u20103 is a part of the International Standards Organization's series of standards for vehicle-to-grid communication interfaces, focusing on the power line communication (PLC) signal calibration and measurement procedures\nA part of the ISO 15118 series that defines requirements and configurations for electric vehicle communication\nA part of the ISO 15118 series that specifies the conformance requirements for communication between electric vehicles and charging infrastructure\nISO 15118\u20103 is a part of the International Standards Organization's specifications related to vehicle-to-grid communication, focusing on timeouts and performance times\nA standard used for conformance testing, particularly involving the SLAC codec\nISO 15118-3 is a part of the ISO 15118 series, which defines standards for vehicle-to-grid communication interfaces\nISO 15118-3, part of the ISO 15118 series from the International Standards Organization, defines the communication interface and conformance requirements for electric vehicles and electric vehicle supply equipment, addressing both charging and discharging purposes.",
-                "type": "STANDARD",
-                "distance": 1
-            }
-        }
-    },
-    "What is the difference between MTC and PTC?": {
-        "entity_chunk_1": {
-            "PARALLEL TEST COMPONENT": {
-                "relationship": "The Parallel Test Component observes the status of the EIM authorization The Parallel Test Component monitors the authorization process to determine its success or failure HAL_61851_Internal_Port synchronizes the status of the IEC 61851-1 PWM signal with the PTC PTC ports are mapped according to the underlying test configuration\nPTC is a component of the test configuration The pt_HAL_61851_Internal_Port is connected to the PTC PTC is used for testing SECC as part of the IEC 61851-1 standard\nThe PTC is used to test the SECC by confirming changes in PWM state\nPTC is used for testing the SECC, which is a component in electric vehicle charging systems\nPTC is used in SECC testing to confirm duty cycles as part of the communication process PTC is used for testing EVCC as part of the IEC 61851-1 standard\nThe PTC is used to test the EVCC by confirming changes in PWM state The PTC confirms changes in PWM state as part of its testing function\nPTC involves changing PWM state conditions as part of its testing function The requirement V2G5-027 specifies a function for the PTC technology V2G5-028 requires the PTC to have a function to change its valid duty cycle range IEC 61851-1 standard involves the use of PTC for testing purposes V2G5-034 specifies processing incoming EIM status information from the EIM status PTC, indicating a direct interaction PTC provides a function to inform the MTC about the success of EIM authorization",
-                "description": "<|COMPLETE|>\nA component or system used in SECC testing to confirm duty cycles as per the IEC 61851-1 standard\nA protocol used for transmitting EIM status information\nA term referring to a specific testing protocol or component within the IEC 61851 standard\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves changing PWM state conditions\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves monitoring and adjusting duty cycle ranges\nPTC is another component or module that is connected to the pt_HAL_61851_Internal_Port\nPTC refers to a specific status or condition used in SECC testing to monitor EIM authorization\nPTC refers to a testing technology or protocol used for SECC testing in the context of IEC 61851-1\nPTC refers to another type of port or interface used in testing configurations\nPositive Train Control (PTC) is a technology designed to automatically stop or slow down trains to prevent accidents and ensure safety)\nProtocol Test Controller used in testing SECC or EVCC to confirm changes in PWM state\nProtocol Test Controller, specifically the HAL_61851_Listener_Port, used for listening and testing the IEC 61851-1 PWM signal\nThe Parallel Test Component (PTC) is a process that continuously observes the status of the EIM authorization\nPTC stands for Parallel Test Component, a technology that enables running multiple tests simultaneously and is part of the test configuration in a testing environment.",
-                "type": "PROCESS/TECHNOLOGY",
-                "distance": 0,
-                "chunk_context": "The parallel test component (PTC) for IEC 61851\u20101 signaling continuously observes the protocol specific parameters positive voltage (state), frequency, duty cycle and the proximity resistor value in accordance with the defined valid range of values (as defined in IEC 61851\u20101:2017, Annex A), during the entire test case execution."
-            },
-            "AUTHORIZATION PROCESS": {
-                "relationship": "",
-                "description": "The procedure involved in granting or denying authorization for EIM status",
-                "type": "PROCESS",
-                "distance": 1
-            },
-            "EIM": {
-                "relationship": "",
-                "description": "External Identification Mean is a term defined in ISO 15118-1, used for identifying external entities in a communication network\n<|COMPLETE|>\nA term referring to a specific identification mode used in communication protocols\nElectricity Information Management (EIM) is any external means that enable the user to identify their contract or the car)\nExternal Identification Means (EIM) is a method and authentication profile for identifying and authorizing electric vehicles during charging, often used in charging infrastructure.\nElectricity Information Management is a system used for managing, identifying, and exchanging information in electric vehicle charging.\nElectricity Information Management (EIM) is a system for managing and exchanging identification, authorization, and status information related to electric vehicle charging, typically involving data exchange before plug-in.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "The EIM status PTC for SECC testing shall provide a function to inform the MTC if the EIM authorization is successful."
-            },
-            "EVCC": {
-                "relationship": "",
-                "description": "EVCC refers to a set of non-standardized processing timeouts related to Electric Vehicle Communication Controller\nElectric Vehicle Communication Controller, a component involved in electric vehicle charging systems, subject to testing under IEC 61851-1\n<|COMPLETE|>\nElectric Vehicle Communication Controller, which acts as a client in the communication protocol\nElectric Vehicle Communication Controller, a component involved in the control and execution of test cases and behaviors in the test suite\nElectric Vehicle Communication Controller, a technology component involved in the communication process during validation\nA segment in the example identifier, possibly referring to Electric Vehicle Communication Controller\nThe Electric Vehicle Communication Controller, a system within the EV, is responsible for managing communication and validation processes with the Electric Vehicle Supply Equipment (EVSE).\nThe Electric Vehicle Communication Controller, a system under test in the ISO 15118 standard, is responsible for managing communication between the electric vehicle and the charging station.\nThe Electric Vehicle Communication Controller manages communication between electric vehicles and charging stations and infrastructure, facilitating charging communication.\nThe Electric Vehicle Communication Controller (EVCC) manages communication between electric vehicles and charging stations, including infrastructure for DC charging.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "Requirements of IEC 61851-1 PTC for SECC or EVCC testing. The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid duty cycle range."
-            },
-            "HAL_61851_INTERNAL_PORT": {
-                "relationship": "",
-                "description": "HAL_61851_Internal_Port is an internal communication port within the HAL_61851 system\nA port used to synchronize the status of the IEC 61851-1 PWM signal between the Main Test Controller (MTC) and the Protocol Test Controller (PTC)\nAn internal communication port used for receiving state information during the validation process\nA communication interface used for internal operations and detection processes in EVSE systems\nHAL_61851_Internal_Port is a communication port used internally by SECC_Tester, EVCC_Tester, and HAL_61851_Listener for testing and monitoring purposes\nAn internal communication port used for handling messages and state changes in the EVSE validation process",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "IEC 61851-1": {
-                "relationship": "",
-                "description": "An international standard that specifies requirements for electric vehicle conductive charging systems, including the SUT adapter for SECC testing\nAn international standard specifies requirements for electric vehicle conductive charging systems, including testing protocols for SECC and EVCC.\nAn international standard that specifies the basic requirements and testing protocols for electric vehicle conductive charging systems.\nIEC 61851-1 is an international standard that defines the basic requirements for electric vehicle conductive charging systems, including control and communication protocols.",
-                "type": "STANDARD",
-                "distance": 1,
-                "chunk_context": "Requirements of IEC 61851-1 PTC for SECC testing. The IEC 61851\u20101 PTC for SECC testing shall provide a function to change its valid frequency range.\nThe IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to confirm a change from/to a given PWM state.\nRequirements of IEC 61851-1 PTC for SECC testing. The IEC 61851\u20101 PTC for SECC testing shall provide a function to confirm a given duty cycle in [%]. This function shall wait for receiving a duty cycle change event from IEC 61851\u20101 SUT adapter."
-            },
-            "MAIN TEST COMPONENT": {
-                "relationship": "",
-                "description": "<|COMPLETE|>\nA technology or system component responsible for managing and controlling the signal level on the control pilot\nA term used to describe the primary or central component within a testing framework or system\nA testing component or system that is responsible for analyzing the power level of signals, such as those in a PLC network\nMTC refers to a monitoring or testing component that receives information about the success of EIM authorization\nMTC refers to a specific type of port or interface used in testing configurations\nMTC refers to a system or component responsible for managing and controlling data link processing, including detecting and controlling link status information\nMTC stands for a component or module that is connected to the pt_HAL_61851_Internal_Port\nMain Test Component (MTC) is a term used to refer to the primary element or unit involved in a testing process or procedure)\nMain Test Controller, which could be an SECC_Tester or EVCC_Tester, responsible for testing communication protocols\nMeans of Test Control (MTC) refers to the method or process used to control or manage testing activities\nMeans of Test Control, referring to the method or system used to control and manage testing processes\nThe Main Test Component (MTC) is a part of the testing framework that contains a TTCN-3 test configuration and manages the test execution process\nThe Master Test Controller (MTC) is a device or system capable of detecting and controlling EIM status information through special functions\nMTC, or Main Test Component, is the primary testing component in a test configuration, responsible for creating and controlling parallel test components and computing and assigning the test verdict.\nMain Test Component is a technology or system component used in testing environments for interfacing processes and validating or verifying other systems.",
-                "type": "TERM",
-                "distance": 1,
-                "chunk_context": "In order to check the execution of amplitude map exchange on the SUTs node, the MTC shall be able to analyse the power level of the PLC signal.\nMTC single test component in a test component configuration responsible for creating and controlling parallel test components and computing and assigning the test verdict."
-            },
-            "PT_HAL_61851_INTERNAL_PORT": {
-                "relationship": "",
-                "description": "An internal port named pt_HAL_61851_Internal_Port, which is part of a system or device configuration",
-                "type": "TERM",
-                "distance": 1,
-                "chunk_context": "The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC."
-            },
-            "PULSE WIDTH MODULATION": {
-                "relationship": "",
-                "description": "Pulse Width Modulation (PWM) is a technology used to control the power supplied to electrical devices, especially for controlling the speed of motors and dimming lights\nPulse Width Modulation is a term used to describe a modulation technique that controls the width of the pulses in a pulse train to encode information or control power\nPulse Width Modulation, a method used to control the voltage level in electric vehicle charging systems\nPulse Width Modulation, a method used to encode a message into a pulsing signal\nPulse Width Modulation, a method used to encode information in a signal, relevant in the context of electric vehicle charging\nPulse Width Modulation (PWM) is a technology used to control power delivery to electrical devices, including electric vehicle charging systems.\nPulse Width Modulation (PWM) is a technology used to encode a message into a pulsing signal, often utilized in control systems.",
-                "type": "TERM/TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid duty cycle range."
-            },
-            "SECC": {
-                "relationship": "",
-                "description": "Supply Equipment Communication Controller, which acts as a server in the communication protocol\nSupply Equipment Communication Controller, a component involved in electric vehicle charging systems, subject to testing under IEC 61851-1\nSupply Equipment Communication Controller, a component involved in the control and execution of test cases and behaviors in the test suite\n<|COMPLETE|>\nSECC refers to the Smart Electric Car Consortium, which is involved in developing standards and protocols for electric vehicle communication and charging\nSECC refers to the organization or system involved in the testing and validation of communication protocols\nSupply Equipment Communication Controller, a system under test in the ISO 15118 standard\nSupply Equipment Communication Controller, a system under test in the ISO 15118 standard, responsible for managing communication between the charging station and the electric vehicle\nSECC refers to a set of non-standardized processing timeouts related to Supply Equipment Communication Controller\nAn organization or entity responsible for managing SLAC operations, possibly in an EVSE context\nSECC refers to the organization or system involved in electric vehicle communication, testing, and the configuration of communication standards.\nThe Supply Equipment Communication Controller is a component in electric vehicle charging systems that manages communication and processes between electric vehicles and charging stations.\nThe Supply Equipment Communication Controller (SECC), a component in electric vehicle charging systems, manages communication and state changes between electric vehicles and charging stations during charging.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "Requirements of IEC 61851-1 PTC for SECC or EVCC testing. The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid duty cycle range.\nIf the SUT is an SECC, the MTC shall use the type SECC_Tester."
-            },
-            "TEST CONFIGURATION": {
-                "relationship": "",
-                "description": "The setup that includes MTC, PTC, and their corresponding port type definitions, along with Test System Interfaces (TSI)\nThe setup or arrangement defined in ISO 15118-5 for testing electric vehicle communication interfaces\nThe process of setting up and organizing the necessary components and parameters for conducting a test",
-                "type": "PROCESS",
-                "distance": 1
-            },
-            "V2G5-027": {
-                "relationship": "",
-                "description": "A specific requirement related to the IEC 61851-1 PTC for SECC or EVCC testing, focusing on the ability to change the valid PWM state condition",
-                "type": "REQUIREMENT",
-                "distance": 1,
-                "chunk_context": "The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid PWM state condition."
-            },
-            "V2G5-028": {
-                "relationship": "",
-                "description": "A specific requirement related to the IEC 61851-1 PTC for SECC or EVCC testing, which mandates the provision of a function to change its valid duty cycle range",
-                "type": "REQUIREMENT",
-                "distance": 1
-            },
-            "V2G5-034": {
-                "relationship": "",
-                "description": "A requirement specifying that the service function for EIM status control must provide a means to process incoming EIM status information from the EIM status PTC",
-                "type": "REQUIREMENT",
-                "distance": 1
-            }
-        },
-        "entity_chunk_2": {
-            "MAIN TEST COMPONENT": {
-                "relationship": "The test component is created by the main test component, indicating a hierarchical or dependency relationship HAL_61851_Internal_Port synchronizes the status of the IEC 61851-1 PWM signal with the MTC The MTC can represent an EVCC_Tester, indicating its role in simulating the Electric Vehicle Communication Controller\nThe Means of Test Control (MTC) involves using the EVCC_Tester for testing purposes\nEVCC_Tester is a specific type of MTC used for testing purposes\nEVCC_Tester can be used as the Main Test Component depending on the type of the System Under Test The Means of Test Control (MTC) is required to use the SECC_Tester for testing purposes\nThe SECC_Tester is a specific type of MTC used for testing and controlling SECC\nSECC_Tester can be used as the Main Test Component depending on the type of the System Under Test\nThe MTC can represent an SECC_Tester, indicating its role in simulating the Supply Equipment Communication Controller\nSECC_Tester is a specific type of MTC used for testing purposes The choice of Main Test Component depends on the type of System Under Test The requirement V2G5-009 specifies that the MTC shall use the EVCC_Tester The HAL_61851_Listener is integrated into the MTC to provide listener functionalities during test execution The MTC contains a TTCN-3 test configuration, indicating its reliance on this standard for test execution MTC ports are mapped according to the underlying test configuration\nMTC is a component of the test configuration The port pt_SLAC_Port is a component of the MTC, indicating a direct mapping or connection The TSI and MTC are related through the mapping of the pt_HAL_61851_Port, suggesting a connection or interaction between these two systems\nThe TSI and MTC are related through the mapping of the pt_SLAC_Port, suggesting they are part of a larger testing or interfacing system The port pt_HAL_61851_Port is also a component of the MTC, indicating its role in the Main Test Component The pt_HAL_61851_Internal_Port is connected to the MTC MTC is responsible for ensuring the proper functioning of data link processing The MTC is responsible for detecting and controlling EIM status information to ensure authorization PTC provides a function to inform the MTC about the success of EIM authorization The MTC analyzes the power level of the PLC signal as part of its testing function The CM_ATTEN_CHAR.IND message requires the MTC to manage signal levels to ensure accurate attenuation values The MTC is responsible for reducing the signal level on the control pilot as part of its functionality",
-                "description": "<|COMPLETE|>\nA technology or system component responsible for managing and controlling the signal level on the control pilot\nA term used to describe the primary or central component within a testing framework or system\nA testing component or system that is responsible for analyzing the power level of signals, such as those in a PLC network\nMTC refers to a monitoring or testing component that receives information about the success of EIM authorization\nMTC refers to a specific type of port or interface used in testing configurations\nMTC refers to a system or component responsible for managing and controlling data link processing, including detecting and controlling link status information\nMTC stands for a component or module that is connected to the pt_HAL_61851_Internal_Port\nMain Test Component (MTC) is a term used to refer to the primary element or unit involved in a testing process or procedure)\nMain Test Controller, which could be an SECC_Tester or EVCC_Tester, responsible for testing communication protocols\nMeans of Test Control (MTC) refers to the method or process used to control or manage testing activities\nMeans of Test Control, referring to the method or system used to control and manage testing processes\nThe Main Test Component (MTC) is a part of the testing framework that contains a TTCN-3 test configuration and manages the test execution process\nThe Master Test Controller (MTC) is a device or system capable of detecting and controlling EIM status information through special functions\nMTC, or Main Test Component, is the primary testing component in a test configuration, responsible for creating and controlling parallel test components and computing and assigning the test verdict.\nMain Test Component is a technology or system component used in testing environments for interfacing processes and validating or verifying other systems.",
-                "type": "TERM",
-                "distance": 0,
-                "chunk_context": "MTC single test component in a test component configuration responsible for creating and controlling parallel test components and computing and assigning the test verdict."
-            },
-            "CM_ATTEN_CHAR.IND": {
-                "relationship": "",
-                "description": "A message protocol involved in the test case, which is intentionally not sent in the second instance of the procedure\nA message protocol used to convey attenuation values based on the physical channel in a communication system\nA message protocol used to repeat attenuation characterization messages and measure individual attenuation values\nA message protocol used to send attenuation profile entries to the System Under Test (SUT) after a timer expires\nA message protocol used to send attenuation profile entries with the current runID, EV MAC, and additional valid parameters\nA message type used in communication protocols, specifically related to attenuation characterization in SLAC processes\nA message used by EVSEs to send back the signal strength measurement result to the EV\nA protocol message expected to be sent by the system under test (SUT) after certain conditions are met\nA protocol message indicating an indication in the communication process between EVSE and another system\nA protocol message indicating attenuation characteristics from EVSEs to EVs\nA protocol message indicating the characteristics of signal attenuation\nA protocol message indicating the current runID and attenuation entries, used in the context of attenuation characterization\nA protocol message related to attenuation characterization, expected to be received under certain conditions\nA protocol message that an EV may receive, which must be handled according to specific requirements\nA protocol message type indicating an attenuation characteristic in the communication process\nA protocol message type used in communication between electric vehicle supply equipment (EVSE) and other components in a vehicle-to-grid system\nA protocol message used in SLAC communication to indicate attenuation characterization\nA protocol message used in the test case to indicate attenuation characterization, including parameters like EV MAC and attenuation entries\nA protocol message used to communicate attenuation characterization data, including runID and other parameters\nA protocol message used to measure individual attenuation values in the test case\nA type of message that should not be sent by the system under test until a specific timer has expired\nA type of message that the EV processes during the parameter exchange with EVSEs\nA unicast protocol message used in the context of PEV-EVSE matching, indicating specific application and security types\nCM_ATTEN_CHAR.IND is a protocol message that contains groups used to calculate the Average_Attenuation for matching decisions\nCM_ATTEN_CHAR.IND is a protocol message that includes the ATTEN_PROFILE for communication purposes\nCM_ATTEN_CHAR.IND is a protocol message used to characterize attenuation in the SLAC process\nAn indication message protocol used to send attenuation profile entries to the system under test (SUT)\nA protocol message expected from the System Under Test (SUT) containing both attenuation characterization data and measured attenuation values.\nA protocol used to indicate attenuation characteristics in a communication link.\nA message protocol, specifically an indication message protocol, used to send attenuation profile entries to the system under test.\nA protocol message used in the test case to indicate, measure, and report attenuation characterization results, including repeated values and indications.\nCM_ATTEN_CHAR.IND is a protocol message or indicator used in the communication process between EVSE, electric vehicles, and the grid.\nA message protocol used to send a profile containing attenuation entries to the System Under Test (SUT), including conditions such as after a timer has expired and with the current runID and additional parameters.\nCM_ATTEN_CHAR.IND is a protocol message used in vehicle-to-grid communication that indicates and reads attenuation characteristics.",
-                "type": "PROTOCOL",
-                "distance": 1,
-                "chunk_context": "The MTC shall be able to reduce the level of signal on the control pilot based on the received attenuation values within CM_ATTEN_CHAR.IND message."
-            },
-            "CONTROL PILOT": {
-                "relationship": "",
-                "description": "A signaling line used in EVSEs to control and monitor the charging process\nA term used in electric vehicle charging systems to refer to a communication line that controls the charging process between the electric vehicle and the charging station)\nA signal used in electric vehicle charging to communicate between the EVSE and the vehicle, often used to control charging parameters\nA signaling technology used in electric vehicle charging to detect and communicate the state of the connection\n<|COMPLETE|>\nA communication line used in electric vehicle charging systems to control and monitor the charging process\nA term used to describe the signal used in electric vehicle charging to control the charging process\nControl pilot is a technology used in EV charging systems to manage communication and control signals between the EV and the charging station\nA technology used in electric vehicle charging systems to manage communication and control between the vehicle and the charging station\nA component in the electric vehicle charging system used to manage communication and control signals between the vehicle and the charging station\nControl Pilot is a communication line used in electric vehicle charging systems to manage charging parameters and ensure safety\nA control pilot is a signaling mechanism used in EVSE to communicate with electric vehicles, often involving duty cycles to manage charging\nA control pilot is a communication line in electric vehicle charging systems that manages and controls the charging process, ensures safety and efficiency, detects and controls the connection between the EVSE and the EV, and handles state changes.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "The MTC shall be able to reduce the level of signal on the control pilot."
-            },
-            "DATA LINK PROCESSING": {
-                "relationship": "",
-                "description": "The procedure involved in managing, detecting, and controlling the status of data links in communication systems",
-                "type": "PROCESS",
-                "distance": 1,
-                "chunk_context": "In order to ensure data link processing, the MTC shall be able to detect and control link status information by using special functions depending on the MTC's type (EVCC_Tester / SECC_Tester)."
-            },
-            "EIM": {
-                "relationship": "",
-                "description": "External Identification Mean is a term defined in ISO 15118-1, used for identifying external entities in a communication network\n<|COMPLETE|>\nA term referring to a specific identification mode used in communication protocols\nElectricity Information Management (EIM) is any external means that enable the user to identify their contract or the car)\nExternal Identification Means (EIM) is a method and authentication profile for identifying and authorizing electric vehicles during charging, often used in charging infrastructure.\nElectricity Information Management is a system used for managing, identifying, and exchanging information in electric vehicle charging.\nElectricity Information Management (EIM) is a system for managing and exchanging identification, authorization, and status information related to electric vehicle charging, typically involving data exchange before plug-in.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "In order to ensure EIM authorization, the MTC is able to detect and control EIM status information by using special functions depending on the MTC's type (SECC_Tester)."
-            },
-            "EVCC_TESTER": {
-                "relationship": "",
-                "description": "A testing technology or tool used in the context of EVCC operations, possibly for protocol validation\n<|COMPLETE|>\nA testing system used for validating EVCC communication processes\nA testing framework or system used for validating and testing electric vehicle communication protocols and processes\nA testing technology used in the EVCC system to run various test cases and processes\nA testing technology or system used to validate communication processes and protocols\nA testing system used for executing EVCC test cases\nThe EVCC_Tester is a testing component used to simulate the Electric Vehicle Communication Controller in electric vehicle charging systems\nA testing technology or system used to run functions and verify the matching process in electric vehicle communication\nA testing component for the Electric Vehicle Communication Controller (EVCC) to ensure compliance with ISO 15118-3\nA testing technology or system used to run the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001\nEVCC_Tester is the main component type used for testing an Electric Vehicle Communication Controller (EVCC). It is associated with SLAC_Port, HAL_61851_Port, and HAL_61851_Internal_Port for its operations\nA testing framework or tool specifically used for evaluating the performance, compliance, and functionalities of Electric Vehicle Communication Controllers (EVCC), including simulation aspects.\nA testing system or tool used for evaluating EVCC functionalities.\nEVCC_Tester is a tool that tests and validates the functionalities and communication protocols of Electric Vehicle Communication Controllers in various configurations and electric vehicle charging systems, ensuring compliance with specific standards.\nA testing system that includes validating, verifying, and evaluating the functionalities of Electric Vehicle Communication Controllers (EVCC).\nA testing tool or environment for the Electric Vehicle Communication Controller used to evaluate its performance, functionality, compliance, and communication capabilities.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "The MTC shall be able to detect and control link status information by using special functions depending on the MTC's type (EVCC_Tester / SECC_Tester)."
-            },
-            "HAL_61851_INTERNAL_PORT": {
-                "relationship": "",
-                "description": "HAL_61851_Internal_Port is an internal communication port within the HAL_61851 system\nA port used to synchronize the status of the IEC 61851-1 PWM signal between the Main Test Controller (MTC) and the Protocol Test Controller (PTC)\nAn internal communication port used for receiving state information during the validation process\nA communication interface used for internal operations and detection processes in EVSE systems\nHAL_61851_Internal_Port is a communication port used internally by SECC_Tester, EVCC_Tester, and HAL_61851_Listener for testing and monitoring purposes\nAn internal communication port used for handling messages and state changes in the EVSE validation process",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "HAL_61851_LISTENER": {
-                "relationship": "",
-                "description": "A technology or tool used to listen and monitor communications in the context of the IEC 61851 standard\nA technology component used in the EVCC system for listening and processing signals according to the 61851 standard\nA listener technology used in the context of EVCC testing to receive and process messages\nA listener component related to the Hardware Abstraction Layer for the 61851 standard, used in electric vehicle charging\nA listener component in the Hardware Abstraction Layer (HAL) for the IEC 61851 standard, used to monitor and manage communication events\nA listener or component used in the context of EVCC testing, possibly related to the IEC 61851 standard for electric vehicle conductive charging systems\nA technology component used for listening and interacting with the EVCC system during various processes\nA component or module used to listen to and interact with the HAL 61851 protocol during testing\nA listener component for the Hardware Abstraction Layer (HAL) related to the IEC 61851 standard, used in electric vehicle charging\n<|COMPLETE|>\nA component or tool used to listen to and interact with the communication protocol based on the IEC 61851 standard\nA listener component for the Hardware Abstraction Layer related to IEC 61851\nA component or technology used to listen to IEC 61851 communication states\nThe HAL_61851_Listener is a component that combines all necessary listener functionalities into one unit, used in testing environments for communication protocols related to electric vehicle charging\nA listener component related to the HAL 61851 standard used in EVCC testing\nA technology component that listens for communication based on the HAL 61851 standard\nA component used in the testing process to listen for specific communication protocols\nA technology component that listens for specific protocol messages in the IEC 61851 standard\nHAL_61851_Listener is a parallel test component responsible for monitoring the correct behavior of IEC 61851. It uses HAL_61851_Port to communicate with an IEC 61851-1 SUT Adapter and HAL_61851_Internal_Port to communicate with the MTC\nA listener component for the IEC 61851 standard used for monitoring and handling communication.\nA technology or component that listens for and manages communication signals in compliance with the IEC 61851 standard for electric vehicle conductive charging systems.\nA listener component in the HAL that monitors communication according to the IEC 61851 standard for electric vehicle conductive charging systems.\nA listener component used in the context of EVCC communication processes, specifically in the EVCC_Tester for monitoring and controlling communication based on the IEC 61851 standard.\nHAL_61851_Listener is a component or module used for listening to and interacting with the HAL 61851 protocol, particularly during testing.\nA component used in EVCC testing for listening to and interacting with the HAL 61851 protocol.\nA component or module in the SECC_Tester system for listening, handling, and processing communication based on the IEC 61851 standard.\nA listener or monitoring tool related to the IEC 61851 standard, used for monitoring communication events in electric vehicle conductive charging systems.\nHAL_61851_Listener is a component of the SECC_Tester system that listens and processes communication signals according to the IEC 61851 standard and is used in the testing process related to the ISO 61851 standard for electric vehicle conductive charging systems.\nHAL 61851 Listener is a component that monitors, manages, and tests communication protocols in compliance with the IEC 61851 standard for electric vehicle conductive charging systems.\nHAL_61851_Listener is a component that listens to and processes communication signals, managing communication protocols in compliance with the IEC 61851 standard for electric vehicle conductive charging systems, and is utilized for testing, validation, and monitoring.",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "PARALLEL TEST COMPONENT": {
-                "relationship": "",
-                "description": "<|COMPLETE|>\nA component or system used in SECC testing to confirm duty cycles as per the IEC 61851-1 standard\nA protocol used for transmitting EIM status information\nA term referring to a specific testing protocol or component within the IEC 61851 standard\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves changing PWM state conditions\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves monitoring and adjusting duty cycle ranges\nPTC is another component or module that is connected to the pt_HAL_61851_Internal_Port\nPTC refers to a specific status or condition used in SECC testing to monitor EIM authorization\nPTC refers to a testing technology or protocol used for SECC testing in the context of IEC 61851-1\nPTC refers to another type of port or interface used in testing configurations\nPositive Train Control (PTC) is a technology designed to automatically stop or slow down trains to prevent accidents and ensure safety)\nProtocol Test Controller used in testing SECC or EVCC to confirm changes in PWM state\nProtocol Test Controller, specifically the HAL_61851_Listener_Port, used for listening and testing the IEC 61851-1 PWM signal\nThe Parallel Test Component (PTC) is a process that continuously observes the status of the EIM authorization\nPTC stands for Parallel Test Component, a technology that enables running multiple tests simultaneously and is part of the test configuration in a testing environment.",
-                "type": "PROCESS/TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "The parallel test component (PTC) for IEC 61851\u20101 signaling continuously observes the protocol specific parameters positive voltage (state), frequency, duty cycle and the proximity resistor value in accordance with the defined valid range of values during the entire test case execution."
-            },
-            "PLC SIGNAL": {
-                "relationship": "",
-                "description": "Power Line Communication (PLC) signal is a method of transmitting data over electrical power lines, utilized in electric vehicle charging systems and vehicle-to-grid communication.",
-                "type": "COMMUNICATION TECHNOLOGY",
-                "distance": 1
-            },
-            "PT_HAL_61851_INTERNAL_PORT": {
-                "relationship": "",
-                "description": "An internal port named pt_HAL_61851_Internal_Port, which is part of a system or device configuration",
-                "type": "TERM",
-                "distance": 1,
-                "chunk_context": "The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC."
-            },
-            "PT_HAL_61851_PORT": {
-                "relationship": "",
-                "description": "A specific port designation used in communication or technology systems, likely related to the IEC 61851 standard for electric vehicle conductive charging systems\nAnother port of the same type as pt_HAL_61851_Listener_Port, indicating similar characteristics and functionalities",
-                "type": "TERM",
-                "distance": 1
-            },
-            "PT_SLAC_PORT": {
-                "relationship": "",
-                "description": "A specific port used in communication protocols, likely related to SLAC (Signal Level Attenuation Characterization) processes\nA communication port used for SLAC protocol messages in the EVCC_Tester\nA communication port that facilitates sending and receiving SLAC (Signal Level Attenuation Characterization) protocol messages.",
-                "type": "TERM",
-                "distance": 1
-            },
-            "SECC_TESTER": {
-                "relationship": "",
-                "description": "A testing tool or system specifically designed to test the functionality and communication of a Supply Equipment Communication Controller\nSECC_Tester is the main component type used for testing a Supply Equipment Communication Controller (SECC). It is associated with SLAC_Port, HAL_61851_Port, and HAL_61851_Internal_Port for its operations\nSECC_Tester is a testing technology used to run specific functions and return verdicts in a communication protocol testing environment\n<|COMPLETE|>\nA system used for testing in the context of SECC, likely related to electric vehicle communication or charging systems\nA specific type of MTC that is used to test and control the Supply Equipment Communication Controller (SECC) in electric vehicle charging systems\nA testing tool or environment for the Supply Equipment Communication Controller in electric vehicle systems\nA testing technology used for the SECC (Supply Equipment Communication Controller) in electric vehicle communication systems\nSECC_Tester is a system or tool that executes test cases for the SECC, ensuring its proper operation and compliance with standards\nA testing component used for the Supply Equipment Communication Controller in the context of the 15118-3 standard\nA testing system or device used to validate and verify communication and processes in electric vehicle charging systems\nA testing framework or tool used to test the SECC in various scenarios\nA testing tool or system used to run specific functions and validate configurations in the context of SECC\nA testing technology used to evaluate the performance and compliance of communication protocols\nA testing system used for SECC communication validation\nA testing technology or tool used to evaluate the System Under Test's compliance with protocol requirements\nA testing system or tool for evaluating SECC, including performance and compliance with standards, communication and protocol compliance, systems, and functionalities.\nA testing tool or environment used for evaluating the SECC communication protocol and its components.\nA tool or technology used for testing the Supply Equipment Communication Controller (SECC) in electric vehicle charging systems.\nA system used for testing and validating the functionalities, performance, and compliance of the SECC (Supply Equipment Communication Controller).\nSECC_Tester is a tool that tests and validates the communication, functionality, performance, and compliance of the Supply Equipment Communication Controller (SECC) in electric vehicle charging systems, including various configurations and related protocols.",
-                "type": "TECHNOLOGY",
-                "distance": 1,
-                "chunk_context": "The MTC shall be able to detect and control link status information by using special functions depending on the MTC's type (EVCC_Tester / SECC_Tester).\nThe MTC is able to detect and control EIM status information by using special functions depending on the MTC's type (SECC_Tester).\nIf the SUT is an SECC, the MTC shall use the type SECC_Tester."
-            },
-            "SYSTEM UNDER TEST": {
-                "relationship": "",
-                "description": "A placeholder term often used in documentation or templates to represent a system under test\nA segment of an identifier that stands for System Under Test, indicating the specific system being evaluated\nSUT stands for System Under Test, which is the system being tested for its ability to signal the corresponding duty cycle\nSystem Under Test (SUT) refers to the system being tested for its ability to perform amplitude map exchanges\nSystem Under Test (SUT) refers to the system being tested, which receives encoded data from the codec\nSystem Under Test, referring to the system being tested for compliance with V2G communication standards and protocols\nSystem Under Test, referring to the system being tested for its ability to leave the logical network under certain conditions\nSystem Under Test, referring to the system being tested, in this context, using the IEC 61851-1 standard\nSystem Under Test, the system being tested for conformance to the relevant requirements\nSystem Under Test, the system being tested for its response to the SLAC match request\nSystem Under Test, which consumes bit strings encoded or decoded by the SLAC codec during testing\nSystem Under Test, which is expected to send a CM_AMP_MAP.CNF message during the test case\nSystem Under Test, which is responsible for handling the validation process with the EVSE\nSystem Under Test, which is the system being evaluated in the test case to check its behavior regarding message repetition\nSystem Under Test, which is the system being tested for its ability to handle communication messages correctly\nSystem Under Test, which is the system being tested to ensure it sends a valid SDP request message\nThe system being evaluated or tested, which can include EVCC and SECC in the context of ISO 15118\nSystem Under Test, which is the system being evaluated in the test case for its response to protocol messages\nThe term 'System Under Test' denotes the system being evaluated or tested in a particular context.\nSUT stands for System Under Test, referring to the systems being tested, specifically EVCC and SECC, with a focus on EVCC in this context.\nSUT, or System Under Test, refers to the EVSE being tested for compatibility and functionality.\nThe System Under Test (SUT) in V2G communication refers to the system being tested in both the communication scenario and session process related to electric vehicles.\nSystem Under Test, which is being tested for compliance and response to the SLAC validation process.\nThe System Under Test, which is being validated and tested for its response to validation processes and messages, is central to the validation process.\nSystem Under Test refers to the system being tested, which can be either an EVCC or SECC.\nThe System Under Test is evaluated for its ability to measure and report attenuation values, handle attenuation values, and respond to attenuation characterization.\nThe System Under Test is the specific system or component currently undergoing testing to verify its performance, compliance with specified requirements and protocols, and ability to perform specific functions according to test case procedures.\nThe System Under Test evaluates its response to communication protocols and protocol messages, testing its ability to handle and respond to test case protocols and messages.\nThe System Under Test is being tested for its response to the test case scenario.\nSystem Under Test refers to the system being tested in both the test suite and the testing process.\nThe System Under Test (SUT) refers to the system being tested, which includes either an Electric Vehicle Communication Controller (EVCC) or a Supply Equipment Communication Controller (SECC), specifically in the context of PLC bridges.\nSUT, or System Under Test, is evaluated for message handling, functionality, performance, and its response to protocol messages and SLAC operations to ensure it meets specified requirements.\nSystem Under Test refers to the system being evaluated or tested in various contexts, including its response to test case scenarios and specific executions.\nThe System Under Test (SUT) is evaluated in a testing environment using a test suite to ensure it meets specified requirements, expected behavior, and compliance with standards.\nThe System Under Test (SUT) is the specific system evaluated in a testing environment for compliance with standards like ISO 15118\u20103, focusing on validation, communication processes, and expected behavior under various configurations and scenarios.",
-                "type": "TERM",
-                "distance": 1
-            },
-            "TEST COMPONENT": {
-                "relationship": "",
-                "description": "A term used to describe a component that is part of a testing framework or system\nA test component is a part of a test system that provides functionalities such as mapping ports between abstract and real test systems",
-                "type": "TERM",
-                "distance": 1,
-                "chunk_context": "parallel test component PTC"
-            },
-            "TEST CONFIGURATION": {
-                "relationship": "",
-                "description": "The setup that includes MTC, PTC, and their corresponding port type definitions, along with Test System Interfaces (TSI)\nThe setup or arrangement defined in ISO 15118-5 for testing electric vehicle communication interfaces\nThe process of setting up and organizing the necessary components and parameters for conducting a test",
-                "type": "PROCESS",
-                "distance": 1
-            },
-            "TSI": {
-                "relationship": "",
-                "description": "TSI refers to a specific interface or system component that the pt_HAL_61851_Internal_Port is not mapped to\nTSI refers to a set of standards related to the testing and certification of telecommunication systems\nA system or interface that utilizes the pt_HAL_61851_Listener_Port for communication purposes\nTest System Interface is a technology or system used for testing and interfacing with other systems or components.",
-                "type": "STANDARD",
-                "distance": 1
-            },
-            "TTCN-3": {
-                "relationship": "",
-                "description": "TTCN-3 is a testing language used for defining test cases and values, into which MME frames are decoded by the SLAC codec\nTTCN-3 is a standard for testing and test control notation, used for defining data structures and representations for testing purposes\n<|COMPLETE|>\nTTCN-3 is a standardized test specification language used for defining test configurations and executing test cases\nTTCN-3 is a testing language used for defining test cases and verdicts in the ISO 15118 test suite\nTesting and Test Control Notation version 3 (TTCN-3) is a technology and standard for testing communication protocols and systems, used for defining test scripts and test cases.\nTTCN-3 is a standardized testing technology used for defining and executing test cases and test suites for communication protocols and systems, particularly in telecommunications, and includes the encoding of values.",
-                "type": "TECHNOLOGY",
-                "distance": 1
-            },
-            "V2G5-009": {
-                "relationship": "",
-                "description": "A specific requirement or condition identified by the code V2G5-009, which outlines certain conditions or actions to be taken",
-                "type": "REQUIREMENT",
-                "distance": 1
-            }
-        }
-    },
     "What is ATS?": {
         "entity_chunk_1": {
             "ABSTRACT TEST SUITE": {
@@ -5515,6 +5058,462 @@
                 "type": "REQUIREMENT",
                 "distance": 1,
                 "chunk_context": "With receiving a D-LINK_PAUSE.request, the EVSE shall switch to control pilot state X1 and may switch the low-layer communication module into low-power mode. The logical network parameter set shall be stored for continuing the data link after the sleeping phase.\nNot found in the provided candidate answers."
+            }
+        }
+    },
+    "What is the difference between Data SAP and Data link control SAP?": {
+        "entity_chunk_1": {
+            "DATA LINK CONTROL SAP": {
+                "relationship": "Both Data SAP and Data Link Control SAP are Service Access Points that facilitate communication between different network layers Data Link Control SAP provides access to Layer 3, enabling communication and data transfer between the data link layer and the network layer The Control SAP is used for managing control information, while the Data Link Control SAP handles data flow and error management The Data Link Control SAP is located between the connection coordination layer and higher layers, indicating a direct relationship in the network architecture The Data Link Control SAP provides link status and error information to higher layers\nThe Data Link Control SAP interfaces with higher layers, providing them with link status and error information The process uses the Data Link Control SAP protocol to manage communications during matching and initialization The data link layer provides the Data Link Control SAP as an interface to higher layers for data link control communication The Connection Coordination Entity provides the Data Link Control SAP",
+                "description": "Service Access Point (SAP) for data link control, managing data flow and error handling at the data link layer\nThe Data Link Control Service Access Point (SAP) is a protocol that provides link status and error information, control functionality, and manages data link layer communications, positioned between connection coordination and higher layers in a network architecture.\nData Link Control SAP is a service access point in the data link layer that provides an interface for communication to higher layers and manages access to the network layer.",
+                "type": "TERM",
+                "distance": 0,
+                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers.\nservice access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status\nData link control SAP to layer 3."
+            },
+            "CONNECTION COORDINATION": {
+                "relationship": "",
+                "description": "A network layer responsible for managing and coordinating connections between different network entities\nConnection coordination is the process of managing the establishment, maintenance, and termination of connections between systems or devices",
+                "type": "PROCESS",
+                "distance": 1,
+                "chunk_context": "If a data link was established and a D-LINK_READY.indication(link established) was already indicated to higher layers, any detected loss of the data link shall cause a D-LINK_READY.indication(no link) indication to higher layers."
+            },
+            "CONNECTION COORDINATION ENTITY": {
+                "relationship": "",
+                "description": "The Connection Coordination Entity is a process responsible for providing the Data Link Control SAP, managing link status, and error information",
+                "type": "PROCESS",
+                "distance": 1,
+                "chunk_context": "The data link control SAP indicates link status and error information to higher layers and is provided by the connection coordination entity."
+            },
+            "CONTROL SAP": {
+                "relationship": "",
+                "description": "Service Access Point (SAP) for control functions, managing control information exchange between layers\nService Access Point used for control purposes in the data link layer\nControl Service Access Point (SAP) provides a control interface for accessing specific data and configuration in HomePlug Green PHY networks",
+                "type": "TERM",
+                "distance": 1
+            },
+            "DATA LINK LAYER": {
+                "relationship": "",
+                "description": "A layer in the network protocol stack responsible for node-to-node data transfer, error detection, and correction in the communication process.\nThe data link layer, the second layer of the OSI model, is responsible for node-to-node data transfer, provides interfaces to higher layers, and ensures error detection and correction.",
+                "type": "LAYER",
+                "distance": 1
+            },
+            "DATA SAP": {
+                "relationship": "",
+                "description": "Data SAP refers to a Service Access Point for data, which is a point where data services are accessed in a network layer\nData SAP is a protocol that serves as an interface between communication technology and network layers, such as layer 3\nService Access Point used for data transfer in the data link layer\nA term referring to a specific Service Access Point related to data communication",
+                "type": "TERM",
+                "distance": 1,
+                "chunk_context": "The data SAP interfaces higher layer data to a low-layer communication technologies data link layer.\nThe data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP]."
+            },
+            "HIGHER LAYERS": {
+                "relationship": "",
+                "description": "The upper layers in a network protocol stack that receive indications from lower layers\nThe higher layers in a communication system architecture that interact with lower layers to facilitate data exchange\nThe layers in a communication protocol stack that receive indications from lower layers, such as data link status\nThe upper layers in a communication protocol stack that handle data before it is passed to lower layers for transmission\nThe layers in a network architecture that are above the data link control layer, typically responsible for more complex data processing and application services\nHigher layers refer to the upper levels in a network architecture that receive link status and error information from the Data Link Control SAP\nHigher layers refer to the layers above the data link layer in the network protocol stack, which utilize the services provided by the data link layer\nHigher layers refer to the upper layers in a network protocol stack that interact with lower layers like PLC nodes for data exchange and control\nComponents or protocols that operate at a higher level in the communication stack, utilizing services provided by lower layers\nThe layers in a communication protocol stack that manage and control data transmission and error handling above the data link layer\nHigher layers refer to the upper layers in a network protocol stack where data exchange and visibility among devices in the same logical network occur\nThe upper layers in a communication system that process data received from lower layers\nHigher layers in a communication model or protocol stack manage complex functions including control, identification, and data processing.\nRefers to the upper layers of the OSI model, which include the application, presentation, and session layers, responsible for end-user services and data representation.\nHigher layers in a protocol stack, whether communication or network, rely on lower layers for data transmission and communication.",
+                "type": "LAYER",
+                "distance": 1,
+                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers."
+            },
+            "LAYER 3": {
+                "relationship": "",
+                "description": "Layer 3, also known as the network layer in the OSI model, is responsible for packet forwarding and routing through different routers.",
+                "type": "LAYER",
+                "distance": 1,
+                "chunk_context": "The D-LINK_READY.indication shall inform higher layers about a change of communication link status."
+            },
+            "MATCHING AND INITIALIZATION": {
+                "relationship": "",
+                "description": "The process of matching an Electric Vehicle (EV) with an Electric Vehicle Supply Equipment (EVSE) and initializing the connection for charging",
+                "type": "PROCESS",
+                "distance": 1
+            }
+        },
+        "entity_chunk_2": {
+            "DATA SAP": {
+                "relationship": "Both Data SAP and Data Link Control SAP are Service Access Points that facilitate communication between different network layers Data SAP acts as an interface between communication technology and network layers Data SAP interfaces with layer 3 to facilitate communication Data SAP is used in the Data Link layer for data transfer The DATA SAP is identified as the ETH SAP, indicating they are the same or closely related",
+                "description": "Data SAP refers to a Service Access Point for data, which is a point where data services are accessed in a network layer\nData SAP is a protocol that serves as an interface between communication technology and network layers, such as layer 3\nService Access Point used for data transfer in the data link layer\nA term referring to a specific Service Access Point related to data communication",
+                "type": "TERM",
+                "distance": 0,
+                "chunk_context": "The data link control SAP indicates link status and error information to higher layers and is provided by the connection coordination entity.\nThe data SAP interfaces higher layer data to a low-layer communication technologies data link layer.\nThe data SAP is the ETH SAP. The ETH SAP is completely covered by the [HPGP]."
+            },
+            "COMMUNICATION TECHNOLOGY": {
+                "relationship": "",
+                "description": "Refers to the various technologies used for transmitting information over distances",
+                "type": "COMMUNICATION TECHNOLOGY",
+                "distance": 1
+            },
+            "DATA LINK": {
+                "relationship": "",
+                "description": "A specific type of communication link that facilitates the transfer of data between devices\nThe Data Link layer is responsible for node-to-node data transfer and error detection and correction, particularly in the context of the physical layer.",
+                "type": "LAYER",
+                "distance": 1,
+                "chunk_context": "The D-LINK_ERROR.request requests lower layers to terminate the data link and restart the matching process by a control pilot transition through state E.\nThe D-LINK_TERMINATE.request requests lower layers to terminate the data link."
+            },
+            "DATA LINK CONTROL SAP": {
+                "relationship": "",
+                "description": "Service Access Point (SAP) for data link control, managing data flow and error handling at the data link layer\nThe Data Link Control Service Access Point (SAP) is a protocol that provides link status and error information, control functionality, and manages data link layer communications, positioned between connection coordination and higher layers in a network architecture.\nData Link Control SAP is a service access point in the data link layer that provides an interface for communication to higher layers and manages access to the network layer.",
+                "type": "TERM",
+                "distance": 1,
+                "chunk_context": "The data link control SAP provides link status information, error information, control functionality and is located between the connection coordination and higher layers.\nservice access point which defines the interface between the connection coordination module and the low-layer communication technology for managing the link status\nData link control SAP to layer 3."
+            },
+            "ETH SAP": {
+                "relationship": "",
+                "description": "A term referring to the Ethernet Service Access Point, which is a specific type of SAP used in network communications\nETH SAP, or Ethernet Service Access Point, is a service access point in the data link layer that provides an interface for Ethernet communication to higher layers.",
+                "type": "PROTOCOL",
+                "distance": 1,
+                "chunk_context": "The definition of the data link layer provides two interfaces to higher layers; the ETH SAP and the data link control SAP."
+            },
+            "LAYER 3": {
+                "relationship": "",
+                "description": "Layer 3, also known as the network layer in the OSI model, is responsible for packet forwarding and routing through different routers.",
+                "type": "LAYER",
+                "distance": 1,
+                "chunk_context": "The D-LINK_READY.indication shall inform higher layers about a change of communication link status.\nData link control SAP to layer 3."
+            }
+        }
+    },
+    "What is the difference between basic signaling and high-level communication?": {
+        "entity_chunk_1": {
+            "HIGH-LEVEL COMMUNICATION": {
+                "relationship": "High-level communication and basic signalling are both components of a communication system, with basic signalling providing the foundational signals needed for high-level communication The V2G3-M06-02 requirement specifies the use of HLC to enhance communication capabilities HLC is a communication technology used by EVs for advanced interaction with charging infrastructure\nThe options for electric vehicles (EVs) are categorized based on the presence or absence of High-Level Communication (HLC) The presence or absence of High-Level Communication (HLC) in EVs affects the control pilot duty cycle values The counterpart station uses HLC to reestablish communication with the EV Basic charging is used as a backup when HLC-C fails, indicating a fallback relationship between the two The requirement V2G3-M06-14 mandates the use of the HLC-C protocol mode for charging The AC EVSE supports HLC-C, which is used to control the charging process\nThe AC EVSE supports the HLC-C protocol for communication during the charging process\nThe AC EVSE supports the HLC-C protocol for high-level communication during charging\nThe AC EVSE supports the HLC-C protocol for high-level communication during the charging process\nThe AC EVSE supports the HLC-C protocol to enable communication with electric vehicles EIM utilizes the HLC-C protocol for high-level communication control in V2G setups\nHLC-C protocol controls the charging process which involves EIM for identification and data exchange The V2G Setup process is controlled by the HLC-C protocol to manage the connection and communication\nHLC-C is part of the V2G setup process\nHLC-C is a component or process involved in the V2G setup\nHLC-C is a protocol used during the V2G setup process for communication purposes HLC-C and BC Charging are both methods of controlling charging processes, with HLC-C using high-level communication and BC Charging following the IEC 61851-1 standard HLC-C charging may be part of a mandatory procedure if required by specific standards or regulations The HLC-C protocol is used in conjunction with the Plug and Charge process to enable seamless communication and charging HLC-C is involved in the V2G setup, facilitating communication between the vehicle and the grid The DC EVSE supports the HLC-C protocol for managing communication between the vehicle and the charging station",
+                "description": "<|COMPLETE|>\nA communication technology that manages and controls the charging process of electric vehicles through advanced communication protocols\nA protocol mode used for high-level communication during the charging process of electric vehicles\nA protocol or communication layer involved in the high-level control of a process, possibly related to vehicle-to-grid communication\nA term possibly referring to a high-level communication component or process in the V2G setup\nHLC-C is a protocol or communication standard that some electric vehicles support for advanced communication capabilities\nHLC-C is a protocol used in the context of vehicle-to-grid (V2G) communication, possibly for high-level communication control\nHLC-C refers to a protocol used in communication messages to determine the maximum charge current for electric vehicle charging)\nHigh-Level Communication, a protocol or system used for advanced communication between an electric vehicle and a charging station\nHigh-level communication involves the exchange of complex data and commands between systems, often requiring sophisticated protocols and interfaces\nHigh-Level Communication Charging is a method and protocol for controlling charging processes through advanced communication techniques.\nHigh-Level Communication (HLC-C), a protocol for electric vehicles, facilitates advanced features and bidirectional communication with the charging infrastructure.\nHLC-C is a high-level communication protocol that facilitates communication between electric vehicle supply equipment (EVSE) and vehicles, managing interactions with charging stations and controlling the charging process.",
+                "type": "COMMUNICATION TECHNOLOGY",
+                "distance": 0,
+                "chunk_context": "The HLC shall be used in addition to the basic signalling in order to enable a bidirectional communication and offer additional features.\nDuring the V2G charging loop, the PWM duty cycle shall not change due to dynamically changed grid information. Those dynamically changed grid limitations shall be provided through the high-level communication messages.\nDefinition of high-level communication and basic signalling"
+            },
+            "AC EVSE": {
+                "relationship": "",
+                "description": "An Alternating Current Electric Vehicle Supply Equipment used for charging electric vehicles\nAC EVSE refers to Electric Vehicle Supply Equipment that provides alternating current for charging electric vehicles\nAlternating Current Electric Vehicle Supply Equipment, which provides electric energy for recharging electric vehicles using alternating current\nAn AC Electric Vehicle Supply Equipment (EVSE) is a type of charging station that provides alternating current for charging electric vehicles and supports various communication protocols.",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "BASIC CHARGING": {
+                "relationship": "",
+                "description": "A charging method that uses standard communication protocols for electric vehicle charging\nA term possibly referring to a component or process involved in the EIM or V2G setup\nA term possibly referring to a specific component or protocol involved in the process, such as a communication or control element\nBC likely refers to a specific component or feature related to EIM, possibly indicating a type of communication or control\nBC likely refers to a specific component or process within the context of EIM and V2G setup, possibly related to communication or control\nBC refers to a specific mode or condition in the electric vehicle charging process, possibly related to basic charging\nBasic Charging (BC) refers to a standard charging process controlled by specific conditions, such as those defined by IEC 61851-1\nBasic Charging, a protocol for controlling charging processes as defined by IEC 61851-1\nBasic charging refers to a fundamental method of charging electric vehicles, often used as a backup when more advanced systems fail",
+                "type": "PROCESS/TERM",
+                "distance": 1,
+                "chunk_context": "In case basic charging is used as back-up of HLC-C (e.g. when HLC-C has failed), the duty cycle is allowed to change due to dynamically changed grid information."
+            },
+            "BASIC SIGNALLING": {
+                "relationship": "",
+                "description": "Basic signalling refers to the initial communication steps required to establish a connection between devices or systems\nBasic signalling refers to the fundamental communication signals necessary for establishing, managing, and maintaining communication processes between systems.",
+                "type": "COMMUNICATION TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "Definition of high-level communication and basic signalling.\nAny charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal.\nDefinition of high-level communication and basic signalling"
+            },
+            "BC CHARGING": {
+                "relationship": "",
+                "description": "Basic Charging controlled by the standard IEC 61851-1, which outlines the basic requirements for electric vehicle charging\nBC charging refers to the process of charging electric vehicles, which is controlled by specific standards and protocols",
+                "type": "PROCESS",
+                "distance": 1
+            },
+            "CONTROL PILOT DUTY CYCLE": {
+                "relationship": "",
+                "description": "The control pilot duty cycle is a term used to describe the percentage of time a signal is active, ranging from 10% to 96%, in electric vehicle charging systems\nA term referring to the percentage of time a control pilot signal is active, used in the communication between EVSE and electric vehicles\nA term referring to the percentage of time a signal is active in a control pilot, used in electric vehicle communication systems\nA term referring to the duty cycle of the control pilot signal, which is used in electric vehicle charging to communicate charging status and control charging current\nThe control pilot duty cycle is a term used to describe the signal pattern that controls the charging process of electric vehicles\nA term referring to the method used to communicate the maximum charge current between an electric vehicle and a charging station\nThe control pilot signal's activity percentage is used to communicate charging status and control both charging power and current.",
+                "type": "TERM",
+                "distance": 1
+            },
+            "COUNTERPART STATION": {
+                "relationship": "",
+                "description": "The charging station or infrastructure that interacts with the electric vehicle during charging and communication processes\nA counterpart station in the context of PLC refers to the receiving or communicating station that interacts with the PLC system for data exchange\nA station connected to the Device Under Test (DUT) to enable data communication during measurements",
+                "type": "INFRASTRUCTURE",
+                "distance": 1,
+                "chunk_context": "A low-layer communication counterpart station shall be connected to the DUT to allow data communication during the measurement."
+            },
+            "DC EVSE": {
+                "relationship": "",
+                "description": "DC EVSE refers to Electric Vehicle Supply Equipment that provides direct current for charging electric vehicles\nDirect Current Electric Vehicle Supply Equipment (DC EVSE) is a type of charging station that provides direct current electricity for faster charging of electric vehicles.",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "EIM": {
+                "relationship": "",
+                "description": "External Identification Mean is a term defined in ISO 15118-1, used for identifying external entities in a communication network\n<|COMPLETE|>\nA term referring to a specific identification mode used in communication protocols\nElectricity Information Management (EIM) is any external means that enable the user to identify their contract or the car)\nExternal Identification Means (EIM) is a method and authentication profile for identifying and authorizing electric vehicles during charging, often used in charging infrastructure.\nElectricity Information Management is a system used for managing, identifying, and exchanging information in electric vehicle charging.\nElectricity Information Management (EIM) is a system for managing and exchanging identification, authorization, and status information related to electric vehicle charging, typically involving data exchange before plug-in.",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "ELECTRIC VEHICLE": {
+                "relationship": "",
+                "description": "<|COMPLETE|>\nAn Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged through the grid\nAn Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can detect communication loss during charging\nAn Electric Vehicle (EV) is a type of vehicle that uses electric power for propulsion and must comply with local frequency legislation through the EVSE\nAn Electric Vehicle (EV) that initiates the signal strength measurement process\nAn Electric Vehicle (EV) that participates in the validation process by sending and receiving protocol messages\nAn Electric Vehicle, which is a type of vehicle powered by electric motors using energy stored in rechargeable batteries\nAn electric vehicle that processes incoming messages and interacts with EVSEs during the parameter exchange and matching process\nAn electric vehicle that requires connection to a communication module for charging and data exchange\nEV refers to Electric Vehicle, which is a type of vehicle that operates on electric power and participates in vehicle-to-grid communication\nEV refers to an Electric Vehicle, which is a type of vehicle that operates on electric power\nElectric Vehicle (EV) is a type of vehicle that operates using electric power instead of traditional fuel\nElectric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can be charged via a power outlet\nElectric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and can communicate with EVSE by sending public keys\nElectric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion and is involved in the triggering process immediately after the plug-in of the cable assembly\nElectric Vehicle (EV) is a type of vehicle that uses electric power for propulsion, mentioned in the context of power flow with EVSE\nElectric Vehicle (EV) that connects to and disconnects from the logical network\nElectric Vehicle, a general term for vehicles that operate on electric power, including BEVs and PHEVs\nElectric Vehicle, a type of vehicle that is powered by electricity instead of traditional fuel sources\nElectric Vehicle, a type of vehicle that uses electric motors for propulsion and is capable of being charged through an external power source\nElectric Vehicle, which can decide whether to follow the EVSE's recommendation or proceed with the validation process\nElectric Vehicle, which initiates the validation process by sending a readiness signal\nElectric Vehicle, which interacts with EVSE for charging and communication processes\nElectric Vehicle, which is a type of vehicle powered by electricity and capable of interacting with EVSE for charging\nElectric Vehicle, which is capable of making decisions on how to proceed in certain situations\nElectric Vehicle, which is expected to be prepared for a forced restart by an EVSE during the T_conn_resetup waiting state\nElectric Vehicle, which is involved in the communication process and message exchanges in the test case\nElectric Vehicle, which is involved in the validation process and must perform certain actions based on the protocol message\nElectric Vehicle, which is involved in the vehicle-to-grid communication process and must adhere to specific requirements\nElectric Vehicle, which is involved in the vehicle-to-grid communication process and must continue the matching process if certain conditions are met\nElectric Vehicle, which is the recipient of charging and communication from the EVSE\nElectric Vehicle, which is the recipient of communication from the EVSE and must comply with certain PSD values\nElectric Vehicle, which is the recipient of the CM_SLAC_PARM.CNF message in the context of vehicle-to-grid communication\nElectric Vehicle, which is the recipient of the communication from the low-layer communication module\nElectric Vehicle, which is the subject of the protocol command to change its state\nElectric Vehicle, which is the subject of the requirement to continue with the communication process\nElectric Vehicle, which is the subject of the timers and validation process described\nElectric Vehicle, which is the type of vehicle involved in the matching process mentioned\nElectric Vehicle, which is the type of vehicle involved in the parallel injection process\nElectric Vehicle, which participates in the SLAC process and communicates with EVSE\nElectric Vehicle, which uses electricity as its primary source of propulsion\nElectric Vehicle, which uses the low-layer communication module for various communication processes\nElectric Vehicle, which uses the method to discover and select communication nodes based on signal strength\nAn Electric Vehicle (EV) is powered by electric motors and batteries for propulsion, offering an alternative to internal combustion engine vehicles.\nAn Electric Vehicle (EV) uses electric power for propulsion and is involved in vehicle-to-grid communication processes.\nEV stands for Electric Vehicle, which is powered by electricity and uses electric motors for propulsion instead of traditional fuel sources.\nElectric Vehicles (EVs), which are powered by electric motors, use energy stored in rechargeable batteries.\nAn Electric Vehicle is a type of vehicle that operates using electric power stored in batteries and is powered by electric motors.\nElectric Vehicle, a type of vehicle powered by electricity.\nElectric Vehicle is involved in the validation process with Electric Vehicle Supply Equipment (EVSE).\nElectric Vehicles (EVs) are powered by electric motors and batteries instead of internal combustion engines.\nElectric Vehicles are a type of vehicle that use electric motors for propulsion and require charging infrastructure.\nAn Electric Vehicle (EV) is a type of vehicle that uses electric motors for propulsion, requires charging infrastructure like EVSE, and can communicate with it for charging and validation processes.\nElectric Vehicle (EV) is a type of vehicle that operates on electric power using electric motors for propulsion, powered by electricity stored in rechargeable batteries or fuel cells.",
+                "type": "VEHICLE TYPE",
+                "distance": 1
+            },
+            "MANDATORY PROCEDURE": {
+                "relationship": "",
+                "description": "A procedure that is required and must be followed\nA procedure and process that must be followed as required by regulations or standards.",
+                "type": "PROCESS",
+                "distance": 1
+            },
+            "PLUG AND CHARGE": {
+                "relationship": "",
+                "description": "Plug and Charge, a technology that allows electric vehicles to automatically authenticate and start charging when connected to a compatible charging station\nPlug and Charge (PnC) is a technology that enables electric vehicles to automatically authenticate and initiate charging sessions using a vehicle ID at compatible charging stations, streamlining identification and billing without user intervention.",
+                "type": "TERM/PROTOCOL",
+                "distance": 1
+            },
+            "V2G SETUP": {
+                "relationship": "",
+                "description": "The process of configuring and preparing the vehicle-to-grid system for operation\nThe process of setting up vehicle-to-grid (V2G) communication and integration, involving various protocols and technologies\nThe procedure of configuring or preparing a system for vehicle-to-grid communication and interaction\nVehicle-to-Grid (V2G) Setup is the process of preparing an electric vehicle, which involves establishing a connection with the grid for energy exchange.",
+                "type": "PROCESS",
+                "distance": 1
+            },
+            "V2G3-M06-02": {
+                "relationship": "",
+                "description": "A specific requirement within the V2G3 standards that mandates the use of High-Level Communication (HLC) in addition to basic signaling for enabling bidirectional communication and offering additional features",
+                "type": "REQUIREMENT",
+                "distance": 1,
+                "chunk_context": "The HLC shall be used in addition to the basic signalling in order to enable a bidirectional communication and offer additional features."
+            },
+            "V2G3-M06-14": {
+                "relationship": "",
+                "description": "A specific requirement indicating that the electric vehicle (EV) must always charge in the HLC-C mode when the V2G charging loop is initiated",
+                "type": "REQUIREMENT",
+                "distance": 1
+            },
+            "VEHICLE-TO-GRID": {
+                "relationship": "",
+                "description": "<|COMPLETE|>\nV2G represents a set of standards related to vehicle-to-grid communication and technology\nVehicle-to-Grid is a system that allows electric vehicles to communicate with the power grid to exchange energy and information, enabling them to return electricity or draw it.\nVehicle-to-Grid (V2G) technology enables bidirectional communication and energy exchange between electric vehicles and the power grid, allowing vehicles to return electricity, manage charging rates, and balance demand.",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            }
+        },
+        "entity_chunk_2": {
+            "BASIC SIGNALING": {
+                "relationship": "Basic Signaling is a communication method specified in the ISO 15118\u20103 standard",
+                "description": "A fundamental communication method used in electric vehicle charging systems for basic data exchange",
+                "type": "COMMUNICATION TECHNOLOGY",
+                "distance": 0,
+                "chunk_context": "Definition of high-level communication and basic signalling is provided in section 6.2. In case basic charging is used as back-up of HLC-C, the duty cycle is allowed to change due to dynamically changed grid information.\nAny charging process, no matter the presence of high-level communication, uses the bidirectional signalling according to [IEC-1], indicating EV related information through control pilot states and EVSE related information through the duty cycle of the control pilot signal.\n6.2 Definition of high-level communication and basic signalling"
+            },
+            "ISO 15118\u20103": {
+                "relationship": "",
+                "description": "ISO 15118\u20103 is a part of the International Standards Organization's series of standards for vehicle-to-grid communication interfaces, focusing on the power line communication (PLC) signal calibration and measurement procedures\nA part of the ISO 15118 series that defines requirements and configurations for electric vehicle communication\nA part of the ISO 15118 series that specifies the conformance requirements for communication between electric vehicles and charging infrastructure\nISO 15118\u20103 is a part of the International Standards Organization's specifications related to vehicle-to-grid communication, focusing on timeouts and performance times\nA standard used for conformance testing, particularly involving the SLAC codec\nISO 15118-3 is a part of the ISO 15118 series, which defines standards for vehicle-to-grid communication interfaces\nISO 15118-3, part of the ISO 15118 series from the International Standards Organization, defines the communication interface and conformance requirements for electric vehicles and electric vehicle supply equipment, addressing both charging and discharging purposes.",
+                "type": "STANDARD",
+                "distance": 1
+            }
+        }
+    },
+    "What is the difference between MTC and PTC?": {
+        "entity_chunk_1": {
+            "PARALLEL TEST COMPONENT": {
+                "relationship": "The Parallel Test Component observes the status of the EIM authorization The Parallel Test Component monitors the authorization process to determine its success or failure HAL_61851_Internal_Port synchronizes the status of the IEC 61851-1 PWM signal with the PTC PTC ports are mapped according to the underlying test configuration\nPTC is a component of the test configuration The pt_HAL_61851_Internal_Port is connected to the PTC PTC is used for testing SECC as part of the IEC 61851-1 standard\nThe PTC is used to test the SECC by confirming changes in PWM state\nPTC is used for testing the SECC, which is a component in electric vehicle charging systems\nPTC is used in SECC testing to confirm duty cycles as part of the communication process PTC is used for testing EVCC as part of the IEC 61851-1 standard\nThe PTC is used to test the EVCC by confirming changes in PWM state The PTC confirms changes in PWM state as part of its testing function\nPTC involves changing PWM state conditions as part of its testing function The requirement V2G5-027 specifies a function for the PTC technology V2G5-028 requires the PTC to have a function to change its valid duty cycle range IEC 61851-1 standard involves the use of PTC for testing purposes V2G5-034 specifies processing incoming EIM status information from the EIM status PTC, indicating a direct interaction PTC provides a function to inform the MTC about the success of EIM authorization",
+                "description": "<|COMPLETE|>\nA component or system used in SECC testing to confirm duty cycles as per the IEC 61851-1 standard\nA protocol used for transmitting EIM status information\nA term referring to a specific testing protocol or component within the IEC 61851 standard\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves changing PWM state conditions\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves monitoring and adjusting duty cycle ranges\nPTC is another component or module that is connected to the pt_HAL_61851_Internal_Port\nPTC refers to a specific status or condition used in SECC testing to monitor EIM authorization\nPTC refers to a testing technology or protocol used for SECC testing in the context of IEC 61851-1\nPTC refers to another type of port or interface used in testing configurations\nPositive Train Control (PTC) is a technology designed to automatically stop or slow down trains to prevent accidents and ensure safety)\nProtocol Test Controller used in testing SECC or EVCC to confirm changes in PWM state\nProtocol Test Controller, specifically the HAL_61851_Listener_Port, used for listening and testing the IEC 61851-1 PWM signal\nThe Parallel Test Component (PTC) is a process that continuously observes the status of the EIM authorization\nPTC stands for Parallel Test Component, a technology that enables running multiple tests simultaneously and is part of the test configuration in a testing environment.",
+                "type": "PROCESS/TECHNOLOGY",
+                "distance": 0,
+                "chunk_context": "The parallel test component (PTC) for IEC 61851\u20101 signaling continuously observes the protocol specific parameters positive voltage (state), frequency, duty cycle and the proximity resistor value in accordance with the defined valid range of values (as defined in IEC 61851\u20101:2017, Annex A), during the entire test case execution."
+            },
+            "AUTHORIZATION PROCESS": {
+                "relationship": "",
+                "description": "The procedure involved in granting or denying authorization for EIM status",
+                "type": "PROCESS",
+                "distance": 1
+            },
+            "EIM": {
+                "relationship": "",
+                "description": "External Identification Mean is a term defined in ISO 15118-1, used for identifying external entities in a communication network\n<|COMPLETE|>\nA term referring to a specific identification mode used in communication protocols\nElectricity Information Management (EIM) is any external means that enable the user to identify their contract or the car)\nExternal Identification Means (EIM) is a method and authentication profile for identifying and authorizing electric vehicles during charging, often used in charging infrastructure.\nElectricity Information Management is a system used for managing, identifying, and exchanging information in electric vehicle charging.\nElectricity Information Management (EIM) is a system for managing and exchanging identification, authorization, and status information related to electric vehicle charging, typically involving data exchange before plug-in.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "The EIM status PTC for SECC testing shall provide a function to inform the MTC if the EIM authorization is successful."
+            },
+            "EVCC": {
+                "relationship": "",
+                "description": "EVCC refers to a set of non-standardized processing timeouts related to Electric Vehicle Communication Controller\nElectric Vehicle Communication Controller, a component involved in electric vehicle charging systems, subject to testing under IEC 61851-1\n<|COMPLETE|>\nElectric Vehicle Communication Controller, which acts as a client in the communication protocol\nElectric Vehicle Communication Controller, a component involved in the control and execution of test cases and behaviors in the test suite\nElectric Vehicle Communication Controller, a technology component involved in the communication process during validation\nA segment in the example identifier, possibly referring to Electric Vehicle Communication Controller\nThe Electric Vehicle Communication Controller, a system within the EV, is responsible for managing communication and validation processes with the Electric Vehicle Supply Equipment (EVSE).\nThe Electric Vehicle Communication Controller, a system under test in the ISO 15118 standard, is responsible for managing communication between the electric vehicle and the charging station.\nThe Electric Vehicle Communication Controller manages communication between electric vehicles and charging stations and infrastructure, facilitating charging communication.\nThe Electric Vehicle Communication Controller (EVCC) manages communication between electric vehicles and charging stations, including infrastructure for DC charging.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "Requirements of IEC 61851-1 PTC for SECC or EVCC testing. The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid duty cycle range."
+            },
+            "HAL_61851_INTERNAL_PORT": {
+                "relationship": "",
+                "description": "HAL_61851_Internal_Port is an internal communication port within the HAL_61851 system\nA port used to synchronize the status of the IEC 61851-1 PWM signal between the Main Test Controller (MTC) and the Protocol Test Controller (PTC)\nAn internal communication port used for receiving state information during the validation process\nA communication interface used for internal operations and detection processes in EVSE systems\nHAL_61851_Internal_Port is a communication port used internally by SECC_Tester, EVCC_Tester, and HAL_61851_Listener for testing and monitoring purposes\nAn internal communication port used for handling messages and state changes in the EVSE validation process",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "IEC 61851-1": {
+                "relationship": "",
+                "description": "An international standard that specifies requirements for electric vehicle conductive charging systems, including the SUT adapter for SECC testing\nAn international standard specifies requirements for electric vehicle conductive charging systems, including testing protocols for SECC and EVCC.\nAn international standard that specifies the basic requirements and testing protocols for electric vehicle conductive charging systems.\nIEC 61851-1 is an international standard that defines the basic requirements for electric vehicle conductive charging systems, including control and communication protocols.",
+                "type": "STANDARD",
+                "distance": 1,
+                "chunk_context": "Requirements of IEC 61851-1 PTC for SECC testing. The IEC 61851\u20101 PTC for SECC testing shall provide a function to change its valid frequency range.\nThe IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to confirm a change from/to a given PWM state.\nRequirements of IEC 61851-1 PTC for SECC testing. The IEC 61851\u20101 PTC for SECC testing shall provide a function to confirm a given duty cycle in [%]. This function shall wait for receiving a duty cycle change event from IEC 61851\u20101 SUT adapter."
+            },
+            "MAIN TEST COMPONENT": {
+                "relationship": "",
+                "description": "<|COMPLETE|>\nA technology or system component responsible for managing and controlling the signal level on the control pilot\nA term used to describe the primary or central component within a testing framework or system\nA testing component or system that is responsible for analyzing the power level of signals, such as those in a PLC network\nMTC refers to a monitoring or testing component that receives information about the success of EIM authorization\nMTC refers to a specific type of port or interface used in testing configurations\nMTC refers to a system or component responsible for managing and controlling data link processing, including detecting and controlling link status information\nMTC stands for a component or module that is connected to the pt_HAL_61851_Internal_Port\nMain Test Component (MTC) is a term used to refer to the primary element or unit involved in a testing process or procedure)\nMain Test Controller, which could be an SECC_Tester or EVCC_Tester, responsible for testing communication protocols\nMeans of Test Control (MTC) refers to the method or process used to control or manage testing activities\nMeans of Test Control, referring to the method or system used to control and manage testing processes\nThe Main Test Component (MTC) is a part of the testing framework that contains a TTCN-3 test configuration and manages the test execution process\nThe Master Test Controller (MTC) is a device or system capable of detecting and controlling EIM status information through special functions\nMTC, or Main Test Component, is the primary testing component in a test configuration, responsible for creating and controlling parallel test components and computing and assigning the test verdict.\nMain Test Component is a technology or system component used in testing environments for interfacing processes and validating or verifying other systems.",
+                "type": "TERM",
+                "distance": 1,
+                "chunk_context": "In order to check the execution of amplitude map exchange on the SUTs node, the MTC shall be able to analyse the power level of the PLC signal.\nMTC single test component in a test component configuration responsible for creating and controlling parallel test components and computing and assigning the test verdict."
+            },
+            "PT_HAL_61851_INTERNAL_PORT": {
+                "relationship": "",
+                "description": "An internal port named pt_HAL_61851_Internal_Port, which is part of a system or device configuration",
+                "type": "TERM",
+                "distance": 1,
+                "chunk_context": "The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC."
+            },
+            "PULSE WIDTH MODULATION": {
+                "relationship": "",
+                "description": "Pulse Width Modulation (PWM) is a technology used to control the power supplied to electrical devices, especially for controlling the speed of motors and dimming lights\nPulse Width Modulation is a term used to describe a modulation technique that controls the width of the pulses in a pulse train to encode information or control power\nPulse Width Modulation, a method used to control the voltage level in electric vehicle charging systems\nPulse Width Modulation, a method used to encode a message into a pulsing signal\nPulse Width Modulation, a method used to encode information in a signal, relevant in the context of electric vehicle charging\nPulse Width Modulation (PWM) is a technology used to control power delivery to electrical devices, including electric vehicle charging systems.\nPulse Width Modulation (PWM) is a technology used to encode a message into a pulsing signal, often utilized in control systems.",
+                "type": "TERM/TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid duty cycle range."
+            },
+            "SECC": {
+                "relationship": "",
+                "description": "Supply Equipment Communication Controller, which acts as a server in the communication protocol\nSupply Equipment Communication Controller, a component involved in electric vehicle charging systems, subject to testing under IEC 61851-1\nSupply Equipment Communication Controller, a component involved in the control and execution of test cases and behaviors in the test suite\n<|COMPLETE|>\nSECC refers to the Smart Electric Car Consortium, which is involved in developing standards and protocols for electric vehicle communication and charging\nSECC refers to the organization or system involved in the testing and validation of communication protocols\nSupply Equipment Communication Controller, a system under test in the ISO 15118 standard\nSupply Equipment Communication Controller, a system under test in the ISO 15118 standard, responsible for managing communication between the charging station and the electric vehicle\nSECC refers to a set of non-standardized processing timeouts related to Supply Equipment Communication Controller\nAn organization or entity responsible for managing SLAC operations, possibly in an EVSE context\nSECC refers to the organization or system involved in electric vehicle communication, testing, and the configuration of communication standards.\nThe Supply Equipment Communication Controller is a component in electric vehicle charging systems that manages communication and processes between electric vehicles and charging stations.\nThe Supply Equipment Communication Controller (SECC), a component in electric vehicle charging systems, manages communication and state changes between electric vehicles and charging stations during charging.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "Requirements of IEC 61851-1 PTC for SECC or EVCC testing. The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid duty cycle range.\nIf the SUT is an SECC, the MTC shall use the type SECC_Tester."
+            },
+            "TEST CONFIGURATION": {
+                "relationship": "",
+                "description": "The setup that includes MTC, PTC, and their corresponding port type definitions, along with Test System Interfaces (TSI)\nThe setup or arrangement defined in ISO 15118-5 for testing electric vehicle communication interfaces\nThe process of setting up and organizing the necessary components and parameters for conducting a test",
+                "type": "PROCESS",
+                "distance": 1
+            },
+            "V2G5-027": {
+                "relationship": "",
+                "description": "A specific requirement related to the IEC 61851-1 PTC for SECC or EVCC testing, focusing on the ability to change the valid PWM state condition",
+                "type": "REQUIREMENT",
+                "distance": 1,
+                "chunk_context": "The IEC 61851\u20101 PTC for SECC or EVCC testing shall provide a function to change its valid PWM state condition."
+            },
+            "V2G5-028": {
+                "relationship": "",
+                "description": "A specific requirement related to the IEC 61851-1 PTC for SECC or EVCC testing, which mandates the provision of a function to change its valid duty cycle range",
+                "type": "REQUIREMENT",
+                "distance": 1
+            },
+            "V2G5-034": {
+                "relationship": "",
+                "description": "A requirement specifying that the service function for EIM status control must provide a means to process incoming EIM status information from the EIM status PTC",
+                "type": "REQUIREMENT",
+                "distance": 1
+            }
+        },
+        "entity_chunk_2": {
+            "MAIN TEST COMPONENT": {
+                "relationship": "The test component is created by the main test component, indicating a hierarchical or dependency relationship HAL_61851_Internal_Port synchronizes the status of the IEC 61851-1 PWM signal with the MTC The MTC can represent an EVCC_Tester, indicating its role in simulating the Electric Vehicle Communication Controller\nThe Means of Test Control (MTC) involves using the EVCC_Tester for testing purposes\nEVCC_Tester is a specific type of MTC used for testing purposes\nEVCC_Tester can be used as the Main Test Component depending on the type of the System Under Test The Means of Test Control (MTC) is required to use the SECC_Tester for testing purposes\nThe SECC_Tester is a specific type of MTC used for testing and controlling SECC\nSECC_Tester can be used as the Main Test Component depending on the type of the System Under Test\nThe MTC can represent an SECC_Tester, indicating its role in simulating the Supply Equipment Communication Controller\nSECC_Tester is a specific type of MTC used for testing purposes The choice of Main Test Component depends on the type of System Under Test The requirement V2G5-009 specifies that the MTC shall use the EVCC_Tester The HAL_61851_Listener is integrated into the MTC to provide listener functionalities during test execution The MTC contains a TTCN-3 test configuration, indicating its reliance on this standard for test execution MTC ports are mapped according to the underlying test configuration\nMTC is a component of the test configuration The port pt_SLAC_Port is a component of the MTC, indicating a direct mapping or connection The TSI and MTC are related through the mapping of the pt_HAL_61851_Port, suggesting a connection or interaction between these two systems\nThe TSI and MTC are related through the mapping of the pt_SLAC_Port, suggesting they are part of a larger testing or interfacing system The port pt_HAL_61851_Port is also a component of the MTC, indicating its role in the Main Test Component The pt_HAL_61851_Internal_Port is connected to the MTC MTC is responsible for ensuring the proper functioning of data link processing The MTC is responsible for detecting and controlling EIM status information to ensure authorization PTC provides a function to inform the MTC about the success of EIM authorization The MTC analyzes the power level of the PLC signal as part of its testing function The CM_ATTEN_CHAR.IND message requires the MTC to manage signal levels to ensure accurate attenuation values The MTC is responsible for reducing the signal level on the control pilot as part of its functionality",
+                "description": "<|COMPLETE|>\nA technology or system component responsible for managing and controlling the signal level on the control pilot\nA term used to describe the primary or central component within a testing framework or system\nA testing component or system that is responsible for analyzing the power level of signals, such as those in a PLC network\nMTC refers to a monitoring or testing component that receives information about the success of EIM authorization\nMTC refers to a specific type of port or interface used in testing configurations\nMTC refers to a system or component responsible for managing and controlling data link processing, including detecting and controlling link status information\nMTC stands for a component or module that is connected to the pt_HAL_61851_Internal_Port\nMain Test Component (MTC) is a term used to refer to the primary element or unit involved in a testing process or procedure)\nMain Test Controller, which could be an SECC_Tester or EVCC_Tester, responsible for testing communication protocols\nMeans of Test Control (MTC) refers to the method or process used to control or manage testing activities\nMeans of Test Control, referring to the method or system used to control and manage testing processes\nThe Main Test Component (MTC) is a part of the testing framework that contains a TTCN-3 test configuration and manages the test execution process\nThe Master Test Controller (MTC) is a device or system capable of detecting and controlling EIM status information through special functions\nMTC, or Main Test Component, is the primary testing component in a test configuration, responsible for creating and controlling parallel test components and computing and assigning the test verdict.\nMain Test Component is a technology or system component used in testing environments for interfacing processes and validating or verifying other systems.",
+                "type": "TERM",
+                "distance": 0,
+                "chunk_context": "MTC single test component in a test component configuration responsible for creating and controlling parallel test components and computing and assigning the test verdict."
+            },
+            "CM_ATTEN_CHAR.IND": {
+                "relationship": "",
+                "description": "A message protocol involved in the test case, which is intentionally not sent in the second instance of the procedure\nA message protocol used to convey attenuation values based on the physical channel in a communication system\nA message protocol used to repeat attenuation characterization messages and measure individual attenuation values\nA message protocol used to send attenuation profile entries to the System Under Test (SUT) after a timer expires\nA message protocol used to send attenuation profile entries with the current runID, EV MAC, and additional valid parameters\nA message type used in communication protocols, specifically related to attenuation characterization in SLAC processes\nA message used by EVSEs to send back the signal strength measurement result to the EV\nA protocol message expected to be sent by the system under test (SUT) after certain conditions are met\nA protocol message indicating an indication in the communication process between EVSE and another system\nA protocol message indicating attenuation characteristics from EVSEs to EVs\nA protocol message indicating the characteristics of signal attenuation\nA protocol message indicating the current runID and attenuation entries, used in the context of attenuation characterization\nA protocol message related to attenuation characterization, expected to be received under certain conditions\nA protocol message that an EV may receive, which must be handled according to specific requirements\nA protocol message type indicating an attenuation characteristic in the communication process\nA protocol message type used in communication between electric vehicle supply equipment (EVSE) and other components in a vehicle-to-grid system\nA protocol message used in SLAC communication to indicate attenuation characterization\nA protocol message used in the test case to indicate attenuation characterization, including parameters like EV MAC and attenuation entries\nA protocol message used to communicate attenuation characterization data, including runID and other parameters\nA protocol message used to measure individual attenuation values in the test case\nA type of message that should not be sent by the system under test until a specific timer has expired\nA type of message that the EV processes during the parameter exchange with EVSEs\nA unicast protocol message used in the context of PEV-EVSE matching, indicating specific application and security types\nCM_ATTEN_CHAR.IND is a protocol message that contains groups used to calculate the Average_Attenuation for matching decisions\nCM_ATTEN_CHAR.IND is a protocol message that includes the ATTEN_PROFILE for communication purposes\nCM_ATTEN_CHAR.IND is a protocol message used to characterize attenuation in the SLAC process\nAn indication message protocol used to send attenuation profile entries to the system under test (SUT)\nA protocol message expected from the System Under Test (SUT) containing both attenuation characterization data and measured attenuation values.\nA protocol used to indicate attenuation characteristics in a communication link.\nA message protocol, specifically an indication message protocol, used to send attenuation profile entries to the system under test.\nA protocol message used in the test case to indicate, measure, and report attenuation characterization results, including repeated values and indications.\nCM_ATTEN_CHAR.IND is a protocol message or indicator used in the communication process between EVSE, electric vehicles, and the grid.\nA message protocol used to send a profile containing attenuation entries to the System Under Test (SUT), including conditions such as after a timer has expired and with the current runID and additional parameters.\nCM_ATTEN_CHAR.IND is a protocol message used in vehicle-to-grid communication that indicates and reads attenuation characteristics.",
+                "type": "PROTOCOL",
+                "distance": 1,
+                "chunk_context": "The MTC shall be able to reduce the level of signal on the control pilot based on the received attenuation values within CM_ATTEN_CHAR.IND message."
+            },
+            "CONTROL PILOT": {
+                "relationship": "",
+                "description": "A signaling line used in EVSEs to control and monitor the charging process\nA term used in electric vehicle charging systems to refer to a communication line that controls the charging process between the electric vehicle and the charging station)\nA signal used in electric vehicle charging to communicate between the EVSE and the vehicle, often used to control charging parameters\nA signaling technology used in electric vehicle charging to detect and communicate the state of the connection\n<|COMPLETE|>\nA communication line used in electric vehicle charging systems to control and monitor the charging process\nA term used to describe the signal used in electric vehicle charging to control the charging process\nControl pilot is a technology used in EV charging systems to manage communication and control signals between the EV and the charging station\nA technology used in electric vehicle charging systems to manage communication and control between the vehicle and the charging station\nA component in the electric vehicle charging system used to manage communication and control signals between the vehicle and the charging station\nControl Pilot is a communication line used in electric vehicle charging systems to manage charging parameters and ensure safety\nA control pilot is a signaling mechanism used in EVSE to communicate with electric vehicles, often involving duty cycles to manage charging\nA control pilot is a communication line in electric vehicle charging systems that manages and controls the charging process, ensures safety and efficiency, detects and controls the connection between the EVSE and the EV, and handles state changes.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "The MTC shall be able to reduce the level of signal on the control pilot."
+            },
+            "DATA LINK PROCESSING": {
+                "relationship": "",
+                "description": "The procedure involved in managing, detecting, and controlling the status of data links in communication systems",
+                "type": "PROCESS",
+                "distance": 1,
+                "chunk_context": "In order to ensure data link processing, the MTC shall be able to detect and control link status information by using special functions depending on the MTC's type (EVCC_Tester / SECC_Tester)."
+            },
+            "EIM": {
+                "relationship": "",
+                "description": "External Identification Mean is a term defined in ISO 15118-1, used for identifying external entities in a communication network\n<|COMPLETE|>\nA term referring to a specific identification mode used in communication protocols\nElectricity Information Management (EIM) is any external means that enable the user to identify their contract or the car)\nExternal Identification Means (EIM) is a method and authentication profile for identifying and authorizing electric vehicles during charging, often used in charging infrastructure.\nElectricity Information Management is a system used for managing, identifying, and exchanging information in electric vehicle charging.\nElectricity Information Management (EIM) is a system for managing and exchanging identification, authorization, and status information related to electric vehicle charging, typically involving data exchange before plug-in.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "In order to ensure EIM authorization, the MTC is able to detect and control EIM status information by using special functions depending on the MTC's type (SECC_Tester)."
+            },
+            "EVCC_TESTER": {
+                "relationship": "",
+                "description": "A testing technology or tool used in the context of EVCC operations, possibly for protocol validation\n<|COMPLETE|>\nA testing system used for validating EVCC communication processes\nA testing framework or system used for validating and testing electric vehicle communication protocols and processes\nA testing technology used in the EVCC system to run various test cases and processes\nA testing technology or system used to validate communication processes and protocols\nA testing system used for executing EVCC test cases\nThe EVCC_Tester is a testing component used to simulate the Electric Vehicle Communication Controller in electric vehicle charging systems\nA testing technology or system used to run functions and verify the matching process in electric vehicle communication\nA testing component for the Electric Vehicle Communication Controller (EVCC) to ensure compliance with ISO 15118-3\nA testing technology or system used to run the function f_EVCC_CMN_TB_VTB_AttenuationCharacterization_001\nEVCC_Tester is the main component type used for testing an Electric Vehicle Communication Controller (EVCC). It is associated with SLAC_Port, HAL_61851_Port, and HAL_61851_Internal_Port for its operations\nA testing framework or tool specifically used for evaluating the performance, compliance, and functionalities of Electric Vehicle Communication Controllers (EVCC), including simulation aspects.\nA testing system or tool used for evaluating EVCC functionalities.\nEVCC_Tester is a tool that tests and validates the functionalities and communication protocols of Electric Vehicle Communication Controllers in various configurations and electric vehicle charging systems, ensuring compliance with specific standards.\nA testing system that includes validating, verifying, and evaluating the functionalities of Electric Vehicle Communication Controllers (EVCC).\nA testing tool or environment for the Electric Vehicle Communication Controller used to evaluate its performance, functionality, compliance, and communication capabilities.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "The MTC shall be able to detect and control link status information by using special functions depending on the MTC's type (EVCC_Tester / SECC_Tester)."
+            },
+            "HAL_61851_INTERNAL_PORT": {
+                "relationship": "",
+                "description": "HAL_61851_Internal_Port is an internal communication port within the HAL_61851 system\nA port used to synchronize the status of the IEC 61851-1 PWM signal between the Main Test Controller (MTC) and the Protocol Test Controller (PTC)\nAn internal communication port used for receiving state information during the validation process\nA communication interface used for internal operations and detection processes in EVSE systems\nHAL_61851_Internal_Port is a communication port used internally by SECC_Tester, EVCC_Tester, and HAL_61851_Listener for testing and monitoring purposes\nAn internal communication port used for handling messages and state changes in the EVSE validation process",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "HAL_61851_LISTENER": {
+                "relationship": "",
+                "description": "A technology or tool used to listen and monitor communications in the context of the IEC 61851 standard\nA technology component used in the EVCC system for listening and processing signals according to the 61851 standard\nA listener technology used in the context of EVCC testing to receive and process messages\nA listener component related to the Hardware Abstraction Layer for the 61851 standard, used in electric vehicle charging\nA listener component in the Hardware Abstraction Layer (HAL) for the IEC 61851 standard, used to monitor and manage communication events\nA listener or component used in the context of EVCC testing, possibly related to the IEC 61851 standard for electric vehicle conductive charging systems\nA technology component used for listening and interacting with the EVCC system during various processes\nA component or module used to listen to and interact with the HAL 61851 protocol during testing\nA listener component for the Hardware Abstraction Layer (HAL) related to the IEC 61851 standard, used in electric vehicle charging\n<|COMPLETE|>\nA component or tool used to listen to and interact with the communication protocol based on the IEC 61851 standard\nA listener component for the Hardware Abstraction Layer related to IEC 61851\nA component or technology used to listen to IEC 61851 communication states\nThe HAL_61851_Listener is a component that combines all necessary listener functionalities into one unit, used in testing environments for communication protocols related to electric vehicle charging\nA listener component related to the HAL 61851 standard used in EVCC testing\nA technology component that listens for communication based on the HAL 61851 standard\nA component used in the testing process to listen for specific communication protocols\nA technology component that listens for specific protocol messages in the IEC 61851 standard\nHAL_61851_Listener is a parallel test component responsible for monitoring the correct behavior of IEC 61851. It uses HAL_61851_Port to communicate with an IEC 61851-1 SUT Adapter and HAL_61851_Internal_Port to communicate with the MTC\nA listener component for the IEC 61851 standard used for monitoring and handling communication.\nA technology or component that listens for and manages communication signals in compliance with the IEC 61851 standard for electric vehicle conductive charging systems.\nA listener component in the HAL that monitors communication according to the IEC 61851 standard for electric vehicle conductive charging systems.\nA listener component used in the context of EVCC communication processes, specifically in the EVCC_Tester for monitoring and controlling communication based on the IEC 61851 standard.\nHAL_61851_Listener is a component or module used for listening to and interacting with the HAL 61851 protocol, particularly during testing.\nA component used in EVCC testing for listening to and interacting with the HAL 61851 protocol.\nA component or module in the SECC_Tester system for listening, handling, and processing communication based on the IEC 61851 standard.\nA listener or monitoring tool related to the IEC 61851 standard, used for monitoring communication events in electric vehicle conductive charging systems.\nHAL_61851_Listener is a component of the SECC_Tester system that listens and processes communication signals according to the IEC 61851 standard and is used in the testing process related to the ISO 61851 standard for electric vehicle conductive charging systems.\nHAL 61851 Listener is a component that monitors, manages, and tests communication protocols in compliance with the IEC 61851 standard for electric vehicle conductive charging systems.\nHAL_61851_Listener is a component that listens to and processes communication signals, managing communication protocols in compliance with the IEC 61851 standard for electric vehicle conductive charging systems, and is utilized for testing, validation, and monitoring.",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "PARALLEL TEST COMPONENT": {
+                "relationship": "",
+                "description": "<|COMPLETE|>\nA component or system used in SECC testing to confirm duty cycles as per the IEC 61851-1 standard\nA protocol used for transmitting EIM status information\nA term referring to a specific testing protocol or component within the IEC 61851 standard\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves changing PWM state conditions\nA testing technology used in the context of IEC 61851-1 for SECC or EVCC, which involves monitoring and adjusting duty cycle ranges\nPTC is another component or module that is connected to the pt_HAL_61851_Internal_Port\nPTC refers to a specific status or condition used in SECC testing to monitor EIM authorization\nPTC refers to a testing technology or protocol used for SECC testing in the context of IEC 61851-1\nPTC refers to another type of port or interface used in testing configurations\nPositive Train Control (PTC) is a technology designed to automatically stop or slow down trains to prevent accidents and ensure safety)\nProtocol Test Controller used in testing SECC or EVCC to confirm changes in PWM state\nProtocol Test Controller, specifically the HAL_61851_Listener_Port, used for listening and testing the IEC 61851-1 PWM signal\nThe Parallel Test Component (PTC) is a process that continuously observes the status of the EIM authorization\nPTC stands for Parallel Test Component, a technology that enables running multiple tests simultaneously and is part of the test configuration in a testing environment.",
+                "type": "PROCESS/TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "The parallel test component (PTC) for IEC 61851\u20101 signaling continuously observes the protocol specific parameters positive voltage (state), frequency, duty cycle and the proximity resistor value in accordance with the defined valid range of values during the entire test case execution."
+            },
+            "PLC SIGNAL": {
+                "relationship": "",
+                "description": "Power Line Communication (PLC) signal is a method of transmitting data over electrical power lines, utilized in electric vehicle charging systems and vehicle-to-grid communication.",
+                "type": "COMMUNICATION TECHNOLOGY",
+                "distance": 1
+            },
+            "PT_HAL_61851_INTERNAL_PORT": {
+                "relationship": "",
+                "description": "An internal port named pt_HAL_61851_Internal_Port, which is part of a system or device configuration",
+                "type": "TERM",
+                "distance": 1,
+                "chunk_context": "The internal port pt_HAL_61851_Internal_Port is not mapped to the TSI. This port is connected between the MTC and PTC."
+            },
+            "PT_HAL_61851_PORT": {
+                "relationship": "",
+                "description": "A specific port designation used in communication or technology systems, likely related to the IEC 61851 standard for electric vehicle conductive charging systems\nAnother port of the same type as pt_HAL_61851_Listener_Port, indicating similar characteristics and functionalities",
+                "type": "TERM",
+                "distance": 1
+            },
+            "PT_SLAC_PORT": {
+                "relationship": "",
+                "description": "A specific port used in communication protocols, likely related to SLAC (Signal Level Attenuation Characterization) processes\nA communication port used for SLAC protocol messages in the EVCC_Tester\nA communication port that facilitates sending and receiving SLAC (Signal Level Attenuation Characterization) protocol messages.",
+                "type": "TERM",
+                "distance": 1
+            },
+            "SECC_TESTER": {
+                "relationship": "",
+                "description": "A testing tool or system specifically designed to test the functionality and communication of a Supply Equipment Communication Controller\nSECC_Tester is the main component type used for testing a Supply Equipment Communication Controller (SECC). It is associated with SLAC_Port, HAL_61851_Port, and HAL_61851_Internal_Port for its operations\nSECC_Tester is a testing technology used to run specific functions and return verdicts in a communication protocol testing environment\n<|COMPLETE|>\nA system used for testing in the context of SECC, likely related to electric vehicle communication or charging systems\nA specific type of MTC that is used to test and control the Supply Equipment Communication Controller (SECC) in electric vehicle charging systems\nA testing tool or environment for the Supply Equipment Communication Controller in electric vehicle systems\nA testing technology used for the SECC (Supply Equipment Communication Controller) in electric vehicle communication systems\nSECC_Tester is a system or tool that executes test cases for the SECC, ensuring its proper operation and compliance with standards\nA testing component used for the Supply Equipment Communication Controller in the context of the 15118-3 standard\nA testing system or device used to validate and verify communication and processes in electric vehicle charging systems\nA testing framework or tool used to test the SECC in various scenarios\nA testing tool or system used to run specific functions and validate configurations in the context of SECC\nA testing technology used to evaluate the performance and compliance of communication protocols\nA testing system used for SECC communication validation\nA testing technology or tool used to evaluate the System Under Test's compliance with protocol requirements\nA testing system or tool for evaluating SECC, including performance and compliance with standards, communication and protocol compliance, systems, and functionalities.\nA testing tool or environment used for evaluating the SECC communication protocol and its components.\nA tool or technology used for testing the Supply Equipment Communication Controller (SECC) in electric vehicle charging systems.\nA system used for testing and validating the functionalities, performance, and compliance of the SECC (Supply Equipment Communication Controller).\nSECC_Tester is a tool that tests and validates the communication, functionality, performance, and compliance of the Supply Equipment Communication Controller (SECC) in electric vehicle charging systems, including various configurations and related protocols.",
+                "type": "TECHNOLOGY",
+                "distance": 1,
+                "chunk_context": "The MTC shall be able to detect and control link status information by using special functions depending on the MTC's type (EVCC_Tester / SECC_Tester).\nThe MTC is able to detect and control EIM status information by using special functions depending on the MTC's type (SECC_Tester).\nIf the SUT is an SECC, the MTC shall use the type SECC_Tester."
+            },
+            "SYSTEM UNDER TEST": {
+                "relationship": "",
+                "description": "A placeholder term often used in documentation or templates to represent a system under test\nA segment of an identifier that stands for System Under Test, indicating the specific system being evaluated\nSUT stands for System Under Test, which is the system being tested for its ability to signal the corresponding duty cycle\nSystem Under Test (SUT) refers to the system being tested for its ability to perform amplitude map exchanges\nSystem Under Test (SUT) refers to the system being tested, which receives encoded data from the codec\nSystem Under Test, referring to the system being tested for compliance with V2G communication standards and protocols\nSystem Under Test, referring to the system being tested for its ability to leave the logical network under certain conditions\nSystem Under Test, referring to the system being tested, in this context, using the IEC 61851-1 standard\nSystem Under Test, the system being tested for conformance to the relevant requirements\nSystem Under Test, the system being tested for its response to the SLAC match request\nSystem Under Test, which consumes bit strings encoded or decoded by the SLAC codec during testing\nSystem Under Test, which is expected to send a CM_AMP_MAP.CNF message during the test case\nSystem Under Test, which is responsible for handling the validation process with the EVSE\nSystem Under Test, which is the system being evaluated in the test case to check its behavior regarding message repetition\nSystem Under Test, which is the system being tested for its ability to handle communication messages correctly\nSystem Under Test, which is the system being tested to ensure it sends a valid SDP request message\nThe system being evaluated or tested, which can include EVCC and SECC in the context of ISO 15118\nSystem Under Test, which is the system being evaluated in the test case for its response to protocol messages\nThe term 'System Under Test' denotes the system being evaluated or tested in a particular context.\nSUT stands for System Under Test, referring to the systems being tested, specifically EVCC and SECC, with a focus on EVCC in this context.\nSUT, or System Under Test, refers to the EVSE being tested for compatibility and functionality.\nThe System Under Test (SUT) in V2G communication refers to the system being tested in both the communication scenario and session process related to electric vehicles.\nSystem Under Test, which is being tested for compliance and response to the SLAC validation process.\nThe System Under Test, which is being validated and tested for its response to validation processes and messages, is central to the validation process.\nSystem Under Test refers to the system being tested, which can be either an EVCC or SECC.\nThe System Under Test is evaluated for its ability to measure and report attenuation values, handle attenuation values, and respond to attenuation characterization.\nThe System Under Test is the specific system or component currently undergoing testing to verify its performance, compliance with specified requirements and protocols, and ability to perform specific functions according to test case procedures.\nThe System Under Test evaluates its response to communication protocols and protocol messages, testing its ability to handle and respond to test case protocols and messages.\nThe System Under Test is being tested for its response to the test case scenario.\nSystem Under Test refers to the system being tested in both the test suite and the testing process.\nThe System Under Test (SUT) refers to the system being tested, which includes either an Electric Vehicle Communication Controller (EVCC) or a Supply Equipment Communication Controller (SECC), specifically in the context of PLC bridges.\nSUT, or System Under Test, is evaluated for message handling, functionality, performance, and its response to protocol messages and SLAC operations to ensure it meets specified requirements.\nSystem Under Test refers to the system being evaluated or tested in various contexts, including its response to test case scenarios and specific executions.\nThe System Under Test (SUT) is evaluated in a testing environment using a test suite to ensure it meets specified requirements, expected behavior, and compliance with standards.\nThe System Under Test (SUT) is the specific system evaluated in a testing environment for compliance with standards like ISO 15118\u20103, focusing on validation, communication processes, and expected behavior under various configurations and scenarios.",
+                "type": "TERM",
+                "distance": 1,
+                "chunk_context": "In order to check the execution of amplitude map exchange on the SUTs node, the MTC shall be able to analyse the power level of the PLC signal."
+            },
+            "TEST COMPONENT": {
+                "relationship": "",
+                "description": "A term used to describe a component that is part of a testing framework or system\nA test component is a part of a test system that provides functionalities such as mapping ports between abstract and real test systems",
+                "type": "TERM",
+                "distance": 1
+            },
+            "TEST CONFIGURATION": {
+                "relationship": "",
+                "description": "The setup that includes MTC, PTC, and their corresponding port type definitions, along with Test System Interfaces (TSI)\nThe setup or arrangement defined in ISO 15118-5 for testing electric vehicle communication interfaces\nThe process of setting up and organizing the necessary components and parameters for conducting a test",
+                "type": "PROCESS",
+                "distance": 1
+            },
+            "TSI": {
+                "relationship": "",
+                "description": "TSI refers to a specific interface or system component that the pt_HAL_61851_Internal_Port is not mapped to\nTSI refers to a set of standards related to the testing and certification of telecommunication systems\nA system or interface that utilizes the pt_HAL_61851_Listener_Port for communication purposes\nTest System Interface is a technology or system used for testing and interfacing with other systems or components.",
+                "type": "STANDARD",
+                "distance": 1
+            },
+            "TTCN-3": {
+                "relationship": "",
+                "description": "TTCN-3 is a testing language used for defining test cases and values, into which MME frames are decoded by the SLAC codec\nTTCN-3 is a standard for testing and test control notation, used for defining data structures and representations for testing purposes\n<|COMPLETE|>\nTTCN-3 is a standardized test specification language used for defining test configurations and executing test cases\nTTCN-3 is a testing language used for defining test cases and verdicts in the ISO 15118 test suite\nTesting and Test Control Notation version 3 (TTCN-3) is a technology and standard for testing communication protocols and systems, used for defining test scripts and test cases.\nTTCN-3 is a standardized testing technology used for defining and executing test cases and test suites for communication protocols and systems, particularly in telecommunications, and includes the encoding of values.",
+                "type": "TECHNOLOGY",
+                "distance": 1
+            },
+            "V2G5-009": {
+                "relationship": "",
+                "description": "A specific requirement or condition identified by the code V2G5-009, which outlines certain conditions or actions to be taken",
+                "type": "REQUIREMENT",
+                "distance": 1
             }
         }
     }

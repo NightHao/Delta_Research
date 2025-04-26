@@ -442,54 +442,56 @@ Remember to return a JSON object with keys "category" and "explanation" as shown
         extracted_dis = self.flow_constructor.subgraph_distance
         print("This is the extraction range: ", extracted_dis)
         print("This is the intention category: ", intention_category)
-        
+        combined_dict = self.combine_entity_descriptions(data, max_distance=extracted_dis)
+        for query_entity, entity_chunks in combined_dict.items():
+            final_prompt += self.format_entity_chunks_prompt(entity_chunks, query_entity)
         # For General Information Query, no extension needed
-        if intention_category == "General Information Query":
-            # No extension for general queries
-            combined_dict = self.combine_entity_descriptions(data, max_distance=extracted_dis)
-            for query_entity, entity_chunks in combined_dict.items():
-                final_prompt += self.format_entity_chunks_prompt(entity_chunks, query_entity)
+        # if intention_category == "General Information Query":
+        #     # No extension for general queries
+        #     combined_dict = self.combine_entity_descriptions(data, max_distance=extracted_dis)
+        #     for query_entity, entity_chunks in combined_dict.items():
+        #         final_prompt += self.format_entity_chunks_prompt(entity_chunks, query_entity)
 
-        elif intention_category == "Comparison Query" or intention_category == "Commonality Query":
-            # Determine which aspect needs extension based on query type
-            common_extend = 1 if intention_category == "Commonality Query" else 0
-            diff_extend = 1 if intention_category == "Comparison Query" else 0
+        # elif intention_category == "Comparison Query" or intention_category == "Commonality Query":
+        #     # Determine which aspect needs extension based on query type
+        #     common_extend = 1 if intention_category == "Commonality Query" else 0
+        #     diff_extend = 1 if intention_category == "Comparison Query" else 0
             
-            common_dis = extracted_dis + 1 if intention_category == "Commonality Query" else extracted_dis
-            dif_dis = extracted_dis + 1 if intention_category == "Comparison Query" else extracted_dis
+        #     common_dis = extracted_dis + 1 if intention_category == "Commonality Query" else extracted_dis
+        #     dif_dis = extracted_dis + 1 if intention_category == "Comparison Query" else extracted_dis
             
-            print("These are common & diff distance: ", common_dis, dif_dis)
+        #     print("These are common & diff distance: ", common_dis, dif_dis)
             
-            # First extend the entities if needed
-            extended_data = data
-            if common_extend > 0 or diff_extend > 0:
-                extension_distance = max(common_extend, diff_extend)
-                extended_data = self.extend_entities_from_graph(data, max_distance=extension_distance)
+        #     # First extend the entities if needed
+        #     extended_data = data
+        #     if common_extend > 0 or diff_extend > 0:
+        #         extension_distance = max(common_extend, diff_extend)
+        #         extended_data = self.extend_entities_from_graph(data, max_distance=extension_distance)
             
-            # Then extract common/unique entities from the extended data
-            common_entities_dict = self.get_common_entities_dict(extended_data, common_dis) if common_dis != -1 else {}
-            common_chunks = self.combine_entity_descriptions(common_entities_dict, max_distance=common_dis)
-            common_prompts = {}
-            num_of_entities = 0
+        #     # Then extract common/unique entities from the extended data
+        #     common_entities_dict = self.get_common_entities_dict(extended_data, common_dis) if common_dis != -1 else {}
+        #     common_chunks = self.combine_entity_descriptions(common_entities_dict, max_distance=common_dis)
+        #     common_prompts = {}
+        #     num_of_entities = 0
             
-            for entity_chunk, chunks in common_chunks.items():
-                num_of_entities += len(chunks.keys())
-                common_prompts[entity_chunk] = self.format_entity_chunks_prompt(chunks, entity_chunk)
+        #     for entity_chunk, chunks in common_chunks.items():
+        #         num_of_entities += len(chunks.keys())
+        #         common_prompts[entity_chunk] = self.format_entity_chunks_prompt(chunks, entity_chunk)
                 
-            unique_entities_dict = self.get_unique_entities_dict(extended_data, dif_dis) if dif_dis != -1 else {}
-            unique_chunks = self.combine_entity_descriptions(unique_entities_dict, max_distance=dif_dis)
-            unique_prompts = {}
+        #     unique_entities_dict = self.get_unique_entities_dict(extended_data, dif_dis) if dif_dis != -1 else {}
+        #     unique_chunks = self.combine_entity_descriptions(unique_entities_dict, max_distance=dif_dis)
+        #     unique_prompts = {}
             
-            for entity_chunk, chunks in unique_chunks.items():
-                num_of_entities += len(chunks.keys())
-                unique_prompts[entity_chunk] = self.format_entity_chunks_prompt(chunks, entity_chunk)
+        #     for entity_chunk, chunks in unique_chunks.items():
+        #         num_of_entities += len(chunks.keys())
+        #         unique_prompts[entity_chunk] = self.format_entity_chunks_prompt(chunks, entity_chunk)
                 
-            for main_entity, chunks in unique_prompts.items():
-                final_prompt += f"Below is the unique entity information for {main_entity}\n"
-                final_prompt += chunks
-            for main_entity, chunks in common_prompts.items():
-                final_prompt += f"Below is the common entity information for {main_entity}\n"
-                final_prompt += chunks
+        #     for main_entity, chunks in unique_prompts.items():
+        #         final_prompt += f"Below is the unique entity information for {main_entity}\n"
+        #         final_prompt += chunks
+        #     for main_entity, chunks in common_prompts.items():
+        #         final_prompt += f"Below is the common entity information for {main_entity}\n"
+        #         final_prompt += chunks
 
         final_prompt += f"You need to answer the following question as more details as possible based on the provided information above\n Question: {question}"
         # print(final_prompt)
